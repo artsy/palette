@@ -1,0 +1,19 @@
+{
+  "name": "@artsy/palette",
+  "version": "0.1.0",
+  "description": "Design system library for react components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/artsy/palette.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artsy/palette/issues"
+  },
+  "homepage": "https://github.com/artsy/palette#readme"
+}
