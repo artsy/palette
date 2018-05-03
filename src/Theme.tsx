@@ -1,4 +1,7 @@
-export const theme = {
+import React from "react"
+import { ThemeProvider as ThemeP } from "styled-components"
+
+export const Theme = {
   // https://www.notion.so/artsy/Color-a0c24896daf8433d9409aee2146ac267
   colors: {
     text: "#000",
@@ -26,3 +29,7 @@ export const theme = {
 
   borders: [0, "1px #E5E5E5 solid"],
 }
+
+export const ThemeProvider = props => (
+  <ThemeP theme={Theme}>{props.children}</ThemeP>
+)

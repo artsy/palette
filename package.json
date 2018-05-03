@@ -2,11 +2,12 @@
   "name": "@artsy/palette",
   "version": "0.1.0",
   "description": "Design system library for react components",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
-    "compile": "tsc",
+    "compile": "tsc --declaration",
     "prettier": "prettier",
     "prettier-project": "yarn run prettier-write 'src/**/*.{ts,tsx}'",
     "prettier-write": "yarn run prettier --write"
@@ -21,9 +22,16 @@
     "url": "https://github.com/artsy/palette/issues"
   },
   "homepage": "https://github.com/artsy/palette#readme",
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "styled-components": "^3"
+  },
   "devDependencies": {
+    "@types/node": "^10.0.3",
     "@types/react": "^16.3.13",
     "prettier": "^1.12.1",
+    "react-dom": "^16.2.0",
     "typescript": "^2.8.3",
     "typescript-styled-plugin": "^0.6.3"
   },
@@ -32,5 +40,12 @@
     "react-primitives": "^0.5.0",
     "styled-components": "^3.2.6",
     "styled-system": "^2.2.5"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "lineLength": 100
   }
 }
