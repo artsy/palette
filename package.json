@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/artsy/palette/issues"
   },
-  "homepage": "https://github.com/artsy/palette#readme"
+  "homepage": "https://github.com/artsy/palette#readme",
+  "devDependencies": {
+    "@types/react": "^16.3.13",
+    "typescript": "^2.8.3",
+    "typescript-styled-plugin": "^0.6.3"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-primitives": "^0.5.0",
+    "styled-components": "^3.2.6",
+    "styled-system": "^2.2.5"
+  }
 }
