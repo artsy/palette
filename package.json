@@ -4,7 +4,12 @@
   "description": "Design system library for react components",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "compile": "tsc",
+    "prettier": "prettier",
+    "prettier-project": "yarn run prettier-write 'src/**/*.{ts,tsx}'",
+    "prettier-write": "yarn run prettier --write"
   },
   "repository": {
     "type": "git",
@@ -18,6 +23,7 @@
   "homepage": "https://github.com/artsy/palette#readme",
   "devDependencies": {
     "@types/react": "^16.3.13",
+    "prettier": "^1.12.1",
     "typescript": "^2.8.3",
     "typescript-styled-plugin": "^0.6.3"
   },

@@ -215,6 +215,7 @@ gradle-app.setting
 bin/
 gen/
 out/
+dist/
 
 # Gradle files
 .gradle/
