@@ -16,10 +16,6 @@
       "Assets/*": ["./Assets/*"]
     }
   },
-  "include": [
-    "node_modules/styled-components/typings/styled-components.d.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }
