@@ -1,4 +1,8 @@
 import { css } from "styled-components/primitives"
+
+// @ts-ignore - https://github.com/styled-components/styled-components/issues/1063#issuecomment-320344957
+import { StyledComponentClass, Styles } from "styled-components"
+
 import {
   color,
   fontSize,

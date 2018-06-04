@@ -1,10 +1,12 @@
-import React from "react"
-import { Sans, Serif, Display } from "./Fonts"
+// import React from "react"
+import { Sans } from "./Fonts"
 import styled from "styled-components/primitives"
 
+// @ts-ignore - https://github.com/styled-components/styled-components/issues/1063#issuecomment-320344957
+import { StyledComponentClass } from "styled-components"
+
 export const Sans1 = styled.Text`
-  ${Sans}
-  font-size: 12px;
+  ${Sans} font-size: 12px;
   line-height: 16px;
 `
 
