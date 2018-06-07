@@ -1,4 +1,4 @@
-import React from "react"
+import React, { SFC } from "react"
 import { styled } from "../platform/primitives"
 import { color, maxWidth, space, textAlign, themeGet } from "styled-system"
 
@@ -41,12 +41,12 @@ interface TypographyProps {
   size: string | number
 }
 
-export const Sans = (props: TypographyProps) => (
+export const Sans: SFC<TypographyProps> = props => (
   <Text family="unica" typeSize={`sans${props.size || 3}`} {...props} />
 )
-export const Serif = (props: TypographyProps) => (
+export const Serif: SFC<TypographyProps> = props => (
   <Text family="garamond" typeSize={`serif${props.size || 3}`} {...props} />
 )
-export const Display = (props: TypographyProps) => (
+export const Display: SFC<TypographyProps> = props => (
   <Text family="avantgarde" typeSize={`display${props.size || 2}`} {...props} />
 )
