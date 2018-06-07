@@ -22,7 +22,12 @@ const fontSize = props => `typeSizes.${props.typeSize}.fontSize`
 
 const lineHeight = props => `typeSizes.${props.typeSize}.lineHeight`
 
-const Text = styled.Text`
+interface TextProps {
+  family: "unica" | "garamond" | "avantgarde"
+  typeSize: string // TODO: Make this more granular
+}
+
+const Text = styled.Text.attrs<TextProps>({})`
   font-family: ${dynamicTheme(fontPath)};
   font-size: ${dynamicTheme(fontSize)}px;
   line-height: ${dynamicTheme(lineHeight)}px;
@@ -32,12 +37,16 @@ const Text = styled.Text`
   ${maxWidth};
 `
 
-export const Sans = props => (
-  <Text family="unica" typeSize={`sans${props.size || 4}`} {...props} />
+interface TypographyProps {
+  size: string | number
+}
+
+export const Sans = (props: TypographyProps) => (
+  <Text family="unica" typeSize={`sans${props.size || 3}`} {...props} />
 )
-export const Serif = props => (
-  <Text family="garamond" typeSize={`serif${props.size || 4}`} {...props} />
+export const Serif = (props: TypographyProps) => (
+  <Text family="garamond" typeSize={`serif${props.size || 3}`} {...props} />
 )
-export const Display = props => (
+export const Display = (props: TypographyProps) => (
   <Text family="avantgarde" typeSize={`display${props.size || 2}`} {...props} />
 )
