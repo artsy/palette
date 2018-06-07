@@ -3,12 +3,16 @@
   "version": "0.1.1",
   "description": "Design system library for react components",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
     "compile": "tsc",
     "lint": "tslint -c tslint.json --project tsconfig.json",
     "precommit": "lint-staged",
+    "prepush": "yarn run type-check",
     "prepublishOnly": "yarn clean && yarn compile",
     "prettier": "prettier",
     "prettier-project": "yarn prettier-write 'src/**/*.{ts,tsx}'",
