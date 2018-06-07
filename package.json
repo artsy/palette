@@ -6,7 +6,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "tsc --declaration",
+    "compile": "tsc",
     "lint": "tslint -c tslint.json --project tsconfig.json",
     "precommit": "lint-staged",
     "prepublishOnly": "yarn clean && yarn compile",
