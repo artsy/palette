@@ -24,8 +24,65 @@ export const Theme = {
   // https://www.notion.so/artsy/Spacing-93eeaed9fdf9480099fec7094fd1b9f3
   space: [0, 3, 5, 10, 20, 30, 40, 60, 90, 120, 180],
 
-  // https://www.notion.so/artsy/Typography-d1f9f6731f3d47c78003d6d016c30221
-  fontSizes: [10, 12, 14, 16, 18, 22, 28, 42, 64, 80, 100],
+  fontFamily: {
+    unica: {
+      regular: "Unica77LL-Regular",
+      italic: "Unica77LL-Italic",
+      medium: "Unica77LL-Medium",
+      mediumItalic: "Unica77LL-MediumItalic",
+    },
+    avantgarde: {
+      regular: "AvantGardeGothicITC",
+    },
+    garamond: {
+      regular: "AGaramondPro-Regular",
+      italic: "AGaramondPro-Italic",
+      semibold: "AGaramondPro-Semibold",
+    },
+  },
+
+  typeSizes: {
+    sans1: {
+      fontSize: 10,
+      lineHeight: 14,
+    },
+    sans2: {
+      fontSize: 12,
+      lineHeight: 16,
+    },
+    sans3: {
+      fontSize: 14,
+      lineHeight: 24,
+    },
+    serif1: {
+      fontSize: 12,
+      lineHeight: 16,
+    },
+    serif2: {
+      fontSize: 14,
+      lineHeight: 18,
+    },
+    display2: {
+      fontSize: 10,
+      lineHeight: 12,
+    },
+    display3t: {
+      fontSize: 12,
+      lineHeight: 16,
+    },
+    display4t: {
+      fontSize: 14,
+      lineHeight: 18,
+    },
+    display5t: {
+      fontSize: 16,
+      lineHeight: 20,
+    },
+    display6: {
+      fontSize: 18,
+      lineHeight: 22,
+    },
+  },
 
   borders: [0, "1px #E5E5E5 solid"],
 }

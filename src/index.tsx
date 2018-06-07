@@ -1,2 +1,1 @@
-export * from "./Fonts"
-export { ThemeProvider } from "./Theme"
+export { Theme, ThemeProvider } from "./Theme"
