@@ -1,26 +1,26 @@
-import React from 'react'
-import { styled } from '../platform/primitives'
-import { color, maxWidth, space, textAlign, themeGet } from 'styled-system'
+import React from "react"
+import { styled } from "../platform/primitives"
+import { color, maxWidth, space, textAlign, themeGet } from "styled-system"
 
-const dynamicTheme = (callback) => (props) =>
+const dynamicTheme = callback => props =>
   themeGet.apply(null, [].concat(callback(props)))(props)
 
-const selectFontType = ({ weight = 'regular', italic }) => {
+const selectFontType = ({ weight = "regular", italic }) => {
   if (italic) {
-    if (weight === 'medium') return 'mediumItalic'
-    return 'italic'
+    if (weight === "medium") return "mediumItalic"
+    return "italic"
   }
   return weight
 }
 
-const fontPath = (props) => [
+const fontPath = props => [
   `fontFamily.${props.family}.${selectFontType(props)}`,
-  'regular' // fallback
+  "regular", // fallback
 ]
 
-const fontSize = (props) => `typeSizes.${props.typeSize}.fontSize`
+const fontSize = props => `typeSizes.${props.typeSize}.fontSize`
 
-const lineHeight = (props) => `typeSizes.${props.typeSize}.lineHeight`
+const lineHeight = props => `typeSizes.${props.typeSize}.lineHeight`
 
 const Text = styled.Text`
   font-family: ${dynamicTheme(fontPath)};
@@ -32,12 +32,12 @@ const Text = styled.Text`
   ${maxWidth};
 `
 
-export const Sans = (props) => (
+export const Sans = props => (
   <Text family="unica" typeSize={`sans${props.size || 4}`} {...props} />
 )
-export const Serif = (props) => (
+export const Serif = props => (
   <Text family="garamond" typeSize={`serif${props.size || 4}`} {...props} />
 )
-export const Display = (props) => (
+export const Display = props => (
   <Text family="avantgarde" typeSize={`display${props.size || 2}`} {...props} />
 )
