@@ -22,7 +22,7 @@ const fontSize = props => `typeSizes.${props.typeSize}.fontSize`
 
 const lineHeight = props => `typeSizes.${props.typeSize}.lineHeight`
 
-interface TextProps {
+export interface TextProps {
   family: "unica" | "garamond" | "avantgarde"
   typeSize: string // TODO: Make this more granular
 }
@@ -37,7 +37,7 @@ const Text = styled.Text.attrs<TextProps>({})`
   ${maxWidth};
 `
 
-interface TypographyProps {
+export interface TypographyProps {
   size: string | number
 }
 
