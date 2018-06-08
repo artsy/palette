@@ -10,14 +10,6 @@ import { ThemeProvider } from "styled-components"
 export const themeProps = {
   borders: [0, "2px solid"],
 
-  // buttonStyle util
-  buttons: {
-    primary: {
-      color: "purple100",
-      backgroundColor: "black",
-    },
-  },
-
   // https://www.notion.so/artsy/Color-a0c24896daf8433d9409aee2146ac267
   colors: {
     text: "#000",
@@ -38,19 +30,22 @@ export const themeProps = {
   },
 
   fontFamily: {
+    // Sans
     unica: {
       regular: "Unica77LL-Regular",
       italic: "Unica77LL-Italic",
       medium: "Unica77LL-Medium",
       mediumItalic: "Unica77LL-MediumItalic",
     },
-    avantgarde: {
-      regular: "AvantGardeGothicITC",
-    },
+    // Serif
     garamond: {
       regular: "AGaramondPro-Regular",
       italic: "AGaramondPro-Italic",
       semibold: "AGaramondPro-Semibold",
+    },
+    // Display
+    avantgarde: {
+      regular: "AvantGardeGothicITC",
     },
   },
 
