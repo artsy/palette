@@ -12,7 +12,6 @@ export const themeProps = {
 
   // https://www.notion.so/artsy/Color-a0c24896daf8433d9409aee2146ac267
   colors: {
-    text: "#000",
     black100: "#000",
     black80: "#333",
     black60: "#666",
