@@ -1,4 +1,5 @@
 import React, { SFC } from "react"
+import styledWrapper from "styled-components"
 import { TextProps, TypographyProps } from "../palette"
 import { styled } from "../platform/primitives"
 import { color, maxWidth, space, textAlign, themeGet } from "styled-system"
@@ -33,12 +34,18 @@ const Text = styled.Text.attrs<TextProps>({})`
   ${maxWidth};
 `
 
-export const Sans: SFC<TypographyProps> = props => (
+const _Sans: SFC<TypographyProps> = props => (
   <Text family="unica" typeSize={`sans${props.size || 3}`} {...props} />
 )
-export const Serif: SFC<TypographyProps> = props => (
+const _Serif: SFC<TypographyProps> = props => (
   <Text family="garamond" typeSize={`serif${props.size || 3}`} {...props} />
 )
-export const Display: SFC<TypographyProps> = props => (
+const _Display: SFC<TypographyProps> = props => (
   <Text family="avantgarde" typeSize={`display${props.size || 2}`} {...props} />
 )
+
+// Wrap to yield control back to consuming components.
+// See: https://www.styled-components.com/docs/advanced#referring-to-other-components
+export const Sans = styledWrapper(_Sans)``
+export const Serif = styledWrapper(_Serif)``
+export const Display = styledWrapper(_Display)``
