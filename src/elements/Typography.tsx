@@ -1,4 +1,5 @@
 import React, { SFC } from "react"
+import { TextProps, TypographyProps } from "../palette"
 import { styled } from "../platform/primitives"
 import { color, maxWidth, space, textAlign, themeGet } from "styled-system"
 
@@ -22,11 +23,6 @@ const fontSize = props => `typeSizes.${props.typeSize}.fontSize`
 
 const lineHeight = props => `typeSizes.${props.typeSize}.lineHeight`
 
-export interface TextProps {
-  family: "unica" | "garamond" | "avantgarde"
-  typeSize: string // TODO: Make this more granular
-}
-
 const Text = styled.Text.attrs<TextProps>({})`
   font-family: ${dynamicTheme(fontPath)};
   font-size: ${dynamicTheme(fontSize)}px;
@@ -36,10 +32,6 @@ const Text = styled.Text.attrs<TextProps>({})`
   ${textAlign};
   ${maxWidth};
 `
-
-export interface TypographyProps {
-  size: string | number
-}
 
 export const Sans: SFC<TypographyProps> = props => (
   <Text family="unica" typeSize={`sans${props.size || 3}`} {...props} />
