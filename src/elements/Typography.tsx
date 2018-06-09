@@ -2,7 +2,15 @@ import React, { SFC } from "react"
 import styledWrapper from "styled-components"
 import { TextProps, TypographyProps } from "../palette"
 import { styled } from "../platform/primitives"
-import { color, maxWidth, space, textAlign, themeGet } from "styled-system"
+
+import {
+  color,
+  display,
+  maxWidth,
+  space,
+  textAlign,
+  themeGet,
+} from "styled-system"
 
 const dynamicTheme = callback => props =>
   themeGet.apply(null, [].concat(callback(props)))(props)
@@ -29,9 +37,10 @@ const Text = styled.Text.attrs<TextProps>({})`
   font-size: ${dynamicTheme(fontSize)}px;
   line-height: ${dynamicTheme(lineHeight)}px;
   ${color};
+  ${display};
+  ${maxWidth};
   ${space};
   ${textAlign};
-  ${maxWidth};
 `
 
 const _Sans: SFC<TypographyProps> = props => (

@@ -1,6 +1,6 @@
 import styles from "styled-components"
 
 export const styled = {
-  Text: styles.span,
+  Text: styles.div,
   View: styles.div,
 }
