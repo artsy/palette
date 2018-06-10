@@ -33,8 +33,8 @@ export const themeProps = {
     unica: {
       regular: "Unica77LL-Regular",
       italic: "Unica77LL-Italic",
-      medium: "Unica77LL-Medium",
-      mediumItalic: "Unica77LL-MediumItalic",
+      medium: "Unica77LLWeb-Medium",
+      mediumItalic: "Unica77LLWeb-MediumItalic",
     },
     // Serif
     garamond: {
