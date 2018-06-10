@@ -52,16 +52,16 @@ export const themeProps = {
   // https://www.notion.so/artsy/Grid-e489a52e26bd4319b6ee7898044a8a53
   grid: {
     breakpoints: {
-      giant: 1200,
-      xl: 1200,
-      desktop: 992,
-      lg: 992,
-      tablet: 768,
-      md: 768,
-      phone: 576,
-      sm: 576,
-      smaller: 575,
-      xs: 575,
+      giant: 1192,
+      xl: 1192,
+      desktop: 1024,
+      lg: 1024,
+      tablet: 900,
+      md: 900,
+      phone: 768,
+      sm: 768,
+      smaller: 0,
+      xs: 0,
     },
     container: {
       padding: 40,
