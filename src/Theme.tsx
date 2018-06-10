@@ -228,7 +228,7 @@ export const themeProps = {
   },
 }
 
-export function injectGlobalCSS() {
+export function injectGlobalCSS(styles = "") {
   injectLayoutBaseCSS(`
     ${reset};
 
@@ -241,6 +241,8 @@ export function injectGlobalCSS() {
       margin: 0;
       padding: 0;
     }
+
+    ${styles};
   `)
 }
 
