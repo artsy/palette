@@ -1,5 +1,6 @@
 import React, { SFC } from "react"
 import styledWrapper from "styled-components"
+import { style } from "styled-system"
 import { TextProps, TypographyProps } from "../palette"
 import { styled } from "../platform/primitives"
 
@@ -11,6 +12,10 @@ import {
   textAlign,
   themeGet,
 } from "styled-system"
+
+const verticalAlign = style({
+  prop: "verticalAlign",
+})
 
 const dynamicTheme = callback => props =>
   themeGet.apply(null, [].concat(callback(props)))(props)
@@ -41,6 +46,7 @@ const Text = styled.Text.attrs<TextProps>({})`
   ${maxWidth};
   ${space};
   ${textAlign};
+  ${verticalAlign};
 `
 
 const _Sans: SFC<TypographyProps> = props => (
