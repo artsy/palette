@@ -70,7 +70,7 @@ export const themeProps = {
       padding: 15,
     },
     col: {
-      padding: 15,
+      padding: 10,
     },
   },
 
