@@ -60,8 +60,8 @@ export const themeProps = {
       md: 900,
       phone: 768,
       sm: 768,
-      smaller: 0,
-      xs: 0,
+      smaller: 767,
+      xs: 767,
     },
     container: {
       padding: 40,
