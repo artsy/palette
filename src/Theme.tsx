@@ -7,6 +7,19 @@ import { ThemeProvider } from "styled-components"
 // API: https://jxnblk.com/styled-system/api
 // Table: https://jxnblk.com/styled-system/table
 
+const breakpoints = {
+  giant: 1192,
+  xl: 1192,
+  desktop: 1024,
+  lg: 1024,
+  tablet: 900,
+  md: 900,
+  phone: 768,
+  sm: 768,
+  smaller: 767,
+  xs: 767,
+}
+
 export const themeProps = {
   borders: [0, "2px solid"],
 
@@ -48,29 +61,19 @@ export const themeProps = {
     },
   },
 
+  // prettier-ignore
   mediaQueries: {
-    xl: "(min-width: 1192px)",
-    lg: "(min-width: 1024px) and (max-width: 1191px)",
-    md: "(min-width: 900px) and (max-width: 1023px)",
-    sm: "(min-width: 768px) and (max-width: 899px)",
-    xs: "(max-width: 767px)",
+    xl: `(min-width: ${breakpoints.xl}px)`,
+    lg: `(min-width: ${breakpoints.lg}px) and (max-width: ${breakpoints.xl - 1}px)`,
+    md: `(min-width: ${breakpoints.md}px) and (max-width: ${breakpoints.md - 1}px)`,
+    sm: `(min-width: ${breakpoints.sm}px) and (max-width: ${breakpoints.sm - 1}px)`,
+    xs: `(max-width: ${breakpoints.sm -1}px)`,
   },
 
   // https://github.com/dragma/Elements/Grid#props-definition
   // https://www.notion.so/artsy/Grid-e489a52e26bd4319b6ee7898044a8a53
   grid: {
-    breakpoints: {
-      giant: 1192,
-      xl: 1192,
-      desktop: 1024,
-      lg: 1024,
-      tablet: 900,
-      md: 900,
-      phone: 768,
-      sm: 768,
-      smaller: 767,
-      xs: 767,
-    },
+    breakpoints,
     container: {
       padding: 40,
     },
