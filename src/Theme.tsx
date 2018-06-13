@@ -48,6 +48,14 @@ export const themeProps = {
     },
   },
 
+  mediaQueries: {
+    xl: "(min-width: 1192px)",
+    lg: "(min-width: 1024px) and (max-width: 1191px)",
+    md: "(min-width: 900px) and (max-width: 1023px)",
+    sm: "(min-width: 768px) and (max-width: 899px)",
+    xs: "(max-width: 767px)",
+  },
+
   // https://github.com/dragma/Elements/Grid#props-definition
   // https://www.notion.so/artsy/Grid-e489a52e26bd4319b6ee7898044a8a53
   grid: {
