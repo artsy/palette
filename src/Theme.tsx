@@ -65,8 +65,8 @@ export const themeProps = {
   mediaQueries: {
     xl: `(min-width: ${breakpoints.xl}px)`,
     lg: `(min-width: ${breakpoints.lg}px) and (max-width: ${breakpoints.xl - 1}px)`,
-    md: `(min-width: ${breakpoints.md}px) and (max-width: ${breakpoints.md - 1}px)`,
-    sm: `(min-width: ${breakpoints.sm}px) and (max-width: ${breakpoints.sm - 1}px)`,
+    md: `(min-width: ${breakpoints.md}px) and (max-width: ${breakpoints.lg - 1}px)`,
+    sm: `(min-width: ${breakpoints.sm}px) and (max-width: ${breakpoints.md - 1}px)`,
     xs: `(max-width: ${breakpoints.sm -1}px)`,
   },
 
