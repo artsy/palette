@@ -9,7 +9,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "tsc",
+    "compile": "babel src --out-dir dist --copy-files -s --source-map --extensions '.ts,.tsx'",
     "lint": "tslint -c tslint.json --project tsconfig.json",
     "precommit": "lint-staged",
     "prepush": "yarn run type-check",
@@ -39,6 +39,12 @@
     "styled-components": "^3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/preset-react": "^7.0.0-beta.51",
+    "@babel/preset-stage-3": "^7.0.0-beta.51",
+    "@babel/preset-typescript": "^7.0.0-beta.51",
     "@types/node": "^10.3.0",
     "@types/react": "^16.3.13",
     "conventional-changelog-ember": "^2.0.0",

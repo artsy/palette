@@ -7,16 +7,16 @@
     "lib": ["dom", "es2015", "es2016", "es2017"],
     "module": "commonjs",
     "moduleResolution": "node",
+    "target": "es2015",
     "noUnusedLocals": true,
     "outDir": "dist",
     "plugins": [{
       "name": "typescript-styled-plugin"
     }],
-    "rootDir": "src",
-    "target": "es2015",
     "paths": {
       "Assets/*": ["./Assets/*"]
-    }
+    },
+    "rootDir": "src",
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist"]
