@@ -4,6 +4,9 @@ import { style } from "styled-system"
 import { TextProps, TypographyProps } from "../palette"
 import { styled } from "../platform/primitives"
 
+// @ts-ignore
+import { StyledComponentClass } from "styled-components"
+
 import {
   color,
   display,
