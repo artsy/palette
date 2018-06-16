@@ -1,7 +1,6 @@
 import React, { SFC } from "react"
 import styledWrapper from "styled-components"
 import { style } from "styled-system"
-import { TextProps, TypographyProps } from "../palette"
 import { styled } from "../platform/primitives"
 
 // @ts-ignore
@@ -15,6 +14,21 @@ import {
   textAlign,
   themeGet,
 } from "styled-system"
+
+export interface TypographyProps {
+  size?: string | number
+  weight?: string
+  italic?: boolean
+}
+
+export interface VerticalAlignProps {
+  verticalAlign?: "baseline" | "text-top" | "text-bottom" | "sub" | "super"
+}
+
+export interface TextProps extends VerticalAlignProps {
+  family: "unica" | "garamond" | "avantgarde"
+  typeSize: string // TODO: Make this more granular
+}
 
 const verticalAlign = style({
   prop: "verticalAlign",
