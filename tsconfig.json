@@ -10,14 +10,17 @@
     "target": "es2015",
     "noUnusedLocals": true,
     "outDir": "dist",
-    "plugins": [{
-      "name": "typescript-styled-plugin"
-    }],
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ],
     "paths": {
       "Assets/*": ["./Assets/*"]
     },
     "rootDir": "src",
+    "declaration": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules/*", "dist"]
 }
