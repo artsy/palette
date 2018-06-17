@@ -1,18 +1,23 @@
 import React, { SFC } from "react"
-import styledWrapper from "styled-components"
-import { style } from "styled-system"
-import { styled } from "../platform/primitives"
+import styled from "styled-components"
+import { styled as primitives } from "../platform/primitives"
+import { themeProps } from "../Theme"
 
 // @ts-ignore
 import { StyledComponentClass } from "styled-components"
 
 import {
   color,
+  ColorProps,
   display,
+  DisplayProps as StyledSystemDisplayProps,
   maxWidth,
+  MaxWidthProps,
   space,
+  SpaceProps,
   textAlign,
-  themeGet,
+  TextAlignProps,
+  style,
 } from "styled-system"
 
 export interface TypographyProps {
@@ -24,40 +29,26 @@ export interface TypographyProps {
 export interface VerticalAlignProps {
   verticalAlign?: "baseline" | "text-top" | "text-bottom" | "sub" | "super"
 }
-
-export interface TextProps extends VerticalAlignProps {
-  family: "unica" | "garamond" | "avantgarde"
-  typeSize: string // TODO: Make this more granular
-}
-
 const verticalAlign = style({
   prop: "verticalAlign",
 })
 
-const dynamicTheme = callback => props =>
-  themeGet.apply(null, [].concat(callback(props)))(props)
-
-const selectFontType = ({ weight = "regular", italic }) => {
-  if (italic) {
-    if (weight === "medium") return "mediumItalic"
-    return "italic"
-  }
-  return weight
+export interface TextProps
+  extends ColorProps,
+    MaxWidthProps,
+    SpaceProps,
+    StyledSystemDisplayProps,
+    TextAlignProps,
+    VerticalAlignProps {
+  fontFamily: string | undefined
+  fontSize: number
+  lineHeight: number
 }
 
-const fontPath = props => [
-  `fontFamily.${props.family}.${selectFontType(props)}`,
-  "regular", // fallback
-]
-
-const fontSize = props => `typeSizes.${props.typeSize}.fontSize`
-
-const lineHeight = props => `typeSizes.${props.typeSize}.lineHeight`
-
-const Text = styled.Text.attrs<TextProps>({})`
-  font-family: ${dynamicTheme(fontPath)};
-  font-size: ${dynamicTheme(fontSize)}px;
-  line-height: ${dynamicTheme(lineHeight)}px;
+const Text = primitives.Text.attrs<TextProps>({})`
+  font-family: ${({ fontFamily }) => fontFamily || "inherit"};
+  font-size: ${({ fontSize }) => fontSize}px;
+  line-height: ${({ lineHeight }) => lineHeight}px;
   ${color};
   ${display};
   ${maxWidth};
@@ -66,18 +57,108 @@ const Text = styled.Text.attrs<TextProps>({})`
   ${verticalAlign};
 `
 
-const _Sans: SFC<TypographyProps> = props => (
-  <Text family="unica" typeSize={`sans${props.size || 3}`} {...props} />
-)
-const _Serif: SFC<TypographyProps> = props => (
-  <Text family="garamond" typeSize={`serif${props.size || 3}`} {...props} />
-)
-const _Display: SFC<TypographyProps> = props => (
-  <Text family="avantgarde" typeSize={`display${props.size || 2}`} {...props} />
-)
+export type FontFamily = typeof themeProps["fontFamily"]
+export interface FontWeights {
+  sans: keyof FontFamily["sans"]
+  serif: keyof FontFamily["serif"]
+  display: keyof FontFamily["display"]
+}
 
-// Wrap to yield control back to consuming components.
-// See: https://www.styled-components.com/docs/advanced#referring-to-other-components
-export const Sans = styledWrapper(_Sans)``
-export const Serif = styledWrapper(_Serif)``
-export const Display = styledWrapper(_Display)``
+const selectFontType = (
+  weight?:
+    | null
+    | FontWeights["sans"]
+    | FontWeights["serif"]
+    | FontWeights["display"],
+  italic?: boolean
+) => {
+  if (weight === null) {
+    return undefined
+  }
+  if (italic) {
+    if (weight === "medium") return "mediumItalic"
+    return "italic"
+  }
+  return weight || "regular"
+}
+
+/**
+ * Sans
+ */
+
+export interface SansProps extends TextProps {
+  italic?: boolean
+
+  size: keyof typeof themeProps["typeSizes"]["sans"]
+
+  /**
+   * Explicitly specify `null` to inherit weight from parent, otherwise default
+   * to `regular`.
+   */
+  weight?: null | FontWeights["sans"]
+}
+
+export const Sans = styled<SansProps>(({ size, weight, italic, ...props }) => {
+  const fontType = selectFontType(weight, italic)
+  return (
+    <Text
+      fontFamily={fontType && themeProps.fontFamily.sans[fontType]}
+      {...themeProps.typeSizes.sans[size]}
+      {...props}
+    />
+  )
+})``
+
+/**
+ * Serif
+ */
+
+export interface SerifProps extends TextProps {
+  italic?: boolean
+
+  size: keyof typeof themeProps["typeSizes"]["serif"]
+
+  /**
+   * Explicitly specify `null` to inherit weight from parent, otherwise default
+   * to `regular`.
+   */
+  weight?: null | FontWeights["serif"]
+}
+
+export const Serif = styled<SerifProps>(
+  ({ size, weight, italic, ...props }) => {
+    const fontType = selectFontType(weight, italic)
+    return (
+      <Text
+        fontFamily={fontType && themeProps.fontFamily.serif[fontType]}
+        {...themeProps.typeSizes.serif[size]}
+        {...props}
+      />
+    )
+  }
+)``
+
+/**
+ * Display
+ */
+
+export interface DisplayProps extends TextProps {
+  size: keyof typeof themeProps["typeSizes"]["display"]
+
+  /**
+   * Explicitly specify `null` to inherit weight from parent, otherwise default
+   * to `regular`.
+   */
+  weight?: null | FontWeights["display"]
+}
+
+export const Display = styled<DisplayProps>(({ size, weight, ...props }) => {
+  const fontType = selectFontType(weight, false)
+  return (
+    <Text
+      fontFamily={fontType && themeProps.fontFamily.display[fontType]}
+      {...themeProps.typeSizes.display[size]}
+      {...props}
+    />
+  )
+})``

@@ -19,7 +19,9 @@
       "Assets/*": ["./Assets/*"]
     },
     "rootDir": "src",
-    "declaration": true
+    "declaration": true,
+    "strict": true,
+    "noImplicitAny": false
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules/*", "dist"]
