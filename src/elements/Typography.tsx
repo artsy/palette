@@ -1,4 +1,4 @@
-import React, { SFC } from "react"
+import React from "react"
 import styled from "styled-components"
 import { styled as primitives } from "../platform/primitives"
 import { themeProps } from "../Theme"
