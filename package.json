@@ -9,7 +9,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "babel src --out-dir dist -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ && tsc --emitDeclarationOnly",
+    "compile": "babel src --out-dir dist -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ && tsc --emitDeclarationOnly && rm dist/styled-system.d.*",
     "lint": "tslint -c tslint.json --project tsconfig.json",
     "precommit": "lint-staged",
     "prepush": "yarn run type-check",
