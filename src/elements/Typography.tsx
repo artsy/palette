@@ -40,12 +40,12 @@ export interface TextProps
     StyledSystemDisplayProps,
     TextAlignProps,
     VerticalAlignProps {
-  fontFamily: string | undefined
+  fontFamily?: string
   fontSize: number
   lineHeight: number
 }
 
-const Text = primitives.Text.attrs<TextProps>({})`
+export const Text = primitives.Text.attrs<TextProps>({})`
   font-family: ${({ fontFamily }) => fontFamily || "inherit"};
   font-size: ${({ fontSize }) => fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;
@@ -86,7 +86,7 @@ const selectFontType = (
  * Sans
  */
 
-export interface SansProps extends TextProps {
+export interface SansProps extends Partial<TextProps> {
   italic?: boolean
 
   size: keyof typeof themeProps["typeSizes"]["sans"]
@@ -95,7 +95,7 @@ export interface SansProps extends TextProps {
    * Explicitly specify `null` to inherit weight from parent, otherwise default
    * to `regular`.
    */
-  weight?: null | FontWeights["sans"]
+  weight?: null | "regular" | "medium"
 }
 
 export const Sans = styled<SansProps>(({ size, weight, italic, ...props }) => {
@@ -113,7 +113,7 @@ export const Sans = styled<SansProps>(({ size, weight, italic, ...props }) => {
  * Serif
  */
 
-export interface SerifProps extends TextProps {
+export interface SerifProps extends Partial<TextProps> {
   italic?: boolean
 
   size: keyof typeof themeProps["typeSizes"]["serif"]
@@ -122,7 +122,7 @@ export interface SerifProps extends TextProps {
    * Explicitly specify `null` to inherit weight from parent, otherwise default
    * to `regular`.
    */
-  weight?: null | FontWeights["serif"]
+  weight?: null | "regular" | "semibold"
 }
 
 export const Serif = styled<SerifProps>(
@@ -142,14 +142,14 @@ export const Serif = styled<SerifProps>(
  * Display
  */
 
-export interface DisplayProps extends TextProps {
+export interface DisplayProps extends Partial<TextProps> {
   size: keyof typeof themeProps["typeSizes"]["display"]
 
   /**
    * Explicitly specify `null` to inherit weight from parent, otherwise default
    * to `regular`.
    */
-  weight?: null | FontWeights["display"]
+  weight?: null | "regular"
 }
 
 export const Display = styled<DisplayProps>(({ size, weight, ...props }) => {
