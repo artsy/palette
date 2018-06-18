@@ -9,7 +9,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "babel src --out-dir dist --copy-files -s --source-map --extensions '.ts,.tsx'",
+    "compile": "babel src --out-dir dist -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ && tsc --emitDeclarationOnly && rm dist/styled-system.d.*",
     "lint": "tslint -c tslint.json --project tsconfig.json",
     "precommit": "lint-staged",
     "prepush": "yarn run type-check",
@@ -18,7 +18,7 @@
     "prettier-project": "yarn prettier-write 'src/**/*.{ts,tsx}'",
     "prettier-write": "yarn prettier --write",
     "semantic-release": "semantic-release",
-    "test": "yarn type-check",
+    "test": "yarn type-check && yarn jest",
     "type-check": "tsc --noEmit --pretty",
     "watch": "yarn compile -w"
   },
@@ -45,14 +45,20 @@
     "@babel/preset-react": "^7.0.0-beta.51",
     "@babel/preset-stage-3": "^7.0.0-beta.51",
     "@babel/preset-typescript": "^7.0.0-beta.51",
+    "@types/jest": "^23.1.0",
     "@types/node": "^10.3.0",
     "@types/react": "^16.3.13",
+    "@types/react-test-renderer": "^16.0.1",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^23.0.1",
     "conventional-changelog-ember": "^2.0.0",
     "jest": "^23.1.0",
     "lint-staged": "^7.1.3",
     "prettier": "^1.12.1",
     "react-dom": "^16.2.0",
     "react-native": "^0.55.4",
+    "react-test-renderer": "^16.4.1",
+    "regenerator-runtime": "^0.11.1",
     "semantic-release": "^15.5.0",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
@@ -107,5 +113,26 @@
         }
       ]
     }
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "babel-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/*"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "<rootDir>/src"
+    ]
   }
 }

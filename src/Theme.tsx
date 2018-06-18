@@ -42,21 +42,18 @@ export const themeProps = {
   },
 
   fontFamily: {
-    // Sans
-    unica: {
+    sans: {
       regular: "Unica77LL-Regular",
       italic: "Unica77LL-Italic",
       medium: "Unica77LLWeb-Medium",
       mediumItalic: "Unica77LLWeb-MediumItalic",
     },
-    // Serif
-    garamond: {
+    serif: {
       regular: "AGaramondPro-Regular",
       italic: "AGaramondPro-Italic",
       semibold: "AGaramondPro-Semibold",
     },
-    // Display
-    avantgarde: {
+    display: {
       regular: "AvantGardeGothicITC",
     },
   },
@@ -109,133 +106,137 @@ export const themeProps = {
 
   // https://www.notion.so/artsy/Typography-d1f9f6731f3d47c78003d6d016c30221
   typeSizes: {
-    sans1: {
-      fontSize: 10,
-      lineHeight: 14,
-    },
-    sans2: {
-      fontSize: 12,
-      lineHeight: 16,
-    },
-    sans3: {
-      fontSize: 14,
-      lineHeight: 24,
-    },
-    sans3t: {
-      fontSize: 14,
-      lineHeight: 20,
-    },
-    sans4: {
-      fontSize: 16,
-      lineHeight: 26,
-    },
-    sans4t: {
-      fontSize: 16,
-      lineHeight: 22,
-    },
-    sans5: {
-      fontSize: 18,
-      lineHeight: 30,
-    },
-    sans5t: {
-      fontSize: 18,
-      lineHeight: 26,
-    },
-    sans6: {
-      fontSize: 22,
-      lineHeight: 30,
-    },
-    sans8: {
-      fontSize: 28,
-      lineHeight: 36,
-    },
-    sans10: {
-      fontSize: 42,
-      lineHeight: 50,
-    },
-    sans12: {
-      fontSize: 60,
-      lineHeight: 66,
-    },
-    sans14: {
-      fontSize: 80,
-      lineHeight: 84,
-    },
-    sans16: {
-      fontSize: 100,
-      lineHeight: 104,
-    },
-
-    // Serif
-    serif1: {
-      fontSize: 12,
-      lineHeight: 16,
-    },
-    serif2: {
-      fontSize: 14,
-      lineHeight: 18,
-    },
-    serif3: {
-      fontSize: 16,
-      lineHeight: 24,
-    },
-    serif3t: {
-      fontSize: 16,
-      lineHeight: 20,
-    },
-    serif4: {
-      fontSize: 18,
-      lineHeight: 26,
-    },
-    serif4t: {
-      fontSize: 18,
-      lineHeight: 22,
-    },
-    serif5: {
-      fontSize: 22,
-      lineHeight: 32,
-    },
-    serif5t: {
-      fontSize: 22,
-      lineHeight: 28,
-    },
-    serif6: {
-      fontSize: 26,
-      lineHeight: 32,
-    },
-    serif8: {
-      fontSize: 32,
-      lineHeight: 38,
-    },
-    serif10: {
-      fontSize: 42,
-      lineHeight: 50,
-    },
-    serif12: {
-      fontSize: 60,
-      lineHeight: 66,
+    sans: {
+      "1": {
+        fontSize: 10,
+        lineHeight: 14,
+      },
+      "2": {
+        fontSize: 12,
+        lineHeight: 16,
+      },
+      "3": {
+        fontSize: 14,
+        lineHeight: 24,
+      },
+      "3t": {
+        fontSize: 14,
+        lineHeight: 20,
+      },
+      "4": {
+        fontSize: 16,
+        lineHeight: 26,
+      },
+      "4t": {
+        fontSize: 16,
+        lineHeight: 22,
+      },
+      "5": {
+        fontSize: 18,
+        lineHeight: 30,
+      },
+      "5t": {
+        fontSize: 18,
+        lineHeight: 26,
+      },
+      "6": {
+        fontSize: 22,
+        lineHeight: 30,
+      },
+      "8": {
+        fontSize: 28,
+        lineHeight: 36,
+      },
+      "10": {
+        fontSize: 42,
+        lineHeight: 50,
+      },
+      "12": {
+        fontSize: 60,
+        lineHeight: 66,
+      },
+      "14": {
+        fontSize: 80,
+        lineHeight: 84,
+      },
+      "16": {
+        fontSize: 100,
+        lineHeight: 104,
+      },
     },
 
-    // Display
-    display2: {
-      fontSize: 10,
-      lineHeight: 12,
+    serif: {
+      "1": {
+        fontSize: 12,
+        lineHeight: 16,
+      },
+      "2": {
+        fontSize: 14,
+        lineHeight: 18,
+      },
+      "3": {
+        fontSize: 16,
+        lineHeight: 24,
+      },
+      "3t": {
+        fontSize: 16,
+        lineHeight: 20,
+      },
+      "4": {
+        fontSize: 18,
+        lineHeight: 26,
+      },
+      "4t": {
+        fontSize: 18,
+        lineHeight: 22,
+      },
+      "5": {
+        fontSize: 22,
+        lineHeight: 32,
+      },
+      "5t": {
+        fontSize: 22,
+        lineHeight: 28,
+      },
+      "6": {
+        fontSize: 26,
+        lineHeight: 32,
+      },
+      "8": {
+        fontSize: 32,
+        lineHeight: 38,
+      },
+      "10": {
+        fontSize: 42,
+        lineHeight: 50,
+      },
+      "12": {
+        fontSize: 60,
+        lineHeight: 66,
+      },
     },
-    display3t: {
-      fontSize: 12,
-      lineHeight: 16,
-    },
-    display4t: {
-      fontSize: 14,
-      lineHeight: 18,
-    },
-    display5t: {
-      fontSize: 16,
-      lineHeight: 20,
-    },
-    display6: {
-      fontSize: 18,
-      lineHeight: 22,
+
+    display: {
+      "2": {
+        fontSize: 10,
+        lineHeight: 12,
+      },
+      "3t": {
+        fontSize: 12,
+        lineHeight: 16,
+      },
+      "4t": {
+        fontSize: 14,
+        lineHeight: 18,
+      },
+      "5t": {
+        fontSize: 16,
+        lineHeight: 20,
+      },
+      "6": {
+        fontSize: 18,
+        lineHeight: 22,
+      },
     },
   },
 }
