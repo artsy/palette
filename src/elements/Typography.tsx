@@ -20,12 +20,6 @@ import {
   style,
 } from "styled-system"
 
-export interface TypographyProps {
-  size?: string | number
-  weight?: string
-  italic?: boolean
-}
-
 export interface VerticalAlignProps {
   verticalAlign?: "baseline" | "text-top" | "text-bottom" | "sub" | "super"
 }
@@ -63,7 +57,14 @@ export type FontWeights =
   | keyof FontFamily["serif"]
   | keyof FontFamily["display"]
 
-function fontWeight<K>(weight: K) {
+/**
+ * Returns the weight, if given, otherwise it defaults to `regular` unless
+ * explicitly given `null` in which case it returns undefined, meaning the
+ * weight should be inherited from the component’s parent.
+ *
+ * @param weight
+ */
+function _fontWeight(weight?: null | FontWeights) {
   if (weight === null) {
     return undefined
   }
@@ -80,13 +81,27 @@ interface StyledTextProps extends Partial<TextProps> {
   italic?: boolean
 }
 
-function StyledText<P extends StyledTextProps>(
+/**
+ * Creates a wrapper around the generic `Text` component for a font type defined
+ * in the palette’s theme (sans, serif, or display).
+ *
+ * The component’s props are specified with type parameter `P` and should hold
+ * both the component’s specific props (size, weight, italic) as well as all of
+ * the generic `Text` component’s props, although as optional.
+ *
+ * @param fontType
+ *        The font type that this text component represents.
+ * @param selectFontFamilyType
+ *        An optional function that maps weight+italic to a font-family.
+ */
+function createStyledText<P extends StyledTextProps>(
   fontType: keyof FontFamily,
   selectFontFamilyType: typeof _selectFontFamilyType = _selectFontFamilyType
 ) {
   return styled<P>(
     ({ size, weight, italic, ...textProps }: StyledTextProps) => {
-      const fontFamilyType = selectFontFamilyType(fontWeight(weight), italic)
+      const fontFamilyType = selectFontFamilyType(_fontWeight(weight), italic)
+      // This is mostly to narrow the type of `fontFamilyType` to remove `null`.
       if (fontFamilyType === null) {
         throw new Error("Did not expect `fontType` to be `null`.")
       }
@@ -119,7 +134,7 @@ export interface SansProps extends Partial<TextProps> {
   weight?: null | "regular" | "medium"
 }
 
-export const Sans = StyledText<SansProps>("sans", (weight, italic) => {
+export const Sans = createStyledText<SansProps>("sans", (weight, italic) => {
   if (italic) {
     return weight === "medium" ? "mediumItalic" : "italic"
   }
@@ -142,7 +157,7 @@ export interface SerifProps extends Partial<TextProps> {
   weight?: null | "regular" | "semibold"
 }
 
-export const Serif = StyledText<SerifProps>("serif")
+export const Serif = createStyledText<SerifProps>("serif")
 
 /**
  * Display
@@ -158,4 +173,4 @@ export interface DisplayProps extends Partial<TextProps> {
   weight?: null | "regular"
 }
 
-export const Display = StyledText<DisplayProps>("display")
+export const Display = createStyledText<DisplayProps>("display")
