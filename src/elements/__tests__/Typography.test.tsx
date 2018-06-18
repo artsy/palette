@@ -4,6 +4,15 @@ import renderer from "react-test-renderer"
 import { Sans, Text, Serif, Display } from "../Typography"
 import { themeProps } from "../../Theme"
 
+class Catcher extends React.Component<{ onError: (error: Error) => void }> {
+  componentDidCatch(error, info) {
+    this.props.onError(error)
+  }
+  render() {
+    return this.props.children
+  }
+}
+
 describe("Typography", () => {
   describe("Sans", () => {
     describe("concerning font-family", () => {
@@ -105,16 +114,33 @@ describe("Typography", () => {
         )
       })
 
-      it("throws when trying to use semibold italic", () => {
-        const serif = renderer.create(
-          <Serif weight="semibold" italic size="3t">
-            Hello world
-          </Serif>
-        ).root
-        const text = serif.findByType(Text as React.ComponentClass<any>)
-        expect(text.props.fontFamily).toEqual(
-          themeProps.fontFamily.serif.italic
-        )
+      describe("with invalid options", () => {
+        // https://github.com/facebook/react/issues/11098#issuecomment-370614347
+        const _consoleError = console.error
+
+        beforeEach(() => {
+          console.error = jest.fn()
+        })
+
+        afterEach(() => {
+          console.error = _consoleError
+        })
+
+        it("throws when trying to use semibold italic", done => {
+          expect.assertions(1)
+          renderer.create(
+            <Catcher
+              onError={error => {
+                expect(error.message).toMatch(/italic.+semibold/)
+                done()
+              }}
+            >
+              <Serif weight="semibold" italic size="3t">
+                Hello world
+              </Serif>
+            </Catcher>
+          )
+        })
       })
     })
 

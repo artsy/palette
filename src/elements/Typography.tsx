@@ -135,10 +135,9 @@ export interface SansProps extends Partial<TextProps> {
 }
 
 export const Sans = createStyledText<SansProps>("sans", (weight, italic) => {
-  if (italic) {
-    return weight === "medium" ? "mediumItalic" : "italic"
-  }
-  return weight
+  return italic && weight === "medium"
+    ? "mediumItalic"
+    : _selectFontFamilyType(weight, italic)
 })
 
 /**
@@ -157,7 +156,14 @@ export interface SerifProps extends Partial<TextProps> {
   weight?: null | "regular" | "semibold"
 }
 
-export const Serif = createStyledText<SerifProps>("serif")
+export const Serif = createStyledText<SerifProps>("serif", (weight, italic) => {
+  if (italic && weight && weight !== "regular") {
+    throw new Error(
+      `The serif font does not have an italic font with weight \`${weight}\``
+    )
+  }
+  return _selectFontFamilyType(weight, italic)
+})
 
 /**
  * Display
