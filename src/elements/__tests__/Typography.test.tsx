@@ -104,6 +104,18 @@ describe("Typography", () => {
           themeProps.fontFamily.serif.italic
         )
       })
+
+      it("throws when trying to use semibold italic", () => {
+        const serif = renderer.create(
+          <Serif weight="semibold" italic size="3t">
+            Hello world
+          </Serif>
+        ).root
+        const text = serif.findByType(Text as React.ComponentClass<any>)
+        expect(text.props.fontFamily).toEqual(
+          themeProps.fontFamily.serif.italic
+        )
+      })
     })
 
     describe("Display", () => {
