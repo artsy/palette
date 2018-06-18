@@ -52,6 +52,14 @@ export const Text = primitives.Text.attrs<TextProps>({})`
   ${verticalAlign};
 `
 
+export type TypeSizes = typeof themeProps.typeSizes
+export type FontTypes = keyof TypeSizes
+export interface TypeSizeKeys {
+  sans: keyof TypeSizes["sans"]
+  serif: keyof TypeSizes["serif"]
+  display: keyof TypeSizes["display"]
+}
+
 export type FontFamily = typeof themeProps["fontFamily"]
 export type FontWeights =
   | keyof FontFamily["sans"]
