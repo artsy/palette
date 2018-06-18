@@ -21,7 +21,18 @@ import {
 } from "styled-system"
 
 export interface VerticalAlignProps {
-  verticalAlign?: "baseline" | "text-top" | "text-bottom" | "sub" | "super"
+  verticalAlign?:
+    | "baseline"
+    | "sub"
+    | "super"
+    | "text-top"
+    | "text-bottom"
+    | "middle"
+    | "top"
+    | "bottom"
+    | "inherit"
+    | "initial"
+    | "unset"
 }
 const verticalAlign = style({
   prop: "verticalAlign",
@@ -37,7 +48,6 @@ export interface TextProps
   fontFamily?: string
   fontSize: number
   lineHeight: number
-  className?: string
 }
 
 export const Text = primitives.Text.attrs<TextProps>({})`
