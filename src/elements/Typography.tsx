@@ -37,6 +37,7 @@ export interface TextProps
   fontFamily?: string
   fontSize: number
   lineHeight: number
+  className?: string
 }
 
 export const Text = primitives.Text.attrs<TextProps>({})`
