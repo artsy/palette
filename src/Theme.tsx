@@ -2,6 +2,7 @@ import React from "react"
 import reset from "styled-reset"
 import { GridThemeProvider, injectLayoutBaseCSS } from "styled-bootstrap-grid"
 import { ThemeProvider } from "styled-components"
+import { fontFamily } from "./platform/fonts"
 
 // Notion: https://www.notion.so/artsy/Design-92030f16ed7c4c72bb3eb832b4243d04
 // API: https://jxnblk.com/styled-system/api
@@ -63,22 +64,7 @@ export const themeProps = {
     white100: "#FFF",
   },
 
-  fontFamily: {
-    sans: {
-      regular: "Unica77LL-Regular",
-      italic: "Unica77LL-Italic",
-      medium: "Unica77LLWeb-Medium",
-      mediumItalic: "Unica77LLWeb-MediumItalic",
-    },
-    serif: {
-      regular: "AGaramondPro-Regular",
-      italic: "AGaramondPro-Italic",
-      semibold: "AGaramondPro-Semibold",
-    },
-    display: {
-      regular: "AvantGardeGothicITC",
-    },
-  },
+  fontFamily,
 
   // prettier-ignore
   /** Media queries to work with in web  */
