@@ -4,6 +4,9 @@ import { GridThemeProvider, injectLayoutBaseCSS } from "styled-bootstrap-grid"
 import { ThemeProvider } from "styled-components"
 import { fontFamily } from "./platform/fonts"
 
+// @ts-ignore
+import { FontFamily} from './platform/fonts'
+
 // Notion: https://www.notion.so/artsy/Design-92030f16ed7c4c72bb3eb832b4243d04
 // API: https://jxnblk.com/styled-system/api
 // Table: https://jxnblk.com/styled-system/table
@@ -315,7 +318,7 @@ export function injectGlobalCSS(styles = "") {
       margin: 0;
       padding: 0;
     }
-    
+
     html, body {
       font-family: 'AGaramondPro-Regular';
       font-size: 16px;

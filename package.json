@@ -19,7 +19,7 @@
     "prettier-write": "yarn prettier --write",
     "semantic-release": "semantic-release",
     "test": "yarn type-check && yarn jest",
-    "type-check": "tsc --noEmit --pretty",
+    "type-check": "tsc --emitDeclarationOnly --pretty",
     "type-declarations": "tsc --emitDeclarationOnly && rm dist/styled-system.d.*",
     "watch": "concurrently --raw --kill-others 'yarn compile -w' 'tsc --emitDeclarationOnly -w'"
   },
