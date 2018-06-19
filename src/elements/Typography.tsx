@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { styled as primitives } from "../platform/primitives"
 import { themeProps } from "../Theme"
+import { FontValue } from "../platform/fonts"
 
 // @ts-ignore
 import { StyledComponentClass } from "styled-components"
@@ -38,6 +39,21 @@ const verticalAlign = style({
   prop: "verticalAlign",
 })
 
+const fontFamilyHelper = ({ fontFamily }: { fontFamily: FontValue }) => {
+  if (typeof fontFamily === "string") {
+    return `font-family: ${fontFamily}`
+  } else {
+    return [`font-family: ${fontFamily.fontFamily};`]
+      .concat(
+        fontFamily.fontStyle ? `font-style: ${fontFamily.fontStyle};` : []
+      )
+      .concat(
+        fontFamily.fontWeight ? `font-weight: ${fontFamily.fontWeight};` : []
+      )
+      .join("\n")
+  }
+}
+
 export interface TextProps
   extends ColorProps,
     MaxWidthProps,
@@ -51,6 +67,7 @@ export interface TextProps
 }
 
 export const Text = primitives.Text.attrs<TextProps>({})`
+  ${fontFamilyHelper}
   font-family: ${({ fontFamily }) => fontFamily || "inherit"};
   font-size: ${({ fontSize }) => fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;
