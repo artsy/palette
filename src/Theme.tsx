@@ -59,6 +59,7 @@ export const themeProps = {
     yellow30: "#FAE7BA",
     /** 10 yellow (lightest yellow), avoid future use */
     yellow10: "#FDF7E8",
+    /** Full white */
     white100: "#FFF",
   },
 
@@ -94,7 +95,7 @@ export const themeProps = {
     /**
      * Breakpoints for the Artsy grid,
      * https://www.notion.so/artsy/Grid-e489a52e26bd4319b6ee7898044a8a53
-     *  */
+     */
     breakpoints,
     container: {
       padding: 40,
@@ -144,7 +145,7 @@ export const themeProps = {
   /**
    * Our type system is based on:
    * https://www.notion.so/artsy/Typography-d1f9f6731f3d47c78003d6d016c30221
-   * */
+   */
   typeSizes: {
     /** Avant Garde  */
     sans: {

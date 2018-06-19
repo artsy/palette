@@ -9,18 +9,19 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "babel src --out-dir dist -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ && tsc --emitDeclarationOnly && rm dist/styled-system.d.*",
+    "compile": "babel src --out-dir dist -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__",
     "lint": "tslint -c tslint.json --project tsconfig.json",
     "precommit": "lint-staged",
     "prepush": "yarn run type-check",
-    "prepublishOnly": "yarn clean && yarn compile",
+    "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
     "prettier": "prettier",
     "prettier-project": "yarn prettier-write 'src/**/*.{ts,tsx}'",
     "prettier-write": "yarn prettier --write",
     "semantic-release": "semantic-release",
     "test": "yarn type-check && yarn jest",
     "type-check": "tsc --noEmit --pretty",
-    "watch": "yarn compile -w"
+    "type-declarations": "tsc --emitDeclarationOnly && rm dist/styled-system.d.*",
+    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'tsc --emitDeclarationOnly -w'"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,7 @@
     "@types/react-test-renderer": "^16.0.1",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^23.0.1",
+    "concurrently": "^3.5.1",
     "conventional-changelog-ember": "^2.0.0",
     "jest": "^23.1.0",
     "lint-staged": "^7.1.3",
