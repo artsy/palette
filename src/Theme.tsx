@@ -315,6 +315,12 @@ export function injectGlobalCSS(styles = "") {
       margin: 0;
       padding: 0;
     }
+    
+    html, body {
+      font-family: 'AGaramondPro-Regular';
+      font-size: 16px;
+      line-height: 24px;
+    }
 
     ${styles};
   `)
