@@ -43,14 +43,12 @@ const fontFamilyHelper = ({ fontFamily }: { fontFamily: FontValue }) => {
   if (typeof fontFamily === "string") {
     return `font-family: ${fontFamily}`
   } else {
-    return [`font-family: ${fontFamily.fontFamily};`]
+    return [`font-family: ${fontFamily.fontFamily}`]
+      .concat(fontFamily.fontStyle ? `font-style: ${fontFamily.fontStyle}` : [])
       .concat(
-        fontFamily.fontStyle ? `font-style: ${fontFamily.fontStyle};` : []
+        fontFamily.fontWeight ? `font-weight: ${fontFamily.fontWeight}` : []
       )
-      .concat(
-        fontFamily.fontWeight ? `font-weight: ${fontFamily.fontWeight};` : []
-      )
-      .join("\n")
+      .join(";\n")
   }
 }
 
@@ -67,7 +65,7 @@ export interface TextProps
 }
 
 export const Text = primitives.Text.attrs<TextProps>({})`
-  ${fontFamilyHelper}
+  ${fontFamilyHelper};
   font-size: ${({ fontSize }) => fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;
   ${color};
