@@ -90,10 +90,10 @@ export const themeProps = {
       padding: 40,
     },
     row: {
-      padding: 15,
+      padding: 0,
     },
     col: {
-      padding: 10,
+      padding: 0,
     },
   },
 
@@ -123,12 +123,6 @@ export const themeProps = {
     "12": 120,
     /** Equivalent to 180px  */
     "18": 180,
-  },
-
-  textStyles: {
-    caps: {
-      textTransform: "uppercase",
-    },
   },
 
   /**
