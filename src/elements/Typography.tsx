@@ -68,7 +68,6 @@ export interface TextProps
 
 export const Text = primitives.Text.attrs<TextProps>({})`
   ${fontFamilyHelper}
-  font-family: ${({ fontFamily }) => fontFamily || "inherit"};
   font-size: ${({ fontSize }) => fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;
   ${color};
@@ -146,7 +145,7 @@ function createStyledText<P extends StyledTextProps>(
           fontFamily={
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }
-          {...themeProps.typeSizes.sans[size]}
+          {...themeProps.typeSizes[fontType][size]}
           {...textProps}
         />
       )

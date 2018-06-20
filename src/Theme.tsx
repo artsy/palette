@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components"
 import { fontFamily } from "./platform/fonts"
 
 // @ts-ignore
-import { FontFamily} from './platform/fonts'
+import { FontFamily } from "./platform/fonts"
 
 // Notion: https://www.notion.so/artsy/Design-92030f16ed7c4c72bb3eb832b4243d04
 // API: https://jxnblk.com/styled-system/api
@@ -136,7 +136,7 @@ export const themeProps = {
    * https://www.notion.so/artsy/Typography-d1f9f6731f3d47c78003d6d016c30221
    */
   typeSizes: {
-    /** Avant Garde  */
+    /** Unica  */
     sans: {
       /** Equivalent to 10px size / 14px line-height  */
       "1": {
@@ -262,19 +262,19 @@ export const themeProps = {
         fontSize: 32,
         lineHeight: 38,
       },
-      /** Equivalent to 42px size / 50px line-height  */
+      /** Equivalent to 44px size / 50px line-height  */
       "10": {
-        fontSize: 42,
+        fontSize: 44,
         lineHeight: 50,
       },
-      /** Equivalent to 60px size / 66px line-height  */
+      /** Equivalent to 60px size / 70px line-height  */
       "12": {
         fontSize: 60,
-        lineHeight: 66,
+        lineHeight: 70,
       },
     },
 
-    /** Unica  */
+    /** Avant Garde  */
     display: {
       /** Equivalent to 10px size / 12px line-height  */
       "2": {
@@ -300,6 +300,11 @@ export const themeProps = {
       "6": {
         fontSize: 18,
         lineHeight: 22,
+      },
+      /** Equivalent to 22px size / 24px line-height  */
+      "8": {
+        fontSize: 22,
+        lineHeight: 24,
       },
     },
   },
