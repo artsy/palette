@@ -20,7 +20,7 @@
     "semantic-release": "semantic-release",
     "test": "yarn type-check && yarn jest",
     "type-check": "tsc --emitDeclarationOnly --pretty",
-    "type-declarations": "tsc --emitDeclarationOnly && rm dist/styled-system.d.*",
+    "type-declarations": "tsc --emitDeclarationOnly",
     "watch": "concurrently --raw --kill-others 'yarn compile -w' 'tsc --emitDeclarationOnly -w'"
   },
   "repository": {
