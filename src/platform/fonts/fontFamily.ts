@@ -1,11 +1,23 @@
 import { FontFamily } from "./index"
 
+const sansFallback = "'Helvetica Neue', Helvetica, Arial, sans-serif"
+
 export const fontFamily: FontFamily = {
   sans: {
-    regular: "Unica77LLWebRegular",
-    italic: "Unica77LLWebItalic",
-    medium: "Unica77LLWebMedium",
-    mediumItalic: "Unica77LLWebMediumItalic",
+    regular: `Unica77LLWebRegular, ${sansFallback}`,
+    italic: {
+      fontFamily: `Unica77LLWebItalic, ${sansFallback}`,
+      fontStyle: "italic",
+    },
+    medium: {
+      fontFamily: `Unica77LLWebMedium, ${sansFallback}`,
+      fontWeight: 500,
+    },
+    mediumItalic: {
+      fontFamily: `Unica77LLWebMediumItalic, ${sansFallback}`,
+      fontWeight: 500,
+      fontStyle: "italic",
+    },
   },
   serif: {
     regular:
