@@ -102,25 +102,25 @@ export const themeProps = {
   space: {
     // unit: px value
     /** Equivalent to 3px  */
-    "0.3": 3,
+    0.3: 3,
     /** Equivalent to 5px  */
-    "0.5": 5,
+    0.5: 5,
     /** Equivalent to 10px  */
-    "1": 10,
+    1: 10,
     /** Equivalent to 20px  */
-    "2": 20,
+    2: 20,
     /** Equivalent to 30px  */
-    "3": 30,
+    3: 30,
     /** Equivalent to 40px  */
-    "4": 40,
+    4: 40,
     /** Equivalent to 60px  */
-    "6": 60,
+    6: 60,
     /** Equivalent to 90px  */
-    "9": 90,
+    9: 90,
     /** Equivalent to 120px  */
-    "12": 120,
+    12: 120,
     /** Equivalent to 180px  */
-    "18": 180,
+    18: 180,
   },
 
   /**
@@ -303,9 +303,5 @@ export const themeProps = {
 }
 
 export const Theme = props => {
-  return (
-    <ThemeProvider theme={themeProps}>
-      {props.children}
-    </ThemeProvider>
-  )
+  return <ThemeProvider theme={themeProps}>{props.children}</ThemeProvider>
 }
