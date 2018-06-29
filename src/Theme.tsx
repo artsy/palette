@@ -1,6 +1,4 @@
 import React from "react"
-import reset from "styled-reset"
-import { GridThemeProvider, injectLayoutBaseCSS } from "styled-bootstrap-grid"
 import { ThemeProvider } from "styled-components"
 import { fontFamily } from "./platform/fonts"
 
@@ -304,37 +302,10 @@ export const themeProps = {
   },
 }
 
-export function injectGlobalCSS(styles = "") {
-  injectLayoutBaseCSS(`
-    ${reset};
-
-    html,
-    body,
-    #root {
-      height: 100%;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      font-family: 'AGaramondPro-Regular';
-      font-size: 16px;
-      line-height: 24px;
-    }
-
-    ${styles};
-  `)
-}
-
 export const Theme = props => {
   return (
     <ThemeProvider theme={themeProps}>
-      {/* TODO: Update for native */}
-      <GridThemeProvider gridTheme={themeProps.grid}>
-        {props.children}
-      </GridThemeProvider>
+      {props.children}
     </ThemeProvider>
   )
 }
