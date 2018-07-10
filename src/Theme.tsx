@@ -305,3 +305,6 @@ export const themeProps = {
 export const Theme = props => {
   return <ThemeProvider theme={themeProps}>{props.children}</ThemeProvider>
 }
+
+export type SpacingUnit = keyof typeof themeProps["space"]
+export type Color = keyof typeof themeProps["colors"]
