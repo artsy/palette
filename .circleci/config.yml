@@ -1,0 +1,70 @@
+version: 2
+jobs:
+  update-cache:
+    working_directory: ~/artsy/palette
+    docker:
+    - image: circleci/node:8
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - yarn-deps-{{ checksum "yarn.lock" }}
+        - yarn-deps-
+    - run: yarn --check-files
+    - save_cache:
+        key: yarn-deps-{{ checksum "yarn.lock" }}
+        paths:
+        - ./node_modules
+  type-check:
+    working_directory: ~/artsy/palette
+    docker:
+    - image: circleci/node:8
+    steps: 
+      - checkout
+      - restore_cache:
+          keys:
+          - yarn-deps-{{ checksum "yarn.lock" }}
+          - yarn-deps-
+      - run: yarn --check-files
+      - run: yarn type-check
+  lint:
+    working_directory: ~/artsy/palette
+    docker:
+    - image: circleci/node:8
+    steps: 
+      - checkout
+      - restore_cache:
+          keys:
+          - yarn-deps-{{ checksum "yarn.lock" }}
+          - yarn-deps-
+      - run: yarn --check-files
+      - run: yarn lint 
+  deploy:
+    working_directory: ~/artsy/palette
+    docker:
+    - image: circleci/node:8
+    steps:
+      - checkout
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - restore_cache:
+          keys:
+          - yarn-deps-{{ checksum "yarn.lock" }}
+          - yarn-deps-
+      - run: yarn --check-files
+      - run: yarn semantic-release
+workflows:
+  version: 2
+  build_and_verify:
+    jobs:
+      - update-cache
+      - type-check
+      - lint
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - update-cache
+            - lint
+            - type-check
