@@ -1,56 +1,59 @@
+defaults: &defaults
+  working_directory: ~/artsy/palette
+  docker:
+    - image: circleci/node:8
+  
+save_cache: &save_cache
+  save_cache:
+    key: yarn-deps-{{ checksum "yarn.lock" }}
+    paths:
+      - ./node_modules
+
+restore_cache: &restore_cache
+  restore_cache:
+    keys:
+    - yarn-deps-{{ checksum "yarn.lock" }}
+    - yarn-deps-
+      
+verify_dependencies: &verify_dependencies
+  run: yarn --check-files
+  
+filter_master: &filter_master
+  filters:
+    branches:
+      only:
+        - master
+
 version: 2
 jobs:
   update-cache:
-    working_directory: ~/artsy/palette
-    docker:
-    - image: circleci/node:8
+    <<: *defaults
     steps:
-    - checkout
-    - restore_cache:
-        keys:
-        - yarn-deps-{{ checksum "yarn.lock" }}
-        - yarn-deps-
-    - run: yarn --check-files
-    - save_cache:
-        key: yarn-deps-{{ checksum "yarn.lock" }}
-        paths:
-        - ./node_modules
-  type-check:
-    working_directory: ~/artsy/palette
-    docker:
-    - image: circleci/node:8
-    steps: 
       - checkout
-      - restore_cache:
-          keys:
-          - yarn-deps-{{ checksum "yarn.lock" }}
-          - yarn-deps-
-      - run: yarn --check-files
+      - <<: *restore_cache
+      - <<: *verify_dependencies
+      - <<: *save_cache
+  type-check:
+    <<: *defaults
+    steps:
+      - checkout
+      - <<: *restore_cache
+      - <<: *verify_dependencies
       - run: yarn type-check
   lint:
-    working_directory: ~/artsy/palette
-    docker:
-    - image: circleci/node:8
+    <<: *defaults
     steps: 
       - checkout
-      - restore_cache:
-          keys:
-          - yarn-deps-{{ checksum "yarn.lock" }}
-          - yarn-deps-
-      - run: yarn --check-files
-      - run: yarn lint 
+      - <<: *restore_cache
+      - <<: *verify_dependencies
+      - run: yarn lint
   deploy:
-    working_directory: ~/artsy/palette
-    docker:
-    - image: circleci/node:8
-    steps:
+    <<: *defaults
+    steps: 
       - checkout
+      - <<: *restore_cache
+      - <<: *verify_dependencies
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - restore_cache:
-          keys:
-          - yarn-deps-{{ checksum "yarn.lock" }}
-          - yarn-deps-
-      - run: yarn --check-files
       - run: yarn semantic-release
 workflows:
   version: 2
@@ -60,10 +63,7 @@ workflows:
       - type-check
       - lint
       - deploy:
-          filters:
-            branches:
-              only:
-                - master
+          <<: *filter_master
           requires:
             - update-cache
             - lint
