@@ -1,7 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import { styled as primitives } from "../platform/primitives"
-import { themeProps } from "../Theme"
+import {
+  themeProps,
+  TypeSizes,
+  SansSizes,
+  SerifSizes,
+  DisplaySizes,
+} from "../Theme"
 import { FontValue } from "../platform/fonts"
 
 // @ts-ignore
@@ -76,12 +82,11 @@ export const Text = primitives.Text.attrs<TextProps>({})`
   ${verticalAlign};
 `
 
-export type TypeSizes = typeof themeProps.typeSizes
 export type FontTypes = keyof TypeSizes
 export interface TypeSizeKeys {
-  sans: keyof TypeSizes["sans"]
-  serif: keyof TypeSizes["serif"]
-  display: keyof TypeSizes["display"]
+  sans: SansSizes
+  serif: SerifSizes
+  display: DisplaySizes
 }
 
 export type FontFamily = typeof themeProps["fontFamily"]
@@ -158,7 +163,7 @@ function createStyledText<P extends StyledTextProps>(
 export interface SansProps extends Partial<TextProps> {
   italic?: boolean
 
-  size: keyof typeof themeProps["typeSizes"]["sans"]
+  size: SansSizes
 
   /**
    * Explicitly specify `null` to inherit weight from parent, otherwise default
@@ -180,7 +185,7 @@ export const Sans = createStyledText<SansProps>("sans", (weight, italic) => {
 export interface SerifProps extends Partial<TextProps> {
   italic?: boolean
 
-  size: keyof typeof themeProps["typeSizes"]["serif"]
+  size: SerifSizes
 
   /**
    * Explicitly specify `null` to inherit weight from parent, otherwise default
@@ -203,7 +208,7 @@ export const Serif = createStyledText<SerifProps>("serif", (weight, italic) => {
  */
 
 export interface DisplayProps extends Partial<TextProps> {
-  size: keyof typeof themeProps["typeSizes"]["display"]
+  size: DisplaySizes
 
   /**
    * Explicitly specify `null` to inherit weight from parent, otherwise default
