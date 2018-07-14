@@ -73,7 +73,6 @@
   },
   "dependencies": {
     "react": "^16.3.2",
-    "react-primitives": "^0.5.0",
     "styled-system": "^2.2.5"
   },
   "lint-staged": {
