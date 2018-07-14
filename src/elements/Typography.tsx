@@ -4,9 +4,9 @@ import { styled as primitives } from "../platform/primitives"
 import {
   themeProps,
   TypeSizes,
-  SansSizes,
-  SerifSizes,
-  DisplaySizes,
+  SansSize,
+  SerifSize,
+  DisplaySize,
 } from "../Theme"
 import { FontValue } from "../platform/fonts"
 
@@ -84,9 +84,9 @@ export const Text = primitives.Text.attrs<TextProps>({})`
 
 export type FontTypes = keyof TypeSizes
 export interface TypeSizeKeys {
-  sans: SansSizes
-  serif: SerifSizes
-  display: DisplaySizes
+  sans: SansSize
+  serif: SerifSize
+  display: DisplaySize
 }
 
 export type FontFamily = typeof themeProps["fontFamily"]
@@ -163,7 +163,7 @@ function createStyledText<P extends StyledTextProps>(
 export interface SansProps extends Partial<TextProps> {
   italic?: boolean
 
-  size: SansSizes
+  size: SansSize
 
   /**
    * Explicitly specify `null` to inherit weight from parent, otherwise default
@@ -185,7 +185,7 @@ export const Sans = createStyledText<SansProps>("sans", (weight, italic) => {
 export interface SerifProps extends Partial<TextProps> {
   italic?: boolean
 
-  size: SerifSizes
+  size: SerifSize
 
   /**
    * Explicitly specify `null` to inherit weight from parent, otherwise default
@@ -208,7 +208,7 @@ export const Serif = createStyledText<SerifProps>("serif", (weight, italic) => {
  */
 
 export interface DisplayProps extends Partial<TextProps> {
-  size: DisplaySizes
+  size: DisplaySize
 
   /**
    * Explicitly specify `null` to inherit weight from parent, otherwise default
