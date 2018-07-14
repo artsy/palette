@@ -310,6 +310,6 @@ export type SpacingUnit = keyof typeof themeProps["space"]
 export type Color = keyof typeof themeProps["colors"]
 
 export type TypeSizes = typeof themeProps.typeSizes
-export type SansSizes = keyof TypeSizes["sans"]
-export type SerifSizes = keyof TypeSizes["serif"]
-export type DisplaySizes = keyof TypeSizes["display"]
+export type SansSize = keyof TypeSizes["sans"]
+export type SerifSize = keyof TypeSizes["serif"]
+export type DisplaySize = keyof TypeSizes["display"]
