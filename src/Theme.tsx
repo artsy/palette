@@ -310,6 +310,7 @@ export const Theme = props => {
 
 export type SpacingUnit = keyof typeof themeProps["space"]
 export type Color = keyof typeof themeProps["colors"]
+export type Breakpoint = keyof typeof breakpoints
 
 export type TypeSizes = typeof themeProps.typeSizes
 export type SansSize = keyof TypeSizes["sans"]
