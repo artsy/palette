@@ -9,4 +9,4 @@ export {
   SerifSize,
 } from "./Theme"
 export { Display, Sans, Serif } from "./elements/Typography"
-export { color, space } from "./helpers"
+export { color, space, media } from "./helpers"
