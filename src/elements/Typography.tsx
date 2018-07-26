@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import styled from "styled-components"
 import { styled as primitives } from "../platform/primitives"
 import {
@@ -68,6 +68,7 @@ export interface TextProps
   fontFamily?: string
   fontSize: number
   lineHeight: number
+  style?: CSSProperties
 }
 
 export const Text = primitives.Text.attrs<TextProps>({})`
