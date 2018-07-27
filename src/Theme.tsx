@@ -22,6 +22,7 @@ const breakpoints = {
   /** Below 767 */
   xs: 767,
 }
+
 /**
  * All of the config for the Artsy theming system, based on the
  * design system from our design team:
@@ -77,6 +78,8 @@ export const themeProps = {
     md: `(min-width: ${breakpoints.md}px) and (max-width: ${breakpoints.lg - 1}px)`,
     sm: `(min-width: ${breakpoints.sm}px) and (max-width: ${breakpoints.md - 1}px)`,
     xs: `(max-width: ${breakpoints.sm -1}px)`,
+    /** Determines if the input device has the notion of hover, e.g. mouse. */
+    hover: `not all and (pointer: coarse), not all and (-moz-touch-enabled: 1)`,
   },
 
   // https://github.com/dragma/styled-bootstrap-grid#styled-bootstrap-grid
