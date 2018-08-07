@@ -90,7 +90,7 @@ export const themeProps = {
      */
     breakpoints,
     container: {
-      padding: 40,
+      padding: 0,
     },
     row: {
       padding: 0,
