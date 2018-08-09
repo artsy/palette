@@ -21,7 +21,9 @@
     "test": "yarn type-check && yarn jest",
     "type-check": "tsc --emitDeclarationOnly --pretty",
     "type-declarations": "tsc --emitDeclarationOnly",
-    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'tsc --emitDeclarationOnly -w'"
+    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'tsc --emitDeclarationOnly -w'",
+    "docs": "docz dev",
+    "docs:build": "docz build"
   },
   "repository": {
     "type": "git",
@@ -55,6 +57,8 @@
     "babel-jest": "^23.0.1",
     "concurrently": "^3.5.1",
     "conventional-changelog-ember": "^2.0.0",
+    "docz": "^0.9.6",
+    "docz-theme-default": "^0.9.6",
     "husky": "^0.14.3",
     "jest": "^23.1.0",
     "lint-staged": "^7.2.0",
