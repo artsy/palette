@@ -1,5 +1,6 @@
 ---
 name: Introduction
+route: /
 ---
 
 # Introduction
