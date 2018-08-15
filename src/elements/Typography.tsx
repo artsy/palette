@@ -69,6 +69,11 @@ export interface TextProps
   fontSize: number
   lineHeight: number
   style?: CSSProperties
+  /**
+   * React Native specific, allows you to tell the native renderers whether
+   * this field could be multi-line or not.
+   */
+  numberOfLines?: number
 }
 
 export const Text = primitives.Text.attrs<TextProps>({})`
