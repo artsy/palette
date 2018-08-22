@@ -32,6 +32,11 @@ export const themeProps = {
   borders: [0, "2px solid"],
 
   /**
+   *  This allows styled-system to hook into our breakpoints
+   */
+  breakpoints: [breakpoints.sm, breakpoints.md, breakpoints.lg, breakpoints.xl],
+
+  /**
    * Artsy's color schemes:
    * https://www.notion.so/artsy/Color-a0c24896daf8433d9409aee2146ac267
    */
