@@ -70,10 +70,16 @@ export interface TextProps
   lineHeight: number
   style?: CSSProperties
   /**
-   * React Native specific, allows you to tell the native renderers whether
+   * React Native specific. Allows you to tell the native renderers whether
    * this field could be multi-line or not.
    */
   numberOfLines?: number
+  /**
+   * React Native specific. When `numberOfLines` is set, this prop defines how 
+   * text will be truncated. `numberOfLines` must be set in conjunction with 
+   * this prop.
+   */
+  ellipsizeMode?: string
 }
 
 export const Text = primitives.Text.attrs<TextProps>({})`
