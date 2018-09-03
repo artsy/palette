@@ -312,15 +312,25 @@ export const themeProps = {
   },
 }
 
+/**
+ * A wrapper component for passing down the Artsy theme context
+ */
 export const Theme = props => {
   return <ThemeProvider theme={themeProps}>{props.children}</ThemeProvider>
 }
 
+/** All available px spacing maps */
 export type SpacingUnit = keyof typeof themeProps["space"]
+/** All available color keys */
 export type Color = keyof typeof themeProps["colors"]
+/** All available width breakpoint */
 export type Breakpoint = keyof typeof breakpoints
 
+/** All available type sizes */
 export type TypeSizes = typeof themeProps.typeSizes
+/** All available sizes for our sans font */
 export type SansSize = keyof TypeSizes["sans"]
+/** All available sizes for our serif font */
 export type SerifSize = keyof TypeSizes["serif"]
+/** All available sizes for our display font */
 export type DisplaySize = keyof TypeSizes["display"]
