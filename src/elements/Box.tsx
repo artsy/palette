@@ -1,7 +1,6 @@
 import { color, space } from "../helpers"
 // @ts-ignore
 import React from "react"
-// import { media } from "styled-bootstrap-grid"
 import { styled as primitives, styledWrapper } from "../platform/primitives"
 import {
   background,
@@ -55,23 +54,6 @@ export const BorderBox = styledWrapper(Flex).attrs<BorderBoxProps>({})`
   ${styledSpace};
   ${width};
 `
-
-// export const StackableBorderBox = styled(BorderBox)`
-//   :not(:first-child) {
-//     border-top-left-radius: 0;
-//     border-top-right-radius: 0;
-//   }
-//   :not(:last-child) {
-//     border-bottom: 0;
-//     border-bottom-left-radius: 0;
-//     border-bottom-right-radius: 0;
-//   }
-
-//   ${media.sm`
-//     padding: ${space(3)}px;
-//     ${styledSpace};
-//   `};
-// `
 
 export interface BoxProps
   extends BackgroundProps,
