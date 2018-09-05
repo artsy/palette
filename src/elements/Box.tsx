@@ -45,6 +45,10 @@ export interface BorderBoxProps
   hover?: boolean
 }
 
+/**
+ * A `View` or `div` (depending on the platform) that has a common border
+ * and padding set by default
+ */
 export const BorderBox = styledWrapper(Flex).attrs<BorderBoxProps>({})`
   border: 1px solid ${color("black10")};
   border-radius: 2px;
@@ -92,6 +96,10 @@ export interface BoxProps
     WidthProps,
     ZIndexProps {}
 
+/**
+ * Box is just a `View` or `div` (depending on the platform) with common styled-systems
+ * hooks.
+ */
 export const Box = primitives.View.attrs<BoxProps>({})`
   ${background};
   ${bottom};

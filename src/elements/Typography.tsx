@@ -75,14 +75,14 @@ export interface TextProps
    */
   numberOfLines?: number
   /**
-   * React Native specific. When `numberOfLines` is set, this prop defines how 
-   * text will be truncated. `numberOfLines` must be set in conjunction with 
+   * React Native specific. When `numberOfLines` is set, this prop defines how
+   * text will be truncated. `numberOfLines` must be set in conjunction with
    * this prop.
    */
   ellipsizeMode?: string
 }
 
-export const Text = primitives.Text.attrs<TextProps>({})`
+const Text = primitives.Text.attrs<TextProps>({})`
   ${fontFamilyHelper};
   font-size: ${({ fontSize }) => fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;
@@ -94,14 +94,22 @@ export const Text = primitives.Text.attrs<TextProps>({})`
   ${verticalAlign};
 `
 
+/**
+ * The supported typefaces
+ */
 export type FontTypes = keyof TypeSizes
+
 export interface TypeSizeKeys {
   sans: SansSize
   serif: SerifSize
   display: DisplaySize
 }
 
+/**
+ *
+ */
 export type FontFamily = typeof themeProps["fontFamily"]
+
 export type FontWeights =
   | keyof FontFamily["sans"]
   | keyof FontFamily["serif"]
@@ -184,6 +192,14 @@ export interface SansProps extends Partial<TextProps> {
   weight?: null | "regular" | "medium"
 }
 
+/**
+ * The Sans typeface is used for presenting objective dense information
+ * (such as tables) and intervening communications (such as error feedback).
+ *
+ * @example
+ *
+ * <Sans color="black10" size="3t" weight="medium" italic>Hi</Sans>
+ */
 export const Sans = createStyledText<SansProps>("sans", (weight, italic) => {
   return italic && weight === "medium"
     ? "mediumItalic"
@@ -206,6 +222,14 @@ export interface SerifProps extends Partial<TextProps> {
   weight?: null | "regular" | "semibold"
 }
 
+/**
+ * The Serif typeface is used as the primary Artsy voice, guiding users through
+ * flows, instruction, and communications.
+ *
+ * @example
+ *
+ * <Serif color="black10" size="3t" weight="semibold">Hi</Serif>
+ */
 export const Serif = createStyledText<SerifProps>("serif", (weight, italic) => {
   if (italic && weight && weight !== "regular") {
     throw new Error(
@@ -214,10 +238,6 @@ export const Serif = createStyledText<SerifProps>("serif", (weight, italic) => {
   }
   return _selectFontFamilyType(weight, italic)
 })
-
-/**
- * Display
- */
 
 export interface DisplayProps extends Partial<TextProps> {
   size: DisplaySize
@@ -229,4 +249,13 @@ export interface DisplayProps extends Partial<TextProps> {
   weight?: null | "regular"
 }
 
+/**
+ * The Display typeface has limited utility and is in the process of being
+ * phased out in most places. Ask your friendly neighborhood design team member
+ * if you're unsure if it should be used.
+ *
+ * @example
+ *
+ * <Display color="black10" size="3t">Hi</Display>
+ */
 export const Display = createStyledText<DisplayProps>("display")

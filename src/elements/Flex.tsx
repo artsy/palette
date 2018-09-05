@@ -57,6 +57,9 @@ export interface FlexProps
   flexGrow?: number | string
 }
 
+/**
+ * A utility component that encapsulates flexbox behavior
+ */
 export const Flex = primitives.View.attrs<FlexProps>({})`
   display: flex;
   ${alignContent};
