@@ -1,5 +1,8 @@
 import { FontFamily } from "./index"
 
+/**
+ * A map of the font families and their settings
+ */
 export const fontFamily: FontFamily = {
   sans: {
     regular: "Unica77LL-Regular",

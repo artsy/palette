@@ -1,3 +1,5 @@
+/* tslint:disable:completed-docs */
+
 import styles from "styled-components"
 
 // @ts-ignore

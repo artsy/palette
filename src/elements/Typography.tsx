@@ -106,10 +106,13 @@ export interface TypeSizeKeys {
 }
 
 /**
- *
+ * Any valid font family
  */
 export type FontFamily = typeof themeProps["fontFamily"]
 
+/**
+ * Any valid font weight
+ */
 export type FontWeights =
   | keyof FontFamily["sans"]
   | keyof FontFamily["serif"]
