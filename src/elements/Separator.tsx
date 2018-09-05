@@ -7,6 +7,9 @@ import { space, SpaceProps, width, WidthProps } from "styled-system"
 
 interface SeparatorProps extends SpaceProps, WidthProps {}
 
+/**
+ * A horizontal divider whose width and spacing can be adjusted
+ */
 export const Separator = primitives.View.attrs<SeparatorProps>({})`
   border: 1px solid ${color("black10")};
   border-bottom-width: 0;

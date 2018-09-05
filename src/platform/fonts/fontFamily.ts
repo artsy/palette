@@ -2,6 +2,9 @@ import { FontFamily } from "./index"
 
 const sansFallback = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 
+/**
+ * A map of the font families and their settings
+ */
 export const fontFamily: FontFamily = {
   sans: {
     regular: `Unica77LLWebRegular, ${sansFallback}`,
