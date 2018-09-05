@@ -5,24 +5,30 @@ import { Flex, FlexProps } from "./Flex"
 import { Sans } from "../elements/Typography"
 import { SansSize } from "../Theme"
 
-export const StyledFlex = Flex.extend`
+const StyledFlex = Flex.extend`
   background-color: ${color("black5")};
   border-radius: 2px;
 `
 
 interface MessageProps extends FlexProps {
   children: React.ReactNode | null
-  size?: SansSize
+  /**
+   * Size of text to display in message window
+   */
+  textSize?: SansSize
 }
 
+/**
+ * A generic message window for displaying ZerStates, notices, errors, etc.
+ */
 export const Message: SFC<MessageProps> = ({
   children,
-  size = "3t",
+  textSize = "3t",
   ...others
 }) => {
   return (
     <StyledFlex p={2} {...others}>
-      <Sans size={size} color={color("black60")} weight="regular">
+      <Sans size={textSize} color={color("black60")} weight="regular">
         {children}
       </Sans>
     </StyledFlex>

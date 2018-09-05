@@ -1,7 +1,7 @@
 import { color, space } from "../helpers"
 // @ts-ignore
 import React from "react"
-import { styled as primitives, styledWrapper } from "../platform/primitives"
+import { styled as primitives } from "../platform/primitives"
 import {
   background,
   BackgroundProps,
@@ -48,7 +48,7 @@ export interface BorderBoxProps
  * A `View` or `div` (depending on the platform) that has a common border
  * and padding set by default
  */
-export const BorderBox = styledWrapper(Flex).attrs<BorderBoxProps>({})`
+export const BorderBox = Flex.extend.attrs<BorderBoxProps>({})`
   border: 1px solid ${color("black10")};
   border-radius: 2px;
   padding: ${space(2)}px;
