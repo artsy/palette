@@ -1,0 +1,47 @@
+---
+name: Radio
+---
+
+import { Playground, PropsTable } from 'docz'
+import { Toggle } from "react-powerplug"
+import { Radio } from '../src'
+
+# Radio
+
+## With state
+
+<Playground>
+  <Toggle>
+    {({ on, toggle }) => (
+      <Radio selected={on} onSelect={toggle}>
+        Click me
+      </Radio>
+    )}
+  </Toggle>
+</Playground>
+
+## Hover
+
+<Playground>
+  <Radio hover>Click me</Radio>
+</Playground>
+
+## Selected
+
+<Playground>
+  <Radio selected>Selected</Radio>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Radio disabled>Disabled</Radio>
+</Playground>
+
+## Selected and disabled
+
+<Playground>
+  <Radio selected disabled>
+    Disabled
+  </Radio>
+</Playground>
