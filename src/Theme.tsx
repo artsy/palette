@@ -9,8 +9,11 @@ import { FontFamily } from "./platform/fonts"
 // API: https://jxnblk.com/styled-system/api
 // Table: https://jxnblk.com/styled-system/table
 
-// https://www.notion.so/artsy/Grid-e489a52e26bd4319b6ee7898044a8a53
-const breakpoints = {
+/**
+ * A list of breakpoints accessible by key/value. See:
+ * https://www.notion.so/artsy/Grid-e489a52e26bd4319b6ee7898044a8a53
+ */
+export const breakpoints = {
   /** Above 1192 */
   xl: 1192,
   /** Between 1024 and  1191 */
