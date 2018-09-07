@@ -6,6 +6,13 @@ import { media, space } from "../helpers"
  * A stackable border box is a BorderBox that shares borders with its siblings.
  */
 export const StackableBorderBox = BorderBox.extend`
+  padding: ${space(3)}px;
+
+  ${media.sm`
+    padding: ${space(2)}px;
+    ${styledSpace};
+  `};
+
   :not(:first-child) {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -15,9 +22,4 @@ export const StackableBorderBox = BorderBox.extend`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-
-  ${media.xs`
-    padding: ${space(3)}px;
-    ${styledSpace};
-  `};
 `
