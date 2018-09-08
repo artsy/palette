@@ -1,4 +1,5 @@
 import { styled as primitives } from "../platform/primitives"
+
 import {
   alignContent,
   AlignContentProps,
@@ -36,7 +37,6 @@ import { ClassAttributes, HTMLAttributes } from "react"
 
 const flexGrow = style({
   prop: "flexGrow",
-  // numberToPx: false,
 })
 
 export interface FlexProps

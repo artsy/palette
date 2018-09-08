@@ -2,7 +2,7 @@ defaults: &defaults
   working_directory: ~/artsy/palette
   docker:
     - image: circleci/node:8
-  
+
 save_cache: &save_cache
   save_cache:
     key: yarn-deps-{{ checksum "yarn.lock" }}
@@ -12,12 +12,12 @@ save_cache: &save_cache
 restore_cache: &restore_cache
   restore_cache:
     keys:
-    - yarn-deps-{{ checksum "yarn.lock" }}
-    - yarn-deps-
-      
+      - yarn-deps-{{ checksum "yarn.lock" }}
+      - yarn-deps-
+
 verify_dependencies: &verify_dependencies
   run: yarn --check-files
-  
+
 filter_master: &filter_master
   filters:
     branches:
@@ -42,14 +42,21 @@ jobs:
       - run: yarn type-check
   lint:
     <<: *defaults
-    steps: 
+    steps:
       - checkout
       - <<: *restore_cache
       - <<: *verify_dependencies
       - run: yarn lint
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - <<: *restore_cache
+      - <<: *verify_dependencies
+      - run: yarn test
   deploy:
     <<: *defaults
-    steps: 
+    steps:
       - checkout
       - <<: *restore_cache
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
@@ -61,10 +68,12 @@ workflows:
       - update-cache
       - type-check
       - lint
+      - test
       - deploy:
           context: npm-deploy
           <<: *filter_master
           requires:
             - update-cache
-            - lint
             - type-check
+            - lint
+            - test

@@ -1,9 +1,12 @@
 import React, { SFC } from "react"
-
 import { color } from "../helpers"
-import { Flex, FlexProps } from "./Flex"
-import { Sans } from "../elements/Typography"
 import { SansSize } from "../Theme"
+import { Flex, FlexProps } from "./Flex"
+import { Sans } from "./Typography"
+
+/**
+ * Spec: zpl.io/2Zg4Rdq
+ */
 
 const StyledFlex = Flex.extend`
   background-color: ${color("black5")};
@@ -20,6 +23,8 @@ interface MessageProps extends FlexProps {
 
 /**
  * A generic message window for displaying ZerStates, notices, errors, etc.
+ *
+ * Spec: zpl.io/2Zg4Rdq
  */
 export const Message: SFC<MessageProps> = ({
   children,

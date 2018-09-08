@@ -1,6 +1,6 @@
+import { css } from "styled-components"
 import { color } from "../../helpers"
 import { BorderBoxBase } from "./BorderBoxBase"
-import { css } from "styled-components"
 
 /**
  * A `div` that has a common border and padding set by default, with an optional

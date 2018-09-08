@@ -3,6 +3,10 @@ import React from "react"
 import styled from "styled-components"
 import { space, SpaceProps } from "styled-system"
 
+/**
+ * Spec: TODO
+ */
+
 const sizeValue = ({ size = "" }) => {
   switch (size) {
     case "small":

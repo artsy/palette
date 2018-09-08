@@ -16,14 +16,10 @@
         "name": "typescript-styled-plugin"
       }
     ],
-    "paths": {
-      "Assets/*": ["./Assets/*"]
-    },
     "rootDir": "src",
     "declaration": true,
-    "strict": true,
     "noImplicitAny": false
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules/*", "dist", "src/**/__tests__"]
+  "exclude": ["node_modules/*", "dist"]
 }
