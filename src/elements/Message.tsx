@@ -1,9 +1,9 @@
 import React, { SFC } from "react"
 
-import { color } from "../helpers"
+import { color } from "helpers"
 import { Flex, FlexProps } from "./Flex"
-import { Sans } from "../elements/Typography"
-import { SansSize } from "../Theme"
+import { Sans } from "elements/Typography"
+import { SansSize } from "Theme"
 
 const StyledFlex = Flex.extend`
   background-color: ${color("black5")};

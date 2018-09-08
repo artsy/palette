@@ -1,4 +1,4 @@
-import { color, space } from "../../helpers"
+import { color, space } from "helpers"
 // @ts-ignore
 import React from "react"
 import {
@@ -14,7 +14,7 @@ import {
   WidthProps,
 } from "styled-system"
 
-import { Flex, FlexProps } from "../Flex"
+import { Flex, FlexProps } from "elements/Flex"
 
 export interface BorderBoxProps
   extends BackgroundProps,

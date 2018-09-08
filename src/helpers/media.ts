@@ -1,4 +1,4 @@
-import { breakpoints } from "../Theme"
+import { breakpoints } from "Theme"
 import { css } from "styled-components"
 
 type Media = { [S in keyof typeof breakpoints]: typeof css }

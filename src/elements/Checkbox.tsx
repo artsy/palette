@@ -1,4 +1,4 @@
-import { color, space } from "../helpers"
+import { color, space } from "helpers"
 import React from "react"
 import styled, { css } from "styled-components"
 import {

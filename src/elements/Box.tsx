@@ -1,6 +1,6 @@
 // @ts-ignore
 import React from "react"
-import { styled as primitives } from "../platform/primitives"
+import { styled as primitives } from "platform/primitives"
 import {
   background,
   BackgroundProps,

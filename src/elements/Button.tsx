@@ -1,5 +1,5 @@
-import { Sans, themeProps } from "../"
-import { SansProps } from "../elements/Typography"
+import { Sans, themeProps } from "index"
+import { SansProps } from "elements/Typography"
 import { Spinner } from "./Spinner"
 import React, { Component, ReactNode } from "react"
 import styled, { css } from "styled-components"

@@ -1,6 +1,6 @@
 import { BorderBox } from "./BorderBox"
 import { space as styledSpace } from "styled-system"
-import { media, space } from "../helpers"
+import { media, space } from "helpers"
 
 /**
  * A stackable border box is a BorderBox that shares borders with its siblings.
