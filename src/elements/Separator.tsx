@@ -5,7 +5,7 @@ import { color } from "helpers"
 import { styled as primitives } from "platform/primitives"
 import { space, SpaceProps, width, WidthProps } from "styled-system"
 
-interface SeparatorProps extends SpaceProps, WidthProps {}
+export interface SeparatorProps extends SpaceProps, WidthProps {}
 
 /**
  * A horizontal divider whose width and spacing can be adjusted

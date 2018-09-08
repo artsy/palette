@@ -10,17 +10,23 @@ import {
 } from "styled-system"
 import { Flex, FlexProps } from "./Flex"
 
+/**
+ * Spec: zpl.io/bAvnwlB
+ */
+
 const SIZE = 2
 const BORDER_WIDTH = 2
 
 export interface CheckboxProps {
+  /** Disable checkbox interactions */
   disabled?: boolean
+  /** Select the checkbox on render */
   selected?: boolean
+  /** Show an error indicator */
   error?: boolean
-  /**
-   * Used to force the checkbox into the visual hover state. Useful for testing.
-   */
+  /** Used to force the checkbox into the visual hover state */
   hover?: boolean
+  /** Callback when selected */
   onSelect?: (selected: boolean) => void
 }
 
@@ -30,6 +36,9 @@ export interface CheckboxToggleProps
     SizeProps,
     SpaceProps {}
 
+/**
+ * A checkbox
+ */
 export class Checkbox extends React.Component<CheckboxProps> {
   labelColor = () => {
     const { disabled, error } = this.props

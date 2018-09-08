@@ -16,9 +16,13 @@ import {
 } from "styled-system"
 
 export interface BaseImageProps {
+  /** The url for the image */
   src: string
+  /** Alternate text for image */
   alt?: string
+  /** A11y text label */
   ariaLabel?: string
+  /** Apply additional styles to component */
   style?: object
 }
 
@@ -28,6 +32,9 @@ export interface ImageProps
     WidthProps,
     HeightProps {}
 
+/**
+ * Image component with space, width and height properties
+ */
 export const Image = styled.img.attrs<ImageProps>({})`
   ${space};
   ${width};
@@ -41,6 +48,9 @@ export interface ResponsiveImageProps
     RatioProps,
     MaxWidthProps {}
 
+/**
+ * An Image component that responsively resizes within its environment
+ */
 export const ResponsiveImage = styled.div.attrs<ResponsiveImageProps>({})`
   background: url(${props => props.src});
   background-size: contain;

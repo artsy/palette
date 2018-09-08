@@ -1,17 +1,14 @@
+// @ts-ignore
 import React from "react"
-
 import styled, { keyframes } from "styled-components"
 
-interface Props extends React.HTMLProps<Spinner> {
+export interface SpinnerProps {
+  /** Width of the spinner */
   width?: number
+  /** Height of the spinner */
   height?: number
-  spinnerSize?: "small" | "medium" | "large"
-}
-
-export class Spinner extends React.Component<Props> {
-  render() {
-    return <div className={this.props.className} />
-  }
+  /** Size of the spinner */
+  size?: "small" | "medium" | "large"
 }
 
 const spin = keyframes`
@@ -23,7 +20,6 @@ const spin = keyframes`
 const getSize = props => {
   const base = { width: 25, height: 6 }
 
-  // tslint:disable-next-line
   switch (props.spinnerSize) {
     case "small":
       return {
@@ -48,12 +44,13 @@ const getSize = props => {
   }
 }
 
-export const StyledSpinner = styled(Spinner)`
+/** Generic Spinner component */
+export const Spinner = styled.div.attrs<SpinnerProps>({})`
   background: black;
   animation: ${spin} 1s infinite linear;
   position: absolute;
 
-  ${(props: Props) => {
+  ${props => {
     const { width, height } = getSize(props)
 
     return `
@@ -65,7 +62,7 @@ export const StyledSpinner = styled(Spinner)`
   }};
 `
 
-StyledSpinner.defaultProps = {
+Spinner.defaultProps = {
   width: 25,
   height: 6,
 }

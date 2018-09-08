@@ -1,14 +1,14 @@
+import { FontValue } from "platform/fonts"
+import { styled as primitives } from "platform/primitives"
 import React, { CSSProperties } from "react"
 import styled from "styled-components"
-import { styled as primitives } from "platform/primitives"
 import {
-  themeProps,
-  TypeSizes,
+  DisplaySize,
   SansSize,
   SerifSize,
-  DisplaySize,
+  themeProps,
+  TypeSizes,
 } from "../Theme"
-import { FontValue } from "platform/fonts"
 
 // @ts-ignore
 import { StyledComponentClass } from "styled-components"
@@ -22,10 +22,14 @@ import {
   MaxWidthProps,
   space,
   SpaceProps,
+  style,
   textAlign,
   TextAlignProps,
-  style,
 } from "styled-system"
+
+/**
+ * Spec: https://www.notion.so/artsy/Typography-d1f9f6731f3d47c78003d6d016c30221
+ */
 
 export interface VerticalAlignProps {
   verticalAlign?:

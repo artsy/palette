@@ -1,7 +1,7 @@
+import { color, space } from "helpers"
 import React from "react"
 import styled, { css } from "styled-components"
 import { Flex, FlexProps } from "./Flex"
-import { color, space } from "helpers"
 
 import {
   BorderProps,
@@ -11,12 +11,22 @@ import {
   SpaceProps,
 } from "styled-system"
 
+/**
+ * Spec: zpl.io/bAvnwlB
+ */
+
 export interface RadioProps extends FlexProps {
-  selected?: boolean
+  /** Disable interactions */
   disabled?: boolean
+  /** Select the button on render */
+  selected?: boolean
+  /** Show hover state on render */
   hover?: boolean
+  /** Callback when selected */
   onSelect?: (selected: { selected: boolean; value: string }) => void
+  /** Value of radio button */
   value?: string
+  /** Name of the radio button */
   name?: string
 }
 
@@ -26,60 +36,64 @@ export interface RadioToggleProps
     SizeProps,
     SpaceProps {}
 
-export const Radio = styled(
-  class extends React.Component<RadioProps> {
-    render() {
-      const {
-        children,
-        disabled,
-        hover,
-        name,
-        onSelect,
-        selected,
-        value,
-        ...others
-      } = this.props
+/**
+ * A Radio button
+ *
+ * Spec: zpl.io/bAvnwlB
+ */
+export const Radio: React.SFC<RadioProps> = props => {
+  const {
+    children,
+    disabled,
+    hover,
+    name,
+    onSelect,
+    selected,
+    value,
+    ...others
+  } = props
 
-      return (
-        <Container
-          disabled={disabled}
-          alignItems="center"
-          selected={selected}
-          hover={hover}
-          onClick={() =>
-            !disabled && onSelect && onSelect({ selected: !selected, value })
-          }
-          {...others}
-        >
-          <RadioButton
-            role="presentation"
-            border={1}
-            mr={1}
-            mt="2px"
-            mb="-2px"
-            selected={selected}
-            disabled={disabled}
-          >
-            <InnerCircle />
-          </RadioButton>
-          <HiddenInput
-            type="radio"
-            name={name}
-            checked={selected}
-            disabled={disabled}
-            onChange={() =>
-              !disabled && onSelect && onSelect({ selected: !selected, value })
-            }
-          />
-          <Label htmlFor={name} disabled={disabled}>
-            {children}
-          </Label>
-        </Container>
-      )
-    }
-  }
-).attrs<RadioProps>({})``
+  return (
+    <Container
+      disabled={disabled}
+      alignItems="center"
+      selected={selected}
+      hover={hover}
+      onClick={() =>
+        !disabled && onSelect && onSelect({ selected: !selected, value })
+      }
+      {...others}
+    >
+      <RadioButton
+        role="presentation"
+        border={1}
+        mr={1}
+        mt="2px"
+        mb="-2px"
+        selected={selected}
+        disabled={disabled}
+      >
+        <InnerCircle />
+      </RadioButton>
+      <HiddenInput
+        type="radio"
+        name={name}
+        checked={selected}
+        disabled={disabled}
+        onChange={() =>
+          !disabled && onSelect && onSelect({ selected: !selected, value })
+        }
+      />
+      <Label htmlFor={name} disabled={disabled}>
+        {children}
+      </Label>
+    </Container>
+  )
+}
 
+/**
+ * A radio button with a border
+ */
 export const BorderedRadio = styled(Radio).attrs<RadioProps>({
   p: 2,
 })`

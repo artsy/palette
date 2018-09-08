@@ -1,8 +1,8 @@
-import { Sans, themeProps } from "index"
 import { SansProps } from "elements/Typography"
-import { Spinner } from "./Spinner"
+import { Sans, themeProps } from "index"
 import React, { Component, ReactNode } from "react"
 import styled, { css } from "styled-components"
+import { Spinner } from "./Spinner"
 
 import {
   BorderProps,
@@ -19,9 +19,15 @@ import {
   WidthProps,
 } from "styled-system"
 
+/**
+ * Spec: zpl.io/2j8Knq6
+ */
+
+/** The size of the button */
 export type ButtonSize = "small" | "medium" | "large"
 const defaultSize: ButtonSize = "medium"
 
+/** Different theme variations */
 export type ButtonVariant =
   | "primaryBlack"
   | "primaryWhite"
@@ -32,44 +38,43 @@ const defaultVariant: ButtonVariant = "primaryBlack"
 
 export interface ButtonProps extends ButtonBaseProps {
   children: ReactNode
+  /** The size of the button */
   size?: ButtonSize
+  /** The theme of the button */
   variant?: ButtonVariant
 }
 
-export const Button = styled(
-  class extends Component<ButtonProps> {
-    static defaultProps = {
-      size: defaultSize,
-      variant: defaultVariant,
-      theme: themeProps,
+/** A button with various size and color settings */
+export class Button extends Component<ButtonProps> {
+  static defaultProps = {
+    size: defaultSize,
+    variant: defaultVariant,
+    theme: themeProps,
+  }
+
+  getSize(): { height: string; size: "2" | "3t"; px: number } {
+    let sizeConfig
+
+    switch (this.props.size) {
+      case "small":
+        sizeConfig = { height: "26px", size: "2", px: 1 }
+      case "medium":
+        sizeConfig = { height: "41px", size: "3t", px: 2 }
+      case "large":
+        sizeConfig = { height: "50px", size: "3t", px: 3 }
     }
 
-    getSize(): { height: string; size: "2" | "3t"; px: number } {
-      const { size } = this.props
-      let sizeConfig
+    return sizeConfig
+  }
 
-      switch (size) {
-        case "small":
-          sizeConfig = { height: "26px", size: "2", px: 1 }
-        case "medium":
-          sizeConfig = { height: "41px", size: "3t", px: 2 }
-        case "large":
-          sizeConfig = { height: "50px", size: "3t", px: 3 }
-      }
+  getVariant() {
+    switch (this.props.variant) {
+      case "primaryBlack":
+        return css`
+          ${props => {
+            const { colors } = props.theme
 
-      return sizeConfig
-    }
-
-    getVariant() {
-      const { variant } = this.props
-
-      switch (variant) {
-        case "primaryBlack":
-          return css`
-            ${props => {
-              const { colors } = props.theme
-
-              return `
+            return `
                 background-color: ${colors.black100};
                 border-color: ${colors.black100};
                 color: ${colors.white100};
@@ -82,14 +87,14 @@ export const Button = styled(
                   }
                 }
               `
-            }};
-          `
-        case "primaryWhite":
-          return css`
-            ${props => {
-              const { colors } = props.theme
+          }};
+        `
+      case "primaryWhite":
+        return css`
+          ${props => {
+            const { colors } = props.theme
 
-              return `
+            return `
                 background-color: ${colors.white100};
                 border-color: ${colors.white100};
                 color: ${colors.black100};
@@ -102,14 +107,14 @@ export const Button = styled(
                   }
                 }
               `
-            }};
-          `
-        case "secondaryGray":
-          return css`
-            ${props => {
-              const { colors } = props.theme
+          }};
+        `
+      case "secondaryGray":
+        return css`
+          ${props => {
+            const { colors } = props.theme
 
-              return `
+            return `
                 background-color: ${colors.black10};
                 border-color: ${colors.black10};
                 color: ${colors.black100};
@@ -122,13 +127,13 @@ export const Button = styled(
                   }
                 }
               `
-            }};
-          `
-        case "secondaryOutline":
-          return css`
-            ${props => {
-              const { colors } = props.theme
-              return `
+          }};
+        `
+      case "secondaryOutline":
+        return css`
+          ${props => {
+            const { colors } = props.theme
+            return `
                 background-color: ${colors.white100};
                 border-color: ${colors.black10};
                 color: ${colors.black100};
@@ -141,38 +146,36 @@ export const Button = styled(
                   }
                 }
               `
-            }};
-          `
-        case "noOutline":
-          return css`
-            ${props => {
-              const { colors } = props.theme
-              return `
+          }};
+        `
+      case "noOutline":
+        return css`
+          ${props => {
+            const { colors } = props.theme
+            return `
                 background-color: transparent;
                 border-color: transparent;
                 color: ${colors.black60};
               `
-            }};
-          `
-        default:
-      }
-    }
-
-    render() {
-      const buttonProps = {
-        ...this.props,
-        ...this.getSize(),
-        buttonSize: this.props.size,
-        variantStyles: this.getVariant(),
-      }
-
-      return <ButtonBase {...buttonProps}>{this.props.children}</ButtonBase>
+          }};
+        `
+      default:
     }
   }
-)`
-  ${space};
-`
 
+  render() {
+    const buttonProps = {
+      ...this.props,
+      ...this.getSize(),
+      buttonSize: this.props.size,
+      variantStyles: this.getVariant(),
+    }
+
+    return <ButtonBase {...buttonProps}>{this.props.children}</ButtonBase>
+  }
+}
+
+/** Base props that construct button */
 export interface ButtonBaseProps
   extends BorderProps,
     BorderRadiusProps,
@@ -181,12 +184,17 @@ export interface ButtonBaseProps
     WidthProps,
     HeightProps {
   buttonSize?: ButtonSize
+  /** Displays a loader in the button */
   loading?: boolean
+  /** Disabled interactions */
   disabled?: boolean
+  /** Callback on click */
   onClick?: (e) => void
+  /** Additional styles to apply to the variant */
   variantStyles?: any // FIXME
 }
 
+/** A base from which various button implementations can compose from */
 export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
   static defaultProps = {
     border: 1,
@@ -209,7 +217,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
 
     return (
       <Container {...rest} className={[loadingClass, disabledClass].join(" ")}>
-        {loading && <Spinner spinnerSize={this.props.buttonSize} />}
+        {loading && <Spinner size={this.props.buttonSize} />}
 
         <Sans pt="1px" weight={weight || "medium"} color={color} size={size}>
           {children}
@@ -220,6 +228,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
 }
 
 const Container = styled.button.attrs<ButtonBaseProps>({})`
+  cursor: pointer;
   position: relative;
 
   ${borders};
@@ -228,8 +237,6 @@ const Container = styled.button.attrs<ButtonBaseProps>({})`
   ${textAlign};
   ${width};
   ${height};
-
-  cursor: pointer;
 
   ${props => {
     if (!props.loading) {
