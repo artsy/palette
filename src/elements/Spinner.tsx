@@ -17,10 +17,10 @@ const spin = keyframes`
   }
 `
 
-const getSize = props => {
+const getSize = (props: SpinnerProps) => {
   const base = { width: 25, height: 6 }
 
-  switch (props.spinnerSize) {
+  switch (props.size) {
     case "small":
       return {
         width: base.width * 0.5,
