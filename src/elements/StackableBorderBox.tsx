@@ -1,5 +1,5 @@
-import { media, space } from "helpers"
 import { space as styledSpace } from "styled-system"
+import { media, space } from "../helpers"
 import { BorderBox } from "./BorderBox"
 
 /**

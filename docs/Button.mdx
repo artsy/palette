@@ -3,7 +3,7 @@ name: Button
 ---
 
 import { Playground, PropsTable } from 'docz'
-import { Box, Button } from 'src'
+import { Box, Button } from '../src'
 
 # Button
 
@@ -31,17 +31,13 @@ import { Box, Button } from 'src'
 
 <Playground title="primaryWhite">
   <Box bg="black" p={1} m={0.5}>
-    <Button variant="primaryWhite" size="small">
+    <Button variant="primaryWhite" size="small" m={0.5}>
       Follow
     </Button>
-  </Box>
-  <Box bg="black" p={1} m={0.5}>
-    <Button variant="primaryWhite" size="medium">
+    <Button variant="primaryWhite" size="medium" m={0.5}>
       Follow
     </Button>
-  </Box>
-  <Box bg="black" p={1} m={0.5}>
-    <Button variant="primaryWhite" size="large">
+    <Button variant="primaryWhite" size="large" m={0.5}>
       Follow
     </Button>
   </Box>

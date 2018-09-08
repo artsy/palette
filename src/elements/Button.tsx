@@ -1,8 +1,8 @@
-import { SansProps } from "elements/Typography"
-import { Sans, themeProps } from "index"
 import React, { Component, ReactNode } from "react"
 import styled, { css } from "styled-components"
+import { themeProps } from "../Theme"
 import { Spinner } from "./Spinner"
+import { Sans, SansProps } from "./Typography"
 
 import {
   BorderProps,
@@ -53,18 +53,14 @@ export class Button extends Component<ButtonProps> {
   }
 
   getSize(): { height: string; size: "2" | "3t"; px: number } {
-    let sizeConfig
-
     switch (this.props.size) {
       case "small":
-        sizeConfig = { height: "26px", size: "2", px: 1 }
+        return { height: "26px", size: "2", px: 1 }
       case "medium":
-        sizeConfig = { height: "41px", size: "3t", px: 2 }
+        return { height: "41px", size: "3t", px: 2 }
       case "large":
-        sizeConfig = { height: "50px", size: "3t", px: 3 }
+        return { height: "50px", size: "3t", px: 3 }
     }
-
-    return sizeConfig
   }
 
   getVariant() {
@@ -183,6 +179,7 @@ export interface ButtonBaseProps
     TextAlignProps,
     WidthProps,
     HeightProps {
+  /** Size of the button */
   buttonSize?: ButtonSize
   /** Displays a loader in the button */
   loading?: boolean

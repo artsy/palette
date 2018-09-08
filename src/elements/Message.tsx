@@ -1,9 +1,8 @@
 import React, { SFC } from "react"
-
-import { Sans } from "elements/Typography"
-import { color } from "helpers"
-import { SansSize } from "Theme"
+import { color } from "../helpers"
+import { SansSize } from "../Theme"
 import { Flex, FlexProps } from "./Flex"
+import { Sans } from "./Typography"
 
 /**
  * Spec: zpl.io/2Zg4Rdq

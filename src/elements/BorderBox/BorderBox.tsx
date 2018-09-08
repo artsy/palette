@@ -1,5 +1,5 @@
-import { color } from "helpers"
 import { css } from "styled-components"
+import { color } from "../../helpers"
 import { BorderBoxBase } from "./BorderBoxBase"
 
 /**

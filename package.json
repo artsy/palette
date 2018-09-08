@@ -10,20 +10,20 @@
   "scripts": {
     "clean": "rm -rf dist",
     "compile": "babel src --out-dir dist -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__",
+    "docs:build": "docz build",
+    "docs": "docz dev",
     "lint": "tslint -c tslint.json --project tsconfig.json",
     "precommit": "lint-staged",
-    "prepush": "yarn run type-check",
     "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
-    "prettier": "prettier",
+    "prepush": "yarn run type-check",
     "prettier-project": "yarn prettier-write 'src/**/*.{ts,tsx}'",
     "prettier-write": "yarn prettier --write",
+    "prettier": "prettier",
     "semantic-release": "semantic-release",
     "test": "yarn type-check && yarn jest",
     "type-check": "tsc --emitDeclarationOnly --pretty",
     "type-declarations": "tsc --emitDeclarationOnly",
-    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'tsc --emitDeclarationOnly -w'",
-    "docs": "docz dev",
-    "docs:build": "docz build"
+    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'tsc --emitDeclarationOnly -w'"
   },
   "repository": {
     "type": "git",
@@ -58,11 +58,12 @@
     "@types/styled-system": "^2.3.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
-    "babel-plugin-module-resolver": "^3.1.1",
     "concurrently": "^3.5.1",
     "conventional-changelog-ember": "^2.0.0",
-    "docz": "^0.10.2",
-    "docz-theme-default": "^0.10.2",
+    "docz": "^0.11.1",
+    "docz-theme-default": "^0.11.1",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "husky": "^0.14.3",
     "jest": "^23.1.0",
     "lint-staged": "^7.2.0",
@@ -78,7 +79,7 @@
     "tslint-config-prettier": "^1.13.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.0.3",
-    "typescript-styled-plugin": "^0.6.3"
+    "typescript-styled-plugin": "^0.10.0"
   },
   "dependencies": {
     "react": "^16.3.2",
@@ -126,13 +127,6 @@
     }
   },
   "jest": {
-    "transform": {
-      ".(ts|tsx)": "babel-jest"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
-    "testPathIgnorePatterns": [
-      "<rootDir>/dist/"
-    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -144,6 +138,16 @@
     "moduleDirectories": [
       "node_modules",
       "<rootDir>/src"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest.config.ts"
+    ],
+    "transform": {
+      ".(ts|tsx)": "babel-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/"
     ]
   }
 }

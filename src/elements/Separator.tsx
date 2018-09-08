@@ -1,9 +1,9 @@
 // @ts-ignore
 import React from "react"
 
-import { color } from "helpers"
-import { styled as primitives } from "platform/primitives"
 import { space, SpaceProps, width, WidthProps } from "styled-system"
+import { color } from "../helpers"
+import { styled as primitives } from "../platform/primitives"
 
 export interface SeparatorProps extends SpaceProps, WidthProps {}
 

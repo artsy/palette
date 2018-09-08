@@ -1,6 +1,6 @@
-import { color, space } from "helpers"
 import React from "react"
 import styled, { css } from "styled-components"
+import { color, space } from "../helpers"
 import { Flex, FlexProps } from "./Flex"
 
 import {

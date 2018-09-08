@@ -14,18 +14,6 @@
     ]
   ],
   "plugins": [
-    "@babel/plugin-proposal-class-properties",
-    [
-      "module-resolver",
-      {
-        "extensions": [
-          ".ts",
-          ".tsx"
-        ],
-        "root": [
-          "./src"
-        ]
-      }
-    ]
+    "@babel/plugin-proposal-class-properties"
   ]
 }

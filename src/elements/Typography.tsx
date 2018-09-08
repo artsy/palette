@@ -1,7 +1,7 @@
-import { FontValue } from "platform/fonts"
-import { styled as primitives } from "platform/primitives"
 import React, { CSSProperties } from "react"
 import styled from "styled-components"
+import { FontValue } from "../platform/fonts"
+import { styled as primitives } from "../platform/primitives"
 import {
   DisplaySize,
   SansSize,
@@ -86,7 +86,8 @@ export interface TextProps
   ellipsizeMode?: string
 }
 
-const Text = primitives.Text.attrs<TextProps>({})`
+/** Base Text component for typography */
+export const Text = primitives.Text.attrs<TextProps>({})`
   ${fontFamilyHelper};
   font-size: ${({ fontSize }) => fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;

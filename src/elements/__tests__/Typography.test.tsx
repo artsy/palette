@@ -1,11 +1,10 @@
 import React from "react"
 import renderer from "react-test-renderer"
-
-import { Sans, Text, Serif, Display } from "../Typography"
 import { themeProps } from "../../Theme"
+import { Display, Sans, Serif, Text } from "../Typography"
 
 class Catcher extends React.Component<{ onError: (error: Error) => void }> {
-  componentDidCatch(error, info) {
+  componentDidCatch(error, _info) {
     this.props.onError(error)
   }
   render() {

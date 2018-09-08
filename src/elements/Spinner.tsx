@@ -66,3 +66,5 @@ Spinner.defaultProps = {
   width: 25,
   height: 6,
 }
+
+Spinner.displayName = "Spinner"
