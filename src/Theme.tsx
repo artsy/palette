@@ -31,7 +31,8 @@ export const breakpoints = {
  * https://www.notion.so/artsy/Master-Library-810612339f474d0997fe359af4285c56
  */
 export const themeProps = {
-  borders: [0, "2px solid"],
+  /** Border variations */
+  borders: ["1px solid", "2px solid"],
 
   /**
    *  This allows styled-system to hook into our breakpoints

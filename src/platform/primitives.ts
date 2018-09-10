@@ -11,3 +11,5 @@ export const styled = {
   Text: styles.div,
   View: styles.div,
 }
+
+export const styledWrapper = styles as typeof styles

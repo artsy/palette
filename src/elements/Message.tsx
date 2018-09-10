@@ -1,5 +1,6 @@
 import React, { SFC } from "react"
 import { color } from "../helpers"
+import { styledWrapper } from "../platform/primitives"
 import { SansSize } from "../Theme"
 import { Flex, FlexProps } from "./Flex"
 import { Sans } from "./Typography"
@@ -8,11 +9,6 @@ import { Sans } from "./Typography"
  * Spec: zpl.io/2Zg4Rdq
  */
 
-const StyledFlex = Flex.extend`
-  background-color: ${color("black5")};
-  border-radius: 2px;
-`
-
 interface MessageProps extends FlexProps {
   children: React.ReactNode | null
   /**
@@ -20,6 +16,11 @@ interface MessageProps extends FlexProps {
    */
   textSize?: SansSize
 }
+
+const StyledFlex = styledWrapper(Flex)`
+  background-color: ${color("black5")};
+  border-radius: 2px;
+`
 
 /**
  * A generic message window for displaying ZerStates, notices, errors, etc.

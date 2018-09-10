@@ -13,6 +13,7 @@
     "no-var-requires": false,
     "object-literal-sort-keys": false,
     "ordered-imports": true,
+    "no-console": [true, "log"],
     "no-namespace": [true, "allow-declarations"],
     "trailing-comma": false,
     "variable-name": [true, "ban-keywords", "allow-leading-underscore"],
