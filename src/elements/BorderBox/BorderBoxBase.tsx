@@ -12,8 +12,9 @@ import {
   width,
   WidthProps,
 } from "styled-system"
-import { color, space } from "../../helpers"
 
+import { color, space } from "../../helpers"
+import { styledWrapper } from "../../platform/primitives"
 import { Flex, FlexProps } from "../Flex"
 
 export interface BorderBoxProps
@@ -30,7 +31,7 @@ export interface BorderBoxProps
  * A `View` or `div` (depending on the platform) that has a common border
  * and padding set by default
  */
-export const BorderBoxBase = Flex.extend.attrs<BorderBoxProps>({})`
+export const BorderBoxBase = styledWrapper(Flex).attrs<BorderBoxProps>({})`
   border: 1px solid ${color("black10")};
   border-radius: 2px;
   padding: ${space(2)}px;

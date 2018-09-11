@@ -1,12 +1,13 @@
 import { css } from "styled-components"
 import { color } from "../../helpers"
-import { BorderBoxBase } from "./BorderBoxBase"
+import { styledWrapper } from "../../platform/primitives"
+import { BorderBoxBase, BorderBoxProps } from "./BorderBoxBase"
 
 /**
  * A `div` that has a common border and padding set by default, with an optional
  * `hover` property for visually focusing content.
  */
-export const BorderBox = BorderBoxBase.extend`
+export const BorderBox = styledWrapper(BorderBoxBase).attrs<BorderBoxProps>({})`
   ${({ hover }) =>
     hover &&
     css`

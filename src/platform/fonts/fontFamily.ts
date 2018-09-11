@@ -1,4 +1,4 @@
-import { FontFamily } from "./index"
+import { FontFamily } from "./"
 
 const sansFallback = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 
