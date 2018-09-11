@@ -1,42 +1,63 @@
-import { Range as RangeSlider } from "rc-slider"
+import { Range } from "rc-slider"
 import React from "react"
 import styled from "styled-components"
-import { color, space } from "../helpers"
-
+import { StyledComponentClass } from "styled-components"
 import {
   BorderProps,
   borders,
   space as styledSpace,
   SpaceProps,
 } from "styled-system"
+import { color, space } from "../helpers"
 
-export interface RangeProps extends BorderProps, SpaceProps {
-  /** ClassName to apply to container */
+export interface SliderProps extends BorderProps, SpaceProps {
+  /**
+   * Additional CSS class for the root DOM node
+   */
   className?: string
-  /** Allows draggable handles to cross one another */
+  /**
+   * allowCross could be set as true to allow those handles to cross.
+   */
   allowCross: boolean
-  /** Min range value */
+  /**
+   * If true, handles can't be moved.
+   */
+  disabled?: boolean
+  /**
+   * The minimum value of the slider
+   */
   min: number
-  /** Max range value */
+  /**
+   * The maximum value of the slider
+   */
   max: number
-  /** Number of steps to increase by when dragging */
+  /**
+   * Value to be added or subtracted on each step the slider makes. Must be greater than zero, and max - min should be evenly divisible by the step value.
+   * When marks is not an empty object, step can be set to null, to make marks as steps.
+   */
   step: number
-  /** Default value of the slider */
+  /**
+   * Set initial positions of handles.
+   */
   defaultValue: number[]
-  /** Callback that fires when done dragging */
-  onAfterChange?: (min_max: [number, number]) => void
-  /** Callback that fires on value change */
-  onChange?: (min_max: [number, number]) => void
+  /**
+   * onAfterChange will be triggered when ontouchend or onmouseup is triggered.
+   */
+  onAfterChange?: (minMax: [number, number]) => void
+  /**
+   * onChange will be triggered while the value of Slider changing.
+   */
+  onChange?: (minMax: [number, number]) => void
 }
 
-const Inner: React.SFC<RangeProps> = props => (
-  <RangeSlider {...props} prefixCls={props.className} />
+const Inner: React.SFC<SliderProps> = props => (
+  <Range {...props} prefixCls={props.className} />
 )
 
 /**
- * A draggable slider for isolating numeric ranges
+ * A slider component that allows to define a range of values. nin and max
  */
-export const Range = styled(Inner)`
+export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
   ${borders};
   ${styledSpace};
   box-sizing: border-box;
@@ -62,7 +83,7 @@ export const Range = styled(Inner)`
     height: ${space(2)}px;
     cursor: pointer;
     border-radius: 50%;
-    border: solid 2px ${color("black100")};
+    border: solid 2px ${color("white100")};
     background-color: ${color("black100")};
     z-index: 2;
 
@@ -83,23 +104,6 @@ export const Range = styled(Inner)`
         box-shadow: 0 0 5px ${color("black100")};
       }
     }
-  }
-
-  &-mark {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    width: 100%;
-    font-size: 12px;
-    z-index: 3;
-  }
-
-  &-step {
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    background: transparent;
-    z-index: 1;
   }
 
   &-dot {
@@ -126,21 +130,21 @@ export const Range = styled(Inner)`
 
   &-disabled {
     background-color: ${color("black30")};
+  }
 
-    &-track {
-      background-color: #ccc;
-    }
+  &-disabled &-track {
+    background-color: ${color("black5")};
+  }
 
-    &-handle,
-    &-dot {
-      border-color: #ccc;
-      background-color: #fff;
-      cursor: not-allowed;
-    }
+  &-disabled &-handle,
+  &-disabled &-dot {
+    border-color: ${color("white100")};
+    background-color: ${color("black10")};
+    cursor: not-allowed;
+  }
 
-    &-mark-text,
-    &-dot {
-      cursor: not-allowed !important;
-    }
+  &-disabled &-mark-text,
+  &-disabled &-dot {
+    cursor: not-allowed !important;
   }
 `
