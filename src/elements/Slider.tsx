@@ -10,7 +10,7 @@ import {
 } from "styled-system"
 import { color, space } from "../helpers"
 
-export interface SliderProps {
+export interface SliderProps extends BorderProps, SpaceProps {
   /**
    * Additional CSS class for the root DOM node
    */
@@ -50,7 +50,7 @@ export interface SliderProps {
   onChange?: (minMax: [number, number]) => void
 }
 
-const Inner: React.SFC<SliderProps & BorderProps & SpaceProps> = props => (
+const Inner: React.SFC<SliderProps> = props => (
   <Range {...props} prefixCls={props.className} />
 )
 
