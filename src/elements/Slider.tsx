@@ -1,6 +1,7 @@
 import { Range } from "rc-slider"
 import React from "react"
 import styled from "styled-components"
+import { StyledComponentClass } from "styled-components"
 import {
   BorderProps,
   borders,
@@ -9,26 +10,54 @@ import {
 } from "styled-system"
 import { color, space } from "../helpers"
 
-export interface SliderProps extends BorderProps, SpaceProps {
+export interface SliderProps {
+  /**
+   * Additional CSS class for the root DOM node
+   */
   className?: string
+  /**
+   * allowCross could be set as true to allow those handles to cross.
+   */
   allowCross: boolean
+  /**
+   * If true, handles can't be moved.
+   */
   disabled?: boolean
+  /**
+   * The minimum value of the slider
+   */
   min: number
+  /**
+   * The maximum value of the slider
+   */
   max: number
+  /**
+   * Value to be added or subtracted on each step the slider makes. Must be greater than zero, and max - min should be evenly divisible by the step value.
+   * When marks is not an empty object, step can be set to null, to make marks as steps.
+   */
   step: number
+  /**
+   * Set initial positions of handles.
+   */
   defaultValue: number[]
-  onAfterChange?: (min_max: [number, number]) => void
-  onChange?: (min_max: [number, number]) => void
+  /**
+   * onAfterChange will be triggered when ontouchend or onmouseup is triggered.
+   */
+  onAfterChange?: (minMax: [number, number]) => void
+  /**
+   * onChange will be triggered while the value of Slider changing.
+   */
+  onChange?: (minMax: [number, number]) => void
 }
 
-const Inner: React.SFC<SliderProps> = props => (
+const Inner: React.SFC<SliderProps & BorderProps & SpaceProps> = props => (
   <Range {...props} prefixCls={props.className} />
 )
 
 /**
  * A slider component that allows to define a range of values. nin and max
  */
-export const Slider = styled(Inner)`
+export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
   ${borders};
   ${styledSpace};
   box-sizing: border-box;
