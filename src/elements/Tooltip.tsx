@@ -27,6 +27,7 @@ const Tip = styled(BorderBox)`
   position: absolute;
   transition: opacity 250ms ease-out;
   max-width: 230px;
+  text-align: left;
 `
 
 export interface TooltipProps {
