@@ -10,11 +10,7 @@ import { Box, Sans, Tooltip } from '../src'
 ## Left-aligned Anchor
 
 <Playground>
-  <br />
-  <br />
-  <br />
-  <br />
-  <Box textAlign="left">
+  <Box textAlign="left" mt={100}>
     <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
       <Sans>Artsy Collector</Sans>
     </Tooltip>
@@ -24,11 +20,7 @@ import { Box, Sans, Tooltip } from '../src'
 ## Centered Anchor
 
 <Playground>
-  <br />
-  <br />
-  <br />
-  <br />
-  <Box textAlign="center">
+  <Box textAlign="center" mt={100}>
     <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
       <Sans>Artsy Collector</Sans>
     </Tooltip>
@@ -38,11 +30,7 @@ import { Box, Sans, Tooltip } from '../src'
 ## Right-aligned Anchor
 
 <Playground>
-  <br />
-  <br />
-  <br />
-  <br />
-  <Box textAlign="right">
+  <Box textAlign="right" mt={100}>
     <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
       <Sans>Artsy Collector</Sans>
     </Tooltip>
@@ -52,17 +40,7 @@ import { Box, Sans, Tooltip } from '../src'
 ## Too much tip content
 
 <Playground>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <Box textAlign="right">
+  <Box mt={200}>
     <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
       <Sans>Artsy Collector</Sans>
     </Tooltip>
@@ -72,8 +50,9 @@ import { Box, Sans, Tooltip } from '../src'
 ## Small
 
 <Playground>
-  <br />
-  <Tooltip small content="Missing: title, price and 8 more">
-    <Sans>10 requirements left to publish.</Sans>
-  </Tooltip>
+  <Box mt={20}>
+    <Tooltip small content="Missing: title, price and 8 more">
+      <Sans>10 requirements left to publish.</Sans>
+    </Tooltip>
+  </Box>
 </Playground>
