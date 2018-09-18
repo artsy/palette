@@ -3,18 +3,48 @@ name: Tooltip
 ---
 
 import { Playground, PropsTable } from 'docz'
-import { Sans, Tooltip } from '../src'
+import { Box, Sans, Tooltip } from '../src'
 
 # Tooltip
 
-## Default
+## Left-aligned Anchor
 
 <Playground>
   <br />
   <br />
   <br />
   <br />
-  <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
-    <Sans>Artsy Collector</Sans>
-  </Tooltip>
+  <Box textAlign="left">
+    <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
+      <Sans>Artsy Collector</Sans>
+    </Tooltip>
+  </Box>
+</Playground>
+
+## Centered Anchor
+
+<Playground>
+  <br />
+  <br />
+  <br />
+  <br />
+  <Box textAlign="center">
+    <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
+      <Sans>Artsy Collector</Sans>
+    </Tooltip>
+  </Box>
+</Playground>
+
+## Right-aligned Anchor
+
+<Playground>
+  <br />
+  <br />
+  <br />
+  <br />
+  <Box textAlign="right">
+    <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
+      <Sans>Artsy Collector</Sans>
+    </Tooltip>
+  </Box>
 </Playground>
