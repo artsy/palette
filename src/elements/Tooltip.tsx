@@ -35,13 +35,24 @@ export interface TooltipProps {
 
 export class Tooltip extends React.Component<TooltipProps> {
   render() {
+    const content = formattedTip(this.props.content)
     return (
       <Wrapper>
         <Tip className="tooltip-content">
-          <Sans size={"2"}>{this.props.content}</Sans>
+          <Sans size={"2"}>{content}</Sans>
         </Tip>
         {this.props.children}
       </Wrapper>
     )
   }
+}
+
+const formattedTip = tip => {
+  let substring = tip.substring(0, 300)
+
+  if (substring !== tip) {
+    substring += "..."
+  }
+
+  return substring
 }
