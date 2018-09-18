@@ -227,6 +227,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
 const Container = styled.button.attrs<ButtonBaseProps>({})`
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
 
   ${borders};
   ${borderRadius};
