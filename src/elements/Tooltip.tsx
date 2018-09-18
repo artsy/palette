@@ -34,6 +34,9 @@ export interface TooltipProps {
   small: boolean
 }
 
+/**
+ * A tooltip
+ */
 export class Tooltip extends React.Component<TooltipProps> {
   render() {
     const content = formattedTip(this.props.content)
