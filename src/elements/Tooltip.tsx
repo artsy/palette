@@ -31,6 +31,7 @@ const Tip = styled(BorderBox)`
 
 export interface TooltipProps {
   content: string
+  small: boolean
 }
 
 export class Tooltip extends React.Component<TooltipProps> {
@@ -38,7 +39,7 @@ export class Tooltip extends React.Component<TooltipProps> {
     const content = formattedTip(this.props.content)
     return (
       <Wrapper>
-        <Tip className="tooltip-content">
+        <Tip className="tooltip-content" p={this.props.small ? 0.5 : 2}>
           <Sans size={"2"}>{content}</Sans>
         </Tip>
         {this.props.children}
