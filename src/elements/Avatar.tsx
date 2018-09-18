@@ -9,6 +9,8 @@ import { space, SpaceProps } from "styled-system"
 
 const sizeValue = ({ size = "" }) => {
   switch (size) {
+    case "xsmall":
+      return "45px"
     case "small":
       return "70px"
     default:
