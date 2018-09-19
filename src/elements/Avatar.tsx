@@ -7,20 +7,23 @@ import { space, SpaceProps } from "styled-system"
  * Spec: TODO
  */
 
+const SIZE = { xs: "45px", sm: "70px", md: "100px" }
+
 const sizeValue = ({ size = "" }) => {
   switch (size) {
     case "xs":
-      return "45px"
+      return SIZE.xs
     case "sm":
-      return "70px"
+      return SIZE.sm
+    case "md":
     default:
-      return "100px"
+      return SIZE.md
   }
 }
 
 export interface AvatarProps extends SpaceProps {
   /** The size of the Avatar */
-  size?: "xs" | "sm" | "default"
+  size?: "xs" | "sm" | "md"
 }
 
 /**
