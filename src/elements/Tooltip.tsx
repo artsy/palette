@@ -6,28 +6,29 @@ import { Sans } from "./Typography"
 
 const Wrapper = styled.div`
   position: relative;
-
-  &:hover {
-    .tooltip-content {
-      opacity: 1;
-
-      &:hover {
-        cursor: default;
-        opacity: 0;
-      }
-    }
-  }
 `
 
 const Tip = styled(BorderBox)`
   bottom: 100%;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 5px;
+  max-width: 230px;
   opacity: 0;
   position: absolute;
-  transition: opacity 250ms ease-out;
-  max-width: 230px;
   text-align: left;
+  transition: opacity 250ms ease-out;
+
+  &:hover {
+    cursor: default;
+  }
+
+  &.active {
+    opacity: 1;
+
+    &:hover {
+      opacity: 0;
+    }
+  }
 `
 
 export interface TooltipProps {
@@ -39,11 +40,32 @@ export interface TooltipProps {
  * A tooltip
  */
 export class Tooltip extends React.Component<TooltipProps> {
+  state = { active: false }
+
+  handleClick = () => {
+    this.setState({ active: !this.state.active })
+  }
+
+  handleMouseOver = () => {
+    this.setState({ active: true })
+  }
+
+  handleMouseOut = () => {
+    this.setState({ active: false })
+  }
+
   render() {
     const content = formattedTip(this.props.content)
     return (
-      <Wrapper>
-        <Tip className="tooltip-content" p={this.props.small ? 0.5 : 2}>
+      <Wrapper
+        onClick={this.handleClick}
+        onMouseOut={this.handleMouseOut}
+        onMouseOver={this.handleMouseOver}
+      >
+        <Tip
+          className={this.state.active && "active"}
+          p={this.props.small ? 0.5 : 2}
+        >
           <Sans size={"2"}>{content}</Sans>
         </Tip>
         {this.props.children}
