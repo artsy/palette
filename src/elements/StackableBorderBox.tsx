@@ -11,6 +11,7 @@ export const StackableBorderBox = styledWrapper(BorderBox).attrs<
   BorderBoxProps
 >({})`
   padding: ${space(3)}px;
+  ${styledSpace};
 
   ${media.sm`
     padding: ${space(2)}px;
