@@ -6,17 +6,20 @@ import { Sans } from "./Typography"
 
 const Wrapper = styled.div`
   position: relative;
+  display: inline-block;
 `
 
 const Tip = styled(BorderBox)`
   bottom: 100%;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  left: 50%;
   margin-bottom: 5px;
-  max-width: 230px;
   opacity: 0;
   position: absolute;
   text-align: left;
+  transform: translate(-50%);
   transition: opacity 250ms ease-out;
+  width: 230px;
 
   &:hover {
     cursor: default;
