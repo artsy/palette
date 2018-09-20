@@ -52,4 +52,20 @@ describe("Button", () => {
     )
     expect(wrapper.find("Spinner").length).toBe(1)
   })
+
+  it("does not invoke the onClick callback if loading is true", () => {
+    const onClickMock = jest.fn()
+
+    const wrapper = mount(
+      <Theme>
+        <Button onClick={onClickMock} loading>
+          Hi
+        </Button>
+      </Theme>
+    )
+
+    wrapper.find("Button").simulate("click")
+
+    expect(onClickMock).not.toHaveBeenCalled()
+  })
 })
