@@ -30,7 +30,7 @@
     "url": "git+ssh://git@github.com/artsy/palette.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/artsy/palette/issues"
   },
