@@ -17,6 +17,7 @@ interface Option {
 export interface SelectProps extends PositionProps, SpaceProps {
   options: Option[]
   selected?: string
+  disabled?: boolean
   onSelect?: (value) => void
 }
 
@@ -28,6 +29,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
     <LargeSelectContainer {...props} p={1}>
       <select
         value={props.selected}
+        disabled={props.disabled}
         onChange={event => props.onSelect && props.onSelect(event.target.value)}
       >
         {props.options.map(({ value, text }) => (
@@ -89,10 +91,11 @@ const hideDefaultSkin = css`
   }
 `
 
-const caretArrow = css`
+const caretArrow = css<SelectProps>`
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid black;
+  border-top: 4px solid
+    ${props => (props.disabled ? color("black10") : color("black100"))};
   width: 0;
   height: 0;
 `
@@ -111,12 +114,13 @@ const LargeSelectContainer = styled.div.attrs<SelectProps>({})`
     border: 1px solid ${color("black10")};
     border-radius: 0;
     padding-right: ${space(1)}px;
+    cursor: ${props => (props.disabled ? "default" : "pointer")};
     ${styledSpace};
   }
 
   &::after {
     content: "";
-    cursor: pointer;
+    cursor: ${props => (props.disabled ? "default" : "pointer")};
     pointer-events: none;
     position: absolute;
     top: 45%;
