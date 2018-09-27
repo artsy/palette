@@ -18,6 +18,7 @@ export interface SelectProps extends PositionProps, SpaceProps {
   options: Option[]
   selected?: string
   disabled?: boolean
+  error?: string
   onSelect?: (value) => void
 }
 
@@ -91,7 +92,10 @@ const hideDefaultSkin = css`
   }
 `
 
-const caretArrow = css<SelectProps>`
+const caretArrow =
+  css <
+  SelectProps >
+  `
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid
@@ -111,11 +115,17 @@ const LargeSelectContainer = styled.div.attrs<SelectProps>({})`
     line-height: ${themeGet("typeSizes.serif.3t.lineHeight")}px;
     height: 40px;
     ${hideDefaultSkin};
-    border: 1px solid ${color("black10")};
+    border: 1px solid
+      ${({ error }) => (error && color("red100")) || color("black10")};
     border-radius: 0;
+    transition: border-color 0.25s;
     padding-right: ${space(1)}px;
     cursor: ${props => (props.disabled ? "default" : "pointer")};
     ${styledSpace};
+    &:hover,
+    &:focus {
+      border-color: ${color("purple100")};
+    }
   }
 
   &::after {
