@@ -94,19 +94,19 @@ import { Value } from 'react-powerplug'
 
 <Playground>
   <Value>
-    {({ value="bad", set }) => {
-      const error = value === "good" ? "" : "bad value"
+    {({ value="badValue", set }) => {
+      const error = value === "goodValue" ? "" : "Error Message"
       return (
         <LargeSelect
           error={error}
           options={[
             {
               text: "Good",
-              value: "good",
+              value: "goodValue",
             },
             {
               text: "Bad",
-              value: "bad",
+              value: "badValue",
             },
           ]}
           selected={value}
