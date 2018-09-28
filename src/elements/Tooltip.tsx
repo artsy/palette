@@ -160,7 +160,7 @@ const formattedTip = tip => {
   let substring = tip.substring(0, 300)
 
   if (substring !== tip) {
-    substring += "..."
+    substring += "…"
   }
 
   return substring
