@@ -43,10 +43,34 @@ import { Box, Sans, Tooltip } from '../src'
   </Box>
 </Playground>
 
+## Sm
+
+<Playground>
+  <Box mt={20}>
+    <Sans>
+      <Tooltip size="sm" content="Missing: title, price and 8 more">
+        <span>10 requirements left to publish.</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>
+
+## Sm with custom width
+
+<Playground>
+  <Box mt={20}>
+    <Sans>
+      <Tooltip size="sm" content="Missing: title, price and 8 more" width="175">
+        <span>10 requirements left to publish.</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>
+
 ## Lg with too much content
 
 <Playground>
-  <Box mt={200}>
+  <Box textAlign="center" mt={200}>
     <Sans>
       <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
         <span>Artsy Collector</span>
@@ -55,13 +79,13 @@ import { Box, Sans, Tooltip } from '../src'
   </Box>
 </Playground>
 
-## Sm
+## Lg with too much content and custom width
 
 <Playground>
-  <Box mt={20}>
+  <Box textAlign="center" mt={200}>
     <Sans>
-      <Tooltip size="sm" content="Missing: title, price and 8 more">
-        <span>10 requirements left to publish.</span>
+      <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed." width="500">
+        <span>Artsy Collector</span>
       </Tooltip>
     </Sans>
   </Box>

@@ -17,6 +17,7 @@ interface TipPosition {
 
 interface TipProps {
   tipPosition: TipPosition
+  width: number
 }
 
 const Tip = styled(BorderBox)`
@@ -35,7 +36,7 @@ const Tip = styled(BorderBox)`
   transform: ${(p: TipProps) =>
     p.tipPosition.center ? "translate(-50%)" : "none"};
   transition: opacity 250ms ease-out;
-  width: 230px;
+  width: ${(p: TipProps) => p.width}px;
 
   &:hover {
     cursor: default;
@@ -58,6 +59,7 @@ enum TipSize {
 export interface TooltipProps {
   content: string
   size: TipSize
+  width: number
 }
 
 /**
@@ -66,6 +68,7 @@ export interface TooltipProps {
 export class Tooltip extends React.Component<TooltipProps> {
   static defaultProps = {
     size: TipSize.Lg,
+    width: 230,
   }
 
   state = {
@@ -90,7 +93,7 @@ export class Tooltip extends React.Component<TooltipProps> {
 
       left = innerWrapperWidth / 2
       center = true
-      const spillOver = 130 - left
+      const spillOver = this.props.width / 2 - left
 
       if (spillOver > innerWrapperLeft) {
         center = false
@@ -141,6 +144,7 @@ export class Tooltip extends React.Component<TooltipProps> {
           className={this.state.active && "active"}
           p={this.props.size === TipSize.Sm ? 0.5 : 2}
           tipPosition={this.state.tipPosition}
+          width={this.props.width}
         >
           <Sans size={"2"} color="black60">
             {content}
