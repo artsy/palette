@@ -52,7 +52,7 @@ const Tip = styled(BorderBox)`
 
 export interface TooltipProps {
   content: string
-  small: boolean
+  sm: boolean
 }
 
 /**
@@ -130,10 +130,12 @@ export class Tooltip extends React.Component<TooltipProps> {
       >
         <Tip
           className={this.state.active && "active"}
-          p={this.props.small ? 0.5 : 2}
+          p={this.props.sm ? 0.5 : 2}
           tipPosition={this.state.tipPosition}
         >
-          <Sans size={"2"}>{content}</Sans>
+          <Sans size={"2"} color="black60">
+            {content}
+          </Sans>
         </Tip>
         <div ref={this.innerWrapper}>{this.props.children}</div>
       </Wrapper>
