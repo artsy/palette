@@ -35,6 +35,34 @@ import { Value } from 'react-powerplug'
   </Value>
 </Playground>
 
+## Disabled LargeSelect
+
+<Playground>
+  <Value>
+    {({ value, set }) => (
+      <LargeSelect
+        options={[
+          {
+            text: "Most Recent",
+            value: "mostRecent",
+          },
+          {
+            text: "Price",
+            value: "price",
+          },
+          {
+            text: "Estimate",
+            value: "estimate",
+          },
+        ]}
+        selected={value}
+        onSelect={value => set(value)}
+        disabled
+      />
+    )}
+  </Value>
+</Playground>
+
 ## SmallSelect
 
 <Playground>
