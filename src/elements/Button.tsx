@@ -198,6 +198,12 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
     borderRadius: 3,
   }
 
+  onClick = event => {
+    if (!this.props.loading && this.props.onClick) {
+      this.props.onClick(event)
+    }
+  }
+
   render() {
     const {
       children,
@@ -206,6 +212,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
       color,
       size,
       weight,
+      onClick,
       ...rest
     } = this.props
 
@@ -213,7 +220,11 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
     const disabledClass = disabled ? "disabled" : ""
 
     return (
-      <Container {...rest} className={[loadingClass, disabledClass].join(" ")}>
+      <Container
+        {...rest}
+        className={[loadingClass, disabledClass].join(" ")}
+        onClick={this.onClick}
+      >
         {loading && <Spinner size={this.props.buttonSize} />}
 
         <Sans pt="1px" weight={weight || "medium"} color={color} size={size}>
@@ -227,6 +238,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
 const Container = styled.button.attrs<ButtonBaseProps>({})`
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
 
   ${borders};
   ${borderRadius};
@@ -250,6 +262,7 @@ const Container = styled.button.attrs<ButtonBaseProps>({})`
     background-color: transparent;
     color: transparent;
     border: 0;
+    cursor: auto;
   }
 
   &.disabled {
