@@ -6,6 +6,7 @@ import styles from "styled-components/native"
 import { ThemedStyledFunction } from "styled-components"
 
 export const styled = {
+  Image: styles.Image,
   Text: styles.Text,
   View: styles.View,
 }
