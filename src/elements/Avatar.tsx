@@ -1,7 +1,7 @@
 import React, { ImgHTMLAttributes, SFC } from "react"
-import styled from "styled-components"
 import { space, SpaceProps } from "styled-system"
 import { color } from "../helpers/color"
+import { styled as primitives, styledWrapper } from "../platform/primitives"
 import { SerifSize } from "../Theme"
 import { Flex } from "./Flex"
 import { Serif } from "./Typography"
@@ -86,14 +86,14 @@ export const Avatar: SFC<AvatarProps> = ({ src, initials, size = "md" }) => {
 /**
  * A circular avatar image component.
  */
-export const AvatarImage = styled.img<AvatarProps>`
+export const AvatarImage = primitives.Image<AvatarProps>`
   width: ${props => sizeValue(props).diameter};
   height: ${props => sizeValue(props).diameter};
   border-radius: ${props => sizeValue(props).diameter};
   ${space};
 `
 
-const InitialsHolder = styled(Flex)`
+const InitialsHolder = styledWrapper(Flex)`
   background-color: ${color("black10")};
   border-radius: ${props => sizeValue(props).diameter};
   text-align: center;
