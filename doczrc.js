@@ -11,5 +11,5 @@ export default {
       sidebarBg: "#F8F8F8",
     },
   },
-  wrapper: "docs/_utils/components/Wrapper.tsx",
+  wrapper: "docs/utils/components/Wrapper.tsx",
 }
