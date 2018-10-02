@@ -143,6 +143,11 @@ export const themeProps = {
   typeSizes: {
     /** Unica  */
     sans: {
+      /** Equivalent to 8px size / 8px line-height  */
+      "0": {
+        fontSize: 8,
+        lineHeight: 8,
+      },
       /** Equivalent to 10px size / 14px line-height  */
       "1": {
         fontSize: 10,
