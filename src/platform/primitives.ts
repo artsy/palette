@@ -8,6 +8,7 @@ import { ClassAttributes, HTMLAttributes } from "react"
 import { ThemedStyledFunction } from "styled-components"
 
 export const styled = {
+  Image: styles.img,
   Text: styles.div,
   View: styles.div,
 }
