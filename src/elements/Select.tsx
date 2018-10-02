@@ -92,10 +92,7 @@ const hideDefaultSkin = css`
   }
 `
 
-const caretArrow =
-  css <
-  SelectProps >
-  `
+const caretArrow = css<SelectProps>`
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid
@@ -155,8 +152,8 @@ const SmallSelectContainer = styled.div.attrs<SelectProps>({})`
     cursor: pointer;
     pointer-events: none;
     position: absolute;
-    top: 12px;
-    margin-left: 8px;
+    top: 10px;
+    margin-left: -8px;
     ${caretArrow};
   }
 
