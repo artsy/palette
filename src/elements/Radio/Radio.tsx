@@ -1,7 +1,7 @@
-import { Flex, FlexProps } from "elements/Flex"
-import { color, space } from "helpers"
 import React from "react"
 import styled, { css } from "styled-components"
+import { Flex, FlexProps } from "../../elements/Flex"
+import { color, space } from "../../helpers"
 
 import {
   BorderProps,

@@ -1,5 +1,10 @@
 // @ts-ignore
 import React from "react"
+
+import { color, space } from "../../helpers"
+import { styledWrapper } from "../../platform/primitives"
+import { Flex, FlexProps } from "../Flex"
+
 import {
   background,
   BackgroundProps,
@@ -12,10 +17,6 @@ import {
   width,
   WidthProps,
 } from "styled-system"
-
-import { Flex, FlexProps } from "elements/Flex"
-import { color, space } from "helpers"
-import { styledWrapper } from "platform/primitives"
 
 export interface BorderBoxProps
   extends BackgroundProps,

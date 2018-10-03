@@ -1,10 +1,10 @@
-import { Flex } from "elements/Flex"
-import { Serif } from "elements/Typography"
-import { color } from "helpers/color"
-import { styled as primitives, styledWrapper } from "platform/primitives"
 import React, { ImgHTMLAttributes, SFC } from "react"
 import { space, SpaceProps } from "styled-system"
-import { SerifSize } from "Theme"
+import { color } from "../../helpers/color"
+import { styled as primitives, styledWrapper } from "../../platform/primitives"
+import { SerifSize } from "../../Theme"
+import { Flex } from "../Flex"
+import { Serif } from "../Typography"
 
 /**
  * Spec: TODO
@@ -93,7 +93,7 @@ export const AvatarImage = primitives.Image<AvatarProps>`
   ${space};
 `
 
-const InitialsHolder = styledWrapper(Flex)`
+const InitialsHolder = styledWrapper(Flex)<AvatarProps>`
   background-color: ${color("black10")};
   border-radius: ${props => sizeValue(props).diameter};
   text-align: center;

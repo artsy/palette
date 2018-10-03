@@ -1,4 +1,3 @@
-import { color, space } from "helpers"
 import { Range } from "rc-slider"
 import React from "react"
 import styled from "styled-components"
@@ -9,6 +8,7 @@ import {
   space as styledSpace,
   SpaceProps,
 } from "styled-system"
+import { color, space } from "../../helpers"
 
 export interface SliderProps extends BorderProps, SpaceProps {
   /**

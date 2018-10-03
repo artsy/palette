@@ -1,7 +1,7 @@
-import { Radio } from "elements/Radio"
-import { RadioGroup } from "elements/RadioGroup"
 import { mount } from "enzyme"
 import React from "react"
+import { Radio } from "../Radio"
+import { RadioGroup } from "../RadioGroup"
 
 describe("RadioGroup", () => {
   it("renders a radio group", () => {
