@@ -85,7 +85,6 @@ export const Text = primitives.Text.attrs<TextProps>({})`
   ${fontFamilyHelper};
   font-size: ${({ fontSize }) => fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;
-  width: inherit;
   ${color};
   ${display};
   ${maxWidth};
