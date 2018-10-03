@@ -1,4 +1,4 @@
-import { space } from "../space"
+import { space } from "helpers/space"
 
 describe("space", () => {
   it("returns the correct space", () => {

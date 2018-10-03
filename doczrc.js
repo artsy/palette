@@ -1,6 +1,13 @@
+import path from "path"
+
 export default {
   hashRouter: true,
   indexHtml: "docs/index.html",
+  // modifyBabelRc: config => {
+  //   console.log(config)
+  //   config.babelrc = false
+  //   return config
+  // },
   protocol: "http",
   typescript: true,
   themeConfig: {
@@ -11,5 +18,5 @@ export default {
       sidebarBg: "#F8F8F8",
     },
   },
-  wrapper: "docs/_utils/components/Wrapper.tsx",
+  wrapper: "docs/utils/components/Wrapper.tsx",
 }

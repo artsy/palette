@@ -1,6 +1,6 @@
+import { Avatar } from "elements/Avatar"
 import { mount } from "enzyme"
 import React from "react"
-import { Avatar } from "../Avatar"
 
 describe("Avatar", () => {
   it("renders an AvatarImage if image url provided", () => {
