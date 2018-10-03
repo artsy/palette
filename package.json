@@ -9,7 +9,9 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "babel src --out-dir dist -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__",
+    "clean:emission": "rm -rf ../emission/node_modules/@artsy/palette/dist",
+    "compile": "babel src -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ --out-dir dist",
+    "compile:emission": "yarn compile --out-dir ../emission/node_modules/@artsy/palette/dist",
     "docs:build": "docz build",
     "docs": "docz dev",
     "lint": "tslint -c tslint.json --project tsconfig.json",
@@ -23,7 +25,8 @@
     "test": "yarn type-check && yarn jest",
     "type-check": "tsc --emitDeclarationOnly --pretty",
     "type-declarations": "tsc --emitDeclarationOnly",
-    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'tsc --emitDeclarationOnly -w'"
+    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'yarn type-declarations -w'",
+    "watch:emission": "yarn clean:emission && concurrently --raw --kill-others 'yarn compile:emission -w' 'yarn type-declarations -w --outDir ../emission/node_modules/@artsy/palette/dist'"
   },
   "repository": {
     "type": "git",

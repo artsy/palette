@@ -2,6 +2,7 @@
 import React from "react"
 import { styled as primitives } from "../../platform/primitives"
 
+import { StyledComponentClass } from "styled-components"
 import {
   background,
   BackgroundProps,
@@ -56,7 +57,9 @@ export interface BoxProps
  * Box is just a `View` or `div` (depending on the platform) with common styled-systems
  * hooks.
  */
-export const Box = primitives.View.attrs<BoxProps>({})`
+export const Box: StyledComponentClass<any, any, any> = primitives.View.attrs<
+  BoxProps
+>({})`
   ${background};
   ${bottom};
   ${display};
