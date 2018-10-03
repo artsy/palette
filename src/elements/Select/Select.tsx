@@ -1,7 +1,7 @@
-import { Sans } from "elements/Typography"
-import { color, space } from "helpers"
 import React, { SFC } from "react"
 import styled, { css } from "styled-components"
+import { color, space } from "../../helpers"
+import { Sans } from "../Typography"
 
 import {
   PositionProps,

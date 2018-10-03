@@ -1,6 +1,6 @@
-import { Flex, FlexProps } from "elements/Flex"
-import { RadioProps } from "elements/Radio"
 import React from "react"
+import { Flex, FlexProps } from "../Flex"
+import { RadioProps } from "../Radio"
 
 /**
  * Spec: zpl.io/bAvnwlB

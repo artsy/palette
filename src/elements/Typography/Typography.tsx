@@ -1,8 +1,15 @@
-import { FontValue } from "platform/fonts"
-import { styled as primitives } from "platform/primitives"
 import React, { CSSProperties } from "react"
 import styled from "styled-components"
-import { DisplaySize, SansSize, SerifSize, themeProps, TypeSizes } from "Theme"
+import { FontValue } from "../../platform/fonts"
+import { styled as primitives } from "../../platform/primitives"
+
+import {
+  DisplaySize,
+  SansSize,
+  SerifSize,
+  themeProps,
+  TypeSizes,
+} from "../../Theme"
 
 // @ts-ignore
 import { StyledComponentClass } from "styled-components"
