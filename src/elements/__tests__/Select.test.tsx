@@ -2,7 +2,7 @@
 // import { Boot } from "Artsy/Router"
 // import { mount } from "enzyme"
 // import React from "react"
-// import { LargeSelect, Select, SmallSelect } from "../Select"
+// import { LargeSelect, Select, SmallSelect } from "elements/Select"
 
 describe("Select", () => {
   it("TODO", () => {

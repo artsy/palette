@@ -1,4 +1,4 @@
-import { styled as primitives } from "../../platform/primitives"
+import { styled as primitives } from "platform/primitives"
 
 import {
   alignContent,

@@ -1,4 +1,4 @@
-import { color } from "../color"
+import { color } from "helpers/color"
 
 describe("color", () => {
   it("returns the correct color", () => {

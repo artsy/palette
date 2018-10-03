@@ -1,6 +1,13 @@
+import path from "path"
+
 export default {
   hashRouter: true,
   indexHtml: "docs/index.html",
+  // modifyBabelRc: config => {
+  //   console.log(config)
+  //   config.babelrc = false
+  //   return config
+  // },
   protocol: "http",
   typescript: true,
   themeConfig: {

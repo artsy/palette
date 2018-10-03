@@ -1,6 +1,6 @@
+import { color } from "helpers"
+import { styledWrapper } from "platform/primitives"
 import { css } from "styled-components"
-import { color } from "../../helpers"
-import { styledWrapper } from "../../platform/primitives"
 import { BorderBoxBase, BorderBoxProps } from "./BorderBoxBase"
 
 /**

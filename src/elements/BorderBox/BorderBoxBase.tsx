@@ -13,9 +13,9 @@ import {
   WidthProps,
 } from "styled-system"
 
-import { color, space } from "../../helpers"
-import { styledWrapper } from "../../platform/primitives"
-import { Flex, FlexProps } from "../Flex"
+import { Flex, FlexProps } from "elements/Flex"
+import { color, space } from "helpers"
+import { styledWrapper } from "platform/primitives"
 
 export interface BorderBoxProps
   extends BackgroundProps,

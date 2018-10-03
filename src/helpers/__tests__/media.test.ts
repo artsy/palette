@@ -1,4 +1,4 @@
-import { media } from "../media"
+import { media } from "helpers/media"
 
 describe("media", () => {
   it("returns the mediaQuery", () => {

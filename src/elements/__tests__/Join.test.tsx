@@ -1,6 +1,6 @@
+import { Join } from "elements/Join"
 import { mount } from "enzyme"
 import React from "react"
-import { Join } from "../Join"
 
 describe("Join", () => {
   it("renders a separator", () => {

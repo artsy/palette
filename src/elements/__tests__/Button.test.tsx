@@ -1,7 +1,7 @@
+import { Button } from "elements/Button"
 import { mount } from "enzyme"
 import React from "react"
-import { Theme } from "../../Theme"
-import { Button } from "../Button"
+import { Theme } from "Theme"
 
 describe("Button", () => {
   it("returns variants and sizes", () => {
