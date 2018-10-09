@@ -24,7 +24,7 @@ const Tip = styled(BorderBox)`
   background: white;
   border: none;
   bottom: 100%;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
   left: ${(p: TipProps) =>
     p.tipPosition.left === null ? "auto" : `${p.tipPosition.left}px`};
   right: ${(p: TipProps) =>
