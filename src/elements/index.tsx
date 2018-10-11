@@ -1,4 +1,5 @@
 export * from "./Avatar"
+export * from "./Banner"
 export * from "./BorderBox"
 export * from "./Box"
 export * from "./Button"
