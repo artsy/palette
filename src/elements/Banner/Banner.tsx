@@ -5,20 +5,31 @@ import { space } from "../../helpers"
 import { Box } from "../Box"
 import { Sans } from "../Typography"
 
+import { CloseIcon } from "../../svgs"
+
 const Target = styled.div`
   height: 30px;
+  padding: 9px;
   position: absolute;
-  right: 11px;
-  top: 11px;
+  right: 15px;
+  top: 15px;
   width: 30px;
 
   &:hover {
     cursor: pointer;
   }
+
+  svg {
+    display: block;
+  }
 `
 
 const CloseButton = ({ onClick }) => {
-  return <Target onClick={onClick}>X</Target>
+  return (
+    <Target onClick={onClick}>
+      <CloseIcon fill="white100" />
+    </Target>
+  )
 }
 
 export interface BannerProps {
@@ -50,11 +61,13 @@ export class Banner extends React.Component<BannerProps> {
       <Box
         bg="red100"
         color="white100"
-        p={space(2)}
+        height={space(6)}
         position="relative"
         textAlign="center"
       >
-        <Sans size="2">{this.props.message}</Sans>
+        <Sans size="2" style={{ lineHeight: "60px" }}>
+          {this.props.message}
+        </Sans>
         {showCloseButton && <CloseButton onClick={this.handleCloseClick} />}
       </Box>
     )
