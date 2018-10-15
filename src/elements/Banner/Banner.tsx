@@ -9,10 +9,8 @@ import { CloseIcon } from "../../svgs"
 
 const Target = styled.div`
   height: 30px;
+  margin: 0 auto ${space(1)}px;
   padding: 9px;
-  position: absolute;
-  right: 15px;
-  top: 15px;
   width: 30px;
 
   &:hover {
@@ -61,14 +59,12 @@ export class Banner extends React.Component<BannerProps> {
       <Box
         bg="red100"
         color="white100"
-        height={space(6)}
+        p={space(2)}
         position="relative"
         textAlign="center"
       >
-        <Sans size="2" style={{ lineHeight: "60px" }}>
-          {this.props.message}
-        </Sans>
         {showCloseButton && <CloseButton onClick={this.handleCloseClick} />}
+        <Sans size="2">{this.props.message}</Sans>
       </Box>
     )
   }
