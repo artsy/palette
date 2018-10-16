@@ -3,6 +3,8 @@ import styled, { css } from "styled-components"
 import { color, space } from "../../helpers"
 import { Flex, FlexProps } from "../Flex"
 
+import { Check } from "../../svgs"
+
 import {
   BorderProps,
   borders,
@@ -49,12 +51,9 @@ export class Checkbox extends React.Component<CheckboxProps> {
 
   iconColor = () => {
     const { disabled, selected } = this.props
-    if (disabled && selected) {
-      return color("black30")
-    } else if (disabled) {
-      return color("black5")
-    }
-    return color("white100")
+    if (disabled && selected) return "black30"
+    if (disabled) return "black5"
+    return "white100"
   }
 
   render() {
@@ -79,35 +78,13 @@ export class Checkbox extends React.Component<CheckboxProps> {
           error={error}
           disabled={disabled}
         >
-          <Check color={this.iconColor()} />
+          <Check stroke={this.iconColor()} />
         </CheckboxButton>
         <Label style={this.labelColor()}>{children}</Label>
       </Container>
     )
   }
 }
-
-const StyledSvg = styled.svg`
-  position: relative;
-  top: -${BORDER_WIDTH}px;
-  left: -${BORDER_WIDTH}px;
-`
-
-const Check = ({ color: strokeColor }) => (
-  <StyledSvg
-    width={`${space(SIZE)}px`}
-    height={`${space(SIZE)}px`}
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fill="none"
-      stroke={strokeColor}
-      strokeWidth="2"
-      d="M4 9.7L8.2 14 16 6"
-    />
-  </StyledSvg>
-)
 
 const checkBorderColor = ({ disabled, selected, error }) => {
   if (disabled) return color("black10")
@@ -135,6 +112,12 @@ const CheckboxButton = styled.div.attrs<CheckboxToggleProps>({})`
   width: ${space(SIZE)}px;
   height: ${space(SIZE)}px;
   transition: background-color 0.25s, border-color 0.25s;
+
+  svg {
+    position: relative;
+    top: -${BORDER_WIDTH}px;
+    left: -${BORDER_WIDTH}px;
+  }
 `
 
 const Label = styled.div``
