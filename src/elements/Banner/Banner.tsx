@@ -55,6 +55,8 @@ export class Banner extends React.Component<BannerProps> {
   render() {
     if (this.state.dismissed) return null
     const showCloseButton = this.props.dismissable
+    const textAlignment = showCloseButton ? "left" : "center"
+    const paddingRight = showCloseButton ? 6 : 2
 
     return (
       <Box
@@ -62,8 +64,8 @@ export class Banner extends React.Component<BannerProps> {
         color="white100"
         p={2}
         position="relative"
-        pr={6}
-        textAlign={showCloseButton ? "left" : "center"}
+        pr={paddingRight}
+        textAlign={textAlignment}
       >
         <Sans size="2">{this.props.message}</Sans>
         {showCloseButton && <CloseButton onClick={this.handleCloseClick} />}
