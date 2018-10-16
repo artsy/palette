@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 
-import { space } from "../../helpers"
 import { Box } from "../Box"
 import { Sans } from "../Typography"
 
@@ -61,9 +60,9 @@ export class Banner extends React.Component<BannerProps> {
       <Box
         bg="red100"
         color="white100"
-        p={space(2)}
-        pr={space(6)}
+        p={2}
         position="relative"
+        pr={6}
         textAlign={showCloseButton ? "left" : "center"}
       >
         <Sans size="2">{this.props.message}</Sans>
