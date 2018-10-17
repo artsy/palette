@@ -1,6 +1,6 @@
 import React from "react"
-import { color } from "../../helpers"
-import { Color } from "../../Theme"
+import { color } from "../helpers"
+import { Color } from "../Theme"
 
 interface IconProps {
   fill: Color
