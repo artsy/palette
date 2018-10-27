@@ -76,6 +76,7 @@
     "react-test-renderer": "^16.4.1",
     "regenerator-runtime": "^0.11.1",
     "semantic-release": "^15.5.0",
+    "static-extend": "^0.1.2",
     "styled-components": "^3.4.5",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
