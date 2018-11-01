@@ -19,6 +19,7 @@ import {
   ColorProps,
   display,
   DisplayProps as StyledSystemDisplayProps,
+  fontSize,
   maxWidth,
   MaxWidthProps,
   space,
@@ -89,9 +90,9 @@ export interface TextProps
 
 /** Base Text component for typography */
 export const Text = primitives.Text.attrs<TextProps>({})`
-  ${fontFamilyHelper};
-  font-size: ${({ fontSize }) => fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;
+  ${fontFamilyHelper};
+  ${fontSize};
   ${color};
   ${display};
   ${maxWidth};
