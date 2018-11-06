@@ -7,9 +7,7 @@ import { BorderBoxProps } from "../BorderBox/BorderBoxBase"
 /**
  * A stackable border box is a BorderBox that shares borders with its siblings.
  */
-export const StackableBorderBox = styledWrapper(BorderBox).attrs<
-  BorderBoxProps
->({})`
+export const StackableBorderBox = styledWrapper(BorderBox)<BorderBoxProps>`
   padding: ${space(3)}px;
   ${styledSpace};
 

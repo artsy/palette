@@ -7,7 +7,7 @@ import { Display } from "../Typography"
 
 export interface ColorBlockProps extends ColorProps, BackgroundProps {}
 
-const ColorBlock = styled.div.attrs<ColorBlockProps>({})`
+const ColorBlock = styled.div<ColorBlockProps>`
   width: 100px;
   height: 100px;
   padding: 5px;

@@ -34,7 +34,6 @@ import {
 
 // @ts-ignore
 import { ClassAttributes, HTMLAttributes } from "react"
-import { StyledComponentClass } from "styled-components"
 
 const flexGrow = style({
   prop: "flexGrow",
@@ -61,9 +60,7 @@ export interface FlexProps
 /**
  * A utility component that encapsulates flexbox behavior
  */
-export const Flex: StyledComponentClass<any, any, any> = primitives.View.attrs<
-  FlexProps
->({})`
+export const Flex = primitives.View<FlexProps>`
   display: flex;
   ${alignContent};
   ${alignItems};

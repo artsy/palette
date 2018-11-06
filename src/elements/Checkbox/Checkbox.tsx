@@ -86,14 +86,27 @@ export class Checkbox extends React.Component<CheckboxProps> {
   }
 }
 
-const checkBorderColor = ({ disabled, selected, error }) => {
+interface CheckboxFeedbackState {
+  disabled?: boolean
+  selected?: boolean
+  error?: boolean
+}
+
+const checkBorderColor = ({
+  disabled,
+  selected,
+  error,
+}: CheckboxFeedbackState) => {
   if (disabled) return color("black10")
   if (selected) return color("black100")
   if (error) return color("red100")
   return color("black10")
 }
 
-const checkBackgroundColor = ({ disabled, selected }) => {
+const checkBackgroundColor = ({
+  disabled,
+  selected,
+}: CheckboxFeedbackState) => {
   switch (true) {
     case disabled:
       return color("black5")
@@ -104,7 +117,7 @@ const checkBackgroundColor = ({ disabled, selected }) => {
   }
 }
 
-const CheckboxButton = styled.div.attrs<CheckboxToggleProps>({})`
+const CheckboxButton = styled.div<CheckboxToggleProps>`
   ${borders};
   ${styledSpace};
   background-color: ${checkBackgroundColor};
@@ -146,8 +159,9 @@ const hoverStyles = ({ selected, hover, disabled }) => {
 interface ContainerProps extends FlexProps {
   selected: boolean
   hover: boolean
+  disabled: boolean
 }
-const Container = styled(Flex).attrs<ContainerProps>({})`
+const Container = styled(Flex)<ContainerProps>`
   user-select: none;
   cursor: ${({ disabled }) => !disabled && "pointer"};
   transition: color 0.25s;

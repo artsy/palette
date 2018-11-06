@@ -1,7 +1,6 @@
 // @ts-ignore
 import React from "react"
 
-import { StyledComponentClass } from "styled-components"
 import { space, SpaceProps, width, WidthProps } from "styled-system"
 import { color } from "../../helpers"
 import { styled as primitives } from "../../platform/primitives"
@@ -11,11 +10,7 @@ export interface SeparatorProps extends SpaceProps, WidthProps {}
 /**
  * A horizontal divider whose width and spacing can be adjusted
  */
-export const Separator: StyledComponentClass<
-  any,
-  any,
-  any
-> = primitives.View.attrs<SeparatorProps>({})`
+export const Separator = primitives.View<SeparatorProps>`
   border: 1px solid ${color("black10")};
   border-bottom-width: 0;
   ${space};

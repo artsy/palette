@@ -235,7 +235,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
   }
 }
 
-const Container = styled.button.attrs<ButtonBaseProps>({})`
+const Container = styled.button<ButtonBaseProps>`
   cursor: pointer;
   position: relative;
   white-space: nowrap;

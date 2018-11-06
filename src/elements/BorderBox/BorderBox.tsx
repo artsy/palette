@@ -7,7 +7,7 @@ import { BorderBoxBase, BorderBoxProps } from "./BorderBoxBase"
  * A `div` that has a common border and padding set by default, with an optional
  * `hover` property for visually focusing content.
  */
-export const BorderBox = styledWrapper(BorderBoxBase).attrs<BorderBoxProps>({})`
+export const BorderBox = styledWrapper(BorderBoxBase)<BorderBoxProps>`
   ${({ hover }) =>
     hover &&
     css`
