@@ -19,6 +19,10 @@ import {
   ColorProps,
   display,
   DisplayProps as StyledSystemDisplayProps,
+  fontSize,
+  FontSizeProps,
+  lineHeight,
+  LineHeightProps,
   maxWidth,
   MaxWidthProps,
   space,
@@ -27,6 +31,8 @@ import {
   textAlign,
   TextAlignProps,
 } from "styled-system"
+
+import { determineFontSizes } from "./determineFontSizes"
 
 /**
  * Spec: https://www.notion.so/artsy/Typography-d1f9f6731f3d47c78003d6d016c30221
@@ -69,10 +75,10 @@ export interface TextProps
     SpaceProps,
     StyledSystemDisplayProps,
     TextAlignProps,
-    VerticalAlignProps {
+    VerticalAlignProps,
+    FontSizeProps,
+    LineHeightProps {
   fontFamily?: string
-  fontSize: number
-  lineHeight: number
   style?: CSSProperties
   /**
    * React Native specific. Allows you to tell the native renderers whether
@@ -90,8 +96,8 @@ export interface TextProps
 /** Base Text component for typography */
 export const Text = primitives.Text.attrs<TextProps>({})`
   ${fontFamilyHelper};
-  font-size: ${({ fontSize }) => fontSize}px;
-  line-height: ${({ lineHeight }) => lineHeight}px;
+  ${fontSize};
+  ${lineHeight};
   ${color};
   ${display};
   ${maxWidth};
@@ -143,7 +149,7 @@ function _selectFontFamilyType(weight?: null | FontWeights, italic?: boolean) {
 }
 
 interface StyledTextProps extends Partial<TextProps> {
-  size: string
+  size: string | string[]
   weight?: null | FontWeights
   italic?: boolean
 }
@@ -177,7 +183,7 @@ function createStyledText<P extends StyledTextProps>(
           fontFamily={
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }
-          {...themeProps.typeSizes[fontType][size]}
+          {...determineFontSizes(fontType, size)}
           {...textProps}
         />
       )
