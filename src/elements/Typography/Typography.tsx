@@ -71,13 +71,13 @@ const fontFamilyHelper = ({ fontFamily }: { fontFamily: FontValue }) => {
 
 export interface TextProps
   extends ColorProps,
+    FontSizeProps,
+    LineHeightProps,
     MaxWidthProps,
     SpaceProps,
     StyledSystemDisplayProps,
     TextAlignProps,
-    VerticalAlignProps,
-    FontSizeProps,
-    LineHeightProps {
+    VerticalAlignProps {
   fontFamily?: string
   style?: CSSProperties
   /**
