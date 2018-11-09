@@ -343,4 +343,6 @@ export type SerifSize =
   | keyof TypeSizes["serif"]
   | Array<keyof TypeSizes["serif"]>
 /** All available sizes for our display font */
-export type DisplaySize = keyof TypeSizes["display"]
+export type DisplaySize =
+  | keyof TypeSizes["display"]
+  | Array<keyof TypeSizes["display"]>
