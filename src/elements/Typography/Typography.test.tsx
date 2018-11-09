@@ -65,6 +65,33 @@ describe("Typography", () => {
         )
       })
     })
+
+    describe("concerning font-size & line-height", () => {
+      it("supports a single size", () => {
+        const sans = renderer.create(<Sans size="3">Hello world</Sans>).root
+        const text = sans.findByType(Text as React.ComponentClass<any>)
+        expect(text.props.fontSize).toEqual(
+          `${themeProps.typeSizes.sans["3"].fontSize}px`
+        )
+        expect(text.props.lineHeight).toEqual(
+          `${themeProps.typeSizes.sans["3"].lineHeight}px`
+        )
+      })
+
+      it("supports multiple responsive sizes", () => {
+        const sans = renderer.create(<Sans size={["2", "4"]}>Hello world</Sans>)
+          .root
+        const text = sans.findByType(Text as React.ComponentClass<any>)
+        expect(text.props.fontSize).toEqual([
+          `${themeProps.typeSizes.sans["2"].fontSize}px`,
+          `${themeProps.typeSizes.sans["4"].fontSize}px`,
+        ])
+        expect(text.props.lineHeight).toEqual([
+          `${themeProps.typeSizes.sans["2"].lineHeight}px`,
+          `${themeProps.typeSizes.sans["4"].lineHeight}px`,
+        ])
+      })
+    })
   })
 
   describe("Serif", () => {
@@ -140,6 +167,34 @@ describe("Typography", () => {
             </Catcher>
           )
         })
+      })
+    })
+
+    describe("concerning font-size & line-height", () => {
+      it("supports a single size", () => {
+        const serif = renderer.create(<Serif size="3">Hello world</Serif>).root
+        const text = serif.findByType(Text as React.ComponentClass<any>)
+        expect(text.props.fontSize).toEqual(
+          `${themeProps.typeSizes.serif["3"].fontSize}px`
+        )
+        expect(text.props.lineHeight).toEqual(
+          `${themeProps.typeSizes.serif["3"].lineHeight}px`
+        )
+      })
+
+      it("supports multiple responsive sizes", () => {
+        const serif = renderer.create(
+          <Serif size={["2", "4"]}>Hello world</Serif>
+        ).root
+        const text = serif.findByType(Text as React.ComponentClass<any>)
+        expect(text.props.fontSize).toEqual([
+          `${themeProps.typeSizes.serif["2"].fontSize}px`,
+          `${themeProps.typeSizes.serif["4"].fontSize}px`,
+        ])
+        expect(text.props.lineHeight).toEqual([
+          `${themeProps.typeSizes.serif["2"].lineHeight}px`,
+          `${themeProps.typeSizes.serif["4"].lineHeight}px`,
+        ])
       })
     })
 

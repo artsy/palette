@@ -337,8 +337,12 @@ export type Breakpoint = keyof typeof breakpoints
 /** All available type sizes */
 export type TypeSizes = typeof themeProps.typeSizes
 /** All available sizes for our sans font */
-export type SansSize = keyof TypeSizes["sans"]
+export type SansSize = keyof TypeSizes["sans"] | Array<keyof TypeSizes["sans"]>
 /** All available sizes for our serif font */
-export type SerifSize = keyof TypeSizes["serif"]
+export type SerifSize =
+  | keyof TypeSizes["serif"]
+  | Array<keyof TypeSizes["serif"]>
 /** All available sizes for our display font */
-export type DisplaySize = keyof TypeSizes["display"]
+export type DisplaySize =
+  | keyof TypeSizes["display"]
+  | Array<keyof TypeSizes["display"]>
