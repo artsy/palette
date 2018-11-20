@@ -94,9 +94,7 @@ export const Radio: React.SFC<RadioProps> = props => {
 /**
  * A radio button with a border
  */
-export const BorderedRadio = styled(Radio).attrs<RadioProps>({
-  p: 2,
-})`
+export const BorderedRadio = styled(Radio)<RadioProps>`
   border-radius: 2px;
   border: 1px solid ${color("black10")};
   transition: background-color 0.14s ease-in-out;
@@ -141,7 +139,7 @@ interface ContainerProps extends FlexProps {
   selected: boolean
 }
 
-const Container = styled(Flex).attrs<ContainerProps>({})`
+const Container = styled(Flex)<ContainerProps>`
   align-items: flex-start;
   cursor: ${({ disabled }) => !disabled && "pointer"};
   user-select: none;
@@ -175,7 +173,12 @@ const InnerCircle = styled.div`
   background-color: ${color("white100")};
 `
 
-const radioBackgroundColor = ({ disabled, selected }) => {
+interface RadioFeedbackState {
+  disabled?: boolean
+  selected?: boolean
+}
+
+const radioBackgroundColor = ({ disabled, selected }: RadioFeedbackState) => {
   switch (true) {
     case disabled:
       return color("black10")
@@ -186,13 +189,15 @@ const radioBackgroundColor = ({ disabled, selected }) => {
   }
 }
 
-const radioBorderColor = ({ disabled, selected }) =>
+const radioBorderColor = ({ disabled, selected }: RadioFeedbackState) =>
   selected && !disabled ? color("black100") : color("black10")
 
-const disabledInnerCircleBackgroundColor = ({ disabled, selected }) =>
-  disabled && !selected && color("black10")
+const disabledInnerCircleBackgroundColor = ({
+  disabled,
+  selected,
+}: RadioFeedbackState) => disabled && !selected && color("black10")
 
-const RadioButton = styled.div.attrs<RadioToggleProps>({})`
+const RadioButton = styled.div<RadioToggleProps>`
   ${borders};
   ${styledSpace};
   background-color: ${radioBackgroundColor};

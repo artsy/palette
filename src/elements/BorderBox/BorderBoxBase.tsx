@@ -32,7 +32,7 @@ export interface BorderBoxProps
  * A `View` or `div` (depending on the platform) that has a common border
  * and padding set by default
  */
-export const BorderBoxBase = styledWrapper(Flex).attrs<BorderBoxProps>({})`
+export const BorderBoxBase = styledWrapper(Flex)<BorderBoxProps>`
   border: 1px solid ${color("black10")};
   border-radius: 2px;
   padding: ${space(2)}px;

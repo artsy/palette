@@ -18,9 +18,10 @@ interface TipPosition {
 interface TipProps {
   tipPosition: TipPosition
   width: number
+  className?: string
 }
 
-const Tip = styled(BorderBox)`
+const Tip = styled(BorderBox)<TipProps>`
   background: white;
   border: none;
   bottom: 100%;

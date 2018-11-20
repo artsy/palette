@@ -101,7 +101,7 @@ const caretArrow = css<SelectProps>`
   height: 0;
 `
 
-const LargeSelectContainer = styled.div.attrs<SelectProps>({})`
+const LargeSelectContainer = styled.div<SelectProps>`
   position: relative;
   width: 100%;
 
@@ -137,7 +137,7 @@ const LargeSelectContainer = styled.div.attrs<SelectProps>({})`
   }
 `
 
-const SmallSelectContainer = styled.div.attrs<SelectProps>({})`
+const SmallSelectContainer = styled.div<SelectProps>`
   position: relative;
 
   select {

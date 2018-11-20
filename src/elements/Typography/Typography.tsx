@@ -94,8 +94,8 @@ export interface TextProps
 }
 
 /** Base Text component for typography */
-export const Text = primitives.Text.attrs<TextProps>({})`
-  ${fontFamilyHelper};
+export const Text = primitives.Text<TextProps>`
+  ${({ fontFamily }) => fontFamily && fontFamilyHelper({ fontFamily })};
   ${fontSize};
   ${lineHeight};
   ${color};

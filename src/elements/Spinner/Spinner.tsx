@@ -45,7 +45,7 @@ const getSize = (props: SpinnerProps) => {
 }
 
 /** Generic Spinner component */
-export const Spinner = styled.div.attrs<SpinnerProps>({})`
+export const Spinner = styled.div<SpinnerProps>`
   background: black;
   animation: ${spin} 1s infinite linear;
   position: absolute;

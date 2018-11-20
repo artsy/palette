@@ -35,7 +35,7 @@ export interface ImageProps
 /**
  * Image component with space, width and height properties
  */
-export const Image = styled.img.attrs<ImageProps>({})`
+export const Image = styled.img<ImageProps>`
   ${space};
   ${width};
   ${height};
@@ -51,7 +51,7 @@ export interface ResponsiveImageProps
 /**
  * An Image component that responsively resizes within its environment
  */
-export const ResponsiveImage = styled.div.attrs<ResponsiveImageProps>({})`
+export const ResponsiveImage = styled.div<ResponsiveImageProps>`
   background: url(${props => props.src});
   background-size: contain;
   background-repeat: no-repeat;

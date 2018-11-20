@@ -60,7 +60,7 @@ export interface FlexProps
 /**
  * A utility component that encapsulates flexbox behavior
  */
-export const Flex = primitives.View.attrs<FlexProps>({})`
+export const Flex = primitives.View<FlexProps>`
   display: flex;
   ${alignContent};
   ${alignItems};
