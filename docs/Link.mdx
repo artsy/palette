@@ -1,0 +1,22 @@
+---
+name: Link
+---
+
+import { Playground, PropsTable } from 'docz'
+import { Box, Link } from '../src'
+
+# Link
+
+<Playground>
+  <Box>
+    <Link>This is a default link</Link>
+  </Box>
+  <Box>
+    <Link noUnderline>This is a non-underlined link</Link>
+  </Box>
+  <Box>
+    <Link color="purple100">This is a non-standard color link</Link>
+  </Box>
+</Playground>
+
+<PropsTable of={Link} />
