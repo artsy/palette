@@ -148,6 +148,7 @@ const Container = styled(Flex)<ContainerProps>`
 
 const Label = styled.label`
   display: block;
+  flex-grow: 1;
   cursor: pointer;
   ${({ disabled }: { disabled: boolean }) =>
     disabled &&
