@@ -95,6 +95,7 @@ export const Radio: React.SFC<RadioProps> = props => {
  * A radio button with a border
  */
 export const BorderedRadio = styled(Radio)<RadioProps>`
+  padding: ${space(2)}px;
   border-radius: 2px;
   border: 1px solid ${color("black10")};
   transition: background-color 0.14s ease-in-out;
