@@ -2,8 +2,8 @@
 name: Typography
 ---
 
-import { Playground, PropsTable } from 'docz'
-import { Sans, Serif, Display } from '../src'
+import { Playground, PropsTable } from "docz"
+import { Sans, Serif, Display } from "../src"
 
 # Typography
 
@@ -59,3 +59,11 @@ import { Sans, Serif, Display } from '../src'
 </Playground>
 
 <PropsTable of={Display} />
+
+### Overloading the typography element
+
+<Playground>
+  <Sans as="h1" size="14">
+    This is an h1
+  </Sans>
+</Playground>

@@ -91,6 +91,7 @@ export interface TextProps
    * this prop.
    */
   ellipsizeMode?: string
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
 }
 
 /** Base Text component for typography */
