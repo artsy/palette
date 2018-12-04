@@ -34,6 +34,7 @@ const CloseButton = ({ onClick }) => {
 export interface BannerProps {
   dismissable: boolean
   message: string
+  backgroundColor?: string
 }
 
 /**
@@ -42,6 +43,7 @@ export interface BannerProps {
 export class Banner extends React.Component<BannerProps> {
   static defaultProps = {
     dismissable: false,
+    backgroundColor: null,
   }
 
   state = {
@@ -55,12 +57,13 @@ export class Banner extends React.Component<BannerProps> {
   render() {
     if (this.state.dismissed) return null
     const showCloseButton = this.props.dismissable
+    const backgroundColor = this.props.backgroundColor || "red100"
     const textAlignment = showCloseButton ? "left" : "center"
     const paddingRight = showCloseButton ? 6 : 2
 
     return (
       <Box
-        bg="red100"
+        bg={backgroundColor}
         color="white100"
         p={2}
         position="relative"
