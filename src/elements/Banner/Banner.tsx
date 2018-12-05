@@ -68,7 +68,7 @@ export class Banner extends React.Component<BannerProps> {
       <Wrapper
         bg={this.props.backgroundColor}
         color="white100"
-        p={2}
+        p={1}
         position="relative"
         pr={paddingRight}
         textAlign={textAlignment}
