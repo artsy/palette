@@ -23,6 +23,10 @@ const Target = styled.div`
   }
 `
 
+const Wrapper = styled(Box)`
+  transition: background-color 250ms linear;
+`
+
 const CloseButton = ({ onClick }) => {
   return (
     <Target onClick={onClick}>
@@ -34,7 +38,7 @@ const CloseButton = ({ onClick }) => {
 export interface BannerProps {
   dismissable: boolean
   message: string
-  backgroundColor?: string
+  backgroundColor: string
 }
 
 /**
@@ -43,7 +47,7 @@ export interface BannerProps {
 export class Banner extends React.Component<BannerProps> {
   static defaultProps = {
     dismissable: false,
-    backgroundColor: null,
+    backgroundColor: "red100",
   }
 
   state = {
@@ -57,13 +61,12 @@ export class Banner extends React.Component<BannerProps> {
   render() {
     if (this.state.dismissed) return null
     const showCloseButton = this.props.dismissable
-    const backgroundColor = this.props.backgroundColor || "red100"
     const textAlignment = showCloseButton ? "left" : "center"
     const paddingRight = showCloseButton ? 6 : 2
 
     return (
-      <Box
-        bg={backgroundColor}
+      <Wrapper
+        bg={this.props.backgroundColor}
         color="white100"
         p={2}
         position="relative"
@@ -72,7 +75,7 @@ export class Banner extends React.Component<BannerProps> {
       >
         <Sans size="2">{this.props.message}</Sans>
         {showCloseButton && <CloseButton onClick={this.handleCloseClick} />}
-      </Box>
+      </Wrapper>
     )
   }
 }
