@@ -47,6 +47,7 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
+    "@babel/parser": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
@@ -54,6 +55,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
+    "@mdx-js/mdx": "^0.16.5",
     "@types/jest": "^23.2.0",
     "@types/node": "^10.3.0",
     "@types/react": "^16.4.13",
@@ -69,8 +71,10 @@
     "docz-theme-default": "^0.12.4",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
     "jest": "^23.5.0",
+    "jest-enzyme": "^7.0.1",
     "jest-puppeteer-react": "^4.1.0",
     "lint-staged": "^7.2.0",
     "prettier": "^1.12.1",
@@ -87,7 +91,8 @@
     "tslint-config-prettier": "^1.13.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.0.3",
-    "typescript-styled-plugin": "^0.10.0"
+    "typescript-styled-plugin": "^0.10.0",
+    "webpack": "^4.27.1"
   },
   "dependencies": {
     "rc-slider": "^8.6.2",
@@ -154,7 +159,7 @@
       "<rootDir>/jest.config.ts"
     ],
     "transform": {
-      ".(ts|tsx)": "babel-jest"
+      ".(js|ts|tsx)": "babel-jest"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
