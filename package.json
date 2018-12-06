@@ -71,8 +71,10 @@
     "enzyme-adapter-react-16": "^1.5.0",
     "husky": "^0.14.3",
     "jest": "^23.5.0",
+    "jest-puppeteer-react": "^4.1.0",
     "lint-staged": "^7.2.0",
     "prettier": "^1.12.1",
+    "puppeteer": "^1.10.0",
     "react-dom": "^16.5.0",
     "react-native": "^0.55.4",
     "react-powerplug": "^1.0.0-rc.1",
@@ -90,8 +92,8 @@
   "dependencies": {
     "rc-slider": "^8.6.2",
     "react": "^16.5.0",
-    "styled-system": "^3.1.11",
-    "react-spring": "^5.7.2"
+    "react-spring": "^5.7.2",
+    "styled-system": "^3.1.11"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
@@ -140,6 +142,7 @@
       "js",
       "json"
     ],
+    "preset": "jest-puppeteer-react",
     "modulePathIgnorePatterns": [
       "<rootDir>/dist/*"
     ],
