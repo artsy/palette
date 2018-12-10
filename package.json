@@ -69,8 +69,10 @@
     "docz-theme-default": "^0.12.4",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
+    "enzyme-to-json": "^3.3.5",
     "husky": "^0.14.3",
     "jest": "^23.5.0",
+    "jest-styled-components": "^6.3.1",
     "lint-staged": "^7.2.0",
     "prettier": "^1.12.1",
     "react-dom": "^16.5.0",
@@ -149,6 +151,9 @@
     ],
     "setupFiles": [
       "<rootDir>/jest.config.ts"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ],
     "transform": {
       ".(ts|tsx)": "babel-jest"
