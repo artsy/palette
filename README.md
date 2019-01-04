@@ -23,31 +23,11 @@ to peek at the proposal and provide feedback before moving forward.
 
 ### Commits and Deployments
 
-Circle CI is set up to publish releases to NPM automatically via [semantic-release](https://github.com/semantic-release/semantic-release) following every successful merge to master.
+Palette uses [auto-release](https://github.com/intuit/auto-release#readme) to automatically release on every PR. Every PR should have a label that matches one of the following
 
-Release versions (major, minor, patch) are triggered [by commit messages](https://github.com/semantic-release/semantic-release#commit-message-format), when they adhere to [Ember conventions](https://github.com/conventional-changelog/conventional-changelog/blob/master/packages/conventional-changelog-ember/README.md):
+- Version: Trivial
+- Version: Patch
+- Version: Minor
+- Version: Major
 
-```
-[TAG context] commit message
-```
-
-[Valid tags](https://github.com/artsy/palette/blob/master/package.json#L10) for release include PATCH, DOC, FIX (patch), FEATURE (minor), and BREAKING (major). A context is also required. Commits that do not adhere to this convention will not trigger an NPM release.
-
-##### Example Patch Release
-
-```
-[FIX typeface] Add missing unit
-[PATCH tooling] Bump version
-```
-
-##### Example Minor (Feature) Release
-
-```
-[FEATURE ios] Add View primitive
-```
-
-##### Example Major (Breaking) Release
-
-```
-[BREAKING refactor] Update API to support new platform
-```
+No release will happen on a `Trivial` update.
