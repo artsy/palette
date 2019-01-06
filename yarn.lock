@@ -1974,10 +1974,10 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-auto-release-cli@^0.37.9:
-  version "0.37.9"
-  resolved "https://registry.yarnpkg.com/auto-release-cli/-/auto-release-cli-0.37.9.tgz#b8b69af587c4888c5c494d36597d17bcfe2ed0b1"
-  integrity sha512-d5ud0DUdSA9umDThZYd9EoVOJEPcNpJhO0I9l3dHahA+yu6QRyKl8kS4F8biLMmXJL9O4K/kKwzWoxu2mV9pTg==
+auto-release-cli@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/auto-release-cli/-/auto-release-cli-1.0.0.tgz#1b683ed2cfc9e31ba2307bbc9bb2dd56b23a4545"
+  integrity sha512-tJioNoqaFo41Mrs2V57fVek/tfS6Qg24QLAokvTY1hyweHJXC2btNE6u9SyTC1EJXhmQKxV6Kp5H7x5JKjedUg==
   dependencies:
     "@octokit/rest" "^16.3.0"
     chalk "^2.4.1"
