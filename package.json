@@ -63,7 +63,7 @@
     "@types/react-test-renderer": "^16.0.1",
     "@types/styled-components": "^3.0.0",
     "@types/styled-system": "^3.0.7",
-    "auto-release-cli": "^2.0.3",
+    "auto-release-cli": "2.0.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
     "babel-plugin-module-resolver": "^3.1.1",

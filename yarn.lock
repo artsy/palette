@@ -1974,7 +1974,7 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-auto-release-cli@^2.0.3:
+auto-release-cli@2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/auto-release-cli/-/auto-release-cli-2.0.3.tgz#c06a315cffe76a1232a27b34b729a6df5b278b44"
   integrity sha512-FwxSUr+0ioM+Lg0l3sdTK8++v9U6huzeZmyV/lwmOqGI5ZZcCstTet60AnigFesrdA9N04omuV1ZILD+Yx4IJQ==
