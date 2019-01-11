@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@artsy/palette@2.24.1":
-  version "2.24.1"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-2.24.1.tgz#7466cd571126f64a609898df5efe15bdd41ec9eb"
-  integrity sha512-e7od6Ho6T9dgQpcyyafMs7OTC/NoA5VFbmflAE2gemT8kY8J8kblDMWGOyEIKQrRqGcWMMLGABuiTPk9ogHu/w==
+"@artsy/palette@2.24.3":
+  version "2.24.3"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-2.24.3.tgz#2b5e55f97c174ca5063289e815bf400fe4409fae"
+  integrity sha512-miyUe7MYvKDqGg+P0kqe/WojMaEPK2adQNgGotRrU33OsKhu6P+AnBn9erpT3H+5sTiOefUIWiivbglESrgizQ==
   dependencies:
     rc-slider "^8.6.2"
     react "^16.5.0"
