@@ -15,6 +15,8 @@ const Target = styled.div`
 
 const Wrapper = styled(Box)`
   transition: background-color 250ms linear;
+  position: relative;
+  display: flex;
 `
 
 const TextWrapper = styled(Box)`
@@ -58,14 +60,7 @@ export class Banner extends React.Component<BannerProps> {
     const showCloseButton = this.props.dismissable
 
     return (
-      <Wrapper
-        bg={this.props.backgroundColor}
-        color="white100"
-        p={1}
-        position="relative"
-        display="flex"
-        flexWrap="nowrap"
-      >
+      <Wrapper bg={this.props.backgroundColor} color="white100" p={1}>
         <TextWrapper>
           <Sans size="2">{this.props.message}</Sans>
         </TextWrapper>
