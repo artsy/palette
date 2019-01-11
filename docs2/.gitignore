@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.yarn-integrity
+yarn-debug.log
+yarn-error.log
+
+node_modules/
+typings/
+
+# Gatsby files
+.cache/
+public
