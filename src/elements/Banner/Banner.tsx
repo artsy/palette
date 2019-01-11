@@ -1,22 +1,12 @@
 import React from "react"
 import styled from "styled-components"
-
+import { CloseIcon } from "../../svgs"
 import { Box } from "../Box"
 import { Sans } from "../Typography"
 
-import { CloseIcon } from "../../svgs"
-
 const Target = styled.div`
-  height: 30px;
-  padding: 9px;
-  position: absolute;
-  top: 11px;
-  right: 11px;
-  width: 30px;
-
-  &:hover {
-    cursor: pointer;
-  }
+  padding-left: 10px;
+  cursor: pointer;
 
   svg {
     display: block;
@@ -25,6 +15,11 @@ const Target = styled.div`
 
 const Wrapper = styled(Box)`
   transition: background-color 250ms linear;
+`
+
+const TextWrapper = styled(Box)`
+  width: 100%;
+  text-align: center;
 `
 
 const CloseButton = ({ onClick }) => {
@@ -61,8 +56,6 @@ export class Banner extends React.Component<BannerProps> {
   render() {
     if (this.state.dismissed) return null
     const showCloseButton = this.props.dismissable
-    const textAlignment = showCloseButton ? "left" : "center"
-    const paddingRight = showCloseButton ? 6 : 2
 
     return (
       <Wrapper
@@ -70,10 +63,12 @@ export class Banner extends React.Component<BannerProps> {
         color="white100"
         p={1}
         position="relative"
-        pr={paddingRight}
-        textAlign={textAlignment}
+        display="flex"
+        flexWrap="nowrap"
       >
-        <Sans size="2">{this.props.message}</Sans>
+        <TextWrapper>
+          <Sans size="2">{this.props.message}</Sans>
+        </TextWrapper>
         {showCloseButton && <CloseButton onClick={this.handleCloseClick} />}
       </Wrapper>
     )
