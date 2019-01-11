@@ -1,3 +1,15 @@
+# 2.24.5 (Fri Jan 11 2019)
+
+#### 🐛  Bug Fix
+
+- Fixes Banner styling [#163](https://github.com/artsy/palette/pull/163) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # 2.24.4 (Fri Jan 11 2019)
 
 #### 🐛  Bug Fix
