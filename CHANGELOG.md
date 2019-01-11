@@ -1,3 +1,15 @@
+# 2.24.0 (Fri Jan 11 2019)
+
+#### 🚀  Enhancement
+
+- [Helper] Add injectGlobalStyles helper [#158](https://github.com/artsy/palette/pull/158) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.23.4 (Thu Jan 10 2019)
 
 
