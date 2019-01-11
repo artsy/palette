@@ -12,7 +12,7 @@ describe("Button", () => {
     expect(wrapper).toHaveStyleRule("background-color", "purple100")
   })
 
-  it("has default red background", () => {
+  it("has default red background to Banner", () => {
     const message = "There was an error."
     const wrapper = mount(<Banner message={message} />)
     expect(wrapper).toHaveStyleRule("background-color", "red100")
