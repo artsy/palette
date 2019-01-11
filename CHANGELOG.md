@@ -1,3 +1,15 @@
+# 2.24.3 (Fri Jan 11 2019)
+
+#### 🐛  Bug Fix
+
+- Pin dependencies [#161](https://github.com/artsy/palette/pull/161) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 1
+
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # 2.24.2 (Fri Jan 11 2019)
 
 
