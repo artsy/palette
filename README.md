@@ -19,6 +19,11 @@ If the above guidance still doesn't give you a good sense of what to do, please 
 If you'd like to add a new component to Palette please create an issue using the component spec template. That'll give both design and engineering a chance
 to peek at the proposal and provide feedback before moving forward.
 
+## Local development
+
+        $ yarn docs
+        $ open http://localhost:3000/
+
 ## Deployment process
 
 ### Commits and Deployments
