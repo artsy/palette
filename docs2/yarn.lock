@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@artsy/palette@^2.24.1":
+"@artsy/palette@2.24.1":
   version "2.24.1"
   resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-2.24.1.tgz#7466cd571126f64a609898df5efe15bdd41ec9eb"
   integrity sha512-e7od6Ho6T9dgQpcyyafMs7OTC/NoA5VFbmflAE2gemT8kY8J8kblDMWGOyEIKQrRqGcWMMLGABuiTPk9ogHu/w==
@@ -1471,7 +1471,7 @@ author-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/author-regex/-/author-regex-1.0.0.tgz#d08885be6b9bbf9439fe087c76287245f0a81450"
   integrity sha1-0IiFvmubv5Q5/gh8dihyRfCoFFA=
 
-auto-release-cli@^2.2.0:
+auto-release-cli@2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/auto-release-cli/-/auto-release-cli-2.2.0.tgz#32b33dc9fc221d1df9ab5b4818215273ae5c4009"
   integrity sha512-Sx374zDsbv1LrtAOVpDA2r/ZbKtD9XPWVqcYu94kXR50ykiqh4DpgdqQcxnqF4OsIhxpKuOLsjtWDimOlauhEw==
