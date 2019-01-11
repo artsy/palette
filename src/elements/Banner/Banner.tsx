@@ -15,7 +15,6 @@ const Target = styled.div`
 
 const Wrapper = styled(Box)`
   transition: background-color 250ms linear;
-  position: relative;
   display: flex;
 `
 
