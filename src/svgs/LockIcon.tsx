@@ -1,6 +1,6 @@
 import React from "react"
 
-const LockIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export const LockIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 9 12" width={9} height={12} fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -10,5 +10,3 @@ const LockIcon = (props: React.SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
-
-export default LockIcon
