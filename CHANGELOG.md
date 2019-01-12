@@ -1,3 +1,12 @@
+# 2.25.6 (Sat Jan 12 2019)
+
+#### 🐛  Bug Fix
+
+- [Lib] Upgrade husky [#175](https://github.com/artsy/palette/pull/175) ([@damassi](https://github.com/damassi))
+- Fix icon default export [#174](https://github.com/artsy/palette/pull/174) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.25.5 (Sat Jan 12 2019)
 
 #### 🐛  Bug Fix
