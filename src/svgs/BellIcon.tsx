@@ -7,7 +7,7 @@ interface IconProps {
 }
 
 /** Icon */
-export const Bell: React.SFC<IconProps> = ({
+export const BellIcon: React.SFC<IconProps> = ({
   fill = "#000",
   selected = false,
 }) => {
@@ -61,4 +61,4 @@ export const Bell: React.SFC<IconProps> = ({
   }
 }
 
-Bell.displayName = "Bell"
+BellIcon.displayName = "Bell"

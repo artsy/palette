@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 /** Icon */
-export const ClosedEye = props => (
+export const ClosedEyeIcon = props => (
   <StyledClosedEye
     width={props.width || 20}
     height={props.height || 20}

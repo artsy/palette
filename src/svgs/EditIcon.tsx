@@ -5,7 +5,7 @@ interface IconProps {
 }
 
 /** Icon */
-export const Edit: React.SFC<IconProps> = ({ fill = "#000" }) => {
+export const EditIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
   return (
     <svg
       width="18"
@@ -34,4 +34,4 @@ export const Edit: React.SFC<IconProps> = ({ fill = "#000" }) => {
   )
 }
 
-Edit.displayName = "Edit"
+EditIcon.displayName = "Edit"

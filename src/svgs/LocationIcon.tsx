@@ -1,7 +1,7 @@
 import React from "react"
 
 /** Icon */
-export const Location = () => (
+export const LocationIcon = () => (
   <svg
     className="icon__location"
     height="21px"
