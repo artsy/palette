@@ -1,3 +1,11 @@
+# 2.25.4 (Sat Jan 12 2019)
+
+#### 🐛  Bug Fix
+
+- Add another bucket of icons [#172](https://github.com/artsy/palette/pull/172) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.25.3 (Sat Jan 12 2019)
 
 #### 🐛  Bug Fix
