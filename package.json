@@ -88,7 +88,7 @@
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.0.3",
+    "typescript": "~3.1",
     "typescript-styled-plugin": "^0.10.0"
   },
   "dependencies": {

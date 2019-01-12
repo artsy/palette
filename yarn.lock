@@ -12262,10 +12262,10 @@ typescript-template-language-service-decorator@^1.7.0:
   resolved "https://registry.yarnpkg.com/typescript-template-language-service-decorator/-/typescript-template-language-service-decorator-1.7.1.tgz#60f825b6b2bab725c9a73eaff65cb598e81a1bc8"
   integrity sha512-Gk0WBNe73T87lpiSj37Xmwzvt5zkKaHT1chY5+v2KP4uhpHktqIcV1hMpxmzAong38EIEhGZWeKtxjxGmTMbqg==
 
-typescript@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.0.3.tgz#4853b3e275ecdaa27f78fda46dc273a7eb7fc1c8"
-  integrity sha512-kk80vLW9iGtjMnIv11qyxLqZm20UklzuR2tL0QAnDIygIUIemcZMxlMWudl9OOt76H3ntVzcTiddQ1/pAAJMYg==
+typescript@~3.1:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.1.6.tgz#b6543a83cfc8c2befb3f4c8fba6896f5b0c9be68"
+  integrity sha512-tDMYfVtvpb96msS1lDX9MEdHrW4yOuZ4Kdc4Him9oU796XldPYF/t2+uKoX0BBa0hXXwDlqYQbXY5Rzjzc5hBA==
 
 typical@^2.6.1:
   version "2.6.1"
