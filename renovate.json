@@ -6,5 +6,8 @@
     "zephraph",
     "damassi",
     "l2succes"
+  ],
+  "ignorePaths": [
+    "docs2"
   ]
 }
