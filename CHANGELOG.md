@@ -1,3 +1,11 @@
+# 2.25.8 (Sat Jan 12 2019)
+
+#### 🐛  Bug Fix
+
+- Remove container around ChevronIcon [#177](https://github.com/artsy/palette/pull/177) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.25.7 (Sat Jan 12 2019)
 
 #### 🐛  Bug Fix
