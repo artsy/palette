@@ -78,7 +78,7 @@ export class Checkbox extends React.Component<CheckboxProps> {
           error={error}
           disabled={disabled}
         >
-          <CheckIcon stroke={this.iconColor()} />
+          <CheckIcon fill={this.iconColor()} />
         </CheckboxButton>
         <Label style={this.labelColor()}>{children}</Label>
       </Container>

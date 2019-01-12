@@ -11,6 +11,18 @@ export function injectGlobalStyles() {
       outline: none;
     }
 
+    html {
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      -ms-overflow-style: scrollbar;
+    }
+    *,
+    *::before,
+    *::after {
+      -webkit-box-sizing: inherit;
+              box-sizing: inherit;
+    }
+
     html,
     body,
     #root {
