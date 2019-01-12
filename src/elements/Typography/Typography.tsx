@@ -93,8 +93,9 @@ export interface TextProps
   ellipsizeMode?: string
 }
 
+// FIXME: Remove `any` type
 /** Base Text component for typography */
-export const Text = primitives.Text<TextProps>`
+export const Text: any = primitives.Text<TextProps>`
   ${({ fontFamily }) => fontFamily && fontFamilyHelper({ fontFamily })};
   ${fontSize};
   ${lineHeight};
@@ -171,6 +172,8 @@ function createStyledText<P extends StyledTextProps>(
   fontType: keyof FontFamily,
   selectFontFamilyType: typeof _selectFontFamilyType = _selectFontFamilyType
 ) {
+  // FIXME: Remove ts ignore
+  // @ts-ignore
   return styled<P>(
     ({ size, weight, italic, ...textProps }: StyledTextProps) => {
       const fontFamilyType = selectFontFamilyType(_fontWeight(weight), italic)

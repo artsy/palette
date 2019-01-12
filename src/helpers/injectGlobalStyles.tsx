@@ -1,10 +1,13 @@
-import styled, { css, injectGlobal } from "styled-components"
+import { createGlobalStyle, css } from "styled-components"
 import { Display, Sans, Serif } from "../elements/Typography"
 import { color } from "./color"
 
-/** Serves as the default reset for apps importing Palette */
+/**
+ * Injects globally relevant styles, including helper classes for our Typography.
+ * Apps that use palette should mount this component at the root of their tree.
+ */
 export function injectGlobalStyles() {
-  injectGlobal`
+  const GlobalStyles = createGlobalStyle`
     @import url("https://webfonts.artsy.net/all-webfonts.css");
 
     *:focus {
@@ -41,23 +44,7 @@ export function injectGlobalStyles() {
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-  `
 
-  // Mixins
-
-  const noUnderline = css`
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  `
-
-  const colorLink = css`
-    color: ${color("purple100")};
-  `
-
-  const GlobalStyles = styled.div`
     /* Default links */
 
     a {
@@ -157,3 +144,16 @@ export function injectGlobalStyles() {
     GlobalStyles,
   }
 }
+
+// Mixins
+const noUnderline = css`
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+const colorLink = css`
+  color: ${color("purple100")};
+`

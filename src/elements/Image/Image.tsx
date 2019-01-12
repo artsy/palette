@@ -61,6 +61,8 @@ export const ResponsiveImage = styled.div<ResponsiveImageProps>`
   ${width};
   ${maxWidth};
 `
+
+// @ts-ignore
 ResponsiveImage.defaultProps = {
   width: "100%",
   ratio: 1,

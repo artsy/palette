@@ -62,6 +62,7 @@ export const Spinner = styled.div<SpinnerProps>`
   }};
 `
 
+// @ts-ignore
 Spinner.defaultProps = {
   width: 25,
   height: 6,

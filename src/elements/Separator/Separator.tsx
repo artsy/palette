@@ -17,6 +17,7 @@ export const Separator = primitives.View<SeparatorProps>`
   ${width};
 `
 
+// @ts-ignore
 Separator.defaultProps = {
   width: "100%",
 }
