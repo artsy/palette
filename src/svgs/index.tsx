@@ -1,5 +1,6 @@
 export * from "./AuctionIcon"
 export * from "./BellIcon"
+export * from "./BlueChipIcon"
 export * from "./BookIcon"
 export * from "./CheckIcon"
 export * from "./CheckIcon2"
