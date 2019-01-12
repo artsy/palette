@@ -1,5 +1,6 @@
 import React from "react"
 
+/** Icon */
 export const LockIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 9 12" width={9} height={12} fill="none" {...props}>
     <path
