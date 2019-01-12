@@ -1313,10 +1313,12 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/styled-system@^3.0.7":
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.0.7.tgz#1bb1b5161f2009f10aa37c4c627ecb78fa543cb3"
-  integrity sha512-5IVTchugOLqVdSQcF7C5b544k3zML1+EhA67pWnueMwz/wrr15GXHw8GvdOQqgm9mZ3HbgZSBMXDSH5Q0yZE8Q==
+"@types/styled-system@^3.0.9":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.1.0.tgz#1394fa60516f404df5e85f10616d17902c937d00"
+  integrity sha512-ptinr11BRe/9H1uFVPgfx/zzl0wwZU1pJISIYgEZNAppLxVZl3iKhR7jqMj0NQr4szat7GepecdGWUxiEqeOaQ==
+  dependencies:
+    csstype "^2.2.0"
 
 "@webassemblyjs/ast@1.7.8":
   version "1.7.8"
