@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 /** Icon */
-export class Help extends Component {
+export class HelpIcon extends Component {
   render() {
     return (
       <svg

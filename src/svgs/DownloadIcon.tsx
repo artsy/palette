@@ -6,7 +6,7 @@ interface IconProps {
 }
 
 /** Icon */
-export const Download: React.SFC<IconProps> = ({ fill = "#000" }) => {
+export const DownloadIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
   return (
     <svg
       width="18"
@@ -36,4 +36,4 @@ export const Download: React.SFC<IconProps> = ({ fill = "#000" }) => {
   )
 }
 
-Download.displayName = "Download"
+DownloadIcon.displayName = "Download"

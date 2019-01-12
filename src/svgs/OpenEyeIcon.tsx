@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 /** Icon */
-export const OpenEye = props => {
+export const OpenEyeIcon = props => {
   return (
     <StyledOpenEye
       width={props.width || 20}

@@ -139,6 +139,8 @@ export function injectGlobalStyles() {
     }
   `
 
+  GlobalStyles.displayName = "GlobalStyles"
+
   return {
     GlobalStyles,
   }

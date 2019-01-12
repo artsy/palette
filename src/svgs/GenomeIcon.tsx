@@ -5,7 +5,7 @@ interface IconProps {
 }
 
 /** Icon */
-export const Genome: React.SFC<IconProps> = ({ fill = "#000" }) => {
+export const GenomeIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
   return (
     <svg
       width="18"
@@ -33,4 +33,4 @@ export const Genome: React.SFC<IconProps> = ({ fill = "#000" }) => {
   )
 }
 
-Genome.displayName = "Genome"
+GenomeIcon.displayName = "Genome"

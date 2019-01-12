@@ -7,7 +7,7 @@ interface IconProps {
 }
 
 /** Icon */
-export const Heart: React.SFC<IconProps> = ({
+export const HeartIcon: React.SFC<IconProps> = ({
   fill = "#000",
   selected = false,
 }) => {
@@ -50,4 +50,4 @@ export const Heart: React.SFC<IconProps> = ({
   }
 }
 
-Heart.displayName = "Heart"
+HeartIcon.displayName = "Heart"

@@ -5,7 +5,7 @@ interface IconProps {
 }
 
 /** Icon */
-export const Share: React.SFC<IconProps> = ({ fill = "#000" }) => {
+export const ShareIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -23,4 +23,4 @@ export const Share: React.SFC<IconProps> = ({ fill = "#000" }) => {
   )
 }
 
-Share.displayName = "Share"
+ShareIcon.displayName = "Share"
