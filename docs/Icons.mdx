@@ -3,7 +3,8 @@ name: Icons
 ---
 
 import { Playground } from "docz"
-import { CheckIcon, CloseIcon } from "../src/svgs"
+import { Join, Separator } from "../src"
+import { CheckIcon, CloseIcon, ChevronIcon } from "../src/svgs"
 
 # Icons
 
@@ -17,4 +18,17 @@ import { CheckIcon, CloseIcon } from "../src/svgs"
 
 <Playground>
   <CloseIcon />
+</Playground>
+
+## ChevronIcon
+
+<Playground>
+  <Join separator={<Separator m={1} />}>
+    <ChevronIcon direction="left" />
+    <ChevronIcon direction="right" />
+    <ChevronIcon direction="up" />
+    <ChevronIcon direction="down" />
+    <ChevronIcon direction="rotate(0)" />
+    <ChevronIcon direction="rotate(90)" />
+  </Join>
 </Playground>
