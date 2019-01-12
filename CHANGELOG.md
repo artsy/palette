@@ -1,3 +1,11 @@
+# 2.25.0 (Sat Jan 12 2019)
+
+#### 🚀  Enhancement
+
+- [Icons] Add Reaction SVG icons [#168](https://github.com/artsy/palette/pull/168) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.24.6 (Sat Jan 12 2019)
 
 #### 🐛  Bug Fix
