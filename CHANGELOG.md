@@ -1,3 +1,11 @@
+# 2.25.5 (Sat Jan 12 2019)
+
+#### 🐛  Bug Fix
+
+- Add Icon export [#173](https://github.com/artsy/palette/pull/173) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.25.4 (Sat Jan 12 2019)
 
 #### 🐛  Bug Fix
