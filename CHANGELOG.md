@@ -1,3 +1,11 @@
+# 2.25.9 (Sat Jan 12 2019)
+
+#### 🐛  Bug Fix
+
+- Move grid over from reaction [#179](https://github.com/artsy/palette/pull/179) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.25.8 (Sat Jan 12 2019)
 
 #### 🐛  Bug Fix
