@@ -1,3 +1,11 @@
+# 2.25.7 (Sat Jan 12 2019)
+
+#### 🐛  Bug Fix
+
+- Fix box-sizing issue in global css [#176](https://github.com/artsy/palette/pull/176) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.25.6 (Sat Jan 12 2019)
 
 #### 🐛  Bug Fix
