@@ -1,4 +1,5 @@
 import React from "react"
+import { GridThemeProvider } from "styled-bootstrap-grid"
 import { ThemeProvider } from "styled-components"
 import { fontFamily } from "./platform/fonts"
 
@@ -324,7 +325,13 @@ export const themeProps = {
  * A wrapper component for passing down the Artsy theme context
  */
 export const Theme = props => {
-  return <ThemeProvider theme={themeProps}>{props.children}</ThemeProvider>
+  return (
+    <ThemeProvider theme={themeProps}>
+      <GridThemeProvider gridTheme={themeProps.grid}>
+        {props.children}
+      </GridThemeProvider>
+    </ThemeProvider>
+  )
 }
 
 /** All available px spacing maps */
