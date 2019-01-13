@@ -1,3 +1,11 @@
+# 2.25.10 (Sun Jan 13 2019)
+
+#### 🐛  Bug Fix
+
+- Move grid provider from reaction [#181](https://github.com/artsy/palette/pull/181) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.25.9 (Sat Jan 12 2019)
 
 #### 🐛  Bug Fix
