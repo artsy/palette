@@ -63,7 +63,6 @@ export function injectGlobalStyles<P>(
         ${colorLink};
       }
     }
-
     /* <Sans /> links */
     ${Sans} {
       a {
@@ -83,7 +82,6 @@ export function injectGlobalStyles<P>(
         }
       }
     }
-
     /* <Serif /> links */
     ${Serif} {
       a {
@@ -103,7 +101,6 @@ export function injectGlobalStyles<P>(
         }
       }
     }
-
     /* <Display /> links */
     ${Display} {
       a {
@@ -115,7 +112,6 @@ export function injectGlobalStyles<P>(
         }
       }
     }
-
     ${additionalStyles};
   `
 
