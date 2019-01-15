@@ -1,3 +1,14 @@
+# 2.25.12 (Tue Jan 15 2019)
+
+#### 🏠  Internal
+
+- Make trivial considered an internal change [#188](https://github.com/artsy/palette/pull/188) ([@zephraph](https://github.com/zephraph))
+- Remove auto-release-cli as a dependency [#187](https://github.com/artsy/palette/pull/187) ([@zephraph](https://github.com/zephraph))
+- Update yarn orb to v0.1.0 [#186](https://github.com/artsy/palette/pull/186) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency auto-release-cli to v2.4.1 [#185](https://github.com/artsy/palette/pull/185) ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # 2.25.11 (Tue Jan 15 2019)
 
 
