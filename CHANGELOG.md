@@ -1,3 +1,15 @@
+# 2.26.0 (Wed Jan 16 2019)
+
+#### 🚀  Enhancement
+
+- [Elements] Move Tabs and Toggle from Reaction [#191](https://github.com/artsy/palette/pull/191) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Don't deploy trivial changes [#189](https://github.com/artsy/palette/pull/189) ([@zephraph](https://github.com/zephraph))
+
+---
+
 # 2.25.12 (Tue Jan 15 2019)
 
 #### 🏠  Internal
