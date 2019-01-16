@@ -212,7 +212,7 @@ const ActiveTabButton: React.SFC = ({ children }) => (
 )
 
 /** Sharable tab styles  */
-export const styles = {
+export const sharedTabsStyles = {
   tabContainer: css`
     cursor: pointer;
     padding-bottom: 13px;
@@ -254,12 +254,12 @@ const TabsScrollContainer = styled(Flex)`
 `
 
 const TabContainer = styled.div`
-  ${styles.tabContainer};
+  ${sharedTabsStyles.tabContainer};
 `
 
 /** The active container */
 export const ActiveTabContainer = styled.div`
-  ${styles.activeTabContainer};
+  ${sharedTabsStyles.activeTabContainer};
 `
 
 const SupWrapper = styled.sup`
