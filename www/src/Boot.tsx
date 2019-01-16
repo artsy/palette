@@ -1,4 +1,4 @@
-import { injectGlobalStyles, Sans } from "@artsy/palette"
+import { injectGlobalStyles, Sans, Theme } from "@artsy/palette"
 import { MDXProvider } from "@mdx-js/tag"
 import React from "react"
 import { HeadProvider } from "react-head"
@@ -21,7 +21,9 @@ export const Boot = ({ element }) => {
   return (
     <HeadProvider>
       <MDXProvider components={LayoutComponents}>
-        <GlobalStyles>{element}</GlobalStyles>
+        <Theme>
+          <GlobalStyles>{element}</GlobalStyles>
+        </Theme>
       </MDXProvider>
     </HeadProvider>
   )
