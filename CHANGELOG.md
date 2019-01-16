@@ -1,3 +1,11 @@
+# 2.27.0 (Wed Jan 16 2019)
+
+#### 🚀  Enhancement
+
+- [Bump] Attempt to get out of stuck NPM state [#193](https://github.com/artsy/palette/pull/193) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.26.2 (Wed Jan 16 2019)
 
 
