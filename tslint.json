@@ -1,10 +1,5 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-  "linterOptions": {
-    "exclude": [
-      "./www",
-    ]
-  },
   "rules": {
     "curly": false,
     "interface-name": [true, "never-prefix"],

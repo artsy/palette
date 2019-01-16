@@ -6,5 +6,9 @@ module.exports = {
     description: "Artsy's design system",
     author: "Artsy",
   },
-  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-typescript"],
+  plugins: [
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-typescript",
+    "gatsby-mdx",
+  ],
 }
