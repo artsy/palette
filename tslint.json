@@ -1,5 +1,10 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": [
+      "./www",
+    ]
+  },
   "rules": {
     "curly": false,
     "interface-name": [true, "never-prefix"],
@@ -20,10 +25,18 @@
     "completed-docs": [
       true,
       {
-        "functions": { "visibilities": ["exported"] },
-        "classes": { "visibilities": ["exported"] },
-        "types": { "visibilities": ["exported"] },
-        "variables": { "visibilities": ["exported"] }
+        "functions": {
+          "visibilities": ["exported"]
+        },
+        "classes": {
+          "visibilities": ["exported"]
+        },
+        "types": {
+          "visibilities": ["exported"]
+        },
+        "variables": {
+          "visibilities": ["exported"]
+        }
       }
     ]
   }
