@@ -1,3 +1,11 @@
+# 2.26.1 (Wed Jan 16 2019)
+
+#### 🐛  Bug Fix
+
+- Make Tabs export name more descriptive [#192](https://github.com/artsy/palette/pull/192) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.26.0 (Wed Jan 16 2019)
 
 #### 🚀  Enhancement
