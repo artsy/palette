@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 
-import { Box, Flex, Sans, Separator } from ".."
+import { Box, Flex, Sans, Separator } from "../"
 import { color, space } from "../../helpers"
 import { ChevronIcon } from "../../svgs"
 
