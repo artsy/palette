@@ -17,7 +17,7 @@
     "compile:emission": "yarn compile --out-dir ../emission/node_modules/@artsy/palette/dist",
     "docs:build": "docz build",
     "docs": "docz dev",
-    "lint": "tslint -c tslint.json --project tsconfig.json",
+    "lint": "tslint \"src/*\" -c tslint.json tsconfig.json",
     "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
     "prettier-project": "yarn prettier-write 'src/**/*.{ts,tsx}'",
     "prettier-write": "yarn prettier --write",
@@ -82,7 +82,7 @@
     "regenerator-runtime": "^0.11.1",
     "static-extend": "^0.1.2",
     "styled-components": "^3.4.5",
-    "tslint": "^5.10.0",
+    "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.13.0",
     "tslint-react": "^3.6.0",
     "typescript": "~3.1",
@@ -91,6 +91,7 @@
   "dependencies": {
     "rc-slider": "^8.6.2",
     "react": "^16.5.0",
+    "react-live": "^1.12.0",
     "react-spring": "^5.7.2",
     "styled-bootstrap-grid": "1.0.4",
     "styled-system": "^3.1.11"
