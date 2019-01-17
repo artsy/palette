@@ -1,3 +1,11 @@
+# 2.31.0 (Thu Jan 17 2019)
+
+#### 🚀  Enhancement
+
+- Migrate progress bar from reaction [#204](https://github.com/artsy/palette/pull/204) ([@dblandin](https://github.com/dblandin))
+
+---
+
 # 2.30.0 (Thu Jan 17 2019)
 
 #### 🚀  Enhancement
