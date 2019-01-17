@@ -1,5 +1,3 @@
-const path = require("path")
-
 module.exports = {
   siteMetadata: {
     title: "Palette",
@@ -7,8 +5,30 @@ module.exports = {
     author: "Artsy",
   },
   plugins: [
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/pages/components/`,
+      },
+    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-typescript",
-    "gatsby-mdx",
+    {
+      resolve: "gatsby-mdx",
+      options: {
+        defaultLayouts: {
+          posts: require.resolve("./src/components/Layout.tsx"),
+          default: require.resolve("./src/components/Layout.tsx"),
+        },
+      },
+    },
   ],
 }

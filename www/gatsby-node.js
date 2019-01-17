@@ -4,24 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require("path")
-const WebpackNotifierPlugin = require("webpack-notifier")
+const onCreateNode = require("./system/onCreateNode")
+const onCreateWebpackConfig = require("./system/onCreateWebpackConfig")
 
-/**
- * Update default Webpack configuration
- */
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    plugins: [
-      new WebpackNotifierPlugin({
-        skipFirstNotification: true,
-      }),
-    ],
-    resolve: {
-      alias: {
-        palette: path.resolve(__dirname, "../src"),
-      },
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-    },
-  })
-}
+// Modifies the GraphQL schema
+exports.onCreateNode = onCreateNode
+
+// Additional Webpack setup
+exports.onCreateWebpackConfig = onCreateWebpackConfig

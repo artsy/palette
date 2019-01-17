@@ -3,7 +3,7 @@ import React from "react"
 
 import { Header } from "components/Header"
 
-export const Layout = ({ children }) => (
+const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -25,3 +25,5 @@ export const Layout = ({ children }) => (
     )}
   />
 )
+
+export default Layout

@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "nodemon --exec \"gatsby develop\"",
     "lint": "tslint -c tslint.json --project tsconfig.json --fix",
     "prettier-write": "prettier --write \"src/**/*.js\"",
     "release": "auto shipit",
@@ -22,6 +22,7 @@
     "gatsby-plugin-typescript": "^2.0.3",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.0",
+    "nodemon": "^1.18.9",
     "prettier": "^1.15.3",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
@@ -32,6 +33,7 @@
   },
   "dependencies": {
     "@artsy/palette": "2.27.0",
+    "@babel/core": "^7.2.2",
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
     "babel-plugin-styled-components": "^1.10.0",
@@ -42,14 +44,22 @@
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-plugin-styled-components": "^3.0.4",
-    "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-sharp": "^2.1.8",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-head": "^3.0.2",
     "styled-components": "^3.4.5"
-
+  },
+  "nodemonConfig": {
+    "ignore": [
+      ".cache/*",
+      "public/*",
+      "src/*"
+    ],
+    "delay": "1500"
   },
   "prettier": {
     "semi": false,
