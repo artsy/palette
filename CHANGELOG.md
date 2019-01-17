@@ -1,3 +1,11 @@
+# 2.27.2 (Thu Jan 17 2019)
+
+#### 🏠  Internal
+
+- [Docs v2] Continue static layout [#195](https://github.com/artsy/palette/pull/195) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.27.1 (Thu Jan 17 2019)
 
 #### 🐛  Bug Fix
