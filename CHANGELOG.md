@@ -1,3 +1,11 @@
+# 2.29.0 (Thu Jan 17 2019)
+
+#### 🚀  Enhancement
+
+- Migrate TimeRemaining component from Reaction [#203](https://github.com/artsy/palette/pull/203) ([@dblandin](https://github.com/dblandin) [@damassi](https://github.com/damassi))
+
+---
+
 # 2.28.0 (Thu Jan 17 2019)
 
 #### 🚀  Enhancement
