@@ -1,3 +1,5 @@
+// FIXME: Consider switching from Moment.js to a lighter library like Luxon
+// https://moment.github.io/luxon
 import moment from "moment"
 import React from "react"
 
