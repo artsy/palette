@@ -1,3 +1,15 @@
+# 2.27.3 (Thu Jan 17 2019)
+
+#### 🐛  Bug Fix
+
+- Migrate PriceRange component from Reaction [#199](https://github.com/artsy/palette/pull/199) ([@dblandin](https://github.com/dblandin))
+
+#### 🏠  Internal
+
+- Start building out dynamic page generation logic [#197](https://github.com/artsy/palette/pull/197) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.27.2 (Thu Jan 17 2019)
 
 #### 🏠  Internal
