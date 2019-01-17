@@ -1,3 +1,11 @@
+# 2.30.0 (Thu Jan 17 2019)
+
+#### 🚀  Enhancement
+
+- Migrate Pagination Components from Reaction (SELL-862) [#198](https://github.com/artsy/palette/pull/198) ([@iskounen](https://github.com/iskounen) [@damassi](https://github.com/damassi))
+
+---
+
 # 2.29.0 (Thu Jan 17 2019)
 
 #### 🚀  Enhancement
