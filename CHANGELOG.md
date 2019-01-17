@@ -1,3 +1,11 @@
+# 2.27.1 (Thu Jan 17 2019)
+
+#### 🐛  Bug Fix
+
+- [Docs2] Stub out page template; add MDX [#190](https://github.com/artsy/palette/pull/190) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.27.0 (Wed Jan 16 2019)
 
 #### 🚀  Enhancement
