@@ -9,7 +9,7 @@ export interface LinkProps extends SpaceProps {
 }
 
 /**
- * Basic a tag
+ * Basic <a> tag styled with additional LinkProps
  * Spec: https://zpl.io/2Gm6D3d
  */
 export const Link = styled.a<LinkProps>`

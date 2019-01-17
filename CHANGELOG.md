@@ -1,3 +1,11 @@
+# 2.28.0 (Thu Jan 17 2019)
+
+#### 🚀  Enhancement
+
+- Add EntityHeader component [#202](https://github.com/artsy/palette/pull/202) ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # 2.27.3 (Thu Jan 17 2019)
 
 #### 🐛  Bug Fix
