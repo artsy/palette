@@ -31,7 +31,7 @@
     "webpack-notifier": "^1.7.0"
   },
   "dependencies": {
-    "@artsy/palette": "2.27.0",
+    "@artsy/palette": "2.27.1",
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
     "babel-plugin-styled-components": "^1.10.0",
