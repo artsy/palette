@@ -90,6 +90,7 @@
   },
   "dependencies": {
     "moment": "^2.23.0",
+    "moment-timezone": "^0.5.23",
     "rc-slider": "^8.6.2",
     "react": "^16.5.0",
     "react-live": "^1.12.0",
