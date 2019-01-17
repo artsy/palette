@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette",
-  "version": "2.28.0",
+  "version": "2.29.0",
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
@@ -89,6 +89,7 @@
     "typescript-styled-plugin": "^0.10.0"
   },
   "dependencies": {
+    "moment": "^2.23.0",
     "rc-slider": "^8.6.2",
     "react": "^16.5.0",
     "react-live": "^1.12.0",
