@@ -1,3 +1,11 @@
+# 2.32.0 (Thu Jan 17 2019)
+
+#### 🚀  Enhancement
+
+- Migrate StaticCountdownTimer from Reaction [#205](https://github.com/artsy/palette/pull/205) ([@dblandin](https://github.com/dblandin))
+
+---
+
 # 2.31.0 (Thu Jan 17 2019)
 
 #### 🚀  Enhancement
