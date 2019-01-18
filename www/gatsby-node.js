@@ -6,11 +6,10 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const onCreateNode = require("./config/onCreateNode")
-const onCreateWebpackConfig = require("./config/onCreateWebpackConfig")
+const { graphql } = require("gatsby")
 
 // Modifies the GraphQL schema
-exports.onCreateNode = onCreateNode
+exports.onCreateNode = require("./config/onCreateNode")
 
 // Additional Webpack setup
-exports.onCreateWebpackConfig = onCreateWebpackConfig
+exports.onCreateWebpackConfig = require("./config/onCreateWebpackConfig")

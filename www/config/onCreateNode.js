@@ -1,3 +1,5 @@
+// @ts-check
+
 const { createFilePath } = require("gatsby-source-filesystem")
 const { toLower } = require("lodash")
 
