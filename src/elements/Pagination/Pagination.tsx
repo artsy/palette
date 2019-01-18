@@ -22,7 +22,7 @@ export const LargePagination = (props: Props) => {
   } = props
 
   return (
-    <>
+    <div>
       <Separator mb={3} pr={2} />
       <Flex
         flexDirection="row"
@@ -58,7 +58,7 @@ export const LargePagination = (props: Props) => {
           <NextButton disabled={!hasNextPage} onClick={() => onNext()} />
         </Box>
       </Flex>
-    </>
+    </div>
   )
 }
 
@@ -205,3 +205,8 @@ const PrevNextFlex = styled(Flex)`
     opacity: 0.1;
   }
 `
+
+// Tests
+ButtonWithBorder.displayName = "ButtonWithBorder"
+PrevButton.displayName = "PrevButton"
+NextButton.displayName = "NextButton"
