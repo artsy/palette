@@ -3,7 +3,7 @@ import { Display, Sans, Serif } from "../elements/Typography"
 import { color } from "./color"
 
 /** Serves as the default reset for apps importing Palette */
-export function injectGlobalStyles() {
+export function injectGlobalStyles(additionalStyles?: string) {
   injectGlobal`
     @import url("https://webfonts.artsy.net/all-webfonts.css");
 
@@ -41,6 +41,8 @@ export function injectGlobalStyles() {
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
+
+    ${additionalStyles};
   `
 
   // Mixins
