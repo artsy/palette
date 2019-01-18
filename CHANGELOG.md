@@ -1,3 +1,11 @@
+# 2.32.2 (Fri Jan 18 2019)
+
+#### 🐛  Bug Fix
+
+- Move Pagination tests [#207](https://github.com/artsy/palette/pull/207) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.32.1 (Fri Jan 18 2019)
 
 #### 🐛  Bug Fix
