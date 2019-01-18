@@ -1,3 +1,5 @@
+// @ts-check
+
 module.exports = {
   siteMetadata: {
     title: "Palette",

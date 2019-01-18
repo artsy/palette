@@ -1,7 +1,9 @@
-import { graphql, StaticQuery } from "gatsby"
-import React from "react"
-
+import { Flex } from "@artsy/palette"
+import { ContentArea } from "components/ContentArea"
 import { Header } from "components/Header"
+import { Sidebar } from "components/Sidebar"
+import { graphql, Link, StaticQuery } from "gatsby"
+import React from "react"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -14,15 +16,19 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
-          {children}
-          <footer>Add footer</footer>
-        </div>
-      </>
-    )}
+    render={data => {
+      return (
+        <>
+          <Header title={data.site.siteMetadata.title} />
+          <Link to="/">Go back to the homepage</Link>
+          <Flex p={2}>
+            <Sidebar />
+            <ContentArea />
+            {children}
+          </Flex>
+        </>
+      )
+    }}
   />
 )
 

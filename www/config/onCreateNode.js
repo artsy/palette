@@ -17,6 +17,7 @@ module.exports = function onCreateNode({ node, getNode, actions }) {
     )
 
     // Add the node to the gql schema
+
     createNodeField({
       node,
       name: "route",
