@@ -1,3 +1,11 @@
+# 2.32.1 (Fri Jan 18 2019)
+
+#### 🐛  Bug Fix
+
+- Fix pagination arrow alignment [#206](https://github.com/artsy/palette/pull/206) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.32.0 (Thu Jan 17 2019)
 
 #### 🚀  Enhancement
