@@ -1,3 +1,11 @@
+# 2.33.0 (Fri Jan 18 2019)
+
+#### 🚀  Enhancement
+
+- Add ability to pass styles to injectGlobal [#208](https://github.com/artsy/palette/pull/208) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.32.2 (Fri Jan 18 2019)
 
 #### 🐛  Bug Fix
