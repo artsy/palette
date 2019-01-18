@@ -4,7 +4,11 @@ import React from "react"
 import { HeadProvider } from "react-head"
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
 
-const { GlobalStyles } = injectGlobalStyles()
+const { GlobalStyles } = injectGlobalStyles(`
+  a {
+    text-decoration: none;
+  }
+`)
 
 const LayoutComponents = {
   h1: props => <Sans size="6">{props.children}</Sans>,

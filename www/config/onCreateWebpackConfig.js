@@ -1,5 +1,8 @@
+// @ts-check
+
 const path = require("path")
 const WebpackNotifierPlugin = require("webpack-notifier")
+const WebpackShellPlugin = require("webpack-shell-plugin")
 
 /**
  * Update default Webpack configuration
@@ -10,12 +13,14 @@ module.exports = function onCreateWebpackConfig({ actions }) {
       new WebpackNotifierPlugin({
         skipFirstNotification: true,
       }),
+
+      // FIXME: Investigate Apollo error
+      // new WebpackShellPlugin({
+      //   onBuildEnd: ["yarn emit-graphql-types"],
+      // }),
     ],
     resolve: {
-      alias: {
-        palette: path.resolve(process.cwd(), "src"),
-      },
-      modules: [path.resolve(process.cwd(), "src"), "node_modules"],
+      modules: [path.resolve(__dirname, "../src"), "node_modules"],
     },
   })
 }

@@ -1,29 +1,16 @@
-import { graphql, StaticQuery } from "gatsby"
+import { Flex } from "@artsy/palette"
+import { ContentArea } from "components/ContentArea"
+import { Sidebar } from "components/Sidebar"
 import React from "react"
 
-import { Header } from "components/Header"
-
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
-          {children}
-          <footer>Add footer</footer>
-        </div>
-      </>
-    )}
-  />
-)
+const Layout = ({ children }) => {
+  return (
+    <Flex p={2}>
+      <Sidebar />
+      <ContentArea />
+      {children}
+    </Flex>
+  )
+}
 
 export default Layout

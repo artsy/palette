@@ -1,14 +1,15 @@
+// @ts-check
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const onCreateNode = require("./system/onCreateNode")
-const onCreateWebpackConfig = require("./system/onCreateWebpackConfig")
+const { graphql } = require("gatsby")
 
 // Modifies the GraphQL schema
-exports.onCreateNode = onCreateNode
+exports.onCreateNode = require("./config/onCreateNode")
 
 // Additional Webpack setup
-exports.onCreateWebpackConfig = onCreateWebpackConfig
+exports.onCreateWebpackConfig = require("./config/onCreateWebpackConfig")

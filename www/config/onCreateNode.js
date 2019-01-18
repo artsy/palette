@@ -1,3 +1,5 @@
+// @ts-check
+
 const { createFilePath } = require("gatsby-source-filesystem")
 const { toLower } = require("lodash")
 
@@ -17,6 +19,7 @@ module.exports = function onCreateNode({ node, getNode, actions }) {
     )
 
     // Add the node to the gql schema
+
     createNodeField({
       node,
       name: "route",
