@@ -1,3 +1,11 @@
+# 2.33.1 (Fri Jan 18 2019)
+
+#### 🐛  Bug Fix
+
+- [Docs 2] Add dynamic page navigation + break apart page components [#209](https://github.com/artsy/palette/pull/209) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.33.0 (Fri Jan 18 2019)
 
 #### 🚀  Enhancement
