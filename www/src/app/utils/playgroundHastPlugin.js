@@ -20,8 +20,9 @@ module.exports = () => tree => {
       const hasPlayground = child.value.includes(`<${componentDisplayName}>`)
       if (hasPlayground) {
         const jsxChildren = child.value.replace(playgroundTagRe, "")
+        const wrap = children => children // `<>${children}</>`
 
-        let formatted = prettier.format(jsxChildren, {
+        let formatted = prettier.format(wrap(jsxChildren), {
           parser: "babylon",
           ...prettierOptions,
         })

@@ -1,0 +1,40 @@
+---
+name: Banner
+---
+
+import { Banner } from "@artsy/palette"
+
+# Banner
+
+## Status
+
+<Playground>
+  <Banner message="Something went wrong" />
+</Playground>
+
+## Status with custom background color
+
+<Playground>
+  <Banner backgroundColor="purple100" message="Something went wrong" />
+</Playground>
+
+## Dismissable
+
+<Playground>
+  <Banner dismissable message="Something went wrong" />
+</Playground>
+
+## Status With Wrapped text
+
+<Playground>
+  <Banner message="Error message here. If the message wraps. This is how error message here. If the message wraps. If the message wraps. Error message here. If the message wraps. This is how error message here. If the message wraps. If the message wraps." />
+</Playground>
+
+## Dismissable With Wrapped text
+
+<Playground>
+  <Banner
+    dismissable
+    message="Error message here. If the message wraps. This is how error message here. If the message wraps. If the message wraps. Error message here. If the message wraps. This is how error message here. If the message wraps. If the message wraps."
+  />
+</Playground>

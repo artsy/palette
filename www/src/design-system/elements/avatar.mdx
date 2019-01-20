@@ -1,20 +1,42 @@
 ---
-name: "avatar"
+name: Avatar
 wip: true
 ---
 
-import { Avatar, Box, Flex } from "@artsy/palette"
-import styled from "styled-components"
-import { Toggle } from "react-powerplug"
+import { Avatar } from "@artsy/palette"
 
-# hi avatar page!!
+# Avatar
+
+## Default
 
 <Playground>
-  <Toggle initial={false}>
-    {({ on, toggle }) => (
-      <Box onClick={toggle} mb={2}>
-        <Avatar size="xs" initials={on ? "hey" : "now"} />
-      </Box>
-    )}
-  </Toggle>
+  <Avatar src="https://picsum.photos/110/110/?random" />
+</Playground>
+
+## With initials
+
+<Playground>
+  <>
+    <Avatar size="xs" initials="AB" />
+    <Avatar size="sm" initials="CD" />
+    <Avatar size="md" initials="EF" />
+  </>
+</Playground>
+
+## Extra Small
+
+<Playground>
+  <Avatar size="xs" src="https://picsum.photos/110/110/?random" />
+</Playground>
+
+## Small
+
+<Playground>
+  <Avatar size="sm" src="https://picsum.photos/110/110/?random" />
+</Playground>
+
+## Medium
+
+<Playground>
+  <Avatar size="md" src="https://picsum.photos/110/110/?random" />
 </Playground>

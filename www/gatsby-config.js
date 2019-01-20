@@ -29,7 +29,9 @@ module.exports = {
         // gatsby-mdx. See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
         globalScope: `
           import { Playground } from "app/components/Playground"
-          export default { Playground }
+          export default {
+            Playground,
+          }
         `,
 
         // mdPlugins: [],

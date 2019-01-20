@@ -41,24 +41,26 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
       case 1: {
         return {
           ml: 2,
+          py: 0.3,
           size: "2" as SansSize,
         }
       }
       default: {
         return {
           ml: 0,
+          py: 0.2,
           size: "3" as SansSize,
         }
       }
     }
   }
 
-  const { ml, size } = getTreeLayout()
+  const { ml, py, size } = getTreeLayout()
 
   return (
     <Box ml={ml}>
       {tree.map(({ data, children, formattedName, path }: TreeNode) => {
-        const isWIP = get(data, "frontmatter.wip")
+        const isWIP = get(data, "wip", false)
         const hasChildren = Boolean(children.length)
 
         if (hasChildren) {
@@ -72,7 +74,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
 
         return (
           <Fragment key={path}>
-            <Sans size={size} py={0.2}>
+            <Sans size={size} py={py}>
               {label} {isWIP && !hasChildren && <StatusBadge status="WIP" />}
             </Sans>
 
@@ -92,7 +94,7 @@ function buildNavTree(data) {
         ...acc,
         {
           path: route,
-          data: node.context,
+          data: node.frontmatter,
         },
       ]
     } else {
@@ -104,6 +106,5 @@ function buildNavTree(data) {
     .map(path => path.children)[0]
     .filter(path => !includes(NAV_BLACKLIST, path.name))
 
-  console.log(navTree)
   return navTree
 }

@@ -1,7 +1,5 @@
 // Adapted from https://github.com/pthm/node-path-list-to-tree. Thanks!
 
-import { capitalize } from "lodash"
-
 /**
  * Takes an array of path-like strings and creates a tree from the result.
  *
@@ -44,7 +42,7 @@ export interface TreeNode {
   name: string
   formattedName: string
   path: string
-  data: object
+  data: any
   children: TreeNode[]
 }
 
@@ -52,7 +50,7 @@ function createNode(
   path: string[],
   tree: TreeNode[],
   fullPath?: string,
-  data?: object
+  data?: any
 ): void {
   const name = path.shift()
   const idx = tree.findIndex((e: TreeNode) => {
@@ -63,7 +61,7 @@ function createNode(
     tree.push({
       name,
       // TODO: Pass in transformer callback
-      formattedName: capitalize(name),
+      formattedName: data.name,
       path: fullPath,
       data,
       children: [],
