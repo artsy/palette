@@ -2,6 +2,44 @@
 
 import { capitalize } from "lodash"
 
+/**
+ * Takes an array of path-like strings and creates a tree from the result.
+ *
+ * @example
+ *
+ * const paths = [{path: 'foo' }, {path: 'foo/bar', data: { hello: 'world' }}]
+ * const tree = pathListToTree(paths)
+ * // => [{
+ *   name: 'foo',
+ *   formattedName: 'Foo',
+ *   path: 'foo',
+ *   data: undefined
+ *     children: [
+ *       {
+ *         name: 'bar',
+ *         formattedName: 'Bar',
+ *         path: 'foo/bar',
+ *         data: { hello: 'world' }
+ *       }
+ *     ]
+ *  ]
+ * }]
+ */
+
+interface PathListProps {
+  path: string
+  data: object
+}
+
+export function pathListToTree(pathList: PathListProps[]): TreeNode[] {
+  const tree: TreeNode[] = []
+  for (const { path, data } of pathList) {
+    const split: string[] = path.split("/")
+    createNode(split, tree, path, data)
+  }
+  return tree
+}
+
 export interface TreeNode {
   name: string
   formattedName: string
@@ -24,6 +62,7 @@ function createNode(
   if (idx < 0) {
     tree.push({
       name,
+      // TODO: Pass in transformer callback
       formattedName: capitalize(name),
       path: fullPath,
       data,
@@ -35,15 +74,4 @@ function createNode(
   } else {
     createNode(path, tree[idx].children, fullPath, data)
   }
-}
-
-export function pathListToTree(
-  pathList: [{ path: string; data: object }]
-): TreeNode[] {
-  const tree: TreeNode[] = []
-  for (const { path, data } of pathList) {
-    const split: string[] = path.split("/")
-    createNode(split, tree, path, data)
-  }
-  return tree
 }

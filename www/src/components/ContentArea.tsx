@@ -58,10 +58,7 @@ export const ContentArea = _props => {
   )
 }
 
-const Container = styled(Box).attrs({
-  pt: 4,
-  px: 6,
-})`
+const Container = styled(Box)`
   margin: 0 auto;
   flex-grow: 1;
 `

@@ -77,7 +77,6 @@
     "prettier": "^1.12.1",
     "react-dom": "^16.5.0",
     "react-native": "^0.55.4",
-    "react-powerplug": "^1.0.0-rc.1",
     "react-test-renderer": "^16.4.1",
     "regenerator-runtime": "^0.11.1",
     "static-extend": "^0.1.2",
@@ -89,6 +88,7 @@
     "typescript-styled-plugin": "^0.10.0"
   },
   "dependencies": {
+    "gatsby-plugin-catch-links": "^2.0.9",
     "moment": "^2.23.0",
     "moment-timezone": "^0.5.23",
     "rc-slider": "^8.6.2",
@@ -142,7 +142,8 @@
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
-      "<rootDir>/dist/"
+      "<rootDir>/dist/",
+      "<rootDir>/www/"
     ]
   }
 }

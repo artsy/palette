@@ -5,11 +5,17 @@ import React from "react"
 
 const Layout = ({ children }) => {
   return (
-    <Flex p={2}>
-      <Sidebar />
-      <ContentArea />
-      {children}
-    </Flex>
+    <>
+      <Flex p={2}>
+        <Sidebar />
+        <Flex flexDirection="column" pt={4} mx={6}>
+          {children}
+          <br />
+          <br />
+          <ContentArea />
+        </Flex>
+      </Flex>
+    </>
   )
 }
 

@@ -3,10 +3,19 @@ name: "avatar"
 wip: true
 ---
 
-# hi avatar page!
+import { Avatar, Box, Flex } from "@artsy/palette"
+import { Playground } from "../../components/Playground"
+import styled from "styled-components"
+import { Toggle } from "react-powerplug"
 
-hello there
+# hi avatar page!!
 
-export const notes = {
-  hello: "world",
-}
+<Playground>
+  <Toggle initial={false}>
+    {({ on, toggle }) => (
+      <Box onClick={toggle} mb={2}>
+        <Avatar size="xs" initials={on ? "hey" : "now"} />
+      </Box>
+    )}
+  </Toggle>
+</Playground>
