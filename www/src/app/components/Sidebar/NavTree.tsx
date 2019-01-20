@@ -1,9 +1,9 @@
 import { Box, Sans, SansSize } from "@artsy/palette"
-import { StatusBadge } from "components/StatusBadge"
+import { StatusBadge } from "app/components/StatusBadge"
+import { pathListToTree, TreeNode } from "app/utils/pathListToTree"
 import { graphql, Link, StaticQuery } from "gatsby"
 import { get, includes } from "lodash"
 import React, { Fragment } from "react"
-import { pathListToTree, TreeNode } from "utils/pathListToTree"
 
 // TODO: Add `showInNav` frontmatter
 const NAV_BLACKLIST = ["dev-404-page", "404", "404.html"]
@@ -12,16 +12,16 @@ export const NavTree = _props => {
   return (
     <StaticQuery
       query={graphql`
-        query SidebarNavItemsQuery {
-          allSitePage {
+        query NavTreeQuery {
+          allMdx {
             edges {
               node {
-                path
-                context {
-                  frontmatter {
-                    name
-                    wip
-                  }
+                fields {
+                  route
+                }
+                frontmatter {
+                  name
+                  wip
                 }
               }
             }
@@ -85,13 +85,13 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
 }
 
 function buildNavTree(data) {
-  const paths = data.allSitePage.edges.reduce((acc, { node }) => {
-    const path = node.path.replace(/\/$/, "") // remove trailing slash
-    if (path.length) {
+  const routes = data.allMdx.edges.reduce((acc, { node }) => {
+    const route = node.fields.route.replace(/\/$/, "") // remove trailing slash
+    if (route.length) {
       return [
         ...acc,
         {
-          path,
+          path: route,
           data: node.context,
         },
       ]
@@ -100,9 +100,10 @@ function buildNavTree(data) {
     }
   }, [])
 
-  const navTree = pathListToTree(paths)
+  const navTree = pathListToTree(routes)
     .map(path => path.children)[0]
     .filter(path => !includes(NAV_BLACKLIST, path.name))
 
+  console.log(navTree)
   return navTree
 }

@@ -1,6 +1,6 @@
 import { Box, Sans, Serif, Spacer, Tab, Tabs, Toggle } from "@artsy/palette"
-import { PropsTable } from "components/PropsTable"
-import { StatusBadge } from "components/StatusBadge"
+import { PropsTable } from "app/components/PropsTable"
+import { StatusBadge } from "app/components/StatusBadge"
 import React from "react"
 import styled from "styled-components"
 
