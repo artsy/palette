@@ -9,7 +9,7 @@ export const StatusBadge: React.SFC<Props> = ({ status }) => {
   return (
     <Box pt="1px" px={0.3} display="inline-block" bg="yellow10">
       <Sans size="1" color="yellow100">
-        {status}
+        {status.toUpperCase()}
       </Sans>
     </Box>
   )
