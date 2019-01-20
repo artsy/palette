@@ -16,8 +16,6 @@ const { toLower } = require("lodash")
  * Intercept and modify the GraphQL schema
  */
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-
   if (node.internal.type === "Mdx") {
     const route = toLower(
       createFilePath({
@@ -26,12 +24,62 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         trailingSlash: false,
       })
     )
-    createNodeField({
+
+    // Add a new field -- route -- which can be accessed from the schema under
+    // fields { route }.
+    actions.createNodeField({
       node,
       name: "route",
       value: route,
     })
   }
+}
+
+/**
+ * Dynamically create pages for all .mdx content.
+ *
+ * NOTE: Content located in /pages is created automatically but should be limited
+ * to static pages like "About" or "Home", etc, and is subject data limitations
+ * since query data resolved below cannot be injected in at build time.
+ */
+exports.createPages = ({ graphql, actions }) => {
+  return new Promise((resolve, reject) => {
+    resolve(
+      graphql(`
+        {
+          allMdx {
+            edges {
+              node {
+                id
+                fields {
+                  route
+                }
+              }
+            }
+          }
+        }
+      `).then(result => {
+        if (result.errors) {
+          console.error(result.errors)
+          reject(result.errors)
+        }
+
+        result.data.allMdx.edges.forEach(({ node }) => {
+          actions.createPage({
+            // Encode the route
+            path: node.fields.route,
+            // Layout for the page
+            component: path.resolve("./src/app/templates/DocsTemplate.tsx"),
+            // Values defined here are injected into the page as props and can
+            // be passed to a GraphQL query as arguments
+            context: {
+              id: node.id,
+            },
+          })
+        })
+      })
+    )
+  })
 }
 
 /**

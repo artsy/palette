@@ -1,8 +1,6 @@
-import Layout from "components/Layout"
+import Layout from "app/components/Layout"
 import React from "react"
 
-const IndexPage = _props => {
+export default function IndexPage(_props) {
   return <Layout>hi!</Layout>
 }
-
-export default IndexPage

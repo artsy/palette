@@ -9,10 +9,9 @@ const prettierOptions = prettier.resolveConfig.sync(
 
 // FIXME: Dont hardcode this
 const componentDisplayName = "Playground"
-const removePlaygroundTag = new RegExp(
-  `<[\/]{0,1}(${componentDisplayName})[^><]*>`,
-  "g"
-)
+
+// TODO: Wire up ability to pass props to <Playground> component from .mdx files.
+const playgroundTagRe = new RegExp(`<[\/]{0,1}(${componentDisplayName})[^><]*>`, "g") // prettier-ignore
 
 module.exports = () => tree => {
   tree.children
@@ -20,7 +19,7 @@ module.exports = () => tree => {
     .forEach(child => {
       const hasPlayground = child.value.includes(`<${componentDisplayName}>`)
       if (hasPlayground) {
-        const jsxChildren = child.value.replace(removePlaygroundTag, "")
+        const jsxChildren = child.value.replace(playgroundTagRe, "")
 
         let formatted = prettier.format(jsxChildren, {
           parser: "babylon",
