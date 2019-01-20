@@ -1,0 +1,16 @@
+---
+name: Stepper
+---
+
+import { Playground } from 'docz'
+import { Stepper, Step } from '../src'
+
+# Stepper
+
+<Playground>
+  <Stepper initialTabIndex={2} currentStepIndex={2} disableNavigation={false}>
+    <Step name="Review" />
+    <Step name="Confirm" />
+    <Step name="Pay" />
+  </Stepper>
+</Playground>

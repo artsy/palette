@@ -1,7 +1,11 @@
 import React, { Ref } from "react"
 import styled, { css } from "styled-components"
 import { JustifyContentProps, WidthProps } from "styled-system"
-import { Box, Flex, FlexProps, Join, Sans } from "../"
+import { Box } from "../Box"
+import { Flex, FlexProps } from "../Flex"
+import { Join } from "../Join"
+import { Sans } from "../Typography"
+
 import { color, media, space } from "../../helpers"
 
 export interface TabLike extends JSX.Element {
