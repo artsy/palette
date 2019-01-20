@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "scripts": {
     "build": "gatsby build",
+    "clean": "rm -rf .cache && yarn start",
     "develop": "nodemon --exec \"gatsby develop\"",
+    "debug": "nodemon --exec \"node --inspect-brk --no-lazy node_modules/.bin/gatsby develop\" ",
     "emit-graphql-types": "apollo codegen:generate --tagName=graphql --target=typescript __generated__",
     "lint": "tslint -c tslint.json --project tsconfig.json --fix",
     "prettier-write": "prettier --write \"src/**/*.js\"",
@@ -86,10 +88,12 @@
     "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-sharp": "^2.1.8",
     "lodash": "^4.17.11",
+    "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-head": "^3.0.2",
+    "react-powerplug": "^1.0.0",
     "styled-components": "^3.4.5"
   },
   "license": "MIT",

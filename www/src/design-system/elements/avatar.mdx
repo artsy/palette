@@ -1,0 +1,20 @@
+---
+name: "avatar"
+wip: true
+---
+
+import { Avatar, Box, Flex } from "@artsy/palette"
+import styled from "styled-components"
+import { Toggle } from "react-powerplug"
+
+# hi avatar page!!
+
+<Playground>
+  <Toggle initial={false}>
+    {({ on, toggle }) => (
+      <Box onClick={toggle} mb={2}>
+        <Avatar size="xs" initials={on ? "hey" : "now"} />
+      </Box>
+    )}
+  </Toggle>
+</Playground>

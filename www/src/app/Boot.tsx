@@ -2,7 +2,7 @@ import { injectGlobalStyles, Sans, Theme } from "@artsy/palette"
 import { MDXProvider } from "@mdx-js/tag"
 import React from "react"
 import { HeadProvider } from "react-head"
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
+import { Playground } from "./components/Playground"
 
 const { GlobalStyles } = injectGlobalStyles(`
   a {
@@ -12,19 +12,13 @@ const { GlobalStyles } = injectGlobalStyles(`
 
 const LayoutComponents = {
   h1: props => <Sans size="6">{props.children}</Sans>,
-  code: props => (
-    <LiveProvider code={props.children}>
-      <LiveEditor />
-      <LiveError />
-      <LivePreview />
-    </LiveProvider>
-  ),
+  code: Playground,
 }
 
-export const Boot = ({ element }) => {
+export const Boot = ({ element, ...props }) => {
   return (
     <HeadProvider>
-      <MDXProvider components={LayoutComponents}>
+      <MDXProvider components={LayoutComponents} {...props}>
         <Theme>
           <GlobalStyles>{element}</GlobalStyles>
         </Theme>

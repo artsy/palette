@@ -1,12 +1,6 @@
-import { Link } from "gatsby"
+import Layout from "app/components/Layout"
 import React from "react"
 
-import Layout from "components/Layout"
-
-const IndexPage = () => (
-  <Layout>
-    <Link to="/layout/">Static layout</Link>
-  </Layout>
-)
-
-export default IndexPage
+export default function IndexPage(_props) {
+  return <Layout>hi!</Layout>
+}
