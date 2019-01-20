@@ -1,3 +1,11 @@
+# 2.33.2 (Sun Jan 20 2019)
+
+#### 🐛  Bug Fix
+
+- [Docs v2] Implement rough code editor [#211](https://github.com/artsy/palette/pull/211) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.33.1 (Fri Jan 18 2019)
 
 #### 🐛  Bug Fix
