@@ -1,3 +1,15 @@
+# 2.34.0 (Sun Jan 20 2019)
+
+#### 🚀  Enhancement
+
+- Migrate Stepper from Reaction [#210](https://github.com/artsy/palette/pull/210) ([@dblandin](https://github.com/dblandin) [@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Cleanup directory structure; add dynamic pages [#212](https://github.com/artsy/palette/pull/212) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.33.2 (Sun Jan 20 2019)
 
 #### 🐛  Bug Fix
