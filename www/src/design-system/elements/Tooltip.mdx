@@ -1,0 +1,94 @@
+---
+name: Tooltip
+---
+
+import { Box, Sans, Tooltip } from "@artsy/palette"
+
+# Tooltip
+
+## Lg with left-aligned anchor
+
+<Playground>
+  <Box textAlign="left" mt={100}>
+    <Sans size="2">
+      <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
+        <span>Artsy Collector</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>
+
+## Lg with centered anchor
+
+<Playground>
+  <Box textAlign="center" mt={100}>
+    <Sans size="2">
+      <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
+        <span>Artsy Collector</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>
+
+## Lg with right-aligned anchor
+
+<Playground>
+  <Box textAlign="right" mt={100}>
+    <Sans size="2">
+      <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
+        <span>Artsy Collector</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>
+
+## Sm
+
+<Playground>
+  <Box mt={20}>
+    <Sans size="2">
+      <Tooltip size="sm" content="Missing: title, price and 8 more">
+        <span>10 requirements left to publish.</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>
+
+## Sm with custom width
+
+<Playground>
+  <Box mt={20}>
+    <Sans size="2">
+      <Tooltip size="sm" content="Missing: title, price and 8 more" width="175">
+        <span>10 requirements left to publish.</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>
+
+## Lg with too much content
+
+<Playground>
+  <Box textAlign="center" mt={200}>
+    <Sans size="2">
+      <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
+        <span>Artsy Collector</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>
+
+## Lg with too much content and custom width
+
+<Playground>
+  <Box textAlign="center" mt={200}>
+    <Sans size="2">
+      <Tooltip
+        content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed."
+        width="500"
+      >
+        <span>Artsy Collector</span>
+      </Tooltip>
+    </Sans>
+  </Box>
+</Playground>

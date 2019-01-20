@@ -1,0 +1,39 @@
+---
+name: Collapse
+showInNav: true
+---
+
+import { Toggle } from "react-powerplug"
+import { Collapse, BorderBox, Button } from "@artsy/palette"
+
+# Collapse
+
+## Open
+
+<Playground>
+    <Collapse open>
+      <BorderBox>
+        A Collapse component ...
+        Not really cool yet!
+      </BorderBox>
+
+    </Collapse>
+
+</Playground>
+
+## Toggle
+
+<Playground>
+  <Toggle>
+    {({ on, toggle }) => (
+      <>
+        <Button onClick={toggle}>{on ? "Close" : "Open"}</Button>
+        <Collapse open={on}>
+          <BorderBox my={2}>
+            A Collapse component with toggle button ... Its pretty cool!
+          </BorderBox>
+        </Collapse>
+      </>
+    )}
+  </Toggle>
+</Playground>
