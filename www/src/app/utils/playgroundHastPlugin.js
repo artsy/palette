@@ -2,6 +2,7 @@
 
 const path = require("path")
 const prettier = require("prettier")
+const { jsx } = require("docz-utils")
 
 /**
  * This traverses the .mdx AST searching for a <Playground> component and if
@@ -28,20 +29,21 @@ module.exports = () => {
     const jsxNodes = tree.children.filter(child => child.type === "jsx")
 
     // Iterate over JSX children looking for `<Playground>` node
-    jsxNodes.forEach(node => {
+    jsxNodes.forEach(async node => {
       const foundPlayground = node.value.includes(`<${COMPONENT_NAME}>`)
 
       if (foundPlayground) {
         const newNode = node.value.replace(playgroundTagRe, "")
         const wrap = children => children //`<Playground>${children}</Playground>`
-        let formatted = prettifyCode(wrap(newNode))
+        let code = prettifyCode(wrap(newNode))
 
         // Remove leading ; inserted from Prettier
-        if (formatted.substr(0, 1) === ";") {
-          formatted = formatted.substring(1)
+        if (code.substr(0, 1) === ";") {
+          code = code.substring(1)
         }
 
-        node.value = "<CodeEditor code={`" + formatted + "`} />"
+        const sanitized = jsx.sanitizeCode(code)
+        node.value = "<CodeEditor code={`" + sanitized + "`} />"
       }
     })
 
