@@ -1,6 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import { space, SpaceProps, top, TopProps } from "styled-system"
+import {
+  right,
+  RightProps,
+  space,
+  SpaceProps,
+  top,
+  TopProps,
+} from "styled-system"
 import { color } from "../helpers"
 
 type Direction = "left" | "right" | "up" | "down"
@@ -13,7 +20,7 @@ export enum Rotation {
   DOWN = "rotate(270deg)",
 }
 
-interface IconProps extends SpaceProps, TopProps {
+interface IconProps extends SpaceProps, TopProps, RightProps {
   direction?: Direction | Rotation
   fill?: string
   size?: number
@@ -24,6 +31,7 @@ const Icon = styled.svg<IconProps>`
   position: relative;
   ${space};
   ${top};
+  ${right};
 `
 
 /** Icon */

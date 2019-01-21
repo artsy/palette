@@ -2,11 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { space, SpaceProps } from "styled-system"
 import { ChevronIcon, Flex, Sans, Separator } from "../../"
+import { SansSize } from "../../Theme"
 
 export interface ToggleProps {
   disabled?: boolean
   expanded?: boolean
   label?: string
+  textSize?: string
 }
 
 export interface ToggleState {
@@ -16,6 +18,10 @@ export interface ToggleState {
 
 /** A toggle component used to show / hide / expand content  */
 export class Toggle extends React.Component<ToggleProps> {
+  static defaultProps = {
+    textSize: "2",
+  }
+
   state = {
     expanded: false,
     disabled: false,
@@ -43,15 +49,19 @@ export class Toggle extends React.Component<ToggleProps> {
     return (
       <Flex width="100%" flexDirection="column">
         <Separator mb={2} />
-        {/* mt is for corrective spacing */}
         <Header mt="-6px" onClick={this.toggleExpand} disabled={disabled}>
-          <Flex justifyContent="space-between">
-            <Sans size="2" weight="medium" color="black100" mt={0.3}>
+          <Flex justifyContent="space-between" alignItems="center">
+            <Sans
+              size={this.props.textSize as SansSize}
+              weight="medium"
+              color="black100"
+              mt={0.3}
+            >
               {this.props.label}
             </Sans>
             {!disabled && (
               <Flex justifyContent="right">
-                <ChevronIcon direction={expanded ? "up" : "down"} />
+                <ChevronIcon direction={expanded ? "up" : "down"} right={-5} />
               </Flex>
             )}
           </Flex>

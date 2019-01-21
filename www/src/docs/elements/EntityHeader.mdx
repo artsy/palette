@@ -2,13 +2,7 @@
 name: EntityHeader
 ---
 
-import { EntityHeader, Sans } from "@artsy/palette"
-
-# EntityHeader
-
-## Default, all properties present
-
-<Playground>
+<Playground title="Default, all properties present">
   <EntityHeader
     imageUrl="https://picsum.photos/110/110/?random"
     initials="FD"
@@ -23,9 +17,7 @@ import { EntityHeader, Sans } from "@artsy/palette"
   />
 </Playground>
 
-## No ImageURL, initials are displayed
-
-<Playground>
+<Playground title="No imageURL, initials are displayed">
   <EntityHeader
     initials="FD"
     name="Francesca DiMattio"
@@ -39,9 +31,7 @@ import { EntityHeader, Sans } from "@artsy/palette"
   />
 </Playground>
 
-## No ImageURL, initials overflow avatar
-
-<Playground>
+<Playground title="No imageURL, initials overflow avatar">
   <EntityHeader
     initials="FDMATIO"
     name="Francesca DiMattio"
@@ -54,9 +44,7 @@ import { EntityHeader, Sans } from "@artsy/palette"
   />
 </Playground>
 
-## No meta with follow button
-
-<Playground>
+<Playground title="No meta with follow button">
   <EntityHeader
     imageUrl="https://picsum.photos/110/110/?random"
     name="Francesca DiMattio"
@@ -68,17 +56,13 @@ import { EntityHeader, Sans } from "@artsy/palette"
   />
 </Playground>
 
-## Only image with name
-
-<Playground>
+<Playground title="Only image with name">
   <EntityHeader
     imageUrl="https://picsum.photos/110/110/?random"
     name="Francesca DiMattio"
   />
 </Playground>
 
-## No optional properties present
-
-<Playground>
+<Playground title="No optional properties present">
   <EntityHeader name="Francesca DiMattio" />
 </Playground>

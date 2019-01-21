@@ -15,36 +15,38 @@ const { jsx } = require("docz-utils")
  *
  * TODO:
  *  - Don't hardcode component name
- *  - Add ability to pass in props, eg <Playground editable={false} />
+ *  - Write test
  */
 
-module.exports = () => {
-  const COMPONENT_NAME = "Playground"
-  const playgroundTagRe = new RegExp(
-    `<[\/]{0,1}(${COMPONENT_NAME})[^><]*>`,
-    "g"
-  )
+const COMPONENT_NAME = "Playground"
 
+// Matches the compnoent tag
+const tagRegex = new RegExp(`<[\/]{0,1}(${COMPONENT_NAME})[^><]*>`, "g")
+
+// Matches JSX attributes
+const attributesRegex = /([\w\-.:]+)\s*=\s*("[^"]*"|{[^]*}|'[^']*')/g
+
+module.exports = () => {
   return tree => {
     const jsxNodes = tree.children.filter(child => child.type === "jsx")
 
-    // Iterate over JSX children looking for `<Playground>` node
-    jsxNodes.forEach(async node => {
-      const foundPlayground = node.value.includes(`<${COMPONENT_NAME}>`)
-
-      if (foundPlayground) {
-        const newNode = node.value.replace(playgroundTagRe, "")
-        const wrap = children => children //`<Playground>${children}</Playground>`
-        let code = prettifyCode(wrap(newNode))
-
-        // Remove leading ; inserted from Prettier
-        if (code.substr(0, 1) === ";") {
-          code = code.substring(1)
-        }
-
-        const sanitized = jsx.sanitizeCode(code)
-        node.value = "<CodeEditor code={`" + sanitized + "`} />"
+    jsxNodes.forEach(node => {
+      // Iterate over JSX children looking for `<Playground>` node
+      const isPlayground = node.value.includes(`<${COMPONENT_NAME}`)
+      if (!isPlayground) {
+        return
       }
+
+      // Get the playground tag
+      const tag = node.value.match(tagRegex)[0]
+      // Capture the props
+      let props = tag.match(attributesRegex)
+      props = props ? props.join("") : ""
+      // Remove outer playground tag and capture contents
+      const codeContents = node.value.replace(tagRegex, "")
+      const code = prettifyCode(codeContents).substring(1) // remove leading ;
+      const sanitized = jsx.sanitizeCode(code)
+      node.value = "<CodeEditor " + props + " code={`" + sanitized + "`} />"
     })
 
     return tree

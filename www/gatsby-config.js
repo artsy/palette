@@ -27,10 +27,12 @@ module.exports = {
         // of automatically created pages located in /pages. This is a bug in
         // gatsby-mdx. See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
         globalScope: `
+          import * as Elements from "@artsy/palette/dist/elements"
           import { CodeEditor, Playground  } from "app/components/Playground"
           export default {
             CodeEditor,
-            Playground
+            Playground,
+            ...Elements
           }
         `,
 
@@ -49,7 +51,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "design-system",
-        path: `${__dirname}/src/design-system/`,
+        path: `${__dirname}/src/docs/`,
       },
     },
     {
