@@ -2,11 +2,10 @@ import { Box, Sans, SansSize } from "@artsy/palette"
 import { StatusBadge } from "app/components/StatusBadge"
 import { pathListToTree, TreeNode } from "app/utils/pathListToTree"
 import { graphql, Link, StaticQuery } from "gatsby"
-import { get, includes } from "lodash"
+import { get, includes, reject, sortBy } from "lodash"
 import React, { Fragment } from "react"
-
-// TODO: Add `showInNav` frontmatter
-const NAV_BLACKLIST = ["dev-404-page", "404", "404.html"]
+import { Subscribe } from "unstated"
+import { NavState } from "./state"
 
 export const NavTree = _props => {
   return (
@@ -20,7 +19,12 @@ export const NavTree = _props => {
                   route
                 }
                 frontmatter {
+                  hideInNav
+                  navSpacer {
+                    mt
+                  }
                   name
+                  order
                   wip
                 }
               }
@@ -58,42 +62,54 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
   const { ml, py, size } = getTreeLayout()
 
   return (
-    <Box ml={ml}>
-      {tree.map(({ data, children, formattedName, path }: TreeNode) => {
-        const isWIP = get(data, "wip", false)
-        const hasChildren = Boolean(children.length)
+    <Subscribe to={[NavState]}>
+      {(navState: NavState) => (
+        <Box ml={ml}>
+          {tree.map(({ data, children, formattedName, path }: TreeNode) => {
+            const hasChildren = Boolean(children.length)
+            const isWIP = get(data, "wip", false)
+            const navSpacer = get(data, "navSpacer", {})
 
-        // const navItems = ["Elements", "Flex", "Slider"]
+            switch (hasChildren) {
+              case true: {
+                treeDepth++
+                const expanded = includes(navState.state.expandedNavItems, path)
 
-        // if (!navItems.some(item => item === formattedName)) {
-        //   return null
-        // }
-        if (hasChildren) {
-          treeDepth++
-        }
-
-        // prettier-ignore
-        const label = hasChildren
-          ? formattedName
-          : <Link to={path}>{formattedName}</Link>
-
-        return (
-          <Fragment key={path}>
-            <Sans size={size} py={py}>
-              {label} {isWIP && !hasChildren && <StatusBadge status="WIP" />}
-            </Sans>
-
-            {hasChildren && renderNavTree(children, treeDepth)}
-          </Fragment>
-        )
-      })}
-    </Box>
+                return (
+                  <Fragment key={path}>
+                    <Sans size={size} py={py} {...navSpacer}>
+                      <Link
+                        to={path}
+                        onClick={() => navState.toggleNavItem(path)}
+                      >
+                        {formattedName}
+                        {isWIP && <StatusBadge status="WIP" />}
+                      </Link>
+                    </Sans>
+                    {expanded && renderNavTree(children, treeDepth)}
+                  </Fragment>
+                )
+              }
+              case false: {
+                return (
+                  <Fragment key={path}>
+                    <Sans size={size} py={py} {...navSpacer}>
+                      <Link to={path}>{formattedName}</Link>
+                    </Sans>
+                  </Fragment>
+                )
+              }
+            }
+          })}
+        </Box>
+      )}
+    </Subscribe>
   )
 }
 
 function buildNavTree(data) {
   const routes = data.allMdx.edges.reduce((acc, { node }) => {
-    const route = node.fields.route.replace(/\/$/, "") // remove trailing slash
+    const { route } = node.fields
     if (route.length) {
       return [
         ...acc,
@@ -107,9 +123,9 @@ function buildNavTree(data) {
     }
   }, [])
 
-  const navTree = pathListToTree(routes)
-    .map(path => path.children)[0]
-    .filter(path => !includes(NAV_BLACKLIST, path.name))
-
+  // Perform various operations depending on frontmatter
+  const sorted = sortBy(routes, route => route.data.order)
+  const visible = reject(sorted, route => route.data.hideInNav)
+  const navTree = pathListToTree(visible).map(path => path.children)[0]
   return navTree
 }

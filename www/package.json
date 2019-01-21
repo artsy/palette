@@ -100,7 +100,7 @@
     "react-head": "^3.0.2",
     "react-powerplug": "^1.0.0",
     "styled-components": "^3.4.5",
-    "unescape-js": "^1.1.1"
+    "unstated": "^2.1.1"
   },
   "license": "MIT",
   "publishConfig": {

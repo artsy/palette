@@ -59,8 +59,7 @@ const EditorContainer = styled(Box)`
   color: #989898;
 
   .prism-code {
-    white-space: pre-wrap;
-    word-break: break-word;
+    /* Edits */
   }
 `
 
