@@ -1,0 +1,38 @@
+---
+name: Icons
+---
+
+import {
+  Join,
+  Separator,
+  CheckIcon,
+  CloseIcon,
+  ChevronIcon,
+} from "@artsy/palette"
+
+# Icons
+
+## CheckIcon
+
+<Playground>
+  <CheckIcon />
+</Playground>
+
+## CloseIcon
+
+<Playground>
+  <CloseIcon />
+</Playground>
+
+## ChevronIcon
+
+<Playground>
+  <Join separator={<Separator m={1} />}>
+    <ChevronIcon direction="left" />
+    <ChevronIcon direction="right" />
+    <ChevronIcon direction="up" />
+    <ChevronIcon direction="down" />
+    <ChevronIcon direction="rotate(0)" />
+    <ChevronIcon direction="rotate(90)" />
+  </Join>
+</Playground>

@@ -1,39 +1,65 @@
 // @ts-check
 
-const prettier = require("prettier")
 const path = require("path")
+const prettier = require("prettier")
+const { jsx } = require("docz-utils")
 
-const prettierOptions = prettier.resolveConfig.sync(
-  path.resolve(__dirname, "../", "package.json")
-)
+/**
+ * This traverses the .mdx AST searching for a <Playground> component and if
+ * found, take its contents and inject them in as stringified code. This is so
+ * we can avoid needing to use markdown code blocks in order to render an
+ * interactive editor.
+ *
+ * NOTE: When working in this file a cache builds up in gatsby. Changes require
+ * a boot using `yarn clean`.
+ *
+ * TODO:
+ *  - Don't hardcode component name
+ *  - Write test
+ */
 
-// FIXME: Dont hardcode this
-const componentDisplayName = "Playground"
+const COMPONENT_NAME = "Playground"
 
-// TODO: Wire up ability to pass props to <Playground> component from .mdx files.
-const playgroundTagRe = new RegExp(`<[\/]{0,1}(${componentDisplayName})[^><]*>`, "g") // prettier-ignore
+// Matches the compnoent tag
+const tagRegex = new RegExp(`<[\/]{0,1}(${COMPONENT_NAME})[^><]*>`, "g")
 
-module.exports = () => tree => {
-  tree.children
-    .filter(child => child.type === "jsx")
-    .forEach(child => {
-      const hasPlayground = child.value.includes(`<${componentDisplayName}>`)
-      if (hasPlayground) {
-        const jsxChildren = child.value.replace(playgroundTagRe, "")
+// Matches JSX attributes
+const attributesRegex = /([\w\-.:]+)\s*=\s*("[^"]*"|{[^]*}|'[^']*')/g
 
-        let formatted = prettier.format(jsxChildren, {
-          parser: "babylon",
-          ...prettierOptions,
-        })
+module.exports = () => {
+  return tree => {
+    const jsxNodes = tree.children.filter(child => child.type === "jsx")
 
-        // Remove leading ; inserted from Prettier
-        if (formatted.substr(0, 1) === ";") {
-          formatted = formatted.substring(1)
-        }
-
-        child.value = "<Playground code={`" + formatted + "`} />"
+    jsxNodes.forEach(node => {
+      // Iterate over JSX children looking for `<Playground>` node
+      const isPlayground = node.value.includes(`<${COMPONENT_NAME}`)
+      if (!isPlayground) {
+        return
       }
+
+      // Get the playground tag
+      const tag = node.value.match(tagRegex)[0]
+      // Capture the props
+      let props = tag.match(attributesRegex)
+      props = props ? props.join("") : ""
+      // Remove outer playground tag and capture contents
+      const codeContents = node.value.replace(tagRegex, "")
+      const code = prettifyCode(codeContents).substring(1) // remove leading ;
+      const sanitized = jsx.sanitizeCode(code)
+      node.value = "<CodeEditor " + props + " code={`" + sanitized + "`} />"
     })
 
-  return tree
+    return tree
+  }
+}
+
+// Helpers
+
+const packagePath = path.resolve(__dirname, "../", "package.json")
+const prettierOptions = prettier.resolveConfig.sync(packagePath)
+const prettifyCode = code => {
+  return prettier.format(code, {
+    parser: "babylon",
+    ...prettierOptions,
+  })
 }

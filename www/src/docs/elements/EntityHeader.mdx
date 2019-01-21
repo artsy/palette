@@ -1,0 +1,68 @@
+---
+name: EntityHeader
+---
+
+<Playground title="Default, all properties present">
+  <EntityHeader
+    imageUrl="https://picsum.photos/110/110/?random"
+    initials="FD"
+    name="Francesca DiMattio"
+    meta="American, b. 1979"
+    href="http://www.artsy.net/artist/francesca-dimattio"
+    FollowButton={
+      <Sans size="2" weight="medium" color="black">
+        Follow
+      </Sans>
+    }
+  />
+</Playground>
+
+<Playground title="No imageURL, initials are displayed">
+  <EntityHeader
+    initials="FD"
+    name="Francesca DiMattio"
+    meta="American, b. 1979"
+    href="http://www.artsy.net/artist/francesca-dimattio"
+    FollowButton={
+      <Sans size="2" weight="medium" color="black">
+        Follow
+      </Sans>
+    }
+  />
+</Playground>
+
+<Playground title="No imageURL, initials overflow avatar">
+  <EntityHeader
+    initials="FDMATIO"
+    name="Francesca DiMattio"
+    meta="American, b. 1979"
+    FollowButton={
+      <Sans size="2" weight="medium" color="black">
+        Follow
+      </Sans>
+    }
+  />
+</Playground>
+
+<Playground title="No meta with follow button">
+  <EntityHeader
+    imageUrl="https://picsum.photos/110/110/?random"
+    name="Francesca DiMattio"
+    FollowButton={
+      <Sans size="2" weight="medium" color="black">
+        Follow
+      </Sans>
+    }
+  />
+</Playground>
+
+<Playground title="Only image with name">
+  <EntityHeader
+    imageUrl="https://picsum.photos/110/110/?random"
+    name="Francesca DiMattio"
+  />
+</Playground>
+
+<Playground title="No optional properties present">
+  <EntityHeader name="Francesca DiMattio" />
+</Playground>

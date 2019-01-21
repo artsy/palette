@@ -17,8 +17,7 @@ module.exports = {
         // Default layouts are meta wrappers around .mdx pages. Can be useful to
         // share queries across different types of pages.
         defaultLayouts: {
-          posts: require.resolve("./src/app/components/Layout.tsx"),
-          default: require.resolve("./src/app/components/Layout.tsx"),
+          default: require.resolve("./src/app/layouts/DocsLayout.tsx"),
         },
 
         // MDX AST transformers
@@ -28,8 +27,13 @@ module.exports = {
         // of automatically created pages located in /pages. This is a bug in
         // gatsby-mdx. See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
         globalScope: `
-          import { Playground } from "app/components/Playground"
-          export default { Playground }
+          import * as Elements from "@artsy/palette/dist/elements"
+          import { CodeEditor, Playground  } from "app/components/Playground"
+          export default {
+            CodeEditor,
+            Playground,
+            ...Elements
+          }
         `,
 
         // mdPlugins: [],
@@ -47,7 +51,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "design-system",
-        path: `${__dirname}/src/design-system/`,
+        path: `${__dirname}/src/docs/`,
       },
     },
     {

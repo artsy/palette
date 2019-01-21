@@ -1,0 +1,119 @@
+---
+name: Tabs
+wip: true
+---
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
+
+<Playground title="Artwork Page">
+  <Tabs>
+    <Tab name="Overview" />
+    <Tab name="CV" />
+    <Tab name="Shows" />
+    <Tab name="Auction Results" />
+    <Tab name="Articles" />
+    <Tab name="Related Artists" />
+  </Tabs>
+</Playground>
+
+<Playground title="Renders content">
+  <Tabs
+    initialTabIndex={1}
+    onChange={activeTab => {
+      // tslint:disable-next-line
+      console.log(activeTab)
+    }}
+  >
+    <Tab name="Hello">Hello</Tab>
+    <Tab name="How">How</Tab>
+    <Tab name="Are">Are</Tab>
+    <Tab name="You?">You?</Tab>
+  </Tabs>
+</Playground>
+
+<Playground title="With arbitrary data and onChange handler">
+  <Tabs
+    onChange={activeTab => {
+      // tslint:disable-next-line
+      console.log(activeTab.data)
+    }}
+  >
+    <Tab data={{ target: "#about" }} name="About" />
+    <Tab data={{ target: "#pricing" }} name="Pricing" />
+    <Tab data={{ target: "#condition" }} name="Condition" />
+  </Tabs>
+</Playground>
+
+<Playground title="With custom justification">
+  <Tabs justifyContent="center">
+    <Tab name="About" />
+    <Tab name="Pricing" />
+    <Tab name="Condition" />
+  </Tabs>
+</Playground>
+
+<Playground title="With separator">
+  <Tabs justifyContent="center" separator={<Box mx={1}>♞</Box>}>
+    <Tab name="About" />
+    <Tab name="Pricing" />
+    <Tab name="Condition" />
+  </Tabs>
+</Playground>
+
+<Playground title="With superscript">
+  <Tabs justifyContent="center">
+    <Tab
+      name={
+        <>
+          Open<Sup>100</Sup>
+        </>
+      }
+    />
+    <Tab
+      name={
+        <>
+          Ready to ship<Sup>4</Sup>
+        </>
+      }
+    />
+    <Tab
+      name={
+        <>
+          Complete
+          <Sup />
+          {/* empty sup to get vertical alignment right */}
+        </>
+      }
+    />
+  </Tabs>
+</Playground>
+
+<Playground title="Supports empty(null) tabs by ignoring them">
+  <Tabs>
+    {null}
+    {false}
+    <Tab name="Pricing" />
+  </Tabs>
+</Playground>
+
+<Playground title="Can auto scroll to center active tabs">
+  <Tabs autoScroll>
+    <Tab name="Pricing" />
+    <Tab name="Rainbows" />
+    <Tab name="Unicorns" />
+    <Tab name="Falafel" />
+    <Tab name="Delorean" />
+    <Tab name="Po-ta-toes" />
+    <Tab name="Jesuits" />
+    <Tab name="Mastadon" />
+    <Tab name="Funicular" />
+    <Tab name="DiCaprio" />
+    <Tab name="Fathomable" />
+    <Tab name="Shiny" />
+    <Tab name="Cyprus" />
+    <Tab name="UMass" />
+    <Tab name="Skiing" />
+    <Tab name="Liver" />
+    <Tab name="Magazine" />
+  </Tabs>
+</Playground>

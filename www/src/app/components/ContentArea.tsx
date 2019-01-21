@@ -4,10 +4,12 @@ import { StatusBadge } from "app/components/StatusBadge"
 import React from "react"
 import styled from "styled-components"
 
-export const ContentArea = _props => {
+export const ContentArea = props => {
   return (
     <Container>
       <InnerContent>
+        {props.children}
+
         <Serif size="8" color="black100">
           Textfields <StatusBadge status="WIP" />
         </Serif>

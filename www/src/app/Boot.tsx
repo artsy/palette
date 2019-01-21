@@ -7,6 +7,10 @@ import { Playground } from "./components/Playground"
 const { GlobalStyles } = injectGlobalStyles(`
   a {
     text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `)
 

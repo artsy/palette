@@ -1,0 +1,21 @@
+---
+name: TimeRemaining
+---
+
+import { TimeRemaining } from "@artsy/palette"
+
+<Playground>
+  <TimeRemaining
+    countdownEnd="2019-01-03T20:15:00.000-04:00"
+    currentTime="2019-01-01T12:00:30.000-04:00"
+    highlight="purple100"
+  />
+</Playground>
+
+<Playground title="Out of time">
+  <TimeRemaining
+    countdownEnd="2019-01-03T20:15:00.000-04:00"
+    currentTime="2019-01-05T12:00:00.000-04:00"
+    highlight="purple100"
+  />
+</Playground>

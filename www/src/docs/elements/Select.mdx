@@ -1,0 +1,104 @@
+---
+name: Select
+---
+
+<Playground title="Large Select">
+  <Value>
+    {({ value, set }) => (
+      <LargeSelect
+        options={[
+          {
+            text: "Most Recent",
+            value: "mostRecent",
+          },
+          {
+            text: "Price",
+            value: "price",
+          },
+          {
+            text: "Estimate",
+            value: "estimate",
+          },
+        ]}
+        selected={value}
+        onSelect={value => set(value)}
+      />
+    )}
+  </Value>
+</Playground>
+
+<Playground title="Disabled">
+  <Value>
+    {({ value, set }) => (
+      <LargeSelect
+        options={[
+          {
+            text: "Most Recent",
+            value: "mostRecent",
+          },
+          {
+            text: "Price",
+            value: "price",
+          },
+          {
+            text: "Estimate",
+            value: "estimate",
+          },
+        ]}
+        selected={value}
+        onSelect={value => set(value)}
+        disabled
+      />
+    )}
+  </Value>
+</Playground>
+
+<Playground title="Small Select">
+  <Value>
+    {({ value, set }) => (
+      <SmallSelect
+        options={[
+          {
+            text: "Most Recent",
+            value: "mostRecent",
+          },
+          {
+            text: "Price",
+            value: "price",
+          },
+          {
+            text: "Estimate",
+            value: "estimate",
+          },
+        ]}
+        selected={value}
+        onSelect={value => set(value)}
+      />
+    )}
+  </Value>
+</Playground>
+
+<Playground title="Error State">
+  <Value>
+    {({ value = "badValue", set }) => {
+      const error = value === "goodValue" ? "" : "Error Message"
+      return (
+        <LargeSelect
+          error={error}
+          options={[
+            {
+              text: "Good",
+              value: "goodValue",
+            },
+            {
+              text: "Bad",
+              value: "badValue",
+            },
+          ]}
+          selected={value}
+          onSelect={value => set(value)}
+        />
+      )
+    }}
+  </Value>
+</Playground>

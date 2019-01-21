@@ -1,5 +1,5 @@
 {
-  "name": "@artsy/palette",
+  "name": "artsy-palette-docs",
   "description": "Artsy's design system",
   "version": "0.1.0",
   "scripts": {
@@ -51,11 +51,13 @@
     "bracketSpacing": true
   },
   "resolutions": {
-    "@types/react": "16.4.13"
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
+    "@types/react": "16.7.20"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.120",
-    "@types/react": "16.4.13",
+    "@types/react": "^16.7.20",
     "@types/styled-components": "^3.0.0",
     "apollo": "^2.1.9",
     "auto-release-cli": "2.3.0",
@@ -78,6 +80,8 @@
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
     "babel-plugin-styled-components": "^1.10.0",
+    "d3-ease": "^1.0.5",
+    "docz-utils": "^0.13.6",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-mdx": "^0.3.4",
@@ -87,14 +91,16 @@
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-sharp": "^2.1.8",
+    "hast-util-to-string": "^1.0.1",
     "lodash": "^4.17.11",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
     "react-head": "^3.0.2",
     "react-powerplug": "^1.0.0",
-    "styled-components": "^3.4.5"
+    "styled-components": "^3.4.5",
+    "unescape-js": "^1.1.1"
   },
   "license": "MIT",
   "publishConfig": {
