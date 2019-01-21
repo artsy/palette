@@ -11,7 +11,7 @@ export default function DocsLayout(props) {
     data: {
       mdx: {
         code,
-        frontmatter: { name, wip },
+        frontmatter: { name, wip, type },
       },
     },
   } = props
@@ -20,7 +20,7 @@ export default function DocsLayout(props) {
     <Container>
       <Sidebar />
       <ContentArea>
-        <ComponentName name={name} wip={wip} />
+        {type !== "page" && <ComponentName name={name} wip={wip} />}
         <MDXRenderer>{code.body}</MDXRenderer>
       </ContentArea>
       {/*
@@ -47,7 +47,7 @@ const ContentArea = styled(Flex).attrs({
 
 const ComponentName = ({ name, wip }) => {
   return (
-    <Serif size="8" color="black100">
+    <Serif size="8" color="black100" mb={2}>
       {name} {wip && <StatusBadge status="WIP" />}
     </Serif>
   )
@@ -64,6 +64,7 @@ export const pageQuery = graphql`
       frontmatter {
         name
         wip
+        type
       }
       code {
         body
