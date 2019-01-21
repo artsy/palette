@@ -2,19 +2,11 @@
 name: Image
 ---
 
-import { BorderBox, Image, ResponsiveImage } from "@artsy/palette"
-
-# Image
-
-## Default Image
-
-<Playground>
+<Playground title="Default Image">
   <Image src="https://picsum.photos/110/110/?random" />
 </Playground>
 
-## Custom size
-
-<Playground>
+<Playground title="Custom size">
   <Image
     width="300px"
     height="200px"
@@ -22,9 +14,7 @@ import { BorderBox, Image, ResponsiveImage } from "@artsy/palette"
   />
 </Playground>
 
-## Responsive image
-
-<Playground>
+<Playground title="Responsive image">
   <BorderBox maxWidth="400px" width="100%" height="auto" p={0}>
     <ResponsiveImage src="https://picsum.photos/400/250/?random" />
   </BorderBox>

@@ -1,14 +1,11 @@
 ---
 name: Tabs
+wip: true
 ---
 
-import { Box, Sup, Tabs, Tab } from "@artsy/palette"
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
 
-# Tabs
-
-## Artwork
-
-<Playground>
+<Playground title="Artwork Page">
   <Tabs>
     <Tab name="Overview" />
     <Tab name="CV" />
@@ -19,9 +16,7 @@ import { Box, Sup, Tabs, Tab } from "@artsy/palette"
   </Tabs>
 </Playground>
 
-## Renders content
-
-<Playground>
+<Playground title="Renders content">
   <Tabs
     initialTabIndex={1}
     onChange={activeTab => {
@@ -36,9 +31,7 @@ import { Box, Sup, Tabs, Tab } from "@artsy/palette"
   </Tabs>
 </Playground>
 
-## With arbitrary data and onChange handler
-
-<Playground>
+<Playground title="With arbitrary data and onChange handler">
   <Tabs
     onChange={activeTab => {
       // tslint:disable-next-line
@@ -51,9 +44,7 @@ import { Box, Sup, Tabs, Tab } from "@artsy/palette"
   </Tabs>
 </Playground>
 
-## With custom justification
-
-<Playground>
+<Playground title="With custom justification">
   <Tabs justifyContent="center">
     <Tab name="About" />
     <Tab name="Pricing" />
@@ -61,9 +52,7 @@ import { Box, Sup, Tabs, Tab } from "@artsy/palette"
   </Tabs>
 </Playground>
 
-## With separator
-
-<Playground>
+<Playground title="With separator">
   <Tabs justifyContent="center" separator={<Box mx={1}>♞</Box>}>
     <Tab name="About" />
     <Tab name="Pricing" />
@@ -71,9 +60,7 @@ import { Box, Sup, Tabs, Tab } from "@artsy/palette"
   </Tabs>
 </Playground>
 
-## With superscript
-
-<Playground>
+<Playground title="With superscript">
   <Tabs justifyContent="center">
     <Tab
       name={
@@ -101,9 +88,7 @@ import { Box, Sup, Tabs, Tab } from "@artsy/palette"
   </Tabs>
 </Playground>
 
-## Supports empty(null) tabs by ignoring them
-
-<Playground>
+<Playground title="Supports empty(null) tabs by ignoring them">
   <Tabs>
     {null}
     {false}
@@ -111,9 +96,7 @@ import { Box, Sup, Tabs, Tab } from "@artsy/palette"
   </Tabs>
 </Playground>
 
-## Can auto scroll to center active tabs
-
-<Playground>
+<Playground title="Can auto scroll to center active tabs">
   <Tabs autoScroll>
     <Tab name="Pricing" />
     <Tab name="Rainbows" />

@@ -2,12 +2,6 @@
 name: RadioGroup
 ---
 
-import { BorderedRadio, Radio, RadioGroup, Sans } from "@artsy/palette"
-
-# RadioGroup
-
-## Default
-
 <Playground>
   <RadioGroup>
     <Radio value="SHIP">Provide shipping address</Radio>
@@ -15,27 +9,21 @@ import { BorderedRadio, Radio, RadioGroup, Sans } from "@artsy/palette"
   </RadioGroup>
 </Playground>
 
-## With default value
-
-<Playground>
+<Playground title="With default value">
   <RadioGroup defaultValue="SHIP">
     <Radio value="SHIP">Provide shipping address</Radio>
     <Radio value="PICKUP">Arrange for pickup</Radio>
   </RadioGroup>
 </Playground>
 
-## Disabled with default value
-
-<Playground>
+<Playground title="Disabled with default value">
   <RadioGroup defaultValue="SHIP" disabled>
     <Radio value="SHIP">Provide shipping address</Radio>
     <Radio value="PICKUP">Arrange for pickup</Radio>
   </RadioGroup>
 </Playground>
 
-## Bordered RadioGroup
-
-<Playground>
+<Playground title="Bordered RadioGroup">
   <RadioGroup defaultValue="SHIP">
     <BorderedRadio value="SHIP">Provide shipping address</BorderedRadio>
     <BorderedRadio value="PICKUP">

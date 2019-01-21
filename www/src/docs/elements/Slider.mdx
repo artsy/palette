@@ -2,14 +2,7 @@
 name: Slider
 ---
 
-import { Value } from "react-powerplug"
-import { Serif, Slider } from "@artsy/palette"
-
-# Slider
-
-## Basic
-
-<Playground>
+<Playground title="Basic">
   <Slider
     allowCross={false}
     min={10}
@@ -19,9 +12,7 @@ import { Serif, Slider } from "@artsy/palette"
   />
 </Playground>
 
-## Disabled
-
-<Playground>
+<Playground title="Disabled">
   <Slider
     allowCross={false}
     min={10}
@@ -32,9 +23,7 @@ import { Serif, Slider } from "@artsy/palette"
   />
 </Playground>
 
-## With Label
-
-<Playground>
+<Playground title="With label">
   <Value initial={[0, 100]}>
     {({ value, set }) => {
       const valueToString = ([min, max]) => "$" + min + " - $" + max

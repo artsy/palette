@@ -2,14 +2,7 @@
 name: Radio
 ---
 
-import { Toggle } from "react-powerplug"
-import { Radio } from "@artsy/palette"
-
-# Radio
-
-## With state
-
-<Playground>
+<Playground title="With state">
   <Toggle>
     {({ on, toggle }) => (
       <Radio selected={on} onSelect={toggle}>
@@ -19,27 +12,19 @@ import { Radio } from "@artsy/palette"
   </Toggle>
 </Playground>
 
-## Hover
-
-<Playground>
+<Playground title="Hover">
   <Radio hover>Click me</Radio>
 </Playground>
 
-## Selected
-
-<Playground>
+<Playground title="Selected">
   <Radio selected>Selected</Radio>
 </Playground>
 
-## Disabled
-
-<Playground>
+<Playground title="Disabled">
   <Radio disabled>Disabled</Radio>
 </Playground>
 
-## Selected and disabled
-
-<Playground>
+<Playground title="Selected and disabled">
   <Radio selected disabled>
     Disabled
   </Radio>

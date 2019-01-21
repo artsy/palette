@@ -22,13 +22,14 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
         mountStylesheet={false}
         style={{
           pointerEvents: editable ? "inherit" : "none",
+          overflowX: "hidden",
         }}
       >
-        <Box mb={4}>
+        <Box my={2}>
           <Toggle label={title} textSize="4" expanded={expanded}>
-            <Box my={2}>
+            <PreviewContainer my={2}>
               <LivePreview />
-            </Box>
+            </PreviewContainer>
 
             <ErrorContainer>
               <LiveError />
@@ -45,6 +46,11 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
     )
   }
 )
+
+const PreviewContainer = styled(Box)`
+  overflow-x: scroll;
+  box-sizing: border-box;
+`
 
 const EditorContainer = styled(Box)`
   border-radius: 2px;

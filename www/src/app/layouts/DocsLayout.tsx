@@ -1,11 +1,12 @@
-import { Flex, Serif, Spacer } from "@artsy/palette"
+import { Flex, Serif } from "@artsy/palette"
 import { Sidebar } from "app/components/Sidebar"
 import { StatusBadge } from "app/components/StatusBadge"
 import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 import React from "react"
+import styled from "styled-components"
 
-export default function DocsTemplate(props) {
+export default function DocsLayout(props) {
   const {
     data: {
       mdx: {
@@ -31,26 +32,24 @@ export default function DocsTemplate(props) {
   )
 }
 
-const Container = ({ children }) => {
-  return <Flex>{children}</Flex>
-}
+const Container = styled(Flex)``
 
-const ContentArea = ({ children }) => {
-  return (
-    <Flex flexDirection="column" pt={4} px={6} width="100%">
-      {children}
-    </Flex>
-  )
-}
+const ContentArea = styled(Flex).attrs({
+  flexDirection: "column",
+  pt: 4,
+  px: 6,
+})`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: scroll;
+`
 
 const ComponentName = ({ name, wip }) => {
   return (
-    <>
-      <Serif size="8" color="black100">
-        {name} {wip && <StatusBadge status="WIP" />}
-      </Serif>
-      <Spacer mb={3} />
-    </>
+    <Serif size="8" color="black100">
+      {name} {wip && <StatusBadge status="WIP" />}
+    </Serif>
   )
 }
 
@@ -59,7 +58,7 @@ const ComponentName = ({ name, wip }) => {
  * actions.createPage. See gatsby-node.js for more info.
  */
 export const pageQuery = graphql`
-  query DocsTemplateQuery($id: String) {
+  query DocsLayoutQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
       frontmatter {

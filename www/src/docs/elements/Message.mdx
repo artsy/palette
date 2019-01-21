@@ -2,13 +2,18 @@
 name: Message
 ---
 
-import { Box, Message, Spacer } from "@artsy/palette"
+<Playground title="With defaults">
+  <Box>
+    <Message>
+      Thank you for your order. You’ll receive a confirmation email shortly. If
+      you have questions, please contact <a href="#">orders@artsy.net</a>.
+    </Message>
+  </Box>
+</Playground>
 
-# Message
-
-<Playground>
-  <Box width="50%">
-    <Message textSize="3">
+<Playground title="Variable text size">
+  <Box>
+    <Message textSize="5">
       Thank you for your order. You’ll receive a confirmation email shortly. If
       you have questions, please contact <a href="#">orders@artsy.net</a>.
     </Message>

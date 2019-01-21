@@ -2,14 +2,7 @@
 name: Select
 ---
 
-import { Value } from "react-powerplug"
-import { LargeSelect, SmallSelect } from "@artsy/palette"
-
-# Select
-
-## LargeSelect
-
-<Playground>
+<Playground title="Large Select">
   <Value>
     {({ value, set }) => (
       <LargeSelect
@@ -34,9 +27,7 @@ import { LargeSelect, SmallSelect } from "@artsy/palette"
   </Value>
 </Playground>
 
-## Disabled LargeSelect
-
-<Playground>
+<Playground title="Disabled">
   <Value>
     {({ value, set }) => (
       <LargeSelect
@@ -62,9 +53,7 @@ import { LargeSelect, SmallSelect } from "@artsy/palette"
   </Value>
 </Playground>
 
-## SmallSelect
-
-<Playground>
+<Playground title="Small Select">
   <Value>
     {({ value, set }) => (
       <SmallSelect
@@ -89,9 +78,7 @@ import { LargeSelect, SmallSelect } from "@artsy/palette"
   </Value>
 </Playground>
 
-## Error State
-
-<Playground>
+<Playground title="Error State">
   <Value>
     {({ value = "badValue", set }) => {
       const error = value === "goodValue" ? "" : "Error Message"
