@@ -1,14 +1,20 @@
+import { Box, color } from "@artsy/palette"
 import { withMDXScope } from "gatsby-mdx/context"
 import React from "react"
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
+import styled from "styled-components"
+import unescapeJs from "unescape-js"
 
 // require("prismjs/themes/prism-coy.css")
 // require("prismjs/themes/prism-dark.css")
-require("prismjs/themes/prism-funky.css")
+// require("prismjs/themes/prism-funky.css")
 // require("prismjs/themes/prism-okaidia.css")
-// require("prismjs/themes/prism-solarizedlight.css")
+require("prismjs/themes/prism-solarizedlight.css")
 // require("prismjs/themes/prism-tomorrow.css")
 // require("prismjs/themes/prism-twilight.css")
+
+// Wrapper .mdx wrapper tag which is replaced via playgroundHastPlugin with a CodeEditor
+export const Playground = ({ children }) => children
 
 interface PlaygroundProps {
   code: string
@@ -18,8 +24,9 @@ interface PlaygroundProps {
   editable?: boolean
 }
 
-export const Playground: React.SFC<PlaygroundProps> = withMDXScope(
+export const CodeEditor: React.SFC<PlaygroundProps> = withMDXScope(
   ({ code, scope, editable = true }) => {
+    console.log(code)
     return (
       <LiveProvider
         code={code}
@@ -31,11 +38,17 @@ export const Playground: React.SFC<PlaygroundProps> = withMDXScope(
       >
         <LivePreview />
         <LiveError />
-        <LiveEditor />
+
+        <LiveEditorWrapper my={2} px={2} py={0}>
+          <LiveEditor />
+        </LiveEditorWrapper>
       </LiveProvider>
     )
   }
 )
 
-// Just a wrapper for now
-export const CodeEditor = ({ children }) => children
+const LiveEditorWrapper = styled(Box)`
+  border-radius: 2px;
+  border: 1px solid ${color("black10")};
+  overflow-x: scroll;
+`

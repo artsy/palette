@@ -36,9 +36,8 @@ import { Serif, Slider } from "@artsy/palette"
 
 <Playground>
   <Value initial={[0, 100]}>
-    {({value, set}) => {
+    {({ value, set }) => {
       const valueToString = ([min, max]) => "$" + min + " - $" + max
-
       return (
         <div>
           <Serif size="3" color="black60" my={2}>
@@ -55,6 +54,5 @@ import { Serif, Slider } from "@artsy/palette"
         </div>
       )
     }}
-
   </Value>
 </Playground>

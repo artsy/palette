@@ -33,7 +33,7 @@ module.exports = () => {
 
       if (foundPlayground) {
         const newNode = node.value.replace(playgroundTagRe, "")
-        const wrap = children => `<CodeEditor>${children}</CodeEditor>`
+        const wrap = children => children //`<Playground>${children}</Playground>`
         let formatted = prettifyCode(wrap(newNode))
 
         // Remove leading ; inserted from Prettier
@@ -41,7 +41,7 @@ module.exports = () => {
           formatted = formatted.substring(1)
         }
 
-        node.value = "<Playground code={`" + formatted + "`} />"
+        node.value = "<CodeEditor code={`" + formatted + "`} />"
       }
     })
 

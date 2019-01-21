@@ -94,6 +94,7 @@
     "rc-slider": "^8.6.2",
     "react": "^16.5.0",
     "react-live": "^1.12.0",
+    "react-powerplug": "^1.0.0",
     "react-spring": "^5.7.2",
     "styled-bootstrap-grid": "1.0.4",
     "styled-system": "^3.1.11"

@@ -63,6 +63,11 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
         const isWIP = get(data, "wip", false)
         const hasChildren = Boolean(children.length)
 
+        // const navItems = ["Elements", "Flex", "Slider"]
+
+        // if (!navItems.some(item => item === formattedName)) {
+        //   return null
+        // }
         if (hasChildren) {
           treeDepth++
         }

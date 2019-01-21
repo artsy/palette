@@ -48,19 +48,21 @@ import { Toggle, Sans, Serif, Flex, Checkbox, Radio } from "@artsy/palette"
 ## Artwork filter
 
 <Playground>
-  <Toggle label="Purchase type" expanded disabled>
-    <Flex justifyContent="space-between">
-      <Checkbox>For sale</Checkbox>
-      <Serif size="3" color="black60">
-        1000
-      </Serif>
-    </Flex>
-  </Toggle>
-  <Toggle label="Medium" expanded>
-    <Radio>Painting</Radio>
-    <Radio>Sculpture</Radio>
-  </Toggle>
-  <Toggle label="Gallery" />
-  <Toggle label="Institution" />
-  <Toggle label="Time period" />
+  <>
+    <Toggle label="Purchase type" expanded disabled>
+      <Flex justifyContent="space-between">
+        <Checkbox>For sale</Checkbox>
+        <Serif size="3" color="black60">
+          1000
+        </Serif>
+      </Flex>
+    </Toggle>
+    <Toggle label="Medium" expanded>
+      <Radio>Painting</Radio>
+      <Radio>Sculpture</Radio>
+    </Toggle>
+    <Toggle label="Gallery" />
+    <Toggle label="Institution" />
+    <Toggle label="Time period" />
+  </>
 </Playground>

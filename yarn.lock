@@ -10189,6 +10189,13 @@ react-perfect-scrollbar@^1.2.1:
     perfect-scrollbar "^1.3.0"
     prop-types "^15.6.1"
 
+react-powerplug@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-powerplug/-/react-powerplug-1.0.0.tgz#f9c10a761ece115661b8fd10920c4e573ea95909"
+  integrity sha512-H7U+1sNiOqlaPgZpfciVZ3BMHtXHsd0tkXrOmrwV7ZTpK+YGRddK7+Um1RT2OTe+4G+1muXfyFMAwcnasABMtA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 react-powerplug@^1.0.0-rc.1:
   version "1.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/react-powerplug/-/react-powerplug-1.0.0-rc.1.tgz#6b3bc57e31684e8bc36baa7a65af602ba0e31145"
