@@ -42,24 +42,23 @@ export const NavTree = _props => {
 
 function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
   const getTreeLayout = () => {
-    switch (treeDepth) {
-      case 1: {
-        return {
-          ml: 2,
-          py: 0.3,
-          size: "2" as SansSize,
-        }
+    if (treeDepth > 0) {
+      return {
+        ml: 2,
+        py: 0.3,
+        size: "2" as SansSize,
       }
-      default: {
-        return {
-          ml: 0,
-          py: 0.2,
-          size: "3" as SansSize,
-        }
+    } else {
+      return {
+        ml: 0,
+        py: 0.2,
+        size: "3" as SansSize,
       }
     }
   }
+
   const { ml, py, size } = getTreeLayout()
+
   return (
     <Subscribe to={[NavState]}>
       {(navState: NavState) => (
@@ -91,7 +90,6 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                         }}
                       >
                         {formattedName}
-                        {isWIP && <StatusBadge status="WIP" />}
                       </NavLink>
                     </Sans>
                     {expanded && renderNavTree(children, treeDepth)}
@@ -102,7 +100,9 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                 return (
                   <Fragment key={path}>
                     <Sans size={size} py={py} {...navSpacer}>
-                      <NavLink to={path}>{formattedName}</NavLink>
+                      <NavLink to={path}>
+                        {formattedName} {isWIP && <StatusBadge status="WIP" />}
+                      </NavLink>
                     </Sans>
                   </Fragment>
                 )
