@@ -10,7 +10,6 @@
     "member-access": [false],
     "member-ordering": false,
     "no-console": false,
-    "no-import-un-mocked": true,
     "no-namespace": [true, "allow-declarations"],
     "no-unused-expression": false,
     "no-var-requires": false,

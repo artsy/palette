@@ -1,11 +1,12 @@
-import { Box, Sans, SansSize } from "@artsy/palette"
+import { Box, color, Sans, SansSize } from "@artsy/palette"
 import { StatusBadge } from "app/components/StatusBadge"
 import { pathListToTree, TreeNode } from "app/utils/pathListToTree"
 import { graphql, Link, StaticQuery } from "gatsby"
 import { get, includes, reject, sortBy } from "lodash"
 import React, { Fragment } from "react"
+import styled from "styled-components"
 import { Subscribe } from "unstated"
-import { NavState } from "./state"
+import { NavState } from "./NavState"
 
 export const NavTree = _props => {
   return (
@@ -41,20 +42,17 @@ export const NavTree = _props => {
 
 function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
   const getTreeLayout = () => {
-    switch (treeDepth) {
-      case 1: {
-        return {
-          ml: 2,
-          py: 0.3,
-          size: "2" as SansSize,
-        }
+    if (treeDepth > 0) {
+      return {
+        ml: 2,
+        py: 0.3,
+        size: "2" as SansSize,
       }
-      default: {
-        return {
-          ml: 0,
-          py: 0.2,
-          size: "3" as SansSize,
-        }
+    } else {
+      return {
+        ml: 0,
+        py: 0.2,
+        size: "3" as SansSize,
       }
     }
   }
@@ -78,13 +76,21 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                 return (
                   <Fragment key={path}>
                     <Sans size={size} py={py} {...navSpacer}>
-                      <Link
+                      {/*
+                        Don't navigate, just toggle subnav open and closed
+                      */}
+                      <NavLink
+                        disableNavigation
                         to={path}
-                        onClick={() => navState.toggleNavItem(path)}
+                        onClick={() => {
+                          navState.toggleNavItem(path)
+
+                          // Recompute tree since subnav could be open or closed
+                          treeDepth = 0
+                        }}
                       >
                         {formattedName}
-                        {isWIP && <StatusBadge status="WIP" />}
-                      </Link>
+                      </NavLink>
                     </Sans>
                     {expanded && renderNavTree(children, treeDepth)}
                   </Fragment>
@@ -94,7 +100,9 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                 return (
                   <Fragment key={path}>
                     <Sans size={size} py={py} {...navSpacer}>
-                      <Link to={path}>{formattedName}</Link>
+                      <NavLink to={path}>
+                        {formattedName} {isWIP && <StatusBadge status="WIP" />}
+                      </NavLink>
                     </Sans>
                   </Fragment>
                 )
@@ -107,6 +115,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
   )
 }
 
+// TODO: Add type once Apollo generator is fixed
 function buildNavTree(data) {
   const routes = data.allMdx.edges.reduce((acc, { node }) => {
     const { route } = node.fields
@@ -129,3 +138,47 @@ function buildNavTree(data) {
   const navTree = pathListToTree(visible).map(path => path.children)[0]
   return navTree
 }
+
+const NavLinkWrapper = ({
+  className,
+  children,
+  disableNavigation,
+  to,
+  ...props
+}) => {
+  /**
+   * If a nav item is disabled and has children it will toggle its children
+   * open and closed, but not navigate. If we want parent nav items to show
+   * their own page *and* toggle, set this prop to false.
+   */
+  if (disableNavigation) {
+    return (
+      <Box className={className} {...props}>
+        {children}
+      </Box>
+    )
+  } else {
+    return (
+      <Link to={to} activeClassName="isActive" className={className} {...props}>
+        {children}
+      </Link>
+    )
+  }
+}
+
+const NavLink = styled(NavLinkWrapper)`
+  cursor: pointer;
+
+  &&.isActive {
+    color: ${color("purple100")};
+
+    &:before {
+      content: " – ";
+    }
+
+    &:hover {
+      text-decoration: underline;
+      color: ${color("purple100")};
+    }
+  }
+`

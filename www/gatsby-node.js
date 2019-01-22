@@ -70,7 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
           fromPath: `/`,
           isPermanent: true,
           redirectInBrowser: true,
-          toPath: `/home/`,
+          toPath: `/home`,
         })
 
         result.data.allMdx.edges.forEach(({ node }) => {

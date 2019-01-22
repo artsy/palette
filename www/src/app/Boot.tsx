@@ -1,4 +1,4 @@
-import { injectGlobalStyles, Serif, Theme } from "@artsy/palette"
+import { injectGlobalStyles, Sans, Serif, Theme } from "@artsy/palette"
 import { MDXProvider } from "@mdx-js/tag"
 import React from "react"
 import { HeadProvider } from "react-head"
@@ -21,10 +21,20 @@ const LayoutComponents = {
       {props.children}
     </Serif>
   ),
-  p: props => (
+  h3: props => (
+    <Sans size="4" weight="medium" color="black100">
+      {props.children}
+    </Sans>
+  ),
+  h4: props => (
     <Serif size="4" color="black100" mb={2}>
       {props.children}
     </Serif>
+  ),
+  p: props => (
+    <Sans size="3" color="black100">
+      {props.children}{" "}
+    </Sans>
   ),
   code: Playground,
 }
