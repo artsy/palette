@@ -45,10 +45,11 @@
     "delay": "1500"
   },
   "prettier": {
+    "bracketSpacing": true,
+    "proseWrap": "always",
     "semi": false,
     "singleQuote": false,
-    "trailingComma": "es5",
-    "bracketSpacing": true
+    "trailingComma": "es5"
   },
   "resolutions": {
     "react": "^16.8.0-alpha.1",
@@ -79,6 +80,7 @@
     "@babel/core": "^7.2.2",
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
+    "@reach/router": "^1.2.1",
     "babel-plugin-styled-components": "^1.10.0",
     "d3-ease": "^1.0.5",
     "docz-utils": "^0.13.6",
@@ -121,6 +123,8 @@
     "palette",
     "artsy",
     "design system",
-    "styled-system"
+    "styled-system",
+    "styled-components",
+    "typescript"
   ]
 }
