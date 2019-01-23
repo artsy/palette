@@ -1,3 +1,11 @@
+# 2.34.5 (Wed Jan 23 2019)
+
+#### 🐛  Bug Fix
+
+- Add labeled range component [#224](https://github.com/artsy/palette/pull/224) ([@dblandin](https://github.com/dblandin) [@damassi](https://github.com/damassi))
+
+---
+
 # 2.34.4 (Wed Jan 23 2019)
 
 #### 🐛  Bug Fix
