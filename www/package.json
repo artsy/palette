@@ -76,7 +76,7 @@
     "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {
-    "@artsy/palette": "2.33.0",
+    "@artsy/palette": "2.34.1",
     "@babel/core": "^7.2.2",
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
@@ -88,6 +88,7 @@
     "gatsby-image": "^2.0.20",
     "gatsby-mdx": "^0.3.4",
     "gatsby-plugin-manifest": "^2.0.9",
+    "gatsby-plugin-netlify-cms": "^3.0.10",
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-plugin-styled-components": "^3.0.4",
@@ -95,6 +96,7 @@
     "gatsby-transformer-sharp": "^2.1.8",
     "hast-util-to-string": "^1.0.1",
     "lodash": "^4.17.11",
+    "netlify-cms": "^2.3.3",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.0-alpha.1",

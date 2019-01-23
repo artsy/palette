@@ -27,6 +27,9 @@ to peek at the proposal and provide feedback before moving forward.
 
         $ yarn docs
         $ open http://localhost:3000/
+        
+        $ yarn link
+        $ yarn watch
 
 ## Deployment process
 

@@ -1,6 +1,6 @@
 // @ts-check
 
-const playgroundHastPlugin = require("./src/app/utils/playgroundHastPlugin")
+const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
 
 module.exports = {
   siteMetadata: {
@@ -17,7 +17,7 @@ module.exports = {
         // Default layouts are meta wrappers around .mdx pages. Can be useful to
         // share queries across different types of pages.
         defaultLayouts: {
-          default: require.resolve("./src/app/layouts/DefaultLayout.tsx"),
+          default: require.resolve("./src/layouts/DefaultLayout.tsx"),
         },
 
         // MDX AST transformers
@@ -28,7 +28,7 @@ module.exports = {
         // gatsby-mdx. See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
         globalScope: `
           import * as Elements from "@artsy/palette/dist/elements"
-          import { CodeEditor, Playground  } from "app/components/Playground"
+          import { CodeEditor, Playground  } from "components/Playground"
           export default {
             CodeEditor,
             Playground,
@@ -41,24 +41,21 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "app",
-        path: `${__dirname}/src/app/`,
-      },
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {},
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "design-system",
-        path: `${__dirname}/src/docs/`,
+        path: `${__dirname}/content/docs/`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
-        path: `${__dirname}/src/pages/`,
+        path: `${__dirname}/content/pages/`,
       },
     },
     "gatsby-plugin-catch-links",

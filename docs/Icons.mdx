@@ -4,24 +4,22 @@ name: Icons
 
 import { Playground } from "docz"
 import { Join, Separator } from "../src"
-import { CheckIcon, CloseIcon, ChevronIcon } from "../src/svgs"
+import { 
+  CheckIcon,
+  CloseIcon,
+  ChevronIcon,
+  EditIcon,
+  OpenEyeIcon
+} from "../src/svgs"
 
 # Icons
 
 ## CheckIcon
-
 <Playground>
   <CheckIcon />
 </Playground>
 
-## CloseIcon
-
-<Playground>
-  <CloseIcon />
-</Playground>
-
 ## ChevronIcon
-
 <Playground>
   <Join separator={<Separator m={1} />}>
     <ChevronIcon direction="left" />
@@ -31,4 +29,19 @@ import { CheckIcon, CloseIcon, ChevronIcon } from "../src/svgs"
     <ChevronIcon direction="rotate(0)" />
     <ChevronIcon direction="rotate(90)" />
   </Join>
+</Playground>
+
+## CloseIcon
+<Playground>
+  <CloseIcon />
+</Playground>
+
+## Edit Icon
+<Playground>
+  <EditIcon />
+</Playground>
+
+## Open Eye Icon
+<Playground>
+  <OpenEyeIcon />
 </Playground>

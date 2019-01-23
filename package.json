@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette",
-  "version": "2.34.0",
+  "version": "2.34.1",
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
@@ -88,7 +88,6 @@
     "typescript-styled-plugin": "^0.10.0"
   },
   "dependencies": {
-    "gatsby-plugin-catch-links": "^2.0.9",
     "moment": "^2.23.0",
     "moment-timezone": "^0.5.23",
     "rc-slider": "^8.6.2",
