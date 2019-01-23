@@ -21,7 +21,7 @@ export const OpenEyeIcon: React.SFC<OpenEyeIconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>Action/View/Md</title>
-      <g stroke="none" stroke-width="1" fill="none" fillRule="evenodd">
+      <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g
           transform="translate(1.000000, 3.000000)"
           fill={fill}
