@@ -41,6 +41,10 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {},
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "design-system",
