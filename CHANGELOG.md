@@ -1,3 +1,13 @@
+# 2.34.4 (Wed Jan 23 2019)
+
+#### 🐛  Bug Fix
+
+- Merge pull request #223 by Peril
+
+@mzikherman => [OpenEyeIcon] Convert one more SVG prop to camelcase [#223](https://github.com/artsy/palette/pull/223) ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # 2.34.3 (Wed Jan 23 2019)
 
 #### 🐛  Bug Fix
