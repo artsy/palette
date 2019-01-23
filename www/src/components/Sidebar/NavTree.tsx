@@ -1,11 +1,11 @@
 import { Box, color, Sans, SansSize } from "@artsy/palette"
-import { StatusBadge } from "app/components/StatusBadge"
-import { pathListToTree, TreeNode } from "app/utils/pathListToTree"
+import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, StaticQuery } from "gatsby"
 import { get, includes, reject, sortBy } from "lodash"
 import React, { Fragment } from "react"
 import styled from "styled-components"
 import { Subscribe } from "unstated"
+import { pathListToTree, TreeNode } from "utils/pathListToTree"
 import { NavState } from "./NavState"
 
 export const NavTree = _props => {

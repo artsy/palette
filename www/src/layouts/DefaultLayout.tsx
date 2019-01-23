@@ -1,6 +1,6 @@
 import { Flex, Serif } from "@artsy/palette"
-import { Sidebar } from "app/components/Sidebar"
-import { StatusBadge } from "app/components/StatusBadge"
+import { Sidebar } from "components/Sidebar"
+import { StatusBadge } from "components/StatusBadge"
 import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 import React from "react"
