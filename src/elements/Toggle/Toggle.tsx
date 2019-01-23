@@ -8,7 +8,7 @@ export interface ToggleProps {
   disabled?: boolean
   expanded?: boolean
   label?: string
-  textSize?: string
+  textSize?: SansSize
 }
 
 export interface ToggleState {

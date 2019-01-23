@@ -6,6 +6,6 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-import { Boot } from "./src/app/Boot"
+import { Boot } from "./src/Boot"
 
 export const wrapRootElement = Boot
