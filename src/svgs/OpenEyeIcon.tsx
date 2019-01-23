@@ -2,20 +2,20 @@ import React from "react"
 
 interface OpenEyeIconProps {
   fill?: string
-  onClick?: () => void
+  onClick?: (e: any) => void
 }
 
 /** Icon */
 export const OpenEyeIcon: React.SFC<OpenEyeIconProps> = ({
   fill = "#000",
-  onClick = () => {
+  onClick = (_e: any) => {
     /* */
   },
 }) => {
   return (
     <svg
       width="18"
-      onClick={() => onClick()}
+      onClick={e => onClick(e)}
       height="18"
       viewBox="0 0 18 18"
       xmlns="http://www.w3.org/2000/svg"
