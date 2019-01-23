@@ -1,3 +1,11 @@
+# 2.34.3 (Wed Jan 23 2019)
+
+#### 🐛  Bug Fix
+
+- @damassi => [OpenEyeIcon] Update props to include onClick, and camelcase some SVG… [#222](https://github.com/artsy/palette/pull/222) ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # 2.34.2 (Wed Jan 23 2019)
 
 #### 🐛  Bug Fix
