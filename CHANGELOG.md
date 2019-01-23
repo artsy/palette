@@ -1,3 +1,28 @@
+# 2.34.1 (Wed Jan 23 2019)
+
+#### 🐛  Bug Fix
+
+- Move content out of `src` and into `/content` [#219](https://github.com/artsy/palette/pull/219) ([@damassi](https://github.com/damassi))
+- Update OpenEyeIcon [#218](https://github.com/artsy/palette/pull/218) ([@oxaudo](https://github.com/oxaudo))
+
+#### 🏠  Internal
+
+- Merge pull request #217 by Peril
+
+Update yarn orb to v0.1.4 [#217](https://github.com/artsy/palette/pull/217) ([@renovate-bot](https://github.com/renovate-bot))
+- Update yarn orb to v0.1.1 [#216](https://github.com/artsy/palette/pull/216) ([@renovate-bot](https://github.com/renovate-bot))
+- Polish navigation [#215](https://github.com/artsy/palette/pull/215) ([@damassi](https://github.com/damassi))
+- Add stateful navigation [#214](https://github.com/artsy/palette/pull/214) ([@damassi](https://github.com/damassi))
+- Start moving content over from old docs [#213](https://github.com/artsy/palette/pull/213) ([@damassi](https://github.com/damassi))
+
+#### ⚠️  Pushed to master
+
+- Update yarn lock file  ([@zephraph](https://github.com/zephraph))
+- Update README.md  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+- Delete ContentArea.tsx  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+
+---
+
 # 2.34.0 (Sun Jan 20 2019)
 
 #### 🚀  Enhancement
