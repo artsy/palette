@@ -15,8 +15,6 @@ interface CodeEditorProps {
 
 export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
   ({ code, scope, title, editable = true, expanded = true }) => {
-    // FIXME: publish palette
-    const props = { textSize: "4" }
     return (
       <LiveProvider
         code={code}
@@ -28,7 +26,7 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
         }}
       >
         <Box my={2}>
-          <Toggle label={title} {...props} expanded={expanded}>
+          <Toggle label={title} textSize="4" expanded={expanded}>
             <PreviewContainer my={2}>
               <LivePreview />
             </PreviewContainer>
