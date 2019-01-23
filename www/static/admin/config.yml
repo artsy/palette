@@ -1,6 +1,20 @@
-backend:
-  name: test-repo
+# development_overrides:
+#   # run file-system backend for local development
+#   backend:
+#     name: file-system
+#     # api_root: http://localhost:8000/api
 
+backend:
+  name: file-system
+  api_root: /api
+
+# backend:
+#   name: github
+#   # squash_merges: true
+#   # repo: artsy/palette
+#   branch: master
+
+display_url: palette.artsy.net
 media_folder: static/assets
 public_folder: assets
 

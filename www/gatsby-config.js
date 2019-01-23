@@ -1,5 +1,6 @@
 // @ts-check
 
+const fsExpressAPI = require("netlify-cms-backend-fs/dist/fs")
 const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
 
 module.exports = {
@@ -42,7 +43,14 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-netlify-cms",
-      options: {},
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`, // default: undefined
+        // stylesPath: `${__dirname}/src/cms/cms.css`, // default: undefined
+        enableIdentityWidget: false, // default: true
+        publicPath: "admin",
+        htmlTitle: "Palette | Admin",
+        manualInit: true,
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
@@ -62,4 +70,8 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-typescript",
   ],
+
+  // Add the file-system api as an api proxy:
+  // https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
+  developMiddleware: fsExpressAPI,
 }
