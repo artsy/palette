@@ -17,24 +17,17 @@ export default function DocsLayout(props) {
   } = props
 
   return (
-    <Container>
+    <Flex>
       <Sidebar />
       <ContentArea>
         {type !== "page" && <ComponentName name={name} wip={wip} />}
         <MDXRenderer>{code.body}</MDXRenderer>
       </ContentArea>
-      {/*
-      <Layout>
-        <MDXRenderer>{code.body}</MDXRenderer>
-      </Layout>
-      */}
-    </Container>
+    </Flex>
   )
 }
 
-const Container = styled(Flex)``
-
-const ContentArea = styled(Flex).attrs({
+export const ContentArea = styled(Flex).attrs({
   flexDirection: "column",
   pt: 4,
   px: 6,
@@ -45,7 +38,10 @@ const ContentArea = styled(Flex).attrs({
   overflow-x: scroll;
 `
 
-const ComponentName = ({ name, wip }) => {
+export const ComponentName: React.SFC<{
+  name: string
+  wip?: string
+}> = ({ name, wip }) => {
   return (
     <Serif size="8" color="black100" mb={2}>
       {name} {wip && <StatusBadge status="WIP" />}

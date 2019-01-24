@@ -1,3 +1,5 @@
+# Netlify "kitchen sink" example: https://github.com/netlify/netlify-cms/blob/master/dev-test/config.yml
+
 # development_overrides:
 #   # run file-system backend for local development
 #   backend:
@@ -19,6 +21,10 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
+  # - name: content
+  #   label: Content
+  #   description: Components ue
+
   - name: articles
     label: Articles
     description: "Articles"

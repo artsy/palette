@@ -2,12 +2,16 @@
 
 const fsExpressAPI = require("netlify-cms-backend-fs/dist/fs")
 const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
+const copyChangelog = require("./src/utils/copyChangelog")
+
+copyChangelog()
 
 module.exports = {
   siteMetadata: {
     title: "Palette",
     description: "Artsy's design system",
     author: "Artsy",
+    changelog: {},
   },
   plugins: [
     {
