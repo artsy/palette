@@ -19,6 +19,28 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
+  - name: articles
+    label: Articles
+    description: "Articles"
+    folder: content/articles
+    extension: "mdx"
+    format: "frontmatter"
+    widget: mdx
+    slug: "{{slug}}"
+    create: true
+    fields:
+      - { label: Title, name: title, widget: string, tagname: h1 }
+      - { label: "Author", name: author, widget: string, required: false }
+      - {
+          label: Publish Date,
+          name: date,
+          widget: date,
+          format: "YYYY-MM-DD",
+          dateFormat: "YYYY-MM-DD",
+          required: false,
+        }
+      - { label: Body, name: body, widget: mdx }
+
   - name: blog
     label: Blog
     folder: content/blog
