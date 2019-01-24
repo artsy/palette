@@ -1,3 +1,15 @@
+# 2.34.9 (Thu Jan 24 2019)
+
+#### 🐛  Bug Fix
+
+- Update CMS preview pane [#229](https://github.com/artsy/palette/pull/229) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Add CHANGELOG page [#228](https://github.com/artsy/palette/pull/228) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.34.8 (Thu Jan 24 2019)
 
 #### 🐛  Bug Fix
