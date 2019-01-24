@@ -1,3 +1,11 @@
+# 2.34.7 (Thu Jan 24 2019)
+
+#### 🐛  Bug Fix
+
+- Add Netlify local filesystem support [#226](https://github.com/artsy/palette/pull/226) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.34.6 (Thu Jan 24 2019)
 
 #### 🐛  Bug Fix
