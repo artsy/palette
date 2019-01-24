@@ -1,3 +1,11 @@
+# 2.34.8 (Thu Jan 24 2019)
+
+#### 🐛  Bug Fix
+
+- Add NetlifyCMS .mdx support [#227](https://github.com/artsy/palette/pull/227) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.34.7 (Thu Jan 24 2019)
 
 #### 🐛  Bug Fix
