@@ -1,5 +1,7 @@
+// @ts-check
+
 import { Theme } from "@artsy/palette"
-import CMS, { init } from "netlify-cms"
+import CMS from "netlify-cms"
 import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
 import React, { Component } from "react"
 import { StyleSheetManager } from "styled-components"
@@ -9,6 +11,7 @@ const isClient = typeof window !== "undefined"
 const isDevelopment = process.env.NODE_ENV === "development"
 
 if (isClient) {
+  // @ts-ignore
   window.CMS_MANUAL_INIT = true
 }
 
@@ -64,4 +67,4 @@ const PreviewWindow = props => {
 CMS.registerWidget("mdx", MDXWidget, PreviewWindow)
 
 // Start the CMS
-init()
+CMS.init()
