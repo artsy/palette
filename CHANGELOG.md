@@ -1,3 +1,51 @@
+# 2.34.6 (Thu Jan 24 2019)
+
+#### 🐛  Bug Fix
+
+- @damassi => [OpenEyeIcon] Correct signature for onClick [#225](https://github.com/artsy/palette/pull/225) ([@mzikherman](https://github.com/mzikherman))
+
+---
+
+# 2.34.5 (Wed Jan 23 2019)
+
+#### 🐛  Bug Fix
+
+- Add labeled range component [#224](https://github.com/artsy/palette/pull/224) ([@dblandin](https://github.com/dblandin) [@damassi](https://github.com/damassi))
+
+---
+
+# 2.34.4 (Wed Jan 23 2019)
+
+#### 🐛  Bug Fix
+
+- Merge pull request #223 by Peril
+
+@mzikherman => [OpenEyeIcon] Convert one more SVG prop to camelcase [#223](https://github.com/artsy/palette/pull/223) ([@mzikherman](https://github.com/mzikherman))
+
+---
+
+# 2.34.3 (Wed Jan 23 2019)
+
+#### 🐛  Bug Fix
+
+- @damassi => [OpenEyeIcon] Update props to include onClick, and camelcase some SVG… [#222](https://github.com/artsy/palette/pull/222) ([@mzikherman](https://github.com/mzikherman))
+
+---
+
+# 2.34.2 (Wed Jan 23 2019)
+
+#### 🐛  Bug Fix
+
+- Merge pull request #221 by Peril
+
+@damassi => [CheckIcon] Allow arbitrary styles to be passed in and applied to icon [#221](https://github.com/artsy/palette/pull/221) ([@mzikherman](https://github.com/mzikherman) [@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Add barebones Netlify CMS [#220](https://github.com/artsy/palette/pull/220) ([@damassi](https://github.com/damassi))
+
+---
+
 # 2.34.1 (Wed Jan 23 2019)
 
 #### 🐛  Bug Fix
