@@ -1,3 +1,11 @@
+# 2.34.6 (Thu Jan 24 2019)
+
+#### 🐛  Bug Fix
+
+- @damassi => [OpenEyeIcon] Correct signature for onClick [#225](https://github.com/artsy/palette/pull/225) ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # 2.34.5 (Wed Jan 23 2019)
 
 #### 🐛  Bug Fix
