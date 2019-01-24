@@ -1,11 +1,14 @@
 // @ts-check
 
 import { Theme } from "@artsy/palette"
-import CMS from "netlify-cms"
 import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
 import React, { Component } from "react"
 import { StyleSheetManager } from "styled-components"
 import { MarkdownComponents, PaletteComponents } from '../components/GlobalComponents' // prettier-ignore
+import { Box, Spacer, Toggle } from "@artsy/palette"
+
+// @ts-ignore
+import CMS, { init } from "netlify-cms"
 
 const isClient = typeof window !== "undefined"
 const isDevelopment = process.env.NODE_ENV === "development"
@@ -16,6 +19,10 @@ if (isClient) {
 }
 
 if (isDevelopment) {
+  // @ts-ignore
+  // Allows for local development overrides in cms.yaml
+  window.CMS_ENV = "localhost_development"
+
   CMS.registerBackend(
     "file-system",
     require("netlify-cms-backend-fs").FileSystemBackend
@@ -23,7 +30,8 @@ if (isDevelopment) {
 }
 
 /**
- * Custom components need refs for validation and thus must be a class
+ * Custom components need refs for validation and thus must be a class.
+ * Additionally, after <Theme>, only one child is allowed.
  *
  * See https://github.com/netlify/netlify-cms/issues/1346
  */
@@ -50,6 +58,15 @@ const PreviewWindow = props => {
     components: MarkdownComponents,
     scope: {
       ...PaletteComponents,
+      Playground: ({ children, title }) => {
+        return (
+          <Box mt={4}>
+            <Toggle label={title} textSize="4" expanded={true}>
+              <Box pt={2}>{children}</Box>
+            </Toggle>
+          </Box>
+        )
+      },
     },
     mdPlugins: [],
   }
@@ -67,4 +84,4 @@ const PreviewWindow = props => {
 CMS.registerWidget("mdx", MDXWidget, PreviewWindow)
 
 // Start the CMS
-CMS.init()
+init()

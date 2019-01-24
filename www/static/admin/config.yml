@@ -1,58 +1,30 @@
 # Netlify "kitchen sink" example: https://github.com/netlify/netlify-cms/blob/master/dev-test/config.yml
 
-# development_overrides:
-#   # run file-system backend for local development
-#   backend:
-#     name: file-system
-#     # api_root: http://localhost:8000/api
+localhost_development:
+  backend:
+    name: file-system
+    api_root: /api
 
 backend:
-  name: file-system
-  api_root: /api
-
-# backend:
-#   name: github
-#   # squash_merges: true
-#   # repo: artsy/palette
-#   branch: master
+  name: github
+  # squash_merges: true
+  repo: artsy/palette
+  branch: master
 
 display_url: palette.artsy.net
 media_folder: static/assets
 public_folder: assets
 
 collections:
-  # - name: content
-  #   label: Content
-  #   description: Components ue
-
-  - name: articles
-    label: Articles
-    description: "Articles"
-    folder: content/articles
-    extension: "mdx"
-    format: "frontmatter"
+  - name: elements
+    label: Elements
+    description: Base components
+    folder: content/docs/elements
+    extension: mdx
+    format: frontmatter
     widget: mdx
-    slug: "{{slug}}"
     create: true
     fields:
-      - { label: Title, name: title, widget: string, tagname: h1 }
-      - { label: "Author", name: author, widget: string, required: false }
-      - {
-          label: Publish Date,
-          name: date,
-          widget: date,
-          format: "YYYY-MM-DD",
-          dateFormat: "YYYY-MM-DD",
-          required: false,
-        }
+      - { label: Name, name: name, widget: string, tagname: h1, required: true }
+      - { label: WIP, name: wip, widget: boolean, required: false }
       - { label: Body, name: body, widget: mdx }
-
-  - name: blog
-    label: Blog
-    folder: content/blog
-    create: true
-    fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
