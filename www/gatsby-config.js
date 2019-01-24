@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-netlify-cms",
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`, // default: undefined
+        modulePath: `${__dirname}/src/cms/cms.jsx`, // default: undefined
         // stylesPath: `${__dirname}/src/cms/cms.css`, // default: undefined
         enableIdentityWidget: false, // default: true
         publicPath: "admin",

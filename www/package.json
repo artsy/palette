@@ -99,6 +99,7 @@
     "hast-util-to-string": "^1.0.1",
     "lodash": "^4.17.11",
     "netlify-cms": "^2.3.3",
+    "netlify-cms-widget-mdx": "^0.3.1",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.0-alpha.1",
