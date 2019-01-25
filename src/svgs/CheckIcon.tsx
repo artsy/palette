@@ -6,6 +6,7 @@ interface IconProps {
   fill?: Color
   /** Apply additional styles to component */
   style?: object
+  onClick?: (e: any) => void
 }
 
 /**
@@ -14,8 +15,17 @@ interface IconProps {
 export const CheckIcon: React.SFC<IconProps> = ({
   fill = "black100",
   style = {},
+  onClick = (_e: any) => {
+    /* */
+  },
 }) => (
-  <svg style={style} width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    onClick={e => onClick(e)}
+    style={style}
+    width="20"
+    height="20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       fill="none"
       stroke={color(fill as any)}
