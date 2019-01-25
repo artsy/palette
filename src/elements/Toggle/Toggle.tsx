@@ -49,13 +49,13 @@ export class Toggle extends React.Component<ToggleProps> {
     return (
       <Flex width="100%" flexDirection="column">
         <Separator mb={2} />
-        <Header mt="-6px" onClick={this.toggleExpand} disabled={disabled}>
+        <Header mb={2} onClick={this.toggleExpand} disabled={disabled}>
           <Flex justifyContent="space-between" alignItems="center">
             <Sans
               size={this.props.textSize as SansSize}
               weight="medium"
               color="black100"
-              mt={0.3}
+              lineHeight="1.83"
             >
               {this.props.label}
             </Sans>
@@ -67,7 +67,7 @@ export class Toggle extends React.Component<ToggleProps> {
           </Flex>
         </Header>
         {expanded && (
-          <Flex flexDirection="column" alignItems="left" mt={-1} mb={1}>
+          <Flex flexDirection="column" alignItems="left" mt={-1}>
             {this.props.children}
           </Flex>
         )}
@@ -78,7 +78,6 @@ export class Toggle extends React.Component<ToggleProps> {
 
 const Header = styled.div.attrs<ToggleProps & SpaceProps>({})`
   cursor: pointer;
-  padding-bottom: 16px;
   pointer-events: ${props => (props.disabled ? "none" : "auto")};
   user-select: none;
   ${space};
