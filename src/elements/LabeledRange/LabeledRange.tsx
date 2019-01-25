@@ -7,6 +7,7 @@ interface LabeledRangeProps extends SliderProps {
   label: string
   disabled?: boolean
   formatter?: (min, max, maxIndicator) => string
+  unit?: string
 }
 
 interface LabeledRangeState {
@@ -45,8 +46,13 @@ export class LabeledRange extends React.Component<
 
   toString() {
     const { min, max } = this.state
+    const result = `${min} - ${max}${this.maxIndicator()}`
 
-    return `${min} - ${max}${this.maxIndicator()}`
+    if (this.props.unit) {
+      return `${result} ${this.props.unit}`
+    } else {
+      return result
+    }
   }
 
   render() {

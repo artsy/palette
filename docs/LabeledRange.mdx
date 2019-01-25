@@ -2,8 +2,8 @@
 name: LabeledRange
 ---
 
-import { Playground } from 'docz'
-import { LabeledRange } from '../src'
+import { Playground } from "docz"
+import { LabeledRange } from "../src"
 
 # LabeledRange
 
@@ -20,7 +20,7 @@ All `LabeledRange` props are passed to the underlying [Slider](#/docs-slider) co
   />
 </Playground>
 
-## With formatter function defined
+## With unit defined
 
 <Playground>
   <LabeledRange
@@ -31,8 +31,23 @@ All `LabeledRange` props are passed to the underlying [Slider](#/docs-slider) co
     defaultValue={[1, 100]}
     disabled={false}
     label="Height"
+    unit="in"
+  />
+</Playground>
+
+## With formatter function defined
+
+<Playground>
+  <LabeledRange
+    min={1}
+    max={100}
+    unit="in"
+    step={1}
+    defaultValue={[1, 100]}
+    disabled={false}
+    label="Price"
     formatter={(min, max, maxIndicator) => {
-      return "" + min + " - " + max + maxIndicator + " in" 
+      return "$" + min + " - $" + max + maxIndicator
     }}
   />
 </Playground>
