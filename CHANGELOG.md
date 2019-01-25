@@ -1,3 +1,11 @@
+# 2.35.0 (Fri Jan 25 2019)
+
+#### undefined
+
+- adds ReadMore component to Palette [#230](https://github.com/artsy/palette/pull/230) ([@ashleyjelks](https://github.com/ashleyjelks))
+
+---
+
 # 2.34.10 (Fri Jan 25 2019)
 
 #### undefined
