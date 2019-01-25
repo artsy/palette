@@ -1,3 +1,11 @@
+# 2.34.10 (Fri Jan 25 2019)
+
+#### undefined
+
+- @mzikherman => [CheckIcon] Add onClick prop [#231](https://github.com/artsy/palette/pull/231) ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # 2.34.9 (Thu Jan 24 2019)
 
 #### 🐛  Bug Fix
