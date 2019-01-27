@@ -55,7 +55,7 @@ export class Toggle extends React.Component<ToggleProps> {
               size={this.props.textSize as SansSize}
               weight="medium"
               color="black100"
-              lineHeight="1.83"
+              my={0.5}
             >
               {this.props.label}
             </Sans>
