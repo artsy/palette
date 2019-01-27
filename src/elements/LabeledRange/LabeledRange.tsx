@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import { space, SpaceProps } from "styled-system"
-import { Flex, Sans, Separator, Serif, Slider, SliderProps } from "../"
+import { Flex, Sans, Slider, SliderProps } from "../"
 
 interface LabeledRangeProps extends SliderProps {
   label: string
   disabled?: boolean
   formatter?: (min, max, maxIndicator) => string
+  unit?: string
 }
 
 interface LabeledRangeState {
@@ -45,8 +46,13 @@ export class LabeledRange extends React.Component<
 
   toString() {
     const { min, max } = this.state
+    const result = `${min} - ${max}${this.maxIndicator()}`
 
-    return `${min} - ${max}${this.maxIndicator()}`
+    if (this.props.unit) {
+      return `${result} ${this.props.unit}`
+    } else {
+      return result
+    }
   }
 
   render() {
@@ -55,17 +61,16 @@ export class LabeledRange extends React.Component<
 
     return (
       <Flex width="100%" flexDirection="column">
-        <Separator mb={2} />
         <Header mt="-6px">
           <Flex justifyContent="space-between">
-            <Sans size="2" weight="medium" color="black100" mt={0.3}>
+            <Sans size="2" color="black100" mt={0.3}>
               {label}
             </Sans>
-            <Serif size="2" color="black60" mt={0.3}>
+            <Sans size="2" color="black60" mt={0.3}>
               {formatter
                 ? formatter(min, max, this.maxIndicator())
                 : this.toString()}
-            </Serif>
+            </Sans>
           </Flex>
         </Header>
 

@@ -29,7 +29,7 @@ export class PriceRange extends React.Component<PriceRangeProps> {
     return (
       <LabeledRange
         formatter={this.formatter.bind(this)}
-        label="Price"
+        label={this.props.currency}
         {...this.props}
       />
     )
