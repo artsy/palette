@@ -1,7 +1,11 @@
 import React from "react"
 
+interface MoreIconProps {
+  fill?: string
+}
+
 /** Icon */
-export const MoreIcon: React.SFC = () => {
+export const MoreIcon: React.SFC<MoreIconProps> = ({ fill }: MoreIconProps) => {
   return (
     <svg
       width="18px"
@@ -15,7 +19,7 @@ export const MoreIcon: React.SFC = () => {
         id="Symbols"
         stroke="none"
         stroke-width="1"
-        fill="none"
+        fill={fill || "none"}
         fill-rule="evenodd"
       >
         <g id="icon_more">
@@ -32,7 +36,7 @@ export const MoreIcon: React.SFC = () => {
             <g
               id="Group-14"
               transform="translate(3.000000, 8.000000)"
-              stroke="#000000"
+              stroke={fill || "#000000"}
             >
               <circle id="Oval" cx="1" cy="1" r="1.5" />
               <circle id="Oval" cx="6" cy="1" r="1.5" />

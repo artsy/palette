@@ -12,6 +12,7 @@ import {
   MoreIcon,
   OpenEyeIcon
 } from "../src/svgs"
+import { color } from "../src/helpers"
 
 # Icons
 
@@ -49,5 +50,8 @@ import {
 
 ## More Icon
 <Playground>
-  <MoreIcon />
+  <Join separator={<Separator m={1} />}>
+    <MoreIcon />
+    <MoreIcon fill={color("purple100")} />
+  </Join>
 </Playground>
