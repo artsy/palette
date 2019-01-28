@@ -4,13 +4,15 @@ name: Icons
 
 import { Playground } from "docz"
 import { Join, Separator } from "../src"
-import { 
+import {
   CheckIcon,
   CloseIcon,
   ChevronIcon,
   EditIcon,
+  MoreIcon,
   OpenEyeIcon
 } from "../src/svgs"
+import { color } from "../src/helpers"
 
 # Icons
 
@@ -44,4 +46,12 @@ import {
 ## Open Eye Icon
 <Playground>
   <OpenEyeIcon />
+</Playground>
+
+## More Icon
+<Playground>
+  <Join separator={<Separator m={1} />}>
+    <MoreIcon />
+    <MoreIcon fill={color("purple100")} />
+  </Join>
 </Playground>
