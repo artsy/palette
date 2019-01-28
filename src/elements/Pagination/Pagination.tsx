@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 
-import { Box, Flex, Sans, Separator } from "../"
+import { Box, Flex, Sans } from "../"
 import { color, space } from "../../helpers"
 import { ChevronIcon } from "../../svgs"
 
@@ -22,43 +22,40 @@ export const LargePagination = (props: Props) => {
   } = props
 
   return (
-    <div>
-      <Separator mb={3} pr={2} />
-      <Flex
-        flexDirection="row"
-        justifyContent="flex-end"
-        alignItems="baseline"
-        mr={-1}
-      >
-        {first && (
-          <div>
-            {renderPage(first, onClick)}
-            <PageSpan mx={0.5} />
-          </div>
-        )}
+    <Flex
+      flexDirection="row"
+      justifyContent="flex-end"
+      alignItems="baseline"
+      mr={-1}
+    >
+      {first && (
+        <div>
+          {renderPage(first, onClick)}
+          <PageSpan mx={0.5} />
+        </div>
+      )}
 
-        {around.map(pageInfo => renderPage(pageInfo, onClick))}
+      {around.map(pageInfo => renderPage(pageInfo, onClick))}
 
-        {last && (
-          <div>
-            <PageSpan mx={0.5} />
-            {renderPage(last, onClick)}
-          </div>
-        )}
+      {last && (
+        <div>
+          <PageSpan mx={0.5} />
+          {renderPage(last, onClick)}
+        </div>
+      )}
 
-        <Box ml={4}>
-          <PrevButton
-            disabled={!previous}
-            onClick={() => {
-              if (previous) {
-                props.onClick(previous.cursor, previous.page)
-              }
-            }}
-          />
-          <NextButton disabled={!hasNextPage} onClick={() => onNext()} />
-        </Box>
-      </Flex>
-    </div>
+      <Box ml={4}>
+        <PrevButton
+          disabled={!previous}
+          onClick={() => {
+            if (previous) {
+              props.onClick(previous.cursor, previous.page)
+            }
+          }}
+        />
+        <NextButton disabled={!hasNextPage} onClick={() => onNext()} />
+      </Box>
+    </Flex>
   )
 }
 
