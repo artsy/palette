@@ -1,3 +1,11 @@
+# v2.36.1 (Mon Jan 28 2019)
+
+#### 🐛  Bug Fix
+
+- Adds MoreIcon [#237](https://github.com/artsy/palette/pull/237) ([@sweir27](https://github.com/sweir27))
+
+---
+
 # v2.36.0 (Mon Jan 28 2019)
 
 #### 🚀  Enhancement
