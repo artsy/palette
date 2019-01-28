@@ -1,3 +1,20 @@
+# v2.36.0 (Mon Jan 28 2019)
+
+#### 🚀  Enhancement
+
+- Add script to generate a tokens file [#235](https://github.com/artsy/palette/pull/235) ([@jonallured](https://github.com/jonallured))
+
+#### 🐛  Bug Fix
+
+- Remove separator from pagination component [#236](https://github.com/artsy/palette/pull/236) ([@iskounen](https://github.com/iskounen) [@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Pin dependency @artsy/auto-config to 0.0.8 [#234](https://github.com/artsy/palette/pull/234) ([@renovate-bot](https://github.com/renovate-bot))
+- Use shared autorc config [#233](https://github.com/artsy/palette/pull/233) ([@zephraph](https://github.com/zephraph))
+
+---
+
 # 2.35.1 (Sun Jan 27 2019)
 
 #### 🐛  Bug Fix
