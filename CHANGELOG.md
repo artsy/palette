@@ -1,3 +1,11 @@
+# 2.35.1 (Sun Jan 27 2019)
+
+#### 🐛  Bug Fix
+
+- Update filter styles [#232](https://github.com/artsy/palette/pull/232) ([@mdole](https://github.com/mdole) [@ashleyjelks](https://github.com/ashleyjelks) [@mzikherman](https://github.com/mzikherman) [@artsyit](https://github.com/artsyit))
+
+---
+
 # 2.35.0 (Fri Jan 25 2019)
 
 #### undefined
