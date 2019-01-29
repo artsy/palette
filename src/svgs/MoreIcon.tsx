@@ -18,9 +18,9 @@ export const MoreIcon: React.SFC<MoreIconProps> = ({ fill }: MoreIconProps) => {
       <g
         id="Symbols"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill={fill || "none"}
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g id="icon_more">
           <g id="Group-13">
