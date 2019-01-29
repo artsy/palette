@@ -1,3 +1,11 @@
+# v2.36.2 (Tue Jan 29 2019)
+
+#### 🐛  Bug Fix
+
+- Fix MoreIcon dom properties [#238](https://github.com/artsy/palette/pull/238) ([@sweir27](https://github.com/sweir27))
+
+---
+
 # v2.36.1 (Mon Jan 28 2019)
 
 #### 🐛  Bug Fix
