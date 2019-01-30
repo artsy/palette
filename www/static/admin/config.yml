@@ -16,10 +16,23 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: elements
-    label: Elements
-    description: Base components
-    folder: content/docs/elements
+  - name: components
+    label: Components
+    description: Components
+    folder: content/docs/components
+    extension: mdx
+    format: frontmatter
+    widget: mdx
+    create: true
+    fields:
+      - { label: Name, name: name, widget: string, tagname: h1, required: true }
+      - { label: WIP, name: wip, widget: boolean, required: false }
+      - { label: Body, name: body, widget: mdx }
+
+  - name: Animation
+    label: Animation
+    description: Animation patterns for Palette
+    folder: content/docs/animation
     extension: mdx
     format: frontmatter
     widget: mdx
