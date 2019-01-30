@@ -1,3 +1,11 @@
+# v2.36.3 (Wed Jan 30 2019)
+
+#### 🐛  Bug Fix
+
+- Organize [#240](https://github.com/artsy/palette/pull/240) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.36.2 (Tue Jan 29 2019)
 
 #### 🐛  Bug Fix
