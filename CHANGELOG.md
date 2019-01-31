@@ -1,3 +1,15 @@
+# v2.37.0 (Thu Jan 31 2019)
+
+#### 🚀  Enhancement
+
+- New component: TextArea [#244](https://github.com/artsy/palette/pull/244) ([@ds300](https://github.com/ds300))
+
+#### 🏠  Internal
+
+- Update yarn orb to v0.1.5 [#243](https://github.com/artsy/palette/pull/243) ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v2.36.3 (Wed Jan 30 2019)
 
 #### 🐛  Bug Fix
