@@ -2,7 +2,7 @@ import { mount, ReactWrapper } from "enzyme"
 import React from "react"
 import { TextArea, TextAreaProps } from "../TextArea"
 
-describe("Tabs", () => {
+describe("TextArea", () => {
   const onChange = jest.fn(({ value }) => {
     process.stdout.write(value + "\n")
   })
