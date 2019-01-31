@@ -37,6 +37,7 @@ export interface TextAreaProps {
   defaultValue?: string
   innerRef?: React.RefObject<HTMLTextAreaElement>
   className?: string
+  placeholder?: string
 }
 
 interface TextAreaState {
