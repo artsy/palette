@@ -1,3 +1,11 @@
+# v2.37.1 (Thu Jan 31 2019)
+
+#### 🐛  Bug Fix
+
+- Add placeholder to TextArea component [#245](https://github.com/artsy/palette/pull/245) ([@eessex](https://github.com/eessex))
+
+---
+
 # v2.37.0 (Thu Jan 31 2019)
 
 #### 🚀  Enhancement
