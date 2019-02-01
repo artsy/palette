@@ -4,6 +4,7 @@ import { StatusBadge } from "components/StatusBadge"
 import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 import React from "react"
+import { Helmet } from "react-helmet"
 import styled from "styled-components"
 
 export default function DocsLayout(props) {
@@ -18,6 +19,9 @@ export default function DocsLayout(props) {
 
   return (
     <Flex>
+      <Helmet defaultTitle="Palette" titleTemplate="Palette | %s">
+        <title>{name}</title>
+      </Helmet>
       <Sidebar />
       <ContentArea>
         {type !== "page" && <ComponentName name={name} wip={wip} />}
