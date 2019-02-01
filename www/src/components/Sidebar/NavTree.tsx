@@ -1,7 +1,7 @@
 import { Box, color, Sans, SansSize } from "@artsy/palette"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, StaticQuery } from "gatsby"
-import { get, includes, reject, sortBy } from "lodash"
+import { get, reject, sortBy } from "lodash"
 import React, { Fragment } from "react"
 import styled from "styled-components"
 import { Subscribe } from "unstated"
@@ -25,6 +25,7 @@ export const NavTree = _props => {
                     mt
                   }
                   name
+                  expandSubNav
                   order
                   wip
                 }
@@ -67,11 +68,15 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
             const hasChildren = Boolean(children.length)
             const isWIP = get(data, "wip", false)
             const navSpacer = get(data, "navSpacer", {})
+            const expandSubNav = get(data, "expandSubNav", false)
 
             switch (hasChildren) {
               case true: {
                 treeDepth++
-                const expanded = includes(navState.state.expandedNavItems, path)
+
+                const expanded =
+                  expandSubNav ||
+                  isNavExpanded(navState.state.expandedNavItems, path)
 
                 return (
                   <Fragment key={path}>
@@ -139,6 +144,11 @@ function buildNavTree(data) {
   return navTree
 }
 
+function isNavExpanded(expandedNavItems, currPath) {
+  const found = expandedNavItems.some(item => item.includes(currPath))
+  return found
+}
+
 const NavLinkWrapper = ({
   className,
   children,
@@ -159,7 +169,12 @@ const NavLinkWrapper = ({
     )
   } else {
     return (
-      <Link to={to} activeClassName="isActive" className={className} {...props}>
+      <Link
+        to={to + "/"} // FIXME: Resolve issue with trailing slashes -- make consistent
+        activeClassName="isActive"
+        className={className}
+        {...props}
+      >
         {children}
       </Link>
     )

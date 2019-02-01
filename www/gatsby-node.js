@@ -64,15 +64,6 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        // TODO: Figure out why `pages/index.mdx` isn't being created, requiring
-        // us to redirect from '/' to `/home`.
-        actions.createRedirect({
-          fromPath: `/`,
-          isPermanent: true,
-          redirectInBrowser: true,
-          toPath: `/home`,
-        })
-
         result.data.allMdx.edges.forEach(({ node }) => {
           actions.createPage({
             // Encode the route

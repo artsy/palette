@@ -13,16 +13,19 @@ const changelog = fs.readFileSync(
 const changelogMarkdownPage = `
 ---
 name: Change log
-order: 10
 type: page
 hideInNav: false
 navSpacer:
-  mt: 1
+  mt: 0
 ---
 
 ${changelog}
 `.trim()
 
 module.exports = function copyChangelog() {
-  fs.writeFileSync("content/pages/CHANGELOG.mdx", changelogMarkdownPage, "utf8")
+  fs.writeFileSync(
+    "content/docs/home/changelog.mdx",
+    changelogMarkdownPage,
+    "utf8"
+  )
 }
