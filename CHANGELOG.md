@@ -1,3 +1,11 @@
+# v2.37.6 (Fri Feb 01 2019)
+
+#### 🐛  Bug Fix
+
+- fix textarea font rendering [#250](https://github.com/artsy/palette/pull/250) ([@ds300](https://github.com/ds300))
+
+---
+
 # v2.37.5 (Fri Feb 01 2019)
 
 #### 🐛  Bug Fix
