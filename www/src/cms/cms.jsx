@@ -1,33 +1,28 @@
-// @ts-check
-
-import { Theme } from "@artsy/palette"
-import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
 import React, { Component } from "react"
-import { StyleSheetManager } from "styled-components"
-import { MarkdownComponents, PaletteComponents } from '../components/GlobalComponents' // prettier-ignore
-import { Box, Spacer, Toggle } from "@artsy/palette"
-
-// @ts-ignore
 import CMS, { init } from "netlify-cms"
+import { Theme } from "@artsy/palette"
+import { StyleSheetManager } from "styled-components"
+import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
+import { MarkdownComponents, PaletteComponents } from '../components/GlobalComponents' // prettier-ignore
+import { config } from "../../static/admin/config"
+import { Box, Toggle } from "@artsy/palette"
 
 const isClient = typeof window !== "undefined"
 const isDevelopment = process.env.NODE_ENV === "development"
 
-if (isClient) {
-  // @ts-ignore
-  window.CMS_MANUAL_INIT = true
-}
-
 if (isDevelopment) {
-  // @ts-ignore
-  // Allows for local development overrides in cms.yaml
-  window.CMS_ENV = "localhost_development"
+  if (isClient) {
+    // Allows for local development overrides in cms.yaml
+    window.CMS_ENV = "localhost_development"
+  }
 
   CMS.registerBackend(
     "file-system",
     require("netlify-cms-backend-fs").FileSystemBackend
   )
 }
+
+// @ts-check
 
 /**
  * Custom components need refs for validation and thus must be a class.
@@ -73,7 +68,9 @@ const PreviewWindow = props => {
 
   return (
     <StyleSheetManager target={iframeHeadElem}>
-      <MdxPreview mdx={mdxProps} {...props} />
+      <Theme>
+        <MdxPreview mdx={mdxProps} {...props} />
+      </Theme>
     </StyleSheetManager>
   )
 }
@@ -84,4 +81,4 @@ const PreviewWindow = props => {
 CMS.registerWidget("mdx", MDXWidget, PreviewWindow)
 
 // Start the CMS
-init()
+init({ config })
