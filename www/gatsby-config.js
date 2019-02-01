@@ -31,7 +31,7 @@ module.exports = {
         // of automatically created pages located in /pages. This is a bug in
         // gatsby-mdx. See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
         globalScope: `
-          import * as Elements from "@artsy/palette/dist/elements"
+          import * as Elements from "@artsy/palette"
           import { CodeEditor, Playground  } from "components/Playground"
           export default {
             CodeEditor,

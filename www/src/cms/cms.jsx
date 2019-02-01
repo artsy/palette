@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import CMS, { init } from "netlify-cms"
 import { Theme } from "@artsy/palette"
-import { StyleSheetManager } from "styled-components"
+import { StyleSheetManager, injectGlobal } from "styled-components"
 import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
 import { MarkdownComponents, PaletteComponents } from '../components/GlobalComponents' // prettier-ignore
 import { config } from "../../static/admin/config"
@@ -27,7 +27,6 @@ if (isDevelopment) {
 /**
  * Custom components need refs for validation and thus must be a class.
  * Additionally, after <Theme>, only one child is allowed.
- *
  * See https://github.com/netlify/netlify-cms/issues/1346
  */
 class MDXWidget extends Component {
@@ -42,7 +41,6 @@ class MDXWidget extends Component {
 
 /**
  * The preview window which renders MDX content.
- *
  * Docs: https://www.netlifycms.org/docs/customization/
  */
 const PreviewWindow = props => {

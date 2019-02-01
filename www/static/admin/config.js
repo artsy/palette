@@ -15,7 +15,6 @@ const defaultFields = {
       label: "WIP",
       name: "wip",
       widget: "boolean",
-      required: false,
     },
     {
       label: "Body",

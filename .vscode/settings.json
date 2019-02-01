@@ -6,7 +6,8 @@
   },
   "search.exclude": {
     "**/node_modules": true,
-    "**/dist": true
+    "**/dist": true,
+    "**/public": true
   },
   "editor.rulers": [80],
   "editor.tabSize": 2,

@@ -36,7 +36,6 @@ export class NavState extends Container<State> {
       ? without(expandedNavItems, navItem)
       : expandedNavItems.concat([navItem])
 
-    console.log(updated)
     this.setState({
       expandedNavItems: updated,
     })
