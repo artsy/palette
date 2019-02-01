@@ -1,4 +1,4 @@
-import { Box, color, Sans, SansSize } from "@artsy/palette"
+import { Box, ChevronIcon, color, Sans, SansSize, Spacer } from "@artsy/palette"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, StaticQuery } from "gatsby"
 import { includes, reject, sortBy } from "lodash"
@@ -93,9 +93,24 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                         }}
                       >
                         {name}
+
+                        <ChevronIcon
+                          direction={expanded ? "down" : "right"}
+                          fill={color("black30")}
+                          top={-1}
+                          mr={1}
+                          style={{
+                            float: "right",
+                          }}
+                        />
                       </NavLink>
                     </Sans>
-                    {expanded && renderNavTree(children, treeDepth)}
+                    {expanded && (
+                      <>
+                        {renderNavTree(children, treeDepth)}
+                        <Spacer mb={0.5} />
+                      </>
+                    )}
                   </Fragment>
                 )
               }
@@ -170,7 +185,7 @@ const NavLinkWrapper = ({
       <Link
         to={to + "/"} // FIXME: Resolve issue with trailing slashes -- make consistent
         activeClassName="isActive"
-        className={className}
+        className={className + " noUnderline"}
         {...props}
       >
         {children}
@@ -182,16 +197,13 @@ const NavLinkWrapper = ({
 const NavLink = styled(NavLinkWrapper)`
   cursor: pointer;
 
-  &&.isActive {
-    color: ${color("purple100")};
+  &:hover {
+    text-decoration: none;
+  }
 
+  &&.isActive {
     &:before {
       content: " – ";
-    }
-
-    &:hover {
-      text-decoration: underline;
-      color: ${color("purple100")};
     }
   }
 `

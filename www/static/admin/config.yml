@@ -3,6 +3,7 @@
 # NOTE: Config from `config.js` is merged in here.
 
 localhost_development:
+  display_url: http://localhost:8000
   backend:
     name: file-system
     api_root: /api
@@ -11,7 +12,6 @@ backend:
   name: github
   repo: artsy/palette
   branch: master
-  # squash_merges: true
 
 display_url: palette.artsy.net
 media_folder: static/assets

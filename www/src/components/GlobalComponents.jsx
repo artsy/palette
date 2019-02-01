@@ -7,7 +7,7 @@
  */
 
 import React from "react"
-import { Sans, Serif } from "@artsy/palette"
+import { Sans, Serif, Box } from "@artsy/palette"
 import * as Palette from "@artsy/palette"
 // import * as RP from "react-powerplug"
 
@@ -17,23 +17,30 @@ export const PaletteComponents = Palette
 // in markdown. Still need to fill this out a bit!
 export const MarkdownComponents = {
   h1: props => (
-    <Serif size="8" color="black100" mb={2}>
+    <Serif size="8" color="black100">
+      {props.children}
+    </Serif>
+  ),
+  h2: props => (
+    <Serif size="6" color="black100">
       {props.children}
     </Serif>
   ),
   h3: props => (
-    <Sans size="4" weight="medium" color="black100">
+    <Serif size="5" color="black100">
       {props.children}
-    </Sans>
+    </Serif>
   ),
   h4: props => (
-    <Serif size="4" color="black100" mb={2}>
+    <Serif size="4" color="black100">
       {props.children}
     </Serif>
   ),
   p: props => (
-    <Sans size="3" color="black100">
-      {props.children}
-    </Sans>
+    <Box my={1}>
+      <Sans size="3" color="black100">
+        {props.children}
+      </Sans>
+    </Box>
   ),
 }
