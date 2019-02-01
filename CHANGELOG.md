@@ -1,3 +1,15 @@
+# v2.37.4 (Fri Feb 01 2019)
+
+#### 🏠  Internal
+
+- Fix auto-expanding nav [#248](https://github.com/artsy/palette/pull/248) ([@damassi](https://github.com/damassi))
+
+#### ⚠️  Pushed to master
+
+- Upload “/static/assets/screen-shot-2019-01-17-at-4.47.28-pm.png”  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+
+---
+
 # v2.37.3 (Fri Feb 01 2019)
 
 #### 🐛  Bug Fix
