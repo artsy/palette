@@ -10121,10 +10121,10 @@ netlify-cms-backend-bitbucket@^2.1.0:
     js-base64 "^2.4.8"
     semaphore "^1.1.0"
 
-netlify-cms-backend-fs@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/netlify-cms-backend-fs/-/netlify-cms-backend-fs-0.3.3.tgz#60010bae1645c71d9397a630eca71b11832c4744"
-  integrity sha512-zWAcZChqNrzHGEYDdvqFYOX8rbbzlGpWrzkt6FyuiFV4D6z/EFxd8Mm8IXSaA4gJDQcZJ+a7iu+95HqBEFXpnQ==
+netlify-cms-backend-fs@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/netlify-cms-backend-fs/-/netlify-cms-backend-fs-0.3.5.tgz#136ee238e8af1990d13c3100480ed86c15eef889"
+  integrity sha512-YNmwGAB6ibu9JGmv52SN8RZUUxSRXqsGPE56MGYImaIsfjCJybT1gTscYxU+2I/BAwX/3wzcUPkMUf37k43oYg==
   dependencies:
     body-parser "^1.18.3"
     chalk "^2.4.1"

@@ -1,5 +1,7 @@
 # Netlify "kitchen sink" example: https://github.com/netlify/netlify-cms/blob/master/dev-test/config.yml
 
+# NOTE: Config from `config.js` is merged in here.
+
 localhost_development:
   backend:
     name: file-system
@@ -7,37 +9,10 @@ localhost_development:
 
 backend:
   name: github
-  # squash_merges: true
   repo: artsy/palette
   branch: master
+  # squash_merges: true
 
 display_url: palette.artsy.net
 media_folder: static/assets
 public_folder: assets
-
-collections:
-  - name: components
-    label: Components
-    description: Components
-    folder: content/docs/components
-    extension: mdx
-    format: frontmatter
-    widget: mdx
-    create: true
-    fields:
-      - { label: Name, name: name, widget: string, tagname: h1, required: true }
-      - { label: WIP, name: wip, widget: boolean, required: false }
-      - { label: Body, name: body, widget: mdx }
-
-  - name: Animation
-    label: Animation
-    description: Animation patterns for Palette
-    folder: content/docs/animation
-    extension: mdx
-    format: frontmatter
-    widget: mdx
-    create: true
-    fields:
-      - { label: Name, name: name, widget: string, tagname: h1, required: true }
-      - { label: WIP, name: wip, widget: boolean, required: false }
-      - { label: Body, name: body, widget: mdx }

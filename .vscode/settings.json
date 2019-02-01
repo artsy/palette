@@ -16,5 +16,6 @@
   },
   "tslint.autoFixOnSave": true,
   "typescript.tsdk": "./node_modules/typescript/lib",
+  "eslint.enable": false,
   "debug.node.autoAttach": "on"
 }
