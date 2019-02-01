@@ -1,3 +1,11 @@
+# v2.37.2 (Fri Feb 01 2019)
+
+#### 🐛  Bug Fix
+
+- Add netlifycms categories [#246](https://github.com/artsy/palette/pull/246) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.1 (Thu Jan 31 2019)
 
 #### 🐛  Bug Fix
