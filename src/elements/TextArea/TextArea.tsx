@@ -29,8 +29,8 @@ const StyledTextArea = styled.textarea`
 export interface TextAreaProps {
   error?: string
   characterLimit?: number
-  title?: string
-  description?: string
+  title?: React.ReactNode
+  description?: React.ReactNode
   onChange?(result: TextAreaChange): void
 
   // forwarded to the styled.input
