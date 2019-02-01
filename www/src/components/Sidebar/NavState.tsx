@@ -28,9 +28,11 @@ export class NavState extends Container<State> {
      *
      * import { Location } from '@reach/router` will return it.
      */
-    const expandedNavItems = ["/" + window.location.pathname.split("/")[1]]
-    this.state = {
-      expandedNavItems,
+    if (typeof window !== "undefined") {
+      const expandedNavItems = ["/" + window.location.pathname.split("/")[1]]
+      this.state = {
+        expandedNavItems,
+      }
     }
   }
 
