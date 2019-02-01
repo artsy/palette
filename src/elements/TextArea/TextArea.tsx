@@ -91,13 +91,20 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
     return (
       <Flex flexDirection="column">
-        {title && <Serif size="3">{title}</Serif>}
-        {description && (
-          <Serif size="2" color="black60">
-            {description}
-          </Serif>
+        {title && (
+          <>
+            <Serif size="3t">{title}</Serif>
+            <Spacer mb={1} />
+          </>
         )}
-        {(title || description) && <Spacer mb={1} />}
+        {description && (
+          <>
+            <Serif size="2" color="black60">
+              {description}
+            </Serif>
+            <Spacer mb={1} />
+          </>
+        )}
         <StyledTextArea
           {...others}
           onChange={this.onChange}
