@@ -1,3 +1,11 @@
+# v2.37.5 (Fri Feb 01 2019)
+
+#### 🐛  Bug Fix
+
+- Make TextArea title and descrption ReactNodes so we can add links etc [#249](https://github.com/artsy/palette/pull/249) ([@ds300](https://github.com/ds300))
+
+---
+
 # v2.37.4 (Fri Feb 01 2019)
 
 #### 🏠  Internal
