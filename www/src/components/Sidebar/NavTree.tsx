@@ -1,7 +1,7 @@
 import { Box, color, Sans, SansSize } from "@artsy/palette"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, StaticQuery } from "gatsby"
-import { get, reject, sortBy } from "lodash"
+import { includes, reject, sortBy } from "lodash"
 import React, { Fragment } from "react"
 import styled from "styled-components"
 import { Subscribe } from "unstated"
@@ -64,11 +64,9 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
     <Subscribe to={[NavState]}>
       {(navState: NavState) => (
         <Box ml={ml}>
-          {tree.map(({ data, children, formattedName, path }: TreeNode) => {
+          {tree.map(({ data, children, path }: TreeNode) => {
             const hasChildren = Boolean(children.length)
-            const isWIP = get(data, "wip", false)
-            const navSpacer = get(data, "navSpacer", {})
-            const expandSubNav = get(data, "expandSubNav", false)
+            const { wip, navSpacer = {}, expandSubNav, name } = data
 
             switch (hasChildren) {
               case true: {
@@ -76,7 +74,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
 
                 const expanded =
                   expandSubNav ||
-                  isNavExpanded(navState.state.expandedNavItems, path)
+                  isExpanded(navState.state.expandedNavItems, path)
 
                 return (
                   <Fragment key={path}>
@@ -94,7 +92,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                           treeDepth = 0
                         }}
                       >
-                        {formattedName}
+                        {name}
                       </NavLink>
                     </Sans>
                     {expanded && renderNavTree(children, treeDepth)}
@@ -106,7 +104,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                   <Fragment key={path}>
                     <Sans size={size} py={py} {...navSpacer}>
                       <NavLink to={path}>
-                        {formattedName} {isWIP && <StatusBadge status="WIP" />}
+                        {name} {wip && <StatusBadge status="WIP" />}
                       </NavLink>
                     </Sans>
                   </Fragment>
@@ -138,15 +136,15 @@ function buildNavTree(data) {
   }, [])
 
   // Perform various operations depending on frontmatter
-  const sorted = sortBy(routes, route => route.data.order)
-  const visible = reject(sorted, route => route.data.hideInNav)
+  const sorted = sortBy(routes, route => route.path)
+  const ordered = sortBy(sorted, route => route.data.order)
+  const visible = reject(ordered, route => route.data.hideInNav)
   const navTree = pathListToTree(visible).map(path => path.children)[0]
   return navTree
 }
 
-function isNavExpanded(expandedNavItems, currPath) {
-  const found = expandedNavItems.some(item => item.includes(currPath))
-  return found
+function isExpanded(expandedNavItems, currPath) {
+  return includes(expandedNavItems, currPath)
 }
 
 const NavLinkWrapper = ({

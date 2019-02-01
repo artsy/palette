@@ -9,13 +9,11 @@
  * const tree = pathListToTree(paths)
  * // => [{
  *   name: 'foo',
- *   formattedName: 'Foo',
  *   path: 'foo',
  *   data: undefined
  *     children: [
  *       {
  *         name: 'bar',
- *         formattedName: 'Bar',
  *         path: 'foo/bar',
  *         data: { hello: 'world' }
  *       }
@@ -40,7 +38,6 @@ export function pathListToTree(pathList: PathListProps[]): TreeNode[] {
 
 export interface TreeNode {
   name: string
-  formattedName: string
   path: string
   data: any
   children: TreeNode[]
@@ -60,8 +57,6 @@ function createNode(
   if (idx < 0) {
     tree.push({
       name,
-      // TODO: Pass in transformer callback
-      formattedName: data.name,
       path: fullPath,
       data,
       children: [],
