@@ -1,3 +1,11 @@
+# v2.37.7 (Fri Feb 01 2019)
+
+#### 🐛  Bug Fix
+
+- Deploy [#251](https://github.com/artsy/palette/pull/251) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.6 (Fri Feb 01 2019)
 
 #### 🐛  Bug Fix
