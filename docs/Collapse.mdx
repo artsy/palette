@@ -2,9 +2,9 @@
 name: Collapse
 ---
 
-import { Playground, PropsTable } from 'docz'
+import { Playground, PropsTable } from "docz"
 import { Toggle } from "react-powerplug"
-import { Collapse, BorderBox, Button } from '../src'
+import { Collapse, BorderBox, Button, Flex, Spacer, Box } from "../src"
 
 # Collapse
 
@@ -18,6 +18,7 @@ import { Collapse, BorderBox, Button } from '../src'
       </BorderBox>
 
     </Collapse>
+
 </Playground>
 
 ## Toggle
@@ -26,13 +27,49 @@ import { Collapse, BorderBox, Button } from '../src'
   <Toggle>
     {({ on, toggle }) => (
       <>
-        <Button onClick={toggle}>{on ? 'Close' : 'Open'}</Button>
+        <Button onClick={toggle}>{on ? "Close" : "Open"}</Button>
         <Collapse open={on}>
           <BorderBox my={2}>
-            A Collapse component with toggle button ...
-            It's pretty cool!
+            A Collapse component with toggle button ... It's pretty cool!
           </BorderBox>
         </Collapse>
+      </>
+    )}
+  </Toggle>
+</Playground>
+
+## Animating "auto"
+
+When animating height="auto" (or width="auto") sometimes React Spring needs a bit more information to determine where to move things. In the below example, adding `position="relative"` to the container returns the proper height for the multi-line string.
+
+See https://react-spring.surge.sh/gotchas#animating-auto for more info.
+
+<Playground>
+  <Toggle>
+    {({ on, toggle }) => (
+      <>
+        <Spacer mb={4} />
+        <Flex flexDirection="column" alignItems="center">
+          <Button onClick={toggle} width="300px">
+            Toggle
+          </Button>
+          <Spacer mb={4} />
+          <Flex alignItems="flex-start">
+            <BorderBox width="300px" flexDirection="column" position="relative">
+              <Collapse open={on}>
+                <Box>Hello I am some multiline content inside collapse</Box>
+              </Collapse>
+            </BorderBox>
+          </Flex>
+          <Spacer mb={4} />
+          <Flex alignItems="flex-start">
+            <BorderBox width="300px" flexDirection="column" position="relative">
+              <Collapse open={!on}>
+                <Box>Hello I am some multiline content inside collapse</Box>
+              </Collapse>
+            </BorderBox>
+          </Flex>
+        </Flex>
       </>
     )}
   </Toggle>
