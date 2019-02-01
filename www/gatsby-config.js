@@ -3,7 +3,8 @@
 const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
 const copyChangelog = require("./src/utils/copyChangelog")
 
-copyChangelog()
+// FIXME: Figure out a better way to do this
+// copyChangelog()
 
 module.exports = {
   siteMetadata: {
