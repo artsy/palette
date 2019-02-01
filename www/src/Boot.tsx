@@ -5,7 +5,15 @@ import { Provider as StateProvider } from "unstated"
 import { MarkdownComponents } from "./components/GlobalComponents"
 import { Playground } from "./components/Playground"
 
-const { GlobalStyles } = injectGlobalStyles()
+const { GlobalStyles } = injectGlobalStyles(`
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`)
 
 export const LayoutComponents = {
   ...MarkdownComponents,
