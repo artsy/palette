@@ -1,7 +1,7 @@
-import { Box, color, Sans, SansSize } from "@artsy/palette"
+import { Box, ChevronIcon, color, Sans, SansSize, Spacer } from "@artsy/palette"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, StaticQuery } from "gatsby"
-import { get, includes, reject, sortBy } from "lodash"
+import { includes, reject, sortBy } from "lodash"
 import React, { Fragment } from "react"
 import styled from "styled-components"
 import { Subscribe } from "unstated"
@@ -25,6 +25,7 @@ export const NavTree = _props => {
                     mt
                   }
                   name
+                  expandSubNav
                   order
                   wip
                 }
@@ -63,15 +64,17 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
     <Subscribe to={[NavState]}>
       {(navState: NavState) => (
         <Box ml={ml}>
-          {tree.map(({ data, children, formattedName, path }: TreeNode) => {
+          {tree.map(({ data, children, path }: TreeNode) => {
             const hasChildren = Boolean(children.length)
-            const isWIP = get(data, "wip", false)
-            const navSpacer = get(data, "navSpacer", {})
+            const { wip, navSpacer = {}, expandSubNav, name } = data
 
             switch (hasChildren) {
               case true: {
                 treeDepth++
-                const expanded = includes(navState.state.expandedNavItems, path)
+
+                const expanded =
+                  expandSubNav ||
+                  isExpanded(navState.state.expandedNavItems, path)
 
                 return (
                   <Fragment key={path}>
@@ -89,10 +92,25 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                           treeDepth = 0
                         }}
                       >
-                        {formattedName}
+                        {name}
+
+                        <ChevronIcon
+                          direction={expanded ? "down" : "right"}
+                          fill={color("black30")}
+                          top={-1}
+                          mr={1}
+                          style={{
+                            float: "right",
+                          }}
+                        />
                       </NavLink>
                     </Sans>
-                    {expanded && renderNavTree(children, treeDepth)}
+                    {expanded && (
+                      <>
+                        {renderNavTree(children, treeDepth)}
+                        <Spacer mb={0.5} />
+                      </>
+                    )}
                   </Fragment>
                 )
               }
@@ -101,7 +119,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                   <Fragment key={path}>
                     <Sans size={size} py={py} {...navSpacer}>
                       <NavLink to={path}>
-                        {formattedName} {isWIP && <StatusBadge status="WIP" />}
+                        {name} {wip && <StatusBadge status="WIP" />}
                       </NavLink>
                     </Sans>
                   </Fragment>
@@ -133,10 +151,15 @@ function buildNavTree(data) {
   }, [])
 
   // Perform various operations depending on frontmatter
-  const sorted = sortBy(routes, route => route.data.order)
-  const visible = reject(sorted, route => route.data.hideInNav)
+  const sorted = sortBy(routes, route => route.path)
+  const ordered = sortBy(sorted, route => route.data.order)
+  const visible = reject(ordered, route => route.data.hideInNav)
   const navTree = pathListToTree(visible).map(path => path.children)[0]
   return navTree
+}
+
+function isExpanded(expandedNavItems, currPath) {
+  return includes(expandedNavItems, currPath)
 }
 
 const NavLinkWrapper = ({
@@ -159,7 +182,12 @@ const NavLinkWrapper = ({
     )
   } else {
     return (
-      <Link to={to} activeClassName="isActive" className={className} {...props}>
+      <Link
+        to={to + "/"} // FIXME: Resolve issue with trailing slashes -- make consistent
+        activeClassName="isActive"
+        className={className + " noUnderline"}
+        {...props}
+      >
         {children}
       </Link>
     )
@@ -169,16 +197,13 @@ const NavLinkWrapper = ({
 const NavLink = styled(NavLinkWrapper)`
   cursor: pointer;
 
-  &&.isActive {
-    color: ${color("purple100")};
+  &:hover {
+    text-decoration: none;
+  }
 
+  &&.isActive {
     &:before {
       content: " – ";
-    }
-
-    &:hover {
-      text-decoration: underline;
-      color: ${color("purple100")};
     }
   }
 `

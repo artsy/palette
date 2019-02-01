@@ -31,7 +31,7 @@ module.exports = {
         // of automatically created pages located in /pages. This is a bug in
         // gatsby-mdx. See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
         globalScope: `
-          import * as Elements from "@artsy/palette/dist/elements"
+          import * as Elements from "@artsy/palette"
           import { CodeEditor, Playground  } from "components/Playground"
           export default {
             CodeEditor,
@@ -47,8 +47,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-netlify-cms",
       options: {
-        modulePath: `${__dirname}/src/cms/cms.jsx`, // default: undefined
-        // stylesPath: `${__dirname}/src/cms/cms.css`, // default: undefined
+        modulePath: `${__dirname}/src/cms/cms.jsx`,
         enableIdentityWidget: false, // default: true
         publicPath: "admin",
         htmlTitle: "Palette | Admin",
@@ -60,13 +59,6 @@ module.exports = {
       options: {
         name: "design-system",
         path: `${__dirname}/content/docs/`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: `${__dirname}/content/pages/`,
       },
     },
     "gatsby-plugin-catch-links",

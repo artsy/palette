@@ -40,7 +40,8 @@
     "ignore": [
       ".cache/*",
       "public/*",
-      "src/*"
+      "src/*",
+      "static/*"
     ],
     "delay": "1500"
   },

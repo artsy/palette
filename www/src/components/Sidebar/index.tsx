@@ -29,4 +29,5 @@ export const Sidebar = _props => {
 const Container = styled(Box)`
   border-right: 1px solid ${color("black10")};
   flex: 0 0 200px;
+  height: 100vh;
 `
