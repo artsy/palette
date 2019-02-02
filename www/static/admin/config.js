@@ -105,10 +105,15 @@ const collections = [
     description: "Utilities",
     folder: "content/docs/utilities",
   },
-].map(field => ({
-  ...defaultFields,
-  ...field,
-}))
+]
+  .map(field => ({
+    ...defaultFields,
+    ...field,
+  }))
+  .map(({ folder, ...collection }) => ({
+    ...collection,
+    folder: process.env.NODE_ENV === "development" ? folder : `www/${folder}`,
+  }))
 
 export const config = {
   collections,
