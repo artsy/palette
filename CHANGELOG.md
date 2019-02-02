@@ -1,3 +1,12 @@
+# v2.37.10 (Sat Feb 02 2019)
+
+#### 🏠  Internal
+
+- Use editorial workflow when deployed [#256](https://github.com/artsy/palette/pull/256) ([@zephraph](https://github.com/zephraph))
+- Redirect palette traffic to the about page [#255](https://github.com/artsy/palette/pull/255) ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v2.37.9 (Sat Feb 02 2019)
 
 #### ⚠️  Pushed to master
