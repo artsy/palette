@@ -117,4 +117,6 @@ const collections = [
 
 export const config = {
   collections,
+  publish_mode:
+    process.env.NODE_ENV === "development" ? undefined : "editorial_workflow",
 }
