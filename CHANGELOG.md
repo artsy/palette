@@ -1,3 +1,15 @@
+# v2.37.8 (Sat Feb 02 2019)
+
+#### 🏠  Internal
+
+- Fixes broken references to neflity cms paths on github [#254](https://github.com/artsy/palette/pull/254) ([@zephraph](https://github.com/zephraph))
+
+#### ⚠️  Pushed to master
+
+- Update Home “about”  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+
+---
+
 # v2.37.7 (Fri Feb 01 2019)
 
 #### 🐛  Bug Fix
