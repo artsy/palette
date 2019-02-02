@@ -90,6 +90,7 @@
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-mdx": "^0.3.4",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.4",
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-netlify-cms": "^3.0.10",
     "gatsby-plugin-offline": "^2.0.16",
