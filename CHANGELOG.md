@@ -1,3 +1,11 @@
+# v2.37.9 (Sat Feb 02 2019)
+
+#### ⚠️  Pushed to master
+
+- Update Home “about”  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+
+---
+
 # v2.37.8 (Sat Feb 02 2019)
 
 #### 🏠  Internal
