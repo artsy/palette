@@ -76,25 +76,31 @@ full documentation.
   </Row>
 </Grid>
 
-<Spacer m={2} />
+<Spacer m={2} mb={4} />
 
-## Example
-
-```js
-import { Grid, Row, Col } from "@artsy/palette"
-
-const App = () => {
-  return (
-    <Grid fluid>
-      <Row>
-        <Col sm={6}>
-          Hello
-        </Col>
-        <Col sm={6}>
-          How are you
-        </Col>
-      </Row>
+<Playground layout="horizontal">
+  <Grid fluid>
     <Row>
-  )
-}
-```
+      <Col sm={6}>Hello</Col>
+      <Col sm={6}>How are you?</Col>
+    </Row>
+    <Spacer my={2} />
+    <Row>
+      <Col sm={4}>
+        <Button size="small" width="100%">
+          Enter
+        </Button>
+      </Col>
+      <Col sm={4}>
+        <Button size="small" variant="secondaryOutline" width="100%">
+          Leave
+        </Button>
+      </Col>
+      <Col sm={4}>
+        <Button size="small" variant="secondaryGray" width="100%">
+          Dance
+        </Button>
+      </Col>
+    </Row>
+  </Grid>
+</Playground>

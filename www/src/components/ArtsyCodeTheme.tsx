@@ -1,6 +1,16 @@
 import styled from "styled-components"
 
-export const ArtsyCodeTheme = styled.div`
+export const ArtsyCodeTheme = styled.div<{ editable?: boolean }>`
+  ${({ editable }) => {
+    if (!editable) {
+      return `
+        pre {
+          user-modify: read-only;
+        }
+      `
+    }
+  }}
+
   code[class*="language-"],
   pre[class*="language-"] {
     font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
@@ -173,3 +183,5 @@ export const ArtsyCodeTheme = styled.div`
     ) !important;
   }
 `
+
+ArtsyCodeTheme.displayName = "ArtsyCodeTheme"

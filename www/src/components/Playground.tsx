@@ -32,15 +32,17 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
             <Box>
               <PreviewContainer>
                 <LivePreview />
-                <ErrorContainer>
-                  <LiveError />
-                </ErrorContainer>
+                {editable && (
+                  <ErrorContainer>
+                    <LiveError />
+                  </ErrorContainer>
+                )}
               </PreviewContainer>
 
               <Spacer mb={2} />
 
               <EditorContainer px={2}>
-                <ArtsyCodeTheme>
+                <ArtsyCodeTheme editable={editable}>
                   <LiveEditor />
                 </ArtsyCodeTheme>
               </EditorContainer>
@@ -52,13 +54,15 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
             <Flex justifyContent="space-between">
               <PreviewContainer width="50%" mr={2}>
                 <LivePreview />
-                <ErrorContainer>
-                  <LiveError />
-                </ErrorContainer>
+                {editable && (
+                  <ErrorContainer>
+                    <LiveError />
+                  </ErrorContainer>
+                )}
               </PreviewContainer>
 
               <EditorContainer width="50%" pl={2}>
-                <ArtsyCodeTheme>
+                <ArtsyCodeTheme editable={editable}>
                   <LiveEditor />
                 </ArtsyCodeTheme>
               </EditorContainer>
@@ -74,7 +78,6 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
         scope={scope}
         mountStylesheet={false}
         style={{
-          pointerEvents: editable ? "inherit" : "none",
           overflowX: "hidden",
         }}
       >
