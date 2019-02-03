@@ -28,6 +28,7 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
     title,
   }) => {
     const getLayout = () => {
+      // TODO: Better language support
       if (/language-(js|ts)x?/.test(language)) {
         language = "jsx"
       } else {
