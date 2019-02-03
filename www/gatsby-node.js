@@ -42,13 +42,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
  * since query data resolved below cannot be injected in at build time.
  */
 exports.createPages = ({ graphql, actions }) => {
-  actions.createRedirect({
-    fromPath: "/",
-    // isPermanent: true,
-    redirectInBrowser: true,
-    toPath: "/home/about/",
-  })
-
   return new Promise((resolve, reject) => {
     resolve(
       graphql(`
