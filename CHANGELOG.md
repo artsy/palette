@@ -1,3 +1,15 @@
+# v2.37.13 (Sun Feb 03 2019)
+
+#### 🐛  Bug Fix
+
+- Move about page up [#265](https://github.com/artsy/palette/pull/265) ([@damassi](https://github.com/damassi))
+
+#### 📝  Documentation
+
+- Automatically generated. Merged on Netlify CMS. [#264](https://github.com/artsy/palette/pull/264) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.12 (Sun Feb 03 2019)
 
 #### 🐛  Bug Fix
