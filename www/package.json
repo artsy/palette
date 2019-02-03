@@ -79,7 +79,7 @@
     "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {
-    "@artsy/palette": "2.34.1",
+    "@artsy/palette": "2.37.11",
     "@babel/core": "^7.2.2",
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
@@ -122,10 +122,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/artsy/palette"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/artsy/palette/issues"
   },
   "authors": [
     "Christopher Pappas <damassi.pappas@gmail.com",
