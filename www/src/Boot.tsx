@@ -31,7 +31,7 @@ const { GlobalStyles } = injectGlobalStyles(`
   }
 `)
 
-import { Box, Sans, Serif, Spacer } from "@artsy/palette"
+import { Sans, Serif, Spacer } from "@artsy/palette"
 import * as Palette from "@artsy/palette"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { prism } from "react-syntax-highlighter/dist/styles/prism"

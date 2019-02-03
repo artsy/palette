@@ -1,6 +1,6 @@
 ---
 name: Grid
-subNavOrder: 2
+subNavOrder: 3
 ---
 
 import _ from "lodash"
@@ -12,7 +12,7 @@ full documentation.
   <Row>
     {_.times(12, index => {
       return (
-        <Col sm={1}>
+        <Col sm={1} key={index}>
           <BorderBox>{index + 1}</BorderBox>
         </Col>
       )
@@ -26,7 +26,7 @@ full documentation.
   <Row>
     {_.times(4, index => {
       return (
-        <Col sm={3}>
+        <Col sm={3} key={index}>
           <BorderBox>{index + 1}</BorderBox>
         </Col>
       )
@@ -40,7 +40,7 @@ full documentation.
   <Row>
     {_.times(3, index => {
       return (
-        <Col sm={4}>
+        <Col sm={4} key={index}>
           <BorderBox>{index + 1}</BorderBox>
         </Col>
       )
@@ -54,7 +54,7 @@ full documentation.
   <Row>
     {_.times(2, index => {
       return (
-        <Col sm={6}>
+        <Col sm={6} key={index}>
           <BorderBox>{index + 1}</BorderBox>
         </Col>
       )
@@ -68,7 +68,7 @@ full documentation.
   <Row>
     {_.times(1, index => {
       return (
-        <Col sm={12}>
+        <Col sm={12} key={index}>
           <BorderBox>{index + 1}</BorderBox>
         </Col>
       )
@@ -85,7 +85,7 @@ import { Grid, Row, Col } from "@artsy/palette"
 
 const App = () => {
   return (
-    <Grid>
+    <Grid fluid>
       <Row>
         <Col sm={6}>
           Hello

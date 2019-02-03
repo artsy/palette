@@ -77,7 +77,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                 const orderedChildren = sortBy(
                   children,
                   child => child.data.subNavOrder
-                )
+                ) as TreeNode[]
 
                 const expanded =
                   expandSubNav ||
