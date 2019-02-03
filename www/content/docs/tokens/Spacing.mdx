@@ -1,8 +1,6 @@
 ---
 name: Spacing
-subNavOrder: 1
 ---
-
 ### Theme
 
 https://github.com/artsy/palette/blob/master/src/Theme.tsx#L116
@@ -48,10 +46,12 @@ This means that in practice one should rarely use concrete pixel values:
 ### Good
 
 ```js
-<Box m="1">
+<Box m={1}>
   <Logo />
 </Box>
 ```
+
+Since units use ten pixels as the base, 1 equals 10, 2, 20 (and so on). 
 
   </Box>
   <Box pl={4}>
