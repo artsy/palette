@@ -12,6 +12,11 @@ const defaultFields = {
       required: true,
     },
     {
+      label: "Subnav Order",
+      name: "subnavOrder",
+      required: false,
+    },
+    {
       label: "WIP",
       name: "wip",
       widget: "boolean",
@@ -105,11 +110,18 @@ const collections = [
     description: "Utilities",
     folder: "content/docs/utilities",
   },
-].map(field => ({
-  ...defaultFields,
-  ...field,
-}))
+]
+  .map(field => ({
+    ...defaultFields,
+    ...field,
+  }))
+  .map(({ folder, ...collection }) => ({
+    ...collection,
+    folder: process.env.NODE_ENV === "development" ? folder : `www/${folder}`,
+  }))
 
 export const config = {
   collections,
+  publish_mode:
+    process.env.NODE_ENV === "development" ? undefined : "editorial_workflow",
 }

@@ -8,7 +8,7 @@ import { ArtsyMarkIcon, Box, color, Sans, Serif } from "@artsy/palette"
 export const Sidebar = _props => {
   return (
     <Container pl={2} pt={2}>
-      <Link to="/">
+      <Link to="/" className="noUnderline">
         <Serif size="4">Palette</Serif>
       </Link>
 
@@ -19,7 +19,7 @@ export const Sidebar = _props => {
       <Box>
         <ArtsyMarkIcon width="30px" height="30px" mr={2} />
         <Sans size="1" color="black60">
-          Updated: Sept 3, 2018
+          Updated: Feb 1st, 2019
         </Sans>
       </Box>
     </Container>
@@ -27,7 +27,7 @@ export const Sidebar = _props => {
 }
 
 const Container = styled(Box)`
-  border-right: 1px solid ${color("black10")};
+  /* border-right: 1px solid ${color("black10")}; */
   flex: 0 0 200px;
   height: 100vh;
 `

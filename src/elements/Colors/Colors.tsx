@@ -3,45 +3,40 @@ import styled from "styled-components"
 import { BackgroundProps, color, ColorProps } from "styled-system"
 import { themeProps } from "../../Theme"
 import { Flex } from "../Flex"
-import { Display } from "../Typography"
+import { Sans } from "../Typography"
 
 export interface ColorBlockProps extends ColorProps, BackgroundProps {}
 
 const ColorBlock = styled.div<ColorBlockProps>`
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 75px;
   padding: 5px;
+  margin-bottom: 5px;
   ${color};
 `
 
 const LabeledColorBlock = ({ name }) => (
   <ColorBlock bg={name}>
     <Flex flexDirection="column">
-      <Display color={visibleColor(name)} size="3t">
-        {name.toUpperCase()}
-      </Display>
-      <Display color={visibleColor(name)} size="3t">
+      <Sans color={visibleColor(name)} size="3">
+        {name}
+      </Sans>
+      <Sans color={visibleColor(name)} weight="medium" size="3">
         {themeProps.colors[name]}
-      </Display>
+      </Sans>
     </Flex>
   </ColorBlock>
 )
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-gap: 10px;
-`
 
 /**
  * Artsy's color palette
  */
 export const Colors = () => (
-  <Grid>
+  <Flex flexWrap="wrap">
     {Object.keys(themeProps.colors).map((name, key) => (
       <LabeledColorBlock name={name} key={key} />
     ))}
-  </Grid>
+  </Flex>
 )
 
 // http://24ways.org/2010/calculating-color-contrast/

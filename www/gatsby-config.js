@@ -40,9 +40,6 @@ module.exports = {
             ...Elements
           }
         `,
-
-        // mdPlugins: [],
-        // gatsbyRemarkPlugins: [{}],
       },
     },
     {
@@ -63,6 +60,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-catch-links",
+    "gatsby-plugin-force-trailing-slashes",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-typescript",

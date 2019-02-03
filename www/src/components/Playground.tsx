@@ -1,4 +1,4 @@
-import { Box, color, space, Toggle } from "@artsy/palette"
+import { Box, color, Flex, space, Spacer, Toggle } from "@artsy/palette"
 import { withMDXScope } from "gatsby-mdx/context"
 import React from "react"
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
@@ -9,12 +9,65 @@ interface CodeEditorProps {
   code: string
   editable?: boolean
   expanded?: boolean
+  hideToggle?: boolean
+  layout?: "column" | "row"
   scope: object
   title?: string
 }
 
 export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
-  ({ code, scope, title, editable = true, expanded = true }) => {
+  ({
+    code,
+    scope,
+    title,
+    editable = true,
+    expanded = true,
+    hideToggle = true,
+    layout = "row",
+  }) => {
+    const getLayout = () => {
+      switch (layout) {
+        case "column": {
+          return (
+            <Flex justifyContent="space-between">
+              <PreviewContainer width="50%" mr={2}>
+                <LivePreview />
+                <ErrorContainer>
+                  <LiveError />
+                </ErrorContainer>
+              </PreviewContainer>
+
+              <EditorContainer width="50%" px={2}>
+                <ArtsyCodeTheme>
+                  <LiveEditor />
+                </ArtsyCodeTheme>
+              </EditorContainer>
+            </Flex>
+          )
+        }
+        case "row": {
+          return (
+            <Box>
+              <PreviewContainer mr={2}>
+                <LivePreview />
+                <ErrorContainer>
+                  <LiveError />
+                </ErrorContainer>
+              </PreviewContainer>
+
+              <Spacer mb={2} />
+
+              <EditorContainer px={2}>
+                <ArtsyCodeTheme>
+                  <LiveEditor />
+                </ArtsyCodeTheme>
+              </EditorContainer>
+            </Box>
+          )
+        }
+      }
+    }
+
     return (
       <LiveProvider
         code={code}
@@ -25,22 +78,14 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
           overflowX: "hidden",
         }}
       >
-        <Box my={2}>
-          <Toggle label={title} textSize="4" expanded={expanded}>
-            <PreviewContainer my={2}>
-              <LivePreview />
-            </PreviewContainer>
-
-            <ErrorContainer>
-              <LiveError />
-            </ErrorContainer>
-
-            <EditorContainer my={1} px={2} py={0}>
-              <ArtsyCodeTheme>
-                <LiveEditor />
-              </ArtsyCodeTheme>
-            </EditorContainer>
-          </Toggle>
+        <Box mb={4}>
+          {hideToggle ? (
+            getLayout()
+          ) : (
+            <Toggle label={title} textSize="4" expanded={expanded}>
+              {getLayout()}
+            </Toggle>
+          )}
         </Box>
       </LiveProvider>
     )

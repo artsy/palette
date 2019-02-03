@@ -2,6 +2,46 @@
 name: Button
 ---
 
+Primary buttons should be used for the primary desired user action. Do not use 2
+primary buttons in the same screen. If there are multiple parimary options, use
+secondary-gray.
+
+<Playground hideToggle={true}>
+  <Button>Purchase</Button>
+</Playground>
+
+Our secondary-outline is our default secondary button style. Avoid using this in
+the presence of inputs, as to not confuse it’s use.
+
+<Playground hideToggle={true}>
+  <>
+    <Button width="33%">Purchase</Button>
+    <Spacer mb={1} />
+    <Button variant="secondaryGray" width="33%">
+      Make offer
+    </Button>
+  </>
+</Playground>
+
+In the presence of inputs, use secondary-gray for the secondary button style.
+
+<Playground hideToggle={true} layout="column">
+  <Box width="100%" mb={2}>
+    <BorderBox>
+      <Box p={1} width="50%">
+        <Sans size="3">Section</Sans>
+      </Box>
+      <Flex flexDirection="column" width="50%">
+        <BorderBox mb={1}>Input text</BorderBox>
+        <BorderBox mb={1}>Input text</BorderBox>
+        <Button variation="secondary">Add another</Button>
+      </Flex>
+    </BorderBox>
+  </Box>
+</Playground>
+
+<Spacer mb={6} />
+
 <Playground title="primaryBlack">
   <>
     <Button variant="primaryBlack" size="small" m={0.5}>
