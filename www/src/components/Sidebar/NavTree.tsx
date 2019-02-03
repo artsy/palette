@@ -101,24 +101,25 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                       >
                         {name}
 
-                        <ChevronIcon
-                          direction={expanded ? "down" : "right"}
-                          fill={color("black30")}
-                          top={-1}
-                          mr={1}
-                          style={{
-                            float: "right",
-                          }}
-                        />
+                        {!expandSubNav && (
+                          <ChevronIcon
+                            direction={expanded ? "down" : "right"}
+                            fill={color("black30")}
+                            top={-1}
+                            mr={1}
+                            style={{
+                              float: "right",
+                            }}
+                          />
+                        )}
                       </NavLink>
                     </Sans>
-                    {expandSubNav ||
-                      (expanded && (
-                        <>
-                          {renderNavTree(orderedChildren, treeDepth)}
-                          <Spacer mb={0.5} />
-                        </>
-                      ))}
+                    {expanded && (
+                      <>
+                        {renderNavTree(orderedChildren, treeDepth)}
+                        <Spacer mb={0.5} />
+                      </>
+                    )}
                   </Fragment>
                 )
               }
