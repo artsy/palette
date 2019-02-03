@@ -1,4 +1,100 @@
 ---
 name: Grid
-# order: 4
+subNavOrder: 2
 ---
+
+import _ from "lodash"
+
+See [styled-bootstrap-grid](https://github.com/dragma/styled-bootstrap-grid) for
+full documentation.
+
+<Grid>
+  <Row>
+    {_.times(12, index => {
+      return (
+        <Col sm={1}>
+          <BorderBox>{index + 1}</BorderBox>
+        </Col>
+      )
+    })}
+  </Row>
+</Grid>
+
+<Spacer m={2} />
+
+<Grid>
+  <Row>
+    {_.times(4, index => {
+      return (
+        <Col sm={3}>
+          <BorderBox>{index + 1}</BorderBox>
+        </Col>
+      )
+    })}
+  </Row>
+</Grid>
+
+<Spacer m={2} />
+
+<Grid>
+  <Row>
+    {_.times(3, index => {
+      return (
+        <Col sm={4}>
+          <BorderBox>{index + 1}</BorderBox>
+        </Col>
+      )
+    })}
+  </Row>
+</Grid>
+
+<Spacer m={2} />
+
+<Grid>
+  <Row>
+    {_.times(2, index => {
+      return (
+        <Col sm={6}>
+          <BorderBox>{index + 1}</BorderBox>
+        </Col>
+      )
+    })}
+  </Row>
+</Grid>
+
+<Spacer m={2} />
+
+<Grid>
+  <Row>
+    {_.times(1, index => {
+      return (
+        <Col sm={12}>
+          <BorderBox>{index + 1}</BorderBox>
+        </Col>
+      )
+    })}
+  </Row>
+</Grid>
+
+<Spacer m={2} />
+
+## Example
+
+```js
+import { Grid, Row, Col } from "@artsy/palette"
+
+const App = () => {
+  return (
+    <Grid>
+      <Row>
+        <Col sm={6}>
+          Hello
+        </Col>
+        <Col sm={6}>
+          How are you
+        </Col>
+      </Row>
+    <Row>
+  )
+}
+```

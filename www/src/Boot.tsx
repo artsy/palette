@@ -6,25 +6,28 @@ import { Provider as StateProvider } from "unstated"
 
 const { GlobalStyles } = injectGlobalStyles(`
   a {
-    text-decoration: none;
 
     &:hover {
       text-decoration: none;
     }
   }
 
+  code {
+    font-size:  14px;
+  }
+
   div {
     &.contentDiv {
-      margin-bottom: ${space(1)}px;
+      margin-bottom: ${space(2)}px;
     }
+  }
+
+  img {
+    margin-bottom: ${space(3)}px;
   }
 
   ol {
     padding-left: ${space(3)}px;
-  }
-
-  code {
-    font-size:  14px;
   }
 `)
 

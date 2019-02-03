@@ -8,7 +8,7 @@ import { ArtsyMarkIcon, Box, color, Sans, Serif } from "@artsy/palette"
 export const Sidebar = _props => {
   return (
     <Container pl={2} pt={2}>
-      <Link to="/">
+      <Link to="/" className="noUnderline">
         <Serif size="4">Palette</Serif>
       </Link>
 
