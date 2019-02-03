@@ -10,7 +10,7 @@ interface CodeEditorProps {
   editable?: boolean
   expanded?: boolean
   hideToggle?: boolean
-  layout?: "column" | "row"
+  layout?: "vertical" | "horizontal"
   scope: object
   title?: string
 }
@@ -23,32 +23,14 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
     editable = true,
     expanded = true,
     hideToggle = true,
-    layout = "row",
+    layout = "vertical",
   }) => {
     const getLayout = () => {
       switch (layout) {
-        case "column": {
-          return (
-            <Flex justifyContent="space-between">
-              <PreviewContainer width="50%" mr={2}>
-                <LivePreview />
-                <ErrorContainer>
-                  <LiveError />
-                </ErrorContainer>
-              </PreviewContainer>
-
-              <EditorContainer width="50%" px={2}>
-                <ArtsyCodeTheme>
-                  <LiveEditor />
-                </ArtsyCodeTheme>
-              </EditorContainer>
-            </Flex>
-          )
-        }
-        case "row": {
+        case "vertical": {
           return (
             <Box>
-              <PreviewContainer mr={2}>
+              <PreviewContainer>
                 <LivePreview />
                 <ErrorContainer>
                   <LiveError />
@@ -63,6 +45,24 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
                 </ArtsyCodeTheme>
               </EditorContainer>
             </Box>
+          )
+        }
+        case "horizontal": {
+          return (
+            <Flex justifyContent="space-between">
+              <PreviewContainer width="50%" mr={2}>
+                <LivePreview />
+                <ErrorContainer>
+                  <LiveError />
+                </ErrorContainer>
+              </PreviewContainer>
+
+              <EditorContainer width="50%" pl={2}>
+                <ArtsyCodeTheme>
+                  <LiveEditor />
+                </ArtsyCodeTheme>
+              </EditorContainer>
+            </Flex>
           )
         }
       }

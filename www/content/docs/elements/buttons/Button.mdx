@@ -14,33 +14,34 @@ Our secondary-outline is our default secondary button style. Avoid using this in
 the presence of inputs, as to not confuse it’s use.
 
 <Playground hideToggle={true}>
-  <>
+  <Box>
     <Button width="33%">Purchase</Button>
     <Spacer mb={1} />
     <Button variant="secondaryGray" width="33%">
       Make offer
     </Button>
-  </>
+  </Box>
 </Playground>
 
 In the presence of inputs, use secondary-gray for the secondary button style.
 
-<Playground hideToggle={true} layout="column">
-  <Box width="100%" mb={2}>
-    <BorderBox>
-      <Box p={1} width="50%">
-        <Sans size="3">Section</Sans>
-      </Box>
-      <Flex flexDirection="column" width="50%">
-        <BorderBox mb={1}>Input text</BorderBox>
-        <BorderBox mb={1}>Input text</BorderBox>
-        <Button variation="secondary">Add another</Button>
-      </Flex>
-    </BorderBox>
-  </Box>
+<Playground hideToggle={true} layout="horizontal">
+  <BorderBox>
+    <Box p={1} width="50%">
+      <Sans size="3">Section</Sans>
+    </Box>
+    <Flex flexDirection="column" width="50%">
+      <BorderBox mb={1}>Input text</BorderBox>
+      <BorderBox mb={1}>Input text</BorderBox>
+      <Button variation="secondary">Add another</Button>
+    </Flex>
+  </BorderBox>
 </Playground>
 
-<Spacer mb={6} />
+<Spacer mb={9} />
+<hr />
+
+## WIP
 
 <Playground title="primaryBlack">
   <>
