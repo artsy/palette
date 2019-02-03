@@ -7,8 +7,13 @@
  */
 
 import React from "react"
-import { Sans, Serif, Box } from "@artsy/palette"
+import { Sans, Serif, Box, Spacer } from "@artsy/palette"
 import * as Palette from "@artsy/palette"
+import { prism } from "react-syntax-highlighter/dist/styles/prism"
+
+// @ts-ignore
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+
 // import * as RP from "react-powerplug"
 
 export const PaletteComponents = Palette
@@ -17,9 +22,12 @@ export const PaletteComponents = Palette
 // in markdown. Still need to fill this out a bit!
 export const MarkdownComponents = {
   h1: props => (
-    <Serif size="8" color="black100">
-      {props.children}
-    </Serif>
+    <>
+      <Serif size="8" color="black100">
+        {props.children}
+      </Serif>
+      <Spacer mb={5} />
+    </>
   ),
   h2: props => (
     <Serif size="6" color="black100">
@@ -43,4 +51,11 @@ export const MarkdownComponents = {
       </Sans>
     </Box>
   ),
+  code: props => {
+    return (
+      <SyntaxHighlighter language="javascript" style={prism}>
+        {props.children}
+      </SyntaxHighlighter>
+    )
+  },
 }

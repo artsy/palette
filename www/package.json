@@ -97,7 +97,9 @@
     "gatsby-plugin-react-helmet": "^3.0.5",
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-plugin-styled-components": "^3.0.4",
+    "gatsby-remark-prismjs": "^3.2.4",
     "gatsby-source-filesystem": "^2.0.16",
+    "gatsby-transformer-remark": "^2.2.3",
     "gatsby-transformer-sharp": "^2.1.8",
     "hast-util-to-string": "^1.0.1",
     "lodash": "^4.17.11",
@@ -110,6 +112,7 @@
     "react-dom": "^16.8.0-alpha.1",
     "react-helmet": "^5.2.0",
     "react-powerplug": "^1.0.0",
+    "react-syntax-highlighter": "^10.1.2",
     "styled-components": "^3.4.5",
     "unstated": "^2.1.1"
   },

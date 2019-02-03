@@ -22,7 +22,7 @@ export default function DocsLayout(props) {
 
   const Contents = () => {
     return (
-      <Flex width="1200px" style={{ margin: "0 auto" }}>
+      <Flex maxWidth="1200px" style={{ margin: "0 auto" }}>
         <Helmet defaultTitle="Palette" titleTemplate="Palette | %s">
           <title>{name}</title>
         </Helmet>
@@ -63,7 +63,7 @@ export const ContentArea = styled(Flex).attrs({
   pt: 4,
   px: 6,
 })`
-  width: 100%;
+  width: 80%;
   max-width: 980px;
   margin: 0 auto;
   overflow-x: scroll;
