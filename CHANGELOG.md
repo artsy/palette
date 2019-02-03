@@ -1,3 +1,17 @@
+# v2.37.11 (Sun Feb 03 2019)
+
+#### 🐛  Bug Fix
+
+- Auto-expand home nav [#262](https://github.com/artsy/palette/pull/262) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Polish [#261](https://github.com/artsy/palette/pull/261) ([@damassi](https://github.com/damassi))
+- Fix SSR navigation [#259](https://github.com/artsy/palette/pull/259) ([@damassi](https://github.com/damassi))
+- Update dependency @artsy/auto-config to v0.1.0 [#258](https://github.com/artsy/palette/pull/258) ([@renovate-bot](https://github.com/renovate-bot) [@zephraph](https://github.com/zephraph))
+
+---
+
 # v2.37.10 (Sat Feb 02 2019)
 
 #### 🏠  Internal
