@@ -2,7 +2,6 @@
 
 /**
  * Implement Gatsby's Node APIs in this file.
- *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
@@ -45,9 +44,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ graphql, actions }) => {
   actions.createRedirect({
     fromPath: "/",
-    isPermanent: true,
+    // isPermanent: true,
     redirectInBrowser: true,
-    toPath: "/home/about",
+    toPath: "/home/about/",
   })
 
   return new Promise((resolve, reject) => {

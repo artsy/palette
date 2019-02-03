@@ -10,8 +10,8 @@ export interface ColorBlockProps extends ColorProps, BackgroundProps {}
 const ColorBlock = styled.div<ColorBlockProps>`
   width: 100%;
   height: 75px;
-  padding: 5px;
-  margin-bottom: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
   ${color};
 `
 
