@@ -9,7 +9,8 @@ interface CodeEditorProps {
   code: string
   editable?: boolean
   expanded?: boolean
-  hideToggle?: boolean
+  showToggle?: boolean
+  language?: string
   layout?: "vertical" | "horizontal"
   scope: object
   title?: string
@@ -18,14 +19,21 @@ interface CodeEditorProps {
 export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
   ({
     code,
-    scope,
-    title,
     editable = true,
     expanded = true,
-    hideToggle = true,
+    language = "html",
     layout = "vertical",
+    scope,
+    showToggle = false,
+    title,
   }) => {
     const getLayout = () => {
+      if (/language-(js|ts)x?/.test(language)) {
+        language = "jsx"
+      } else {
+        language = "html"
+      }
+
       switch (layout) {
         case "vertical": {
           return (
@@ -43,7 +51,7 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
 
               <EditorContainer px={2}>
                 <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor />
+                  <LiveEditor {...{ language } as any} />
                 </ArtsyCodeTheme>
               </EditorContainer>
             </Box>
@@ -63,7 +71,7 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
 
               <EditorContainer width="50%" pl={2}>
                 <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor />
+                  <LiveEditor {...{ language } as any} />
                 </ArtsyCodeTheme>
               </EditorContainer>
             </Flex>
@@ -82,12 +90,12 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
         }}
       >
         <Box mb={4}>
-          {hideToggle ? (
-            getLayout()
-          ) : (
+          {showToggle ? (
             <Toggle label={title} textSize="4" expanded={expanded}>
               {getLayout()}
             </Toggle>
+          ) : (
+            getLayout()
           )}
         </Box>
       </LiveProvider>

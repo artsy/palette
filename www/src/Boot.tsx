@@ -70,6 +70,7 @@ export const MarkdownComponents = {
     return <div className="contentDiv">{props.children}</div>
   },
   p: props => (
+    // @ts-ignore
     <Sans size="3" color="black100" className="contentDiv">
       {props.children}
     </Sans>
@@ -86,8 +87,15 @@ export const MarkdownComponents = {
    * Use the code editor for displaying code blocks. Doesn't need a scope because
    * it's not interactive.
    */
-  code: props => {
-    return <CodeEditor code={props.children} editable={false} scope={{}} />
+  code: ({ children, className: language }) => {
+    return (
+      <CodeEditor
+        code={children}
+        language={language}
+        editable={false}
+        scope={{}}
+      />
+    )
   },
 }
 
