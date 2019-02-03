@@ -1,3 +1,11 @@
+# v2.37.12 (Sun Feb 03 2019)
+
+#### 🐛  Bug Fix
+
+- Bump palette [#263](https://github.com/artsy/palette/pull/263) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.11 (Sun Feb 03 2019)
 
 #### 🐛  Bug Fix
