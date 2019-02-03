@@ -1,4 +1,56 @@
 ---
 name: Getting started
-order: 1
+subNavOrder: 2
 ---
+
+### Adding Palette
+
+To bring Palette into your app, install it as a package:
+
+```sh
+$ yarn add @artsy/palette
+```
+
+And at the root of your component tree instantiate `<GlobalStyles />` and add
+the `<Theme>` provider:
+
+```js
+import { Theme, injectGlobalStyles } from "@artsy/palette"
+
+const GlobalStyles = injectGlobalStyles(`
+  // overrides and additions
+`)
+
+export const App = props => {
+  return (
+    <Theme>
+      <GlobalStyles>...</GlobalStyles>
+    </Theme>
+  )
+}
+```
+
+From there you should be able to use access the values from Palette's
+[Theme.tsx](https://github.com/artsy/palette/blob/master/src/Theme.tsx) file:
+
+```js
+import { BorderBox, Flex, Sans, Serif } from '@artsy/palette
+
+const Artworks = props => {
+  return (
+    <Flex>
+      <BorderBox p={2}>
+        <Sans size='3t'>
+          Image
+        </Sans>
+      </BorderBox>
+
+      <BorderBox ml={2}>
+        <Serif size='4'>
+          Details
+        </Serif>
+      </BorderBox>
+    </Flex>
+  )
+}
+```

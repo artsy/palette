@@ -20,13 +20,14 @@ export const NavTree = _props => {
                   route
                 }
                 frontmatter {
+                  expandSubNav
                   hideInNav
                   navSpacer {
                     mt
                   }
                   name
-                  expandSubNav
                   order
+                  subNavOrder
                   wip
                 }
               }
@@ -72,6 +73,12 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
               case true: {
                 treeDepth++
 
+                // Top level sorting is by `order`; subnav ordering is by `subNavOrder`
+                const orderedChildren = sortBy(
+                  children,
+                  child => child.data.subNavOrder
+                )
+
                 const expanded =
                   expandSubNav ||
                   isExpanded(navState.state.expandedNavItems, path)
@@ -105,12 +112,13 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                         />
                       </NavLink>
                     </Sans>
-                    {expanded && (
-                      <>
-                        {renderNavTree(children, treeDepth)}
-                        <Spacer mb={0.5} />
-                      </>
-                    )}
+                    {expandSubNav ||
+                      (expanded && (
+                        <>
+                          {renderNavTree(orderedChildren, treeDepth)}
+                          <Spacer mb={0.5} />
+                        </>
+                      ))}
                   </Fragment>
                 )
               }

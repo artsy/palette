@@ -40,9 +40,6 @@ module.exports = {
             ...Elements
           }
         `,
-
-        // mdPlugins: [],
-        // gatsbyRemarkPlugins: [{}],
       },
     },
     {

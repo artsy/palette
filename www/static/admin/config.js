@@ -12,6 +12,11 @@ const defaultFields = {
       required: true,
     },
     {
+      label: "Subnav Order",
+      name: "subnavOrder",
+      required: false,
+    },
+    {
       label: "WIP",
       name: "wip",
       widget: "boolean",
