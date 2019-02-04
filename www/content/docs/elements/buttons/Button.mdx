@@ -6,43 +6,41 @@ Primary buttons should be used for the primary desired user action. Do not use 2
 primary buttons in the same screen. If there are multiple parimary options, use
 secondary-gray.
 
-<Playground hideToggle={true}>
+<Playground>
   <Button>Purchase</Button>
 </Playground>
 
 Our secondary-outline is our default secondary button style. Avoid using this in
 the presence of inputs, as to not confuse it’s use.
 
-<Playground hideToggle={true}>
-  <>
+<Playground>
+  <Box>
     <Button width="33%">Purchase</Button>
     <Spacer mb={1} />
     <Button variant="secondaryGray" width="33%">
       Make offer
     </Button>
-  </>
+  </Box>
 </Playground>
 
 In the presence of inputs, use secondary-gray for the secondary button style.
 
-<Playground hideToggle={true} layout="column">
-  <Box width="100%" mb={2}>
-    <BorderBox>
-      <Box p={1} width="50%">
-        <Sans size="3">Section</Sans>
-      </Box>
-      <Flex flexDirection="column" width="50%">
-        <BorderBox mb={1}>Input text</BorderBox>
-        <BorderBox mb={1}>Input text</BorderBox>
-        <Button variation="secondary">Add another</Button>
-      </Flex>
-    </BorderBox>
-  </Box>
+<Playground layout="horizontal">
+  <BorderBox>
+    <Box p={1} width="50%">
+      <Sans size="3">Section</Sans>
+    </Box>
+    <Flex flexDirection="column" width="50%">
+      <BorderBox mb={1}>Input text</BorderBox>
+      <BorderBox mb={1}>Input text</BorderBox>
+      <Button variation="secondary">Add another</Button>
+    </Flex>
+  </BorderBox>
 </Playground>
 
-<Spacer mb={6} />
+<Spacer mb={4} />
 
-<Playground title="primaryBlack">
+<Playground title="primaryBlack" showToggle={true} expanded={false}>
   <>
     <Button variant="primaryBlack" size="small" m={0.5}>
       Follow
@@ -62,7 +60,7 @@ In the presence of inputs, use secondary-gray for the secondary button style.
   </>
 </Playground>
 
-<Playground title="secondaryGray">
+<Playground title="secondaryGray" showToggle={true} expanded={false}>
   <>
     <Button variant="secondaryGray" size="small" m={0.5}>
       Follow
@@ -76,7 +74,7 @@ In the presence of inputs, use secondary-gray for the secondary button style.
   </>
 </Playground>
 
-<Playground title="secondaryOutline">
+<Playground title="secondaryOutline" showToggle={true} expanded={false}>
   <>
     <Button variant="secondaryOutline" size="small" m={0.5}>
       Follow
@@ -90,7 +88,7 @@ In the presence of inputs, use secondary-gray for the secondary button style.
   </>
 </Playground>
 
-<Playground title="primaryWhite">
+<Playground title="primaryWhite" showToggle={true} expanded={false}>
   <Box bg="black" p={1} m={0.5}>
     <Button variant="primaryWhite" size="small" m={0.5}>
       Follow
@@ -104,7 +102,7 @@ In the presence of inputs, use secondary-gray for the secondary button style.
   </Box>
 </Playground>
 
-<Playground title="noOutline">
+<Playground title="noOutline" showToggle={true} expanded={false}>
   <>
     <Button variant="noOutline" size="small" m={0.5}>
       Reset
@@ -118,7 +116,7 @@ In the presence of inputs, use secondary-gray for the secondary button style.
   </>
 </Playground>
 
-<Playground title="Full width">
+<Playground title="Full width" showToggle={true} expanded={false}>
   <>
     <Button width="100%" size="large" m={0.5}>
       Contact Gallery

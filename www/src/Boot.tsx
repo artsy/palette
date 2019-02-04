@@ -1,8 +1,12 @@
+import { Sans, Serif, Spacer } from "@artsy/palette"
+import * as Palette from "@artsy/palette"
 import { injectGlobalStyles, space, Theme } from "@artsy/palette"
 import { MDXProvider } from "@mdx-js/tag"
 import React from "react"
 import { Provider as StateProvider } from "unstated"
-// import { MarkdownComponents } from "./components/GlobalComponents"
+import { CodeEditor } from "./components/Playground"
+
+export const PaletteComponents = Palette
 
 const { GlobalStyles } = injectGlobalStyles(`
   a {
@@ -31,17 +35,10 @@ const { GlobalStyles } = injectGlobalStyles(`
   }
 `)
 
-import { Sans, Serif, Spacer } from "@artsy/palette"
-import * as Palette from "@artsy/palette"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { prism } from "react-syntax-highlighter/dist/styles/prism"
-
-// import * as RP from "react-powerplug"
-
-export const PaletteComponents = Palette
-
-// Components in this list represent all the various elements that can be rendered
-// in markdown. Still need to fill this out a bit!
+/**
+ * Components in this list represent all the various elements that can be rendered
+ * in markdown. Still need to fill this out a bit!
+ */
 export const MarkdownComponents = {
   h1: props => (
     <>
@@ -72,7 +69,6 @@ export const MarkdownComponents = {
   div: props => {
     return <div className="contentDiv">{props.children}</div>
   },
-  // ul: props => {}
   p: props => (
     // @ts-ignore
     <Sans size="3" color="black100" className="contentDiv">
@@ -86,14 +82,19 @@ export const MarkdownComponents = {
       </ol>
     )
   },
-  // li: props => {
-  //   return <li style={{ marginLeft: 0 }}>{props.children}</li>
-  // },
-  code: props => {
+
+  /**
+   * Use the code editor for displaying code blocks. Doesn't need a scope because
+   * it's not interactive.
+   */
+  code: ({ children, className: language }) => {
     return (
-      <SyntaxHighlighter language="javascript" style={prism}>
-        {props.children}
-      </SyntaxHighlighter>
+      <CodeEditor
+        code={children}
+        language={language}
+        editable={false}
+        scope={{}}
+      />
     )
   },
 }

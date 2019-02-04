@@ -9,8 +9,9 @@ interface CodeEditorProps {
   code: string
   editable?: boolean
   expanded?: boolean
-  hideToggle?: boolean
-  layout?: "column" | "row"
+  showToggle?: boolean
+  language?: string
+  layout?: "vertical" | "horizontal"
   scope: object
   title?: string
 }
@@ -18,51 +19,63 @@ interface CodeEditorProps {
 export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
   ({
     code,
-    scope,
-    title,
     editable = true,
     expanded = true,
-    hideToggle = true,
-    layout = "row",
+    language = "html",
+    layout = "vertical",
+    scope,
+    showToggle = false,
+    title,
   }) => {
     const getLayout = () => {
-      switch (layout) {
-        case "column": {
-          return (
-            <Flex justifyContent="space-between">
-              <PreviewContainer width="50%" mr={2}>
-                <LivePreview />
-                <ErrorContainer>
-                  <LiveError />
-                </ErrorContainer>
-              </PreviewContainer>
+      // TODO: Better language support
+      if (/language-(js|ts)x?/.test(language)) {
+        language = "jsx"
+      } else {
+        language = "html"
+      }
 
-              <EditorContainer width="50%" px={2}>
-                <ArtsyCodeTheme>
-                  <LiveEditor />
-                </ArtsyCodeTheme>
-              </EditorContainer>
-            </Flex>
-          )
-        }
-        case "row": {
+      switch (layout) {
+        case "vertical": {
           return (
             <Box>
-              <PreviewContainer mr={2}>
+              <PreviewContainer>
                 <LivePreview />
-                <ErrorContainer>
-                  <LiveError />
-                </ErrorContainer>
+                {editable && (
+                  <ErrorContainer>
+                    <LiveError />
+                  </ErrorContainer>
+                )}
               </PreviewContainer>
 
               <Spacer mb={2} />
 
               <EditorContainer px={2}>
-                <ArtsyCodeTheme>
-                  <LiveEditor />
+                <ArtsyCodeTheme editable={editable}>
+                  <LiveEditor {...{ language } as any} />
                 </ArtsyCodeTheme>
               </EditorContainer>
             </Box>
+          )
+        }
+        case "horizontal": {
+          return (
+            <Flex justifyContent="space-between">
+              <PreviewContainer width="50%" mr={2}>
+                <LivePreview />
+                {editable && (
+                  <ErrorContainer>
+                    <LiveError />
+                  </ErrorContainer>
+                )}
+              </PreviewContainer>
+
+              <EditorContainer width="50%" pl={2}>
+                <ArtsyCodeTheme editable={editable}>
+                  <LiveEditor {...{ language } as any} />
+                </ArtsyCodeTheme>
+              </EditorContainer>
+            </Flex>
           )
         }
       }
@@ -74,17 +87,16 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
         scope={scope}
         mountStylesheet={false}
         style={{
-          pointerEvents: editable ? "inherit" : "none",
           overflowX: "hidden",
         }}
       >
         <Box mb={4}>
-          {hideToggle ? (
-            getLayout()
-          ) : (
+          {showToggle ? (
             <Toggle label={title} textSize="4" expanded={expanded}>
               {getLayout()}
             </Toggle>
+          ) : (
+            getLayout()
           )}
         </Box>
       </LiveProvider>
