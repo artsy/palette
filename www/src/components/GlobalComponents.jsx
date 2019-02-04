@@ -1,25 +1,54 @@
 // @ts-check
 
-/**
- * Components added here should be available globally, both to the Playground as
- * well as to NetlifyCMS. Since it is shared across both systems, it has to exist
- * outside of the normal .tsx pipeline.
- */
-
 import React from "react"
-import { Sans, Serif, Box, Spacer } from "@artsy/palette"
+import { Sans, Serif, Spacer, injectGlobalStyles, space } from "@artsy/palette"
 import * as Palette from "@artsy/palette"
-import { prism } from "react-syntax-highlighter/dist/styles/prism"
+import { CodeEditor } from "../components/Playground"
+import { css } from "styled-components"
 
-// @ts-ignore
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+// FIXME:
+// Components that intersect this dependency path *must* be .jsx, not .tsx
+// due to an issue with NetlifyCMS and typescript compilation.
 
-// import * as RP from "react-powerplug"
+// Components defined here style overall markdown look and feel as well as CMS preview
 
-export const PaletteComponents = Palette
+export const globalCSS = css`
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 
-// Components in this list represent all the various elements that can be rendered
-// in markdown. Still need to fill this out a bit!
+  code {
+    font-size: 14px;
+  }
+
+  div {
+    &.contentDiv {
+      margin-bottom: ${space(2)}px;
+    }
+  }
+
+  ol {
+    padding-left: ${space(3)}px;
+  }
+
+  /* NetlifyCMS root */
+
+  #nc-root {
+    font-family: Unica77LLWebRegular, "Helvetica Neue", Helvetica, Arial,
+      sans-serif;
+  }
+`
+
+export const { GlobalStyles } = injectGlobalStyles(`
+  ${globalCSS};
+`)
+
+/**
+ * Components in this list represent all the various elements that can be rendered
+ * in markdown. Still need to fill this out a bit!
+ */
 export const MarkdownComponents = {
   h1: props => (
     <>
@@ -30,32 +59,54 @@ export const MarkdownComponents = {
     </>
   ),
   h2: props => (
-    <Serif size="6" color="black100">
-      {props.children}
-    </Serif>
+    <>
+      <Sans size="5" weight="medium" color="black100">
+        {props.children}
+      </Sans>
+      <Spacer mb={1} />
+    </>
   ),
   h3: props => (
-    <Serif size="5" color="black100">
+    <Sans size="4" weight="medium" color="black100">
       {props.children}
-    </Serif>
+    </Sans>
   ),
   h4: props => (
     <Serif size="4" color="black100">
       {props.children}
     </Serif>
   ),
+  div: props => {
+    return <div className="contentDiv">{props.children}</div>
+  },
   p: props => (
-    <Box my={1}>
-      <Sans size="3" color="black100">
-        {props.children}
-      </Sans>
-    </Box>
+    // @ts-ignore
+    <Sans size="3" color="black100" className="contentDiv">
+      {props.children}
+    </Sans>
   ),
-  code: props => {
+  ol: props => {
     return (
-      <SyntaxHighlighter language="javascript" style={prism}>
-        {props.children}
-      </SyntaxHighlighter>
+      <ol>
+        <Sans size="3">{props.children}</Sans>
+      </ol>
+    )
+  },
+
+  /**
+   * Use the code editor for displaying code blocks. Doesn't need a scope because
+   * it's not interactive.
+   */
+  code: ({ children, className: language }) => {
+    return (
+      <CodeEditor
+        code={children}
+        language={language}
+        editable={false}
+        scope={{}}
+      />
     )
   },
 }
+
+export const PaletteComponents = Palette
