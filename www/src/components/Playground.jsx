@@ -5,6 +5,9 @@ import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
 import styled from "styled-components"
 import { ArtsyCodeTheme } from "./ArtsyCodeTheme"
 
+/*
+TODO: Figure out how to get .tsx in NetlifyCMS
+
 interface CodeEditorProps {
   code: string
   editable?: boolean
@@ -15,8 +18,9 @@ interface CodeEditorProps {
   scope: object
   title?: string
 }
+*/
 
-export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
+export const CodeEditor = withMDXScope(
   ({
     code,
     editable = true,
@@ -52,7 +56,7 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
 
               <EditorContainer px={2}>
                 <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor {...{ language } as any} />
+                  <LiveEditor {...{ language }} />
                 </ArtsyCodeTheme>
               </EditorContainer>
             </Box>
@@ -72,7 +76,7 @@ export const CodeEditor: React.SFC<CodeEditorProps> = withMDXScope(
 
               <EditorContainer width="50%" pl={2}>
                 <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor {...{ language } as any} />
+                  <LiveEditor {...{ language }} />
                 </ArtsyCodeTheme>
               </EditorContainer>
             </Flex>

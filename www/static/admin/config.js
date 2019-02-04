@@ -12,6 +12,11 @@ const defaultFields = {
       required: true,
     },
     {
+      label: "Body",
+      name: "body",
+      widget: "mdx",
+    },
+    {
       label: "Hide in nav",
       name: "hideInNav",
       widget: "boolean",
@@ -42,11 +47,6 @@ const defaultFields = {
       name: "expandSubNav",
       widget: "boolean",
       required: false,
-    },
-    {
-      label: "Body",
-      name: "body",
-      widget: "mdx",
     },
   ],
 }

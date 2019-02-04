@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import CMS, { init } from "netlify-cms"
 import { Theme } from "@artsy/palette"
-import { StyleSheetManager, injectGlobal } from "styled-components"
+import styled, { StyleSheetManager } from "styled-components"
 import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
-import { MarkdownComponents, PaletteComponents } from '../components/GlobalComponents' // prettier-ignore
+import { MarkdownComponents, PaletteComponents, globalCSS } from '../components/GlobalComponents' // prettier-ignore
 import { config } from "../../static/admin/config"
 import { Box, Toggle } from "@artsy/palette"
 
@@ -24,6 +24,14 @@ if (isDevelopment) {
 
 // @ts-check
 
+const PreviewContainer = styled(Box)`
+  ${globalCSS};
+
+  .netlify-cms-widget-mdx-preview {
+    margin-top: 30px;
+  }
+`
+
 /**
  * Custom components need refs for validation and thus must be a class.
  * Additionally, after <Theme>, only one child is allowed.
@@ -33,7 +41,9 @@ class MDXWidget extends Component {
   render() {
     return (
       <Theme>
-        <MdxControl {...this.props} />
+        <PreviewContainer>
+          <MdxControl {...this.props} />
+        </PreviewContainer>
       </Theme>
     )
   }
@@ -67,7 +77,9 @@ const PreviewWindow = props => {
   return (
     <StyleSheetManager target={iframeHeadElem}>
       <Theme>
-        <MdxPreview mdx={mdxProps} {...props} />
+        <PreviewContainer>
+          <MdxPreview mdx={mdxProps} {...props} />
+        </PreviewContainer>
       </Theme>
     </StyleSheetManager>
   )
