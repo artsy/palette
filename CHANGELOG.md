@@ -1,3 +1,11 @@
+# v2.37.16 (Mon Feb 04 2019)
+
+#### 🐛  Bug Fix
+
+- Build out icon page and wrap icons in <Icon> [#271](https://github.com/artsy/palette/pull/271) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.15 (Mon Feb 04 2019)
 
 #### 🐛  Bug Fix
