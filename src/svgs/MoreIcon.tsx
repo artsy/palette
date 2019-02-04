@@ -1,18 +1,23 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 interface MoreIconProps {
   fill?: string
 }
 
 /** Icon */
-export const MoreIcon: React.SFC<MoreIconProps> = ({ fill }: MoreIconProps) => {
+export const MoreIcon: React.SFC<MoreIconProps> = ({
+  fill,
+  ...props
+}: MoreIconProps) => {
   return (
-    <svg
+    <Icon
       width="18px"
       height="18px"
       viewBox="0 0 18 18"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <title>More</title>
       <g
@@ -45,7 +50,7 @@ export const MoreIcon: React.SFC<MoreIconProps> = ({ fill }: MoreIconProps) => {
           </g>
         </g>
       </g>
-    </svg>
+    </Icon>
   )
 }
 

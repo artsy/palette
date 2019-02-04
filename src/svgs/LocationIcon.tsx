@@ -1,13 +1,15 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 /** Icon */
-export const LocationIcon = () => (
-  <svg
+export const LocationIcon = props => (
+  <Icon
     className="icon__location"
     height="21px"
     width="16px"
     viewBox="0 0 16 21"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <g
       id="location"
@@ -36,5 +38,5 @@ export const LocationIcon = () => (
         </g>
       </g>
     </g>
-  </svg>
+  </Icon>
 )

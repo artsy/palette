@@ -1,5 +1,6 @@
 import React from "react"
 import { color } from "../helpers"
+import { Icon } from "./Icon"
 
 interface IconProps {
   fill?: string
@@ -10,14 +11,16 @@ interface IconProps {
 export const BellIcon: React.SFC<IconProps> = ({
   fill = "#000",
   selected = false,
+  ...props
 }) => {
   if (selected) {
     return (
-      <svg
+      <Icon
         width="18"
         height="18"
         viewBox="0 0 18 18"
         xmlns="http://www.w3.org/2000/svg"
+        {...props}
       >
         <title>Save</title>
         <g id="Bell-/-Select" fill="none" fillRule="evenodd">
@@ -33,15 +36,16 @@ export const BellIcon: React.SFC<IconProps> = ({
             />
           </g>
         </g>
-      </svg>
+      </Icon>
     )
   } else {
     return (
-      <svg
+      <Icon
         width="18"
         height="18"
         viewBox="0 0 18 18"
         xmlns="http://www.w3.org/2000/svg"
+        {...props}
       >
         <g id="Bell-/-Default" fill="none" fillRule="evenodd">
           <g
@@ -56,7 +60,7 @@ export const BellIcon: React.SFC<IconProps> = ({
             />
           </g>
         </g>
-      </svg>
+      </Icon>
     )
   }
 }

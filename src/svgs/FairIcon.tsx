@@ -1,9 +1,10 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 /** Icon */
-export const FairIcon: React.SFC = () => {
+export const FairIcon: React.SFC = props => {
   return (
-    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg">
+    <Icon width="25" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd">
         <path d="M0 0h25v25H0z" />
         <path d="M5.526 17.5h14.04" stroke="#000" strokeLinecap="square" />
@@ -12,6 +13,6 @@ export const FairIcon: React.SFC = () => {
         <path stroke="#000" d="M12.5 4.5h1v4h-1z" />
         <path fill="#000" d="M12 3.353L16 5.5 12.902 7H12z" />
       </g>
-    </svg>
+    </Icon>
   )
 }

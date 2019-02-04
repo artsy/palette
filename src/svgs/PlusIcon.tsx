@@ -1,15 +1,18 @@
 import React, { Component } from "react"
+import { Icon } from "./Icon"
 
 /** Icon */
-export class PlusIcon extends Component<React.HTMLProps<HTMLElement>, null> {
+export class PlusIcon extends Component<any> {
   render() {
+    const { width, height, ...rest } = this.props
     return (
-      <svg
-        width={this.props.width}
-        height={this.props.height}
+      <Icon
+        width={width}
+        height={height}
         viewBox="0 0 26 27"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
+        {...rest}
       >
         <g id="QA" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g id="follow-symbol">
@@ -33,7 +36,7 @@ export class PlusIcon extends Component<React.HTMLProps<HTMLElement>, null> {
             </g>
           </g>
         </g>
-      </svg>
+      </Icon>
     )
   }
 }

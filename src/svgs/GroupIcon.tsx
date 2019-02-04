@@ -1,9 +1,10 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 /** Icon */
-export const GroupIcon: React.SFC = () => {
+export const GroupIcon: React.SFC = props => {
   return (
-    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg">
+    <Icon width="25" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd">
         <path d="M0 0h25v25H0z" />
         <g transform="translate(3.294 5.941)" stroke="#000">
@@ -12,6 +13,6 @@ export const GroupIcon: React.SFC = () => {
           <circle cx="14.747" cy="2.508" r="1.633" />
         </g>
       </g>
-    </svg>
+    </Icon>
   )
 }

@@ -3,6 +3,8 @@ import React from "react"
 import styled from "styled-components"
 import { space, SpaceProps } from "styled-system"
 
+// : React.SVGProps<SVGSVGElement>
+
 // tslint:disable-next-line:no-empty-interface
 interface IconProps extends SpaceProps {}
 

@@ -3,7 +3,7 @@ name: EntityHeader
 wip: false
 ---
 
-<Playground title="Default, all properties present">
+<Playground showEditor={true}>
   <EntityHeader
     imageUrl="https://picsum.photos/110/110/?random"
     initials="FD"
@@ -18,7 +18,9 @@ wip: false
   />
 </Playground>
 
-<Playground title="No imageURL, initials are displayed">
+When no `imageURL` is provided it will defer to the `initials` prop:
+
+<Playground>
   <EntityHeader
     initials="FD"
     name="Francesca DiMattio"
@@ -32,38 +34,13 @@ wip: false
   />
 </Playground>
 
-<Playground title="No imageURL, initials overflow avatar">
-  <EntityHeader
-    initials="FDMATIO"
-    name="Francesca DiMattio"
-    meta="American, b. 1979"
-    FollowButton={
-      <Sans size="2" weight="medium" color="black">
-        Follow
-      </Sans>
-    }
-  />
-</Playground>
-
-<Playground title="No meta with follow button">
-  <EntityHeader
-    imageUrl="https://picsum.photos/110/110/?random"
-    name="Francesca DiMattio"
-    FollowButton={
-      <Sans size="2" weight="medium" color="black">
-        Follow
-      </Sans>
-    }
-  />
-</Playground>
-
-<Playground title="Only image with name">
+<Playground>
   <EntityHeader
     imageUrl="https://picsum.photos/110/110/?random"
     name="Francesca DiMattio"
   />
 </Playground>
 
-<Playground title="No optional properties present">
+<Playground>
   <EntityHeader name="Francesca DiMattio" />
 </Playground>

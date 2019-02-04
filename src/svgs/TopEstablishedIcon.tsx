@@ -1,9 +1,10 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 /** Icon */
-export const TopEstablishedIcon: React.SFC = () => {
+export const TopEstablishedIcon: React.SFC = props => {
   return (
-    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg">
+    <Icon width="25" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd">
         <circle stroke="#000" cx="12.5" cy="12.5" r="6.25" />
         <path
@@ -11,6 +12,6 @@ export const TopEstablishedIcon: React.SFC = () => {
           fill="#000"
         />
       </g>
-    </svg>
+    </Icon>
   )
 }

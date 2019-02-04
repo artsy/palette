@@ -1,13 +1,14 @@
 import React from "react"
 import { color } from "../helpers"
+import { Icon } from "./Icon"
 
 interface IconProps {
   fill: string
 }
 
 /** Icon */
-export const FilterIcon = ({ fill }: IconProps) => (
-  <svg width="17px" height="14px" viewBox="0 0 17 14" version="1.1">
+export const FilterIcon = ({ fill, ...props }: IconProps) => (
+  <Icon width="17px" height="14px" viewBox="0 0 17 14" version="1.1" {...props}>
     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g
         transform="translate(-43.000000, -785.000000)"
@@ -49,5 +50,5 @@ export const FilterIcon = ({ fill }: IconProps) => (
         </g>
       </g>
     </g>
-  </svg>
+  </Icon>
 )

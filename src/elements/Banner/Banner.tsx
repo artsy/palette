@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { CloseIcon } from "../../svgs"
 import { Box } from "../Box"
+import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 
 const Target = styled.div`
@@ -18,9 +19,11 @@ const Wrapper = styled(Box)`
   display: flex;
 `
 
-const TextWrapper = styled(Box)`
+const TextWrapper = styled(Flex)`
   width: 100%;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 `
 
 const CloseButton = ({ onClick }) => {
@@ -35,6 +38,7 @@ export interface BannerProps {
   dismissable: boolean
   message: string
   backgroundColor: string
+  textColor: string
 }
 
 /**
@@ -44,6 +48,7 @@ export class Banner extends React.Component<BannerProps> {
   static defaultProps = {
     dismissable: false,
     backgroundColor: "red100",
+    textColor: "white100",
   }
 
   state = {
@@ -59,9 +64,13 @@ export class Banner extends React.Component<BannerProps> {
     const showCloseButton = this.props.dismissable
 
     return (
-      <Wrapper bg={this.props.backgroundColor} color="white100" p={1}>
+      <Wrapper
+        bg={this.props.backgroundColor}
+        color={this.props.textColor}
+        p={1}
+      >
         <TextWrapper>
-          <Sans size="2">{this.props.message}</Sans>
+          <Sans size="2">{this.props.children || this.props.message}</Sans>
         </TextWrapper>
         {showCloseButton && <CloseButton onClick={this.handleCloseClick} />}
       </Wrapper>

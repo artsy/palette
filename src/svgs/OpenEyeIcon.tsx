@@ -1,4 +1,5 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 interface OpenEyeIconProps {
   fill?: string
@@ -11,14 +12,16 @@ export const OpenEyeIcon: React.SFC<OpenEyeIconProps> = ({
   onClick = (_e: any) => {
     /* */
   },
+  ...props
 }) => {
   return (
-    <svg
+    <Icon
       width="18"
       onClick={e => onClick(e)}
       height="18"
       viewBox="0 0 18 18"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <title>Action/View/Md</title>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -31,7 +34,7 @@ export const OpenEyeIcon: React.SFC<OpenEyeIconProps> = ({
           <path d="M8,8.57142857 C6.42204357,8.57142857 5.14285714,7.29224214 5.14285714,5.71428571 C5.14285714,4.13632929 6.42204357,2.85714286 8,2.85714286 C9.57795643,2.85714286 10.8571429,4.13632929 10.8571429,5.71428571 C10.8571429,7.29224214 9.57795643,8.57142857 8,8.57142857 Z M8,7.42857143 C8.94677386,7.42857143 9.71428571,6.66105957 9.71428571,5.71428571 C9.71428571,4.76751186 8.94677386,4 8,4 C7.05322614,4 6.28571429,4.76751186 6.28571429,5.71428571 C6.28571429,6.66105957 7.05322614,7.42857143 8,7.42857143 Z" />
         </g>
       </g>
-    </svg>
+    </Icon>
   )
 }
 
