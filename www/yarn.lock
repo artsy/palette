@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@artsy/palette@2.37.11":
-  version "2.37.11"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-2.37.11.tgz#591c9df389aa801dd0de6e2499a7d98a30bafa2a"
-  integrity sha512-kV0JFLBdR9JdYto5yEJ7giwCvA+hXsYNKqcU15ga5ZAXFbXQteAom40KzqTqE1URaeVGeWa1jfXdZs+rjKs6IA==
+"@artsy/palette@2.37.16":
+  version "2.37.16"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-2.37.16.tgz#d612bb5ebd586711974d3a9a3779bd9a937cc8f7"
+  integrity sha512-HucO4aTnN3bqUWyiKygI2mMpH27ZUIuYGfnn/Li8HsgcDNNmgqnYSQWM0r7Bqi/tRb5ppHORrwYxmigPaNOjXA==
   dependencies:
     moment "^2.23.0"
     moment-timezone "^0.5.23"
