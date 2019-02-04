@@ -1,3 +1,20 @@
+# v2.37.14 (Mon Feb 04 2019)
+
+#### 🐛  Bug Fix
+
+- Remove old docs 🎉 [#269](https://github.com/artsy/palette/pull/269) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Simplify sharing components / styles with CMS [#268](https://github.com/artsy/palette/pull/268) ([@damassi](https://github.com/damassi))
+- More polish / content [#267](https://github.com/artsy/palette/pull/267) ([@damassi](https://github.com/damassi))
+
+#### 📝  Documentation
+
+- Automatically generated. Merged on Netlify CMS. [#266](https://github.com/artsy/palette/pull/266) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.13 (Sun Feb 03 2019)
 
 #### 🐛  Bug Fix
