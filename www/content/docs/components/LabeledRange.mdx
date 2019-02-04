@@ -1,0 +1,46 @@
+---
+name: LabeledRange
+---
+
+All `LabeledRange` props are passed to the underlying [Slider](#/docs-slider)
+component.
+
+<Playground>
+  <LabeledRange
+    min={1}
+    max={100}
+    step={1}
+    defaultValue={[1, 100]}
+    disabled={false}
+    label="Height"
+  />
+</Playground>
+
+## With unit defined
+
+<Playground>
+  <LabeledRange
+    min={1}
+    max={100}
+    step={1}
+    defaultValue={[1, 100]}
+    disabled={false}
+    label="Height"
+  />
+</Playground>
+
+## With formatter function defined
+
+<Playground>
+  <LabeledRange
+    min={1}
+    max={100}
+    step={1}
+    defaultValue={[1, 100]}
+    disabled={false}
+    label="Price"
+    formatter={(min, max, maxIndicator) => {
+      return "$" + min + " - $" + max + maxIndicator
+    }}
+  />
+</Playground>

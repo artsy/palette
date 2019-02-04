@@ -1,18 +1,27 @@
 // @ts-check
 
 import React from "react"
-import { Sans, Serif, Spacer, injectGlobalStyles, space } from "@artsy/palette"
 import * as Palette from "@artsy/palette"
 import { CodeEditor } from "../components/Playground"
-import { css } from "styled-components"
 
-// FIXME:
-// Components that intersect this dependency path *must* be .jsx, not .tsx
-// due to an issue with NetlifyCMS and typescript compilation.
+import {
+  Sans,
+  Serif,
+  Spacer,
+  injectGlobalStyles,
+  color,
+  space,
+} from "@artsy/palette"
 
-// Components defined here style overall markdown look and feel as well as CMS preview
+/**
+ * FIXME:
+ * Components that intersect this dependency path *must* be .jsx, not .tsx due
+ * to an issue with NetlifyCMS and typescript compilation.
+ *
+ * Components defined here style overall markdown look and feel as well as CMS preview
+ */
 
-export const globalCSS = css`
+export const globalCSS = `
   a {
     &:hover {
       text-decoration: none;
@@ -21,6 +30,12 @@ export const globalCSS = css`
 
   code {
     font-size: 14px;
+    background: #f3f3f3;
+    padding: 2px;
+    padding-left: ${space(0.5)}px;
+    padding-right: ${space(0.5)}px;
+    color: ${color("black60")};
+    border-radius: ${space(0.3)}px;
   }
 
   div {
@@ -67,14 +82,20 @@ export const MarkdownComponents = {
     </>
   ),
   h3: props => (
-    <Sans size="4" weight="medium" color="black100">
-      {props.children}
-    </Sans>
+    <>
+      <Sans size="4" weight="medium" color="black100">
+        {props.children}
+      </Sans>
+      <Spacer mb={1} />
+    </>
   ),
   h4: props => (
-    <Serif size="4" color="black100">
-      {props.children}
-    </Serif>
+    <>
+      <Serif size="4" color="black100">
+        {props.children}
+      </Serif>
+      <Spacer mb={1} />
+    </>
   ),
   div: props => {
     return <div className="contentDiv">{props.children}</div>
