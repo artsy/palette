@@ -104,9 +104,9 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
 
                         {!expandSubNav && (
                           <ChevronIcon
-                            direction={expanded ? "down" : "right"}
+                            direction={expanded ? "up" : "down"}
                             fill={color("black30")}
-                            top={-1}
+                            top={-2}
                             mr={1}
                             style={{
                               float: "right",
