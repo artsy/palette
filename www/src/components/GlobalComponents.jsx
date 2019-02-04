@@ -8,7 +8,6 @@ import {
   Box,
   Sans,
   Serif,
-  Spacer,
   injectGlobalStyles,
   color,
   space,
