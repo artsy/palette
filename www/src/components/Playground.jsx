@@ -53,11 +53,6 @@ export const CodeEditor = withMDXScope(
                 <>
                   <PreviewContainer>
                     <LivePreview />
-                    {editable && (
-                      <ErrorContainer>
-                        <LiveError />
-                      </ErrorContainer>
-                    )}
                   </PreviewContainer>
                   <Spacer mb={2} />
                 </>
@@ -69,6 +64,12 @@ export const CodeEditor = withMDXScope(
                     <LiveEditor {...{ language }} />
                   </ArtsyCodeTheme>
                 </EditorContainer>
+              )}
+
+              {editable && (
+                <ErrorContainer>
+                  <LiveError />
+                </ErrorContainer>
               )}
             </Box>
           )

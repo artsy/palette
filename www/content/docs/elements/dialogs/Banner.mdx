@@ -8,57 +8,59 @@ Banners are used to convey time bound messages, statuses and specfic actions to
 our users. Depending on the timespan and importance of the message, they can
 either be a permanent part of the page, or can be dismissable.
 
-<Banner backgroundColor="black10" textColor="black100">
+<Banner backgroundColor="black5" textColor="black100">
   Placeholder message text.
 </Banner>
+
+<Spacer my={6} />
 
 ## Colors
 
 We primarily use banners that are either dark gray on light gray, or white on
 black.
 
-<Banner backgroundColor="black10" textColor="black100">
+<Banner backgroundColor="black5" textColor="black100">
   Example light banner.
 </Banner>
 
-<Spacer my={2} />
-
 <Banner backgroundColor="black100">Example dark banner.</Banner>
+
+<Spacer my={6} />
 
 When communicating a status, we use colored icons in along with text.
 
-<Banner backgroundColor="black10" textColor="black100">
-  <LockIcon /> Registration pending
+<Banner backgroundColor="black5" textColor="black100">
+  <TimerIcon top="2px" mr={0.5} fill="yellow100" /> Registration pending
 </Banner>
 
-### Status with custom background color
+<Spacer my={1} />
 
-<Playground>
-  <Banner backgroundColor="purple100">Something went wrong</Banner>
-</Playground>
+<Banner backgroundColor="black5" textColor="black100">
+  <Flex alignItems="center">
+    <CheckIcon height={15} top={-3} mr={0.5} fill="green100" /> Registration
+    complete
+  </Flex>
+</Banner>
 
-### Dismissable
+<Spacer my={6} />
 
-<Playground>
-  <Banner dismissable>Something went wrong</Banner>
-</Playground>
+In rare instances that we are communicating highly important messages we will
+use colored backgrounds with white text.
 
-<Playground title="Status With Wrapped text" showToggle={true} expanded={false}>
-  <Banner>
-    Error message here. If the message wraps. This is how error message here. If
-    the message wraps. If the message wraps. Error message here. If the message
-    wraps. This is how error message here. If the message wraps. If the message
-    wraps.
-  </Banner>
-</Playground>
+<Box my={1}>
+  <Banner backgroundColor="green100">Example success banner.</Banner>
+</Box>
 
-<Playground
-  title="Dismissable With Wrapped text"
-  showToggle={true}
-  expanded={false}
->
-  <Banner
-    dismissable
-    message="Error message here. If the message wraps. This is how error message here. If the message wraps. If the message wraps. Error message here. If the message wraps. This is how error message here. If the message wraps. If the message wraps."
-  />
-</Playground>
+<Box my={1}>
+  <Banner backgroundColor="yellow100">Example warning banner.</Banner>
+</Box>
+
+<Box my={1}>
+  <Banner backgroundColor="red100">Example error banner.</Banner>
+</Box>
+
+<Box my={1}>
+  <Banner backgroundColor="purple100">Example notification banner.</Banner>
+</Box>
+
+<Spacer my={6} />

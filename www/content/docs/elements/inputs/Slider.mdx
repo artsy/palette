@@ -2,46 +2,55 @@
 name: Slider
 ---
 
-<Playground title="Basic">
-  <Slider
-    allowCross={false}
-    min={10}
-    max={100}
-    step={1}
-    defaultValue={[50, 500]}
-  />
+Sliders can either control a single value (e.g. volume, or position in a video),
+or a range of values (e.g. price ranges or height/width ranges).
+
+<Slider
+  allowCross={false}
+  min={10}
+  max={100}
+  step={1}
+  defaultValue={[50, 500]}
+/>
+
+### Disabled
+
+<Playground>
+  <Box p={1}>
+    <Slider
+      allowCross={false}
+      min={10}
+      max={100}
+      step={1}
+      defaultValue={[10, 100]}
+      disabled
+    />
+  </Box>
 </Playground>
 
-<Playground title="Disabled">
-  <Slider
-    allowCross={false}
-    min={10}
-    max={100}
-    step={1}
-    defaultValue={[10, 100]}
-    disabled
-  />
-</Playground>
+### With label
 
-<Playground title="With label">
-  <Value initial={[0, 100]}>
-    {({ value, set }) => {
-      const valueToString = ([min, max]) => "$" + min + " - $" + max
-      return (
-        <div>
-          <Serif size="3" color="black60" my={2}>
-            {valueToString(value)}
-          </Serif>
-          <Slider
-            allowCross={false}
-            min={10}
-            max={100}
-            step={1}
-            defaultValue={[10, 100]}
-            onChange={set}
-          />
-        </div>
-      )
-    }}
-  </Value>
+<Playground>
+  <Box p={1}>
+    <Value initial={[0, 100]}>
+      {({ value, set }) => {
+        const valueToString = ([min, max]) => "$" + min + " - $" + max
+        return (
+          <div>
+            <Serif size="3" color="black60" my={2}>
+              {valueToString(value)}
+            </Serif>
+            <Slider
+              allowCross={false}
+              min={10}
+              max={100}
+              step={1}
+              defaultValue={[10, 100]}
+              onChange={set}
+            />
+          </div>
+        )
+      }}
+    </Value>
+  </Box>
 </Playground>

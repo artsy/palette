@@ -2,11 +2,7 @@
 name: Image
 ---
 
-<Playground title="Default Image">
-  <Image src="https://picsum.photos/110/110/?random" />
-</Playground>
-
-<Playground title="Custom size">
+<Playground>
   <Image
     width="300px"
     height="200px"
@@ -14,8 +10,10 @@ name: Image
   />
 </Playground>
 
-<Playground title="Responsive image">
-  <BorderBox maxWidth="400px" width="100%" height="auto" p={0}>
-    <ResponsiveImage src="https://picsum.photos/400/250/?random" />
-  </BorderBox>
-</Playground>
+### Responsive image
+
+Used to fill an area provided regardless of proportions.
+
+<BorderBox maxWidth="400px" width="100%" height="auto" p={0}>
+  <ResponsiveImage src="https://picsum.photos/400/250/?random" />
+</BorderBox>

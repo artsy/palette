@@ -2,13 +2,9 @@
 name: Tabs
 ---
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
-porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit
+Used to navigate tabs of different pages of content that have no sequential or
+interdependent relationship process. If needed, ‘counter’ indicates quantity of
+something in a tab.
 
 <Playground title="Artwork Page">
   <Tabs>
@@ -21,11 +17,12 @@ velit
   </Tabs>
 </Playground>
 
-<Playground title="Renders content">
+### Rendering content
+
+<Playground>
   <Tabs
     initialTabIndex={1}
     onChange={activeTab => {
-      // tslint:disable-next-line
       console.log(activeTab)
     }}
   >
@@ -36,10 +33,11 @@ velit
   </Tabs>
 </Playground>
 
-<Playground title="With arbitrary data and onChange handler">
+### With arbitrary data and onChange handler
+
+<Playground>
   <Tabs
     onChange={activeTab => {
-      // tslint:disable-next-line
       console.log(activeTab.data)
     }}
   >
@@ -49,7 +47,9 @@ velit
   </Tabs>
 </Playground>
 
-<Playground title="With custom justification">
+### With custom justification
+
+<Playground>
   <Tabs justifyContent="center">
     <Tab name="About" />
     <Tab name="Pricing" />
@@ -57,7 +57,9 @@ velit
   </Tabs>
 </Playground>
 
-<Playground title="With separator">
+### With separator
+
+<Playground>
   <Tabs justifyContent="center" separator={<Box mx={1}>♞</Box>}>
     <Tab name="About" />
     <Tab name="Pricing" />
@@ -65,7 +67,9 @@ velit
   </Tabs>
 </Playground>
 
-<Playground title="With superscript">
+### With superscript
+
+<Playground>
   <Tabs justifyContent="center">
     <Tab
       name={
@@ -93,15 +97,9 @@ velit
   </Tabs>
 </Playground>
 
-<Playground title="Supports empty(null) tabs by ignoring them">
-  <Tabs>
-    {null}
-    {false}
-    <Tab name="Pricing" />
-  </Tabs>
-</Playground>
+### Can auto scroll to center active tabs
 
-<Playground title="Can auto scroll to center active tabs">
+<Playground>
   <Tabs autoScroll>
     <Tab name="Pricing" />
     <Tab name="Rainbows" />
@@ -120,5 +118,15 @@ velit
     <Tab name="Skiing" />
     <Tab name="Liver" />
     <Tab name="Magazine" />
+  </Tabs>
+</Playground>
+
+### Supports empty(null) tabs by ignoring them
+
+<Playground>
+  <Tabs>
+    {null}
+    {false}
+    <Tab name="Pricing" />
   </Tabs>
 </Playground>
