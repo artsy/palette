@@ -91,6 +91,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                       */}
                       <NavLink
                         disableNavigation
+                        expandSubNav={expandSubNav}
                         to={path}
                         onClick={() => {
                           navState.toggleNavItem(path)
@@ -203,8 +204,13 @@ const NavLinkWrapper = ({
   }
 }
 
-const NavLink = styled(NavLinkWrapper)`
-  cursor: pointer;
+const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
+  ${({ expandSubNav }) => {
+    const cursor = expandSubNav ? "initial" : "pointer"
+    return `
+      cursor: ${cursor};
+    `
+  }}
 
   &:hover {
     text-decoration: none;
