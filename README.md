@@ -26,8 +26,8 @@ to peek at the proposal and provide feedback before moving forward.
 ## Local development
 
         $ yarn docs
-        $ open http://localhost:3000/
-        
+        $ open http://localhost:8000/
+
         $ yarn link
         $ yarn watch
 

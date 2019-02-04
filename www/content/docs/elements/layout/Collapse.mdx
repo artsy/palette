@@ -2,8 +2,6 @@
 name: Collapse
 ---
 
-import { Toggle } from "react-powerplug"
-
 <Playground title="Open">
   <Collapse open>
     <BorderBox>A Collapse component ... Not really cool yet!</BorderBox>
@@ -11,7 +9,7 @@ import { Toggle } from "react-powerplug"
 </Playground>
 
 <Playground title="Toggle">
-  <Toggle>
+  <Toggler>
     {({ on, toggle }) => (
       <>
         <Button onClick={toggle}>{on ? "Close" : "Open"}</Button>
@@ -22,5 +20,5 @@ import { Toggle } from "react-powerplug"
         </Collapse>
       </>
     )}
-  </Toggle>
+  </Toggler>
 </Playground>

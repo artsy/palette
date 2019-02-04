@@ -34,9 +34,11 @@ module.exports = {
         globalScope: `
           import * as Elements from "@artsy/palette"
           import { CodeEditor, Playground  } from "components/Playground"
+          import { Toggle as Toggler } from 'react-powerplug'
           export default {
             CodeEditor,
             Playground,
+            Toggler,
             ...Elements
           }
         `,

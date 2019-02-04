@@ -28,11 +28,16 @@ export const CodeEditor = withMDXScope(
     language = "html",
     layout = "vertical",
     scope,
+    showPreview = true,
     showToggle = false,
     title,
   }) => {
     const getLayout = () => {
       // TODO: Better language support
+      if (/language-(sh|bash)/.test(language)) {
+        showPreview = false
+      }
+
       if (/language-(js|ts)x?/.test(language)) {
         language = "jsx"
       } else {
@@ -43,16 +48,19 @@ export const CodeEditor = withMDXScope(
         case "vertical": {
           return (
             <Box>
-              <PreviewContainer>
-                <LivePreview />
-                {editable && (
-                  <ErrorContainer>
-                    <LiveError />
-                  </ErrorContainer>
-                )}
-              </PreviewContainer>
-
-              <Spacer mb={2} />
+              {showPreview && (
+                <>
+                  <PreviewContainer>
+                    <LivePreview />
+                    {editable && (
+                      <ErrorContainer>
+                        <LiveError />
+                      </ErrorContainer>
+                    )}
+                  </PreviewContainer>
+                  <Spacer mb={2} />
+                </>
+              )}
 
               <EditorContainer px={2}>
                 <ArtsyCodeTheme editable={editable}>
@@ -65,14 +73,16 @@ export const CodeEditor = withMDXScope(
         case "horizontal": {
           return (
             <Flex justifyContent="space-between">
-              <PreviewContainer width="50%" mr={2}>
-                <LivePreview />
-                {editable && (
-                  <ErrorContainer>
-                    <LiveError />
-                  </ErrorContainer>
-                )}
-              </PreviewContainer>
+              {showPreview && (
+                <PreviewContainer width="50%" mr={2}>
+                  <LivePreview />
+                  {editable && (
+                    <ErrorContainer>
+                      <LiveError />
+                    </ErrorContainer>
+                  )}
+                </PreviewContainer>
+              )}
 
               <EditorContainer width="50%" pl={2}>
                 <ArtsyCodeTheme editable={editable}>

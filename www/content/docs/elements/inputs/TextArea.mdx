@@ -2,10 +2,6 @@
 name: TextArea
 ---
 
-import { Playground } from "docz"
-import { TextArea, Checkbox, Spacer, Serif, Flex } from "../src"
-import { Toggle } from "react-powerplug"
-
 ## Basic
 
 <Playground>
@@ -15,7 +11,7 @@ import { Toggle } from "react-powerplug"
 ## With error
 
 <Playground>
-  <Toggle initial={true}>
+  <Toggler initial={true}>
     {({ on, toggle }) => (
       <>
         <TextArea
@@ -30,7 +26,7 @@ import { Toggle } from "react-powerplug"
         </Flex>
       </>
     )}
-  </Toggle>
+  </Toggler>
 </Playground>
 
 ## With title
@@ -70,8 +66,7 @@ import { Toggle } from "react-powerplug"
 ## With character limit and error
 
 <Playground>
-
-    <Toggle initial={true}>
+  <Toggler initial={true}>
     {({ on, toggle }) => (
       <>
         <TextArea
@@ -89,6 +84,5 @@ import { Toggle } from "react-powerplug"
         </Flex>
       </>
     )}
-
-  </Toggle>
-  </Playground>
+  </Toggler>
+</Playground>
