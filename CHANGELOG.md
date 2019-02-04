@@ -1,3 +1,16 @@
+# v2.37.19 (Mon Feb 04 2019)
+
+#### 🐛  Bug Fix
+
+- Flip chevrons on nav [#277](https://github.com/artsy/palette/pull/277) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Expand first level nav items on load [#276](https://github.com/artsy/palette/pull/276) ([@damassi](https://github.com/damassi))
+- Add Netlify status badge [#274](https://github.com/artsy/palette/pull/274) ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v2.37.18 (Mon Feb 04 2019)
 
 #### 🐛  Bug Fix
