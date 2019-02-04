@@ -2,28 +2,10 @@
 name: RadioGroup
 ---
 
+Use this component when user must make a decision, which may result in
+additional consecutive decisions, or may reveal additional information.
+
 <Playground>
-  <RadioGroup>
-    <Radio value="SHIP">Provide shipping address</Radio>
-    <Radio value="PICKUP">Arrange for pickup</Radio>
-  </RadioGroup>
-</Playground>
-
-<Playground title="With default value">
-  <RadioGroup defaultValue="SHIP">
-    <Radio value="SHIP">Provide shipping address</Radio>
-    <Radio value="PICKUP">Arrange for pickup</Radio>
-  </RadioGroup>
-</Playground>
-
-<Playground title="Disabled with default value">
-  <RadioGroup defaultValue="SHIP" disabled>
-    <Radio value="SHIP">Provide shipping address</Radio>
-    <Radio value="PICKUP">Arrange for pickup</Radio>
-  </RadioGroup>
-</Playground>
-
-<Playground title="Bordered RadioGroup">
   <RadioGroup defaultValue="SHIP">
     <BorderedRadio value="SHIP">Provide shipping address</BorderedRadio>
     <BorderedRadio value="PICKUP">
@@ -33,5 +15,30 @@ name: RadioGroup
         within 2 business days to handle pickup logistics.
       </Sans>
     </BorderedRadio>
+  </RadioGroup>
+</Playground>
+
+<Playground>
+  <RadioGroup>
+    <Radio value="SHIP">Provide shipping address</Radio>
+    <Radio value="PICKUP">Arrange for pickup</Radio>
+  </RadioGroup>
+</Playground>
+
+### With default value
+
+<Playground>
+  <RadioGroup defaultValue="PICKUP">
+    <Radio value="SHIP">Provide shipping address</Radio>
+    <Radio value="PICKUP">Arrange for pickup</Radio>
+  </RadioGroup>
+</Playground>
+
+### Disabled
+
+<Playground>
+  <RadioGroup defaultValue="SHIP" disabled>
+    <Radio value="SHIP">Provide shipping address</Radio>
+    <Radio value="PICKUP">Arrange for pickup</Radio>
   </RadioGroup>
 </Playground>

@@ -4,83 +4,43 @@ name: Select
 
 import { Value } from "react-powerplug"
 
-<Playground title="Large Select">
-  <Value>
-    {({ value, set }) => (
-      <LargeSelect
-        options={[
-          {
-            text: "Most Recent",
-            value: "mostRecent",
-          },
-          {
-            text: "Price",
-            value: "price",
-          },
-          {
-            text: "Estimate",
-            value: "estimate",
-          },
-        ]}
-        selected={value}
-        onSelect={value => set(value)}
-      />
-    )}
-  </Value>
-</Playground>
+Our default dropdown style. When dropdown is active, display system dropdown
+list. When possible, dropdowns should default to a placeholder as to not force
+users into decisions. Occasionally, we default users to a selection for the sake
+of user-benefitting product strategy.
 
-<Playground title="Disabled">
-  <Value>
-    {({ value, set }) => (
-      <LargeSelect
-        options={[
-          {
-            text: "Most Recent",
-            value: "mostRecent",
-          },
-          {
-            text: "Price",
-            value: "price",
-          },
-          {
-            text: "Estimate",
-            value: "estimate",
-          },
-        ]}
-        selected={value}
-        onSelect={value => set(value)}
-        disabled
-      />
-    )}
-  </Value>
-</Playground>
+<Box>
+  <Serif size="3">Title</Serif>
+  <LargeSelect
+    options={[
+      {
+        text: "Most Recent",
+        value: "mostRecent",
+      },
+    ]}
+  />
+</Box>
 
-<Playground title="Small Select">
-  <Value>
-    {({ value, set }) => (
-      <SmallSelect
-        options={[
-          {
-            text: "Most Recent",
-            value: "mostRecent",
-          },
-          {
-            text: "Price",
-            value: "price",
-          },
-          {
-            text: "Estimate",
-            value: "estimate",
-          },
-        ]}
-        selected={value}
-        onSelect={value => set(value)}
-      />
-    )}
-  </Value>
-</Playground>
+<Spacer my={2} />
 
-<Playground title="Error State">
+<Box>
+  <Serif size="3">Title</Serif>
+  <Serif size="2">Short description</Serif>
+  <LargeSelect
+    options={[
+      {
+        text: "Most Recent",
+        value: "mostRecent",
+      },
+    ]}
+  />
+</Box>
+
+<Spacer my={6} />
+
+### Error state
+
+<Playground>
   <Value>
     {({ value = "badValue", set }) => {
       const error = value === "goodValue" ? "" : "Error Message"
@@ -103,4 +63,21 @@ import { Value } from "react-powerplug"
       )
     }}
   </Value>
+</Playground>
+
+### Small select
+
+<Playground>
+  <SmallSelect
+    options={[
+      {
+        text: "Price",
+        value: "price",
+      },
+      {
+        text: "Estimate",
+        value: "estimate",
+      },
+    ]}
+  />
 </Playground>

@@ -2,38 +2,24 @@
 name: Tooltip
 ---
 
-<Playground title="Lg with left-aligned anchor">
-  <Box textAlign="left" mt={100}>
-    <Sans size="2">
-      <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
-        <span>Artsy Collector</span>
-      </Tooltip>
-    </Sans>
-  </Box>
-</Playground>
+General Tooltips are intended to provide further context and explanation. They
+should not be used to tuck away additional functionality, or link to more
+information. If you need a functionality-rich dialog, try using a pop-over.
 
-<Playground title="Lg with centered anchor">
-  <Box textAlign="center" mt={100}>
-    <Sans size="2">
-      <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
-        <span>Artsy Collector</span>
-      </Tooltip>
-    </Sans>
-  </Box>
-</Playground>
+Keep this text brief. Avoid using more than 300 characters.
 
-<Playground title="Lg with right-aligned anchor">
-  <Box textAlign="right" mt={100}>
+<Playground>
+  <Box textAlign="center" mt={120}>
     <Sans size="2">
       <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
-        <span>Artsy Collector</span>
+        <span>Hoverable area</span>
       </Tooltip>
     </Sans>
   </Box>
 </Playground>
 
 <Playground title="Sm">
-  <Box mt={20}>
+  <Box textAlign="center" mt={4}>
     <Sans size="2">
       <Tooltip size="sm" content="Missing: title, price and 8 more">
         <span>10 requirements left to publish.</span>
@@ -42,7 +28,7 @@ name: Tooltip
   </Box>
 </Playground>
 
-<Playground title="Sm with custom width">
+<Playground title="Sm with custom width" expanded={false} showToggle={true}>
   <Box mt={20}>
     <Sans size="2">
       <Tooltip size="sm" content="Missing: title, price and 8 more" width="175">
@@ -52,8 +38,8 @@ name: Tooltip
   </Box>
 </Playground>
 
-<Playground title="Lg with too much content">
-  <Box textAlign="center" mt={200}>
+<Playground title="Lg with too much content" expanded={false} showToggle={true}>
+  <Box textAlign="center" mt={220}>
     <Sans size="2">
       <Tooltip content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed.">
         <span>Artsy Collector</span>
@@ -62,8 +48,12 @@ name: Tooltip
   </Box>
 </Playground>
 
-<Playground title="Lg with too much content and custom width">
-  <Box textAlign="center" mt={200}>
+<Playground
+  title="Lg with too much content and custom width"
+  expanded={false}
+  showToggle={true}
+>
+  <Box textAlign="center" mt={220}>
     <Sans size="2">
       <Tooltip
         content="We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed. We have verified that this collector has an Artsy account. Collector’s name will be revealed when the order is confirmed."
