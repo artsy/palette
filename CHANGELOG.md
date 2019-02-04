@@ -1,3 +1,11 @@
+# v2.37.18 (Mon Feb 04 2019)
+
+#### 🐛  Bug Fix
+
+- Fill in more content [#273](https://github.com/artsy/palette/pull/273) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.17 (Mon Feb 04 2019)
 
 #### 🐛  Bug Fix
