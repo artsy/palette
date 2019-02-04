@@ -28,6 +28,7 @@ export const CodeEditor = withMDXScope(
     language = "html",
     layout = "vertical",
     scope,
+    showEditor = true,
     showPreview = true,
     showToggle = false,
     title,
@@ -62,11 +63,13 @@ export const CodeEditor = withMDXScope(
                 </>
               )}
 
-              <EditorContainer px={2}>
-                <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor {...{ language }} />
-                </ArtsyCodeTheme>
-              </EditorContainer>
+              {showEditor && (
+                <EditorContainer px={2}>
+                  <ArtsyCodeTheme editable={editable}>
+                    <LiveEditor {...{ language }} />
+                  </ArtsyCodeTheme>
+                </EditorContainer>
+              )}
             </Box>
           )
         }
@@ -84,11 +87,13 @@ export const CodeEditor = withMDXScope(
                 </PreviewContainer>
               )}
 
-              <EditorContainer width="50%" pl={2}>
-                <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor {...{ language }} />
-                </ArtsyCodeTheme>
-              </EditorContainer>
+              {showEditor && (
+                <EditorContainer width="50%" pl={2}>
+                  <ArtsyCodeTheme editable={editable}>
+                    <LiveEditor {...{ language }} />
+                  </ArtsyCodeTheme>
+                </EditorContainer>
+              )}
             </Flex>
           )
         }

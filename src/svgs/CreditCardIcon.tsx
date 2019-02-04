@@ -1,4 +1,5 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 /** https://stripe.com/docs/api#card_object-brand */
 export type CreditCardType =
@@ -30,8 +31,8 @@ export const CreditCardIcon = ({
   }
 }
 
-const AmexIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
+const AmexIcon = props => (
+  <Icon
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width={30}
     height={20}
@@ -48,11 +49,11 @@ const AmexIcon = (props: React.SVGProps<SVGSVGElement>) => (
         <path d="M9.999 11A.999.999 0 0 0 9 12.01v1.98A1 1 0 0 0 9.999 15H30v-4H9.999zM0 6v4h20.001A.999.999 0 0 0 21 8.99V7.01A.999.999 0 0 0 20.001 6H0z" />
       </g>
     </g>
-  </svg>
+  </Icon>
 )
 
-const DiscoverIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
+const DiscoverIcon = props => (
+  <Icon
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width={30}
     height={20}
@@ -71,11 +72,11 @@ const DiscoverIcon = (props: React.SVGProps<SVGSVGElement>) => (
       />
       <rect width={20} height={3} x={5} y={5} fill="#D4D4D4" rx={1.5} />
     </g>
-  </svg>
+  </Icon>
 )
 
-const FallbackIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
+const FallbackIcon = props => (
+  <Icon
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width={30}
     height={20}
@@ -91,11 +92,11 @@ const FallbackIcon = (props: React.SVGProps<SVGSVGElement>) => (
       <rect width={20} height={3} x={5} y={5} fill="#D4D4D4" rx={1.5} />
       <rect width={7} height={3} x={5} y={10} fill="#D4D4D4" rx={1.5} />
     </g>
-  </svg>
+  </Icon>
 )
 
-const MastercardIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
+const MastercardIcon = props => (
+  <Icon
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width={30}
     height={20}
@@ -121,10 +122,10 @@ const MastercardIcon = (props: React.SVGProps<SVGSVGElement>) => (
         />
       </g>
     </g>
-  </svg>
+  </Icon>
 )
-const VisaIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
+const VisaIcon = props => (
+  <Icon
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width={30}
     height={20}
@@ -146,5 +147,5 @@ const VisaIcon = (props: React.SVGProps<SVGSVGElement>) => (
         d="M1.992 0C.892 0 0 .898 0 1.998V6h30V1.998A1.999 1.999 0 0 0 28.008 0H1.992z"
       />
     </g>
-  </svg>
+  </Icon>
 )

@@ -1,18 +1,19 @@
 import React, { Component } from "react"
+import { Icon } from "./Icon"
 
 /** Icon */
-export class CircleBlackCheckIcon extends Component<
-  React.HTMLProps<HTMLElement>,
-  null
-> {
+export class CircleBlackCheckIcon extends Component<any> {
   render() {
+    const { width, height, ...rest } = this.props
+
     return (
-      <svg
+      <Icon
         width={this.props.width}
         height={this.props.height}
         viewBox="0 0 26 26"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
+        {...rest}
       >
         <g id="QA" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g id="Group-Copy">
@@ -28,7 +29,7 @@ export class CircleBlackCheckIcon extends Component<
             />
           </g>
         </g>
-      </svg>
+      </Icon>
     )
   }
 }

@@ -1,17 +1,19 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 interface IconProps {
   fill?: string
 }
 
 /** Icon */
-export const EditIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
+export const EditIcon: React.SFC<IconProps> = ({ fill = "#000", ...props }) => {
   return (
-    <svg
+    <Icon
       width="18"
       height="18"
       viewBox="0 0 18 18"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <title>Edit</title>
       <g id="icon_edit" fill="none" fillRule="evenodd">
@@ -30,7 +32,7 @@ export const EditIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
           </g>
         </g>
       </g>
-    </svg>
+    </Icon>
   )
 }
 

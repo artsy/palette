@@ -5,9 +5,9 @@ import * as Palette from "@artsy/palette"
 import { CodeEditor } from "../components/Playground"
 
 import {
+  Box,
   Sans,
   Serif,
-  Spacer,
   injectGlobalStyles,
   color,
   space,
@@ -40,6 +40,7 @@ export const globalCSS = `
 
   div {
     &.contentDiv {
+      margin-top: ${space(2)}px;
       margin-bottom: ${space(2)}px;
     }
   }
@@ -66,36 +67,32 @@ export const { GlobalStyles } = injectGlobalStyles(`
  */
 export const MarkdownComponents = {
   h1: props => (
-    <>
+    <Box mb={5}>
       <Serif size="8" color="black100">
         {props.children}
       </Serif>
-      <Spacer mb={5} />
-    </>
+    </Box>
   ),
   h2: props => (
-    <>
+    <Box my={2}>
       <Sans size="5" weight="medium" color="black100">
         {props.children}
       </Sans>
-      <Spacer mb={1} />
-    </>
+    </Box>
   ),
   h3: props => (
-    <>
+    <Box my={2}>
       <Sans size="4" weight="medium" color="black100">
         {props.children}
       </Sans>
-      <Spacer mb={1} />
-    </>
+    </Box>
   ),
   h4: props => (
-    <>
+    <Box my={2}>
       <Serif size="4" color="black100">
         {props.children}
       </Serif>
-      <Spacer mb={1} />
-    </>
+    </Box>
   ),
   div: props => {
     return <div className="contentDiv">{props.children}</div>

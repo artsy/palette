@@ -1,15 +1,17 @@
 import React, { Component } from "react"
+import { Icon } from "./Icon"
 
 /** Icon */
 export class HelpIcon extends Component {
   render() {
     return (
-      <svg
+      <Icon
         className="icon__help"
         height="17px"
         width="17px"
         viewBox="0 0 17 17"
         xmlns="http://www.w3.org/2000/svg"
+        {...this.props}
       >
         <g
           stroke="none"
@@ -26,7 +28,7 @@ export class HelpIcon extends Component {
             />
           </g>
         </g>
-      </svg>
+      </Icon>
     )
   }
 }

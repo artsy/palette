@@ -1,4 +1,5 @@
 import React from "react"
+import { Icon } from "./Icon"
 
 interface IconProps {
   fill?: string
@@ -6,13 +7,17 @@ interface IconProps {
 }
 
 /** Icon */
-export const DownloadIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
+export const DownloadIcon: React.SFC<IconProps> = ({
+  fill = "#000",
+  ...props
+}) => {
   return (
-    <svg
+    <Icon
       width="18"
       height="18"
       viewBox="0 0 18 18"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <title>Download</title>
       <g id="icon_download" fill="none" fillRule="evenodd">
@@ -32,7 +37,7 @@ export const DownloadIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
           </g>
         </g>
       </g>
-    </svg>
+    </Icon>
   )
 }
 

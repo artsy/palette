@@ -1,14 +1,16 @@
 import React from "react"
 import styled from "styled-components"
+import { Icon } from "./Icon"
 
 /** Icon */
-export const ClosedEyeIcon = props => (
+export const ClosedEyeIcon = ({ width, height, className, ...props }) => (
   <StyledClosedEye
-    width={props.width || 20}
-    height={props.height || 20}
+    width={width || 20}
+    height={height || 20}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 12 12"
-    className={props.className}
+    className={className}
+    {...props}
   >
     <path
       fill="#c2c2c2"
@@ -25,6 +27,6 @@ export const ClosedEyeIcon = props => (
   </StyledClosedEye>
 )
 
-const StyledClosedEye = styled.svg`
+const StyledClosedEye = styled(Icon)`
   vertical-align: middle;
 `

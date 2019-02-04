@@ -1,5 +1,6 @@
 import React from "react"
 import { color } from "../helpers"
+import { Icon } from "./Icon"
 
 interface IconProps {
   fill?: string
@@ -10,14 +11,16 @@ interface IconProps {
 export const HeartIcon: React.SFC<IconProps> = ({
   fill = "#000",
   selected = false,
+  ...props
 }) => {
   if (selected) {
     return (
-      <svg
+      <Icon
         width="18"
         height="18"
         viewBox="0 0 18 18"
         xmlns="http://www.w3.org/2000/svg"
+        {...props}
       >
         <title>Save</title>
         <g id="Save-/-Select" fill="none" fillRule="evenodd">
@@ -33,19 +36,20 @@ export const HeartIcon: React.SFC<IconProps> = ({
             />
           </g>
         </g>
-      </svg>
+      </Icon>
     )
   } else {
     return (
-      <svg
+      <Icon
         xmlns="http://www.w3.org/2000/svg"
         width="18"
         height="18"
         viewBox="0 0 18 18"
         fill={fill}
+        {...props}
       >
         <path d="M12 3a4 4 0 0 0-2.83 1.17L9 4.34l-.17-.17a4.002 4.002 0 0 0-5.66 5.66l5.48 5.47a.48.48 0 0 0 .7 0l5.48-5.47A4 4 0 0 0 12 3zm2.12 6.12L9 14.24 3.88 9.12a3 3 0 1 1 4.24-4.24l.53.52.35.36.35-.36.53-.52a3 3 0 0 1 4.24 4.24z" />
-      </svg>
+      </Icon>
     )
   }
 }
