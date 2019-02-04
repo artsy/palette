@@ -1,3 +1,11 @@
+# v2.37.15 (Mon Feb 04 2019)
+
+#### 🐛  Bug Fix
+
+- Remove straggler .doczrc file [#270](https://github.com/artsy/palette/pull/270) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.14 (Mon Feb 04 2019)
 
 #### 🐛  Bug Fix
