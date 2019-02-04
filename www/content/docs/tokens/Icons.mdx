@@ -1,23 +1,29 @@
 ---
 name: Icons
-hideInNav: true
+wip: true
 ---
 
-<Playground>
-  <CheckIcon />
-</Playground>
+import { AllIcons } from "@artsy/palette"
+import _ from "lodash"
 
-<Playground>
-  <CloseIcon />
-</Playground>
-
-<Playground>
-  <Join separator={<Separator m={1} />}>
-    <ChevronIcon direction="left" />
-    <ChevronIcon direction="right" />
-    <ChevronIcon direction="up" />
-    <ChevronIcon direction="down" />
-    <ChevronIcon direction="rotate(0)" />
-    <ChevronIcon direction="rotate(90)" />
-  </Join>
-</Playground>
+<Flex flexWrap="wrap">
+  {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
+    const blacklist = ["Icon"]
+    if (
+      !_.isFunction(IconComponent) ||
+      blacklist.some(icon => icon === iconName)
+    ) {
+      return null
+    }
+    const size = "10px"
+    return (
+      <Box pr={4} pb={2} mb={4} key={index}>
+        <Sans size="3" width={size} height={size} weight="medium">
+          {iconName}
+        </Sans>
+        <Spacer my={1} />
+        <IconComponent />
+      </Box>
+    )
+  })}
+</Flex>
