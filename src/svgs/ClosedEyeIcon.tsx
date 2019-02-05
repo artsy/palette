@@ -3,10 +3,15 @@ import styled from "styled-components"
 import { Icon } from "./Icon"
 
 /** Icon */
-export const ClosedEyeIcon = ({ width, height, className, ...props }) => (
+export const ClosedEyeIcon = ({
+  width = 20,
+  height = 20,
+  className = "",
+  ...props
+}) => (
   <StyledClosedEye
-    width={width || 20}
-    height={height || 20}
+    width={width}
+    height={height}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 12 12"
     className={className}
