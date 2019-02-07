@@ -29,8 +29,8 @@ const defaultFields = {
       required: false,
     },
     {
-      label: "WIP",
-      name: "wip",
+      label: "Status",
+      name: "status",
       widget: "boolean",
       required: false,
     },
@@ -149,6 +149,6 @@ const collections = [
 
 export const config = {
   collections,
-  publish_mode:
-    process.env.NODE_ENV === "development" ? undefined : "editorial_workflow",
+  // publish_mode:
+  //   process.env.NODE_ENV === "development" ? undefined : "editorial_workflow",
 }
