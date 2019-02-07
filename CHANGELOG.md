@@ -1,3 +1,11 @@
+# v2.37.22 (Thu Feb 07 2019)
+
+#### ⚠️  Pushed to master
+
+- Update Buttons “Button”  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+
+---
+
 # v2.37.21 (Thu Feb 07 2019)
 
 #### 🐛  Bug Fix
