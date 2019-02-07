@@ -1,3 +1,11 @@
+# v2.37.20 (Tue Feb 05 2019)
+
+#### 🐛  Bug Fix
+
+- [Icon] fix props [#278](https://github.com/artsy/palette/pull/278) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.19 (Mon Feb 04 2019)
 
 #### 🐛  Bug Fix
