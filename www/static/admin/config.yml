@@ -3,7 +3,7 @@
 # NOTE: Config from `config.js` is merged in here.
 
 localhost_development:
-  display_url: http://localhost:8000
+  display_url: localhost:8000
   backend:
     name: file-system
     api_root: /api

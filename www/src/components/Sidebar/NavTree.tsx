@@ -28,7 +28,7 @@ export const NavTree = _props => {
                   name
                   order
                   subNavOrder
-                  wip
+                  status
                 }
               }
             }
@@ -67,7 +67,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
         <Box ml={ml}>
           {tree.map(({ data, children, path }: TreeNode) => {
             const hasChildren = Boolean(children.length)
-            const { wip, navSpacer = {}, expandSubNav, name } = data
+            const { status, navSpacer = {}, expandSubNav, name } = data
 
             switch (hasChildren) {
               case true: {
@@ -129,7 +129,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                   <Fragment key={path}>
                     <Sans size={size} py={py} {...navSpacer}>
                       <NavLink to={path}>
-                        {name} {wip && <StatusBadge status="WIP" />}
+                        {name} {status && <StatusBadge status={status} />}
                       </NavLink>
                     </Sans>
                   </Fragment>
@@ -218,7 +218,7 @@ const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
 
   &&.isActive {
     &:before {
-      content: " – ";
+      content: " \u2014 ";
     }
   }
 `

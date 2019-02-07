@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import { NavTree } from "./NavTree"
 
-import { ArtsyMarkIcon, Box, color, Sans, Serif } from "@artsy/palette"
+import { ArtsyMarkIcon, Box, Sans, Serif } from "@artsy/palette"
 
 export const Sidebar = _props => {
   return (
@@ -27,7 +27,6 @@ export const Sidebar = _props => {
 }
 
 const Container = styled(Box)`
-  /* border-right: 1px solid ${color("black10")}; */
   flex: 0 0 200px;
   height: 100vh;
 `

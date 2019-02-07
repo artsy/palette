@@ -40,13 +40,14 @@ export const globalCSS = `
 
   div {
     &.contentDiv {
-      margin-top: ${space(2)}px;
       margin-bottom: ${space(2)}px;
+      color: ${color("black60")};
     }
   }
 
   ol {
     padding-left: ${space(3)}px;
+    color: ${color("black60")};
   }
 
   /* NetlifyCMS root */
@@ -74,21 +75,21 @@ export const MarkdownComponents = {
     </Box>
   ),
   h2: props => (
-    <Box my={2}>
+    <Box mb={1}>
       <Sans size="5" weight="medium" color="black100">
         {props.children}
       </Sans>
     </Box>
   ),
   h3: props => (
-    <Box my={2}>
+    <Box mb={1}>
       <Sans size="4" weight="medium" color="black100">
         {props.children}
       </Sans>
     </Box>
   ),
   h4: props => (
-    <Box my={2}>
+    <Box mb={1}>
       <Serif size="4" color="black100">
         {props.children}
       </Serif>

@@ -1,4 +1,4 @@
-import { color, Flex, Serif } from "@artsy/palette"
+import { Box, color, Flex, Sans, Serif } from "@artsy/palette"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
@@ -14,7 +14,7 @@ export default function DocsLayout(props) {
     data: {
       mdx: {
         code,
-        frontmatter: { name, wip, type },
+        frontmatter: { name, status, type, lastPointOfContact },
       },
     },
     location: { pathname },
@@ -28,8 +28,21 @@ export default function DocsLayout(props) {
         </Helmet>
         <Sidebar />
         <ContentArea>
-          {type !== "page" && <ComponentName name={name} wip={wip} />}
+          {type !== "page" && (
+            <Box mb={0.5}>
+              <Serif size="8" color="black100" mb={2}>
+                {name} {status && <StatusBadge status={status} />}
+              </Serif>
+            </Box>
+          )}
           <MDXRenderer>{code.body}</MDXRenderer>
+          {lastPointOfContact && (
+            <Box mt={3}>
+              <Sans color="black60" size="2">
+                Last points of contact: {lastPointOfContact}
+              </Sans>
+            </Box>
+          )}
         </ContentArea>
       </Flex>
     )
@@ -70,17 +83,6 @@ export const ContentArea = styled(Flex).attrs({
   border-left: 1px solid ${color("black10")};
 `
 
-export const ComponentName: React.SFC<{
-  name: string
-  wip?: string
-}> = ({ name, wip }) => {
-  return (
-    <Serif size="8" color="black100" mb={2}>
-      {name} {wip && <StatusBadge status="WIP" />}
-    </Serif>
-  )
-}
-
 /**
  * Query for data for the page. Note that $id is injected in via context from
  * actions.createPage. See gatsby-node.js for more info.
@@ -91,8 +93,9 @@ export const pageQuery = graphql`
       id
       frontmatter {
         name
-        wip
+        status
         type
+        lastPointOfContact
       }
       code {
         body
