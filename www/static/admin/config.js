@@ -12,6 +12,12 @@ const defaultFields = {
       required: true,
     },
     {
+      label: "Last point of contact",
+      name: "lastPointOfContact",
+      widget: "string",
+      required: false,
+    },
+    {
       label: "Body",
       name: "body",
       widget: "mdx",
