@@ -41,13 +41,11 @@ export const globalCSS = `
   div {
     &.contentDiv {
       margin-bottom: ${space(2)}px;
-      color: ${color("black60")};
     }
   }
 
   ol {
     padding-left: ${space(3)}px;
-    color: ${color("black60")};
   }
 
   /* NetlifyCMS root */
