@@ -1,3 +1,15 @@
+# v2.37.23 (Thu Feb 07 2019)
+
+#### 🐛  Bug Fix
+
+- Back to black [#282](https://github.com/artsy/palette/pull/282) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Update yarn orb to v0.1.6 [#281](https://github.com/artsy/palette/pull/281) ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v2.37.22 (Thu Feb 07 2019)
 
 #### ⚠️  Pushed to master
