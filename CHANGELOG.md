@@ -1,3 +1,11 @@
+# v2.37.21 (Thu Feb 07 2019)
+
+#### 🐛  Bug Fix
+
+- Address Design QA [#280](https://github.com/artsy/palette/pull/280) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.20 (Tue Feb 05 2019)
 
 #### 🐛  Bug Fix
