@@ -1,3 +1,11 @@
+# v2.37.24 (Fri Feb 08 2019)
+
+#### ⚠️  Pushed to master
+
+- Update Layout “Flex”  ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v2.37.23 (Thu Feb 07 2019)
 
 #### 🐛  Bug Fix
