@@ -1,4 +1,4 @@
-import { Theme } from "@artsy/palette"
+import { Box, Theme } from "@artsy/palette"
 import { MDXProvider } from "@mdx-js/tag"
 import { Location } from "@reach/router"
 import { NavState } from "components/Sidebar/NavState"
@@ -14,7 +14,10 @@ export const Boot = ({ element }) => {
           <StateProvider inject={[new NavState(location.pathname)]}>
             <MDXProvider components={MarkdownComponents}>
               <Theme>
-                <GlobalStyles>{element}</GlobalStyles>
+                <Box>
+                  <GlobalStyles />
+                  {element}
+                </Box>
               </Theme>
             </MDXProvider>
           </StateProvider>
