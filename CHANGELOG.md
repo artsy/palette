@@ -1,3 +1,11 @@
+# v3.0.0 (Tue Feb 12 2019)
+
+#### 💥  Breaking Change
+
+- [Lib] Bump styled-components 4.0.3 [#180](https://github.com/artsy/palette/pull/180) ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.37.24 (Fri Feb 08 2019)
 
 #### ⚠️  Pushed to master
