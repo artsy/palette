@@ -27,7 +27,7 @@ export default function DocsLayout(props) {
           <title>{name}</title>
         </Helmet>
         <Sidebar />
-        <ContentArea>
+        <ContentArea flexDirection="column" pt={4} px={6}>
           {type !== "page" && (
             <Box mb={0.5}>
               <Serif size="8" color="black100" mb={2}>
@@ -71,11 +71,7 @@ export default function DocsLayout(props) {
   }
 }
 
-export const ContentArea = styled(Flex).attrs({
-  flexDirection: "column",
-  pt: 4,
-  px: 6,
-})`
+export const ContentArea = styled(Flex)`
   width: 80%;
   max-width: 980px;
   margin: 0 auto;
