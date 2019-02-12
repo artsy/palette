@@ -15,7 +15,7 @@
     "clean:emission": "rm -rf ../emission/node_modules/@artsy/palette/dist",
     "compile": "babel src -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ --out-dir dist",
     "compile:emission": "yarn compile --out-dir ../emission/node_modules/@artsy/palette/dist",
-    "docs": "cd www && yarn start",
+    "docs": "cd www && yarn install && yarn start",
     "docs:build": "cd www && yarn build",
     "generate-tokens": "ts-node scripts/generate-tokens.ts",
     "lint": "tslint \"src/*\" -c tslint.json tsconfig.json",
