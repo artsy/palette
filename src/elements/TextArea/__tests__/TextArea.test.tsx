@@ -22,7 +22,7 @@ describe("TextArea", () => {
     return mount(
       <TextArea
         onChange={onChange}
-        innerRef={ref}
+        ref={ref}
         title="Title"
         description="Description"
         {...props}
@@ -83,12 +83,6 @@ describe("TextArea", () => {
       value: "This is the default value",
       exceedsCharacterLimit: false,
     })
-  })
-
-  it("forwards innerRef", () => {
-    const wrapper = getWrapper()
-    const input = wrapper.find("textarea").getDOMNode()
-    expect(input === ref.current).toBe(true)
   })
 
   it("doesn't show a character limit label if you don't specify one", () => {
