@@ -1,3 +1,16 @@
+# v3.0.1 (Wed Feb 13 2019)
+
+#### 🏠  Internal
+
+- moves www onto styled components 4 [#286](https://github.com/artsy/palette/pull/286) ([@mdole](https://github.com/mdole))
+- updates docs command with yarn install [#285](https://github.com/artsy/palette/pull/285) ([@mdole](https://github.com/mdole) [@damassi](https://github.com/damassi))
+
+#### ⚠️  Pushed to master
+
+- Update Home “getting-started”  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+
+---
+
 # v3.0.0 (Tue Feb 12 2019)
 
 #### 💥  Breaking Change
