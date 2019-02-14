@@ -107,6 +107,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     ],
     resolve: {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
+      alias: {
+        "styled-components": require.resolve("styled-components"),
+      },
     },
   })
 }

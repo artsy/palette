@@ -11,30 +11,36 @@ export function injectGlobalStyles<P>(
 ) {
   const GlobalStyles = createGlobalStyle<P>`
     @import url("https://webfonts.artsy.net/all-webfonts.css");
+
     *:focus {
       outline: none;
     }
+
     html {
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
       -ms-overflow-style: scrollbar;
     }
+
     *,
     *::before,
     *::after {
       -webkit-box-sizing: inherit;
               box-sizing: inherit;
     }
+
     html,
     body,
     #root {
       -webkit-tap-highlight-color: transparent;
       height: 100%;
     }
+
     body {
       margin: 0;
       padding: 0;
     }
+
     html, body {
       font-family: 'AGaramondPro-Regular';
       font-size: 16px;
@@ -42,28 +48,36 @@ export function injectGlobalStyles<P>(
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
+
     /* Default links */
+
     a {
       cursor: pointer;
       color: inherit;
       transition: color 0.25s;
+
       &:hover {
         color: ${color("black100")};
       }
+
       &:active {
         color: ${color("black100")};
       }
+
       /* ts-styled-plugin erroniously parses this; see: */
       /* https://github.com/Microsoft/typescript-styled-plugin/issues/54 */
       &.noUnderline {
         ${noUnderline};
       }
+
       &.colorLink {
         ${noUnderline};
         ${colorLink};
       }
     }
+
     /* <Sans /> links */
+
     ${Sans} {
       a {
         color: inherit;
@@ -82,7 +96,9 @@ export function injectGlobalStyles<P>(
         }
       }
     }
+
     /* <Serif /> links */
+
     ${Serif} {
       a {
         color: inherit;
@@ -101,17 +117,19 @@ export function injectGlobalStyles<P>(
         }
       }
     }
+
     /* <Display /> links */
+
     ${Display} {
       a {
         color: ${color("black100")};
         text-decoration: none;
-        text-transform: uppercase;
         &:hover {
           text-decoration: underline;
         }
       }
     }
+
     ${additionalStyles};
   `
 

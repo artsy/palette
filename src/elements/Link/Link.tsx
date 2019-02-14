@@ -27,3 +27,5 @@ export const Link = styled.a<LinkProps>`
   ${space};
   ${styledColor};
 `
+
+Link.displayName = "Link"

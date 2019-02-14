@@ -26,3 +26,5 @@ export const StackableBorderBox = styledWrapper(BorderBox)<BorderBoxProps>`
     border-bottom-right-radius: 0;
   }
 `
+
+StackableBorderBox.displayName = "StackableBorderBox"

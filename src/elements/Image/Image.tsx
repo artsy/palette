@@ -65,3 +65,6 @@ ResponsiveImage.defaultProps = {
   width: "100%",
   ratio: 1,
 }
+
+Image.displayName = "Image"
+ResponsiveImage.displayName = "ResponsiveImage"
