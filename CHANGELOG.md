@@ -1,3 +1,11 @@
+# v3.0.4 (Thu Feb 14 2019)
+
+#### 🐛  Bug Fix
+
+- Add `label` prop to Radio [#290](https://github.com/artsy/palette/pull/290) ([@ds300](https://github.com/ds300))
+
+---
+
 # v3.0.3 (Thu Feb 14 2019)
 
 
