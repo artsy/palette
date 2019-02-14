@@ -28,6 +28,8 @@ export interface RadioProps extends FlexProps {
   value?: string
   /** Name of the radio button */
   name?: string
+  /** The label content, if not specified the children will be used  */
+  label?: React.ReactNode
 }
 
 export interface RadioToggleProps
@@ -50,6 +52,7 @@ export const Radio: React.SFC<RadioProps> = props => {
     onSelect,
     selected,
     value,
+    label,
     ...others
   } = props
 
@@ -84,9 +87,12 @@ export const Radio: React.SFC<RadioProps> = props => {
           !disabled && onSelect && onSelect({ selected: !selected, value })
         }
       />
-      <Label htmlFor={name} disabled={disabled}>
-        {children}
-      </Label>
+      <Flex flexDirection="column">
+        <Label htmlFor={name} disabled={disabled}>
+          {label ? label : children}
+        </Label>
+        {label ? children : null}
+      </Flex>
     </Container>
   )
 }

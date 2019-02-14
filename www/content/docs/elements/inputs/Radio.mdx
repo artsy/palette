@@ -5,27 +5,23 @@ name: Radio
 <Playground title="With state">
   <Toggler>
     {({ on, toggle }) => (
-      <Radio selected={on} onSelect={toggle}>
-        Click me
-      </Radio>
+      <Radio selected={on} onSelect={toggle} label="Click me" />
     )}
   </Toggler>
 </Playground>
 
 <Playground title="Hover">
-  <Radio hover>Click me</Radio>
+  <Radio hover label="Click me" />
 </Playground>
 
 <Playground title="Selected">
-  <Radio selected>Selected</Radio>
+  <Radio selected label="Selected" />
 </Playground>
 
 <Playground title="Disabled">
-  <Radio disabled>Disabled</Radio>
+  <Radio disabled label="Disabled" />
 </Playground>
 
 <Playground title="Selected and disabled">
-  <Radio selected disabled>
-    Disabled
-  </Radio>
+  <Radio selected disabled label="Disabled" />
 </Playground>
