@@ -66,6 +66,7 @@
     "@types/styled-system": "^3.0.9",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "babel-plugin-add-react-displayname": "^0.0.5",
     "babel-plugin-module-resolver": "^3.1.1",
     "concurrently": "^3.5.1",
     "enzyme": "^3.8.0",
