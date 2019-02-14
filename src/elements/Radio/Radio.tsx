@@ -78,17 +78,17 @@ export const Radio: React.SFC<RadioProps> = props => {
       >
         <InnerCircle />
       </RadioButton>
-      <HiddenInput
-        type="radio"
-        name={name}
-        checked={selected}
-        disabled={disabled}
-        onChange={() =>
-          !disabled && onSelect && onSelect({ selected: !selected, value })
-        }
-      />
       <Flex flexDirection="column">
-        <Label htmlFor={name} disabled={disabled}>
+        <Label disabled={disabled}>
+          <HiddenInput
+            type="radio"
+            name={name}
+            checked={selected}
+            disabled={disabled}
+            onChange={() =>
+              !disabled && onSelect && onSelect({ selected: !selected, value })
+            }
+          />
           {label ? label : children}
         </Label>
         {label ? children : null}
