@@ -90,6 +90,7 @@
     "typescript-styled-plugin": "^0.10.0"
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
     "moment": "^2.23.0",
     "moment-timezone": "^0.5.23",
     "rc-slider": "^8.6.2",
