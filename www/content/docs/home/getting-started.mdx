@@ -1,9 +1,7 @@
 ---
 name: Getting started
 hideInNav: false
-subNavOrder: 1
 ---
-
 ### Adding Palette
 
 To bring Palette into your app, install it as a package:
@@ -18,14 +16,17 @@ the `<Theme>` provider:
 ```js
 import { Theme, injectGlobalStyles } from "@artsy/palette"
 
-const GlobalStyles = injectGlobalStyles(`
+const { GlobalStyles } = injectGlobalStyles(`
   // overrides and additions
 `)
 
 export const App = props => {
   return (
-    <Theme>
-      <GlobalStyles>...</GlobalStyles>
+    <Theme>      
+      <>
+        <GlobalStyles />
+        ...
+      </>
     </Theme>
   )
 }
