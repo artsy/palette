@@ -274,3 +274,7 @@ export interface DisplayProps extends Partial<TextProps> {
  * <Display color="black10" size="3t">Hi</Display>
  */
 export const Display = createStyledText<DisplayProps>("display")
+
+Sans.displayName = "Sans"
+Serif.displayName = "Serif"
+Display.displayName = "Display"

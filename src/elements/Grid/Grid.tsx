@@ -34,3 +34,7 @@ export const Col: any = styled(_Col)`
   ${textAlign};
   ${width};
 `
+
+Grid.displayName = "Grid"
+Row.displayName = "Row"
+Col.displayName = "Col"

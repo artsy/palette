@@ -10,3 +10,5 @@ export interface SpacerProps extends SpaceProps, WidthProps, HeightProps {}
 export const Spacer: React.SFC<SpacerProps & { id?: string }> = props => {
   return <Box {...props} />
 }
+
+Spacer.displayName = "Spacer"

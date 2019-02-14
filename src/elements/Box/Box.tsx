@@ -72,3 +72,5 @@ export const Box = primitives.View<BoxProps>`
   ${width};
   ${zIndex};
 `
+
+Box.displayName = "Box"
