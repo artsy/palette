@@ -1,3 +1,11 @@
+# v3.0.2 (Thu Feb 14 2019)
+
+#### 🐛  Bug Fix
+
+- Add babel-plugin-add-react-displayname [#288](https://github.com/artsy/palette/pull/288) ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.0.1 (Wed Feb 13 2019)
 
 #### 🏠  Internal
