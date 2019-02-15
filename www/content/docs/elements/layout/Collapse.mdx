@@ -54,3 +54,39 @@ See https://react-spring.surge.sh/gotchas#animating-auto for more info.
     )}
   </Toggler>
 </Playground>
+
+## Nested collapses edge case
+
+<Playground>
+  <Toggler initial={true}>
+    {({ on, toggle }) => (
+      <Toggler initial={true}>
+        {({ on: on2, toggle: toggle2 }) => (
+          <BorderBox position="relative" flexDirection="column">
+            <Flex justifyContent="space-between">
+              <Serif size="3">Outer</Serif>
+              <Button size="small" onClick={() => toggle()}>
+                {on ? "close" : "open"}
+              </Button>
+            </Flex>
+            <Collapse open={on}>
+              <BorderBox position="relative" flexDirection="column" mt={2}>
+                <Flex justifyContent="space-between">
+                  <Serif size="3">Inner</Serif>
+                  <Button size="small" onClick={() => toggle2()}>
+                    {on2 ? "close" : "open"}
+                  </Button>
+                </Flex>
+                <Collapse open={on2}>
+                  <BorderBox mt={2}>
+                    <Sans size="2"> hello world! </Sans>
+                  </BorderBox>
+                </Collapse>
+              </BorderBox>
+            </Collapse>
+          </BorderBox>
+        )}
+      </Toggler>
+    )}
+  </Toggler>
+</Playground>
