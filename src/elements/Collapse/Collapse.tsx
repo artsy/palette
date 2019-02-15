@@ -1,5 +1,5 @@
 import React from "react"
-import { animated, Spring } from "react-spring"
+import { animated, Spring } from "react-spring/renderprops"
 
 export interface CollapseProps {
   /** Determines whether content is expanded or collapsed */
