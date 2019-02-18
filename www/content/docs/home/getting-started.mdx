@@ -59,17 +59,29 @@ const Artworks = props => {
 ```
 
 In order to use Artsy's fonts, you'll also want to add our webfont file to the
-CSS in the header of your app:
+CSS in the header of your app. Here are a few examples:
+
+### Using [react-head](https://github.com/tizmagik/react-head) (see [here](https://github.com/tizmagik/react-head/tree/master/example) for more examples)
 
 ```
-// Example using Styled Components:
-import { createGlobalStyle, css } from "styled-components"
+import { HeadProvider, Link } from 'react-head';
 
-const GlobalStyles = createGlobalStyle<P>`
-  @import url("https://webfonts.artsy.net/all-webfonts.css");
-`
+const App = () => (
+  <HeadProvider>
+    <Link
+      href="https://webfonts.artsy.net/all-webfonts.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </HeadProvider>
+);
+```
 
-// React Helmet example:
+### Using [React Helmet](https://github.com/nfl/react-helmet)
+
+```
+import {Helmet} from "react-helmet";
+
 <Helmet>
   <link
     href="https://webfonts.artsy.net/all-webfonts.css"
@@ -77,4 +89,14 @@ const GlobalStyles = createGlobalStyle<P>`
     type="text/css"
   />
 </Helmet>
+```
+
+### Using [Styled Components](https://www.styled-components.com/docs/api#createglobalstyle)
+
+```
+import { createGlobalStyle } from "styled-components"
+
+const GlobalStyles = createGlobalStyle`
+  @import url("https://webfonts.artsy.net/all-webfonts.css");
+`
 ```
