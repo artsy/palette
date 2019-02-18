@@ -10,7 +10,6 @@ export function injectGlobalStyles<P>(
   additionalStyles?: string | ReturnType<typeof css>
 ) {
   const GlobalStyles = createGlobalStyle<P>`
-    @import url("https://webfonts.artsy.net/all-webfonts.css");
 
     *:focus {
       outline: none;

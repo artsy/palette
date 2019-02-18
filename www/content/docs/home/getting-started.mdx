@@ -2,6 +2,7 @@
 name: Getting started
 hideInNav: false
 ---
+
 ### Adding Palette
 
 To bring Palette into your app, install it as a package:
@@ -22,7 +23,7 @@ const { GlobalStyles } = injectGlobalStyles(`
 
 export const App = props => {
   return (
-    <Theme>      
+    <Theme>
       <>
         <GlobalStyles />
         ...
@@ -55,4 +56,25 @@ const Artworks = props => {
     </Flex>
   )
 }
+```
+
+In order to use Artsy's fonts, you'll also want to add our webfont file to the
+CSS in the header of your app:
+
+```
+// Example using Styled Components:
+import { createGlobalStyle, css } from "styled-components"
+
+const GlobalStyles = createGlobalStyle<P>`
+  @import url("https://webfonts.artsy.net/all-webfonts.css");
+`
+
+// React Helmet example:
+<Helmet>
+  <link
+    href="https://webfonts.artsy.net/all-webfonts.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+</Helmet>
 ```
