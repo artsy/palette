@@ -1,3 +1,17 @@
+# v3.0.5 (Tue Feb 19 2019)
+
+#### 🏠  Internal
+
+- The Link color was not used properly in docs. Correcting that. [#294](https://github.com/artsy/palette/pull/294) ([@oxaudo](https://github.com/oxaudo))
+- Update yarn orb to v0.1.7 [#293](https://github.com/artsy/palette/pull/293) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v3.0.4 (Thu Feb 14 2019)
 
 #### 🐛  Bug Fix
