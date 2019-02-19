@@ -15,7 +15,7 @@ export const CloseIcon: React.SFC<IconProps> = ({ fill, ...props }) => (
     <path
       fill={color(fill)}
       fillRule="nonzero"
-      d="M5.03 5.904L.189.986 1.159 0 6 4.919 10.841 0l.97.986L6.97 5.904l5.03 5.11-.97.986L6 6.89.97 12 0 11.014l5.03-5.11z"
+      d="M5.03 5.9L.19 1 1.16 0 6 4.92 10.84 0l.97.99L6.97 5.9 12 11.01l-.97.99L6 6.89.97 12 0 11.01l5.03-5.1z"
       {...props}
     />
   </Icon>

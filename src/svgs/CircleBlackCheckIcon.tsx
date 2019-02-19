@@ -15,19 +15,14 @@ export class CircleBlackCheckIcon extends Component<any> {
         xmlns="http://www.w3.org/2000/svg"
         {...rest}
       >
-        <g id="QA" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-          <g id="Group-Copy">
-            <g id="Group-3" fill="#000000">
-              <circle id="Oval-73" cx="13" cy="13" r="13" />
-            </g>
-            <polyline
-              id="Path-245"
-              stroke="#FFFFFF"
-              strokeWidth="2"
-              strokeLinecap="square"
-              points="8 13.7749468 11.2145042 16.989451 17.2039552 11"
-            />
-          </g>
+        <g fill="none" fill-rule="evenodd">
+          <circle cx="13" cy="13" r="13" fill="#000" />
+          <path
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="square"
+            d="M8 13.77L11.21 17l6-5.99"
+          />
         </g>
       </Icon>
     )
