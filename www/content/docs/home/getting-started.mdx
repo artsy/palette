@@ -2,6 +2,7 @@
 name: Getting started
 hideInNav: false
 ---
+
 ### Adding Palette
 
 To bring Palette into your app, install it as a package:
@@ -22,7 +23,7 @@ const { GlobalStyles } = injectGlobalStyles(`
 
 export const App = props => {
   return (
-    <Theme>      
+    <Theme>
       <>
         <GlobalStyles />
         ...
@@ -55,4 +56,47 @@ const Artworks = props => {
     </Flex>
   )
 }
+```
+
+In order to use Artsy's fonts, you'll also want to add our webfont file to the
+CSS in the header of your app. Here are a few examples:
+
+### Using [react-head](https://github.com/tizmagik/react-head) (see [here](https://github.com/tizmagik/react-head/tree/master/example) for more examples)
+
+```
+import { HeadProvider, Link } from 'react-head';
+
+const App = () => (
+  <HeadProvider>
+    <Link
+      href="https://webfonts.artsy.net/all-webfonts.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </HeadProvider>
+);
+```
+
+### Using [React Helmet](https://github.com/nfl/react-helmet)
+
+```
+import {Helmet} from "react-helmet";
+
+<Helmet>
+  <link
+    href="https://webfonts.artsy.net/all-webfonts.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+</Helmet>
+```
+
+### Using [Styled Components](https://www.styled-components.com/docs/api#createglobalstyle)
+
+```
+import { createGlobalStyle } from "styled-components"
+
+const GlobalStyles = createGlobalStyle`
+  @import url("https://webfonts.artsy.net/all-webfonts.css");
+`
 ```

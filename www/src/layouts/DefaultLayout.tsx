@@ -25,6 +25,11 @@ export default function DocsLayout(props) {
       <Flex maxWidth="1200px" style={{ margin: "0 auto" }}>
         <Helmet defaultTitle="Palette" titleTemplate="Palette | %s">
           <title>{name}</title>
+          <link
+            href="https://webfonts.artsy.net/all-webfonts.css"
+            rel="stylesheet"
+            type="text/css"
+          />
         </Helmet>
         <Sidebar />
         <ContentArea flexDirection="column" pt={4} px={6}>
