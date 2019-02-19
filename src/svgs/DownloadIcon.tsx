@@ -20,11 +20,11 @@ export const DownloadIcon: React.SFC<IconProps> = ({
       {...props}
     >
       <title>Download</title>
-      <g id="icon_download" fill="none" fill-rule="evenodd">
+      <g id="icon_download" fill="none" fillRule="evenodd">
         <path d="M0 0h18v18H0z" />
         <g fill={fill}>
           <path
-            fill-rule="nonzero"
+            fillRule="nonzero"
             d="M9.25 11.84L5.63 8.22l.63-.64 2.54 2.55V3.1h.9v7.03l2.54-2.55.63.64z"
           />
           <path d="M3 10h1v4h10.02v-4h1v5H3z" />

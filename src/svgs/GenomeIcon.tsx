@@ -19,7 +19,7 @@ export const GenomeIcon: React.SFC<IconProps> = ({
       {...props}
     >
       <title>Genome</title>
-      <g id="icon_genome" fill="none" fill-rule="evenodd">
+      <g id="icon_genome" fill="none" fillRule="evenodd">
         <path d="M0 0h18v18H0z" />
         <g fill={fill}>
           <path d="M7.975 11c-.053-.327.033-.66.257-1H9a2 2 0 1 0 0-4H6a2 2 0 0 0-.724 3.865 2.636 2.636 0 0 0-.116 1.016A3.001 3.001 0 0 1 6 5h3a3 3 0 1 1 0 6H7.975z" />

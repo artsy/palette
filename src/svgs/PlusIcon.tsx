@@ -14,7 +14,7 @@ export class PlusIcon extends Component<any> {
         xmlns="http://www.w3.org/2000/svg"
         {...rest}
       >
-        <g transform="translate(0 .38)" fill="none" fill-rule="evenodd">
+        <g transform="translate(0 .38)" fill="none" fillRule="evenodd">
           <circle fill="#000" cx="13" cy="13" r="13" />
           <g fill="#FFF">
             <path d="M12 7h2v12h-2z" />

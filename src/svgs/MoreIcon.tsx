@@ -20,7 +20,7 @@ export const MoreIcon: React.SFC<MoreIconProps> = ({
       {...props}
     >
       <title>More</title>
-      <g id="Symbols" fill="none" fill-rule="evenodd">
+      <g id="Symbols" fill={fill || "none"} fillRule="evenodd">
         <path fill="#FFF" opacity=".1" d="M0 0h18v18H0z" />
         <g transform="translate(3 8)" stroke={fill || "#000000"}>
           <circle cx="1" cy="1" r="1.5" />

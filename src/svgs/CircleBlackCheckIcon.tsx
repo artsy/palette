@@ -15,12 +15,12 @@ export class CircleBlackCheckIcon extends Component<any> {
         xmlns="http://www.w3.org/2000/svg"
         {...rest}
       >
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <circle cx="13" cy="13" r="13" fill="#000" />
           <path
             stroke="#FFF"
-            stroke-width="2"
-            stroke-linecap="square"
+            strokeWidth="2"
+            strokeLinecap="square"
             d="M8 13.77L11.21 17l6-5.99"
           />
         </g>
