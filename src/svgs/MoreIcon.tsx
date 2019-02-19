@@ -20,34 +20,12 @@ export const MoreIcon: React.SFC<MoreIconProps> = ({
       {...props}
     >
       <title>More</title>
-      <g
-        id="Symbols"
-        stroke="none"
-        strokeWidth="1"
-        fill={fill || "none"}
-        fillRule="evenodd"
-      >
-        <g id="icon_more">
-          <g id="Group-13">
-            <rect
-              id="Rectangle"
-              fill="#FFFFFF"
-              opacity="0.100000001"
-              x="0"
-              y="0"
-              width="18"
-              height="18"
-            />
-            <g
-              id="Group-14"
-              transform="translate(3.000000, 8.000000)"
-              stroke={fill || "#000000"}
-            >
-              <circle id="Oval" cx="1" cy="1" r="1.5" />
-              <circle id="Oval" cx="6" cy="1" r="1.5" />
-              <circle id="Oval" cx="11" cy="1" r="1.5" />
-            </g>
-          </g>
+      <g id="Symbols" fill={fill || "none"} fillRule="evenodd">
+        <path fill="#FFF" opacity=".1" d="M0 0h18v18H0z" />
+        <g transform="translate(3 8)" stroke={fill || "#000000"}>
+          <circle cx="1" cy="1" r="1.5" />
+          <circle cx="6" cy="1" r="1.5" />
+          <circle cx="11" cy="1" r="1.5" />
         </g>
       </g>
     </Icon>
