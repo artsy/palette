@@ -210,9 +210,7 @@ const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
     return `
       cursor: ${cursor};
     `
-  }}
-
-  &:hover {
+  }} &:hover {
     text-decoration: none;
   }
 

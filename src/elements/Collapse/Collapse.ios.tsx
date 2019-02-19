@@ -1,6 +1,6 @@
 import React from "react"
 import { View } from "react-native"
-import { animated, Spring } from "react-spring/dist/native.cjs.js"
+import { animated, Spring } from "react-spring/renderprops"
 
 const AnimatedView = animated(View)
 
