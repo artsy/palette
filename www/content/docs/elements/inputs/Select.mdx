@@ -1,0 +1,83 @@
+---
+name: Select
+---
+
+import { Value } from "react-powerplug"
+
+Our default dropdown style. When dropdown is active, display system dropdown
+list. When possible, dropdowns should default to a placeholder as to not force
+users into decisions. Occasionally, we default users to a selection for the sake
+of user-benefitting product strategy.
+
+<Box>
+  <Serif size="3">Title</Serif>
+  <LargeSelect
+    options={[
+      {
+        text: "Most Recent",
+        value: "mostRecent",
+      },
+    ]}
+  />
+</Box>
+
+<Spacer my={2} />
+
+<Box>
+  <Serif size="3">Title</Serif>
+  <Serif size="2">Short description</Serif>
+  <LargeSelect
+    options={[
+      {
+        text: "Most Recent",
+        value: "mostRecent",
+      },
+    ]}
+  />
+</Box>
+
+<Spacer my={6} />
+
+### Error state
+
+<Playground>
+  <Value>
+    {({ value = "badValue", set }) => {
+      const error = value === "goodValue" ? "" : "Error Message"
+      return (
+        <LargeSelect
+          error={error}
+          options={[
+            {
+              text: "Good",
+              value: "goodValue",
+            },
+            {
+              text: "Bad",
+              value: "badValue",
+            },
+          ]}
+          selected={value}
+          onSelect={value => set(value)}
+        />
+      )
+    }}
+  </Value>
+</Playground>
+
+### Small select
+
+<Playground>
+  <SmallSelect
+    options={[
+      {
+        text: "Price",
+        value: "price",
+      },
+      {
+        text: "Estimate",
+        value: "estimate",
+      },
+    ]}
+  />
+</Playground>

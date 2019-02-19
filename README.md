@@ -1,6 +1,10 @@
-# @artsy/palette [![CircleCI](https://circleci.com/gh/artsy/palette.svg?style=shield)](https://circleci.com/gh/artsy/palette) [![npm version](https://badge.fury.io/js/%40artsy%2Fpalette.svg)](https://www.npmjs.com/package/@artsy/palette)
+# @artsy/palette [![CircleCI](https://circleci.com/gh/artsy/palette.svg?style=shield)](https://circleci.com/gh/artsy/palette) [![npm version](https://badge.fury.io/js/%40artsy%2Fpalette.svg)](https://www.npmjs.com/package/@artsy/palette) [![Netlify Status](https://api.netlify.com/api/v1/badges/beb9e8d7-10cc-4a2e-99bb-0d4c6f46db82/deploy-status)](https://app.netlify.com/sites/artsy-palette/deploys)
 
 Artsy's Design System
+
+## Meta
+
+- Point People: @damassi, @zephraph, @l2succes
 
 ## What is Palette?
 
@@ -19,35 +23,26 @@ If the above guidance still doesn't give you a good sense of what to do, please 
 If you'd like to add a new component to Palette please create an issue using the component spec template. That'll give both design and engineering a chance
 to peek at the proposal and provide feedback before moving forward.
 
+## Local development
+
+        $ yarn docs
+        $ open http://localhost:8000/
+
+        $ yarn link
+        $ yarn watch
+
 ## Deployment process
 
 ### Commits and Deployments
 
-Circle CI is set up to publish releases to NPM automatically via [semantic-release](https://github.com/semantic-release/semantic-release) following every successful merge to master.
+Palette uses [auto-release](https://github.com/intuit/auto-release#readme) to automatically release on every PR. Every PR should have a label that matches one of the following
 
-Release versions (major, minor, patch) are triggered [by commit messages](https://github.com/semantic-release/semantic-release#commit-message-format), when they adhere to [Ember conventions](https://github.com/conventional-changelog/conventional-changelog/blob/master/packages/conventional-changelog-ember/README.md):
+- Version: Trivial
+- Version: Patch
+- Version: Minor
+- Version: Major
 
-```
-[TAG context] commit message
-```
+Major, minor, and patch will cause a new release to be generated. Use major for breaking changes, minor for new non-breaking features,
+and patch for bug fixes. Trivial will not cause a release and should be used when updating documentation or non-project code.
 
-[Valid tags](https://github.com/artsy/palette/blob/master/package.json#L10) for release include PATCH, DOC, FIX (patch), FEATURE (minor), and BREAKING (major). A context is also required. Commits that do not adhere to this convention will not trigger an NPM release.
-
-##### Example Patch Release
-
-```
-[FIX typeface] Add missing unit
-[PATCH tooling] Bump version
-```
-
-##### Example Minor (Feature) Release
-
-```
-[FEATURE ios] Add View primitive
-```
-
-##### Example Major (Breaking) Release
-
-```
-[BREAKING refactor] Update API to support new platform
-```
+If you don't want to release on a particular PR but the changes aren't trivial then use the `Skip Release` tag along side the appropriate version tag.

@@ -1,0 +1,119 @@
+---
+name: Button
+---
+
+Primary buttons should be used for the primary desired user action. Do not use 2
+primary buttons in the same screen. If there are multiple parimary options, use
+secondary-gray.
+
+<Playground>
+  <Button>Purchase</Button>
+</Playground>
+
+Our secondary-outline is our default secondary button style. Avoid using this in
+the presence of inputs, as to not confuse it’s use.
+
+<Playground>
+  <Box>
+    <Button width="33%">Purchase</Button>
+    <Spacer mb={1} />
+    <Button variant="secondaryGray" width="33%">
+      Make offer
+    </Button>
+  </Box>
+</Playground>
+
+In the presence of inputs, use secondary-gray for the secondary button style.
+
+<Playground layout="horizontal">
+  <BorderBox>
+    <Box p={1} width="50%">
+      <Sans size="3">Section</Sans>
+    </Box>
+    <Flex flexDirection="column" width="50%">
+      <BorderBox mb={1}>Input text</BorderBox>
+      <BorderBox mb={1}>Input text</BorderBox>
+      <Button variation="secondary">Add another</Button>
+    </Flex>
+  </BorderBox>
+</Playground>
+
+<Spacer mb={4} />
+
+## All Variants
+
+<Playground title="primaryBlack" showToggle={true} expanded={false}>
+  <>
+    <Button variant="primaryBlack" size="small" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="primaryBlack" size="medium" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="primaryBlack" size="large" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="primaryBlack" size="large" m={0.5} loading>
+      Follow
+    </Button>
+    <Button variant="primaryBlack" size="large" m={0.5} disabled>
+      Follow
+    </Button>
+  </>
+</Playground>
+
+<Playground title="secondaryGray" showToggle={true} expanded={false}>
+  <>
+    <Button variant="secondaryGray" size="small" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="secondaryGray" size="medium" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="secondaryGray" size="large" m={0.5}>
+      Follow
+    </Button>
+  </>
+</Playground>
+
+<Playground title="secondaryOutline" showToggle={true} expanded={false}>
+  <>
+    <Button variant="secondaryOutline" size="small" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="secondaryOutline" size="medium" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="secondaryOutline" size="large" m={0.5}>
+      Follow
+    </Button>
+  </>
+</Playground>
+
+<Playground title="primaryWhite" showToggle={true} expanded={false}>
+  <Box bg="black" p={1} m={0.5}>
+    <Button variant="primaryWhite" size="small" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="primaryWhite" size="medium" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="primaryWhite" size="large" m={0.5}>
+      Follow
+    </Button>
+  </Box>
+</Playground>
+
+<Playground title="noOutline" showToggle={true} expanded={false}>
+  <>
+    <Button variant="noOutline" size="small" m={0.5}>
+      Reset
+    </Button>
+    <Button variant="noOutline" size="medium" m={0.5}>
+      Reset
+    </Button>
+    <Button variant="noOutline" size="large" m={0.5}>
+      Reset
+    </Button>
+  </>
+</Playground>

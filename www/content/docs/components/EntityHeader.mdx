@@ -1,0 +1,45 @@
+---
+name: EntityHeader
+---
+
+<Playground showEditor={true}>
+  <EntityHeader
+    imageUrl="https://picsum.photos/110/110/?random"
+    initials="FD"
+    name="Francesca DiMattio"
+    meta="American, b. 1979"
+    href="http://www.artsy.net/artist/francesca-dimattio"
+    FollowButton={
+      <Sans size="2" weight="medium" color="black">
+        Follow
+      </Sans>
+    }
+  />
+</Playground>
+
+When no `imageURL` is provided it will defer to the `initials` prop:
+
+<Playground>
+  <EntityHeader
+    initials="FD"
+    name="Francesca DiMattio"
+    meta="American, b. 1979"
+    href="http://www.artsy.net/artist/francesca-dimattio"
+    FollowButton={
+      <Sans size="2" weight="medium" color="black">
+        Follow
+      </Sans>
+    }
+  />
+</Playground>
+
+<Playground>
+  <EntityHeader
+    imageUrl="https://picsum.photos/110/110/?random"
+    name="Francesca DiMattio"
+  />
+</Playground>
+
+<Playground>
+  <EntityHeader name="Francesca DiMattio" />
+</Playground>

@@ -6,7 +6,8 @@
   },
   "search.exclude": {
     "**/node_modules": true,
-    "**/dist": true
+    "**/dist": true,
+    "**/public": true
   },
   "editor.rulers": [80],
   "editor.tabSize": 2,
@@ -15,5 +16,7 @@
     "editor.formatOnSave": false
   },
   "tslint.autoFixOnSave": true,
-  "typescript.tsdk": "./node_modules/typescript/lib"
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "eslint.enable": false,
+  "debug.node.autoAttach": "on"
 }

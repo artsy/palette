@@ -16,3 +16,5 @@ export const BorderBox = styledWrapper(BorderBoxBase)<BorderBoxProps>`
       }
     `};
 `
+
+BorderBox.displayName = "BorderBox"

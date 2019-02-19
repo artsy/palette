@@ -78,3 +78,5 @@ export const Flex = primitives.View<FlexProps>`
   ${bottom};
   ${zIndex};
 `
+
+Flex.displayName = "Flex"

@@ -1,0 +1,56 @@
+---
+name: Link
+---
+
+Whenever possible, links should be visually obvious and explict, and should
+never be a suprise functionality within a string of text. Use strategic product
+judgement when deciding which link style (underline, no-underline) is
+appropriate.
+
+Underline is more visible and should therefore be used in the presence with lots
+of static text.
+
+<BorderBox width="100%" justifyContent="center">
+  <Serif size="3">
+    I agree to Artsy’s <Link href="foo">Privacy Policy</Link>.
+  </Serif>
+</BorderBox>
+
+<Spacer my={4} />
+
+The prop `noUnderline` should be used when there is available dedicated space,
+many links together, with low chance of confusion for static text.
+
+<Playground>
+  <Flex justifyContent="center">
+    <Flex width="30%" justifyContent="space-between">
+      <Link href="#" noUnderline={true}>
+        Delete artwork
+      </Link>
+      <Link href="#" noUnderline={true}>
+        Publish artwork
+      </Link>
+    </Flex>
+  </Flex>
+</Playground>
+
+Use color-link when needing to call attention to something vital and a button
+isn’t compositionally appropriate. Use sparingly.
+
+<Playground layout="vertical">
+  <Flex justifyContent="center">
+    <BorderBox width="30%">
+      <Flex justifyContent="space-between" width="100%" alignItems="center">
+        <Box>
+          <Sans size="2" weight="medium">
+            Title
+          </Sans>
+          <Sans size="2">Subtitle</Sans>
+        </Box>
+        <Link href="#" color="purple100" noUnderline>
+          Edit
+        </Link>
+      </Flex>
+    </BorderBox>
+  </Flex>
+</Playground>

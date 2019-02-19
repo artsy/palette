@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 import { color, space } from "../../helpers"
 import { Flex, FlexProps } from "../Flex"
 
-import { Check } from "../../svgs"
+import { CheckIcon } from "../../svgs"
 
 import {
   BorderProps,
@@ -78,7 +78,7 @@ export class Checkbox extends React.Component<CheckboxProps> {
           error={error}
           disabled={disabled}
         >
-          <Check stroke={this.iconColor()} />
+          <CheckIcon fill={this.iconColor()} />
         </CheckboxButton>
         <Label style={this.labelColor()}>{children}</Label>
       </Container>

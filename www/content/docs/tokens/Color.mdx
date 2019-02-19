@@ -1,0 +1,20 @@
+---
+name: Color
+---
+
+See [Notion](https://www.notion.so/artsy/Color-a0c24896daf8433d9409aee2146ac267)
+for more detailed spec.
+
+<Box>
+  {Object.entries(themeProps.colors).map(([colorCode, hex], index) => {
+    return (
+      <Box mb={3} key={index}>
+        <Sans size="3" weight="medium">
+          {colorCode}
+        </Sans>
+        <Sans size="3">{hex}</Sans>
+        <Box width="100%" height={5} bg={colorCode} />
+      </Box>
+    )
+  })}
+</Box>

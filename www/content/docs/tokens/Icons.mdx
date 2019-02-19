@@ -1,0 +1,34 @@
+---
+name: Icons
+status: wip
+---
+
+import { AllIcons } from "@artsy/palette"
+import _ from "lodash"
+
+See [Notion](https://www.notion.so/artsy/Icons-c49c292a40e243baacd7842a4de983d4)
+for complete list.
+
+<Spacer my={4} />
+
+<Flex flexWrap="wrap">
+  {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
+    const blacklist = ["Icon"]
+    if (
+      !_.isFunction(IconComponent) ||
+      blacklist.some(icon => icon === iconName)
+    ) {
+      return null
+    }
+    const size = "40px"
+    return (
+      <Box pr={4} pb={2} mb={4} key={index}>
+        <IconComponent width={size} height={size} />
+        <Separator my={1} />
+        <Sans size="3" weight="medium">
+          {iconName}
+        </Sans>
+      </Box>
+    )
+  })}
+</Flex>

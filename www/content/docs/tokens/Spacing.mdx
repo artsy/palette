@@ -1,0 +1,67 @@
+---
+name: Spacing
+subNavOrder: 1
+---
+
+### Theme
+
+https://github.com/artsy/palette/blob/master/src/Theme.tsx#L116
+
+### API
+
+https://github.com/jxnblk/styled-system/blob/master/docs/api.md#space
+
+See
+[Notion](https://www.notion.so/artsy/Spacing-93eeaed9fdf9480099fec7094fd1b9f3)
+for complete spec.
+
+### Base grid
+
+We employ a base-10px grid for consistent vertical rhythm.
+
+<img width="100%" src="/assets/spacing-base-10.png" />
+
+### Spacing units
+
+Spacing units are set in multiples of 10px.
+
+<Flex>
+  <Box>
+
+## Example
+
+When building layouts and components, palette hooks into a
+[Theme file](https://github.com/artsy/palette/blob/master/src/Theme.tsx#L116)
+for returning values. This allows us to constrain the possibilities available to
+a component to only what's defined in our spacing system and thus reduce drift.
+
+This means that in practice one should rarely use concrete pixel values:
+
+  </Box>
+  <Box pl={4}>
+    <img
+      width="100%"
+      style={{ float: "right" }}
+      src="/assets/spacing-size-units.png"
+    />
+  </Box>
+</Flex>
+
+### Avoid this
+
+<Playground layout="horizontal">
+  <BorderBox mt="10px" p="20px">
+    <Button>View more</Button>
+  </BorderBox>
+</Playground>
+
+### Good
+
+<Playground layout="horizontal">
+  <BorderBox mt={1} p={2}>
+    <Button variant="secondaryOutline">View more</Button>
+  </BorderBox>
+</Playground>
+
+Since units use ten pixels as the base, `1` equals `10px`, `2` equals `20px`,
+`.5` equals `5px` (and so on).

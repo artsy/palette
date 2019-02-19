@@ -1,0 +1,31 @@
+---
+name: PriceRange
+---
+
+All `PriceRange` props are passed to the underlying [Slider](#/docs-slider)
+component.
+
+<Playground>
+  <PriceRange
+    min={1}
+    max={100}
+    step={1}
+    defaultValue={[1, 100]}
+    disabled={false}
+  />
+</Playground>
+
+### With non-default currency code
+
+Defaults to USD.
+
+<Playground>
+  <PriceRange
+    min={10}
+    max={100}
+    step={10}
+    defaultValue={[10, 100]}
+    disabled={false}
+    currency="EUR"
+  />
+</Playground>

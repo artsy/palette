@@ -9,13 +9,11 @@ export interface LinkProps extends SpaceProps {
 }
 
 /**
- * Basic a tag
+ * Basic <a> tag styled with additional LinkProps
  * Spec: https://zpl.io/2Gm6D3d
  */
 export const Link = styled.a<LinkProps>`
-  ${space};
-  ${styledColor};
-  cursor: pointer;
+  color: ${color("black100")};
   transition: color 0.25s;
   text-decoration: ${props =>
     props.noUnderline || props.color ? "none" : "underline"};
@@ -24,7 +22,10 @@ export const Link = styled.a<LinkProps>`
     color: ${color("black100")};
   }
   &:focus {
-    border: 1px solid ${color("purple100")};
     color: ${props => (props.color ? color(props.color) : color("black100"))};
   }
+  ${space};
+  ${styledColor};
 `
+
+Link.displayName = "Link"

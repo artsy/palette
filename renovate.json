@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@artsy"
+  ],
+  "assignees": [
+    "zephraph",
+    "damassi",
+    "l2succes"
+  ],
+  "ignorePaths": [
+    "www"
+  ]
+}

@@ -20,10 +20,18 @@
     "completed-docs": [
       true,
       {
-        "functions": { "visibilities": ["exported"] },
-        "classes": { "visibilities": ["exported"] },
-        "types": { "visibilities": ["exported"] },
-        "variables": { "visibilities": ["exported"] }
+        "functions": {
+          "visibilities": ["exported"]
+        },
+        "classes": {
+          "visibilities": ["exported"]
+        },
+        "types": {
+          "visibilities": ["exported"]
+        },
+        "variables": {
+          "visibilities": ["exported"]
+        }
       }
     ]
   }

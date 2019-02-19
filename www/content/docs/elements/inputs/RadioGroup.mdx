@@ -1,0 +1,43 @@
+---
+name: RadioGroup
+---
+
+Use this component when user must make a decision, which may result in
+additional consecutive decisions, or may reveal additional information.
+
+<Playground>
+  <RadioGroup defaultValue="SHIP">
+    <BorderedRadio value="SHIP" label="Provide shipping address" />
+    <BorderedRadio value="PICKUP" label="Arrange for pickup">
+      <Sans size="2" color="black60">
+        After you place your order, you’ll be appointed an Artsy Specialist
+        within 2 business days to handle pickup logistics.
+      </Sans>
+    </BorderedRadio>
+  </RadioGroup>
+</Playground>
+
+<Playground>
+  <RadioGroup>
+    <Radio value="SHIP" label="Provide shipping address" />
+    <Radio value="PICKUP" label="Arrange for pickup" />
+  </RadioGroup>
+</Playground>
+
+### With default value
+
+<Playground>
+  <RadioGroup defaultValue="PICKUP">
+    <Radio value="SHIP" label="Provide shipping address" />
+    <Radio value="PICKUP" label="Arrange for pickup" />
+  </RadioGroup>
+</Playground>
+
+### Disabled
+
+<Playground>
+  <RadioGroup defaultValue="SHIP" disabled>
+    <Radio value="SHIP" label="Provide shipping address" />
+    <Radio value="PICKUP" label="Arrange for pickup" />
+  </RadioGroup>
+</Playground>

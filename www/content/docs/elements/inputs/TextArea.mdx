@@ -1,0 +1,88 @@
+---
+name: TextArea
+---
+
+## Basic
+
+<Playground>
+  <TextArea placeholder="Start typing..." onChange={console.log} />
+</Playground>
+
+## With error
+
+<Playground>
+  <Toggler initial={true}>
+    {({ on, toggle }) => (
+      <>
+        <TextArea
+          error={on ? "There was an error" : null}
+          defaultValue="This is some text"
+          onChange={console.log}
+        />
+        <Spacer mb={3} />
+        <Flex alignItems="center">
+          <Checkbox selected={on} onSelect={toggle} />
+          <Serif size="3">Show error</Serif>
+        </Flex>
+      </>
+    )}
+  </Toggler>
+</Playground>
+
+## With title
+
+<Playground title="With title">
+  <TextArea
+    title="Note"
+    error="There was an error"
+    defaultValue="This is some text"
+    onChange={console.log}
+  />
+</Playground>
+
+## With title and description
+
+<Playground>
+  <TextArea
+    title="Note"
+    description="For your security do not share personal information."
+    defaultValue="This is some text"
+    onChange={console.log}
+  />
+</Playground>
+
+## With character limit
+
+<Playground>
+  <TextArea
+    title="Note"
+    description="For your security do not share personal information."
+    defaultValue="This is some text"
+    characterLimit={200}
+    onChange={console.log}
+  />
+</Playground>
+
+## With character limit and error
+
+<Playground>
+  <Toggler initial={true}>
+    {({ on, toggle }) => (
+      <>
+        <TextArea
+          error={on ? "There was an error" : null}
+          defaultValue="This is some text"
+          characterLimit="322"
+          title="Further details"
+          description="Please provide any further pertinent details to help us assess your case."
+          onChange={console.log}
+        />
+        <Spacer mb={3} />
+        <Flex alignItems="center">
+          <Checkbox selected={on} onSelect={toggle} />
+          <Serif size="3">Show error</Serif>
+        </Flex>
+      </>
+    )}
+  </Toggler>
+</Playground>

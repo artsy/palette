@@ -56,14 +56,14 @@ const verticalAlign = style({
   prop: "verticalAlign",
 })
 
-const fontFamilyHelper = ({ fontFamily }: { fontFamily: FontValue }) => {
-  if (typeof fontFamily === "string") {
-    return `font-family: ${fontFamily}`
+export const renderFontValue = (fontValue: FontValue) => {
+  if (typeof fontValue === "string") {
+    return `font-family: ${fontValue}`
   } else {
-    return [`font-family: ${fontFamily.fontFamily}`]
-      .concat(fontFamily.fontStyle ? `font-style: ${fontFamily.fontStyle}` : [])
+    return [`font-family: ${fontValue.fontFamily}`]
+      .concat(fontValue.fontStyle ? `font-style: ${fontValue.fontStyle}` : [])
       .concat(
-        fontFamily.fontWeight ? `font-weight: ${fontFamily.fontWeight}` : []
+        fontValue.fontWeight ? `font-weight: ${fontValue.fontWeight}` : []
       )
       .join(";\n")
   }
@@ -95,7 +95,7 @@ export interface TextProps
 
 /** Base Text component for typography */
 export const Text = primitives.Text<TextProps>`
-  ${({ fontFamily }) => fontFamily && fontFamilyHelper({ fontFamily })};
+  ${({ fontFamily }) => fontFamily && renderFontValue(fontFamily)};
   ${fontSize};
   ${lineHeight};
   ${color};
@@ -274,3 +274,7 @@ export interface DisplayProps extends Partial<TextProps> {
  * <Display color="black10" size="3t">Hi</Display>
  */
 export const Display = createStyledText<DisplayProps>("display")
+
+Sans.displayName = "Sans"
+Serif.displayName = "Serif"
+Display.displayName = "Display"

@@ -1,0 +1,759 @@
+{
+  "config": {
+    "title": "Palette",
+    "description": "Design system library for react components",
+    "themeConfig": {
+      "colors": {
+        "primary": "#6E1EFF",
+        "sidebarBg": "#F8F8F8"
+      }
+    },
+    "menu": [],
+    "ordering": "descending",
+    "version": "0.1.1",
+    "repository": "https://github.com/artsy/palette",
+    "native": false,
+    "hashRouter": true,
+    "indexHtml": "docs/index.html",
+    "protocol": "http",
+    "typescript": true,
+    "wrapper": "docs/utils/components/Wrapper.tsx"
+  },
+  "entries": {
+    "docs/Avatar.mdx": {
+      "name": "Avatar",
+      "id": "b1a4eb16a5a89f66573ecc55f8d3be41",
+      "filepath": "docs/Avatar.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Avatar.mdx",
+      "slug": "docs-avatar",
+      "route": "/docs-avatar",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "avatar",
+          "value": "Avatar"
+        },
+        {
+          "depth": 2,
+          "slug": "default",
+          "value": "Default"
+        },
+        {
+          "depth": 2,
+          "slug": "with-initials",
+          "value": "With initials"
+        },
+        {
+          "depth": 2,
+          "slug": "extra-small",
+          "value": "Extra Small"
+        },
+        {
+          "depth": 2,
+          "slug": "small",
+          "value": "Small"
+        },
+        {
+          "depth": 2,
+          "slug": "medium",
+          "value": "Medium"
+        }
+      ]
+    },
+    "docs/Banner.mdx": {
+      "name": "Banner",
+      "id": "dfe1e335e0ec3379c33b8cc38d281403",
+      "filepath": "docs/Banner.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Banner.mdx",
+      "slug": "docs-banner",
+      "route": "/docs-banner",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "banner",
+          "value": "Banner"
+        },
+        {
+          "depth": 2,
+          "slug": "status",
+          "value": "Status"
+        },
+        {
+          "depth": 2,
+          "slug": "status-with-custom-background-color",
+          "value": "Status with custom background color"
+        },
+        {
+          "depth": 2,
+          "slug": "dismissable",
+          "value": "Dismissable"
+        },
+        {
+          "depth": 2,
+          "slug": "status-with-wrapped-text",
+          "value": "Status With Wrapped text"
+        },
+        {
+          "depth": 2,
+          "slug": "dismissable-with-wrapped-text",
+          "value": "Dismissable With Wrapped text"
+        }
+      ]
+    },
+    "docs/BorderBox.mdx": {
+      "name": "BorderBox",
+      "id": "b38e2afecb059d2edaf6e7ccec50b691",
+      "filepath": "docs/BorderBox.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/BorderBox.mdx",
+      "slug": "docs-border-box",
+      "route": "/docs-border-box",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "borderbox",
+          "value": "BorderBox"
+        }
+      ]
+    },
+    "docs/Box.mdx": {
+      "name": "Box",
+      "id": "bbdd8dfb3a55d6c88516b06dc13aaa52",
+      "filepath": "docs/Box.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Box.mdx",
+      "slug": "docs-box",
+      "route": "/docs-box",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "box",
+          "value": "Box"
+        }
+      ]
+    },
+    "docs/Button.mdx": {
+      "name": "Button",
+      "id": "68a6b55def5e73bf0a1b7ab2a4a79f62",
+      "filepath": "docs/Button.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Button.mdx",
+      "slug": "docs-button",
+      "route": "/docs-button",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "button",
+          "value": "Button"
+        },
+        {
+          "depth": 2,
+          "slug": "primaryblack",
+          "value": "primaryBlack"
+        },
+        {
+          "depth": 2,
+          "slug": "primarywhite",
+          "value": "primaryWhite"
+        },
+        {
+          "depth": 2,
+          "slug": "secondarygray",
+          "value": "secondaryGray"
+        },
+        {
+          "depth": 2,
+          "slug": "secondaryoutline",
+          "value": "secondaryOutline"
+        },
+        {
+          "depth": 2,
+          "slug": "nooutline",
+          "value": "noOutline"
+        },
+        {
+          "depth": 2,
+          "slug": "full-width",
+          "value": "Full Width"
+        }
+      ]
+    },
+    "docs/Checkbox.mdx": {
+      "name": "Checkbox",
+      "id": "c02f5d6b9f5b87417e51302d1c4da920",
+      "filepath": "docs/Checkbox.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Checkbox.mdx",
+      "slug": "docs-checkbox",
+      "route": "/docs-checkbox",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "checkbox",
+          "value": "Checkbox"
+        },
+        {
+          "depth": 2,
+          "slug": "default",
+          "value": "Default"
+        },
+        {
+          "depth": 2,
+          "slug": "hover",
+          "value": "Hover"
+        },
+        {
+          "depth": 2,
+          "slug": "selected",
+          "value": "Selected"
+        },
+        {
+          "depth": 2,
+          "slug": "disabled",
+          "value": "Disabled"
+        },
+        {
+          "depth": 2,
+          "slug": "selected-and-disabled",
+          "value": "Selected and disabled"
+        },
+        {
+          "depth": 2,
+          "slug": "error",
+          "value": "Error"
+        },
+        {
+          "depth": 2,
+          "slug": "error-with-hover",
+          "value": "Error with hover"
+        },
+        {
+          "depth": 2,
+          "slug": "error-and-selected",
+          "value": "Error and selected"
+        }
+      ]
+    },
+    "docs/Collapse.mdx": {
+      "name": "Collapse",
+      "id": "667adc90d4095ef0a19feae064d327a1",
+      "filepath": "docs/Collapse.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Collapse.mdx",
+      "slug": "docs-collapse",
+      "route": "/docs-collapse",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "collapse",
+          "value": "Collapse"
+        },
+        {
+          "depth": 2,
+          "slug": "open",
+          "value": "Open"
+        },
+        {
+          "depth": 2,
+          "slug": "toggle",
+          "value": "Toggle"
+        }
+      ]
+    },
+    "docs/Colors.mdx": {
+      "name": "Colors",
+      "id": "eec4022b6728ded7b4fe0375e1c3cbb8",
+      "filepath": "docs/Colors.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Colors.mdx",
+      "slug": "docs-colors",
+      "route": "/docs-colors",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "colors",
+          "value": "Colors"
+        }
+      ]
+    },
+    "docs/Flex.mdx": {
+      "name": "Flex",
+      "id": "21479889585d43d0eeb0f9164f6ead74",
+      "filepath": "docs/Flex.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Flex.mdx",
+      "slug": "docs-flex",
+      "route": "/docs-flex",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "flex",
+          "value": "Flex"
+        }
+      ]
+    },
+    "docs/Icons.mdx": {
+      "name": "Icons",
+      "id": "77da1ed063110a499d5586cee3a44173",
+      "filepath": "docs/Icons.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Icons.mdx",
+      "slug": "docs-icons",
+      "route": "/docs-icons",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "icons",
+          "value": "Icons"
+        },
+        {
+          "depth": 2,
+          "slug": "check",
+          "value": "Check"
+        },
+        {
+          "depth": 2,
+          "slug": "closeicon",
+          "value": "CloseIcon"
+        }
+      ]
+    },
+    "docs/Image.mdx": {
+      "name": "Image",
+      "id": "ae52b1bb4de200fa4277d92f79c523ee",
+      "filepath": "docs/Image.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Image.mdx",
+      "slug": "docs-image",
+      "route": "/docs-image",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "image",
+          "value": "Image"
+        },
+        {
+          "depth": 2,
+          "slug": "default-image",
+          "value": "Default Image"
+        },
+        {
+          "depth": 2,
+          "slug": "custom-size",
+          "value": "Custom size"
+        },
+        {
+          "depth": 2,
+          "slug": "responsive-image",
+          "value": "Responsive image"
+        }
+      ]
+    },
+    "docs/Join.mdx": {
+      "name": "Join",
+      "id": "95ce06ac858647fcbe818a92b47b14f3",
+      "filepath": "docs/Join.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Join.mdx",
+      "slug": "docs-join",
+      "route": "/docs-join",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "join",
+          "value": "Join"
+        }
+      ]
+    },
+    "docs/Link.mdx": {
+      "name": "Link",
+      "id": "13cefbd16e1eb1227ad9acf06710f019",
+      "filepath": "docs/Link.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Link.mdx",
+      "slug": "docs-link",
+      "route": "/docs-link",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "link",
+          "value": "Link"
+        }
+      ]
+    },
+    "docs/Message.mdx": {
+      "name": "Message",
+      "id": "8225d2afcff58223b02fc9f2e7114110",
+      "filepath": "docs/Message.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Message.mdx",
+      "slug": "docs-message",
+      "route": "/docs-message",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "message",
+          "value": "Message"
+        }
+      ]
+    },
+    "docs/Radio.mdx": {
+      "name": "Radio",
+      "id": "7d0cc48484b598879aefb14ecadd2d57",
+      "filepath": "docs/Radio.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Radio.mdx",
+      "slug": "docs-radio",
+      "route": "/docs-radio",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "radio",
+          "value": "Radio"
+        },
+        {
+          "depth": 2,
+          "slug": "with-state",
+          "value": "With state"
+        },
+        {
+          "depth": 2,
+          "slug": "hover",
+          "value": "Hover"
+        },
+        {
+          "depth": 2,
+          "slug": "selected",
+          "value": "Selected"
+        },
+        {
+          "depth": 2,
+          "slug": "disabled",
+          "value": "Disabled"
+        },
+        {
+          "depth": 2,
+          "slug": "selected-and-disabled",
+          "value": "Selected and disabled"
+        }
+      ]
+    },
+    "docs/RadioGroup.mdx": {
+      "name": "RadioGroup",
+      "id": "3bafb7138e911d2669cddefb8418ccb0",
+      "filepath": "docs/RadioGroup.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/RadioGroup.mdx",
+      "slug": "docs-radio-group",
+      "route": "/docs-radio-group",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "radiogroup",
+          "value": "RadioGroup"
+        },
+        {
+          "depth": 2,
+          "slug": "default",
+          "value": "Default"
+        },
+        {
+          "depth": 2,
+          "slug": "with-default-value",
+          "value": "With default value"
+        },
+        {
+          "depth": 2,
+          "slug": "disabled-with-default-value",
+          "value": "Disabled with default value"
+        },
+        {
+          "depth": 2,
+          "slug": "bordered-radiogroup",
+          "value": "Bordered RadioGroup"
+        }
+      ]
+    },
+    "docs/Select.mdx": {
+      "name": "Select",
+      "id": "a4c8639c03fc9e4bd96a17ad20b7f8d5",
+      "filepath": "docs/Select.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Select.mdx",
+      "slug": "docs-select",
+      "route": "/docs-select",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "select",
+          "value": "Select"
+        },
+        {
+          "depth": 2,
+          "slug": "largeselect",
+          "value": "LargeSelect"
+        },
+        {
+          "depth": 2,
+          "slug": "disabled-largeselect",
+          "value": "Disabled LargeSelect"
+        },
+        {
+          "depth": 2,
+          "slug": "smallselect",
+          "value": "SmallSelect"
+        },
+        {
+          "depth": 2,
+          "slug": "error-state",
+          "value": "Error State"
+        }
+      ]
+    },
+    "docs/Separator.mdx": {
+      "name": "Separator",
+      "id": "e693cac98dd3c4f6e132507e8ad432ec",
+      "filepath": "docs/Separator.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Separator.mdx",
+      "slug": "docs-separator",
+      "route": "/docs-separator",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "separator",
+          "value": "Separator"
+        }
+      ]
+    },
+    "docs/Slider.mdx": {
+      "name": "Slider",
+      "id": "ad385bc57bfeb413b5e022fc7e6c5748",
+      "filepath": "docs/Slider.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Slider.mdx",
+      "slug": "docs-slider",
+      "route": "/docs-slider",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "slider",
+          "value": "Slider"
+        },
+        {
+          "depth": 2,
+          "slug": "basic",
+          "value": "Basic"
+        },
+        {
+          "depth": 2,
+          "slug": "disabled",
+          "value": "Disabled"
+        },
+        {
+          "depth": 2,
+          "slug": "with-label",
+          "value": "With Label"
+        }
+      ]
+    },
+    "docs/Spacer.mdx": {
+      "name": "Spacer",
+      "id": "17861bc7823ae0869b9c1ae85c8a4ded",
+      "filepath": "docs/Spacer.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Spacer.mdx",
+      "slug": "docs-spacer",
+      "route": "/docs-spacer",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "spacer",
+          "value": "Spacer"
+        }
+      ]
+    },
+    "docs/Spinner.mdx": {
+      "name": "Spinner",
+      "id": "8490e29290170ed1c7d56bcc970da4c6",
+      "filepath": "docs/Spinner.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Spinner.mdx",
+      "slug": "docs-spinner",
+      "route": "/docs-spinner",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "spinner",
+          "value": "Spinner"
+        },
+        {
+          "depth": 2,
+          "slug": "default",
+          "value": "Default"
+        },
+        {
+          "depth": 2,
+          "slug": "small",
+          "value": "Small"
+        },
+        {
+          "depth": 2,
+          "slug": "medium",
+          "value": "Medium"
+        },
+        {
+          "depth": 2,
+          "slug": "large",
+          "value": "Large"
+        },
+        {
+          "depth": 2,
+          "slug": "custom-size",
+          "value": "Custom size"
+        }
+      ]
+    },
+    "docs/StackableBorderBox.mdx": {
+      "name": "StackableBorderBox",
+      "id": "1658ba444707275476632249e00e5837",
+      "filepath": "docs/StackableBorderBox.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/StackableBorderBox.mdx",
+      "slug": "docs-stackable-border-box",
+      "route": "/docs-stackable-border-box",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "stackableborderbox",
+          "value": "StackableBorderBox"
+        }
+      ]
+    },
+    "docs/Tooltip.mdx": {
+      "name": "Tooltip",
+      "id": "2d1a67cd7a0e8157f636b991b87d2aec",
+      "filepath": "docs/Tooltip.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Tooltip.mdx",
+      "slug": "docs-tooltip",
+      "route": "/docs-tooltip",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "tooltip",
+          "value": "Tooltip"
+        },
+        {
+          "depth": 2,
+          "slug": "lg-with-left-aligned-anchor",
+          "value": "Lg with left-aligned anchor"
+        },
+        {
+          "depth": 2,
+          "slug": "lg-with-centered-anchor",
+          "value": "Lg with centered anchor"
+        },
+        {
+          "depth": 2,
+          "slug": "lg-with-right-aligned-anchor",
+          "value": "Lg with right-aligned anchor"
+        },
+        {
+          "depth": 2,
+          "slug": "sm",
+          "value": "Sm"
+        },
+        {
+          "depth": 2,
+          "slug": "sm-with-custom-width",
+          "value": "Sm with custom width"
+        },
+        {
+          "depth": 2,
+          "slug": "lg-with-too-much-content",
+          "value": "Lg with too much content"
+        },
+        {
+          "depth": 2,
+          "slug": "lg-with-too-much-content-and-custom-width",
+          "value": "Lg with too much content and custom width"
+        }
+      ]
+    },
+    "docs/Typography.mdx": {
+      "name": "Typography",
+      "id": "d987779aec4978a6da0abbc1363e9ac1",
+      "filepath": "docs/Typography.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/Typography.mdx",
+      "slug": "docs-typography",
+      "route": "/docs-typography",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "typography",
+          "value": "Typography"
+        },
+        {
+          "depth": 2,
+          "slug": "sans",
+          "value": "Sans"
+        },
+        {
+          "depth": 2,
+          "slug": "serif",
+          "value": "Serif"
+        },
+        {
+          "depth": 2,
+          "slug": "display",
+          "value": "Display"
+        }
+      ]
+    },
+    "docs/index.mdx": {
+      "name": "Introduction",
+      "route": "/",
+      "order": 1,
+      "id": "73498ad0e1e62a714b08085d318f9de1",
+      "filepath": "docs/index.mdx",
+      "link": "https://github.com/artsy/palette/edit/master/docs/index.mdx",
+      "slug": "docs-index",
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "introduction",
+          "value": "Introduction"
+        }
+      ]
+    }
+  }
+}
