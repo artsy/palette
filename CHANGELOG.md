@@ -1,3 +1,15 @@
+# v3.0.8 (Thu Feb 21 2019)
+
+#### 🏠  Internal
+
+- Update yarn orb to v0.1.8 [#299](https://github.com/artsy/palette/pull/299) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 1
+
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v3.0.7 (Tue Feb 19 2019)
 
 
