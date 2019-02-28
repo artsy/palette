@@ -1,7 +1,7 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface MoreIconProps {
+interface MoreIconProps extends IconProps {
   fill?: string
 }
 

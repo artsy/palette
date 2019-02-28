@@ -1,7 +1,7 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface OpenEyeIconProps {
+interface OpenEyeIconProps extends IconProps {
   fill?: string
   onClick?: (e: any) => void
 }

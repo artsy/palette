@@ -1,12 +1,15 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface EditIconProps extends IconProps {
   fill?: string
 }
 
 /** Icon */
-export const EditIcon: React.SFC<IconProps> = ({ fill = "#000", ...props }) => {
+export const EditIcon: React.SFC<EditIconProps> = ({
+  fill = "#000",
+  ...props
+}) => {
   return (
     <Icon
       width="18"

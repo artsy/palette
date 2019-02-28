@@ -1,14 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import { color, space } from "../helpers"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 interface WeChatIconState {
   hover: boolean
 }
 
 /** Icon */
-export class WeChatIcon extends React.Component<any, WeChatIconState> {
+export class WeChatIcon extends React.Component<IconProps, WeChatIconState> {
   constructor(props) {
     super(props)
     this.state = {

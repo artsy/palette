@@ -1,12 +1,12 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface GenomeIconProps extends IconProps {
   fill?: string
 }
 
 /** Icon */
-export const GenomeIcon: React.SFC<IconProps> = ({
+export const GenomeIcon: React.SFC<GenomeIconProps> = ({
   fill = "#000",
   ...props
 }) => {

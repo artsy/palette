@@ -1,8 +1,8 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 /** Icon */
-export const TopEstablishedIcon: React.SFC = props => {
+export const TopEstablishedIcon: React.SFC<IconProps> = props => {
   return (
     <Icon width="25" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd">

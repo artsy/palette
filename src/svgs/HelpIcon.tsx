@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 /** Icon */
-export class HelpIcon extends Component {
+export class HelpIcon extends Component<IconProps> {
   render() {
     return (
       <Icon

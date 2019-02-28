@@ -17,8 +17,9 @@ import {
 // : React.SVGProps<SVGSVGElement>
 
 // tslint:disable-next-line:no-empty-interface
-interface IconProps
-  extends SpaceProps,
+export interface IconProps
+  extends React.SVGProps<any>,
+    SpaceProps,
     PositionProps,
     TopProps,
     RightProps,

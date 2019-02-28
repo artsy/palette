@@ -1,9 +1,15 @@
 import React from "react"
 import styled from "styled-components"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
+
+interface ClosedEyeIconProps extends IconProps {
+  width: number | string
+  height: number | string
+  className?: string
+}
 
 /** Icon */
-export const ClosedEyeIcon = ({
+export const ClosedEyeIcon: React.SFC<ClosedEyeIconProps> = ({
   width = 20,
   height = 20,
   className = "",

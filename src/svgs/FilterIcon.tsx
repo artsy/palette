@@ -1,13 +1,13 @@
 import React from "react"
 import { color } from "../helpers"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface FilterIconProps extends IconProps {
   fill: string
 }
 
 /** Icon */
-export const FilterIcon = ({ fill, ...props }: IconProps) => (
+export const FilterIcon: React.SFC<FilterIconProps> = ({ fill, ...props }) => (
   <Icon width="17px" height="14px" viewBox="0 0 17 14" version="1.1" {...props}>
     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g
