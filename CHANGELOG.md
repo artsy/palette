@@ -1,3 +1,15 @@
+# v3.0.10 (Thu Feb 28 2019)
+
+#### 🐛  Bug Fix
+
+- Add types to Icons [#303](https://github.com/artsy/palette/pull/303) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.0.9 (Thu Feb 28 2019)
 
 #### 🐛  Bug Fix
