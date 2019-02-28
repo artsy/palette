@@ -1,8 +1,8 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 /** Icon */
-export const LockIcon = props => (
+export const LockIcon: React.SFC<IconProps> = props => (
   <Icon viewBox="0 0 9 12" width={9} height={12} fill="none" {...props}>
     <path
       fillRule="evenodd"

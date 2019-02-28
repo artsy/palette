@@ -1,9 +1,9 @@
 import React from "react"
 import { color } from "../helpers"
 import { Color } from "../Theme"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface CheckIconProps extends IconProps {
   fill?: Color
   /** Apply additional styles to component */
   style?: object
@@ -13,7 +13,7 @@ interface IconProps {
 /**
  * A Check
  */
-export const CheckIcon: React.SFC<IconProps> = ({
+export const CheckIcon: React.SFC<CheckIconProps> = ({
   fill = "black100",
   style = {},
   onClick = (_e: any) => {

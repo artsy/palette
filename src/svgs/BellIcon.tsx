@@ -1,14 +1,14 @@
 import React from "react"
 import { color } from "../helpers"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface BellIconProps extends IconProps {
   fill?: string
   selected?: boolean
 }
 
 /** Icon */
-export const BellIcon: React.SFC<IconProps> = ({
+export const BellIcon: React.SFC<BellIconProps> = ({
   fill = "#000",
   selected = false,
   ...props

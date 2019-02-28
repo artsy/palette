@@ -1,8 +1,13 @@
 import React, { Component } from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
+
+interface CircleWhiteCheckIconProps extends IconProps {
+  width: number | string
+  height: number | string
+}
 
 /** Icon */
-export class CircleWhiteCheckIcon extends Component<any> {
+export class CircleWhiteCheckIcon extends Component<CircleWhiteCheckIconProps> {
   render() {
     const { width, height, ...rest } = this.props
 

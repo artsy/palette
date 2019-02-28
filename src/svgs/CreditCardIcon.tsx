@@ -1,5 +1,5 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 /** https://stripe.com/docs/api#card_object-brand */
 export type CreditCardType =
@@ -9,13 +9,12 @@ export type CreditCardType =
   | "American Express"
   | "Unknown"
 
-/** Icon */
-export const CreditCardIcon = ({
-  type,
-  ...others
-}: React.SVGProps<SVGSVGElement> & {
+interface CreditCardIconProps extends IconProps {
   type?: CreditCardType | string
-}) => {
+}
+
+/** Icon */
+export const CreditCardIcon = ({ type, ...others }: CreditCardIconProps) => {
   switch (type) {
     case "MasterCard":
       return <MastercardIcon {...others} />

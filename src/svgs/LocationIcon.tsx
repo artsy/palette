@@ -1,8 +1,8 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 /** Icon */
-export const LocationIcon = props => (
+export const LocationIcon: React.SFC<IconProps> = props => (
   <Icon
     className="icon__location"
     height="21px"

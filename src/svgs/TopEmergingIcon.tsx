@@ -1,8 +1,8 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 /** Icon */
-export const TopEmergingIcon: React.SFC = props => {
+export const TopEmergingIcon: React.SFC<IconProps> = props => {
   return (
     <Icon width="25" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd">

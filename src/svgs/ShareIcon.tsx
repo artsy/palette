@@ -1,12 +1,12 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface ShareIconProps extends IconProps {
   fill?: string
 }
 
 /** Icon */
-export const ShareIcon: React.SFC<IconProps> = ({ fill = "#000" }) => {
+export const ShareIcon: React.SFC<ShareIconProps> = ({ fill = "#000" }) => {
   return (
     <Icon
       xmlns="http://www.w3.org/2000/svg"

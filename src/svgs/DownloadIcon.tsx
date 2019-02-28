@@ -1,13 +1,13 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface DownloadIconProps extends IconProps {
   fill?: string
   selected?: boolean
 }
 
 /** Icon */
-export const DownloadIcon: React.SFC<IconProps> = ({
+export const DownloadIcon: React.SFC<DownloadIconProps> = ({
   fill = "#000",
   ...props
 }) => {

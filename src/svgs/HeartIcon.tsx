@@ -1,14 +1,14 @@
 import React from "react"
 import { color } from "../helpers"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface HeartIconProps extends IconProps {
   fill?: string
   selected?: boolean
 }
 
 /** Icon */
-export const HeartIcon: React.SFC<IconProps> = ({
+export const HeartIcon: React.SFC<HeartIconProps> = ({
   fill = "#000",
   selected = false,
   ...props

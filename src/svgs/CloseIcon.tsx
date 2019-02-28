@@ -1,16 +1,16 @@
 import React from "react"
 import { color } from "../helpers"
 import { Color } from "../Theme"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
-interface IconProps {
+interface CloseIconProps extends IconProps {
   fill: Color
 }
 
 /**
  * A CloseIcon
  */
-export const CloseIcon: React.SFC<IconProps> = ({ fill, ...props }) => (
+export const CloseIcon: React.SFC<CloseIconProps> = ({ fill, ...props }) => (
   <Icon width="12" height="12" xmlns="http://www.w3.org/2000/svg">
     <path
       fill={color(fill)}

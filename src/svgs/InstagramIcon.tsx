@@ -1,8 +1,8 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 /** Icon */
-export const InstagramIcon = props => (
+export const InstagramIcon: React.SFC<IconProps> = props => (
   <Icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.73 98.73" {...props}>
     <path
       fillRule="evenodd"

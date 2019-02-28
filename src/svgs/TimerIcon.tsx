@@ -1,9 +1,18 @@
 import React from "react"
 import { color } from "../helpers"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
+
+interface TimerIconProps extends IconProps, React.SVGProps<any> {
+  fill?: string
+  width?: number | string
+  height?: number | string
+}
 
 /** Icon */
-export const TimerIcon = ({ fill = "black100", ...others }) => (
+export const TimerIcon: React.SFC<TimerIconProps> = ({
+  fill = "black100",
+  ...others
+}) => (
   <Icon
     className="timer"
     viewBox="0 0 10 12"

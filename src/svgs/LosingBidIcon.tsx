@@ -1,8 +1,8 @@
 import React from "react"
-import { Icon } from "./Icon"
+import { Icon, IconProps } from "./Icon"
 
 /** Icon */
-export const LosingBidIcon = props => (
+export const LosingBidIcon: React.SFC<IconProps> = props => (
   <Icon width="17" height="17" viewBox="0 0 17 17" {...props}>
     <g
       fill="none"
