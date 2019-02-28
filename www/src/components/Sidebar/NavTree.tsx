@@ -1,6 +1,6 @@
 import { Box, ChevronIcon, color, Sans, SansSize, Spacer } from "@artsy/palette"
 import { StatusBadge } from "components/StatusBadge"
-import { graphql, Link, StaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { includes, reject, sortBy } from "lodash"
 import React, { Fragment } from "react"
 import styled from "styled-components"
@@ -9,37 +9,34 @@ import { pathListToTree, TreeNode } from "utils/pathListToTree"
 import { NavState } from "./NavState"
 
 export const NavTree = _props => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query NavTreeQuery {
-          allMdx {
-            edges {
-              node {
-                fields {
-                  route
+  const data = useStaticQuery(
+    graphql`
+      query NavTreeQuery2 {
+        allMdx {
+          edges {
+            node {
+              fields {
+                route
+              }
+              frontmatter {
+                expandSubNav
+                hideInNav
+                navSpacer {
+                  mt
                 }
-                frontmatter {
-                  expandSubNav
-                  hideInNav
-                  navSpacer {
-                    mt
-                  }
-                  name
-                  order
-                  subNavOrder
-                  status
-                }
+                name
+                order
+                subNavOrder
+                status
               }
             }
           }
         }
-      `}
-      render={data => {
-        return renderNavTree(buildNavTree(data))
-      }}
-    />
+      }
+    `
   )
+
+  return renderNavTree(buildNavTree(data))
 }
 
 function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
