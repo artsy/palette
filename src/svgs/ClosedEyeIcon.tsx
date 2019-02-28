@@ -3,8 +3,8 @@ import styled from "styled-components"
 import { Icon, IconProps } from "./Icon"
 
 interface ClosedEyeIconProps extends IconProps {
-  width: number | string
-  height: number | string
+  width?: number | string
+  height?: number | string
   className?: string
 }
 
