@@ -1,3 +1,15 @@
+# v3.0.9 (Thu Feb 28 2019)
+
+#### 🐛  Bug Fix
+
+- Replace `StaticQuery` with Hooks / Upgrade gatsby@2.1.0 [#302](https://github.com/artsy/palette/pull/302) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.0.8 (Thu Feb 21 2019)
 
 #### 🏠  Internal
