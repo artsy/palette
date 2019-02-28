@@ -1,3 +1,15 @@
+# v3.0.11 (Thu Feb 28 2019)
+
+#### 🐛  Bug Fix
+
+- Add optional size type [#304](https://github.com/artsy/palette/pull/304) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.0.10 (Thu Feb 28 2019)
 
 #### 🐛  Bug Fix
