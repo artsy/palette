@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>BasicAction/Logout/Md</title>
+    <desc>Created with Sketch.</desc>
+    <g id="BasicAction/Logout/Md" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(2.500000, 1.000000)"></g>
+        <path d="M7,2.81349938 L7,3.87494031 C4.95132157,4.67500942 3.5,6.66801755 3.5,9 C3.5,12.0375661 5.96243388,14.5 9,14.5 C12.0375661,14.5 14.5,12.0375661 14.5,9 C14.5,6.66801755 13.0486784,4.67500942 11,3.87494031 L11,2.81349938 C13.611264,3.65705636 15.5,6.10795922 15.5,9 C15.5,12.5898509 12.5898509,15.5 9,15.5 C5.41014913,15.5 2.5,12.5898509 2.5,9 C2.5,6.10795922 4.38873598,3.65705636 7,2.81349938 Z M8.5,1 L9.5,1 L9.5,9.2 L8.5,9.2 L8.5,1 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

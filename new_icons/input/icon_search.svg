@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Action/Search/Md</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Action/Search/Md" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Search_final" transform="translate(2.000000, 2.000000)" fill="#000000" fill-rule="nonzero">
+            <path d="M9.5,1 C11.4329966,1 13,2.56700338 13,4.5 C13,6.43299662 11.4329966,8 9.5,8 C7.56700338,8 6,6.43299662 6,4.5 C6,2.56700338 7.56700338,1 9.5,1 L9.5,1 Z M9.5,-4.44085822e-16 C7.01471863,-8.88175032e-16 5,2.01471863 5,4.5 C5,6.98528137 7.01471863,9 9.5,9 C11.9852814,9 14,6.98528137 14,4.5 C14.0026629,3.30571145 13.5294122,2.15957102 12.6849206,1.31507939 C11.840429,0.470587763 10.6942885,-0.00266286065 9.5,-4.44085822e-16 Z M7.44164551,7.5251416 L6.56164551,6.6451416 L0.06,13.06 L0.94,13.94 L7.44164551,7.5251416 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

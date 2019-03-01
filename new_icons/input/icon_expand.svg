@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Action/Expand/Md</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Action/Expand/Md" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(2.000000, 2.000000)" fill="#000000" fill-rule="nonzero">
+            <path d="M13,1.70769821 L8.75991435,5.95983231 L8.05180506,5.25372945 L12.2934816,1 L8,1 L8,0 L14,0 L14,1 L14,6 L13,6 L13,1.70769821 Z" id="arrow"></path>
+            <path d="M5,9.70769821 L0.759914348,13.9598323 L0.0518050633,13.2537295 L4.29348155,9 L0,9 L0,8 L6,8 L6,9 L6,14 L5,14 L5,9.70769821 Z" id="arrow" transform="translate(3.000000, 11.000000) rotate(-180.000000) translate(-3.000000, -11.000000) "></path>
+        </g>
+    </g>
+</svg>
