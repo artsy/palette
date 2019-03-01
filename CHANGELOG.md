@@ -1,3 +1,15 @@
+# v3.0.13 (Fri Mar 01 2019)
+
+#### 🐛  Bug Fix
+
+- Add icons [#306](https://github.com/artsy/palette/pull/306) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.0.12 (Fri Mar 01 2019)
 
 #### 🐛  Bug Fix
