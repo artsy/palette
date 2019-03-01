@@ -7,6 +7,8 @@ import {
   AlignItemsProps,
   bottom,
   BottomProps,
+  display,
+  DisplayProps,
   flexBasis,
   FlexBasisProps,
   flexDirection,
@@ -42,17 +44,18 @@ const flexGrow = style({
 export interface FlexProps
   extends AlignItemsProps,
     AlignContentProps,
+    BottomProps,
+    DisplayProps,
     FlexBasisProps,
     FlexDirectionProps,
     FlexWrapProps,
-    JustifyContentProps,
-    SpaceProps,
     HeightProps,
-    WidthProps,
+    JustifyContentProps,
     MaxHeightProps,
     MaxWidthProps,
     PositionProps,
-    BottomProps,
+    SpaceProps,
+    WidthProps,
     ZIndexProps {
   flexGrow?: number | string
 }
@@ -64,18 +67,19 @@ export const Flex = primitives.View<FlexProps>`
   display: flex;
   ${alignContent};
   ${alignItems};
+  ${bottom};
+  ${display};
   ${flexBasis};
   ${flexDirection};
   ${flexGrow};
   ${flexWrap};
-  ${justifyContent};
-  ${space};
   ${height};
+  ${justifyContent};
   ${maxHeight};
-  ${width};
   ${maxWidth};
   ${position};
-  ${bottom};
+  ${space};
+  ${width};
   ${zIndex};
 `
 
