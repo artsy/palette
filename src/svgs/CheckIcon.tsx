@@ -1,39 +1,16 @@
 import React from "react"
-import { color } from "../helpers"
-import { Color } from "../Theme"
 import { Icon, IconProps } from "./Icon"
 
-interface CheckIconProps extends IconProps {
-  fill?: Color
-  /** Apply additional styles to component */
-  style?: object
-  onClick?: (e: any) => void
+/** CheckIcon */
+export const CheckIcon: React.SFC<IconProps> = props => {
+  return (
+    <Icon {...props}>
+      <title>check</title>
+      <path
+        d="M6.936 12.206l7.64-7.63.848.849-8.492 8.48-4.248-4.282.852-.846z"
+        fill="#000"
+        fillRule="nonzero"
+      />
+    </Icon>
+  )
 }
-
-/**
- * A Check
- */
-export const CheckIcon: React.SFC<CheckIconProps> = ({
-  fill = "black100",
-  style = {},
-  onClick = (_e: any) => {
-    /* */
-  },
-  ...props
-}) => (
-  <Icon
-    onClick={e => onClick(e)}
-    style={style}
-    width="20"
-    height="20"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path
-      fill="none"
-      stroke={color(fill as any)}
-      strokeWidth="2"
-      d="M4 9.7L8.2 14 16 6"
-    />
-  </Icon>
-)

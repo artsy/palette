@@ -1,14 +1,16 @@
 import React from "react"
 import { Icon, IconProps } from "./Icon"
 
-/** Icon */
-export const LockIcon: React.SFC<IconProps> = props => (
-  <Icon viewBox="0 0 9 12" width={9} height={12} fill="none" {...props}>
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M2 4H1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H7V2.5a2.5 2.5 0 0 0-5 0V4zm1 0h3V2.5a1.5 1.5 0 1 0-3 0V4z"
-      fill="#C2C2C2"
-    />
-  </Icon>
-)
+/** LockIcon */
+export const LockIcon: React.SFC<IconProps> = props => {
+  return (
+    <Icon {...props}>
+      <title>Locked</title>
+      <path
+        d="M5.45 8l.004-3.067C5.711 3.026 6.946 2.023 9 2.023c2.058 0 3.278 1.008 3.5 2.977v3h.5a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h.45zm1 0h5.05l.003-2.943c-.159-1.39-.938-2.034-2.503-2.034-1.568 0-2.367.648-2.55 1.977v3zM5 9v6h8V9H5zm3.5 2.046a.5.5 0 1 1 1 0V13a.5.5 0 1 1-1 0v-1.954z"
+        fill="#000"
+        fillRule="nonzero"
+      />
+    </Icon>
+  )
+}

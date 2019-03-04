@@ -1,9 +1,16 @@
 import React from "react"
 import { Icon, IconProps } from "./Icon"
 
-/** Icon */
-export const FacebookIcon: React.SFC<IconProps> = props => (
-  <Icon xmlns="http://www.w3.org/2000/svg" viewBox="5 6 21 21" {...props}>
-    <path d="M6 26h10v-8h-2v-2h2v-3c0-2.44 1.82-3 4-3h2v2c-2 0-3 0-3 2v2h2v2h-2v8h6V7H6v19z" />
-  </Icon>
-)
+/** FacebookIcon */
+export const FacebookIcon: React.SFC<IconProps> = props => {
+  return (
+    <Icon {...props}>
+      <title>facebook</title>
+      <path
+        d="M15 3.66v10.68a.67.67 0 0 1-.66.66h-3.06v-4.64h1.56l.24-1.82h-1.8V7.39c0-.53.15-.89.9-.89h1V4.88a13.13 13.13 0 0 0-1.4-.07 2.19 2.19 0 0 0-2.33 2.4v1.33h-1.6v1.82h1.56V15H3.66a.66.66 0 0 1-.66-.66V3.66A.66.66 0 0 1 3.66 3h10.68a.66.66 0 0 1 .66.66z"
+        fill="#000"
+        fillRule="evenodd"
+      />
+    </Icon>
+  )
+}

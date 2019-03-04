@@ -1,33 +1,16 @@
 import React from "react"
 import { Icon, IconProps } from "./Icon"
 
-interface GenomeIconProps extends IconProps {
-  fill?: string
-}
-
-/** Icon */
-export const GenomeIcon: React.SFC<GenomeIconProps> = ({
-  fill = "#000",
-  ...props
-}) => {
+/** GenomeIcon */
+export const GenomeIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <title>Genome</title>
-      <g id="icon_genome" fill="none" fillRule="evenodd">
-        <path d="M0 0h18v18H0z" />
-        <g fill={fill}>
-          <path d="M7.975 11c-.053-.327.033-.66.257-1H9a2 2 0 1 0 0-4H6a2 2 0 0 0-.724 3.865 2.636 2.636 0 0 0-.116 1.016A3.001 3.001 0 0 1 6 5h3a3 3 0 1 1 0 6H7.975z" />
-          <path d="M9.952 8c.046.418-.027.752-.22 1H9a2 2 0 1 0 0 4h3a2 2 0 0 0 .574-3.916c.092-.322.142-.668.142-.998A3.001 3.001 0 0 1 12 14H9a3 3 0 1 1 0-6h.952z" />
-        </g>
-      </g>
+    <Icon {...props}>
+      <title>genome</title>
+      <path
+        d="M12 4H5.95v1H12V4zm0-1v-.988h.997V5.59c0 1.358-.728 2.665-2.364 3.421 1.632.769 2.364 2.09 2.364 3.51v1.69a.252.252 0 0 1 .003.039v.466a.252.252 0 0 1-.003.039v1.22H12v-1.01H5.95V16H5v-3.48c0-1.42.731-2.739 2.361-3.507C5.726 8.262 5 6.969 5 5.62V2h.95v1H12zm.002 3H5.957c.019.317.085.664.325.995.509.703 1.386 1.236 2.716 1.502 1.33-.266 2.206-.803 2.716-1.515.233-.326.281-.668.288-.982zM12 14v-1.01H5.95V14H12zm-.042-2.01c-.18-1.09-.967-2.063-2.96-2.475-1.993.412-2.815 1.385-3.004 2.475h5.964z"
+        fill="#000"
+        fillRule="nonzero"
+      />
     </Icon>
   )
 }
-
-GenomeIcon.displayName = "Genome"
