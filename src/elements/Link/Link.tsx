@@ -3,8 +3,20 @@ import { color as styledColor, space, SpaceProps } from "styled-system"
 import { color } from "../../helpers"
 import { Color } from "../../Theme"
 
+enum UnderlineBehavior {
+  Default = "default",
+  Hover = "hover",
+  None = "none",
+}
+
+const computeUnderline = (state: string, behavior: UnderlineBehavior): string => {
+  const blocklist: UnderlineBehavior[] = state === "hover" ? [UnderlineBehavior.None] : [UnderlineBehavior.Hover, UnderlineBehavior.None]
+  const none = blocklist.includes(behavior)
+  return none ? "none" : "underline"
+}
+
 export interface LinkProps extends SpaceProps {
-  noUnderline?: boolean
+  underlineBehavior: UnderlineBehavior
   color?: Color
 }
 
@@ -15,10 +27,9 @@ export interface LinkProps extends SpaceProps {
 export const Link = styled.a<LinkProps>`
   color: ${color("black100")};
   transition: color 0.25s;
-  text-decoration: ${props =>
-    props.noUnderline || props.color ? "none" : "underline"};
+  text-decoration: ${props => (computeUnderline("normal", props.underlineBehavior))};
   &:hover {
-    text-decoration: ${props => (props.color ? "none" : "underline")};
+    text-decoration: ${props => (computeUnderline("hover", props.underlineBehavior))};
     color: ${color("black100")};
   }
   &:focus {
@@ -29,3 +40,7 @@ export const Link = styled.a<LinkProps>`
 `
 
 Link.displayName = "Link"
+
+Link.defaultProps = {
+  underlineBehavior: UnderlineBehavior.Default
+}
