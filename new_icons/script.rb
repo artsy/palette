@@ -7,11 +7,13 @@ template = <<-TSX
   import { Icon, IconProps } from "./Icon"
 
   /** REPLACE */
-  export const REPLACE: React.SFC<IconProps> = props => (
-    <Icon {...props}>
-      INSERT
-    </Icon>
-  )
+  export const REPLACE: React.SFC<IconProps> = props => {
+    return (
+      <Icon {...props}>
+        INSERT
+      </Icon>
+    )
+  }
 TSX
 
 def minify(slug)
