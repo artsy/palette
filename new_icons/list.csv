@@ -1,23 +1,28 @@
 filename,title,component_name
-icon_add_circle_fill.svg,unfollow,AddCircleFillIcon
-icon_add_circle.svg,follow,AddCircleIcon
 icon_add.svg,add,AddIcon
+icon_add_circle.svg,follow,AddCircleIcon
+icon_add_circle_fill.svg,unfollow,AddCircleFillIcon
 icon_alert_circle.svg,alert,AlertIcon
-icon_arrow_down_circle.svg,reveal more,ArrowDownCircleIcon
 icon_arrow_down.svg,reveal more,ArrowDownIcon
-icon_arrow_left_circle.svg,navigate left,ArrowLeftCircleIcon
+icon_arrow_down_circle.svg,reveal more,ArrowDownCircleIcon
 icon_arrow_left.svg,navigate left,ArrowLeftIcon
-icon_arrow_right_circle.svg,navigate right,ArrowRightCircleIcon
+icon_arrow_left_circle.svg,navigate left,ArrowLeftCircleIcon
 icon_arrow_right.svg,navigate right,ArrowRightIcon
-icon_arrow_up_circle.svg,reveal less,ArrowUpCircleIcon
+icon_arrow_right_circle.svg,navigate right,ArrowRightCircleIcon
 icon_arrow_up.svg,reveal less,ArrowUpIcon
+icon_arrow_up_circle.svg,reveal less,ArrowUpCircleIcon
+icon_artsy_logo_black.svg,Artsy,ArtsyLogoBlackIcon
+icon_artsy_logo_white.svg,Artsy,ArtsyLogoWhiteIcon
+icon_artsy_mark_black.svg,Artsy,ArtsyMarkBlackIcon
+icon_artsy_mark_white.svg,Artsy,ArtsyMarkWhiteIcon
 icon_artwork.svg,artwork,ArtworkIcon
 icon_auction.svg,auction,AuctionIcon
-icon_bell_fill.svg,unwatch lot,BellFillIcon
 icon_bell.svg,watch lot,BellIcon
+icon_bell_fill.svg,unwatch lot,BellFillIcon
 icon_blue_chip.svg,blue chip status,BlueChipIcon
-icon_check_circle_fill.svg,uncheck,CheckCircleFillIcon
+icon_check.svg,check,CheckIcon
 icon_check_circle.svg,check,CheckCircleIcon
+icon_check_circle_fill.svg,uncheck,CheckCircleFillIcon
 icon_collapse.svg,collapse,CollapseIcon
 icon_credit_card.svg,credit card,CreditCardIcon
 icon_document.svg,View orders,DocumentIcon
@@ -27,15 +32,15 @@ icon_email.svg,send email,EnvelopeIcon
 icon_enter.svg,select,EnterIcon
 icon_established.svg,established,EstablishedIcon
 icon_expand.svg,expand,ExpandIcon
-icon_eye_close.svg,hide,EyeClosedIcon
 icon_eye.svg,view,EyeOpenedIcon
+icon_eye_close.svg,hide,EyeClosedIcon
 icon_facebook.svg,facebook,FacebookIcon
 icon_fair.svg,fair,FairIcon
 icon_filter.svg,filter,FilterIcon
 icon_genome.svg,genome,GenomeIcon
 icon_graph.svg,View dashboard,GraphIcon
-icon_heart_fill.svg,Unsave,HeartFillIcon
 icon_heart.svg,Save,HeartIcon
+icon_heart_fill.svg,Unsave,HeartFillIcon
 icon_help_circle.svg,Help,QuestionCircleIcon
 icon_home.svg,Home,HomeIcon
 icon_info_circle.svg,More Info,InfoCircleIcon
@@ -57,7 +62,8 @@ icon_timer.svg,time remaining,TimerIcon
 icon_top_emerging.svg,top emerging,TopEmergingIcon
 icon_trash.svg,trash,TrashIcon
 icon_twitter.svg,twitter,TwitterIcon
-icon_user_multiple.svg,group,UserMultiIcon
 icon_user.svg,user,UserSingleIcon
-icon_x_circle.svg,close,CloseCircleIcon
+icon_user_multiple.svg,group,UserMultiIcon
+icon_we_chat.svg,WeChat,WeChatIcon
 icon_x.svg,close,CloseIcon
+icon_x_circle.svg,close,CloseCircleIcon
