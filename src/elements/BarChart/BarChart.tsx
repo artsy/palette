@@ -5,8 +5,9 @@ import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 
-const BarBox = styled(Box)`
-  background: ${color("black10")};
+const BarBox = styled(Box).attrs<{ isHighlighted?: boolean }>({})`
+  background: ${props =>
+    props.isHighlighted ? color("black60") : color("black10")};
   margin-right: 2px;
   :last-child {
     margin-right: 0;
@@ -14,17 +15,23 @@ const BarBox = styled(Box)`
   flex: 1;
   cursor: pointer;
   :hover {
-    background: ${color("black30")};
+    background: ${props =>
+      props.isHighlighted ? color("black60") : color("black30")};
   }
 `
 
-const LabelWrapper = styled(Box)`
+const LabelWrapper = styled(Flex)`
   background-color: ${color("white100")};
   border-radius: 2px;
   padding: ${space(0.5)}px ${space(1)}px;
   position: fixed;
   transform: translateX(-50%);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+  text-align: center;
+  white-space: nowrap;
+`
+const ChartContainer = styled(Flex)`
+  border-bottom: 1px solid ${color("black10")};
 `
 
 const StaticLabelWrapper = styled(LabelWrapper)`
@@ -76,7 +83,14 @@ const StaticLabel = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <StaticLabelLine />
-      <StaticLabelWrapper>{children}</StaticLabelWrapper>
+      <StaticLabelWrapper alignItems="center" flexDirection="column">
+        <Sans weight="medium" size="2">
+          $30,000
+        </Sans>
+        <Sans color={"black60"} size="2">
+          {children}
+        </Sans>
+      </StaticLabelWrapper>
     </>
   )
 }
@@ -85,10 +99,12 @@ const Bar = ({
   heightPercent,
   label,
   staticLabel,
+  isHighlighted,
 }: {
   heightPercent: number
   label: React.ReactNode
-  staticLabel: React.ReactNode
+  staticLabel?: React.ReactNode
+  isHighlighted?: boolean
 }) => {
   const [hover, setHover] = useState(false)
   const px = heightPercent === 0 ? "0px" : 10 + 0.7 * heightPercent + "px"
@@ -104,6 +120,7 @@ const Bar = ({
           setHover(false)
         }}
         position="relative"
+        isHighlighted={isHighlighted}
       >
         {staticLabel && <StaticLabel>{staticLabel}</StaticLabel>}
       </BarBox>
@@ -112,26 +129,41 @@ const Bar = ({
 }
 
 export const BarChart = () => (
-  <Flex height="80px" width={200} alignItems="flex-end">
-    <Bar heightPercent={20} label="yo" />
-    <Bar heightPercent={30} label="yo" />
-    <Bar heightPercent={40} label="yo" staticLabel="I am static" />
-    <Bar heightPercent={0} label="yo" />
-    <Bar heightPercent={1} label="yo" />
-    <Bar heightPercent={5} label="yo" />
-    <Bar
-      heightPercent={50}
-      label={
-        <Flex alignItems="center" flexDirection="column">
-          <Sans size="2" weight="medium">
-            Sept 30
-          </Sans>
-          <Sans size="2" color="black60">
-            423 views
-          </Sans>
-        </Flex>
-      }
-    />
-    <Bar heightPercent={100} label={"hello"} />
+  <Flex flexDirection="column">
+    <ChartContainer height="80px" width={200} alignItems="flex-end">
+      <Bar heightPercent={20} label="yo" />
+      <Bar heightPercent={30} label="yo" />
+      <Bar
+        heightPercent={40}
+        label="yo"
+        isHighlighted
+        staticLabel="I am static"
+      />
+      <Bar heightPercent={0} label="yo" />
+      <Bar heightPercent={1} label="yo" />
+      <Bar heightPercent={5} label="yo" />
+      <Bar
+        heightPercent={50}
+        label={
+          <Flex alignItems="center" flexDirection="column">
+            <Sans size="2" weight="medium">
+              Sept 30
+            </Sans>
+            <Sans size="2" color="black60">
+              423 views
+            </Sans>
+          </Flex>
+        }
+      />
+      <Bar heightPercent={100} label={"hello"} />
+    </ChartContainer>
+    <Flex justifyContent="space-between">
+      <Sans color={"black60"} size="2">
+        $50
+      </Sans>
+      <Sans color={"black60"} size="2">
+        $50,000
+      </Sans>
+    </Flex>
   </Flex>
 )
