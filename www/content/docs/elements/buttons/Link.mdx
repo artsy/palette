@@ -40,7 +40,7 @@ links together, with low chance of confusion for static text.
   </Flex>
 </Playground>
 
-The `none` value should be used with a color to call attention to something
+The `none` value should be used with a `color` to call attention to something
 vital and a button isn’t compositionally appropriate. Use sparingly.
 
 <Playground layout="vertical">
@@ -58,5 +58,19 @@ vital and a button isn’t compositionally appropriate. Use sparingly.
         </Link>
       </Flex>
     </BorderBox>
+  </Flex>
+</Playground>
+
+By default link text is `black100` normally and on hover. If you supply a
+color, the hover defaults to `black100`, so if you want the link to always be
+the same color, supply both:
+
+<Playground layout="vertical">
+  <Flex justifyContent="center">
+    <Box width="30%" bg="black100" p={3}>
+      <Link href="#" color="white100" hoverColor="white100">
+        <Serif>This link text is always white.</Serif>
+      </Link>
+    </Box>
   </Flex>
 </Playground>

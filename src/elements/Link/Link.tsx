@@ -18,6 +18,7 @@ const computeUnderline = (state: string, behavior: UnderlineBehavior): string =>
 export interface LinkProps extends SpaceProps {
   underlineBehavior: UnderlineBehavior
   color?: Color
+  hoverColor?: Color
 }
 
 /**
@@ -30,10 +31,7 @@ export const Link = styled.a<LinkProps>`
   text-decoration: ${props => (computeUnderline("normal", props.underlineBehavior))};
   &:hover {
     text-decoration: ${props => (computeUnderline("hover", props.underlineBehavior))};
-    color: ${color("black100")};
-  }
-  &:focus {
-    color: ${props => (props.color ? color(props.color) : color("black100"))};
+    color: ${props => props.hoverColor ? color(props.hoverColor) : color("black100")};
   }
   ${space};
   ${styledColor};
