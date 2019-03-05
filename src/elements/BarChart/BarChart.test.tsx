@@ -99,14 +99,6 @@ describe("BarChart", () => {
     })
   })
 
-  it("does not change the color of a highlighted bar when you hover", () => {
-    const chart = getWrapper()
-    const highlightedBar = chart.find(Bar).at(2)
-    expect(highlightedBar).toHaveStyleRule("background", color("black60"), {
-      modifier: ":hover",
-    })
-  })
-
   it("does not show hover labels by default", () => {
     const chart = getWrapper()
     expect(chart.text()).not.toContain("423 views")
