@@ -1,3 +1,20 @@
+# v3.1.0 (Tue Mar 05 2019)
+
+#### 🚀  Enhancement
+
+- [Menu] Add <Menu> component [#311](https://github.com/artsy/palette/pull/311) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- Remove duplicate interface declarations [#312](https://github.com/artsy/palette/pull/312) ([@yuki24](https://github.com/yuki24))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Yuki Nishijima ([@yuki24](https://github.com/yuki24))
+
+---
+
 # v3.0.13 (Fri Mar 01 2019)
 
 #### 🐛  Bug Fix
