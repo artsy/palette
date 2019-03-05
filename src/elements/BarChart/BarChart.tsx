@@ -35,15 +35,12 @@ export interface BarDescriptor {
   highlightLabel?: React.ReactNode
 }
 
-export const BarChart = ({
-  bars,
-  minLabel,
-  maxLabel,
-}: {
+export interface BarChartProps {
   bars: BarDescriptor[]
   minLabel: React.ReactNode
   maxLabel: React.ReactNode
-}) => {
+}
+export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
   const ref = useRef(null)
   const hasEnteredViewport = useHasEnteredViewport(ref)
   const maxValue = bars.reduce((max, { value }) => {
