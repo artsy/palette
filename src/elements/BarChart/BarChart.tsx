@@ -43,13 +43,20 @@ export interface BarChartProps {
 export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
   const ref = useRef(null)
   const hasEnteredViewport = useHasEnteredViewport(ref)
+  const [minHeight, setMinHeight] = useState(0)
   const maxValue = bars.reduce((max, { value }) => {
     return value > max ? value : max
   }, -Infinity)
   return (
     <ProvideMousePosition>
       <Flex flexDirection="column" ref={ref}>
-        <ChartContainer height="80px" width={200} alignItems="flex-end" mb={1}>
+        <ChartContainer
+          height="80px"
+          width={200}
+          alignItems="flex-end"
+          mb={1}
+          style={{ minHeight }}
+        >
           {bars.map(({ value, label, highlightLabel }, index) => {
             return (
               <Bar
@@ -58,6 +65,9 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
                 label={label}
                 highlightLabel={highlightLabel}
                 hasEnteredViewport={hasEnteredViewport}
+                onMeasureHeight={
+                  highlightLabel ? height => setMinHeight(height) : null
+                }
               />
             )
           })}

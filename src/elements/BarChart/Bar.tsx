@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { color, media, space } from "../../helpers"
 import { breakpoints } from "../../Theme"
@@ -96,9 +96,19 @@ const BarHoverLabel = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-const HighlightLabel = ({ children }: { children: React.ReactNode }) => {
+const HighlightLabel = ({
+  children,
+  onMeasureHighlightLabel,
+}: {
+  children: React.ReactNode
+  onMeasureHighlightLabel: (height: number) => void
+}) => {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    onMeasureHighlightLabel(ref.current.offsetHeight)
+  })
   return (
-    <StaticLabelPositioner>
+    <StaticLabelPositioner ref={ref as any}>
       <StaticLabelWrapper>{children}</StaticLabelWrapper>
       <LabelLine />
     </StaticLabelPositioner>
@@ -110,17 +120,17 @@ export const Bar = ({
   label,
   highlightLabel,
   hasEnteredViewport,
+  onMeasureHeight,
 }: {
   heightPercent: number
   label: React.ReactNode
   highlightLabel?: React.ReactNode
   hasEnteredViewport: boolean
+  onMeasureHeight?: (height: number) => void
 }) => {
   const [hover, setHover] = useState(false)
   const height =
-    heightPercent === 0 || !hasEnteredViewport
-      ? "0px"
-      : 10 + 0.7 * heightPercent + "px"
+    heightPercent === 0 || !hasEnteredViewport ? 0 : 10 + 0.7 * heightPercent
   return (
     <BarBox
       style={{ height }}
@@ -132,7 +142,15 @@ export const Bar = ({
       }}
       isHighlighted={Boolean(highlightLabel)}
     >
-      {highlightLabel && <HighlightLabel>{highlightLabel}</HighlightLabel>}
+      {highlightLabel && (
+        <HighlightLabel
+          onMeasureHighlightLabel={labelHeight =>
+            onMeasureHeight(labelHeight + 10 + 0.7 * heightPercent)
+          }
+        >
+          {highlightLabel}
+        </HighlightLabel>
+      )}
       {hover && label && <BarHoverLabel>{label}</BarHoverLabel>}
     </BarBox>
   )
