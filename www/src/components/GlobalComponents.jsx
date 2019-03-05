@@ -40,6 +40,14 @@ export const globalCSS = `
 
   div {
     &.contentDiv {
+      a {
+        text-decoration: underline;
+
+        &:hover {
+          color: ${color("purple100")};
+        }
+      }
+
       margin-bottom: ${space(2)}px;
     }
   }
