@@ -11,7 +11,40 @@ name: BarChart
       <Sans size="3">Price ranges of small prints by Alex Katz</Sans>
     </Flex>
     <Flex pt={6}>
-      <BarChart />
+      <BarChart
+        bars={[
+          { value: 100 },
+          { value: 1000 },
+          {
+            value: 4000,
+            highlightLabel: (
+              <Flex alignItems="center" flexDirection="column">
+                <Sans weight="medium" size="2">
+                  $30,000
+                </Sans>
+                <Sans color={"black60"} size="2">
+                  This artwork
+                </Sans>
+              </Flex>
+            ),
+          },
+          {
+            value: 400,
+            label: (
+              <Flex alignItems="center" flexDirection="column">
+                <Sans size="2" weight="medium">
+                  Sept 30
+                </Sans>
+                <Sans size="2" color="black60">
+                  423 views
+                </Sans>
+              </Flex>
+            ),
+          },
+        ]}
+        minLabel="$500"
+        maxLabel="$50,000"
+      />
     </Flex>
   </>
 </Playground>
@@ -27,7 +60,40 @@ name: BarChart
       <Sans size="3">Price ranges of small prints by Alex Katz</Sans>
     </Flex>
     <Flex pt={6}>
-      <BarChart />
+      <BarChart
+        bars={[
+          { value: 100 },
+          { value: 1000 },
+          {
+            value: 4000,
+            highlightLabel: (
+              <Flex alignItems="center" flexDirection="column">
+                <Sans weight="medium" size="2">
+                  $30,000
+                </Sans>
+                <Sans color={"black60"} size="2">
+                  This artwork
+                </Sans>
+              </Flex>
+            ),
+          },
+          {
+            value: 400,
+            label: (
+              <Flex alignItems="center" flexDirection="column">
+                <Sans size="2" weight="medium">
+                  Sept 30
+                </Sans>
+                <Sans size="2" color="black60">
+                  423 views
+                </Sans>
+              </Flex>
+            ),
+          },
+        ]}
+        minLabel={"$500"}
+        maxLabel={"$50,000+"}
+      />
     </Flex>
   </>
 </Playground>
