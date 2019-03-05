@@ -49,6 +49,7 @@ const LabelWrapper = styled(Flex)`
 `
 
 const StaticLabelPositioner = styled(Flex)`
+  transition: opacity 0.8s ease;
   ${hideOnMobile};
   z-index: 1;
   pointer-events: none;
@@ -99,16 +100,18 @@ const BarHoverLabel = ({ children }: { children: React.ReactNode }) => {
 const HighlightLabel = ({
   children,
   onMeasureHighlightLabel,
+  opacity,
 }: {
   children: React.ReactNode
   onMeasureHighlightLabel: (height: number) => void
+  opacity: number
 }) => {
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     onMeasureHighlightLabel(ref.current.offsetHeight)
   })
   return (
-    <StaticLabelPositioner ref={ref as any}>
+    <StaticLabelPositioner ref={ref as any} style={{ opacity }}>
       <StaticLabelWrapper>{children}</StaticLabelWrapper>
       <LabelLine />
     </StaticLabelPositioner>
@@ -144,6 +147,7 @@ export const Bar = ({
     >
       {highlightLabel && (
         <HighlightLabel
+          opacity={hasEnteredViewport ? 1 : 0}
           onMeasureHighlightLabel={labelHeight =>
             onMeasureHeight(labelHeight + 10 + 0.7 * heightPercent)
           }
