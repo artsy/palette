@@ -5,7 +5,6 @@ import { color } from "../../helpers/color"
 import { BorderBox } from "../BorderBox"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
-import { Link } from "../Link"
 import { Separator } from "../Separator"
 import { Spacer } from "../Spacer"
 import { Sans } from "../Typography"
@@ -56,32 +55,26 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   ...props
 }) => {
   return (
-    <MenuItemContainer onClick={() => window.location.assign(href)} {...props}>
+    <MenuLink href={href} {...props}>
       <Box px={2} py={1}>
         <Sans size="2" weight="medium">
-          <Link href={href} noUnderline>
-            {children}
-          </Link>
+          {children}
         </Sans>
       </Box>
-    </MenuItemContainer>
+    </MenuLink>
   )
 }
 
-const MenuItemContainer = styled(Box)`
+const MenuLink = styled.a`
   cursor: pointer;
+  display: flex;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 
   &:hover {
     background-color: ${color("black5")};
-  }
-
-  ${Link} {
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   ${Sans} {
