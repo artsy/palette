@@ -91,14 +91,6 @@ describe("BarChart", () => {
     expect(highlightedBar).toHaveStyleRule("background", color("black60"))
   })
 
-  it("renders a normal bar a different color when you hover", () => {
-    const chart = getWrapper()
-    const normalBar = chart.find(Bar).at(0)
-    expect(normalBar).toHaveStyleRule("background", color("black30"), {
-      modifier: ":hover",
-    })
-  })
-
   it("does not show hover labels by default", () => {
     const chart = getWrapper()
     expect(chart.text()).not.toContain("423 views")
