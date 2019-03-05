@@ -3,7 +3,31 @@ name: BarChart
 ---
 
 <Playground showEditor={true}>
-  <Flex pt={6}>
-    <BarChart />
-  </Flex>
+  <>
+    <Flex flexDirection="column">
+      <Serif size="3" weight="medium">
+        Price
+      </Serif>
+      <Sans size="3">Price ranges of small prints by Alex Katz</Sans>
+    </Flex>
+    <Flex pt={6}>
+      <BarChart />
+    </Flex>
+  </>
+</Playground>
+
+# Scroll down to see enter animation 👇
+
+<Playground showEditor={true}>
+  <>
+    <Flex flexDirection="column" pt="1000px">
+      <Serif size="3" weight="medium">
+        Price
+      </Serif>
+      <Sans size="3">Price ranges of small prints by Alex Katz</Sans>
+    </Flex>
+    <Flex pt={6}>
+      <BarChart />
+    </Flex>
+  </>
 </Playground>
