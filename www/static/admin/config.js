@@ -31,7 +31,7 @@ const defaultFields = {
     {
       label: "Status",
       name: "status",
-      widget: "boolean",
+      widget: "string",
       required: false,
     },
     {
