@@ -1,3 +1,15 @@
+# v3.1.1 (Tue Mar 05 2019)
+
+#### 🐛  Bug Fix
+
+- Update palette@latest [#313](https://github.com/artsy/palette/pull/313) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.1.0 (Tue Mar 05 2019)
 
 #### 🚀  Enhancement
