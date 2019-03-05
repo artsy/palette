@@ -66,6 +66,7 @@ const StaticLabelWrapper = styled(Flex)`
   border: 1px solid ${color("black10")};
   padding: ${space(0.5)}px ${space(1)}px;
   border-radius: 2px;
+  text-align: center;
 `
 
 const LabelLine = () => (

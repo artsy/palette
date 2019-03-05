@@ -54,7 +54,8 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
           height="80px"
           width={200}
           alignItems="flex-end"
-          mb={1}
+          mt={2}
+          mb={0.5}
           style={{ minHeight }}
         >
           {bars.map(({ value, label, highlightLabel }, index) => {
