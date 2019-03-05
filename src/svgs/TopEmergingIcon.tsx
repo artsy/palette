@@ -4,7 +4,7 @@ import { Icon, IconProps } from "./Icon"
 /** TopEmergingIcon */
 export const TopEmergingIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon {...props}>
+    <Icon {...props} viewBox="0 0 18 18">
       <title>top emerging</title>
       <g fill="none" fillRule="evenodd">
         <path

@@ -4,7 +4,7 @@ import { Icon, IconProps } from "./Icon"
 /** ArtsyMarkWhiteIcon */
 export const ArtsyMarkWhiteIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon {...props}>
+    <Icon {...props} viewBox="0 0 32 32">
       <title>Artsy</title>
       <g fill="none" fillRule="evenodd">
         <path fill="#F8F8F8" d="M0 0h32v32H0z" />

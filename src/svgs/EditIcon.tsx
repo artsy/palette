@@ -4,7 +4,7 @@ import { Icon, IconProps } from "./Icon"
 /** EditIcon */
 export const EditIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon {...props}>
+    <Icon {...props} viewBox="0 0 18 18">
       <title>edit</title>
       <g fill="#000" fillRule="evenodd">
         <path d="M3 3h6.992v1.009H4.008V14H14V8h1v7H3z" />

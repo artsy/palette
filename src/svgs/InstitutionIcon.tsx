@@ -4,7 +4,7 @@ import { Icon, IconProps } from "./Icon"
 /** InstitutionIcon */
 export const InstitutionIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon {...props}>
+    <Icon {...props} viewBox="0 0 18 18">
       <title>Instituion</title>
       <g fill="#000" fillRule="evenodd">
         <path d="M4.381 6.686h1v7.378h-1z" />

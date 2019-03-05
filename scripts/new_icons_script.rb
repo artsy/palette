@@ -9,7 +9,7 @@ template = <<-TSX
   /** REPLACE */
   export const REPLACE: React.SFC<IconProps> = props => {
     return (
-      <Icon {...props}>
+      <Icon {...props} viewBox="0 0 18 18">
         INSERT
       </Icon>
     )

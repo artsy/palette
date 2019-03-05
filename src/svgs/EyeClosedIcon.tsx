@@ -4,7 +4,7 @@ import { Icon, IconProps } from "./Icon"
 /** EyeClosedIcon */
 export const EyeClosedIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon {...props}>
+    <Icon {...props} viewBox="0 0 18 18">
       <title>hide</title>
       <g fill="none" fillRule="evenodd">
         <g fill="#000" fillRule="nonzero">

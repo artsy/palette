@@ -4,7 +4,7 @@ import { Icon, IconProps } from "./Icon"
 /** EnterIcon */
 export const EnterIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon {...props}>
+    <Icon {...props} viewBox="0 0 18 18">
       <title>select</title>
       <g fill="none" fillRule="evenodd">
         <path fill="none" d="M0 0h18v18H0z" />

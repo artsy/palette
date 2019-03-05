@@ -4,7 +4,7 @@ import { Icon, IconProps } from "./Icon"
 /** FairIcon */
 export const FairIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon {...props}>
+    <Icon {...props} viewBox="0 0 18 18">
       <title>fair</title>
       <g fill="none" fillRule="evenodd">
         <path
