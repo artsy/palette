@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from "react"
 import styled from "styled-components"
-import { color, space } from "../../helpers"
+import { color, media, space } from "../../helpers"
+import { breakpoints } from "../../Theme"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { MousePositionContext } from "./MousePositionContext"
@@ -8,6 +9,10 @@ import { MousePositionContext } from "./MousePositionContext"
 interface BarBoxProps {
   isHighlighted?: boolean
 }
+
+const hideOnMobile = media.xs`
+  display: none;
+`
 
 const BarBox = styled(Box)`
   transition: height 0.8s ease;
@@ -21,15 +26,18 @@ const BarBox = styled(Box)`
   }
   flex: 1;
   cursor: pointer;
-  :hover {
-    background: ${(props: BarBoxProps) =>
-      props.isHighlighted ? color("black60") : color("black30")};
-  }
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
+  @media (min-width: ${breakpoints.sm}px) {
+    :hover {
+      background: ${(props: BarBoxProps) =>
+        props.isHighlighted ? color("black60") : color("black30")};
+    }
+  }
 `
 
 const LabelWrapper = styled(Flex)`
+  ${hideOnMobile};
   z-index: 2;
   background-color: ${color("white100")};
   border-radius: 2px;
@@ -41,6 +49,7 @@ const LabelWrapper = styled(Flex)`
 `
 
 const StaticLabelPositioner = styled(Flex)`
+  ${hideOnMobile};
   z-index: 1;
   pointer-events: none;
   position: absolute;
