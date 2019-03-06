@@ -116,7 +116,18 @@ const HighlightLabel = ({
   )
 }
 
-// tslint:disable-next-line completed-docs
+/**
+ * Bar is the main component responsible for rendering an individual bar
+ * in a bar chart.
+ *
+ * It not publically usable
+ *
+ * It is responsible for rendering a visible bar of a specific height and 0-2 labels.
+ *
+ * If a 'highlight' label is given, the bar will measure itself to help it's parent
+ * container set an appropriate min-height property. This prevents the highlight
+ * label from obscuring content above the bar chart.
+ */
 export const Bar = ({
   heightPercent,
   label,
@@ -131,7 +142,12 @@ export const Bar = ({
   onMeasureHeight?: (height: number) => void
 }) => {
   const [hover, setHover] = useState(false)
+  // Before the bar has entered the view port it will have a height of 0
+  // but it still needs to know how bit it will eventually be once visible,
+  // to allow the parent BarChart container to set an appropriate min-height
+  // property
   const finalBarHeight =
+    // bar heights start at MIN_BAR_HEIGHT, unless the intended height === 0
     heightPercent === 0
       ? 0
       : MIN_BAR_HEIGHT + (BAR_HEIGHT_RANGE / 100) * heightPercent
@@ -139,12 +155,8 @@ export const Bar = ({
   return (
     <BarBox
       style={{ height: currentHeight }}
-      onMouseEnter={() => {
-        setHover(true)
-      }}
-      onMouseLeave={() => {
-        setHover(false)
-      }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       isHighlighted={Boolean(highlightLabel)}
     >
       {highlightLabel && (
