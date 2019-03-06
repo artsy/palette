@@ -1,3 +1,15 @@
+# v3.2.0 (Wed Mar 06 2019)
+
+#### 🚀  Enhancement
+
+- Improve Link API [#310](https://github.com/artsy/palette/pull/310) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v3.1.1 (Tue Mar 05 2019)
 
 #### 🐛  Bug Fix
