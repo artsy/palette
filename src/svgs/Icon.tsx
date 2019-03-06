@@ -13,6 +13,7 @@ import {
   top,
   TopProps,
 } from "styled-system"
+import { Color } from "../Theme"
 
 // : React.SVGProps<SVGSVGElement>
 
@@ -23,7 +24,9 @@ export interface IconProps
     PositionProps,
     TopProps,
     RightProps,
-    LeftProps {}
+  LeftProps {
+  fill?: Color
+}
 
 /** Wrapper for icons to include space */
 export const Icon = styled.svg.attrs<IconProps>({})`
@@ -35,3 +38,7 @@ export const Icon = styled.svg.attrs<IconProps>({})`
   ${left};
   ${position};
 `
+
+Icon.defaultProps = {
+  fill: "black100"
+}

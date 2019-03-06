@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import { Flex, Sans, Tab, Tabs, TabsProps } from "../"
-import { color, space } from "../../helpers"
+import { space } from "../../helpers"
 import { CheckIcon, ChevronIcon } from "../../svgs"
 import { sharedTabsStyles } from "../Tabs"
 
@@ -24,7 +24,7 @@ export const Stepper = (props: StepperProps) => {
       key={props.currentStepIndex}
       separator={
         <ChevronWrapper>
-          <ChevronIcon fill={color("black60")} />
+          <ChevronIcon fill={"black60"} />
         </ChevronWrapper>
       }
       transformTabBtn={transformTabBtn}
