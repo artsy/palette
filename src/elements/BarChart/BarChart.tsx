@@ -63,16 +63,15 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
           style={{ minHeight }}
         >
           {bars.map(({ value, label, highlightLabel }, index) => {
+            const heightPercent = (100 / maxValue) * value
             return (
               <Bar
                 key={index}
-                heightPercent={(100 / maxValue) * value}
+                heightPercent={heightPercent}
                 label={label}
                 highlightLabel={highlightLabel}
                 hasEnteredViewport={hasEnteredViewport}
-                onMeasureHeight={
-                  highlightLabel ? height => setMinHeight(height) : null
-                }
+                onMeasureHeight={highlightLabel ? setMinHeight : null}
               />
             )
           })}
