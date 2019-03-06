@@ -77,10 +77,10 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
           })}
         </ChartContainer>
         <Flex justifyContent="space-between">
-          <Sans color={"black60"} size="2">
+          <Sans color="black60" size="2">
             {minLabel}
           </Sans>
-          <Sans color={"black60"} size="2">
+          <Sans color="black60" size="2">
             {maxLabel}
           </Sans>
         </Flex>
