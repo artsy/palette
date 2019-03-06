@@ -98,8 +98,3 @@ const DisabledStepContainer = styled.div`
   ${sharedTabsStyles.tabContainer};
   cursor: default;
 `
-
-// @ts-ignore
-CheckIcon.displayName = "CheckIcon"
-// @ts-ignore
-ChevronIcon.displayName = "ChevronIcon"
