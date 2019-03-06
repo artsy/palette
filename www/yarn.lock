@@ -2,15 +2,16 @@
 # yarn lockfile v1
 
 
-"@artsy/palette@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-3.0.2.tgz#b534ef4a669bf55a798f9676ec946cbdddb5065e"
-  integrity sha512-1nKT6sHNsyfkA6SzhEBtm+jqNlnCfr0UVcKVVloX2Fp0RCEmrf8blcsATOnzXjnX26JJldcOxol7gH4tU/S3OA==
+"@artsy/palette@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-3.1.0.tgz#242928faaee31c3bb7a2c0fca01053c06e01c6a5"
+  integrity sha512-1mXKDYpelW9gCskHXPzzBBI9zsTC/qfJaRUuAKX0IOBUkWPdUvNQO4Y35+J3Y10B1851tK70KD23HI4oNUAhuA==
   dependencies:
+    babel-plugin-styled-components "^1.10.0"
     moment "^2.23.0"
     moment-timezone "^0.5.23"
     rc-slider "^8.6.2"
-    react "^16.5.0"
+    react "^16.8.2"
     react-live "^1.12.0"
     react-powerplug "^1.0.0"
     react-spring "^5.7.2"
@@ -11787,7 +11788,7 @@ react-waypoint@^8.1.0:
     prop-types "^15.0.0"
     react-is "^16.6.3"
 
-react@^16.4.1, react@^16.5.0, react@^16.6.3, react@^16.8.2:
+react@^16.4.1, react@^16.6.3, react@^16.8.2:
   version "16.8.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.2.tgz#83064596feaa98d9c2857c4deae1848b542c9c0c"
   integrity sha512-aB2ctx9uQ9vo09HVknqv3DGRpI7OIGJhCx3Bt0QqoRluEjHSaObJl+nG12GDdYH6sTgE7YiPJ6ZUyMx9kICdXw==
