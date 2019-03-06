@@ -101,6 +101,9 @@ const HighlightLabel = ({
   opacity,
 }: {
   children: React.ReactNode
+  // this label is absolutely positioned and it might obscure content above the
+  // bar chart if it gets too tall. So it needs to measure itself to let the
+  // parent BarChart set an appropriate min-height.
   onMeasureHighlightLabel: (height: number) => void
   opacity: number
 }) => {
