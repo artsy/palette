@@ -8,6 +8,7 @@ import { ProvideMousePosition } from "./MousePositionContext"
 
 const ChartContainer = styled(Flex)`
   border-bottom: 1px solid ${color("black10")};
+  flex: 1;
 `
 
 const useHasEnteredViewport = (ref: React.RefObject<HTMLElement>) => {
@@ -40,6 +41,11 @@ export interface BarChartProps {
   minLabel: React.ReactNode
   maxLabel: React.ReactNode
 }
+/**
+ * BarChart is a component which displays some bars of varying heights in a row.
+ * Useful for histograms etc.
+ * @param props props
+ */
 export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
   const ref = useRef(null)
   const hasEnteredViewport = useHasEnteredViewport(ref)
@@ -49,12 +55,10 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
   }, -Infinity)
   return (
     <ProvideMousePosition>
-      <Flex flexDirection="column" ref={ref}>
+      <Flex flexDirection="column" ref={ref} flexGrow="1">
         <ChartContainer
           height="80px"
-          width={200}
           alignItems="flex-end"
-          mt={2}
           mb={0.5}
           style={{ minHeight }}
         >

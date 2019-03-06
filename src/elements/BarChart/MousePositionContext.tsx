@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
 
+// tslint:disable-next-line:completed-docs
 export const MousePositionContext = React.createContext({ x: 0, y: 0 })
 
+// tslint:disable-next-line:completed-docs
 export const ProvideMousePosition: React.SFC = ({ children }) => {
   const [state, setState] = useState({ x: 0, y: 0 })
 

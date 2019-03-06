@@ -13,37 +13,50 @@ name: BarChart
     <Flex>
       <BarChart
         bars={[
-          { value: 100 },
-          { value: 1000 },
+          {
+            value: 2000,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 1400,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 400,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 3200,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
           {
             value: 4000,
             highlightLabel: (
-              <Flex alignItems="center" flexDirection="column">
-                <Sans weight="medium" size="2">
-                  $30,000
-                </Sans>
-                <Sans color={"black60"} size="2">
-                  This artwork
-                </Sans>
-              </Flex>
+              <BarLabel title="$30,000" description="This artwork" />
             ),
           },
           {
             value: 400,
-            label: (
-              <Flex alignItems="center" flexDirection="column">
-                <Sans size="2" weight="medium">
-                  Sept 30
-                </Sans>
-                <Sans size="2" color="black60">
-                  423 views
-                </Sans>
-              </Flex>
-            ),
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 800,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 0,
+          },
+          {
+            value: 100,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 3000,
+            label: <BarLabel title="Sept 30" description="423 views" />,
           },
         ]}
         minLabel="$500"
-        maxLabel="$50,000"
+        maxLabel="$50,000+"
       />
     </Flex>
   </>
@@ -53,7 +66,16 @@ name: BarChart
 
 <Playground showEditor={true}>
   <>
-    <Flex flexDirection="column" pt="1000px">
+    <Flex flexDirection="column" pt="700px">
+      <Sans pb={6} size="3" weight="medium">
+        Scrollin'
+      </Sans>
+      <Sans pb={6} size="3" weight="medium">
+        Scrollin'
+      </Sans>
+      <Sans pb={6} size="3" weight="medium">
+        Scrollin'
+      </Sans>
       <Serif size="3" weight="medium">
         Price
       </Serif>
@@ -62,37 +84,50 @@ name: BarChart
     <Flex>
       <BarChart
         bars={[
-          { value: 100 },
-          { value: 1000 },
+          {
+            value: 2000,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 1400,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 400,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 3200,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
           {
             value: 4000,
             highlightLabel: (
-              <Flex alignItems="center" flexDirection="column">
-                <Sans weight="medium" size="2">
-                  $30,000
-                </Sans>
-                <Sans color={"black60"} size="2">
-                  This artwork
-                </Sans>
-              </Flex>
+              <BarLabel title="$30,000" description="This artwork" />
             ),
           },
           {
             value: 400,
-            label: (
-              <Flex alignItems="center" flexDirection="column">
-                <Sans size="2" weight="medium">
-                  Sept 30
-                </Sans>
-                <Sans size="2" color="black60">
-                  423 views
-                </Sans>
-              </Flex>
-            ),
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 800,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 0,
+          },
+          {
+            value: 100,
+            label: <BarLabel title="Sept 30" description="423 views" />,
+          },
+          {
+            value: 3000,
+            label: <BarLabel title="Sept 30" description="423 views" />,
           },
         ]}
-        minLabel={"$500"}
-        maxLabel={"$50,000+"}
+        minLabel="$500"
+        maxLabel="$50,000+"
       />
     </Flex>
   </>
