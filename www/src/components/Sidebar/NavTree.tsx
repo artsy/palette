@@ -101,6 +101,8 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
 
                         {!expandSubNav && (
                           <ChevronIcon
+                            width="10px"
+                            height="10px"
                             direction={expanded ? "up" : "down"}
                             fill={color("black30")}
                             top={-2}
