@@ -1,0 +1,130 @@
+---
+name: BarChart
+---
+
+<Playground showEditor={true}>
+  <>
+    <Flex flexDirection="column">
+      <Serif size="3" weight="medium">
+        Price
+      </Serif>
+      <Sans size="3">Price ranges of small prints by Alex Katz</Sans>
+    </Flex>
+    <Flex>
+      <BarChart
+        bars={[
+          {
+            value: 2000,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 1400,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 400,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 3200,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 4000,
+            highlightLabel: { title: "$30,000", description: "This artwork" },
+          },
+          {
+            value: 400,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 800,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 0,
+          },
+          {
+            value: 100,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 3000,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+        ]}
+        minLabel="$500"
+        maxLabel="$50,000+"
+      />
+    </Flex>
+  </>
+</Playground>
+
+# Scroll down to see enter animation 👇
+
+<Playground showEditor={true}>
+  <>
+    <Flex flexDirection="column" pt="700px">
+      <Sans pb={6} size="3" weight="medium">
+        Scrollin'
+      </Sans>
+      <Sans pb={6} size="3" weight="medium">
+        Scrollin'
+      </Sans>
+      <Sans pb={6} size="3" weight="medium">
+        Scrollin'
+      </Sans>
+      <Serif size="3" weight="medium">
+        Price
+      </Serif>
+      <Sans size="3">Price ranges of small prints by Alex Katz</Sans>
+    </Flex>
+    <Flex>
+      <BarChart
+        bars={[
+          {
+            value: 2000,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 1400,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 400,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 3200,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 4000,
+            highlightLabel: { title: "$30,000", description: "This artwork" },
+          },
+          {
+            value: 400,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 800,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 0,
+          },
+          {
+            value: 100,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+          {
+            value: 3000,
+            label: { title: "Sept 30", description: "423 clicks" },
+          },
+        ]}
+        minLabel="$500"
+        maxLabel="$50,000+"
+      />
+    </Flex>
+  </>
+</Playground>

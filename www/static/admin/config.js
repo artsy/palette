@@ -129,6 +129,12 @@ const collections = [
     description: "Navigtion",
     folder: "content/docs/elements/navigation",
   },
+  {
+    name: "data-visualization",
+    label: "Data visualization",
+    description: "Data visualization",
+    folder: "content/docs/elements/data-visualization",
+  },
 
   // Utilities
   {
