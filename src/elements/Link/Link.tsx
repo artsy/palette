@@ -9,22 +9,30 @@ enum UnderlineBehavior {
   None = "none",
 }
 
-const computeUnderline = (state: string, behavior: UnderlineBehavior): string => {
-  const blocklist: UnderlineBehavior[] = state === "hover" ? [UnderlineBehavior.None] : [UnderlineBehavior.Hover, UnderlineBehavior.None]
+export interface LinkProps extends SpaceProps {
+  color?: Color
+  hoverColor?: Color
+  noUnderline?: boolean
+  underlineBehavior?: UnderlineBehavior
+}
+
+const computeUnderline = (
+  state: string,
+  behavior: UnderlineBehavior
+): string => {
+  const blocklist: UnderlineBehavior[] =
+    state === "hover"
+      ? [UnderlineBehavior.None]
+      : [UnderlineBehavior.Hover, UnderlineBehavior.None]
   const none = blocklist.includes(behavior)
   return none ? "none" : "underline"
 }
 
 const backwardsCompatCompute = (state: string, props: LinkProps) => {
-  const behavior = props.noUnderline ? UnderlineBehavior.Hover : props.underlineBehavior
+  const behavior = props.noUnderline
+    ? UnderlineBehavior.Hover
+    : props.underlineBehavior
   return computeUnderline(state, behavior)
-}
-
-export interface LinkProps extends SpaceProps {
-  color?: Color
-  hoverColor?: Color
-  noUnderline?: boolean
-  underlineBehavior: UnderlineBehavior
 }
 
 /**
@@ -34,10 +42,11 @@ export interface LinkProps extends SpaceProps {
 export const Link = styled.a<LinkProps>`
   color: ${color("black100")};
   transition: color 0.25s;
-  text-decoration: ${props => (backwardsCompatCompute("normal", props))};
+  text-decoration: ${props => backwardsCompatCompute("normal", props)};
   &:hover {
-    text-decoration: ${props => (backwardsCompatCompute("hover", props))};
-    color: ${props => props.hoverColor ? color(props.hoverColor) : color("black100")};
+    text-decoration: ${props => backwardsCompatCompute("hover", props)};
+    color: ${props =>
+      props.hoverColor ? color(props.hoverColor) : color("black100")};
   }
   ${space};
   ${styledColor};
@@ -46,5 +55,5 @@ export const Link = styled.a<LinkProps>`
 Link.displayName = "Link"
 
 Link.defaultProps = {
-  underlineBehavior: UnderlineBehavior.Default
+  underlineBehavior: UnderlineBehavior.Default,
 }
