@@ -1,3 +1,17 @@
+# v3.2.1 (Thu Mar 07 2019)
+
+#### 🐛  Bug Fix
+
+- Bar chart [#309](https://github.com/artsy/palette/pull/309) ([@ds300](https://github.com/ds300) [@lilyfromseattle](https://github.com/lilyfromseattle) [@damassi](https://github.com/damassi))
+
+#### Authors: 3
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.2.0 (Wed Mar 06 2019)
 
 #### 🚀  Enhancement
