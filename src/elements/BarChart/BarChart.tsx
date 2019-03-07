@@ -4,6 +4,7 @@ import { color } from "../../helpers"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { Bar } from "./Bar"
+import { BarLabel, BarLabelProps, isBarLabelProps } from "./BarLabel"
 import { ProvideMousePosition } from "./MousePositionContext"
 
 const ChartContainer = styled(Flex)`
@@ -30,10 +31,13 @@ const useHasEnteredViewport = (ref: React.RefObject<HTMLElement>) => {
   return hasEntered
 }
 
+const coerceLabel = (label: React.ReactNode | BarLabelProps) =>
+  isBarLabelProps(label) ? <BarLabel {...label} /> : label
+
 export interface BarDescriptor {
   value: number
-  label?: React.ReactNode
-  highlightLabel?: React.ReactNode
+  label?: React.ReactNode | BarLabelProps
+  highlightLabel?: React.ReactNode | BarLabelProps
 }
 
 export interface BarChartProps {
@@ -68,8 +72,8 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
               <Bar
                 key={index}
                 heightPercent={heightPercent}
-                label={label}
-                highlightLabel={highlightLabel}
+                label={coerceLabel(label)}
+                highlightLabel={coerceLabel(highlightLabel)}
                 hasEnteredViewport={hasEnteredViewport}
                 onMeasureHeight={highlightLabel ? setMinHeight : null}
               />

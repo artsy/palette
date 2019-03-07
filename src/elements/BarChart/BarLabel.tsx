@@ -17,21 +17,27 @@ export interface BarLabelProps extends FlexProps {
   description: React.ReactNode
 }
 
+// tslint:disable-next-line:completed-docs
+export function isBarLabelProps(obj: any): obj is BarLabelProps {
+  const result =
+    obj &&
+    typeof obj === "object" &&
+    obj.hasOwnProperty("title") &&
+    obj.hasOwnProperty("description")
+  return result
+}
+
 /**
  * BarLabel is the default content format for a label on a BarChart.
  * @param props
  */
 export const BarLabel = ({ title, description, ...others }: BarLabelProps) => (
   <BarLabelWrapper {...others}>
-    {Boolean(title) && (
-      <Sans weight="medium" size="2">
-        {title}
-      </Sans>
-    )}
-    {Boolean(description) && (
-      <Sans color={"black60"} size="2">
-        {description}
-      </Sans>
-    )}
+    <Sans weight="medium" size="2">
+      {title}
+    </Sans>
+    <Sans color={"black60"} size="2">
+      {description}
+    </Sans>
   </BarLabelWrapper>
 )
