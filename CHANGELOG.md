@@ -1,3 +1,15 @@
+# v3.2.2 (Thu Mar 07 2019)
+
+#### 🐛  Bug Fix
+
+- [Link] Make underlineBehavior optional [#314](https://github.com/artsy/palette/pull/314) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.2.1 (Thu Mar 07 2019)
 
 #### 🐛  Bug Fix
