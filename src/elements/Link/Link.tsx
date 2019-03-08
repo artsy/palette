@@ -3,35 +3,27 @@ import { color as styledColor, space, SpaceProps } from "styled-system"
 import { color } from "../../helpers"
 import { Color } from "../../Theme"
 
-enum UnderlineBehavior {
-  Default = "default",
-  Hover = "hover",
-  None = "none",
-}
+type UnderlineBehaviors = "default" | "hover" | "none"
 
 export interface LinkProps extends SpaceProps {
   color?: Color
   hoverColor?: Color
   noUnderline?: boolean
-  underlineBehavior?: UnderlineBehavior
+  underlineBehavior?: UnderlineBehaviors
 }
 
 const computeUnderline = (
   state: string,
-  behavior: UnderlineBehavior
+  behavior: UnderlineBehaviors
 ): string => {
-  const blocklist: UnderlineBehavior[] =
-    state === "hover"
-      ? [UnderlineBehavior.None]
-      : [UnderlineBehavior.Hover, UnderlineBehavior.None]
+  const blocklist: UnderlineBehaviors[] =
+    state === "hover" ? ["none"] : ["hover", "none"]
   const none = blocklist.includes(behavior)
   return none ? "none" : "underline"
 }
 
 const backwardsCompatCompute = (state: string, props: LinkProps) => {
-  const behavior = props.noUnderline
-    ? UnderlineBehavior.Hover
-    : props.underlineBehavior
+  const behavior = props.noUnderline ? "hover" : props.underlineBehavior
   return computeUnderline(state, behavior)
 }
 
@@ -55,5 +47,5 @@ export const Link = styled.a<LinkProps>`
 Link.displayName = "Link"
 
 Link.defaultProps = {
-  underlineBehavior: UnderlineBehavior.Default,
+  underlineBehavior: "default",
 }
