@@ -21,6 +21,7 @@
     "lint": "tslint \"src/*\" -c tslint.json tsconfig.json",
     "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
     "prettier": "prettier",
+    "prettier-check": "prettier --check 'src/**/*.{ts,tsx}'",
     "prettier-project": "yarn prettier-write 'src/**/*.{ts,tsx}'",
     "prettier-write": "yarn prettier --write",
     "release": "auto shipit",
