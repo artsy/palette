@@ -1,3 +1,15 @@
+# v3.2.4 (Fri Mar 08 2019)
+
+#### 🐛  Bug Fix
+
+- Make underlineBehavior simpler for consumers [#315](https://github.com/artsy/palette/pull/315) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.2.3 (Fri Mar 08 2019)
 
 #### ⚠️  Pushed to master
