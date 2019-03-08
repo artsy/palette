@@ -54,6 +54,7 @@ export function injectGlobalStyles<P>(
       cursor: pointer;
       color: inherit;
       transition: color 0.25s;
+      text-decoration: underline;
 
       &:hover {
         color: ${color("black100")};
@@ -122,7 +123,6 @@ export function injectGlobalStyles<P>(
     ${Display} {
       a {
         color: ${color("black100")};
-        text-decoration: none;
         &:hover {
           text-decoration: underline;
         }
