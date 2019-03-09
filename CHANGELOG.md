@@ -1,3 +1,15 @@
+# v3.2.6 (Sat Mar 09 2019)
+
+#### 🐛  Bug Fix
+
+- [Menu] Add onClick handler [#319](https://github.com/artsy/palette/pull/319) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.2.5 (Sat Mar 09 2019)
 
 #### 🐛  Bug Fix
