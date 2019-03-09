@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
+import { display } from "styled-system"
 import { color } from "../../helpers/color"
 import { BorderBox } from "../BorderBox"
 import { Box, BoxProps } from "../Box"
@@ -72,6 +73,8 @@ const MenuLink = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
+
+  ${display};
 
   &:hover {
     background-color: ${color("black5")};
