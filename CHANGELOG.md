@@ -1,3 +1,15 @@
+# v3.2.5 (Sat Mar 09 2019)
+
+#### 🐛  Bug Fix
+
+- [Menu] Fix responsive props [#318](https://github.com/artsy/palette/pull/318) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.2.4 (Fri Mar 08 2019)
 
 #### 🐛  Bug Fix
