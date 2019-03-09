@@ -32,3 +32,18 @@ The `Menu` component has been extracted from the
     </MenuItem>
   </Menu>
 </Playground>
+
+## Custom click actions:
+
+<Playground>
+  <Menu>
+    <MenuItem
+      onClick={event => {
+        event.preventDefault()
+        console.warn("hi!")
+      }}
+    >
+      <HeartIcon mr={1} /> Log hello to the console
+    </MenuItem>
+  </Menu>
+</Playground>

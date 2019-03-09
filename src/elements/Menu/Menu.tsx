@@ -46,8 +46,9 @@ const MenuContainer = styled(Box)`
 
 interface MenuItemProps extends BoxProps {
   children: React.ReactNode
-  href: string
+  href?: string
   color?: string // TODO:  Look into type conflict with styled-system
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({
