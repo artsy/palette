@@ -7,7 +7,7 @@ interface WeChatIconState {
   hover: boolean
 }
 
-/** Icon */
+/** WeChatIcon */
 export class WeChatIcon extends React.Component<IconProps, WeChatIconState> {
   constructor(props) {
     super(props)
@@ -15,21 +15,30 @@ export class WeChatIcon extends React.Component<IconProps, WeChatIconState> {
       hover: false,
     }
   }
+
+  handleMouseEnter = () => {
+    this.setState({ hover: true })
+  }
+
+  handleMouseLeave = () => {
+    this.setState({ hover: false })
+  }
+
   render() {
     return (
       <WeChatContainer href="http://weixin.qq.com/r/2CotNbbES_s0rfJW93-K">
         <Icon
-          onMouseEnter={() => {
-            this.setState({ hover: true })
-          }}
-          onMouseLeave={() => {
-            this.setState({ hover: false })
-          }}
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+          viewBox="0 0 18 18"
           {...this.props}
         >
-          <path d="M21.5 19.52a5.67 5.67 0 0 0 2.5-4.55c0-3.33-3.24-6.02-7.23-6.02s-7.23 2.7-7.23 6.02c0 3.33 3.24 6.02 7.23 6.02.83 0 1.62-.11 2.36-.33l.21-.03c.14 0 .27.05.39.11l1.58.92.14.04c.13 0 .24-.1.24-.24l-.04-.17-.33-1.22-.02-.15c0-.16.08-.3.2-.4zM8.67 2.3C3.88 2.3 0 5.53 0 9.53a6.8 6.8 0 0 0 3 5.46c.14.1.24.28.24.47l-.03.18-.4 1.46-.04.21c0 .16.13.3.3.3l.16-.06 1.9-1.1a.9.9 0 0 1 .46-.13l.25.04c.89.25 1.84.4 2.83.4l.48-.02a5.59 5.59 0 0 1-.29-1.77c0-3.64 3.54-6.6 7.91-6.6l.47.02C16.6 4.94 13 2.3 8.67 2.3zm5.7 11.7a.96.96 0 1 1 0-1.92.96.96 0 0 1 0 1.93zm4.81 0a.96.96 0 1 1 0-1.92.96.96 0 0 1 0 1.93zM5.78 8.38a1.16 1.16 0 1 1 0-2.31 1.16 1.16 0 0 1 0 2.3zm5.79 0a1.16 1.16 0 1 1 0-2.31 1.16 1.16 0 0 1 0 2.3z" />
+          <title>WeChat</title>
+          <path
+            d="M14.543 13.223c.889-.645 1.457-1.597 1.457-2.657 0-1.94-1.888-3.513-4.217-3.513-2.329 0-4.217 1.573-4.217 3.513 0 1.941 1.888 3.514 4.217 3.514.481 0 .946-.068 1.377-.192l.123-.019c.082 0 .155.025.224.065l.924.533.08.026a.14.14 0 0 0 .142-.14l-.023-.103-.19-.709-.015-.09a.28.28 0 0 1 .118-.228zM7.06 3.173C4.266 3.173 2 5.061 2 7.39c0 1.27.681 2.415 1.748 3.188.086.06.142.16.142.274l-.018.108-.228.85-.027.123c0 .094.076.17.169.17l.098-.032 1.107-.64a.53.53 0 0 1 .269-.078l.148.023a5.984 5.984 0 0 0 1.652.231l.278-.007a3.259 3.259 0 0 1-.17-1.033c0-2.124 2.066-3.846 4.615-3.846l.275.007c-.381-2.014-2.473-3.555-4.998-3.555zm3.317 6.832a.562.562 0 1 1 .001-1.125.562.562 0 0 1 0 1.125zm2.812 0a.562.562 0 1 1 0-1.125.562.562 0 0 1 0 1.125zm-7.816-3.29a.674.674 0 1 1 0-1.348.674.674 0 0 1 0 1.348zm3.374 0a.674.674 0 1 1 0-1.348.674.674 0 0 1 0 1.348z"
+            fill={color(this.props.fill)}
+            fillRule="evenodd"
+          />
         </Icon>
         {this.state.hover && (
           <QRToolTip>

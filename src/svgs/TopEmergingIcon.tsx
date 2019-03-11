@@ -1,23 +1,22 @@
 import React from "react"
+import { color } from "../helpers"
 import { Icon, IconProps } from "./Icon"
 
-/** Icon */
+/** TopEmergingIcon */
 export const TopEmergingIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon width="25" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <g fill="none" fillRule="evenodd">
-        <path d="M0 0h25v25H0z" />
-        <circle
-          cx="6.25"
-          cy="6.25"
-          r="6.25"
-          transform="translate(6.25 6.25)"
-          stroke="#000"
-        />
-        <rect fill="#000" x="12" y="11" width="1" height="4" rx=".3" />
+    <Icon {...props} viewBox="0 0 18 18">
+      <title>top emerging</title>
+      <g>
         <path
-          d="M10.404 12.177l.283.287a.3.3 0 0 0 .425.002l1.388-1.38 1.418 1.383a.3.3 0 0 0 .424-.005l.28-.286a.3.3 0 0 0-.005-.424l-1.906-1.86a.3.3 0 0 0-.42 0l-1.883 1.86a.3.3 0 0 0-.003.423z"
-          fill="#000"
+          d="M9.036 16.071A7.036 7.036 0 1 0 9.036 2a7.036 7.036 0 0 0 0 14.071zm0 1A8.036 8.036 0 1 1 9.036 1a8.036 8.036 0 0 1 0 16.071z"
+          fill={color(props.fill)}
+          fillRule="nonzero"
+        />
+        <path
+          d="M9.542 7.9v4.15h-1V7.823L6.895 9.41 6.2 8.69l2.798-2.698 2.807 2.697-.693.722L9.542 7.9z"
+          fill={color(props.fill)}
+          fillRule="nonzero"
         />
       </g>
     </Icon>

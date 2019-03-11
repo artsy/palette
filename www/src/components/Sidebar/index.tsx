@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import { NavTree } from "./NavTree"
 
-import { ArtsyMarkIcon, Box, Sans, Serif } from "@artsy/palette"
+import { ArtsyMarkBlackIcon, Box, Sans, Serif } from "@artsy/palette"
 
 export const Sidebar = _props => {
   return (
@@ -17,7 +17,7 @@ export const Sidebar = _props => {
       </Box>
 
       <Box>
-        <ArtsyMarkIcon width="30px" height="30px" mr={2} />
+        <ArtsyMarkBlackIcon width="30px" height="30px" mr={2} />
         <Sans size="1" color="black60">
           Updated: Feb 1st, 2019
         </Sans>

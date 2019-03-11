@@ -1,17 +1,17 @@
 import React from "react"
+import { color } from "../helpers"
 import { Icon, IconProps } from "./Icon"
 
-/** Icon */
+/** BlueChipIcon */
 export const BlueChipIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon width="25" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <g fill="none" fillRule="evenodd">
-        <path d="M0 0h25v25H0z" />
-        <g transform="translate(6.25 6.25)" stroke="#000">
-          <circle cx="6.25" cy="6.25" r="6.25" />
-          <path d="M6.604 3.671a.5.5 0 0 0-.708 0L3.671 5.896a.5.5 0 0 0 0 .708l2.225 2.225a.5.5 0 0 0 .708 0l2.225-2.225a.5.5 0 0 0 0-.708L6.604 3.671z" />
-        </g>
-      </g>
+    <Icon {...props} viewBox="0 0 18 18">
+      <title>blue chip status</title>
+      <path
+        d="M9 16A7 7 0 1 0 9 2a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 9 1a8 8 0 0 1 0 16zM6.879 8.842L9 10.964l2.121-2.122L9 6.721 6.879 8.842zM9 5.307l3.536 3.535L9 12.378 5.464 8.842 9 5.307z"
+        fill={color(props.fill)}
+        fillRule="nonzero"
+      />
     </Icon>
   )
 }
