@@ -1,3 +1,15 @@
+# v4.0.1 (Mon Mar 11 2019)
+
+#### 🐛  Bug Fix
+
+- [Icons] Add `Icon` to icon name [#322](https://github.com/artsy/palette/pull/322) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.0.0 (Mon Mar 11 2019)
 
 #### 💥  Breaking Change
