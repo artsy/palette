@@ -1,3 +1,15 @@
+# v3.2.7 (Mon Mar 11 2019)
+
+#### 🐛  Bug Fix
+
+- Add prettier check [#317](https://github.com/artsy/palette/pull/317) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v3.2.6 (Sat Mar 09 2019)
 
 #### 🐛  Bug Fix
