@@ -1,3 +1,15 @@
+# v4.0.0 (Mon Mar 11 2019)
+
+#### 💥  Breaking Change
+
+- New icons [#308](https://github.com/artsy/palette/pull/308) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v3.2.7 (Mon Mar 11 2019)
 
 #### 🐛  Bug Fix
