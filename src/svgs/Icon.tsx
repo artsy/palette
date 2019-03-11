@@ -24,7 +24,7 @@ export interface IconProps
     PositionProps,
     TopProps,
     RightProps,
-  LeftProps {
+    LeftProps {
   fill?: Color
 }
 
@@ -40,5 +40,5 @@ export const Icon = styled.svg.attrs<IconProps>({})`
 `
 
 Icon.defaultProps = {
-  fill: "black100"
+  fill: "black100",
 }
