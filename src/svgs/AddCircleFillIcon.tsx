@@ -15,3 +15,6 @@ export const AddCircleFillIcon: React.SFC<IconProps> = props => {
     </Icon>
   )
 }
+
+// TODO: remove this alias once clients have been updated
+export const PlusIcon = AddCircleFillIcon

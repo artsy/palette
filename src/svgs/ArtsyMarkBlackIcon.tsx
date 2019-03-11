@@ -14,3 +14,6 @@ export const ArtsyMarkBlackIcon: React.SFC<IconProps> = props => {
     </Icon>
   )
 }
+
+// TODO: remove this alias once clients have been updated
+export const ArtsyMarkIcon = ArtsyMarkBlackIcon
