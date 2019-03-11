@@ -16,13 +16,15 @@ export function determineFontSizes(
     }
   }
 
-  return size.map(s => themeProps.typeSizes[fontType][s]).reduce(
-    (accumulator, current) => {
-      return {
-        fontSize: [...accumulator.fontSize, `${current.fontSize}px`],
-        lineHeight: [...accumulator.lineHeight, `${current.lineHeight}px`],
-      }
-    },
-    { fontSize: [], lineHeight: [] }
-  )
+  return size
+    .map(s => themeProps.typeSizes[fontType][s])
+    .reduce(
+      (accumulator, current) => {
+        return {
+          fontSize: [...accumulator.fontSize, `${current.fontSize}px`],
+          lineHeight: [...accumulator.lineHeight, `${current.lineHeight}px`],
+        }
+      },
+      { fontSize: [], lineHeight: [] }
+    )
 }
