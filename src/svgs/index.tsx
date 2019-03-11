@@ -67,3 +67,6 @@ export * from "./TwitterIcon"
 export * from "./UserMultiIcon"
 export * from "./UserSingleIcon"
 export * from "./WeChatIcon"
+
+// TODO: remove this once removed from reaction
+export * from "./Pageviews"
