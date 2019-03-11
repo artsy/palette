@@ -1,17 +1,133 @@
 import React from "react"
-import { color } from "../helpers"
 import { Icon, IconProps } from "./Icon"
 
+/** https://stripe.com/docs/api#card_object-brand */
+export type CreditCardType =
+  | "American Express"
+  | "Discover"
+  | "MasterCard"
+  | "Unknown"
+  | "Visa"
+
+interface CreditCardIconProps extends IconProps {
+  type?: CreditCardType | string
+}
+
 /** CreditCardIcon */
-export const CreditCardIcon: React.SFC<IconProps> = props => {
+export const CreditCardIcon = ({ type, ...rest }: CreditCardIconProps) => {
+  const { parts, title } = cardTypeMap[type] || cardTypeMap.Unknown
+
   return (
-    <Icon {...props} viewBox="0 0 18 18">
-      <title>credit card</title>
-      <path
-        d="M2 6h14V4H2v2zm0 1v7h14V7H2zm-.5-4h15a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-15a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5zM3 9h4v1H3V9z"
-        fill={color(props.fill)}
-        fillRule="nonzero"
-      />
+    <Icon viewBox="0 0 30 20" {...rest}>
+      <title>{title}</title>
+      {parts}
     </Icon>
   )
+}
+
+const AmexIcon = () => (
+  <>
+    <g fill="none" fillRule="evenodd">
+      <rect
+        stroke="#E5E5E5"
+        fill="#EFEFEF"
+        x=".5"
+        y=".5"
+        width="29"
+        height="19"
+        rx="2"
+      />
+      <g fill="#4DB3FF">
+        <path d="M9.999 11A.999.999 0 0 0 9 12.01v1.98c0 .558.439 1.01.999 1.01H30v-4H9.999zM0 6v4h20.001A.999.999 0 0 0 21 8.99V7.01A.999.999 0 0 0 20.001 6H0z" />
+      </g>
+      <rect stroke="#E5E5E5" x=".5" y=".5" width="29" height="19" rx="2" />
+    </g>
+  </>
+)
+
+const DiscoverIcon = () => (
+  <>
+    <g fill="none" fillRule="evenodd">
+      <rect fill="#EFEFEF" width="30" height="20" rx="2" />
+      <path
+        d="M12 20h16.005A1.992 1.992 0 0 0 30 18.002V12l-18 8z"
+        fill="#FFB44F"
+      />
+      <rect fill="#D4D4D4" x="5" y="5" width="20" height="3" rx="1.5" />
+      <rect stroke="#E5E5E5" x=".5" y=".5" width="29" height="19" rx="2" />
+    </g>
+  </>
+)
+
+const FallbackIcon = () => (
+  <>
+    <g fill="none" fillRule="evenodd">
+      <rect
+        stroke="#E5E5E5"
+        fill="#EFEFEF"
+        x=".5"
+        y=".5"
+        width="29"
+        height="19"
+        rx="2"
+      />
+      <rect fill="#D4D4D4" x="5" y="5" width="20" height="3" rx="1.5" />
+      <rect fill="#D4D4D4" x="5" y="10" width="7" height="3" rx="1.5" />
+    </g>
+  </>
+)
+
+const MastercardIcon = () => (
+  <>
+    <g fill="none" fillRule="evenodd">
+      <rect
+        stroke="#E5E5E5"
+        fill="#EFEFEF"
+        x=".5"
+        y=".5"
+        width="29"
+        height="19"
+        rx="2"
+      />
+      <g transform="translate(6 5)">
+        <circle fill="#FFB44F" cx="13" cy="5" r="5" />
+        <circle fill="#CE4747" cx="5" cy="5" r="5" />
+        <path
+          d="M9 8a4.977 4.977 0 0 1-1-3c0-1.126.372-2.164 1-3 .628.836 1 1.874 1 3a4.977 4.977 0 0 1-1 3z"
+          fill="#D6765F"
+        />
+      </g>
+    </g>
+  </>
+)
+const VisaIcon = () => (
+  <>
+    <g fill="none" fillRule="evenodd">
+      <rect
+        stroke="#E5E5E5"
+        fill="#EFEFEF"
+        x=".5"
+        y=".5"
+        width="29"
+        height="19"
+        rx="2"
+      />
+      <path
+        d="M0 14v4.002C0 19.106.898 20 1.992 20h26.016c1.1 0 1.992-.898 1.992-1.998V14H0z"
+        fill="#FFB44F"
+      />
+      <path
+        d="M1.992 0C.892 0 0 .898 0 1.998V6h30V1.998A1.999 1.999 0 0 0 28.008 0H1.992z"
+        fill="#4287CB"
+      />
+    </g>
+  </>
+)
+
+const cardTypeMap = {
+  "American Express": { parts: <AmexIcon />, title: "amex" },
+  Discover: { parts: <DiscoverIcon />, title: "discover" },
+  MasterCard: { parts: <MastercardIcon />, title: "mastercard" },
+  Unknown: { parts: <FallbackIcon />, title: "credit card" },
+  Visa: { parts: <VisaIcon />, title: "visa" },
 }
