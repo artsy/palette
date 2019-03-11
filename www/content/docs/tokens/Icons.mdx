@@ -6,6 +6,32 @@ status: wip
 import { AllIcons } from "@artsy/palette"
 import _ from "lodash"
 
+## Basic Icon List
+
+Here is the list of basic icons:
+
+<Flex flexWrap="wrap">
+  {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
+    const blacklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
+    if (
+      !_.isFunction(IconComponent) ||
+      blacklist.some(icon => icon === iconName)
+    ) {
+      return null
+    }
+    const size = "40px"
+    return (
+      <Box pr={4} pb={2} mb={4} key={index}>
+        <IconComponent width={size} height={size} />
+        <Separator my={1} />
+        <Sans size="3" weight="medium">
+          {iconName}
+        </Sans>
+      </Box>
+    )
+  })}
+</Flex>
+
 ## ChevronIcon
 
 This is a meta component that wraps the four directional arrows and accepts a left, right, up, down direction. By deafault it uses right:
@@ -46,29 +72,3 @@ This is a meta component that wraps the four designed credit card types and prov
     </Flex>
   </BorderBox>
 </Playground>
-
-## Basic Icon List
-
-Here are the rest of the icons:
-
-<Flex flexWrap="wrap">
-  {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
-    const blacklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
-    if (
-      !_.isFunction(IconComponent) ||
-      blacklist.some(icon => icon === iconName)
-    ) {
-      return null
-    }
-    const size = "40px"
-    return (
-      <Box pr={4} pb={2} mb={4} key={index}>
-        <IconComponent width={size} height={size} />
-        <Separator my={1} />
-        <Sans size="3" weight="medium">
-          {iconName}
-        </Sans>
-      </Box>
-    )
-  })}
-</Flex>
