@@ -70,4 +70,4 @@ export * from "./UserSingleIcon"
 export * from "./WeChatIcon"
 
 // TODO: remove this once removed from reaction
-export * from "./Pageviews"
+export * from "./PageViewsIcon"
