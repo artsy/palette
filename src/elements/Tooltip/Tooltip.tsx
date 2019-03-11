@@ -58,7 +58,7 @@ enum TipSize {
 }
 
 export interface TooltipProps {
-  content: string
+  content: string | React.ReactElement<any>
   size: TipSize
   width: number
 }
@@ -134,7 +134,10 @@ export class Tooltip extends React.Component<TooltipProps> {
   }
 
   render() {
-    const content = formattedTip(this.props.content)
+    const content =
+      typeof this.props.content === "string"
+        ? formattedTip(this.props.content)
+        : this.props.content
     return (
       <Wrapper
         onClick={this.handleClick}
@@ -157,7 +160,7 @@ export class Tooltip extends React.Component<TooltipProps> {
   }
 }
 
-const formattedTip = tip => {
+const formattedTip = (tip: string): string => {
   let substring = tip.substring(0, 300)
 
   if (substring !== tip) {
