@@ -1,3 +1,19 @@
+# v4.0.2 (Tue Mar 12 2019)
+
+#### 🐛  Bug Fix
+
+- Make docs icon columns consistent [#324](https://github.com/artsy/palette/pull/324) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- [Lib] Bump palette in docs [#323](https://github.com/artsy/palette/pull/323) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.0.1 (Mon Mar 11 2019)
 
 #### 🐛  Bug Fix
