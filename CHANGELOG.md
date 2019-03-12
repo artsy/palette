@@ -1,3 +1,15 @@
+# v4.0.4 (Tue Mar 12 2019)
+
+#### 🐛  Bug Fix
+
+- [Tooltip] Add option to have component as tooltip content [#321](https://github.com/artsy/palette/pull/321) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v4.0.3 (Tue Mar 12 2019)
 
 #### ⚠️  Pushed to master
