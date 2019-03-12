@@ -1,3 +1,15 @@
+# v4.0.3 (Tue Mar 12 2019)
+
+#### ⚠️  Pushed to master
+
+- Update Tokens “Icons”  ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- [@jonallured](https://github.com/jonallured)
+
+---
+
 # v4.0.2 (Tue Mar 12 2019)
 
 #### 🐛  Bug Fix
