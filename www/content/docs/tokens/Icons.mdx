@@ -6,9 +6,8 @@ status: wip
 import { AllIcons } from "@artsy/palette"
 import _ from "lodash"
 
-## Basic Icon List
-
-Here is the list of basic icons:
+See [Notion](https://www.notion.so/artsy/Icons-c49c292a40e243baacd7842a4de983d4)
+for the masterlist.
 
 <Flex flexWrap="wrap">
   {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
@@ -21,7 +20,7 @@ Here is the list of basic icons:
     }
     const size = "40px"
     return (
-      <Box pr={4} pb={2} mb={4} key={index}>
+      <Box pr={4} pb={2} mb={4} key={index} width="20%">
         <IconComponent width={size} height={size} />
         <Separator my={1} />
         <Sans size="3" weight="medium">
@@ -34,7 +33,8 @@ Here is the list of basic icons:
 
 ## ChevronIcon
 
-This is a meta component that wraps the four directional arrows and accepts a left, right, up, down direction. By deafault it uses right:
+This is a meta component that wraps the four directional arrows and accepts a
+left, right, up, down direction. By deafault it uses right:
 
 <Playground>
   <ChevronIcon height="40px" width="40px" />
@@ -59,7 +59,8 @@ But you can pass a direction to override:
 
 ## CreditCardIcon
 
-This is a meta component that wraps the four designed credit card types and provides a fallback when the type is unknown:
+This is a meta component that wraps the four designed credit card types and
+provides a fallback when the type is unknown:
 
 <Playground>
   <BorderBox>
