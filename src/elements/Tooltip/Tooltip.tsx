@@ -58,7 +58,7 @@ enum TipSize {
 }
 
 export interface TooltipProps {
-  content: string | React.ReactElement<any>
+  content: React.ReactNode
   size: TipSize
   width: number
 }
