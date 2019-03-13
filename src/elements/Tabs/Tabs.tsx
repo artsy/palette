@@ -199,21 +199,25 @@ export class Tab extends React.Component<TabProps> {
   }
 }
 
-const TabButton = ({ children, ...props }) => (
-  <TabContainer {...props}>
-    <Sans size="3t" weight="medium" color="black30">
-      {children}
-    </Sans>
-  </TabContainer>
-)
+const TabButton = ({ children, ...props }) => {
+  return (
+    <TabContainer {...props}>
+      <Sans size="3t" weight="medium" color="black30">
+        {children}
+      </Sans>
+    </TabContainer>
+  )
+}
 
-const ActiveTabButton: React.SFC = ({ children }) => (
-  <ActiveTabContainer>
-    <Sans size="3t" weight="medium">
-      {children}
-    </Sans>
-  </ActiveTabContainer>
-)
+const ActiveTabButton: React.SFC = ({ children }) => {
+  return (
+    <ActiveTabContainer>
+      <Sans size="3t" weight="medium">
+        {children}
+      </Sans>
+    </ActiveTabContainer>
+  )
+}
 
 /** Sharable tab styles  */
 export const sharedTabsStyles = {

@@ -5,10 +5,12 @@ import { Sup, Tab, Tabs } from "../Tabs"
 describe("Tabs", () => {
   it("renders tabs by via name prop", () => {
     const wrapper = mount(
-      <Tabs>
-        <Tab name="Overview" />
-        <Tab name="CV" />
-      </Tabs>
+      <div>
+        <Tabs>
+          <Tab name="Overview" />
+          <Tab name="CV" />
+        </Tabs>
+      </div>
     )
 
     expect(wrapper.html()).toContain("Overview")
@@ -17,10 +19,12 @@ describe("Tabs", () => {
 
   it("sets a specific tab on mount", () => {
     const wrapper = mount(
-      <Tabs initialTabIndex={1}>
-        <Tab name="Overview" />
-        <Tab name="CV" />
-      </Tabs>
+      <div>
+        <Tabs initialTabIndex={1}>
+          <Tab name="Overview" />
+          <Tab name="CV" />
+        </Tabs>
+      </div>
     )
 
     expect(wrapper.find("ActiveTabButton").html()).toContain("CV")
@@ -28,11 +32,13 @@ describe("Tabs", () => {
 
   it("ignores empty tab when selecting default selected tab on mount", () => {
     const wrapper = mount(
-      <Tabs>
-        {null}
-        {false as any}
-        <Tab name="CV" />
-      </Tabs>
+      <div>
+        <Tabs>
+          {null}
+          {false as any}
+          <Tab name="CV" />
+        </Tabs>
+      </div>
     )
 
     expect(wrapper.find("ActiveTabButton").html()).toContain("CV")
@@ -58,10 +64,12 @@ describe("Tabs", () => {
   it("it triggers an onChange event on tab click", () => {
     const spy = jest.fn()
     const wrapper = mount(
-      <Tabs initialTabIndex={1} onChange={spy}>
-        <Tab name="Overview" />
-        <Tab name="CV" />
-      </Tabs>
+      <div>
+        <Tabs initialTabIndex={1} onChange={spy}>
+          <Tab name="Overview" />
+          <Tab name="CV" />
+        </Tabs>
+      </div>
     )
 
     expect(spy).not.toHaveBeenCalled()
@@ -76,10 +84,12 @@ describe("Tabs", () => {
       </div>
     )
     const wrapper = mount(
-      <Tabs initialTabIndex={1} transformTabBtn={TabWrapper}>
-        <Tab name="Overview" />
-        <Tab name="CV" />
-      </Tabs>
+      <div>
+        <Tabs initialTabIndex={1} transformTabBtn={TabWrapper}>
+          <Tab name="Overview" />
+          <Tab name="CV" />
+        </Tabs>
+      </div>
     )
 
     expect(wrapper.html()).toContain("foundTabWrapper")
@@ -92,10 +102,12 @@ describe("Tabs", () => {
       </div>
     )
     const wrapper = mount(
-      <Tabs initialTabIndex={1} separator={TabSeparator}>
-        <Tab name="Overview" />
-        <Tab name="CV" />
-      </Tabs>
+      <div>
+        <Tabs initialTabIndex={1} separator={TabSeparator}>
+          <Tab name="Overview" />
+          <Tab name="CV" />
+        </Tabs>
+      </div>
     )
 
     expect(wrapper.html()).toContain("foundTabSeparator")
@@ -104,25 +116,27 @@ describe("Tabs", () => {
 
   it("renders superscripts after tab text", () => {
     const wrapper = mount(
-      <Tabs justifyContent="center">
-        <Tab
-          name={
-            <>
-              Open
-              <Sup>100</Sup>
-            </>
-          }
-        />
-        <Tab
-          name={
-            <>
-              Ready to ship
-              <Sup>4</Sup>
-            </>
-          }
-        />
-        <Tab name="Complete" />
-      </Tabs>
+      <div>
+        <Tabs justifyContent="center">
+          <Tab
+            name={
+              <>
+                Open
+                <Sup>100</Sup>
+              </>
+            }
+          />
+          <Tab
+            name={
+              <>
+                Ready to ship
+                <Sup>4</Sup>
+              </>
+            }
+          />
+          <Tab name="Complete" />
+        </Tabs>
+      </div>
     )
 
     expect(wrapper.text()).toContain("Open100Ready to ship4Complete")
