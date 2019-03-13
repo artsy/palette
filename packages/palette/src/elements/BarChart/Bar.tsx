@@ -42,7 +42,7 @@ const BarBox = styled(Box)`
 const BaseLabelPositioner = styled(Flex)`
   ${media.xs`
     display: none;
-  `}
+  `};
   transform: translateX(-50%);
   pointer-events: none;
   border-radius: 2px;

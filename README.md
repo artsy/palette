@@ -25,19 +25,10 @@ to peek at the proposal and provide feedback before moving forward.
 
 ## Local development
 
-Start by ensuring your local version of Palette will be picked up by the Gatsby
-site:
+In the project root run the following:
 
 ```
-$ yarn link
-$ cd www/
-$ yarn link @artsy/palette
-```
-
-Then you can startup the local server:
-
-```
-$ yarn docs
+$ yarn start
 $ open http://localhost:8000/
 ```
 
