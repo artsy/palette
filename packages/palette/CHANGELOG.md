@@ -1,3 +1,15 @@
+# v4.1.0 (Wed Mar 13 2019)
+
+#### 🚀  Enhancement
+
+- temp fix for release process [#326](https://github.com/artsy/palette/pull/326) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.0.6 (Wed Mar 13 2019)
 
 #### 🐛  Bug Fix
