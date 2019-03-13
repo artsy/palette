@@ -1,37 +1,17 @@
 import React from "react"
+import { color } from "../helpers"
 import { Icon, IconProps } from "./Icon"
 
-interface DownloadIconProps extends IconProps {
-  fill?: string
-  selected?: boolean
-}
-
-/** Icon */
-export const DownloadIcon: React.SFC<DownloadIconProps> = ({
-  fill = "#000",
-  ...props
-}) => {
+/** DownloadIcon */
+export const DownloadIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <title>Download</title>
-      <g id="icon_download" fill="none" fillRule="evenodd">
-        <path d="M0 0h18v18H0z" />
-        <g fill={fill}>
-          <path
-            fillRule="nonzero"
-            d="M9.25 11.84L5.63 8.22l.63-.64 2.54 2.55V3.1h.9v7.03l2.54-2.55.63.64z"
-          />
-          <path d="M3 10h1v4h10.02v-4h1v5H3z" />
-        </g>
-      </g>
+    <Icon {...props} viewBox="0 0 18 18">
+      <title>download</title>
+      <path
+        d="M3 3h6.006l1.973 2.002H15v9.994H3V3zm.99 1v9.996h10.02V6.002h-3.465L8.601 4H3.99zm5.576 7.279l1.48-1.469.66.8L9 13.257l-2.739-2.875.711-.732 1.544 1.668-.046-.068V6.56l1.096.018v4.7z"
+        fill={color(props.fill)}
+        fillRule="evenodd"
+      />
     </Icon>
   )
 }
-
-DownloadIcon.displayName = "Download"

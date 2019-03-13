@@ -1,33 +1,19 @@
 import React from "react"
+import { color } from "../helpers"
 import { Icon, IconProps } from "./Icon"
 
-interface EditIconProps extends IconProps {
-  fill?: string
-}
-
-/** Icon */
-export const EditIcon: React.SFC<EditIconProps> = ({
-  fill = "#000",
-  ...props
-}) => {
+/** EditIcon */
+export const EditIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <title>Edit</title>
-      <g id="icon_edit" fill="none" fillRule="evenodd">
-        <path d="M0 0h18v18H0z" />
-        <g fill={fill}>
-          <path d="M14.02 3.06l2.06 2.42-7.75 6.65H6.16V9.78l7.86-6.72zm-.04 1.23l-6.82 5.84v1.02l.98-.02 6.74-5.78-.9-1.06z" />
-          <path d="M3 3h7v1H4v10h10v-4h1v5H3z" />
-        </g>
+    <Icon {...props} viewBox="0 0 18 18">
+      <title>edit</title>
+      <g fill={color(props.fill)} fillRule="evenodd">
+        <path d="M3 3h6.992v1.009H4.008V14H14V8h1v7H3z" />
+        <path
+          d="M6.007 9.299l6.908-7.18L15.809 5l-7.07 6.989H6.006V9.299zm1 1.691h1.32l6.062-5.991-1.459-1.454-5.923 6.156v1.289z"
+          fillRule="nonzero"
+        />
       </g>
     </Icon>
   )
 }
-
-EditIcon.displayName = "Edit"

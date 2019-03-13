@@ -1,35 +1,15 @@
 import React from "react"
+import { color } from "../helpers"
 import { Icon, IconProps } from "./Icon"
 
-interface MoreIconProps extends IconProps {
-  fill?: string
-}
-
-/** Icon */
-export const MoreIcon: React.SFC<MoreIconProps> = ({
-  fill,
-  ...props
-}: MoreIconProps) => {
+/** MoreIcon */
+export const MoreIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon
-      width="18px"
-      height="18px"
-      viewBox="0 0 18 18"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <title>More</title>
-      <g id="Symbols" fill={fill || "none"} fillRule="evenodd">
-        <path fill="#FFF" opacity=".1" d="M0 0h18v18H0z" />
-        <g transform="translate(3 8)" stroke={fill || "#000000"}>
-          <circle cx="1" cy="1" r="1.5" />
-          <circle cx="6" cy="1" r="1.5" />
-          <circle cx="11" cy="1" r="1.5" />
-        </g>
+    <Icon {...props} viewBox="0 0 18 18">
+      <title>view more</title>
+      <g fill={color(props.fill)} fillRule="nonzero">
+        <path d="M4 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM9 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
       </g>
     </Icon>
   )
 }
-
-MoreIcon.displayName = "More"

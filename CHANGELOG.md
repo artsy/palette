@@ -1,3 +1,67 @@
+# v4.0.4 (Tue Mar 12 2019)
+
+#### 🐛  Bug Fix
+
+- [Tooltip] Add option to have component as tooltip content [#321](https://github.com/artsy/palette/pull/321) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
+# v4.0.3 (Tue Mar 12 2019)
+
+#### ⚠️  Pushed to master
+
+- Update Tokens “Icons”  ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- [@jonallured](https://github.com/jonallured)
+
+---
+
+# v4.0.2 (Tue Mar 12 2019)
+
+#### 🐛  Bug Fix
+
+- Make docs icon columns consistent [#324](https://github.com/artsy/palette/pull/324) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- [Lib] Bump palette in docs [#323](https://github.com/artsy/palette/pull/323) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# v4.0.1 (Mon Mar 11 2019)
+
+#### 🐛  Bug Fix
+
+- [Icons] Add `Icon` to icon name [#322](https://github.com/artsy/palette/pull/322) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# v4.0.0 (Mon Mar 11 2019)
+
+#### 💥  Breaking Change
+
+- New icons [#308](https://github.com/artsy/palette/pull/308) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v3.2.7 (Mon Mar 11 2019)
 
 #### 🐛  Bug Fix

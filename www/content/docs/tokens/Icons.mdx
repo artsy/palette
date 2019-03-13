@@ -1,19 +1,17 @@
 ---
 name: Icons
-status: wip
+status: ''
 ---
 
 import { AllIcons } from "@artsy/palette"
 import _ from "lodash"
 
 See [Notion](https://www.notion.so/artsy/Icons-c49c292a40e243baacd7842a4de983d4)
-for complete list.
-
-<Spacer my={4} />
+for the masterlist.
 
 <Flex flexWrap="wrap">
   {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
-    const blacklist = ["Icon"]
+    const blacklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
     if (
       !_.isFunction(IconComponent) ||
       blacklist.some(icon => icon === iconName)
@@ -22,7 +20,7 @@ for complete list.
     }
     const size = "40px"
     return (
-      <Box pr={4} pb={2} mb={4} key={index}>
+      <Box pr={4} pb={2} mb={4} key={index} width="20%">
         <IconComponent width={size} height={size} />
         <Separator my={1} />
         <Sans size="3" weight="medium">
@@ -32,3 +30,46 @@ for complete list.
     )
   })}
 </Flex>
+
+## ChevronIcon
+
+This is a meta component that wraps the four directional arrows and accepts a
+left, right, up, down direction. By deafault it uses right:
+
+<Playground>
+  <ChevronIcon height="40px" width="40px" />
+</Playground>
+
+But you can pass a direction to override:
+
+<Playground>
+  <BorderBox>
+    <ChevronIcon direction="up" height="40px" width="40px" />
+    <ChevronIcon direction="up" height="40px" width="40px" />
+    <ChevronIcon direction="down" height="40px" width="40px" />
+    <ChevronIcon direction="down" height="40px" width="40px" />
+    <ChevronIcon direction="left" height="40px" width="40px" />
+    <ChevronIcon direction="right" height="40px" width="40px" />
+    <ChevronIcon direction="left" height="40px" width="40px" />
+    <ChevronIcon direction="right" height="40px" width="40px" />
+    <Sans size="8">B</Sans>
+    <Sans size="8">A</Sans>
+  </BorderBox>
+</Playground>
+
+## CreditCardIcon
+
+This is a meta component that wraps the four designed credit card types and
+provides a fallback when the type is unknown:
+
+<Playground>
+  <BorderBox>
+    <Flex justifyContent="space-evenly" width="100%">
+      <CreditCardIcon type="American Express" height="40px" width="40px" />
+      <CreditCardIcon type="Discover" height="40px" width="40px" />
+      <CreditCardIcon type="MasterCard" height="40px" width="40px" />
+      <CreditCardIcon type="Unknown" height="40px" width="40px" />
+      <CreditCardIcon type="Visa" height="40px" width="40px" />
+    </Flex>
+  </BorderBox>
+</Playground>

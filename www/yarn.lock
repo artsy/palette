@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@artsy/palette@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-3.1.0.tgz#242928faaee31c3bb7a2c0fca01053c06e01c6a5"
-  integrity sha512-1mXKDYpelW9gCskHXPzzBBI9zsTC/qfJaRUuAKX0IOBUkWPdUvNQO4Y35+J3Y10B1851tK70KD23HI4oNUAhuA==
+"@artsy/palette@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-4.0.4.tgz#ed28605f116e07f352e30c82e2319516a342be86"
+  integrity sha512-TGgltca1B25KJllikW4oKX4UWoCIkTHg8O7sxDjaoYOH1e3y+72rIh9VMA64dJ5bS0GvGpQ2mR1OVKWD/FZeeg==
   dependencies:
     babel-plugin-styled-components "^1.10.0"
     moment "^2.23.0"

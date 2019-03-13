@@ -1,4 +1,4 @@
-import { Box, ChevronIcon, color, Sans, SansSize, Spacer } from "@artsy/palette"
+import { Box, ChevronIcon, Sans, SansSize, Spacer } from "@artsy/palette"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { includes, reject, sortBy } from "lodash"
@@ -101,8 +101,10 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
 
                         {!expandSubNav && (
                           <ChevronIcon
+                            width="10px"
+                            height="10px"
                             direction={expanded ? "up" : "down"}
-                            fill={color("black30")}
+                            fill="black30"
                             top={-2}
                             mr={1}
                             style={{

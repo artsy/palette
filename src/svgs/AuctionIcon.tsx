@@ -1,13 +1,17 @@
 import React from "react"
+import { color } from "../helpers"
 import { Icon, IconProps } from "./Icon"
 
-/** Icon */
+/** AuctionIcon */
 export const AuctionIcon: React.SFC<IconProps> = props => {
   return (
-    <Icon width="25" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <g stroke="#000" fill="none" fillRule="evenodd">
-        <path d="M10.977 6.698l4.547 2.625-4.41 7.64-4.547-2.626zM13.385 13.243l4.546 2.625-.5.866-4.546-2.625z" />
-      </g>
+    <Icon {...props} viewBox="0 0 18 18">
+      <title>auction</title>
+      <path
+        d="M11.729 10.745l3.776 3.865-.91.89-3.766-3.855-3.446 3.446-5.052-5.052 7.94-7.939 5.051 5.052-3.593 3.593zM10.27 3.717l-6.322 6.322 3.435 3.435 6.323-6.322-3.436-3.435z"
+        fill={color(props.fill)}
+        fillRule="nonzero"
+      />
     </Icon>
   )
 }
