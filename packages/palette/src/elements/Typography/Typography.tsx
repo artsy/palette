@@ -91,6 +91,7 @@ export interface TextProps
    * this prop.
    */
   ellipsizeMode?: string
+  element?: keyof JSX.IntrinsicElements | React.ComponentType<any>
 }
 
 /** Base Text component for typography */
@@ -172,7 +173,7 @@ function createStyledText<P extends StyledTextProps>(
   selectFontFamilyType: typeof _selectFontFamilyType = _selectFontFamilyType
 ) {
   return styled<P>(
-    ({ size, weight, italic, ...textProps }: StyledTextProps) => {
+    ({ size, weight, italic, element, ...textProps }: StyledTextProps) => {
       const fontFamilyType = selectFontFamilyType(_fontWeight(weight), italic)
       // This is mostly to narrow the type of `fontFamilyType` to remove `null`.
       if (fontFamilyType === null) {
@@ -184,6 +185,10 @@ function createStyledText<P extends StyledTextProps>(
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }
           {...determineFontSizes(fontType, size)}
+          // styled-components wants it called `as`, but this function somehow
+          //  gets skipped when there is an `as` prop passed in. So our clients
+          //  will pass in `element`, and we'll pass it through as `as`.
+          {...(element ? { as: element } : {})}
           {...textProps}
         />
       )
