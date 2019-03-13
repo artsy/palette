@@ -18,9 +18,14 @@ const changedFiles = execSync("git diff --name-only")
   .trim()
 if (changedFiles !== "packages/palette/package.json") {
   console.error("ERROR in clean-up-after-auto.js")
-  console.error(
-    "No unstaged changes. Has auto been updated? Then you can delete this file!"
-  )
+  if (!changedFiles) {
+    console.error(
+      "No unstaged changes. Has auto been updated? Then you can delete this file!"
+    )
+  } else {
+    console.error("Unexpected changed files")
+    console.log(changedFiles)
+  }
   process.exit(1)
 }
 
