@@ -1,3 +1,20 @@
+# v4.0.5 (Wed Mar 13 2019)
+
+#### 🐛  Bug Fix
+
+- [Lib] Upgrade deps via upgrade-interactive [#320](https://github.com/artsy/palette/pull/320) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- bump version of palette in docs [#325](https://github.com/artsy/palette/pull/325) ([@ds300](https://github.com/ds300))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.0.4 (Tue Mar 12 2019)
 
 #### 🐛  Bug Fix
