@@ -1,3 +1,15 @@
+# v4.0.6 (Wed Mar 13 2019)
+
+#### 🐛  Bug Fix
+
+- Use yarn workspaces [#316](https://github.com/artsy/palette/pull/316) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.0.5 (Wed Mar 13 2019)
 
 #### 🐛  Bug Fix
