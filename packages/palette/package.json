@@ -20,7 +20,7 @@
     "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
     "prettier-check": "prettier --check 'src/**/*.{ts,tsx}'",
     "prettier-project": "yarn prettier --write 'src/**/*.{ts,tsx}'",
-    "release": "auto shipit",
+    "release": "auto shipit && node scripts/clean-up-after-auto.js",
     "test": "yarn type-check && yarn jest",
     "type-check": "tsc --emitDeclarationOnly --pretty",
     "type-declarations": "tsc --emitDeclarationOnly",
