@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' 'yarn workspace artsy-palette-docs start'",
+    "test": "yarn workspaces run test",
+    "lint": "yarn workspaces run lint",
+    "compile-palette": "yarn workspace @artsy/palette compile",
+    "type-check": "yarn compile-palette && yarn workspaces run type-check",
+    "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
+    "release": "yarn workspace @artsy/palette release"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

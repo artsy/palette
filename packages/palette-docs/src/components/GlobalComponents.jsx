@@ -73,6 +73,23 @@ export const { GlobalStyles } = injectGlobalStyles(`
  * in markdown. Still need to fill this out a bit!
  */
 export const MarkdownComponents = {
+  /**
+   * Use the code editor for displaying code blocks. Doesn't need a scope because
+   * it's not interactive.
+   */
+  code: ({ children, className: language }) => {
+    return (
+      <CodeEditor
+        code={children}
+        language={language}
+        editable={false}
+        scope={{}}
+      />
+    )
+  },
+  div: props => {
+    return <div className="contentDiv">{props.children}</div>
+  },
   h1: props => (
     <Box mb={5}>
       <Serif size="8" color="black100">
@@ -101,15 +118,7 @@ export const MarkdownComponents = {
       </Serif>
     </Box>
   ),
-  div: props => {
-    return <div className="contentDiv">{props.children}</div>
-  },
-  p: props => (
-    // @ts-ignore
-    <Sans size="3" color="black100" className="contentDiv">
-      {props.children}
-    </Sans>
-  ),
+
   ol: props => {
     return (
       <ol>
@@ -118,20 +127,12 @@ export const MarkdownComponents = {
     )
   },
 
-  /**
-   * Use the code editor for displaying code blocks. Doesn't need a scope because
-   * it's not interactive.
-   */
-  code: ({ children, className: language }) => {
-    return (
-      <CodeEditor
-        code={children}
-        language={language}
-        editable={false}
-        scope={{}}
-      />
-    )
-  },
+  p: props => (
+    // @ts-ignore
+    <Sans size="3" color="black100" className="contentDiv">
+      {props.children}
+    </Sans>
+  ),
 }
 
 export const PaletteComponents = Palette
