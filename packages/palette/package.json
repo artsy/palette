@@ -4,7 +4,8 @@
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "files": [
     "dist"
@@ -61,7 +62,6 @@
     "@types/react-test-renderer": "^16.0.1",
     "@types/styled-components": "4.0.2",
     "@types/styled-system": "^3.0.9",
-    "auto": "^4.8.9",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
