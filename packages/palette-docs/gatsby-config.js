@@ -1,9 +1,9 @@
 // @ts-check
 
 const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
-const copyChangelog = require("./src/utils/copyChangelog")
 
 // FIXME: Figure out a better way to do this
+// const copyChangelog = require("./src/utils/copyChangelog")
 // copyChangelog()
 
 module.exports = {
