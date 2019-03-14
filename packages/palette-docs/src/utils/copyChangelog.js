@@ -4,7 +4,7 @@ const path = require("path")
 // FIXME: Find a better way to do this...
 
 const changelog = fs.readFileSync(
-  path.join(require.resolve("@artsy/palette/CHANGELOG.md")),
+  path.join(__dirname, '../../../../CHANGELOG.md'),
   {
     encoding: "utf8",
   }
