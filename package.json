@@ -10,6 +10,7 @@
     "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
     "release": "auto shipit"
   },
+  "repository": "https://github.com/artsy/palette",
   "workspaces": {
     "packages": [
       "packages/*"
