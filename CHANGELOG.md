@@ -1,3 +1,23 @@
+# v4.1.2 (Thu Mar 14 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Fix <Toggle> icon size [#332](https://github.com/artsy/palette/pull/332) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Update yarn orb to v0.2.0 [#331](https://github.com/artsy/palette/pull/331) ([@renovate-bot](https://github.com/renovate-bot))
+- [ci setup] consolidate changelogs [#330](https://github.com/artsy/palette/pull/330) ([@ds300](https://github.com/ds300))
+
+#### Authors: 3
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.1.1 (Thu Mar 14 2019)
 
 #### 🐛 Bug Fix
