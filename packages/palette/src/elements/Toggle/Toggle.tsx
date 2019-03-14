@@ -45,30 +45,35 @@ export class Toggle extends React.Component<ToggleProps> {
 
   render() {
     const { disabled, expanded } = this.state
+    const { children, label, textSize } = this.props
 
     return (
-      <Flex width="100%" flexDirection="column">
+      <Flex width="100%" flexDirection="column" pb={2}>
         <Separator mb={2} />
-        <Header mb={2} onClick={this.toggleExpand} disabled={disabled}>
+        <Header onClick={this.toggleExpand} disabled={disabled}>
           <Flex justifyContent="space-between" alignItems="center">
             <Sans
-              size={this.props.textSize as SansSize}
+              size={textSize as SansSize}
               weight="medium"
               color="black100"
               my={0.5}
             >
-              {this.props.label}
+              {label}
             </Sans>
             {!disabled && (
               <Flex justifyContent="right">
-                <ChevronIcon direction={expanded ? "up" : "down"} right={-5} />
+                <ChevronIcon
+                  direction={expanded ? "up" : "down"}
+                  width={12}
+                  height={12}
+                />
               </Flex>
             )}
           </Flex>
         </Header>
-        {expanded && (
-          <Flex flexDirection="column" alignItems="left" mt={-1}>
-            {this.props.children}
+        {expanded && children && (
+          <Flex flexDirection="column" alignItems="left" mt={1}>
+            {children}
           </Flex>
         )}
       </Flex>
