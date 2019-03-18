@@ -129,6 +129,14 @@ export function injectGlobalStyles<P>(
       }
     }
 
+    h1, h2, h3, h4, h5, h6 {
+      font-style: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+      margin: 0;
+    }
+    
     ${additionalStyles};
   `
 
