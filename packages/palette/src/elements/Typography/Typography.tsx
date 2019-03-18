@@ -185,9 +185,13 @@ function createStyledText<P extends StyledTextProps>(
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }
           {...determineFontSizes(fontType, size)}
-          // styled-components wants it called `as`, but this function somehow
-          //  gets skipped when there is an `as` prop passed in. So our clients
-          //  will pass in `element`, and we'll pass it through as `as`.
+          // styled-components supports calling the prop `as`, but there are
+          //  issues when passing it into this component named `as`. See
+          //  https://github.com/styled-components/styled-components/issues/2448
+          //  & https://github.com/artsy/palette/pull/327#issuecomment-473434537
+          //  for context.
+          // So we are naming it `element` on the way into this component, and
+          //  renaming it to `as` when we pass it to through.
           {...(element ? { as: element } : {})}
           {...textProps}
         />
