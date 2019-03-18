@@ -1,9 +1,10 @@
 import React, { ImgHTMLAttributes, SFC } from "react"
-import { space, SpaceProps } from "styled-system"
+import { css } from "styled-components"
 import { color } from "../../helpers/color"
 import { styled as primitives, styledWrapper } from "../../platform/primitives"
 import { SerifSize } from "../../Theme"
 import { Flex } from "../Flex"
+import { LazyImage } from "../LazyImage"
 import { Serif } from "../Typography"
 
 /**
@@ -32,7 +33,7 @@ const Size: SizeProps = {
   },
 }
 
-const sizeValue = ({ size = "" }) => {
+const sizeValue = size => {
   switch (size) {
     case "xs":
       return Size.xs
@@ -44,20 +45,34 @@ const sizeValue = ({ size = "" }) => {
   }
 }
 
-export interface AvatarProps extends ImgHTMLAttributes<any>, SpaceProps {
+export interface AvatarProps extends ImgHTMLAttributes<any> {
   /** If an image is missing, show initials instead */
   initials?: string
+  lazyLoad?: boolean
   /** The size of the Avatar */
   size?: "xs" | "sm" | "md"
 }
 
 /** An circular Avatar component containing an image or initials */
-export const Avatar: SFC<AvatarProps> = ({ src, initials, size = "md" }) => {
-  if (src) {
-    return <AvatarImage size={size} src={src} />
-  } else if (initials) {
-    const { diameter, typeSize } = sizeValue({ size })
+export const Avatar: SFC<AvatarProps> = ({
+  src,
+  initials,
+  lazyLoad = false,
+  size = "md",
+}) => {
+  const { diameter, typeSize } = sizeValue(size)
 
+  if (src) {
+    return (
+      <LazyImage
+        preload={!lazyLoad}
+        width={diameter}
+        height={diameter}
+        borderRadius={diameter}
+        src={src}
+      />
+    )
+  } else if (initials) {
     // Left align for overflow
     const justifyContent = initials.length > 4 ? "left" : "center"
 
@@ -83,19 +98,22 @@ export const Avatar: SFC<AvatarProps> = ({ src, initials, size = "md" }) => {
   }
 }
 
+const BaseAvatarStyles = css<AvatarProps>`
+  width: ${props => sizeValue(props).diameter};
+  height: ${props => sizeValue(props).diameter};
+  border-radius: ${props => sizeValue(props).diameter};
+`
+
 /**
  * A circular avatar image component.
  */
 export const AvatarImage = primitives.Image<AvatarProps>`
-  width: ${props => sizeValue(props).diameter};
-  height: ${props => sizeValue(props).diameter};
-  border-radius: ${props => sizeValue(props).diameter};
-  ${space};
+  ${BaseAvatarStyles}
 `
 
 const InitialsHolder = styledWrapper(Flex)<AvatarProps>`
   background-color: ${color("black10")};
-  border-radius: ${props => sizeValue(props).diameter};
+  border-radius: ${props => sizeValue(props.size).diameter};
   text-align: center;
   overflow: hidden;
 `

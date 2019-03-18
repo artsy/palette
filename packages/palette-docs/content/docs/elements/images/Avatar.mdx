@@ -3,7 +3,15 @@ name: Avatar
 ---
 
 <Playground title="Medium">
-  <Avatar size="md" src="https://picsum.photos/110/110/?random" />
+  <Flex>
+    <Avatar size="md" src="https://picsum.photos/110/110/?random" />
+    <Spacer ml={1} />
+    <Avatar
+      size="md"
+      lazyLoad
+      src="http://deelay.me/3000/https://picsum.photos/110/110/?random"
+    />
+  </Flex>
 </Playground>
 
 <Playground title="Small">
