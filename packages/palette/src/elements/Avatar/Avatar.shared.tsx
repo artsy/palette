@@ -1,4 +1,4 @@
-import React, { ImgHTMLAttributes, ReactNode } from "react"
+import React, { ImgHTMLAttributes } from "react"
 import { color } from "../../helpers/color"
 import { styledWrapper } from "../../platform/primitives"
 import { SerifSize } from "../../Theme"
@@ -96,3 +96,5 @@ export const InitialsHolder = styledWrapper(Flex)<{ size: SizeKey }>`
   text-align: center;
   overflow: hidden;
 `
+
+InitialsHolder.displayName = "InitialsHolder"

@@ -3,10 +3,17 @@ import React from "react"
 import { Avatar } from "../Avatar"
 
 describe("Avatar", () => {
-  it("renders an AvatarImage if image url provided", () => {
-    const wrapper = mount(<Avatar src="some/path.img" />)
-    expect(wrapper.find("AvatarImage").length).toBe(1)
-    expect(wrapper.find("InitialsHolder").length).toBe(0)
+  describe("on web", () => {
+    it("renders an LazyImage if image url provided", () => {
+      const wrapper = mount(<Avatar src="some/path.img" />)
+      expect(wrapper.find("LazyImage").length).toBe(1)
+      expect(wrapper.find("InitialsHolder").length).toBe(0)
+    })
+
+    it("renders an InnerLazyImage if image url provided and lazy loaded", () => {
+      const wrapper = mount(<Avatar lazyLoad src="some/path.img" />)
+      expect(wrapper.find("InnerLazyImage").length).toBe(1)
+    })
   })
 
   it("renders initials if no image url and initials provided", () => {

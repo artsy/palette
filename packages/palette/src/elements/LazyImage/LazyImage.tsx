@@ -22,12 +22,15 @@ const Image = styled.img<ImageProps>`
   ${borderRadiusStyle}
   ${props => props.imageStyles};
 `
+Image.displayName = "Image"
+
 const InnerLazyImage = styled(LazyLoadImage)<ImageProps>`
   width: 100%;
   ${borderRadiusStyle}
   ${props => props.imageStyles};
   transition: opacity 0.25s;
 `
+InnerLazyImage.displayName = "InnerLazyImage"
 
 /**
  * The animation that's used for the background of an image while it's loading
