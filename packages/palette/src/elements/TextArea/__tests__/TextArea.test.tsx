@@ -60,6 +60,16 @@ describe("TextArea", () => {
     expect(wrapper.html()).toContain("Error message")
   })
 
+  it("doesn't show a required * if you don't require it", () => {
+    const wrapper = getWrapper()
+    expect(wrapper.html()).not.toContain("*")
+  })
+
+  it("shows a required * if you require it", () => {
+    const wrapper = getWrapper({ required: true })
+    expect(wrapper.html()).toContain("*")
+  })
+
   it("triggers onChange when you type characters", () => {
     const wrapper = getWrapper()
     expect(onChange).not.toHaveBeenCalled()
