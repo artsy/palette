@@ -26,8 +26,13 @@ const StyledTextArea = styled.textarea`
   resize: vertical;
 `
 
+const Required = styled.span`
+  color: ${color("purple100")};
+`
+
 export interface TextAreaProps {
   error?: string
+  required?: boolean
   characterLimit?: number
   title?: React.ReactNode
   description?: React.ReactNode
@@ -93,7 +98,10 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       <Flex flexDirection="column">
         {title && (
           <>
-            <Serif size="3t">{title}</Serif>
+            <Serif size="3t">
+              {title}
+              {this.props.required && <Required>*</Required>}
+            </Serif>
             <Spacer mb={1} />
           </>
         )}
