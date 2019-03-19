@@ -1,3 +1,16 @@
+# v4.2.1 (Tue Mar 19 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Add CSS reset for headings (h1-h6) to global styles [#333](https://github.com/artsy/palette/pull/333) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 1
+
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v4.2.0 (Tue Mar 19 2019)
 
 #### 🚀  Enhancement
