@@ -1,3 +1,16 @@
+# v4.2.0 (Tue Mar 19 2019)
+
+#### 🚀  Enhancement
+
+- `palette-docs`, `palette`
+  - adds required prop to textarea [#335](https://github.com/artsy/palette/pull/335) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v4.1.3 (Mon Mar 18 2019)
 
 
