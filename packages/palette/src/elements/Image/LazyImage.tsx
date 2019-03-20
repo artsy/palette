@@ -28,6 +28,7 @@ const pulse = keyframes`
   100% { background-color: ${color("black10")}; }
 `
 
+// TODO: Move animation out to a shared place
 const pulseAnimation = () =>
   css`
     ${pulse} 2s ease-in-out infinite;
@@ -44,9 +45,11 @@ interface LazyImageProps
     WidthProps,
     HeightProps,
     BorderRadiusProps {
+  /** Eagerly load the image instead of lazy loading it */
   preload?: boolean
   style?: CSSProperties
   // TODO: Resolve type issues
+  /** The image component to render when preload is true */
   imageComponent?: any // FunctionComponent<ImageProps>
 }
 export const LazyImage: React.FC<LazyImageProps> = ({
