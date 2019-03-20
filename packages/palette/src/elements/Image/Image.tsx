@@ -21,3 +21,5 @@ export const ResponsiveImage = ({
     {...props}
   />
 )
+
+export { LazyImage }
