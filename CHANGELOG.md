@@ -1,3 +1,16 @@
+# v4.3.0 (Wed Mar 20 2019)
+
+#### 🚀  Enhancement
+
+- `palette-docs`, `palette`
+  - Create LazyImage component, allow avatar to be lazy [#334](https://github.com/artsy/palette/pull/334) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.2.1 (Tue Mar 19 2019)
 
 #### 🐛  Bug Fix
