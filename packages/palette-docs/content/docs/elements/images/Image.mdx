@@ -10,6 +10,20 @@ name: Image
   />
 </Playground>
 
+### Lazy loadeded image
+
+For situations where an image is displayed below the fold, use the `lazyLoad`
+prop. This is an important performance optimization.
+
+<Playground>
+  <Image
+    lazyLoad
+    width="300px"
+    height="200px"
+    src="http://deelay.me/3000/https://picsum.photos/300/200/?random"
+  />
+</Playground>
+
 ### Responsive image
 
 Used to fill an area provided regardless of proportions.
@@ -18,16 +32,4 @@ Used to fill an area provided regardless of proportions.
   <BorderBox maxWidth="400px" width="100%" height="auto" p={0}>
     <ResponsiveImage src="https://picsum.photos/400/250/?random" />
   </BorderBox>
-</Playground>
-
-### Lazy Image
-
-Useful for images that render below the fold
-
-<Playground>
-  <LazyImage
-    width="300px"
-    height="200px"
-    src="http://deelay.me/3000/https://picsum.photos/300/200/?random"
-  />
 </Playground>
