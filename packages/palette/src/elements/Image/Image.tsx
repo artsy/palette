@@ -7,12 +7,12 @@ import {
 } from "./Image.shared"
 import { LazyImage } from "./LazyImage"
 
-export const Image = ({ lazyLoad, ...props }: ImageProps) => (
+export const Image = ({ lazyLoad = false, ...props }: ImageProps) => (
   <LazyImage preload={!lazyLoad} imageComponent={BaseImage} {...props} />
 )
 
 export const ResponsiveImage = ({
-  lazyLoad,
+  lazyLoad = false,
   ...props
 }: ResponsiveImageProps) => (
   <LazyImage
