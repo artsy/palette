@@ -7,8 +7,7 @@
     "lint": "yarn workspaces run lint",
     "compile-palette": "yarn workspace @artsy/palette compile",
     "type-check": "yarn compile-palette && yarn workspaces run type-check",
-    "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
-    "release": "auto shipit"
+    "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,6 @@
     ]
   },
   "devDependencies": {
-    "auto": "^4.8.10",
     "concurrently": "^4.1.0",
     "lerna": "^3.13.1"
   }
