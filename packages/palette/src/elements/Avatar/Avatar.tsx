@@ -1,5 +1,5 @@
 import React from "react"
-import { LazyImage } from "../LazyImage"
+import { LazyImage } from "../Image/LazyImage"
 import { AvatarProps, BaseAvatar, sizeValue } from "./Avatar.shared"
 
 interface AvatarWebProps extends AvatarProps {

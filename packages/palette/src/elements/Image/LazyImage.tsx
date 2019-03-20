@@ -9,25 +9,11 @@ import {
 } from "styled-system"
 import { color } from "../../helpers/color"
 import { Box, BoxProps } from "../Box"
-
-interface ImageProps extends BorderRadiusProps {
-  src: string
-  alt?: string
-  title?: string
-  imageStyles?: string
-}
-
-const Image = styled.img<ImageProps>`
-  width: 100%;
-  ${borderRadiusStyle}
-  ${props => props.imageStyles};
-`
-Image.displayName = "Image"
+import { BaseImage as Image, ImageProps } from "./Image.shared"
 
 const InnerLazyImage = styled(LazyLoadImage)<ImageProps>`
   width: 100%;
   ${borderRadiusStyle}
-  ${props => props.imageStyles};
   transition: opacity 0.25s;
 `
 InnerLazyImage.displayName = "InnerLazyImage"
@@ -59,35 +45,50 @@ interface LazyImageProps
     HeightProps,
     BorderRadiusProps {
   preload?: boolean
-  placeholderProps?: any
   style?: CSSProperties
+  // TODO: Resolve type issues
+  imageComponent?: any // FunctionComponent<ImageProps>
 }
 export const LazyImage: React.FC<LazyImageProps> = ({
-  preload,
-  placeholderProps,
-  width,
-  height,
-  borderRadius,
+  preload = false,
+  imageComponent: ImageComponent = Image,
   ...props
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false)
-  return (
-    <Placeholder width={width} height={height} borderRadius={borderRadius}>
-      {preload ? (
-        <Image borderRadius={borderRadius} {...props} />
-      ) : (
-        <InnerLazyImage
-          {...props}
-          borderRadius={borderRadius}
-          style={{
-            ...props.style,
-            opacity: isImageLoaded ? "1" : "0",
-          }}
-          onLoad={() => setImageLoaded(true)}
-        />
-      )}
+  const {
+    src,
+    title,
+    alt,
+    ariaLabel,
+    width,
+    height,
+    borderRadius,
+    style,
+    ...containerProps
+  } = props
+  return preload ? (
+    <ImageComponent {...props} />
+  ) : (
+    <Placeholder
+      width={width}
+      height={height}
+      borderRadius={borderRadius}
+      {...containerProps}
+    >
+      <InnerLazyImage
+        src={src}
+        title={title}
+        alt={alt}
+        ariaLabel={ariaLabel}
+        borderRadius={borderRadius}
+        style={{
+          ...style,
+          opacity: isImageLoaded ? "1" : "0",
+        }}
+        onLoad={() => setImageLoaded(true)}
+      />
       <noscript>
-        <Image borderRadius={borderRadius} {...props} />
+        <ImageComponent {...props} />
       </noscript>
     </Placeholder>
   )
