@@ -151,7 +151,9 @@ const collections = [
   .map(({ folder, ...collection }) => ({
     ...collection,
     folder:
-      process.env.NODE_ENV === "development" ? folder : `public/${folder}`,
+      process.env.NODE_ENV === "development"
+        ? folder
+        : `packages/palette-docs/${folder}`,
   }))
 
 export const config = {
