@@ -16,3 +16,4 @@ backend:
 display_url: palette.artsy.net
 media_folder: static/assets
 public_folder: assets
+publish_mode: editorial_workflow
