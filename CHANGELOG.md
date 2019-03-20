@@ -1,3 +1,20 @@
+# v4.3.1 (Wed Mar 20 2019)
+
+#### 🐛  Bug Fix
+
+- Go back to auto-release step in orb [#337](https://github.com/artsy/palette/pull/337) ([@zephraph](https://github.com/zephraph))
+
+#### 🏠  Internal
+
+- `palette-docs`
+  - Correct CMS path to admin resources [#336](https://github.com/artsy/palette/pull/336) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.3.0 (Wed Mar 20 2019)
 
 #### 🚀  Enhancement
