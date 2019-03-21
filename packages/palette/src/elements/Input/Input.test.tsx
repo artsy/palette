@@ -11,7 +11,7 @@ describe("Input", () => {
 
   it("returns an input with title when provided", () => {
     const props = {
-      title: "This is the title"
+      title: "This is the title",
     }
     const wrapper = mount(<Input {...props} />)
     expect(wrapper.find("Serif").length).toEqual(1)
@@ -21,7 +21,7 @@ describe("Input", () => {
   it("returns a required input with title when provided both flags", () => {
     const props = {
       title: "This is the title",
-      required: true
+      required: true,
     }
     const wrapper = mount(<Input {...props} />)
     expect(wrapper.find("Required").length).toEqual(1)
@@ -30,7 +30,7 @@ describe("Input", () => {
 
   it("returns an input with description when provided", () => {
     const props = {
-      description: "This is the title"
+      description: "This is the title",
     }
     const wrapper = mount(<Input {...props} />)
     expect(wrapper.find("Serif").length).toEqual(1)
@@ -39,7 +39,7 @@ describe("Input", () => {
 
   it("returns an input with error when provided", () => {
     const props = {
-      error: "This is the title"
+      error: "This is the title",
     }
     const wrapper = mount(<Input {...props} />)
     expect(wrapper.find("Sans").length).toEqual(1)
@@ -51,7 +51,7 @@ describe("computeBorderColor", () => {
   it("defaults to returning black 10", () => {
     const props = {
       disabled: null,
-      error: null
+      error: null,
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("black10")
@@ -60,7 +60,7 @@ describe("computeBorderColor", () => {
   it("returns black10 when disabled", () => {
     const props = {
       disabled: true,
-      error: false
+      error: false,
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("black10")
@@ -69,7 +69,7 @@ describe("computeBorderColor", () => {
   it("returns black10 when disabled and error", () => {
     const props = {
       disabled: true,
-      error: true
+      error: true,
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("black10")
@@ -79,7 +79,7 @@ describe("computeBorderColor", () => {
     const props = {
       disabled: true,
       error: false,
-      pseudo: "hover"
+      pseudo: "hover",
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("black10")
@@ -89,7 +89,7 @@ describe("computeBorderColor", () => {
     const props = {
       disabled: true,
       error: false,
-      pseudo: "focus"
+      pseudo: "focus",
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("black10")
@@ -98,7 +98,7 @@ describe("computeBorderColor", () => {
   it("returns red100 when error", () => {
     const props = {
       disabled: false,
-      error: true
+      error: true,
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("red100")
@@ -108,7 +108,7 @@ describe("computeBorderColor", () => {
     const props = {
       disabled: false,
       error: true,
-      pseudo: "hover"
+      pseudo: "hover",
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("red100")
@@ -118,7 +118,7 @@ describe("computeBorderColor", () => {
     const props = {
       disabled: false,
       error: true,
-      pseudo: "focus"
+      pseudo: "focus",
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("red100")
@@ -128,7 +128,7 @@ describe("computeBorderColor", () => {
     const props = {
       disabled: false,
       error: false,
-      pseudo: "hover"
+      pseudo: "hover",
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("black60")
@@ -138,7 +138,7 @@ describe("computeBorderColor", () => {
     const props = {
       disabled: false,
       error: false,
-      pseudo: "focus"
+      pseudo: "focus",
     }
     const color = computeBorderColor(props)
     expect(color).toEqual("purple100")
