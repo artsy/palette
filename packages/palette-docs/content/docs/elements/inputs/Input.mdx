@@ -3,5 +3,58 @@ name: Input
 status: wip
 ---
 
-Our default input style. Used to capture quick text such as price, address, or
-name.
+## Input only
+
+<Playground>
+  <BorderBox>
+    <Input placeholder="Your offer" />
+  </BorderBox>
+</Playground>
+
+## Input + Title
+
+<Playground>
+  <BorderBox>
+    <Input placeholder="$2,500" title="Your offer" />
+  </BorderBox>
+</Playground>
+
+## Input + Title + Required
+
+<Playground>
+  <BorderBox>
+    <Input placeholder="$2,500" required title="Your offer" />
+  </BorderBox>
+</Playground>
+
+## Input + Title + Description
+
+<Playground>
+  <BorderBox>
+    <Input description="Agree on a price with the seller." placeholder="$2,500" title="Your offer" />
+  </BorderBox>
+</Playground>
+
+## Input with error
+
+<Playground>
+  <BorderBox>
+    <Input description="Agree on a price with the seller." error="Something went wrong." placeholder="$2,500" title="Your offer" />
+  </BorderBox>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <BorderBox>
+    <Input description="Agree on a price with the seller." disabled placeholder="$2,500" title="Your offer" />
+  </BorderBox>
+</Playground>
+
+## Input with specified width
+
+<Playground>
+  <BorderBox>
+    <Input style={{width: "50%"}} title="Your offer" />
+  </BorderBox>
+</Playground>
