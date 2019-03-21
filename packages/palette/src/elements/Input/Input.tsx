@@ -52,7 +52,10 @@ interface StyledInputProps extends React.HTMLProps<HTMLInputElement> {
   error: boolean
 }
 
-const computeBorderColor = ({ disabled, error, pseudo = null }) => {
+/**
+ * func to compute border color
+ */
+export const computeBorderColor = ({ disabled, error, pseudo = null }) => {
   if (disabled) return "black10"
   if (error) return "red100"
   if (pseudo === "hover") return "black60"
