@@ -1,3 +1,16 @@
+# v4.4.0 (Thu Mar 21 2019)
+
+#### 🚀  Enhancement
+
+- `palette-docs`, `palette`
+  - Add Input to palette [#339](https://github.com/artsy/palette/pull/339) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v4.3.2 (Thu Mar 21 2019)
 
 #### 🐛  Bug Fix
