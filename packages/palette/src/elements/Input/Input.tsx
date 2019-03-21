@@ -25,7 +25,7 @@ export const Input: React.SFC<InputProps> = ({
   ...rest
 }) => {
   return (
-    <StyledBox>
+    <Box width="100%">
       {title && (
         <Serif mb="0.5" size="3">
           {title}
@@ -43,14 +43,9 @@ export const Input: React.SFC<InputProps> = ({
           {error}
         </Sans>
       )}
-    </StyledBox>
+    </Box>
   )
 }
-
-const StyledBox = styled(Box)`
-  width: 100%;
-`
-StyledBox.displayName = "StyledBox"
 
 interface StyledInputProps extends React.HTMLProps<HTMLInputElement> {
   disabled: boolean
