@@ -1,3 +1,16 @@
+# v4.3.2 (Thu Mar 21 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Ensure image fills placeholder container [#338](https://github.com/artsy/palette/pull/338) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.3.1 (Wed Mar 20 2019)
 
 #### 🐛  Bug Fix
