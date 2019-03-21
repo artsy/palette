@@ -13,6 +13,7 @@ import { BaseImage as Image, ImageProps } from "./Image.shared"
 
 const InnerLazyImage = styled(LazyLoadImage)<ImageProps>`
   width: 100%;
+  height: 100%;
   ${borderRadiusStyle}
   transition: opacity 0.25s;
 `
