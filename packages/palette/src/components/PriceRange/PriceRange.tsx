@@ -1,5 +1,6 @@
 import React from "react"
-import { LabeledRange, SliderProps } from "../"
+import { LabeledRange } from "../"
+import { SliderProps } from "../../elements"
 
 interface PriceRangeProps extends SliderProps {
   currency?: string

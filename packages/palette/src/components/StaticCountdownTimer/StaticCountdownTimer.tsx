@@ -2,15 +2,14 @@
 // https://moment.github.io/luxon
 import moment from "moment-timezone"
 import React from "react"
+import { TimeRemaining } from "../"
 import {
   Flex,
   ProgressBarTimer,
   Sans,
   Spacer,
   StackableBorderBox,
-  TimeRemaining,
-} from "../"
-
+} from "../../elements"
 import { TimerIcon } from "../../svgs"
 
 const FIVE_HOURS_IN_SECONDS = 60 * 60 * 5

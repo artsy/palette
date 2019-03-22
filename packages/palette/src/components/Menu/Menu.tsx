@@ -2,13 +2,16 @@ import React from "react"
 import styled from "styled-components"
 
 import { display } from "styled-system"
+import {
+  BorderBox,
+  Box,
+  BoxProps,
+  Flex,
+  Sans,
+  Separator,
+  Spacer,
+} from "../../elements"
 import { color } from "../../helpers/color"
-import { BorderBox } from "../BorderBox"
-import { Box, BoxProps } from "../Box"
-import { Flex } from "../Flex"
-import { Separator } from "../Separator"
-import { Spacer } from "../Spacer"
-import { Sans } from "../Typography"
 
 interface MenuProps {
   title?: string
