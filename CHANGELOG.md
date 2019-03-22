@@ -1,3 +1,21 @@
+# v4.4.1 (Fri Mar 22 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - [Box] Add minHeight prop [#342](https://github.com/artsy/palette/pull/342) ([@damassi](https://github.com/damassi))
+
+#### 📝  Documentation
+
+- `palette-docs`
+  - Automatically generated. Merged on Netlify CMS. [#341](https://github.com/artsy/palette/pull/341) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.4.0 (Thu Mar 21 2019)
 
 #### 🚀  Enhancement
