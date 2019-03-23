@@ -4,12 +4,12 @@ Artsy's Design System
 
 ## Meta
 
-- Point People: @damassi, @zephraph, @l2succes
+- Point People: [@damassi](https://github.com/damassi), [@zephraph](https://github.com/zephraph), [@l2succes](https://github.com/l2succes)
 
 ## What is Palette?
 
 Palette is a collection of primitive, product-agnostic elements that help encapsulate Artsy's look and feel at base level. This project is intended to be used
-across our digital product portfoilo.
+across our digital product portfolio.
 
 ## Does my component belong in Palette?
 
