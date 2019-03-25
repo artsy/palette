@@ -1,3 +1,24 @@
+# v4.4.2 (Mon Mar 25 2019)
+
+#### 🐛  Bug Fix
+
+- `palette-docs`, `palette`
+  - Fix web Collapse component [#345](https://github.com/artsy/palette/pull/345) ([@ds300](https://github.com/ds300))
+
+#### 📝  Documentation
+
+- Automatically generated. Merged on Netlify CMS. [#340](https://github.com/artsy/palette/pull/340) ([@zephraph](https://github.com/zephraph))
+- `palette-docs`
+  - Automatically generated. Merged on Netlify CMS. [#344](https://github.com/artsy/palette/pull/344) ([@damassi](https://github.com/damassi))
+
+#### Authors: 3
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.4.1 (Fri Mar 22 2019)
 
 #### 🐛  Bug Fix
