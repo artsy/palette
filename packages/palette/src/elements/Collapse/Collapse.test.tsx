@@ -15,6 +15,6 @@ describe("Collapse", () => {
       <Collapse open={false}>The elegant spiral of the Nautilus ...</Collapse>
     )
 
-    expect(component.find("div").prop("style")).toHaveProperty("height", 0)
+    expect(component.find("div").prop("style")).toHaveProperty("height", "0px")
   })
 })
