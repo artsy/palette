@@ -7,5 +7,4 @@ export * from "./layout"
 export * from "./loaders"
 export * from "./navigation"
 
-export * from "./Colors"
 export * from "./Typography"
