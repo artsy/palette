@@ -2,6 +2,7 @@ export * from "./components"
 export * from "./elements"
 export * from "./helpers"
 export * from "./svgs"
+export * from "./tokens"
 export * from "./Theme"
 
 // Helpers

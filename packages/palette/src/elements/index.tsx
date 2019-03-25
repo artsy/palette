@@ -8,5 +8,4 @@ export * from "./loaders"
 export * from "./navigation"
 
 export * from "./Colors"
-export * from "./Grid"
 export * from "./Typography"
