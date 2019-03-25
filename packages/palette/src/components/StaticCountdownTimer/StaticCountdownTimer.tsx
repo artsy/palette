@@ -6,11 +6,11 @@ import { TimeRemaining } from "../"
 import {
   Flex,
   ProgressBarTimer,
-  Sans,
   Spacer,
   StackableBorderBox,
 } from "../../elements"
 import { TimerIcon } from "../../svgs"
+import { Sans } from "../../tokens"
 
 const FIVE_HOURS_IN_SECONDS = 60 * 60 * 5
 

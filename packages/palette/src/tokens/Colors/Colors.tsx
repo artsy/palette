@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { BackgroundProps, color, ColorProps } from "styled-system"
-import { Flex, Sans } from "../../elements"
+import { Flex } from "../../elements"
 import { themeProps } from "../../Theme"
+import { Sans } from "../Typography"
 
 export interface ColorBlockProps extends ColorProps, BackgroundProps {}
 

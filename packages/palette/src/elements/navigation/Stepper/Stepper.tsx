@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { Tab, Tabs, TabsProps } from "../"
 import { space } from "../../../helpers"
 import { CheckIcon, ChevronIcon } from "../../../svgs"
+import { Sans } from "../../../tokens"
 import { Flex } from "../../layout"
-import { Sans } from "../../Typography"
 import { sharedTabsStyles } from "../Tabs"
 
 interface StepperProps extends TabsProps {

@@ -2,8 +2,8 @@ import React, { ChangeEvent } from "react"
 import styled, { css } from "styled-components"
 import { themeGet } from "styled-system"
 import { color, space } from "../../../helpers"
+import { Sans, Serif } from "../../../tokens"
 import { Collapse, Flex, Spacer } from "../../layout"
-import { Sans, Serif } from "../../Typography"
 
 const StyledTextArea = styled.textarea`
   transition: border-color 0.25s ease;

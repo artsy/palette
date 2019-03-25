@@ -1,8 +1,8 @@
 import React, { Ref } from "react"
 import styled, { css } from "styled-components"
 import { JustifyContentProps, WidthProps } from "styled-system"
+import { Sans } from "../../../tokens"
 import { Box, Flex, FlexProps, Join } from "../../layout"
-import { Sans } from "../../Typography"
 
 import { color, media, space } from "../../../helpers"
 

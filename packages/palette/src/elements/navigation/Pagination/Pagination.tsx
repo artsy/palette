@@ -3,8 +3,8 @@ import styled, { css } from "styled-components"
 
 import { color, space } from "../../../helpers"
 import { ChevronIcon } from "../../../svgs"
+import { Sans } from "../../../tokens"
 import { Box, Flex } from "../../layout"
-import { Sans } from "../../Typography"
 
 interface Props {
   onClick?: (cursor: string, page: number) => void

@@ -1,8 +1,8 @@
 import React, { Component, ReactNode } from "react"
 import styled, { css } from "styled-components"
 import { themeProps } from "../../../Theme"
+import { Sans, SansProps } from "../../../tokens"
 import { Spinner } from "../../loaders"
-import { Sans, SansProps } from "../../Typography"
 
 import {
   BorderProps,

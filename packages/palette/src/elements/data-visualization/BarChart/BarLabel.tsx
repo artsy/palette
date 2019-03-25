@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { space } from "../../../helpers"
+import { Sans } from "../../../tokens"
 import { Flex, FlexProps } from "../../layout"
-import { Sans } from "../../Typography"
 
 const BarLabelWrapper = styled(Flex)`
   padding: ${space(0.5)}px ${space(1)}px;

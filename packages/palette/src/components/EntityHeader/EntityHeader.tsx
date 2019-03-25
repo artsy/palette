@@ -1,14 +1,7 @@
 import React, { SFC } from "react"
 import styled from "styled-components"
-import {
-  Avatar,
-  Box,
-  Flex,
-  Link,
-  Sans,
-  Serif,
-  SpacerProps,
-} from "../../elements"
+import { Avatar, Box, Flex, Link, SpacerProps } from "../../elements"
+import { Sans, Serif } from "../../tokens"
 
 interface EntityHeaderProps extends SpacerProps {
   href?: string

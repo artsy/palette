@@ -7,11 +7,11 @@ import {
   Box,
   BoxProps,
   Flex,
-  Sans,
   Separator,
   Spacer,
 } from "../../elements"
-import { color } from "../../helpers/color"
+import { color } from "../../helpers"
+import { Sans } from "../../tokens"
 
 interface MenuProps {
   title?: string

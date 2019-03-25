@@ -6,5 +6,3 @@ export * from "./inputs"
 export * from "./layout"
 export * from "./loaders"
 export * from "./navigation"
-
-export * from "./Typography"

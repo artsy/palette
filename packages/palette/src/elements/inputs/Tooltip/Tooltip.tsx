@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-
+import { Sans } from "../../../tokens"
 import { BorderBox } from "../../layout/BorderBox"
-import { Sans } from "../../Typography"
 
 const Wrapper = styled.div`
   position: relative;

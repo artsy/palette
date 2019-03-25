@@ -1,7 +1,7 @@
 import React, { SFC } from "react"
 import styled, { css } from "styled-components"
 import { color, space } from "../../../helpers"
-import { Sans } from "../../Typography"
+import { Sans } from "../../../tokens"
 
 import {
   PositionProps,
