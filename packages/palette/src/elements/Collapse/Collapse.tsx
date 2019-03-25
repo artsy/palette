@@ -1,9 +1,12 @@
 import React from "react"
 
+export interface CollapseProps {
+  open: boolean
+}
 /**
  * Collapse component for the web
  */
-export class Collapse extends React.Component<{ open: boolean }> {
+export class Collapse extends React.Component<CollapseProps> {
   wrapperModifyTimeout: ReturnType<typeof setTimeout>
   wrapperRef: HTMLDivElement | null = null
 
