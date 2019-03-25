@@ -1,5 +1,5 @@
 // @ts-ignore
-import React from "react"
+import tag from "clean-tag"
 import styled from "styled-components"
 
 import {
@@ -42,7 +42,7 @@ export interface ImageProps
 /**
  * Image component with space, width and height properties
  */
-export const BaseImage = styled.img<ImageProps>`
+export const BaseImage = styled(tag.img)<ImageProps>`
   ${space};
   ${width};
   ${height};
@@ -59,7 +59,7 @@ export interface ResponsiveImageProps
 /**
  * An Image component that responsively resizes within its environment
  */
-export const BaseResponsiveImage = styled.div<ResponsiveImageProps>`
+export const BaseResponsiveImage = styled(tag)<ResponsiveImageProps>`
   background: url(${props => props.src});
   background-size: contain;
   background-repeat: no-repeat;

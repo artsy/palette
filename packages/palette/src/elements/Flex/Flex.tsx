@@ -1,4 +1,5 @@
-import { styled as primitives } from "../../platform/primitives"
+import tag from "clean-tag"
+import styled from "styled-components"
 
 import {
   alignContent,
@@ -63,7 +64,7 @@ export interface FlexProps
 /**
  * A utility component that encapsulates flexbox behavior
  */
-export const Flex = primitives.View<FlexProps>`
+export const Flex = styled(tag)<FlexProps>`
   display: flex;
   ${alignContent};
   ${alignItems};
