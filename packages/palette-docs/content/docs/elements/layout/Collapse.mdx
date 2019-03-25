@@ -15,42 +15,38 @@ name: Collapse
   </Toggler>
 </Playground>
 
-## Animating "auto"
-
-When animating height="auto" (or width="auto") sometimes React Spring needs a
-bit more information to determine where to move things. In the below example,
-adding `position="relative"` to the container returns the proper height for the
-multi-line string.
-
-See https://react-spring.surge.sh/gotchas#animating-auto for more info.
+## Nested collapses
 
 <Playground>
-  <Toggler>
+  <Toggler initial={true}>
     {({ on, toggle }) => (
-      <>
-        <Spacer mb={4} />
-        <Flex flexDirection="column" alignItems="center">
-          <Button onClick={toggle} width="300px">
-            Toggle
-          </Button>
-          <Spacer mb={2} />
-          <Flex alignItems="flex-start">
-            <BorderBox width="300px" flexDirection="column" position="relative">
-              <Collapse open={on}>
-                <Box>Hello I am some multiline content inside collapse</Box>
-              </Collapse>
-            </BorderBox>
-          </Flex>
-          <Spacer mb={2} />
-          <Flex alignItems="flex-start">
-            <BorderBox width="300px" flexDirection="column" position="relative">
-              <Collapse open={!on}>
-                <Box>Hello I am some multiline content inside collapse</Box>
-              </Collapse>
-            </BorderBox>
-          </Flex>
-        </Flex>
-      </>
+      <Toggler initial={true}>
+        {({ on: on2, toggle: toggle2 }) => (
+          <BorderBox position="relative" flexDirection="column">
+            <Flex justifyContent="space-between">
+              <Serif size="3">Outer</Serif>
+              <Button size="small" onClick={() => toggle()}>
+                {on ? "close" : "open"}
+              </Button>
+            </Flex>
+            <Collapse open={on}>
+              <BorderBox position="relative" flexDirection="column" mt={2}>
+                <Flex justifyContent="space-between">
+                  <Serif size="3">Inner</Serif>
+                  <Button size="small" onClick={() => toggle2()}>
+                    {on2 ? "close" : "open"}
+                  </Button>
+                </Flex>
+                <Collapse open={on2}>
+                  <BorderBox mt={2}>
+                    <Sans size="2"> hello world! </Sans>
+                  </BorderBox>
+                </Collapse>
+              </BorderBox>
+            </Collapse>
+          </BorderBox>
+        )}
+      </Toggler>
     )}
   </Toggler>
 </Playground>
