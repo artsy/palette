@@ -11,13 +11,12 @@ export class Collapse extends React.Component<{ open: boolean }> {
     if (!this.wrapperRef) {
       return
     }
+    // when animating open, we set the wrapper's height to an explicit pixel
+    // value. When the transition ends we want to set the height back to 'auto'
+    // so that if the content of the wrapper changes it's height will change too
     if (ev.propertyName === "height") {
       this.wrapperRef.style.height = this.props.open ? "auto" : "0px"
     }
-  }
-
-  firstRender: { open: boolean } | null = {
-    open: this.props.open,
   }
 
   componentDidMount() {
@@ -33,20 +32,24 @@ export class Collapse extends React.Component<{ open: boolean }> {
       return
     }
     if (this.props.open && this.wrapperRef.style.height !== "auto") {
-      // open
+      // animate opening
+      // measure goal height
       const prevHeight = this.wrapperRef.style.height || "0px"
       this.wrapperRef.style.height = "auto"
-      const actualHeight = this.wrapperRef.offsetHeight
+      const goalheight = this.wrapperRef.offsetHeight
       this.wrapperRef.style.height = prevHeight
+      // wait for a tick before setting goal height to allow transition
       this.wrapperModifyTimeout = setTimeout(() => {
-        this.wrapperRef.style.height = actualHeight + "px"
+        this.wrapperRef.style.height = goalheight + "px"
       }, 10)
     } else if (!this.props.open && this.wrapperRef.style.height !== "0px") {
-      // close
-      const actualHeight = this.wrapperRef.offsetHeight
-      this.wrapperRef.style.height = actualHeight + "px"
+      // animate closing
+      // set the wrapper's current height explicitly
+      const currentHeight = this.wrapperRef.offsetHeight
+      this.wrapperRef.style.height = currentHeight + "px"
+      // wait for a tick before setting it to 0 to allow transition
       this.wrapperModifyTimeout = setTimeout(() => {
-        this.wrapperRef.style.height = 0 + "px"
+        this.wrapperRef.style.height = "0px"
       }, 10)
     }
   }
@@ -56,10 +59,17 @@ export class Collapse extends React.Component<{ open: boolean }> {
     clearTimeout(this.wrapperModifyTimeout)
   }
 
+  // this is set until the first time `open` changes
+  // then it becomes null. This helps us with SSR.
+  firstRender: { open: boolean } | null = {
+    open: this.props.open,
+  }
+
   render() {
     const { children, open } = this.props
-    // render explicit height before first change, to let us render closed
-    // elements on the server
+    // render explicit height before first change, so SSR works properly.
+    // Thereafter we control the height property entirely in componentDidMount
+    // (which doesn't get called during SSR)
     let heightProps = {}
     if (this.firstRender) {
       // render() might be called multiple times before the first time `open` changes
