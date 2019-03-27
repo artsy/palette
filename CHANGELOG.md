@@ -1,3 +1,16 @@
+# v4.5.2 (Wed Mar 27 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Add test to RadioGroup [#352](https://github.com/artsy/palette/pull/352) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.5.1 (Wed Mar 27 2019)
 
 #### 🐛  Bug Fix
