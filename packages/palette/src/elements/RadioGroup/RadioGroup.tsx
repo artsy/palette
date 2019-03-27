@@ -8,6 +8,8 @@ import { RadioProps } from "../Radio"
 
 export interface RadioGroupProps extends FlexProps {
   /** Disable interactions */
+  deselectable?: boolean
+  /** Disable interactions */
   disabled?: boolean
   /** Callback when selected */
   onSelect?: (selectedOption: string) => void
@@ -37,6 +39,15 @@ export class RadioGroup extends React.Component<
   onSelect = ({ value }) => {
     if (this.props.onSelect) {
       this.props.onSelect(value)
+    }
+
+    if (this.props.deselectable) {
+      if (this.state.selectedOption === value) {
+        this.setState({
+          selectedOption: null,
+        })
+        return
+      }
     }
 
     this.setState({ selectedOption: value })

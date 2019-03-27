@@ -3,6 +3,8 @@ import React from "react"
 import { Radio } from "../Radio"
 import { RadioGroup } from "../RadioGroup"
 
+jest.mock("lodash/debounce", () => x => x)
+
 describe("RadioGroup", () => {
   it("renders a radio group", () => {
     const spy = jest.fn()

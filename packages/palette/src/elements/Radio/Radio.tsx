@@ -1,3 +1,4 @@
+import debounce from "lodash/debounce"
 import React from "react"
 import styled, { css } from "styled-components"
 import { Flex, FlexProps } from "../../elements/Flex"
@@ -49,12 +50,16 @@ export const Radio: React.SFC<RadioProps> = props => {
     disabled,
     hover,
     name,
-    onSelect,
+    onSelect: _onSelect,
     selected,
     value,
     label,
     ...others
   } = props
+
+  // Ensures that only one call to `onSelect` occurs, regardless of whether the
+  // user clicks the radio element or the label.
+  const onSelect = debounce(_onSelect, 100)
 
   return (
     <Container
