@@ -1,3 +1,16 @@
+# v4.5.0 (Wed Mar 27 2019)
+
+#### 🚀  Enhancement
+
+- `palette-docs`, `palette`
+  - [RadioGroup] Add deselectable option [#350](https://github.com/artsy/palette/pull/350) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.4.2 (Mon Mar 25 2019)
 
 #### 🐛  Bug Fix
