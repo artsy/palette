@@ -37,20 +37,26 @@ export class RadioGroup extends React.Component<
   }
 
   onSelect = ({ value }) => {
-    if (this.props.onSelect) {
-      this.props.onSelect(value)
+    // After state update, call back up the tree with the latest state
+    const update = () => {
+      if (this.props.onSelect) {
+        this.props.onSelect(this.state.selectedOption)
+      }
     }
 
     if (this.props.deselectable) {
       if (this.state.selectedOption === value) {
-        this.setState({
-          selectedOption: null,
-        })
+        this.setState(
+          {
+            selectedOption: null,
+          },
+          update
+        )
         return
       }
     }
 
-    this.setState({ selectedOption: value })
+    this.setState({ selectedOption: value }, update)
   }
 
   renderRadioButtons() {

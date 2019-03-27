@@ -99,6 +99,35 @@ describe("RadioGroup", () => {
     ).toBe(true)
   })
 
+  it("allows Radios within the group to be deselectable", () => {
+    const wrapper = mount(
+      <RadioGroup defaultValue="PICKUP" deselectable>
+        <Radio value="SHIP">Provide shipping address</Radio>
+        <Radio value="PICKUP">Arrange for pickup</Radio>
+      </RadioGroup>
+    )
+
+    const ship = wrapper.find("Radio").first()
+
+    ship.simulate("click")
+
+    expect(
+      wrapper
+        .find("Radio")
+        .first()
+        .props().selected
+    ).toBe(true)
+
+    ship.simulate("click")
+
+    expect(
+      wrapper
+        .find("Radio")
+        .first()
+        .props().selected
+    ).toBe(false)
+  })
+
   it("ignores the 'selected' prop on the Radio component", () => {
     const wrapper = mount(
       <RadioGroup defaultValue="PICKUP">
