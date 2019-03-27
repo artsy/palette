@@ -1,3 +1,16 @@
+# v4.5.1 (Wed Mar 27 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Fix debounce [#351](https://github.com/artsy/palette/pull/351) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.5.0 (Wed Mar 27 2019)
 
 #### 🚀  Enhancement
