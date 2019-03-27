@@ -59,7 +59,7 @@ export const Radio: React.SFC<RadioProps> = props => {
 
   // Ensures that only one call to `onSelect` occurs, regardless of whether the
   // user clicks the radio element or the label.
-  const onSelect = debounce(_onSelect, 100)
+  const onSelect = debounce(_onSelect, 0)
 
   return (
     <Container
