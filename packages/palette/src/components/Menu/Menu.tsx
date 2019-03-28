@@ -2,13 +2,13 @@ import React from "react"
 import styled from "styled-components"
 
 import { display } from "styled-system"
+import { BorderBox } from "../../elements/BorderBox"
+import { Box, BoxProps } from "../../elements/Box"
+import { Flex } from "../../elements/Flex"
+import { Separator } from "../../elements/Separator"
+import { Spacer } from "../../elements/Spacer"
+import { Sans } from "../../elements/Typography"
 import { color } from "../../helpers/color"
-import { BorderBox } from "../BorderBox"
-import { Box, BoxProps } from "../Box"
-import { Flex } from "../Flex"
-import { Separator } from "../Separator"
-import { Spacer } from "../Spacer"
-import { Sans } from "../Typography"
 
 interface MenuProps {
   title?: string
