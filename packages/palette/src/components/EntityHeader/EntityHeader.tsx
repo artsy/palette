@@ -1,11 +1,11 @@
 import React, { SFC } from "react"
 import styled from "styled-components"
-import { Avatar } from "../Avatar"
-import { Box } from "../Box"
-import { Flex } from "../Flex"
-import { Link } from "../Link"
-import { SpacerProps } from "../Spacer"
-import { Sans, Serif } from "../Typography"
+import { Avatar } from "../../elements/Avatar"
+import { Box } from "../../elements/Box"
+import { Flex } from "../../elements/Flex"
+import { Link } from "../../elements/Link"
+import { SpacerProps } from "../../elements/Spacer"
+import { Sans, Serif } from "../../elements/Typography"
 
 interface EntityHeaderProps extends SpacerProps {
   href?: string
