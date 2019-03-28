@@ -3,9 +3,9 @@ import "jest-styled-components"
 import React from "react"
 import { color } from "../../helpers"
 import { Theme } from "../../Theme"
+import { Sans } from "../../tokens/Typography"
 import { BarChart, BarChartProps } from "../BarChart"
 import { Flex } from "../Flex"
-import { Sans } from "../Typography"
 import { Bar } from "./Bar"
 
 const mockBars = [

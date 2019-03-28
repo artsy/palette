@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { CloseIcon } from "../../svgs"
+import { Sans } from "../../tokens/Typography"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
-import { Sans } from "../Typography"
 
 const Target = styled.div`
   padding-left: 10px;

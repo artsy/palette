@@ -2,8 +2,8 @@ import React, { ImgHTMLAttributes } from "react"
 import { color } from "../../helpers/color"
 import { styledWrapper } from "../../platform/primitives"
 import { SerifSize } from "../../Theme"
+import { Serif } from "../../tokens/Typography"
 import { Flex } from "../Flex"
-import { Serif } from "../Typography"
 
 export interface SizeProps {
   [key: string]: {

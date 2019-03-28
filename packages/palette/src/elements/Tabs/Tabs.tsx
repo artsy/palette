@@ -1,10 +1,10 @@
 import React, { Ref } from "react"
 import styled, { css } from "styled-components"
 import { JustifyContentProps, WidthProps } from "styled-system"
+import { Sans } from "../../tokens/Typography"
 import { Box } from "../Box"
 import { Flex, FlexProps } from "../Flex"
 import { Join } from "../Join"
-import { Sans } from "../Typography"
 
 import { color, media, space } from "../../helpers"
 

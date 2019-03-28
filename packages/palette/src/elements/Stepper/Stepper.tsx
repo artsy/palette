@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Flex, Sans, Tab, Tabs, TabsProps } from "../"
+import { Flex, Tab, Tabs, TabsProps } from "../"
 import { space } from "../../helpers"
 import { CheckIcon, ChevronIcon } from "../../svgs"
+import { Sans } from "../../tokens/Typography"
 import { sharedTabsStyles } from "../Tabs"
 
 interface StepperProps extends TabsProps {

@@ -4,9 +4,9 @@ import { themeGet } from "styled-system"
 import { color } from "../../helpers/color"
 import { space } from "../../helpers/space"
 import { Spacer } from "../../tokens/Spacer"
+import { Sans, Serif } from "../../tokens/Typography/Typography"
 import { Collapse } from "../Collapse"
 import { Flex } from "../Flex"
-import { Sans, Serif } from "../Typography/Typography"
 
 const StyledTextArea = styled.textarea`
   transition: border-color 0.25s ease;

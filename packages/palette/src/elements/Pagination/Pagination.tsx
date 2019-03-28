@@ -1,9 +1,10 @@
 import React from "react"
 import styled, { css } from "styled-components"
 
-import { Box, Flex, Sans } from "../"
+import { Box, Flex } from "../"
 import { color, space } from "../../helpers"
 import { ChevronIcon } from "../../svgs"
+import { Sans } from "../../tokens"
 
 interface Props {
   onClick?: (cursor: string, page: number) => void

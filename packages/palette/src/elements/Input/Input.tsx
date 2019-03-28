@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { themeGet } from "styled-system"
 import { color, space } from "../../helpers"
+import { Sans, Serif } from "../../tokens/Typography"
 import { Box } from "../Box"
-import { Sans, Serif } from "../Typography"
 
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {
   description?: string

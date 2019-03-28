@@ -6,9 +6,9 @@ import { BorderBox } from "../../elements/BorderBox"
 import { Box, BoxProps } from "../../elements/Box"
 import { Flex } from "../../elements/Flex"
 import { Separator } from "../../elements/Separator"
-import { Sans } from "../../elements/Typography"
 import { color } from "../../helpers/color"
 import { Spacer } from "../../tokens/Spacer"
+import { Sans } from "../../tokens/Typography"
 
 interface MenuProps {
   title?: string

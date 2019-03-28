@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { space, SpaceProps } from "styled-system"
-import { Flex, Sans, Slider, SliderProps } from "../../elements"
+import { Flex, Slider, SliderProps } from "../../elements"
+import { Sans } from "../../tokens"
 
 interface LabeledRangeProps extends SliderProps {
   label: string

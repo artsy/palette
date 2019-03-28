@@ -2,8 +2,8 @@ import React, { SFC } from "react"
 import { color } from "../../helpers"
 import { styledWrapper } from "../../platform/primitives"
 import { SansSize } from "../../Theme"
+import { Sans } from "../../tokens/Typography"
 import { Flex, FlexProps } from "../Flex"
-import { Sans } from "../Typography"
 
 /**
  * Spec: zpl.io/2Zg4Rdq

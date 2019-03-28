@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from "styled-components"
-import { Display, Sans, Serif } from "../elements/Typography"
+import { Display, Sans, Serif } from "../tokens/Typography"
 import { color } from "./color"
 
 /**
