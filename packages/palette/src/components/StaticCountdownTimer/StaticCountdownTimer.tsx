@@ -2,13 +2,13 @@
 // https://moment.github.io/luxon
 import moment from "moment-timezone"
 import React from "react"
+import { TimeRemaining } from "../"
 import {
   Flex,
   ProgressBarTimer,
   Sans,
   Spacer,
   StackableBorderBox,
-  TimeRemaining,
 } from "../../elements"
 
 import { TimerIcon } from "../../svgs"

@@ -1,7 +1,7 @@
 import moment from "moment"
 import React from "react"
 
-import { Sans } from "../"
+import { Sans } from "../../elements"
 import { color } from "../../helpers"
 
 const pad = (n: number) => n.toString().padStart(2, "0")
