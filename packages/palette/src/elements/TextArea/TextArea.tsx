@@ -3,9 +3,9 @@ import styled, { css } from "styled-components"
 import { themeGet } from "styled-system"
 import { color } from "../../helpers/color"
 import { space } from "../../helpers/space"
+import { Spacer } from "../../tokens/Spacer"
 import { Collapse } from "../Collapse"
 import { Flex } from "../Flex"
-import { Spacer } from "../Spacer"
 import { Sans, Serif } from "../Typography/Typography"
 
 const StyledTextArea = styled.textarea`

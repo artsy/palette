@@ -4,8 +4,8 @@ import { Avatar } from "../../elements/Avatar"
 import { Box } from "../../elements/Box"
 import { Flex } from "../../elements/Flex"
 import { Link } from "../../elements/Link"
-import { SpacerProps } from "../../elements/Spacer"
 import { Sans, Serif } from "../../elements/Typography"
+import { SpacerProps } from "../../tokens/Spacer"
 
 interface EntityHeaderProps extends SpacerProps {
   href?: string

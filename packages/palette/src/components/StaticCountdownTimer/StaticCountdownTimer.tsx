@@ -7,9 +7,9 @@ import {
   Flex,
   ProgressBarTimer,
   Sans,
-  Spacer,
   StackableBorderBox,
 } from "../../elements"
+import { Spacer } from "../../tokens"
 
 import { TimerIcon } from "../../svgs"
 
