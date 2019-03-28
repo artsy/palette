@@ -13,6 +13,7 @@ interface Props {
   scrollTo?: string
 }
 
+/** LargePagination */
 export const LargePagination = (props: Props) => {
   const {
     pageCursors: { around, first, last, previous },
@@ -59,6 +60,7 @@ export const LargePagination = (props: Props) => {
   )
 }
 
+/** SmallPagination */
 export const SmallPagination = (props: Props) => {
   const {
     pageCursors: { previous },

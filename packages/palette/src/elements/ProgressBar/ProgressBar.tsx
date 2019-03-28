@@ -11,6 +11,7 @@ const ProgressBarBackground = styled.div`
   justify-content: flex-start;
 `
 
+/** ProgressBar */
 export const ProgressBar: React.SFC<{
   percentComplete: number
   highlight: Parameters<typeof color>[0]

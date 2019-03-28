@@ -15,6 +15,7 @@ import { TimerIcon } from "../../svgs"
 
 const FIVE_HOURS_IN_SECONDS = 60 * 60 * 5
 
+/** StaticCountdownTimer */
 export const StaticCountdownTimer: React.SFC<{
   action: string
   note: string

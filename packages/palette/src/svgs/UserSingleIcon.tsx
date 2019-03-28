@@ -17,4 +17,5 @@ export const UserSingleIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** SoloIcon */
 export const SoloIcon = UserSingleIcon

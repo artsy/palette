@@ -54,6 +54,7 @@ export interface TextAreaChange {
   exceedsCharacterLimit: boolean
 }
 
+/** TextArea */
 export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   state: TextAreaState = {
     value: this.props.defaultValue || "",

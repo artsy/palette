@@ -12,6 +12,7 @@ export interface SizeProps {
   }
 }
 
+/** Size */
 export const Size: SizeProps = {
   xs: {
     diameter: "45px",
@@ -29,6 +30,7 @@ export const Size: SizeProps = {
 
 type SizeKey = "xs" | "sm" | "md"
 
+/** sizeValue */
 export const sizeValue = size => {
   switch (size) {
     case "xs":
@@ -90,6 +92,7 @@ export const BaseAvatar = ({
   }
 }
 
+/** InitialsHolder */
 export const InitialsHolder = styledWrapper(Flex)<{ size: SizeKey }>`
   background-color: ${color("black10")};
   border-radius: ${props => sizeValue(props.size).diameter};

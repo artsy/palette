@@ -17,4 +17,5 @@ export const EstablishedIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** TopEstablishedIcon */
 export const TopEstablishedIcon = EstablishedIcon

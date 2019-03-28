@@ -15,6 +15,7 @@ interface LabeledRangeState {
   max: number
 }
 
+/** LabeledRange */
 export class LabeledRange extends React.Component<
   LabeledRangeProps,
   LabeledRangeState

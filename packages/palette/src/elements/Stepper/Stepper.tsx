@@ -16,6 +16,7 @@ interface StepperProps extends TabsProps {
   disableNavigation?: boolean
 }
 
+/** Stepper */
 export const Stepper = (props: StepperProps) => {
   return (
     <Tabs
@@ -33,6 +34,7 @@ export const Stepper = (props: StepperProps) => {
   )
 }
 
+/** Step */
 export const Step = props => <Tab {...props} />
 
 const DisabledStepButton = ({ children }) => (
@@ -89,6 +91,7 @@ const ChevronWrapper = styled.span`
   line-height: normal;
 `
 
+/** CheckMarkWrapper */
 export const CheckMarkWrapper = styled.span`
   margin-right: ${space(1)}px;
   line-height: normal;

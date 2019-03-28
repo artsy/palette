@@ -16,4 +16,5 @@ export const EyeOpenedIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** OpenEyeIcon */
 export const OpenEyeIcon = EyeOpenedIcon

@@ -53,6 +53,8 @@ interface LazyImageProps
   /** The image component to render when preload is true */
   imageComponent?: any // FunctionComponent<ImageProps>
 }
+
+/** LazyImage */
 export const LazyImage: React.FC<LazyImageProps> = ({
   preload = false,
   imageComponent: ImageComponent = Image,
