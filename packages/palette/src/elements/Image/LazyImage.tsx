@@ -87,8 +87,8 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         src={src}
         title={title}
         alt={alt}
-        ariaLabel={ariaLabel}
-        borderRadius={borderRadius}
+        aria-label={ariaLabel}
+        borderradius={borderRadius}
         style={{
           ...style,
           opacity: isImageLoaded ? "1" : "0",
