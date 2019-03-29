@@ -8,8 +8,8 @@ import {
   WidthProps,
 } from "styled-system"
 import { color } from "../../helpers/color"
+import { withoutStyleProps } from "../../helpers/withoutStyleProps"
 import { Box, BoxProps } from "../Box"
-import { withoutStyleProps } from "../WithoutStyleProps"
 import { BaseImage as Image, ImageProps } from "./Image.shared"
 
 const InnerLazyImage = styled(withoutStyleProps(LazyLoadImage))<ImageProps>`
