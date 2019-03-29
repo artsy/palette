@@ -1,3 +1,17 @@
+# v4.5.4 (Fri Mar 29 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Remove extraneous attributes from Image component [#355](https://github.com/artsy/palette/pull/355) ([@zephraph](https://github.com/zephraph))
+  - Don't try to debounce if onSelect isn't defined [#356](https://github.com/artsy/palette/pull/356) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.5.3 (Fri Mar 29 2019)
 
 #### 🐛  Bug Fix
