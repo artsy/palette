@@ -1,3 +1,16 @@
+# v4.5.3 (Fri Mar 29 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Deal with warnings [#353](https://github.com/artsy/palette/pull/353) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v4.5.2 (Wed Mar 27 2019)
 
 #### 🐛  Bug Fix
