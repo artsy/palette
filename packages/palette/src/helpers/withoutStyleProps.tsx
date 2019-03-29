@@ -7,8 +7,6 @@ import React from "react"
 export const withoutStyleProps = Component => ({
   borderRadius,
   ariaLabel,
-  width,
-  height,
   color,
   fontFamily,
   ...props
