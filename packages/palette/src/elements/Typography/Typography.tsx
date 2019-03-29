@@ -56,6 +56,7 @@ const verticalAlign = style({
   prop: "verticalAlign",
 })
 
+/** renderFontValue */
 export const renderFontValue = (fontValue: FontValue) => {
   if (typeof fontValue === "string") {
     return `font-family: ${fontValue}`

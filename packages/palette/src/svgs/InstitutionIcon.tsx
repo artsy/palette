@@ -21,4 +21,5 @@ export const InstitutionIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** MuseumIcon */
 export const MuseumIcon = InstitutionIcon

@@ -17,5 +17,7 @@ export const CheckCircleIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove these aliases once clients have been updated
+/** CircleWhiteCheckIcon */
 export const CircleWhiteCheckIcon = CheckCircleIcon
+/** WinningBidIcon */
 export const WinningBidIcon = CheckCircleIcon

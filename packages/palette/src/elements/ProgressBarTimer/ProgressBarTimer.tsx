@@ -6,6 +6,7 @@ import React from "react"
 import { ProgressBar } from "../"
 import { color } from "../../helpers"
 
+/** ProgressBarTimer */
 export const ProgressBarTimer: React.SFC<{
   currentTime: string
   countdownStart: string

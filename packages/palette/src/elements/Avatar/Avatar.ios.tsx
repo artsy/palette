@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { styled } from "../../platform/primitives"
 import { AvatarProps, BaseAvatar, sizeValue } from "./Avatar.shared"
 
+/** Avatar */
 export const Avatar: FunctionComponent<AvatarProps> = ({ ...props }) => {
   return (
     <BaseAvatar renderAvatar={() => <AvatarImage {...props} />} {...props} />

@@ -17,4 +17,5 @@ export const PublicationIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** BookIcon */
 export const BookIcon = PublicationIcon

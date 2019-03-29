@@ -15,6 +15,7 @@ interface MenuProps {
   children?: React.ReactNode
 }
 
+/** Menu */
 export const Menu: React.FC<MenuProps> = ({ title, children, ...props }) => {
   return (
     <MenuContainer width={230} m="2px" {...props}>
@@ -51,6 +52,7 @@ interface MenuItemProps extends BoxProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
+/** MenuItem */
 export const MenuItem: React.FC<MenuItemProps> = ({
   children,
   href,

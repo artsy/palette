@@ -17,4 +17,5 @@ export const MapPinIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** LocationIcon */
 export const LocationIcon = MapPinIcon

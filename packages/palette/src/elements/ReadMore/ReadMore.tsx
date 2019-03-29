@@ -16,6 +16,7 @@ export interface ReadMoreState {
   isExpanded: boolean
 }
 
+/** ReadMore */
 export class ReadMore extends Component<ReadMoreProps, ReadMoreState> {
   private html: string
 

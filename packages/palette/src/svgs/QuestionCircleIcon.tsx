@@ -17,4 +17,5 @@ export const QuestionCircleIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** HelpIcon */
 export const HelpIcon = QuestionCircleIcon

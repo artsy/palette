@@ -19,4 +19,5 @@ export const LogoutIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** PowerIcon */
 export const PowerIcon = LogoutIcon

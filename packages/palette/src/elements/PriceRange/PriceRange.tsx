@@ -6,6 +6,7 @@ interface PriceRangeProps extends SliderProps {
   disabled?: boolean
 }
 
+/** PriceRange */
 export class PriceRange extends React.Component<PriceRangeProps> {
   static defaultProps = {
     currency: "USD",

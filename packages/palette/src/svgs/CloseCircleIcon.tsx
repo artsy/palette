@@ -17,4 +17,5 @@ export const CloseCircleIcon: React.SFC<IconProps> = props => {
 }
 
 // TODO: remove this alias once clients have been updated
+/** LosingBidIcon */
 export const LosingBidIcon = CloseCircleIcon
