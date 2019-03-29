@@ -8,10 +8,11 @@ import {
   WidthProps,
 } from "styled-system"
 import { color } from "../../helpers/color"
+import { withoutStyleProps } from "../../helpers/withoutStyleProps"
 import { Box, BoxProps } from "../Box"
 import { BaseImage as Image, ImageProps } from "./Image.shared"
 
-const InnerLazyImage = styled(LazyLoadImage)<ImageProps>`
+const InnerLazyImage = styled(withoutStyleProps(LazyLoadImage))<ImageProps>`
   width: 100%;
   height: 100%;
   ${borderRadiusStyle}
@@ -61,6 +62,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   ...props
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false)
+  ImageComponent = withoutStyleProps(ImageComponent)
   const {
     src,
     title,
