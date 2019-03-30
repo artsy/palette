@@ -1,3 +1,16 @@
+# v4.5.6 (Sat Mar 30 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Don't strip width and height props from images [#360](https://github.com/artsy/palette/pull/360) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.5.5 (Fri Mar 29 2019)
 
 
