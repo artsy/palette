@@ -1,3 +1,16 @@
+# v4.6.0 (Mon Apr 01 2019)
+
+#### 🚀  Enhancement
+
+- `palette`
+  - Add NoImage, Page, and Tag icons [#361](https://github.com/artsy/palette/pull/361) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v4.5.6 (Sat Mar 30 2019)
 
 #### 🐛  Bug Fix
