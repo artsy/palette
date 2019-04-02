@@ -1,3 +1,16 @@
+# v4.6.1 (Tue Apr 02 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Update viewBox of NoImageIcon to fix centering [#362](https://github.com/artsy/palette/pull/362) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v4.6.0 (Mon Apr 01 2019)
 
 #### 🚀  Enhancement
