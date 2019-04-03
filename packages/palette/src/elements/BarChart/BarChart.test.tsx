@@ -12,7 +12,7 @@ const mockBars = [
   { value: 100 },
   { value: 1000 },
   {
-    value: 4000,
+    value: 0,
     highlightLabel: (
       <Flex alignItems="center" flexDirection="column" id="highlight-label">
         <Sans weight="medium" size="2">
@@ -81,6 +81,17 @@ describe("BarChart", () => {
   it("shows the correct number of bars", () => {
     const chart = getWrapper()
     expect(chart.find(Bar)).toHaveLength(mockBars.length)
+  })
+
+  it("defaults to showing a minimum-height bar if the artwork's highlighted bin is empty", () => {
+    const chart = getWrapper()
+    const highlightedBar = chart.find(Bar).at(2)
+    const computedStyle = getComputedStyle(highlightedBar.getDOMNode())
+
+    // Waiting for animation to finish
+    setTimeout(() => {
+      expect(computedStyle.getPropertyValue("height")).toMatch("10px")
+    }, 1100)
   })
 
   it("shows the highlighted bar in a different color", () => {
