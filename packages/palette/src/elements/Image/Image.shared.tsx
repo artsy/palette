@@ -1,6 +1,8 @@
 // @ts-ignore
 import React from "react"
 import styled from "styled-components"
+import { Image, View } from "../../platform/primitives"
+import { Tag } from "../Tag"
 
 import {
   borderRadius,
@@ -23,7 +25,7 @@ export interface BaseImageProps {
   /** Alternate text for image */
   alt?: string
   /** A11y text label */
-  ariaLabel?: string
+  ["aria-label"]?: string
   /** The title of the image */
   title?: string
   /** Apply additional styles to component */
@@ -42,7 +44,7 @@ export interface ImageProps
 /**
  * Image component with space, width and height properties
  */
-export const BaseImage = styled.img<ImageProps>`
+export const BaseImage = styled(Tag.as(Image))<ImageProps>`
   ${space};
   ${width};
   ${height};
@@ -59,7 +61,7 @@ export interface ResponsiveImageProps
 /**
  * An Image component that responsively resizes within its environment
  */
-export const BaseResponsiveImage = styled.div<ResponsiveImageProps>`
+export const BaseResponsiveImage = styled(Tag.as(View))<ResponsiveImageProps>`
   background: url(${props => props.src});
   background-size: contain;
   background-repeat: no-repeat;

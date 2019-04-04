@@ -8,11 +8,13 @@ import {
   WidthProps,
 } from "styled-system"
 import { color } from "../../helpers/color"
-import { withoutStyleProps } from "../../helpers/withoutStyleProps"
 import { Box, BoxProps } from "../Box"
+import { Tag } from "../Tag"
 import { BaseImage as Image, ImageProps } from "./Image.shared"
 
-const InnerLazyImage = styled(withoutStyleProps(LazyLoadImage))<ImageProps>`
+const InnerLazyImage = styled(Tag.as(LazyLoadImage))<
+  ImageProps & { onLoad: () => void }
+>`
   width: 100%;
   height: 100%;
   ${borderRadiusStyle}
@@ -62,12 +64,11 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   ...props
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false)
-  ImageComponent = withoutStyleProps(ImageComponent)
   const {
     src,
     title,
     alt,
-    ariaLabel,
+    ["aria-label"]: ariaLabel,
     width,
     height,
     borderRadius,
@@ -87,7 +88,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         src={src}
         title={title}
         alt={alt}
-        ariaLabel={ariaLabel}
+        aria-label={ariaLabel}
         borderRadius={borderRadius}
         style={{
           ...style,

@@ -13,4 +13,8 @@ export const styled = {
   View: styles.div,
 }
 
+export const View = "div"
+export const Text = "div"
+export const Image = "img"
+
 export const styledWrapper = styles as typeof styles
