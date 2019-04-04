@@ -1,3 +1,21 @@
+# v4.6.2 (Thu Apr 04 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - If the artwork's highlighted bin is empty, default to showing a minimum-height bar [#364](https://github.com/artsy/palette/pull/364) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 📝  Documentation
+
+- Automatically generated. Merged on Netlify CMS. [#363](https://github.com/artsy/palette/pull/363) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 2
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.6.1 (Tue Apr 02 2019)
 
 #### 🐛  Bug Fix
