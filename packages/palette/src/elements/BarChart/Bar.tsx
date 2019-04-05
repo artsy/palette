@@ -99,6 +99,7 @@ const HighlightLabel = ({
   children,
   onMeasureHighlightLabel,
   opacity,
+  innerRef,
 }: {
   children: React.ReactNode
   // this label is absolutely positioned and it might obscure content above the
@@ -106,6 +107,7 @@ const HighlightLabel = ({
   // parent BarChart set an appropriate min-height.
   onMeasureHighlightLabel: (height: number) => void
   opacity: number
+  innerRef: React.RefObject<HTMLDivElement>
 }) => {
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -113,7 +115,7 @@ const HighlightLabel = ({
   })
   return (
     <HighlightLabelPositioner ref={ref as any} style={{ opacity }}>
-      <HighlightLabelBox>{children}</HighlightLabelBox>
+      <HighlightLabelBox ref={innerRef as any}>{children}</HighlightLabelBox>
       <LabelLine />
     </HighlightLabelPositioner>
   )
@@ -137,12 +139,14 @@ export const Bar = ({
   highlightLabel,
   hasEnteredViewport,
   onMeasureHeight,
+  highlightLabelRef,
 }: {
   heightPercent: number
   label: React.ReactNode
   highlightLabel?: React.ReactNode
   hasEnteredViewport: boolean
   onMeasureHeight?: (height: number) => void
+  highlightLabelRef?: React.RefObject<HTMLDivElement>
 }) => {
   const [hover, setHover] = useState(false)
   // Before the bar has entered the view port it will have a height of 0
@@ -164,6 +168,7 @@ export const Bar = ({
     >
       {highlightLabel && (
         <HighlightLabel
+          innerRef={highlightLabelRef}
           opacity={hasEnteredViewport ? 1 : 0}
           onMeasureHighlightLabel={labelHeight =>
             onMeasureHeight(labelHeight + finalBarHeight)
