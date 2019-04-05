@@ -11,4 +11,8 @@ export const styled = {
   View: styles.View,
 }
 
+export const View = "View"
+export const Text = "Text"
+export const Image = "Image"
+
 export const styledWrapper = styles as typeof styles
