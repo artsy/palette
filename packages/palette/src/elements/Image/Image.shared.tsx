@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from "react"
 import styled from "styled-components"
-import { Image, View } from "../../platform/primitives"
+import { Image } from "../../platform/primitives"
 import { Tag } from "../Tag"
 
 import {
@@ -61,7 +61,7 @@ export interface ResponsiveImageProps
 /**
  * An Image component that responsively resizes within its environment
  */
-export const BaseResponsiveImage = styled(Tag.as(View))<ResponsiveImageProps>`
+export const BaseResponsiveImage = styled(Tag)<ResponsiveImageProps>`
   background: url(${props => props.src});
   background-size: contain;
   background-repeat: no-repeat;

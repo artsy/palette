@@ -14,6 +14,7 @@ describe("Tag", () => {
         color: "blue",
       })
     )
+    expect(wrap.prop("id")).toBe("hello")
     expect(wrap.prop("theme")).toBeUndefined()
     expect(wrap.prop("m")).toBeUndefined()
     expect(wrap.prop("px")).toBeUndefined()
@@ -32,5 +33,18 @@ describe("Tag", () => {
       })
     )
     expect(wrap.type()).toBe("section")
+  })
+
+  it("allows customization of which props are omitted", () => {
+    const wrap = shallow(
+      React.createElement(Tag, {
+        omitFromProps: ["foo"],
+        // @ts-ignore
+        foo: "bar",
+        theme: [],
+      })
+    )
+    expect(wrap.prop("foo")).toBeUndefined()
+    expect(wrap.prop("theme")).toBeDefined()
   })
 })
