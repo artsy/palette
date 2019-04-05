@@ -1,3 +1,16 @@
+# v4.7.1 (Fri Apr 05 2019)
+
+#### 🐛  Bug Fix
+
+- `palette-docs`, `palette`
+  - [BarChart] Constrain highlight label position [#366](https://github.com/artsy/palette/pull/366) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.7.0 (Fri Apr 05 2019)
 
 #### 🚀  Enhancement
