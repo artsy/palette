@@ -1,3 +1,16 @@
+# v4.7.0 (Fri Apr 05 2019)
+
+#### 🚀  Enhancement
+
+- `palette`
+  - Add a safer way to remove extraneous props [#370](https://github.com/artsy/palette/pull/370) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.6.2 (Thu Apr 04 2019)
 
 #### 🐛  Bug Fix
