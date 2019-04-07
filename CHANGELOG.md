@@ -1,3 +1,16 @@
+# v4.7.2 (Sun Apr 07 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Remove test files from published package [#371](https://github.com/artsy/palette/pull/371) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.7.1 (Fri Apr 05 2019)
 
 #### 🐛  Bug Fix
