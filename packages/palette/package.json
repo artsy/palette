@@ -7,9 +7,6 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "files": [
-    "dist"
-  ],
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
