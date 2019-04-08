@@ -25,7 +25,7 @@ export const Stepper = (props: StepperProps) => {
       key={props.currentStepIndex}
       separator={
         <ChevronWrapper>
-          <ChevronIcon fill={"black60"} />
+          <ChevronIcon fill="black30" width="12px" />
         </ChevronWrapper>
       }
       transformTabBtn={transformTabBtn}
