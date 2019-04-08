@@ -1,3 +1,16 @@
+# v4.7.4 (Mon Apr 08 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Resolve issue where some images didn't load when lazy loading [#372](https://github.com/artsy/palette/pull/372) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.7.3 (Mon Apr 08 2019)
 
 #### 🐛  Bug Fix
