@@ -47,7 +47,7 @@ export interface TagProps {
 }
 
 const tagName = tag =>
-  typeof tag === "string" ? tag : tag.displayName || tag.name || tag.toString()
+  typeof tag === "string" ? tag : tag.displayName || "Tag"
 
 function tagBuilder(tag: ComponentSpecifier = View) {
   const TagComponent = React.forwardRef<any, TagProps>(
