@@ -1,3 +1,17 @@
+# v4.7.3 (Mon Apr 08 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Change the color of Chevron icon [#367](https://github.com/artsy/palette/pull/367) ([@ashkan18](https://github.com/ashkan18) [@ds300](https://github.com/ds300))
+
+#### Authors: 2
+
+- Ashkan Nasseri ([@ashkan18](https://github.com/ashkan18))
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.7.2 (Sun Apr 07 2019)
 
 #### 🐛  Bug Fix
