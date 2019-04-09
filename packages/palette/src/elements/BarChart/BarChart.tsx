@@ -72,6 +72,7 @@ export interface BarDescriptor {
   value: number
   label?: React.ReactNode | BarLabelProps
   highlightLabel?: React.ReactNode | BarLabelProps
+  onClick?: any
 }
 
 export interface BarChartProps {
@@ -112,7 +113,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
           mb={0.5}
           style={{ minHeight }}
         >
-          {bars.map(({ value, label, highlightLabel }, index) => {
+          {bars.map(({ value, label, highlightLabel, onClick }, index) => {
             const heightPercent = (100 / maxValue) * value
             return (
               <Bar
@@ -123,6 +124,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
                 highlightLabel={coerceLabel(highlightLabel)}
                 hasEnteredViewport={hasEnteredViewport}
                 onMeasureHeight={highlightLabel ? setMinHeight : null}
+                onClick={onClick}
               />
             )
           })}
