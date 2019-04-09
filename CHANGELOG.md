@@ -1,3 +1,16 @@
+# v4.8.0 (Tue Apr 09 2019)
+
+#### 🚀  Enhancement
+
+- `palette`
+  - Add background to <Flex> [#365](https://github.com/artsy/palette/pull/365) ([@yuki24](https://github.com/yuki24))
+
+#### Authors: 1
+
+- Yuki Nishijima ([@yuki24](https://github.com/yuki24))
+
+---
+
 # v4.7.5 (Tue Apr 09 2019)
 
 
