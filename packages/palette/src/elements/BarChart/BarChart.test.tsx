@@ -27,7 +27,7 @@ const mockBars = [
   {
     value: 400,
     onClick: () => {
-      window.open("https://artsyproduct.atlassian.net/")
+      window.open("https://calmingmanatee.com/")
     },
     label: (
       <Flex alignItems="center" flexDirection="column">
@@ -87,7 +87,7 @@ describe("BarChart", () => {
       .find(Bar)
       .at(0)
       .simulate("click")
-    expect(window.open).toBeCalledWith("https://artsyproduct.atlassian.net/")
+    expect(window.open).toBeCalledWith("https://calmingmanatee.com/")
   })
 
   it("shows the correct number of bars", () => {
