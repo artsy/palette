@@ -5,6 +5,8 @@ import {
   AlignContentProps,
   alignItems,
   AlignItemsProps,
+  background,
+  BackgroundProps,
   bottom,
   BottomProps,
   display,
@@ -44,6 +46,7 @@ const flexGrow = style({
 export interface FlexProps
   extends AlignItemsProps,
     AlignContentProps,
+    BackgroundProps,
     BottomProps,
     DisplayProps,
     FlexBasisProps,
@@ -67,6 +70,7 @@ export const Flex = primitives.View<FlexProps>`
   display: flex;
   ${alignContent};
   ${alignItems};
+  ${background};
   ${bottom};
   ${display};
   ${flexBasis};
