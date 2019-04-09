@@ -133,6 +133,7 @@ const HighlightLabel = ({
  * container set an appropriate min-height property. This prevents the highlight
  * label from obscuring content above the bar chart.
  */
+
 export const Bar = ({
   heightPercent,
   label,
@@ -140,6 +141,7 @@ export const Bar = ({
   hasEnteredViewport,
   onMeasureHeight,
   highlightLabelRef,
+  onClick,
 }: {
   heightPercent: number
   label: React.ReactNode
@@ -147,6 +149,7 @@ export const Bar = ({
   hasEnteredViewport: boolean
   onMeasureHeight?: (height: number) => void
   highlightLabelRef?: React.RefObject<HTMLDivElement>
+  onClick?: any
 }) => {
   const [hover, setHover] = useState(false)
   // Before the bar has entered the view port it will have a height of 0
@@ -159,12 +162,14 @@ export const Bar = ({
       ? 0
       : MIN_BAR_HEIGHT + (BAR_HEIGHT_RANGE / 100) * heightPercent
   const currentHeight = hasEnteredViewport ? finalBarHeight : 0
+  console.log("ON CLICK", onClick)
   return (
     <BarBox
       style={{ height: currentHeight }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       isHighlighted={Boolean(highlightLabel)}
+      onClick={onClick}
     >
       {highlightLabel && (
         <HighlightLabel

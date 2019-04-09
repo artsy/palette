@@ -26,6 +26,9 @@ const mockBars = [
   },
   {
     value: 400,
+    onClick: () => {
+      window.open("https://artsyproduct.atlassian.net/")
+    },
     label: (
       <Flex alignItems="center" flexDirection="column">
         <Sans size="2" weight="medium">
@@ -76,6 +79,15 @@ describe("BarChart", () => {
 
     expect(chart.find("#min").text()).toBe("Hello min!")
     expect(chart.find("#max").text()).toBe("Hello max!")
+  })
+  it("calls the onClick function is one is passed in when the bar is clicked", () => {
+    window.open = jest.fn()
+    const chart = getWrapper({ bars: [mockBars[3]] })
+    chart
+      .find(Bar)
+      .at(0)
+      .simulate("click")
+    expect(window.open).toBeCalled()
   })
 
   it("shows the correct number of bars", () => {
