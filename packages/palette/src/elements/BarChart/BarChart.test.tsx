@@ -87,7 +87,7 @@ describe("BarChart", () => {
       .find(Bar)
       .at(0)
       .simulate("click")
-    expect(window.open).toBeCalled()
+    expect(window.open).toBeCalledWith("https://artsyproduct.atlassian.net/")
   })
 
   it("shows the correct number of bars", () => {
