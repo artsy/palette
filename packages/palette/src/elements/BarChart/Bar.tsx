@@ -17,7 +17,7 @@ interface BarBoxProps {
 }
 
 // the actual visible bit of the bar
-const BarBox = styled(Box)`
+export const BarBox = styled(Box)`
   transition: height 0.8s ease;
   position: relative;
   background: ${(props: BarBoxProps) =>
