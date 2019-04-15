@@ -1,3 +1,16 @@
+# v4.8.1 (Mon Apr 15 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - exported BarBox for reaction tests [#374](https://github.com/artsy/palette/pull/374) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v4.8.0 (Tue Apr 09 2019)
 
 #### 🚀  Enhancement
