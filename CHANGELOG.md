@@ -1,3 +1,16 @@
+# v4.8.2 (Mon Apr 15 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - export Bar.tsx from index [#375](https://github.com/artsy/palette/pull/375) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v4.8.1 (Mon Apr 15 2019)
 
 #### 🐛  Bug Fix
