@@ -33,10 +33,12 @@ module.exports = {
         // gatsby-mdx. See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
         globalScope: `
           import * as Elements from "@artsy/palette"
+          import { ColorComponent } from "components/ColorComponent"
           import { CodeEditor, Playground  } from "components/Playground"
           import { Toggle as Toggler } from 'react-powerplug'
           export default {
             CodeEditor,
+            ColorComponent,
             Playground,
             Toggler,
             ...Elements
