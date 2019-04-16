@@ -94,15 +94,15 @@ Object.keys(themeProps.fontFamily).forEach(family => {
   )
 })
 
-styles = `
+const stylesheet = `
   :root {
     ${variables}
   }
   ${styles}
 `
+const formattedStylesheet = prettier.format(stylesheet, {
+  parser: "css",
+  printWidth: 120,
+})
 
-fs.writeFileSync(
-  "dist/styles.css",
-  prettier.format(styles, { parser: "css", printWidth: 120 }),
-  "utf8"
-)
+fs.writeFileSync("dist/styles.css", formattedStylesheet, "utf8")
