@@ -93,8 +93,8 @@ export const MarkdownComponents = {
    *
    * Color is the color from Palette's theme, e.g. purple100
    */
-  color: ({ color }) => {
-    return <ColorComponent color={color} />
+  colorComponent: props => {
+    return <ColorComponent color={props.color} />
   },
   div: props => {
     return <div className="contentDiv">{props.children}</div>
