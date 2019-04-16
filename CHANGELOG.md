@@ -1,3 +1,16 @@
+# v4.9.0 (Tue Apr 16 2019)
+
+#### 🚀  Enhancement
+
+- `palette`
+  - Generate stylesheet [#376](https://github.com/artsy/palette/pull/376) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.8.2 (Mon Apr 15 2019)
 
 #### 🐛  Bug Fix
