@@ -3,7 +3,6 @@
 import React from "react"
 import * as Palette from "@artsy/palette"
 import { CodeEditor } from "../components/Playground"
-import { ColorComponent } from "../components/ColorComponent"
 
 import {
   Box,
@@ -74,14 +73,6 @@ export const { GlobalStyles } = injectGlobalStyles(`
  * in markdown. Still need to fill this out a bit!
  */
 export const MarkdownComponents = {
-  /**
-   * Use color to render a color bar and relevant information about it.
-   *
-   * Color is the color from Palette's theme, e.g. purple100
-   */
-  ColorComponent: props => {
-    return <ColorComponent color={props.color} />
-  },
   /**
    * Use the code editor for displaying code blocks. Doesn't need a scope because
    * it's not interactive.

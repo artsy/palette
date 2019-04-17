@@ -4,6 +4,7 @@ import { Theme } from "@artsy/palette"
 import styled, { StyleSheetManager } from "styled-components"
 import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
 import { MarkdownComponents, PaletteComponents, globalCSS } from '../components/GlobalComponents' // prettier-ignore
+import { ColorComponent } from "../components/ColorComponent"
 import { config } from "../../static/admin/config"
 import { Box, Toggle } from "@artsy/palette"
 
@@ -61,6 +62,7 @@ const PreviewWindow = props => {
     components: MarkdownComponents,
     scope: {
       ...PaletteComponents,
+      ColorComponent,
       Playground: ({ children, title }) => {
         return (
           <Box mt={4}>
