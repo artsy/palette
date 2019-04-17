@@ -99,7 +99,7 @@ describe("BarChart", () => {
     chart
       .find(Bar)
       .at(0)
-      .simulate("mouseOver")
+      .simulate("mouseover")
     expect(window.open).toBeCalledWith("https://calmingmanatee.com/")
   })
 
