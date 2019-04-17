@@ -3,6 +3,7 @@
 import React from "react"
 import * as Palette from "@artsy/palette"
 import { CodeEditor } from "../components/Playground"
+import { ColorComponent } from "../components/ColorComponent"
 
 import {
   Box,
@@ -86,6 +87,14 @@ export const MarkdownComponents = {
         scope={{}}
       />
     )
+  },
+  /**
+   * Use color to render a color bar and relevant information about it.
+   *
+   * Color is the color from Palette's theme, e.g. purple100
+   */
+  colorComponent: props => {
+    return <ColorComponent color={props.color} />
   },
   div: props => {
     return <div className="contentDiv">{props.children}</div>
