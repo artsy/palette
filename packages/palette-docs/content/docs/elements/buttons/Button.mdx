@@ -49,6 +49,30 @@ The thinking state is used when there may be a delay in response time, ie, biddi
 
 
 
+Thinking inline should be used when the action taken reveals more content in the same context, ie, infinite scroll or expanding information.
+
+<Playground>
+  <Box>
+    <Button variant="secondaryOutline" width="33%">
+      Show more
+    </Button>
+  </Box>
+</Playground>
+
+<Playground>
+  <Box>
+    <Button variant="secondaryGray" size="large" m={0.5} loading>
+      Show more
+    </Button>
+  </Box>
+</Playground>
+
+
+
+
+
+
+
 In the presence of inputs, use secondary-gray for the secondary button style.
 
 <Playground layout="horizontal">
