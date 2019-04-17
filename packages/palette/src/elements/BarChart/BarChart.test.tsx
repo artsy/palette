@@ -29,6 +29,9 @@ const mockBars = [
     onClick: () => {
       window.open("https://calmingmanatee.com/")
     },
+    onHover: () => {
+      window.open("https://calmingmanatee.com/")
+    },
     label: (
       <Flex alignItems="center" flexDirection="column">
         <Sans size="2" weight="medium">
@@ -87,6 +90,16 @@ describe("BarChart", () => {
       .find(Bar)
       .at(0)
       .simulate("click")
+    expect(window.open).toBeCalledWith("https://calmingmanatee.com/")
+  })
+
+  it("calls the onHover function is one is passed in when the bar is hovered over", () => {
+    window.open = jest.fn()
+    const chart = getWrapper({ bars: [mockBars[3]] })
+    chart
+      .find(Bar)
+      .at(0)
+      .simulate("mouseOver")
     expect(window.open).toBeCalledWith("https://calmingmanatee.com/")
   })
 
