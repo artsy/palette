@@ -12,8 +12,6 @@ secondary-gray.
 Our secondary-outline is our default secondary button style. Avoid using this in
 the presence of inputs, as to not confuse it’s use.
 
-
-
 <Playground>
   <Box>
     <Button width="33%">Purchase</Button>
@@ -24,11 +22,14 @@ the presence of inputs, as to not confuse it’s use.
   </Box>
 </Playground>
 
+\
+When needing to display more content,
 
+<Playground>
+  <Button>Purchase</Button>
+</Playground>
 
 In the presence of inputs, use secondary-gray for the secondary button style.
-
-
 
 <Playground layout="horizontal">
   <BorderBox>
@@ -38,12 +39,16 @@ In the presence of inputs, use secondary-gray for the secondary button style.
     <Flex flexDirection="column" width="50%">
       <BorderBox mb={1}>Input text</BorderBox>
       <BorderBox mb={1}>Input text</BorderBox>
-      <Button variation="secondary">Add another</Button>
+      <Button variation="secondaryGray">Add another</Button>
     </Flex>
   </BorderBox>
 </Playground>
 
 <Spacer mb={4} />
+
+
+
+
 
 ## All Variants
 
