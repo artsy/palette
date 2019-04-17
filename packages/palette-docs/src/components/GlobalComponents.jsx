@@ -75,6 +75,14 @@ export const { GlobalStyles } = injectGlobalStyles(`
  */
 export const MarkdownComponents = {
   /**
+   * Use color to render a color bar and relevant information about it.
+   *
+   * Color is the color from Palette's theme, e.g. purple100
+   */
+  ColorComponent: props => {
+    return <ColorComponent color={props.color} />
+  },
+  /**
    * Use the code editor for displaying code blocks. Doesn't need a scope because
    * it's not interactive.
    */
@@ -87,14 +95,6 @@ export const MarkdownComponents = {
         scope={{}}
       />
     )
-  },
-  /**
-   * Use color to render a color bar and relevant information about it.
-   *
-   * Color is the color from Palette's theme, e.g. purple100
-   */
-  ColorComponent: props => {
-    return <ColorComponent color={props.color} />
   },
   div: props => {
     return <div className="contentDiv">{props.children}</div>
