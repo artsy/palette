@@ -1,3 +1,16 @@
+# v4.9.1 (Wed Apr 17 2019)
+
+#### 🐛  Bug Fix
+
+- `palette-docs`
+  - creates a docs-only <ColorComponent> to allow display of separate colors [#377](https://github.com/artsy/palette/pull/377) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v4.9.0 (Tue Apr 16 2019)
 
 #### 🚀  Enhancement
