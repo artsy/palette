@@ -73,6 +73,7 @@ export interface BarDescriptor {
   label?: React.ReactNode | BarLabelProps
   highlightLabel?: React.ReactNode | BarLabelProps
   onClick?: any
+  onHover?: any
 }
 
 export interface BarChartProps {
@@ -113,21 +114,24 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
           mb={0.5}
           style={{ minHeight }}
         >
-          {bars.map(({ value, label, highlightLabel, onClick }, index) => {
-            const heightPercent = (100 / maxValue) * value
-            return (
-              <Bar
-                key={index}
-                heightPercent={heightPercent}
-                label={coerceLabel(label)}
-                highlightLabelRef={highlightLabelRef}
-                highlightLabel={coerceLabel(highlightLabel)}
-                hasEnteredViewport={hasEnteredViewport}
-                onMeasureHeight={highlightLabel ? setMinHeight : null}
-                onClick={onClick}
-              />
-            )
-          })}
+          {bars.map(
+            ({ value, label, highlightLabel, onClick, onHover }, index) => {
+              const heightPercent = (100 / maxValue) * value
+              return (
+                <Bar
+                  key={index}
+                  heightPercent={heightPercent}
+                  label={coerceLabel(label)}
+                  highlightLabelRef={highlightLabelRef}
+                  highlightLabel={coerceLabel(highlightLabel)}
+                  hasEnteredViewport={hasEnteredViewport}
+                  onMeasureHeight={highlightLabel ? setMinHeight : null}
+                  onClick={onClick}
+                  onHover={onHover}
+                />
+              )
+            }
+          )}
         </ChartContainer>
         <Flex justifyContent="space-between">
           <Sans color="black60" size="2">

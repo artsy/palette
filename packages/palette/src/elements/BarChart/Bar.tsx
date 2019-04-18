@@ -142,6 +142,7 @@ export const Bar = ({
   onMeasureHeight,
   highlightLabelRef,
   onClick,
+  onHover,
 }: {
   heightPercent: number
   label: React.ReactNode
@@ -150,6 +151,7 @@ export const Bar = ({
   onMeasureHeight?: (height: number) => void
   highlightLabelRef?: React.RefObject<HTMLDivElement>
   onClick?: any
+  onHover?: any
 }) => {
   const [hover, setHover] = useState(false)
   // Before the bar has entered the view port it will have a height of 0
@@ -169,6 +171,7 @@ export const Bar = ({
       onMouseLeave={() => setHover(false)}
       isHighlighted={Boolean(highlightLabel)}
       onClick={onClick}
+      onMouseOver={onHover}
     >
       {highlightLabel && (
         <HighlightLabel
