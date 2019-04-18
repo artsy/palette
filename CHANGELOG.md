@@ -1,3 +1,16 @@
+# v4.9.3 (Thu Apr 18 2019)
+
+#### 📝  Documentation
+
+- `palette-docs`
+  - Automatically generated. Merged on Netlify CMS. [#383](https://github.com/artsy/palette/pull/383) ([@deliciousnachos](https://github.com/deliciousnachos))
+
+#### Authors: 1
+
+- Nicole Boettcher ([@deliciousnachos](https://github.com/deliciousnachos))
+
+---
+
 # v4.9.2 (Thu Apr 18 2019)
 
 #### 🐛  Bug Fix
