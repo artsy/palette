@@ -1,3 +1,26 @@
+# v4.9.2 (Thu Apr 18 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - added onHover to barchart bars [#386](https://github.com/artsy/palette/pull/386) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 📝  Documentation
+
+- Update Tokens “Color” [#379](https://github.com/artsy/palette/pull/379) ([@owendodd](https://github.com/owendodd))
+- `palette-docs`
+  - Remove mixed content [#385](https://github.com/artsy/palette/pull/385) ([@zephraph](https://github.com/zephraph))
+  - Update Images “Avatar” [#384](https://github.com/artsy/palette/pull/384) ([@samchieng](https://github.com/samchieng))
+
+#### Authors: 4
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- Sam Chieng ([@samchieng](https://github.com/samchieng))
+- [@owendodd](https://github.com/owendodd)
+
+---
+
 # v4.9.1 (Wed Apr 17 2019)
 
 #### 🐛  Bug Fix
