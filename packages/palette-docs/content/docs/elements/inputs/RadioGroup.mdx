@@ -1,11 +1,40 @@
 ---
 name: RadioGroup
+status: ''
 ---
+# Guidelines
 
-Use this component when user must make a decision, which may result in
-additional consecutive decisions, or may reveal additional information.
+Use this component when user must make a decision, which may result in additional consecutive decisions, or may reveal additional information.
 
-<Playground>
+## Responsive
+
+Group radio selects are consistent at all screen widths. Width is flexible dependent on grid.
+
+## Text styles
+
+**Serif**
+
+(example)
+
+**Sans**
+
+(example)
+
+## States
+
+**Static**
+
+(example)
+
+**Hover**
+
+(example) 
+
+## With additional content
+
+When option is selected, more information is revealed
+
+<Playground> 
   <RadioGroup defaultValue="SHIP">
     <BorderedRadio value="SHIP" label="Provide shipping address" />
     <BorderedRadio value="PICKUP" label="Arrange for pickup">
@@ -17,6 +46,14 @@ additional consecutive decisions, or may reveal additional information.
   </RadioGroup>
 </Playground>
 
+When option is selected, and contains an input, the input is active upon radio selection.
+
+(example)
+
+# Types
+
+## No items pre-selected
+
 <Playground>
   <RadioGroup>
     <Radio value="SHIP" label="Provide shipping address" />
@@ -24,7 +61,7 @@ additional consecutive decisions, or may reveal additional information.
   </RadioGroup>
 </Playground>
 
-### With default value
+## With default value
 
 <Playground>
   <RadioGroup defaultValue="PICKUP">
@@ -33,7 +70,7 @@ additional consecutive decisions, or may reveal additional information.
   </RadioGroup>
 </Playground>
 
-### Deselectable
+## Deselectable
 
 <Playground>
   <RadioGroup defaultValue="SHIP" deselectable>
@@ -42,7 +79,7 @@ additional consecutive decisions, or may reveal additional information.
   </RadioGroup>
 </Playground>
 
-### Disabled
+## Disabled
 
 <Playground>
   <RadioGroup defaultValue="SHIP" disabled>
