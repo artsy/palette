@@ -1,3 +1,22 @@
+# v4.9.4 (Fri Apr 19 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Tooltip related changes [#389](https://github.com/artsy/palette/pull/389) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 📝  Documentation
+
+- `palette-docs`
+  - Automatically generated. Merged on Netlify CMS. [#381](https://github.com/artsy/palette/pull/381) ([@nicoleyeo](https://github.com/nicoleyeo))
+
+#### Authors: 2
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- [@nicoleyeo](https://github.com/nicoleyeo)
+
+---
+
 # v4.9.3 (Thu Apr 18 2019)
 
 #### 📝  Documentation
