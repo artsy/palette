@@ -52,14 +52,9 @@ const Tip = styled(BorderBox)<TipProps>`
   }
 `
 
-enum TipSize {
-  Sm = "sm",
-  Lg = "lg",
-}
-
 export interface TooltipProps {
   content: React.ReactNode
-  size: TipSize
+  size: "sm" | "lg"
   width: number
 }
 
@@ -68,7 +63,7 @@ export interface TooltipProps {
  */
 export class Tooltip extends React.Component<TooltipProps> {
   static defaultProps = {
-    size: TipSize.Lg,
+    size: "lg",
     width: 230,
   }
 
@@ -146,7 +141,7 @@ export class Tooltip extends React.Component<TooltipProps> {
       >
         <Tip
           className={this.state.active && "active"}
-          p={this.props.size === TipSize.Sm ? 0.5 : 2}
+          p={this.props.size === "sm" ? 0.5 : 2}
           tipPosition={this.state.tipPosition}
           width={this.props.width}
         >
