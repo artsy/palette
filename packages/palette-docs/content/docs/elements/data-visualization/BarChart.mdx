@@ -16,7 +16,9 @@ name: BarChart
           {
             value: 2000,
             label: { title: "Sept 30", description: "423 clicks" },
-            onClick: (() => {window.open("https://calmingmanatee.com/")}),
+            onClick: () => {
+              window.open("https://calmingmanatee.com/")
+            },
           },
           {
             value: 1400,
@@ -25,10 +27,12 @@ name: BarChart
           {
             value: 400,
             label: { title: "Sept 30", description: "423 clicks" },
+            xAxisLabel: "Sept 30",
           },
           {
             value: 3200,
             label: { title: "Sept 30", description: "423 clicks" },
+            xAxisLabel: "Apr 30",
           },
           {
             value: 4000,
