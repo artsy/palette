@@ -1,3 +1,16 @@
+# v4.9.5 (Mon Apr 22 2019)
+
+#### 🐛  Bug Fix
+
+- `palette-docs`
+  - fixes ColorComponent admin display and tweaks styling [#390](https://github.com/artsy/palette/pull/390) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v4.9.4 (Fri Apr 19 2019)
 
 #### 🐛  Bug Fix
