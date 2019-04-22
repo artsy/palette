@@ -1,3 +1,16 @@
+# v4.10.0 (Mon Apr 22 2019)
+
+#### 🚀  Enhancement
+
+- `palette`
+  - Update moment-timezone for smaller payload size [#391](https://github.com/artsy/palette/pull/391) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.9.5 (Mon Apr 22 2019)
 
 #### 🐛  Bug Fix
