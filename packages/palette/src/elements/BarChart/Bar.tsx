@@ -14,6 +14,7 @@ const LABEL_OFFSET = 10
 
 interface BarBoxProps {
   isHighlighted?: boolean
+  hasOnClick?: boolean
 }
 
 // the actual visible bit of the bar
@@ -29,6 +30,7 @@ export const BarBox = styled(Box)`
   }
   flex: 1;
   cursor: pointer;
+  cursor: ${(props: BarBoxProps) => (props.hasOnClick ? "pointer" : "default")};
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
   @media (min-width: ${breakpoints.sm}px) {
@@ -164,6 +166,7 @@ export const Bar = ({
       ? 0
       : MIN_BAR_HEIGHT + (BAR_HEIGHT_RANGE / 100) * heightPercent
   const currentHeight = hasEnteredViewport ? finalBarHeight : 0
+  const hasOnClick = onClick ? true : false
   return (
     <BarBox
       style={{ height: currentHeight }}
@@ -172,6 +175,7 @@ export const Bar = ({
       isHighlighted={Boolean(highlightLabel)}
       onClick={onClick}
       onMouseOver={onHover}
+      hasOnClick={hasOnClick}
     >
       {highlightLabel && (
         <HighlightLabel
