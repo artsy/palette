@@ -1,3 +1,16 @@
+# v4.10.1 (Tue Apr 23 2019)
+
+#### ⚠️  Pushed to master
+
+- `palette`
+  - Fix duplicate import  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+
+#### Authors: 1
+
+- [@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com)
+
+---
+
 # v4.10.0 (Mon Apr 22 2019)
 
 #### 🚀  Enhancement
