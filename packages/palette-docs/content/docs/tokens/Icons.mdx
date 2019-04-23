@@ -3,16 +3,29 @@ name: Icons
 lastPointOfContact: Jon
 status: ''
 ---
-
 import { AllIcons } from "@artsy/palette"
 import _ from "lodash"
 
 See [Notion](https://www.notion.so/artsy/Icons-c49c292a40e243baacd7842a4de983d4)
 for the masterlist.
 
+
+
 <Flex flexWrap="wrap">
-  {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
-    const blacklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
+
+<AddCircleFillIcon width="40px" height="40px"/>
+
+<PlusIcon width="40px" height="40px"/>
+
+<AddCircleFillIcon width="40px" height="40px"/>
+
+</flex>
+
+
+
+<Flex flexWrap="wrap">
+  {Object.entries(AllIcons).map((\[iconName, IconComponent], index) => {
+    const blacklist = \["ChevronIcon", "CreditCardIcon", "Icon"]
     if (
       !_.isFunction(IconComponent) ||
       blacklist.some(icon => icon === iconName)
