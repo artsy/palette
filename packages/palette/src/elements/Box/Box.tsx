@@ -42,7 +42,6 @@ export interface BoxProps
     DisplayProps,
     HeightProps,
     LeftProps,
-    LeftProps,
     MaxWidthProps,
     MinHeightProps,
     PositionProps,
