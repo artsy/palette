@@ -40,7 +40,7 @@ export const Menu: React.FC<MenuProps> = ({ title, children, ...props }) => {
 
 const MenuContainer = styled(Box)`
   background-color: white;
-  box-shadow: 2px 2px 4px 2px ${color("black5")};
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05);
 `
 
 // Menu Item
