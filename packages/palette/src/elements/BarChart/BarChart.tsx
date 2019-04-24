@@ -71,7 +71,7 @@ function useHighlightLabelPositionConstraints(
 export interface BarDescriptor {
   value: number
   label?: React.ReactNode | BarLabelProps
-  axisLabelX?: string
+  axisLabelX?: React.ReactNode
   highlightLabel?: React.ReactNode | BarLabelProps
   onClick?: any
   onHover?: any

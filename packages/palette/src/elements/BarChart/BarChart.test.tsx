@@ -9,8 +9,8 @@ import { Sans } from "../Typography"
 import { Bar } from "./Bar"
 
 const mockBars = [
-  { value: 100 },
-  { value: 1000 },
+  { value: 100, axisLabelX: "x axis label" },
+  { value: 1000, axisLabelX: <div id="x-axis">lol</div> },
   {
     value: 0,
     highlightLabel: (
@@ -83,6 +83,13 @@ describe("BarChart", () => {
     expect(chart.find("#min").text()).toBe("Hello min!")
     expect(chart.find("#max").text()).toBe("Hello max!")
   })
+  it("renders x axis labels labels", () => {
+    const chart = getWrapper()
+
+    expect(chart.text()).toContain("x axis label")
+    expect(chart.find("#x-axis").text()).toBe("lol")
+  })
+
   it("calls the onClick function is one is passed in when the bar is clicked", () => {
     window.open = jest.fn()
     const chart = getWrapper({ bars: [mockBars[3]] })

@@ -27,12 +27,10 @@ name: BarChart
           {
             value: 400,
             label: { title: "Sept 30", description: "423 clicks" },
-            axisLabelX: "Sept 30",
           },
           {
             value: 3200,
             label: { title: "Sept 30", description: "423 clicks" },
-            axisLabelX: "Apr 30",
           },
           {
             value: 4000,
@@ -255,6 +253,59 @@ name: BarChart
         ]}
         minLabel="$500"
         maxLabel="$50,000+"
+      />
+    </Flex>
+  </>
+</Playground>
+
+# With X axis labels
+
+<Playground showEditor={true}>
+  <>
+    <Flex>
+      <BarChart
+        bars={[
+          {
+            value: 2000,
+            label: { title: "Sep 30", description: "423 clicks" },
+            axisLabelX: "Sep 30",
+          },
+          {
+            value: 1400,
+            label: { title: "Nov 30", description: "423 clicks" },
+          },
+          {
+            value: 400,
+            label: { title: "Dec 30", description: "423 clicks" },
+            axisLabelX: <Serif size="3">DECEMBER</Serif>,
+          },
+          {
+            value: 3200,
+            label: { title: "Jan 30", description: "423 clicks" },
+          },
+          {
+            value: 4000,
+            label: { title: "Feb 30", description: "423 clicks" },
+            axisLabelX: "Feb 30",
+          },
+          {
+            value: 400,
+            label: { title: "Mar 30", description: "423 clicks" },
+          },
+          {
+            value: 800,
+            label: { title: "Apr 30", description: "423 clicks" },
+            axisLabelX: <Serif size="3">APRIL</Serif>,
+          },
+          {
+            value: 0,
+          },
+          {
+            value: 100,
+            label: { title: "Jul 30", description: "423 clicks" },
+            axisLabelX: "Jul 30",
+          },
+        ]}
       />
     </Flex>
   </>
