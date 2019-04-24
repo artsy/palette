@@ -1,3 +1,16 @@
+# v4.10.2 (Wed Apr 24 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - [Menu] Fix drop shadow color [#396](https://github.com/artsy/palette/pull/396) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.10.1 (Tue Apr 23 2019)
 
 #### ⚠️  Pushed to master
