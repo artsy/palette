@@ -164,7 +164,7 @@ const TriangleHighlight = styled.div`
 export const Bar = ({
   heightPercent,
   label,
-  xAxisLabel,
+  axisLabelX,
   highlightLabel,
   hasEnteredViewport,
   onMeasureHeight,
@@ -174,7 +174,7 @@ export const Bar = ({
 }: {
   heightPercent: number
   label: React.ReactNode
-  xAxisLabel: React.ReactNode
+  axisLabelX: React.ReactNode
   highlightLabel?: React.ReactNode
   hasEnteredViewport: boolean
   onMeasureHeight?: (height: number) => void
@@ -215,16 +215,16 @@ export const Bar = ({
         </HighlightLabel>
       )}
       {hover && label && <BarHoverLabel>{label}</BarHoverLabel>}
-      <XAxisLabel color="black60" size="2">
-        {xAxisLabel}
-      </XAxisLabel>
+      <AxisLabelX color="black60" size="2">
+        {axisLabelX}
+      </AxisLabelX>
     </BarBox>
   )
 }
 
-const XAxisLabel = styled(Sans)`
+const AxisLabelX = styled(Sans)`
   position: absolute;
-  bottom: -${space(2)}px;
+  top: calc(100% + ${space(0.5)}px);
   width: 100%;
   text-align: center;
 `

@@ -71,7 +71,7 @@ function useHighlightLabelPositionConstraints(
 export interface BarDescriptor {
   value: number
   label?: React.ReactNode | BarLabelProps
-  xAxisLabel?: string
+  axisLabelX?: string
   highlightLabel?: React.ReactNode | BarLabelProps
   onClick?: any
   onHover?: any
@@ -117,7 +117,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
         >
           {bars.map(
             (
-              { value, label, xAxisLabel, highlightLabel, onClick, onHover },
+              { value, label, axisLabelX, highlightLabel, onClick, onHover },
               index
             ) => {
               const heightPercent =
@@ -127,7 +127,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
                   key={index}
                   heightPercent={heightPercent}
                   label={coerceLabel(label)}
-                  xAxisLabel={xAxisLabel}
+                  axisLabelX={axisLabelX}
                   highlightLabelRef={highlightLabelRef}
                   highlightLabel={coerceLabel(highlightLabel)}
                   hasEnteredViewport={hasEnteredViewport}
