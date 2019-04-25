@@ -116,7 +116,8 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
         >
           {bars.map(
             ({ value, label, highlightLabel, onClick, onHover }, index) => {
-              const heightPercent = (100 / maxValue) * value
+              const heightPercent =
+                maxValue === 0 ? 100 : (100 / maxValue) * value
               return (
                 <Bar
                   key={index}

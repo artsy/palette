@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { color, media } from "../../helpers"
+import { color, media, space } from "../../helpers"
 import { breakpoints } from "../../Theme"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
@@ -40,15 +40,15 @@ export const BarBox = styled(Box)`
 `
 
 const BaseLabelPositioner = styled(Flex)`
-  ${media.xs`
-    display: none;
-  `};
   transform: translateX(-50%);
   pointer-events: none;
   border-radius: 2px;
 `
 
 const HoverLabelPositioner = styled(BaseLabelPositioner)`
+  ${media.xs`
+    display: none;
+  `};
   z-index: 2;
   position: fixed;
   background-color: ${color("white100")};
@@ -65,6 +65,9 @@ const HighlightLabelPositioner = styled(BaseLabelPositioner)`
   align-items: center;
 `
 const HighlightLabelBox = styled(Flex)`
+  ${media.xs`
+    display: none;
+  `};
   position: relative;
   background-color: ${color("white100")};
   border: 1px solid ${color("black10")};
@@ -73,15 +76,20 @@ const HighlightLabelBox = styled(Flex)`
 `
 
 // the little dotted line which connects the label to the bar
+const LabelLineSvg = styled.svg`
+  ${media.xs`
+    display: none;
+  `};
+`
 const LabelLine = () => (
-  <svg width="2" height="10" viewBox="0 0 2 10">
+  <LabelLineSvg width="2" height="10" viewBox="0 0 2 10">
     <path
       fillRule="evenodd"
       clipRule="evenodd"
       d="M0.5 1.11111V0H1.5V1.11111H0.5ZM0.5 4.44444V2.22222H1.5V4.44444H0.5ZM0.5 7.77778V5.55556H1.5V7.77778H0.5ZM0.5 10V8.88889H1.5V10H0.5Z"
       fill={color("black30")}
     />
-  </svg>
+  </LabelLineSvg>
 )
 
 const BarHoverLabel = ({ children }: { children: React.ReactNode }) => {
@@ -117,9 +125,27 @@ const HighlightLabel = ({
     <HighlightLabelPositioner ref={ref as any} style={{ opacity }}>
       <HighlightLabelBox ref={innerRef as any}>{children}</HighlightLabelBox>
       <LabelLine />
+      <TriangleHighlight />
     </HighlightLabelPositioner>
   )
 }
+
+const TRIANGLE_HEIGHT = 4
+const TRIANGLE_BOTTOM_PADDING = space(0.5)
+
+// https://css-tricks.com/snippets/css/css-triangle/
+const TriangleHighlight = styled.div`
+  display: none;
+  ${media.xs`
+    display: block;
+  `};
+  width: 0;
+  height: 0;
+  margin-bottom: ${TRIANGLE_BOTTOM_PADDING}px;
+  border-left: ${TRIANGLE_HEIGHT}px solid transparent;
+  border-right: ${TRIANGLE_HEIGHT}px solid transparent;
+  border-top: ${TRIANGLE_HEIGHT}px solid ${color("black60")};
+`
 
 /**
  * Bar is the main component responsible for rendering an individual bar
@@ -155,7 +181,7 @@ export const Bar = ({
 }) => {
   const [hover, setHover] = useState(false)
   // Before the bar has entered the view port it will have a height of 0
-  // but it still needs to know how bit it will eventually be once visible,
+  // but it still needs to know how big it will eventually be once visible,
   // to allow the parent BarChart container to set an appropriate min-height
   // property
   const finalBarHeight =
@@ -164,6 +190,7 @@ export const Bar = ({
       ? 0
       : MIN_BAR_HEIGHT + (BAR_HEIGHT_RANGE / 100) * heightPercent
   const currentHeight = hasEnteredViewport ? finalBarHeight : 0
+
   return (
     <BarBox
       style={{ height: currentHeight }}
