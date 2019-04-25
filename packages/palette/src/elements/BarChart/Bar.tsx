@@ -164,7 +164,6 @@ export const Bar = ({
       ? 0
       : MIN_BAR_HEIGHT + (BAR_HEIGHT_RANGE / 100) * heightPercent
   const currentHeight = hasEnteredViewport ? finalBarHeight : 0
-  const hasOnClick = onClick ? true : false
   return (
     <BarBox
       style={{ height: currentHeight }}
