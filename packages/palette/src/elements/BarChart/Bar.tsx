@@ -227,4 +227,7 @@ const AxisLabelX = styled(Sans)`
   top: calc(100% + ${space(0.5)}px);
   width: 100%;
   text-align: center;
+  white-space: nowrap;
+  width: 200%;
+  margin: 0 -50%;
 `

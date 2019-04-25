@@ -10,6 +10,7 @@ import { ProvideMousePosition } from "./MousePositionContext"
 const ChartContainer = styled(Flex)`
   border-bottom: 1px solid ${color("black10")};
   flex: 1;
+  overflow-x: hidden;
 `
 
 const useHasEnteredViewport = (ref: React.RefObject<HTMLElement>) => {
