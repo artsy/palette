@@ -45,7 +45,7 @@ storiesOf("Components/Button", module)
       </>
     )
   })
-  .add("medium", () => {
+  .add("large", () => {
     return (
       <>
         <Button size="large" variant="primaryBlack">
