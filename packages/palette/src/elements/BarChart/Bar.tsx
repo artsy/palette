@@ -28,7 +28,7 @@ export const BarBox = styled(Box)`
     margin-right: 0;
   }
   flex: 1;
-  cursor: pointer;
+  cursor: ${props => (props.onClick ? "pointer" : "default")};
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
   @media (min-width: ${breakpoints.sm}px) {
