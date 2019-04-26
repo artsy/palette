@@ -8,7 +8,8 @@
     "compile-palette": "yarn workspace @artsy/palette compile",
     "type-check": "yarn compile-palette && yarn workspaces run type-check",
     "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
-    "visual-test": "chromatic test"
+    "storybook": "yarn workspace @artsy/palette storybook",
+    "chromatic": "yarn workspace @artsy/palette chromatic"
   },
   "repository": {
     "type": "git",
