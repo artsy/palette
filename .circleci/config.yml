@@ -28,7 +28,7 @@ workflows:
             branches:
               ignore: master
       - yarn/run:
-          name: visual-test
+          name: visual-test-master
           script: visual-test --auto-accept-changes
           requires:
             - yarn/workflow-queue
