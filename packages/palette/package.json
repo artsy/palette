@@ -29,7 +29,7 @@
     "watch:emission": "yarn clean:emission && concurrently --raw --kill-others 'yarn compile:emission -w' 'yarn type-declarations -w --outDir ../../../emission/node_modules/@artsy/palette/dist'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "visual-test": "chromatic test"
+    "visual-test": "chromatic test --exit-zero-on-changes"
   },
   "repository": {
     "type": "git",
