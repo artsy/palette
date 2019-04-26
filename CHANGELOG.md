@@ -1,3 +1,16 @@
+# v4.10.4 (Fri Apr 26 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - only apply cursor pointer to bar if it has onclick [#393](https://github.com/artsy/palette/pull/393) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v4.10.3 (Thu Apr 25 2019)
 
 
