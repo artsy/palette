@@ -24,6 +24,17 @@ workflows:
           script: visual-test
           requires:
             - yarn/workflow-queue
+          filters:
+            branches:
+              ignore: master
+      - yarn/run:
+          name: visual-test-master
+          script: visual-test --auto-accept-changes
+          requires:
+            - yarn/workflow-queue
+          filters:
+            branches:
+              only: master
       - yarn/auto-release:
           # The deploy job is the _only_ job that should have access to our npm
           # tokens. We include a context that has our publish credentials
