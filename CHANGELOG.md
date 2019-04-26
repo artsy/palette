@@ -1,3 +1,16 @@
+# v4.11.0 (Fri Apr 26 2019)
+
+#### 🚀  Enhancement
+
+- `palette`
+  - Add storybooks, visual testing with chromatic [#398](https://github.com/artsy/palette/pull/398) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.10.4 (Fri Apr 26 2019)
 
 #### 🐛  Bug Fix
