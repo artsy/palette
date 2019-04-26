@@ -19,6 +19,11 @@ workflows:
       - yarn/test:
           requires:
             - yarn/workflow-queue
+      - yarn/run:
+          name: visual-test
+          script: visual-test
+          requires:
+            - yarn/workflow-queue
       - yarn/auto-release:
           # The deploy job is the _only_ job that should have access to our npm
           # tokens. We include a context that has our publish credentials

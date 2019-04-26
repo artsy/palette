@@ -1,5 +1,6 @@
 import React, { SFC } from "react"
 import styled from "styled-components"
+import { Color } from "../../Theme"
 import { Avatar } from "../Avatar"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
@@ -14,6 +15,12 @@ interface EntityHeaderProps extends SpacerProps {
   meta?: string
   name: string
   FollowButton?: JSX.Element
+}
+
+interface ContainerComponentProps {
+  color?: Color
+  noUnderline?: boolean
+  href?: string
 }
 
 /**
@@ -32,7 +39,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   const ContainerComponent = href ? FlexLink : Flex
   // new () => React.Component < any, any >
   // StyledComponentClass < React.ClassAttributes < HTMLAnchorElement >
-  const containerProps = href
+  const containerProps: ContainerComponentProps = href
     ? { color: "black100", noUnderline: true, href }
     : {}
 
