@@ -1,13 +1,10 @@
 {
   "extends": [
-    "@artsy"
+    "@artsy:lib"
   ],
   "assignees": [
     "zephraph",
     "damassi",
     "l2succes"
-  ],
-  "ignorePaths": [
-    "www"
   ]
 }
