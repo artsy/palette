@@ -56,7 +56,7 @@
     "gatsby-plugin-typescript": "2.0.11",
     "husky": "2.1.0",
     "lint-staged": "8.1.5",
-    "netlify-cms-backend-fs": "0.3.6",
+    "netlify-cms-backend-fs": "0.4.4",
     "nodemon": "1.18.10",
     "prettier": "1.16.4",
     "tslint": "5.13.1",
