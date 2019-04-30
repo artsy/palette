@@ -1,3 +1,31 @@
+# v4.11.1 (Tue Apr 30 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - [Toolchain] Add @storybook/viewport plugin [#405](https://github.com/artsy/palette/pull/405) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Update to use the @artsy:lib renovate workflow [#400](https://github.com/artsy/palette/pull/400) ([@zephraph](https://github.com/zephraph))
+- Auto approve chromatic results on master [#399](https://github.com/artsy/palette/pull/399) ([@zephraph](https://github.com/zephraph))
+- `palette-docs`, `palette`
+  - Update dep husky from 1.3.1 to v2 [#403](https://github.com/artsy/palette/pull/403) ([@renovate-bot](https://github.com/renovate-bot))
+  - Pin dependencies [#402](https://github.com/artsy/palette/pull/402) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 📝  Documentation
+
+- `palette-docs`
+  - Automatically generated. Merged on Netlify CMS. [#404](https://github.com/artsy/palette/pull/404) ([@damassi](https://github.com/damassi))
+
+#### Authors: 3
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.11.0 (Fri Apr 26 2019)
 
 #### 🚀  Enhancement
