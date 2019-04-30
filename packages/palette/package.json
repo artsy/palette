@@ -79,7 +79,7 @@
     "cache-loader": "3.0.0",
     "concurrently": "3.6.1",
     "enzyme": "3.9.0",
-    "enzyme-adapter-react-16": "1.10.0",
+    "enzyme-adapter-react-16": "1.12.1",
     "enzyme-to-json": "3.3.5",
     "fork-ts-checker-notifier-webpack-plugin": "1.0.0",
     "fork-ts-checker-webpack-plugin": "1.2.0",
