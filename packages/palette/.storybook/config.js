@@ -1,6 +1,6 @@
 import React from "react"
 import { configure, addDecorator, addParameters } from "@storybook/react"
-import { themes } from "@storybook/theming"
+import { create } from "@storybook/theming"
 import { Theme } from "../src/Theme"
 import "storybook-chromatic"
 
@@ -12,8 +12,15 @@ function loadStories() {
 
 addParameters({
   options: {
-    theme: themes.light,
+    theme: create({
+      base: "light",
+      brandTitle: "Palette",
+      brandUrl: "https://palette.artsy.net",
+    }),
+
+    inline: true,
     showPanel: false,
+    sortStoriesByKind: true,
   },
 })
 
