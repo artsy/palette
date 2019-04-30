@@ -1,3 +1,27 @@
+# v4.11.2 (Tue Apr 30 2019)
+
+#### 🐛  Bug Fix
+
+- `palette-docs`
+  - Update dependency @mdx-js/tag to ^0.20.0 [#411](https://github.com/artsy/palette/pull/411) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 🏠  Internal
+
+- Update dependency @babel/core to v7.4.4 [#407](https://github.com/artsy/palette/pull/407) ([@renovate-bot](https://github.com/renovate-bot))
+- `palette`
+  - Update dependency @storybook/react to v5.0.11 [#415](https://github.com/artsy/palette/pull/415) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency @babel/preset-env to v7.4.4 [#409](https://github.com/artsy/palette/pull/409) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency @babel/plugin-proposal-class-properties to v7.4.4 [#408](https://github.com/artsy/palette/pull/408) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency @babel/plugin-proposal-class-properties to v7.4.4 [#408](https://github.com/artsy/palette/pull/408) ([@renovate-bot](https://github.com/renovate-bot))
+- `palette-docs`
+  - Update dependency @mdx-js/mdx to ^0.20.0 [#410](https://github.com/artsy/palette/pull/410) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 1
+
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.11.1 (Tue Apr 30 2019)
 
 #### 🐛  Bug Fix
