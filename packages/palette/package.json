@@ -60,6 +60,7 @@
     "@babel/preset-typescript": "7.3.3",
     "@storybook/addon-actions": "5.0.10",
     "@storybook/addon-links": "5.0.10",
+    "@storybook/addon-viewport": "^5.0.11",
     "@storybook/addons": "5.0.10",
     "@storybook/react": "5.0.10",
     "@types/enzyme": "3.9.0",
