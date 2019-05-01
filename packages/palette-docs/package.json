@@ -61,7 +61,7 @@
     "prettier": "1.16.4",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
-    "tslint-react": "3.6.0",
+    "tslint-react": "4.0.0",
     "typescript": "3.3.3333",
     "typescript-styled-plugin": "0.13.0",
     "webpack-notifier": "1.7.0",
