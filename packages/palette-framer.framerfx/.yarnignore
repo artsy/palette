@@ -1,0 +1,7 @@
+/build
+.DS_Store
+Icon\r
+.cache
+.config.json
+.backups
+.project.log
