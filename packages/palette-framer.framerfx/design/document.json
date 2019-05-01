@@ -14,7 +14,10 @@
         "clip" : true,
         "codeComponentIdentifier" : ".\/Button.tsx_Button",
         "codeComponentProps" : {
-          "text" : "Hello World!"
+          "fullWidth" : true,
+          "size" : "large",
+          "text" : "Testing code",
+          "type" : "primaryBlack"
         },
         "codeOverrideEnabled" : false,
         "constraintsLocked" : false,
@@ -35,7 +38,7 @@
         "fillImagePixelWidth" : null,
         "fillImageResize" : "fill",
         "fillType" : "color",
-        "height" : 82,
+        "height" : 62,
         "heightType" : 0,
         "id" : "KEO3LGQjY",
         "intrinsicHeight" : null,
@@ -57,7 +60,7 @@
         "rotation" : 0,
         "top" : 264,
         "visible" : true,
-        "width" : 164,
+        "width" : 342,
         "widthType" : 0
       }
     ],
