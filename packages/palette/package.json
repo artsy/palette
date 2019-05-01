@@ -70,7 +70,7 @@
     "@types/react-test-renderer": "16.8.1",
     "@types/semver": "5.5.0",
     "@types/styled-components": "4.0.2",
-    "@types/styled-system": "3.2.2",
+    "@types/styled-system": "4.1.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.5",
@@ -114,7 +114,7 @@
     "react-powerplug": "^1.0.0",
     "react-spring": "^5.7.2",
     "styled-bootstrap-grid": "1.0.4",
-    "styled-system": "^3.1.11",
+    "styled-system": "^4.0.0",
     "trunc-html": "^1.1.2"
   },
   "husky": {
