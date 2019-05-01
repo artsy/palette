@@ -1,3 +1,34 @@
+# v4.11.4 (Wed May 01 2019)
+
+#### 🏠  Internal
+
+- Revert to old renovate setup [#451](https://github.com/artsy/palette/pull/451) ([@zephraph](https://github.com/zephraph))
+- Stop spamming Luc with renovate assignees [#450](https://github.com/artsy/palette/pull/450) ([@zephraph](https://github.com/zephraph))
+- Update dependency @storybook/addons to v5.0.11 [#414](https://github.com/artsy/palette/pull/414) ([@renovate-bot](https://github.com/renovate-bot))
+- `palette-docs`
+  - Update dependency gatsby to v2.3.34 [#421](https://github.com/artsy/palette/pull/421) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency nodemon to v1.18.11 [#427](https://github.com/artsy/palette/pull/427) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency gatsby-plugin-typescript to v2.0.13 [#423](https://github.com/artsy/palette/pull/423) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency netlify-cms-backend-fs to v0.4.4 [#425](https://github.com/artsy/palette/pull/425) ([@renovate-bot](https://github.com/renovate-bot))
+- `palette`
+  - Update dependency ts-node to v8.1.0 [#434](https://github.com/artsy/palette/pull/434) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency react-test-renderer to v16.8.6 [#431](https://github.com/artsy/palette/pull/431) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency enzyme-adapter-react-16 to v1.12.1 [#420](https://github.com/artsy/palette/pull/420) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency @types/node to v10.14.6 [#417](https://github.com/artsy/palette/pull/417) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency @types/enzyme to v3.9.1 [#416](https://github.com/artsy/palette/pull/416) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency @storybook/addon-actions to v5.0.11 [#412](https://github.com/artsy/palette/pull/412) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency @storybook/addon-links to v5.0.11 [#413](https://github.com/artsy/palette/pull/413) ([@renovate-bot](https://github.com/renovate-bot))
+- `palette-docs`, `palette`
+  - Update dependency prettier to v1.17.0 [#428](https://github.com/artsy/palette/pull/428) ([@renovate-bot](https://github.com/renovate-bot))
+  - Update dependency tslint to v5.16.0 [#435](https://github.com/artsy/palette/pull/435) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.11.3 (Tue Apr 30 2019)
 
 
