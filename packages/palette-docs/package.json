@@ -75,7 +75,7 @@
     "@reach/router": "^1.2.1",
     "babel-plugin-styled-components": "^1.10.0",
     "d3-ease": "^1.0.5",
-    "docz-utils": "^0.13.6",
+    "docz-utils": "^1.0.0",
     "gatsby": "2.1.19",
     "gatsby-image": "^2.0.20",
     "gatsby-mdx": "^0.3.4",
