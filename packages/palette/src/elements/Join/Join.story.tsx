@@ -1,11 +1,31 @@
 import { storiesOf } from "@storybook/react"
-import React from "react"
+import React, { Component } from "react"
 import { Box } from "../Box/Box"
 import { Separator } from "../Separator/Separator"
 import { Join } from "./Join"
 
-const BlankComponent = () => {
+const BlankFunction = () => {
   return null
+}
+
+const NonBlankFunction = () => {
+  return <div>Non blank Function</div>
+}
+
+const BlankSFC: React.SFC = () => null
+
+const NonBlankSFC: React.SFC = () => <div>Non blanks stateless component</div>
+
+class BlankComponent extends Component {
+  render() {
+    return null
+  }
+}
+
+class NonBlankComponent extends Component {
+  render() {
+    return <Box>Non Blank Component</Box>
+  }
 }
 
 storiesOf("Components/Join", module)
@@ -28,7 +48,12 @@ storiesOf("Components/Join", module)
     return (
       <Join separator={<Separator m={1} />}>
         <Box>Fist in the list</Box>
+        <BlankFunction />
+        <NonBlankFunction />
+        <BlankSFC />
+        <NonBlankSFC />
         <BlankComponent />
+        <NonBlankComponent />
         <Box m="2" />
         <div>Some div with the content</div>
         <div />

@@ -26,18 +26,15 @@ interface JoinProps {
  */
 export const Join: SFC<JoinProps> = ({ separator, children }) => {
   const childArray = React.Children.toArray(children) as any
-  const filteredChildren = childArray.filter(
-    child => child && child.props && child.props.children
-  )
 
-  return filteredChildren.reduce((acc, curr, currentIndex) => {
+  return childArray.reduce((acc, curr, currentIndex) => {
     acc.push(
       React.cloneElement(curr as React.ReactElement<any>, {
         key: `join-${currentIndex}`,
       })
     )
 
-    if (currentIndex !== filteredChildren.length - 1) {
+    if (currentIndex !== childArray.length - 1) {
       acc.push(
         separator &&
           React.cloneElement(separator, {
