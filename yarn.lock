@@ -21128,10 +21128,10 @@ style-to-object@^0.2.1:
   dependencies:
     css "2.2.4"
 
-styled-bootstrap-grid@1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/styled-bootstrap-grid/-/styled-bootstrap-grid-1.0.4.tgz#43417a43097ab00a8f644829f0d11ca226f16455"
-  integrity sha512-4zky8nfXzxzJ9laPTd6kpdYgfdffzk+N5kTjeDCCvnIb4qfSjJ3QfWa9Qf+UdHMA0EPAl4fFjA6keLEq8M2yhA==
+styled-bootstrap-grid@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/styled-bootstrap-grid/-/styled-bootstrap-grid-3.0.2.tgz#3221be6b49ff36e2df010066e948e61298ef7c98"
+  integrity sha512-H9oEq7R9vPiApv/1aketM0fkbWQ0ojaRdZJo6q21NVAzjtrMBXPkhhmCxWS/Gu5yrr8oTm4hTNeEfHM76hhqhw==
 
 styled-components@4.1.3, styled-components@^4.1.3:
   version "4.1.3"
