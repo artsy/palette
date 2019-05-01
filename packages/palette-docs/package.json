@@ -58,7 +58,7 @@
     "lint-staged": "8.1.5",
     "netlify-cms-backend-fs": "0.4.4",
     "nodemon": "1.18.10",
-    "prettier": "1.16.4",
+    "prettier": "1.17.0",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-react": "3.6.0",

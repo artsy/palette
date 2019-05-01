@@ -87,7 +87,7 @@
     "jest": "23.6.0",
     "jest-styled-components": "7.0.0-2",
     "lint-staged": "8.1.5",
-    "prettier": "1.16.4",
+    "prettier": "1.17.0",
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-native": "0.55.4",
