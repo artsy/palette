@@ -7,6 +7,23 @@
   resolved "https://registry.yarnpkg.com/@artsy/auto-config/-/auto-config-0.1.0.tgz#bc76c6b112b5063ec5a79bb4d146481db9b48f45"
   integrity sha512-bcny+cFUwPwQGY/GGkphm+DjT1gaSotEHRl452UwRHsBM0zmmP86IO9v7GBG/wgaeQoXhTwNJpPZ5IUNyXsDqg==
 
+"@artsy/palette@^4.11.3":
+  version "4.11.3"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-4.11.3.tgz#c6626329b76055e8b2a9bf689c1f78d9f6ae963f"
+  integrity sha512-bKnXRTF2XH+Wu5+f6cyu2GtbH7Dt7OkgKoMNigRCmy4ZupXvitMJS4XUQmDE6cadxwjl7y8jmENJOupIW/aapQ==
+  dependencies:
+    babel-plugin-styled-components "^1.10.0"
+    moment "^2.23.0"
+    moment-timezone "^0.5.25"
+    rc-slider "^8.6.2"
+    react-lazy-load-image-component "^1.3.2"
+    react-live "^1.12.0"
+    react-powerplug "^1.0.0"
+    react-spring "^5.7.2"
+    styled-bootstrap-grid "1.0.4"
+    styled-system "^3.1.11"
+    trunc-html "^1.1.2"
+
 "@babel/cli@^7.0.0":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.2.3.tgz#1b262e42a3e959d28ab3d205ba2718e1923cfee6"
@@ -2061,6 +2078,14 @@
   version "16.8.7"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.7.tgz#7b1c0223dd5494f9b4501ad2a69aa6acb350a29b"
   integrity sha512-0xbkIyrDNKUn4IJVf8JaCn+ucao/cq6ZB8O6kSzhrJub1cVSqgTArtG0qCfdERWKMEIvUbrwLXeQMqWEsyr9dA==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
+"@types/react@^16.4.16":
+  version "16.8.15"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.15.tgz#a76515fed5aa3e996603056f54427fec5f2a5122"
+  integrity sha512-dMhzw1rWK+wwJWvPp5Pk12ksSrm/z/C/+lOQbMZ7YfDQYnJ02bc0wtg4EJD9qrFhuxFrf/ywNgwTboucobJqQg==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -7808,7 +7833,7 @@ for-each@^0.3.3:
   dependencies:
     is-callable "^1.1.3"
 
-for-in@^1.0.1:
+for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
   integrity sha1-gQaNKVqBQuwKxybG4iAMMPttXoA=
@@ -7850,6 +7875,11 @@ fragment-cache@^0.2.1:
   integrity sha1-QpD60n8T6Jvn8zeZxrxaCr//DRk=
   dependencies:
     map-cache "^0.2.2"
+
+framer@^0.10:
+  version "0.10.10"
+  resolved "https://registry.yarnpkg.com/framer/-/framer-0.10.10.tgz#36bb2ae82d620944cf43adea295d6ec7000f7942"
+  integrity sha512-9w0Y7p/2HsYQqtiaPgLqwiEFDBTwGwPbufJP8XRek5j/nojcFdm6995l/uBzbpddSgR3oFB1SKcGO2W64KHlzQ==
 
 fresh@0.5.2:
   version "0.5.2"
@@ -12603,6 +12633,9 @@ mixin-deep@^1.2.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/mixin-deep/-/mixin-deep-1.3.1.tgz#a49e7268dce1a0d9698e45326c5626df3543d0fe"
   integrity sha512-8ZItLHeEgaqEvd5lYBXfm4EZSFCX29Jb9K+lAHhDKzReKBQKj3R+7NOF6tjqYi9t4oI8VUfaWITJQm86wnXGNQ==
+  dependencies:
+    for-in "^1.0.2"
+    is-extendable "^1.0.1"
 
 mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
@@ -12620,6 +12653,13 @@ moment-timezone@^0.5.23:
   version "0.5.23"
   resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.23.tgz#7cbb00db2c14c71b19303cb47b0fb0a6d8651463"
   integrity sha512-WHFH85DkCfiNMDX5D3X7hpNH3/PUhjTGcD0U1SgfBGZxJ3qUmJh5FdvaFjcClxOvB3rzdfj4oRffbI38jEnC1w==
+  dependencies:
+    moment ">= 2.9.0"
+
+moment-timezone@^0.5.25:
+  version "0.5.25"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.25.tgz#a11bfa2f74e088327f2cd4c08b3e7bdf55957810"
+  integrity sha512-DgEaTyN/z0HFaVcVbSyVCUU6HeFdnNC3vE4c9cgu2dgMTvjBUBdBzWfasTBmAW45u5OIMeCJtU8yNjM22DHucw==
   dependencies:
     moment ">= 2.9.0"
 

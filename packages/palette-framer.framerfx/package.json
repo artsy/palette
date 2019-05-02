@@ -8,6 +8,7 @@
 		"@types/react": "^16.4.16"
 	},
 	"peerDependencies": {
+		"framer": "^0.10",
 		"react": "^16.3.0",
 		"react-dom": "^16.3.0"
 	},
@@ -15,11 +16,11 @@
 		"id": "655b05d1-3935-433f-9b0d-608862e65ba4"
 	},
 	"prettier": {
-    "semi": false,
-    "singleQuote": false,
-    "trailingComma": "es5",
-    "bracketSpacing": true
-  },
+		"semi": false,
+		"singleQuote": false,
+		"trailingComma": "es5",
+		"bracketSpacing": true
+	},
 	"author": "Luc Succes",
 	"dependencies": {
 		"@artsy/palette": "^4.11.3"

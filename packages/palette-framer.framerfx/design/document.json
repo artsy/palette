@@ -22,7 +22,14 @@
         "codeOverrideEnabled" : false,
         "constraintsLocked" : false,
         "exportOptions" : [
-
+          {
+            "__class" : "ExportOptions",
+            "enabled" : true,
+            "nameExtension" : "",
+            "nameExtensionMode" : "Suffix",
+            "scale" : 1,
+            "type" : "png"
+          }
         ],
         "fillColor" : "rgba(255,255,255,1)",
         "fillEnabled" : false,
@@ -38,7 +45,7 @@
         "fillImagePixelWidth" : null,
         "fillImageResize" : "fill",
         "fillType" : "color",
-        "height" : 62,
+        "height" : 51,
         "heightType" : 0,
         "id" : "KEO3LGQjY",
         "intrinsicHeight" : null,
@@ -58,7 +65,69 @@
         "radiusTopRight" : 0,
         "right" : null,
         "rotation" : 0,
-        "top" : 264,
+        "top" : 257,
+        "visible" : true,
+        "width" : 342,
+        "widthType" : 0
+      },
+      {
+        "__class" : "CodeComponentNode",
+        "aspectRatio" : null,
+        "bottom" : null,
+        "centerAnchorX" : 0,
+        "centerAnchorY" : 0,
+        "children" : [
+
+        ],
+        "clip" : true,
+        "codeComponentIdentifier" : ".\/Input.tsx_Input",
+        "codeComponentProps" : {
+          "disabled" : false,
+          "placeholder" : "Hello world",
+          "required" : false,
+          "text" : "",
+          "title" : "Name"
+        },
+        "codeOverrideEnabled" : false,
+        "constraintsLocked" : false,
+        "exportOptions" : [
+
+        ],
+        "fillColor" : "rgba(255,255,255,1)",
+        "fillEnabled" : false,
+        "fillGradient" : {
+          "__class" : "LinearGradient",
+          "alpha" : 1,
+          "angle" : 0,
+          "end" : "rgba(0,0,0,0)",
+          "start" : "black"
+        },
+        "fillImage" : null,
+        "fillImagePixelHeight" : null,
+        "fillImagePixelWidth" : null,
+        "fillImageResize" : "fill",
+        "fillType" : "color",
+        "height" : 64,
+        "heightType" : 0,
+        "id" : "gBvu8ZjHs",
+        "intrinsicHeight" : null,
+        "intrinsicWidth" : null,
+        "left" : 570,
+        "locked" : false,
+        "name" : null,
+        "opacity" : 1,
+        "originalid" : null,
+        "parentid" : "qq8XCY5nw",
+        "radius" : 0,
+        "radiusBottomLeft" : 0,
+        "radiusBottomRight" : 0,
+        "radiusIsRelative" : false,
+        "radiusPerCorner" : false,
+        "radiusTopLeft" : 0,
+        "radiusTopRight" : 0,
+        "right" : null,
+        "rotation" : 0,
+        "top" : 135,
         "visible" : true,
         "width" : 342,
         "widthType" : 0
