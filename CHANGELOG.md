@@ -1,3 +1,22 @@
+# v4.11.5 (Sat May 04 2019)
+
+#### 🐛  Bug Fix
+
+- `palette-docs`
+  - Fix some urls in the documentation [#456](https://github.com/artsy/palette/pull/456) ([@anandaroop](https://github.com/anandaroop))
+
+#### 📝  Documentation
+
+- `palette-docs`
+  - Update Buttons “Button” [#454](https://github.com/artsy/palette/pull/454) ([@nicoleyeo](https://github.com/nicoleyeo))
+
+#### Authors: 2
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+- [@nicoleyeo](https://github.com/nicoleyeo)
+
+---
+
 # v4.11.4 (Wed May 01 2019)
 
 #### 🏠  Internal
