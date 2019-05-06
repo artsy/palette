@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@artsy"
+    "@artsy:lib"
   ],
   "assignees": [
     "zephraph",
