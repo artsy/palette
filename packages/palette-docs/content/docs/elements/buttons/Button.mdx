@@ -2,6 +2,7 @@
 name: Button
 lastPointOfContact: Nicole
 ---
+
 Primary buttons should be used for the primary desired user action. Do not use 2
 primary buttons in the same screen. If there are multiple primary options, use
 secondary-gray.
@@ -13,49 +14,52 @@ secondary-gray.
 Our secondary-outline is our default secondary button style. Avoid using this in
 the presence of inputs, as to not confuse it’s use.
 
-  <Box>
-    <Button width="33%">Purchase</Button>
-    <Spacer mb={1} />
-    <Button variant="secondaryOutline" width="33%">
-      Make offer
-    </Button>
-  </Box>
+<Box>
+  <Button width="33%">Purchase</Button>
+  <Spacer mb={1} />
+  <Button variant="secondaryOutline" width="33%">
+    Make offer
+  </Button>
+</Box>
 
 <Spacer my={2} />
 
-When needing to provide the ability to Show more content, we always use the secondary-outline style.
+When needing to provide the ability to Show more content, we always use the
+secondary-outline style.
 
 <Box>
-    <Button variant="secondaryOutline" width="33%">
-      Show more
-    </Button>
+  <Button variant="secondaryOutline" width="33%">
+    Show more
+  </Button>
 </Box>
 
 <Spacer my={2} />
 
 **Thinking usecases**
 
-The thinking state is used when there may be a delay in response time, ie, bidding, or following an artist.
+The thinking state is used when there may be a delay in response time, ie,
+bidding, or following an artist.
 
-  <Box>
-    <Button variant="primaryBlack" size="large" m={0.5} loading>
-      Show more
-    </Button>
-  </Box>
+<Box>
+  <Button variant="primaryBlack" size="large" m={0.5} loading>
+    Show more
+  </Button>
+</Box>
 
-Thinking inline should be used when the action taken reveals more content in the same context, ie, infinite scroll or expanding information.
+Thinking inline should be used when the action taken reveals more content in the
+same context, ie, infinite scroll or expanding information.
 
-  <Box>
-    <Button variant="secondaryOutline" width="33%">
-      Show more
-    </Button>
-  </Box>
+<Box>
+  <Button variant="secondaryOutline" width="33%">
+    Show more
+  </Button>
+</Box>
 
-  <Box>
-    <Button variant="secondaryGray" size="large" m={0.5} loading>
-      Show more
-    </Button>
-  </Box>
+<Box>
+  <Button variant="secondaryGray" size="large" m={0.5} loading>
+    Show more
+  </Button>
+</Box>
 
 In the presence of inputs, use secondary-gray for the secondary button style.
 
@@ -73,6 +77,16 @@ In the presence of inputs, use secondary-gray for the secondary button style.
 </Playground>
 
 <Spacer mb={4} />
+
+## Disabled
+
+Like other form elements, buttons can be disabled.
+
+<Playground>
+  <BorderBox>
+    <Button disabled>Submit</Button>
+  </BorderBox>
+</Playground>
 
 ## All Variants
 

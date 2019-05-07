@@ -224,6 +224,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
         {...rest}
         className={[loadingClass, disabledClass].join(" ")}
         onClick={this.onClick}
+        disabled={disabled}
       >
         {loading && <Spinner size={this.props.buttonSize} />}
 
