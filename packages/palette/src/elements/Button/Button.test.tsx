@@ -68,4 +68,17 @@ describe("Button", () => {
 
     expect(onClickMock).not.toHaveBeenCalled()
   })
+
+  it("passes the `disabled` prop down to the DOM element", () => {
+    const wrapper = mount(
+      <Theme>
+        <>
+          <Button>Good</Button>
+          <Button disabled>No good</Button>
+        </>
+      </Theme>
+    )
+
+    expect(wrapper.find("button[disabled]")).toHaveLength(1)
+  })
 })
