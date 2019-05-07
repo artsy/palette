@@ -1,3 +1,25 @@
+# v4.11.6 (Tue May 07 2019)
+
+#### 🏠  Internal
+
+- Update dep @artsy/auto-config from 0.1.0 to v0.1.2 [#458](https://github.com/artsy/palette/pull/458) ([@renovate-bot](https://github.com/renovate-bot))
+- Use lib workflow [#457](https://github.com/artsy/palette/pull/457) ([@zephraph](https://github.com/zephraph))
+- `palette`
+  - Update dep @artsy/auto-config from 0.1.2 to v1 [#459](https://github.com/artsy/palette/pull/459) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 🐛  Bug Fix
+
+- `palette-docs`, `palette`
+  - Pass disabled prop down to button DOM element [#460](https://github.com/artsy/palette/pull/460) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 3
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.11.5 (Sat May 04 2019)
 
 #### 🐛  Bug Fix
