@@ -71,8 +71,10 @@ export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
     left: 0;
     height: ${space(0.5)}px;
     border-radius: ${space(0.5)}px;
-    background-color: ${color("black100")};
+    background-color: ${props =>
+      props.disabled ? color("black10") : color("black100")};
     z-index: 1;
+    transition: background-color 0.25s;
   }
 
   &-handle {
@@ -84,8 +86,11 @@ export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
     cursor: pointer;
     border-radius: 50%;
     border: solid 2px ${color("white100")};
-    background-color: ${color("black100")};
+    background-color: ${props =>
+      props.disabled ? color("black10") : color("black100")};
     z-index: 2;
+    transition: background-color 0.25s;
+    pointer-events: ${props => (props.disabled ? "none" : "auto")};
 
     &:first-child {
       margin-left: ${space(1)}px;
@@ -126,25 +131,5 @@ export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
     &-active {
       border-color: ${color("black60")};
     }
-  }
-
-  &-disabled {
-    background-color: ${color("black30")};
-  }
-
-  &-disabled &-track {
-    background-color: ${color("black5")};
-  }
-
-  &-disabled &-handle,
-  &-disabled &-dot {
-    border-color: ${color("white100")};
-    background-color: ${color("black10")};
-    cursor: not-allowed;
-  }
-
-  &-disabled &-mark-text,
-  &-disabled &-dot {
-    cursor: not-allowed !important;
   }
 `

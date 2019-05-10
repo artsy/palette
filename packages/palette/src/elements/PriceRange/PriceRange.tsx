@@ -4,6 +4,7 @@ import { LabeledRange, SliderProps } from "../"
 interface PriceRangeProps extends SliderProps {
   currency?: string
   disabled?: boolean
+  disabledText?: string
 }
 
 /** PriceRange */
@@ -32,6 +33,7 @@ export class PriceRange extends React.Component<PriceRangeProps> {
         formatter={this.formatter.bind(this)}
         label={this.props.currency}
         disabled={this.props.disabled}
+        disabledText={this.props.disabledText}
         {...this.props}
       />
     )

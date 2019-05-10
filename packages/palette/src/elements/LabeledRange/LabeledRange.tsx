@@ -6,6 +6,7 @@ import { Flex, Sans, Slider, SliderProps } from "../"
 interface LabeledRangeProps extends SliderProps {
   label: string
   disabled?: boolean
+  disabledText?: string
   formatter?: (min, max, maxIndicator) => string
   unit?: string
 }
@@ -57,22 +58,29 @@ export class LabeledRange extends React.Component<
   }
 
   render() {
-    const { formatter, label } = this.props
+    const { formatter, label, disabled, disabledText } = this.props
     const { min, max } = this.state
-
+    const useDisabledText = disabled && disabledText
     return (
       <Flex width="100%" flexDirection="column">
         <Header mt="-6px">
-          <Flex justifyContent="space-between">
-            <Sans size="2" color="black100" mt={0.3}>
-              {label}
+          {!useDisabledText && (
+            <Flex justifyContent="space-between">
+              <Sans size="2" color="black100" mt={0.3}>
+                {label}
+              </Sans>
+              <Sans size="2" color="black60" mt={0.3}>
+                {formatter
+                  ? formatter(min, max, this.maxIndicator())
+                  : this.toString()}
+              </Sans>
+            </Flex>
+          )}
+          {useDisabledText && (
+            <Sans size="2" mt={0.3} color="black60">
+              {disabledText}
             </Sans>
-            <Sans size="2" color="black60" mt={0.3}>
-              {formatter
-                ? formatter(min, max, this.maxIndicator())
-                : this.toString()}
-            </Sans>
-          </Flex>
+          )}
         </Header>
 
         <Flex flexDirection="column" alignItems="left" mt={-1} mb={1}>
