@@ -13,6 +13,7 @@ import { Sans } from "../Typography"
 interface MenuProps {
   title?: string
   children?: React.ReactNode
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 /** Menu */
