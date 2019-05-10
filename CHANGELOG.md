@@ -1,3 +1,16 @@
+# v4.11.7 (Fri May 10 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - [Menu] Add onClick event type to interface [#461](https://github.com/artsy/palette/pull/461) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.11.6 (Tue May 07 2019)
 
 #### 🏠  Internal
