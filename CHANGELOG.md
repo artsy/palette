@@ -1,3 +1,16 @@
+# v4.11.8 (Fri May 10 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Passes disabled to Slider [#462](https://github.com/artsy/palette/pull/462) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.11.7 (Fri May 10 2019)
 
 #### 🐛  Bug Fix
