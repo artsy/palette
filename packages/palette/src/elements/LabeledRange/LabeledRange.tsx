@@ -60,11 +60,15 @@ export class LabeledRange extends React.Component<
   render() {
     const { formatter, label, disabled, disabledText } = this.props
     const { min, max } = this.state
-    const useDisabledText = disabled && disabledText
+    const disabledWithText = disabled && disabledText
     return (
       <Flex width="100%" flexDirection="column">
         <Header mt="-6px">
-          {!useDisabledText && (
+          {disabledWithText ? (
+            <Sans size="2" mt={0.3} color="black60">
+              {disabledText}
+            </Sans>
+          ) : (
             <Flex justifyContent="space-between">
               <Sans size="2" color="black100" mt={0.3}>
                 {label}
@@ -75,11 +79,6 @@ export class LabeledRange extends React.Component<
                   : this.toString()}
               </Sans>
             </Flex>
-          )}
-          {useDisabledText && (
-            <Sans size="2" mt={0.3} color="black60">
-              {disabledText}
-            </Sans>
           )}
         </Header>
 
