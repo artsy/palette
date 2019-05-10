@@ -1,3 +1,16 @@
+# v4.11.9 (Fri May 10 2019)
+
+#### 🐛  Bug Fix
+
+- `palette`
+  - Updates slider disabled styling and allows for disabledText [#463](https://github.com/artsy/palette/pull/463) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.11.8 (Fri May 10 2019)
 
 #### 🐛  Bug Fix
