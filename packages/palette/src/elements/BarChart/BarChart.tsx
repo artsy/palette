@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { color } from "../../helpers"
+import { color, space } from "../../helpers"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { Bar } from "./Bar"
@@ -10,7 +10,7 @@ import { ProvideMousePosition } from "./MousePositionContext"
 const ChartContainer = styled(Flex)`
   border-bottom: 1px solid ${color("black10")};
   flex: 1;
-  overflow-x: hidden;
+  overflow: hidden;
 `
 
 const useHasEnteredViewport = (ref: React.RefObject<HTMLElement>) => {
@@ -148,7 +148,32 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
             {maxLabel}
           </Sans>
         </Flex>
+        {bars.filter(bar => bar.axisLabelX).length > 0 && (
+          <Flex>
+            {bars.map(({ axisLabelX }, i) => (
+              <BarAxisLabelContainer key={i}>
+                <AxisLabelX color="black60" size="2">
+                  {axisLabelX}
+                </AxisLabelX>
+              </BarAxisLabelContainer>
+            ))}
+          </Flex>
+        )}
       </Flex>
     </ProvideMousePosition>
   )
 }
+
+const BarAxisLabelContainer = styled.div`
+  flex: 1;
+  min-height: ${space(2)}px;
+  position: relative;
+`
+
+const AxisLabelX = styled(Sans)`
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+`

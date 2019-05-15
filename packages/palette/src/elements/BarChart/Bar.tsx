@@ -4,7 +4,6 @@ import { color, media, space } from "../../helpers"
 import { breakpoints } from "../../Theme"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
-import { Sans } from "../Typography"
 import { MousePositionContext } from "./MousePositionContext"
 
 const MAX_BAR_HEIGHT = 80
@@ -164,7 +163,6 @@ const TriangleHighlight = styled.div`
 export const Bar = ({
   heightPercent,
   label,
-  axisLabelX,
   highlightLabel,
   hasEnteredViewport,
   onMeasureHeight,
@@ -215,19 +213,6 @@ export const Bar = ({
         </HighlightLabel>
       )}
       {hover && label && <BarHoverLabel>{label}</BarHoverLabel>}
-      <AxisLabelX color="black60" size="2">
-        {axisLabelX}
-      </AxisLabelX>
     </BarBox>
   )
 }
-
-const AxisLabelX = styled(Sans)`
-  position: absolute;
-  top: calc(100% + ${space(0.5)}px);
-  width: 100%;
-  text-align: center;
-  white-space: nowrap;
-  width: 200%;
-  margin: 0 -50%;
-`
