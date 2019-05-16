@@ -6,5 +6,5 @@ import { color } from "../../helpers"
  * in a line chart.
  */
 export const Line = ({ d }: { d: string }) => {
-  return <path fill="none" stroke={color("black30")} d={d} />
+  return <path fill="none" stroke={color("black10")} d={d} />
 }

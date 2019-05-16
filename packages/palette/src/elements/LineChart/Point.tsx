@@ -6,5 +6,5 @@ import { color } from "../../helpers"
  * in a line chart.
  */
 export const Point = ({ cx, cy }: { cx: number; cy: number }) => {
-  return <circle cx={cx} cy={cy} r="4" fill={color("black30")} />
+  return <circle cx={cx} cy={cy} r="4" fill={color("black10")} />
 }

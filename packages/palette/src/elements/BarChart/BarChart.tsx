@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { color, space } from "../../helpers"
+import { max, useHasEnteredViewport } from "../../helpers/visualizationHelpers"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { Bar } from "./Bar"
@@ -11,25 +12,6 @@ const ChartContainer = styled(Flex)`
   border-bottom: 1px solid ${color("black10")};
   flex: 1;
 `
-
-const useHasEnteredViewport = (ref: React.RefObject<HTMLElement>) => {
-  const [hasEntered, setHasEntered] = useState(false)
-  useEffect(() => {
-    const handleScroll = () => {
-      const rect = ref.current.getBoundingClientRect()
-      if (rect.top <= window.innerHeight - rect.height) {
-        setHasEntered(true)
-        window.removeEventListener("scroll", handleScroll)
-      }
-    }
-    window.addEventListener("scroll", handleScroll)
-    window.dispatchEvent(new Event("scroll"))
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  })
-  return hasEntered
-}
 
 const coerceLabel = (label: React.ReactNode | BarLabelProps) =>
   isBarLabelProps(label) ? <BarLabel {...label} /> : label
@@ -98,9 +80,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
 
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
   const [minHeight, setMinHeight] = useState(0)
-  const maxValue = bars.reduce((max, { value }) => {
-    return value > max ? value : max
-  }, -Infinity)
+  const maxValue: number = max(bars, item => item.value)
   return (
     <ProvideMousePosition>
       <Flex
