@@ -1,3 +1,16 @@
+# v4.12.0 (Fri May 17 2019)
+
+#### 🚀  Enhancement
+
+- `palette-docs`, `palette`
+  - X Axis labels for bar chart [#392](https://github.com/artsy/palette/pull/392) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v4.11.9 (Fri May 10 2019)
 
 #### 🐛  Bug Fix
