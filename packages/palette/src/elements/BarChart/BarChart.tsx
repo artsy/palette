@@ -13,7 +13,7 @@ const ChartContainer = styled(Flex)`
   flex: 1;
 `
 
-const coerceLabel = (label: React.ReactNode | BarLabelProps) =>
+export const coerceLabel = (label: React.ReactNode | BarLabelProps) =>
   isBarLabelProps(label) ? <BarLabel {...label} /> : label
 
 function useHighlightLabelPositionConstraints(

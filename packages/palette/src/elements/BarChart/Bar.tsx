@@ -92,7 +92,7 @@ const LabelLine = () => (
   </LabelLineSvg>
 )
 
-const BarHoverLabel = ({ children }: { children: React.ReactNode }) => {
+export const BarHoverLabel = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef(null)
   const { x, y } = useContext(MousePositionContext)
   if (ref.current) {
