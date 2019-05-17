@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { color } from "../../helpers"
+import { color, space } from "../../helpers"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { Bar } from "./Bar"
@@ -71,6 +71,7 @@ function useHighlightLabelPositionConstraints(
 export interface BarDescriptor {
   value: number
   label?: React.ReactNode | BarLabelProps
+  axisLabelX?: React.ReactNode
   highlightLabel?: React.ReactNode | BarLabelProps
   onClick?: any
   onHover?: any
@@ -115,7 +116,10 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
           style={{ minHeight }}
         >
           {bars.map(
-            ({ value, label, highlightLabel, onClick, onHover }, index) => {
+            (
+              { value, label, axisLabelX, highlightLabel, onClick, onHover },
+              index
+            ) => {
               const heightPercent =
                 maxValue === 0 ? 100 : (100 / maxValue) * value
               return (
@@ -123,6 +127,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
                   key={index}
                   heightPercent={heightPercent}
                   label={coerceLabel(label)}
+                  axisLabelX={axisLabelX}
                   highlightLabelRef={highlightLabelRef}
                   highlightLabel={coerceLabel(highlightLabel)}
                   hasEnteredViewport={hasEnteredViewport}
@@ -142,7 +147,32 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
             {maxLabel}
           </Sans>
         </Flex>
+        {bars.filter(bar => bar.axisLabelX).length > 0 && (
+          <Flex>
+            {bars.map(({ axisLabelX }, i) => (
+              <BarAxisLabelContainer key={i}>
+                <AxisLabelX color="black60" size="2">
+                  {axisLabelX}
+                </AxisLabelX>
+              </BarAxisLabelContainer>
+            ))}
+          </Flex>
+        )}
       </Flex>
     </ProvideMousePosition>
   )
 }
+
+const BarAxisLabelContainer = styled.div`
+  flex: 1;
+  min-height: ${space(2)}px;
+  position: relative;
+`
+
+const AxisLabelX = styled(Sans)`
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+`

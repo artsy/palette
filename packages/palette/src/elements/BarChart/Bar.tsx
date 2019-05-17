@@ -172,6 +172,7 @@ export const Bar = ({
 }: {
   heightPercent: number
   label: React.ReactNode
+  axisLabelX: React.ReactNode
   highlightLabel?: React.ReactNode
   hasEnteredViewport: boolean
   onMeasureHeight?: (height: number) => void
