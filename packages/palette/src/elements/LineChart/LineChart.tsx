@@ -8,7 +8,7 @@ import { BarLabelProps } from "../BarChart/BarLabel"
 import { ProvideMousePosition } from "../BarChart/MousePositionContext"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
-import { LineChartSVG } from "./LineChartSVG";
+import { LineChartSVG } from "./LineChartSVG"
 
 export interface PointDescriptor {
   value: number

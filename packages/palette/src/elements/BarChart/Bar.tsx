@@ -17,7 +17,7 @@ interface BarBoxProps {
 }
 
 // the actual visible bit of the bar
-export const BarBox = styled(Box)`
+const BarBox = styled(Box)`
   transition: height 0.8s ease;
   position: relative;
   background: ${(props: BarBoxProps) =>
@@ -92,6 +92,9 @@ const LabelLine = () => (
   </LabelLineSvg>
 )
 
+/**
+ * Tooltip for bar and line charts
+ */
 export const BarHoverLabel = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef(null)
   const { x, y } = useContext(MousePositionContext)

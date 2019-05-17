@@ -13,6 +13,10 @@ const ChartContainer = styled(Flex)`
   flex: 1;
 `
 
+/**
+ * Returns label component based on the type of label param passed to it
+ * @param label either a component or hash containing `title` and `description`
+ */
 export const coerceLabel = (label: React.ReactNode | BarLabelProps) =>
   isBarLabelProps(label) ? <BarLabel {...label} /> : label
 
