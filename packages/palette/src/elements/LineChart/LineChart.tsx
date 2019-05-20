@@ -124,7 +124,10 @@ const HoverHandler = ({ children, index, hoverIndex, setHoverIndex }) => {
   )
 }
 
-const PointHoverArea = styled.div`
+/**
+ * The rectangle area around Dots which triggers mouseover for tooltip
+ */
+export const PointHoverArea = styled.div`
   flex: 1;
   z-index: 1;
   margin-right: 1%; /* gap between area enabling tooptips */
