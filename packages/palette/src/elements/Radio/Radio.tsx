@@ -19,7 +19,7 @@ import {
 export interface RadioProps extends FlexProps {
   /** Disable interactions */
   disabled?: boolean
-  /** Select the button on render */
+  /** Select the button on render. If the Radio is inside a RadioGroup, use RadioGroup.defaultValue instead. */
   selected?: boolean
   /** Show hover state on render */
   hover?: boolean
