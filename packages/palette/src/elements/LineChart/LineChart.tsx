@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { space } from "../../helpers"
+import { media, space } from "../../helpers"
 import { useHasEnteredViewport } from "../../helpers/visualizationHelpers"
 import { coerceLabel } from "../BarChart"
 import { BarHoverLabel } from "../BarChart/Bar"
@@ -87,7 +87,11 @@ export const LineChart = ({ points, chartHeight }: LineChartProps) => {
             {points.filter(bar => bar.axisLabelX).length > 0 && (
               <Flex px="2" width={width}>
                 {points.map(({ axisLabelX }, i) => (
-                  <BarAxisLabelContainer key={i} last={i === points.length - 1}>
+                  <BarAxisLabelContainer
+                    key={i}
+                    first={i === 0}
+                    last={i === points.length - 1}
+                  >
                     <AxisLabelX color="black60" size="2">
                       {axisLabelX}
                     </AxisLabelX>
@@ -103,6 +107,7 @@ export const LineChart = ({ points, chartHeight }: LineChartProps) => {
 }
 
 interface AxisContainerProps {
+  first: boolean
   last: boolean
 }
 
@@ -131,6 +136,9 @@ const BarAxisLabelContainer = styled.div<AxisContainerProps>`
   flex: ${({ last }) => (last ? 0 : 1)};
   min-height: ${space(2)}px;
   position: relative;
+  ${media.xs`
+    display: ${({ first, last }) => (first || last ? "auto" : "none")};;
+  `};
 `
 
 const AxisLabelX = styled(Sans)`
