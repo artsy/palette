@@ -20,7 +20,7 @@ interface MenuProps {
 export const Menu: React.FC<MenuProps> = ({ title, children, ...props }) => {
   return (
     <MenuContainer width={230} m="2px" {...props}>
-      <BorderBox p={0} pb={1}>
+      <BorderBox p={0} pb={1} background="white">
         <Flex flexDirection="column" width="100%">
           {title && (
             <Box px={2} pt={2} pb={1}>
@@ -40,8 +40,7 @@ export const Menu: React.FC<MenuProps> = ({ title, children, ...props }) => {
 }
 
 const MenuContainer = styled(Box)`
-  background-color: white;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.05);
 `
 
 // Menu Item
