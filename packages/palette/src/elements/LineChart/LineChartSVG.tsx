@@ -21,7 +21,7 @@ interface LineChartSVGProps {
 /**
  * Component rendering the SVG part of the line chart (e.g line and points)
  */
-export const LineChartSVG = ({
+export const LineChartSVG: React.FC<LineChartSVGProps> = ({
   width,
   height,
   margin,
@@ -60,7 +60,7 @@ export const LineChartSVG = ({
               const interpolatedValues: any = valuesInterpolator(num)
               return (
                 <>
-                  <Line d={line(interpolatedValues as any)} />
+                  <Line path={line(interpolatedValues as any)} />
                   {interpolatedValues.map((value, index) => {
                     return (
                       <Point

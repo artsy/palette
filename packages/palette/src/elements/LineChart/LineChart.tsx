@@ -27,7 +27,10 @@ const DEFAULT_HEIGHT = 87
  * LineChart is a component that displays some data points connected by lines.
  * Useful for visualizing a time series, etc.
  */
-export const LineChart = ({ points, chartHeight }: LineChartProps) => {
+export const LineChart: React.FC<LineChartProps> = ({
+  points,
+  chartHeight,
+}: LineChartProps) => {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(DEFAULT_HEIGHT)
   const [hoverIndex, setHoverIndex] = useState(-1)
@@ -105,12 +108,19 @@ export const LineChart = ({ points, chartHeight }: LineChartProps) => {
   )
 }
 
-interface AxisContainerProps {
-  first: boolean
-  last: boolean
+interface HoverHandlerProps {
+  children: React.ReactNode
+  index: number
+  hoverIndex: number
+  setHoverIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
-const HoverHandler = ({ children, index, hoverIndex, setHoverIndex }) => {
+const HoverHandler: React.FC<HoverHandlerProps> = ({
+  children,
+  index,
+  hoverIndex,
+  setHoverIndex,
+}: HoverHandlerProps) => {
   const hover = hoverIndex === index
   return (
     <PointHoverArea
@@ -133,6 +143,11 @@ export const PointHoverArea = styled.div`
   opacity: 0;
   transition: opacity 0.4s ease-in;
 `
+
+interface AxisContainerProps {
+  first: boolean
+  last: boolean
+}
 
 const BarAxisLabelContainer = styled.div<AxisContainerProps>`
   flex: ${({ last }) => (last ? 0 : 1)};
