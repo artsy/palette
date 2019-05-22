@@ -1,24 +1,18 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { color, space } from "../../helpers"
-import { max, useHasEnteredViewport } from "../../helpers/visualizationHelpers"
+import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
+import { ProvideMousePosition } from "../DataVis/MousePositionContext"
+import { maxInArray } from "../DataVis/utils/maxInArray"
+import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { Bar } from "./Bar"
-import { BarLabel, BarLabelProps, isBarLabelProps } from "./BarLabel"
-import { ProvideMousePosition } from "./MousePositionContext"
 
 const ChartContainer = styled(Flex)`
   border-bottom: 1px solid ${color("black10")};
   flex: 1;
 `
-
-/**
- * Returns label component based on the type of label param passed to it
- * @param label either a component or hash containing `title` and `description`
- */
-export const coerceLabel = (label: React.ReactNode | BarLabelProps) =>
-  isBarLabelProps(label) ? <BarLabel {...label} /> : label
 
 function useHighlightLabelPositionConstraints(
   wrapperDiv: HTMLDivElement | null,
@@ -56,9 +50,9 @@ function useHighlightLabelPositionConstraints(
 
 export interface BarDescriptor {
   value: number
-  label?: React.ReactNode | BarLabelProps
+  label?: React.ReactNode | ChartTooltipProps
   axisLabelX?: React.ReactNode
-  highlightLabel?: React.ReactNode | BarLabelProps
+  highlightLabel?: React.ReactNode | ChartTooltipProps
   onClick?: any
   onHover?: any
 }
@@ -84,7 +78,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
 
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
   const [minHeight, setMinHeight] = useState(0)
-  const maxValue: number = max(bars, item => item.value)
+  const maxValue: number = maxInArray(bars, item => item.value)
   return (
     <ProvideMousePosition>
       <Flex
@@ -110,10 +104,10 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
                 <Bar
                   key={index}
                   heightPercent={heightPercent}
-                  label={coerceLabel(label)}
+                  label={coerceTooltip(label)}
                   axisLabelX={axisLabelX}
                   highlightLabelRef={highlightLabelRef}
-                  highlightLabel={coerceLabel(highlightLabel)}
+                  highlightLabel={coerceTooltip(highlightLabel)}
                   hasEnteredViewport={hasEnteredViewport}
                   onMeasureHeight={highlightLabel ? setMinHeight : null}
                   onClick={onClick}

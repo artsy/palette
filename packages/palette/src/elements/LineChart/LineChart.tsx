@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { media, space } from "../../helpers"
-import { useHasEnteredViewport } from "../../helpers/visualizationHelpers"
-import { coerceLabel } from "../BarChart"
-import { BarHoverLabel } from "../BarChart/Bar"
-import { BarLabelProps } from "../BarChart/BarLabel"
-import { ProvideMousePosition } from "../BarChart/MousePositionContext"
+import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
+import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
+import { ProvideMousePosition } from "../DataVis/MousePositionContext"
+import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { LineChartSVG } from "./LineChartSVG"
@@ -13,7 +12,7 @@ import { LineChartSVG } from "./LineChartSVG"
 export interface PointDescriptor {
   value: number
   axisLabelX?: React.ReactNode
-  tooltip?: React.ReactNode | BarLabelProps
+  tooltip?: React.ReactNode | ChartTooltipProps
 }
 
 export interface LineChartProps {
@@ -72,7 +71,7 @@ export const LineChart = ({ points, chartHeight }: LineChartProps) => {
                   hoverIndex={hoverIndex}
                   setHoverIndex={setHoverIndex}
                 >
-                  {coerceLabel(point.tooltip)}
+                  {coerceTooltip(point.tooltip)}
                 </HoverHandler>
               ))}
             </Flex>
@@ -119,7 +118,7 @@ const HoverHandler = ({ children, index, hoverIndex, setHoverIndex }) => {
       onMouseLeave={() => setHoverIndex(-1)}
       style={{ opacity: hover ? 1 : 0 }}
     >
-      {hover && <BarHoverLabel>{children}</BarHoverLabel>}
+      {hover && <ChartHoverTooltip>{children}</ChartHoverTooltip>}
     </PointHoverArea>
   )
 }

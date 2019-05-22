@@ -4,7 +4,7 @@ import { space } from "../../helpers"
 import { Flex, FlexProps } from "../Flex"
 import { Sans } from "../Typography"
 
-const BarLabelWrapper = styled(Flex)`
+const ChartTooltipWrapper = styled(Flex)`
   padding: ${space(0.5)}px ${space(1)}px;
   text-align: center;
   align-items: center;
@@ -12,13 +12,20 @@ const BarLabelWrapper = styled(Flex)`
   white-space: nowrap;
 `
 
-export interface BarLabelProps extends FlexProps {
+/**
+ * Returns tooltip component based on the type of tooltip param passed to it
+ * @param tooltip either a component or hash containing `title` and `description`
+ */
+export const coerceTooltip = (tooltip: React.ReactNode | ChartTooltipProps) =>
+  isChartTooltipProps(tooltip) ? <ChartTooltip {...tooltip} /> : tooltip
+
+export interface ChartTooltipProps extends FlexProps {
   title: React.ReactNode
   description: React.ReactNode
 }
 
 // tslint:disable-next-line:completed-docs
-export function isBarLabelProps(obj: any): obj is BarLabelProps {
+export function isChartTooltipProps(obj: any): obj is ChartTooltipProps {
   const result =
     obj &&
     typeof obj === "object" &&
@@ -28,16 +35,20 @@ export function isBarLabelProps(obj: any): obj is BarLabelProps {
 }
 
 /**
- * BarLabel is the default content format for a label on a BarChart.
+ * ChartTooltip is the default content format for a label on a BarChart.
  * @param props
  */
-export const BarLabel = ({ title, description, ...others }: BarLabelProps) => (
-  <BarLabelWrapper {...others}>
+export const ChartTooltip = ({
+  title,
+  description,
+  ...others
+}: ChartTooltipProps) => (
+  <ChartTooltipWrapper {...others}>
     <Sans weight="medium" size="2">
       {title}
     </Sans>
     <Sans color={"black60"} size="2">
       {description}
     </Sans>
-  </BarLabelWrapper>
+  </ChartTooltipWrapper>
 )
