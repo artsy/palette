@@ -1,6 +1,9 @@
 ---
 name: Select
 ---
+## Usage guidelines
+
+Selects should be used in instances where we require users to enter information that requires explanation or context. These usages tend to be more complex and therefore require structured inputs with a variety of contextual info. For light-weight applications we recommend using the [mini-dropdown](https://palette.artsy.net/elements/inputs/select/).
 
 import { Value } from "react-powerplug"
 
@@ -12,7 +15,7 @@ of user-benefitting product strategy.
 <Box>
   <Serif size="3">Title</Serif>
   <LargeSelect
-    options={[
+    options={\[
       {
         text: "Most Recent",
         value: "mostRecent",
@@ -27,7 +30,7 @@ of user-benefitting product strategy.
   <Serif size="3">Title</Serif>
   <Serif size="2">Short description</Serif>
   <LargeSelect
-    options={[
+    options={\[
       {
         text: "Most Recent",
         value: "mostRecent",
@@ -47,7 +50,7 @@ of user-benefitting product strategy.
       return (
         <LargeSelect
           error={error}
-          options={[
+          options={\[
             {
               text: "Good",
               value: "goodValue",
@@ -69,7 +72,7 @@ of user-benefitting product strategy.
 
 <Playground>
   <SmallSelect
-    options={[
+    options={\[
       {
         text: "Price",
         value: "price",
