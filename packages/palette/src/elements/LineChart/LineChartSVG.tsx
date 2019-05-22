@@ -4,7 +4,7 @@ import React from "react"
 import { Spring } from "react-spring"
 import styled from "styled-components"
 import { color } from "../../helpers"
-import { maxInArray } from "../DataVis/utils/maxInArray"
+import maxBy from "lodash.maxby"
 import { Line } from "./Line"
 import { PointDescriptor } from "./LineChart"
 import { Point } from "./Point"
@@ -30,7 +30,7 @@ export const LineChartSVG: React.FC<LineChartSVGProps> = ({
   hasEnteredViewport,
 }: LineChartSVGProps) => {
   const values = points.map(d => d.value)
-  const maxValue: number = maxInArray(points, item => item.value)
+  const maxValue: number = maxBy(points, item => item.value).value
 
   const zeros = values.map(() => 0)
   const valuesInterpolator = interpolateArray(zeros, values)

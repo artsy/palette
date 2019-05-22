@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { color, space } from "../../helpers"
 import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
-import { maxInArray } from "../DataVis/utils/maxInArray"
+import maxBy from "lodash.maxBy"
 import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
@@ -78,7 +78,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
 
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
   const [minHeight, setMinHeight] = useState(0)
-  const maxValue: number = maxInArray(bars, item => item.value)
+  const maxValue: number = maxBy(bars, item => item.value).value
   return (
     <ProvideMousePosition>
       <Flex
