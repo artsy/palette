@@ -19,6 +19,7 @@ export interface SelectProps extends PositionProps, SpaceProps {
   selected?: string
   disabled?: boolean
   error?: string
+  title?: string
   onSelect?: (value) => void
 }
 
@@ -71,6 +72,36 @@ export const SmallSelect: SFC<SelectProps> = props => {
   )
 }
 
+/**
+ * A mini drop-down select menu
+ */
+export const MiniSelect: SFC<SelectProps> = props => {
+  return (
+    <MiniSelectContainer {...props}>
+      <label>
+        {props.title && (
+          <Sans size="2" display="inline" mr={0.5}>
+            {props.title}:
+          </Sans>
+        )}
+
+        <select
+          value={props.selected}
+          onChange={event =>
+            props.onSelect && props.onSelect(event.target.value)
+          }
+        >
+          {props.options.map(({ value, text }) => (
+            <option value={value} key={value}>
+              {text}
+            </option>
+          ))}
+        </select>
+      </label>
+    </MiniSelectContainer>
+  )
+}
+
 const hideDefaultSkin = css`
   background: none;
   border: none;
@@ -91,11 +122,11 @@ const hideDefaultSkin = css`
     color: black; /* prevent <option>s from becoming transparent as well */
   }
 `
-
+const carretSize = 4
 const caretArrow = css<SelectProps>`
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid
+  border-left: ${carretSize}px solid transparent;
+  border-right: ${carretSize}px solid transparent;
+  border-top: ${carretSize}px solid
     ${props => (props.disabled ? color("black10") : color("black100"))};
   width: 0;
   height: 0;
@@ -158,4 +189,36 @@ const SmallSelectContainer = styled.div<SelectProps>`
   }
 
   ${styledSpace};
+`
+
+const MiniSelectContainer = styled.div<SelectProps>`
+  position: relative;
+
+  select {
+    ${hideDefaultSkin};
+    background-color: ${color("black10")};
+    border-radius: 2px;
+    font-size: ${themeGet("typeSizes.sans.2.fontSize")}px;
+    font-weight: 500;
+    line-height: ${themeGet("typeSizes.sans.2.lineHeight")}px;
+    padding: ${space(0.5)}px ${space(1) + carretSize * 4}px ${space(0.5)}px
+      ${space(1)}px;
+
+    &:hover {
+      background-color: ${color("black30")};
+    }
+    &:focus {
+      border-color: ${color("purple100")};
+    }
+  }
+
+  &::after {
+    ${caretArrow};
+    content: "";
+    cursor: pointer;
+    margin-left: -${space(1) + carretSize * 2}px;
+    pointer-events: none;
+    position: absolute;
+    top: ${5 + space(0.5)}px;
+  }
 `
