@@ -3,6 +3,7 @@ const defaultFields = {
   format: "frontmatter",
   widget: "mdx",
   create: true,
+  identifier_field: "name",
   fields: [
     {
       label: "Name",
