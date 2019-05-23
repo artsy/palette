@@ -1,3 +1,15 @@
+# v4.12.5 (Thu May 23 2019)
+
+#### 🐛  Bug Fix
+
+- Add identifier_field to fix page creation errors [#471](https://github.com/artsy/palette/pull/471) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.12.4 (Thu May 23 2019)
 
 #### 🐛  Bug Fix
