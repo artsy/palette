@@ -8,10 +8,12 @@ import { color } from "../../helpers"
 export const Point = ({
   cx,
   cy,
+  opacity,
   hovered,
 }: {
   cx: number
   cy: number
+  opacity: number
   hovered: boolean
 }) => {
   return (
@@ -19,6 +21,7 @@ export const Point = ({
       cx={cx}
       cy={cy}
       r="4"
+      opacity={opacity}
       fill={hovered ? color("black30") : color("black10")}
     />
   )

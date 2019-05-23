@@ -66,6 +66,7 @@ export const LineChartSVG: React.FC<LineChartSVGProps> = ({
                       <Point
                         hovered={hoverIndex === index}
                         key={index}
+                        opacity={num}
                         cx={displayXPosition(value, index)}
                         cy={displayYPosition(value)}
                       />

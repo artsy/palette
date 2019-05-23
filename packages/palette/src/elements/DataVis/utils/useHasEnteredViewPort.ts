@@ -19,6 +19,6 @@ export const useHasEnteredViewport = (ref: React.RefObject<HTMLElement>) => {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  })
+  }, [])
   return hasEntered
 }

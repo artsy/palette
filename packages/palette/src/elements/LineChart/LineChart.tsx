@@ -17,7 +17,7 @@ export interface PointDescriptor {
 
 export interface LineChartProps {
   points: PointDescriptor[]
-  chartHeight?: number
+  height?: number
 }
 
 const margin = space(2)
@@ -29,10 +29,9 @@ const DEFAULT_HEIGHT = 87
  */
 export const LineChart: React.FC<LineChartProps> = ({
   points,
-  chartHeight,
+  height = DEFAULT_HEIGHT,
 }: LineChartProps) => {
   const [width, setWidth] = useState(0)
-  const [height, setHeight] = useState(DEFAULT_HEIGHT)
   const [hoverIndex, setHoverIndex] = useState(-1)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -43,15 +42,9 @@ export const LineChart: React.FC<LineChartProps> = ({
     }
   }
 
-  if (!width) {
+  useEffect(() => {
     setContainerWidth()
-  }
 
-  useEffect(() => {
-    setHeight(chartHeight || DEFAULT_HEIGHT)
-  }, [chartHeight])
-
-  useEffect(() => {
     window.addEventListener("resize", setContainerWidth)
 
     return function cleanup() {
