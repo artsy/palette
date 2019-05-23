@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { color, media, space } from "../../helpers"
 import { breakpoints } from "../../Theme"
 import { Box } from "../Box"
+import {
+  BaseTooltipPositioner,
+  ChartHoverTooltip,
+} from "../DataVis/ChartHoverTooltip"
 import { Flex } from "../Flex"
-import { MousePositionContext } from "./MousePositionContext"
 
 const MAX_BAR_HEIGHT = 80
 const MIN_BAR_HEIGHT = 10
 const BAR_HEIGHT_RANGE = MAX_BAR_HEIGHT - MIN_BAR_HEIGHT
-
-const LABEL_OFFSET = 10
 
 interface BarBoxProps {
   isHighlighted?: boolean
 }
 
 // the actual visible bit of the bar
-export const BarBox = styled(Box)`
+const BarBox = styled(Box)`
   transition: height 0.8s ease;
   position: relative;
   background: ${(props: BarBoxProps) =>
@@ -39,23 +40,7 @@ export const BarBox = styled(Box)`
   }
 `
 
-const BaseLabelPositioner = styled(Flex)`
-  transform: translateX(-50%);
-  pointer-events: none;
-  border-radius: 2px;
-`
-
-const HoverLabelPositioner = styled(BaseLabelPositioner)`
-  ${media.xs`
-    display: none;
-  `};
-  z-index: 2;
-  position: fixed;
-  background-color: ${color("white100")};
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
-`
-
-const HighlightLabelPositioner = styled(BaseLabelPositioner)`
+const HighlightLabelPositioner = styled(BaseTooltipPositioner)`
   z-index: 1;
   position: absolute;
   left: 50%;
@@ -91,17 +76,6 @@ const LabelLine = () => (
     />
   </LabelLineSvg>
 )
-
-const BarHoverLabel = ({ children }: { children: React.ReactNode }) => {
-  const ref = useRef(null)
-  const { x, y } = useContext(MousePositionContext)
-  if (ref.current) {
-    // position outside of the render loop to avoid GC churn
-    ref.current.style.top = y - LABEL_OFFSET - ref.current.offsetHeight + "px"
-    ref.current.style.left = x + "px"
-  }
-  return <HoverLabelPositioner ref={ref}>{children}</HoverLabelPositioner>
-}
 
 const HighlightLabel = ({
   children,
@@ -212,7 +186,7 @@ export const Bar = ({
           {highlightLabel}
         </HighlightLabel>
       )}
-      {hover && label && <BarHoverLabel>{label}</BarHoverLabel>}
+      {hover && label && <ChartHoverTooltip>{label}</ChartHoverTooltip>}
     </BarBox>
   )
 }
