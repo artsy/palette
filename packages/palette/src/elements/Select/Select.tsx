@@ -199,6 +199,7 @@ const MiniSelectContainer = styled.div<SelectProps>`
     background-color: ${color("black10")};
     border-radius: 2px;
     font-size: ${themeGet("typeSizes.sans.2.fontSize")}px;
+    font-weight: 500;
     line-height: ${themeGet("typeSizes.sans.2.lineHeight")}px;
     padding: ${space(0.5)}px ${space(1) + carretSize * 4}px ${space(0.5)}px
       ${space(1)}px;
