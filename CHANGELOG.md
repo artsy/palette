@@ -1,3 +1,16 @@
+# v4.12.4 (Thu May 23 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Add a MiniSelect as a select component [#467](https://github.com/artsy/palette/pull/467) ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v4.12.3 (Thu May 23 2019)
 
 
