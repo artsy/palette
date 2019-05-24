@@ -59,6 +59,7 @@ interface LazyImageProps
   // TODO: Resolve type issues
   /** The image component to render when preload is true */
   imageComponent?: any // FunctionComponent<ImageProps>
+  onContextMenu?: (e: any) => void
 }
 
 /** LazyImage */
