@@ -1,3 +1,22 @@
+# v4.12.6 (Tue May 28 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - rename MiniSelect to SelectSmall and create separate entry for it in docs [#475](https://github.com/artsy/palette/pull/475) ([@oxaudo](https://github.com/oxaudo))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Pin dependencies [#470](https://github.com/artsy/palette/pull/470) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.12.5 (Thu May 23 2019)
 
 #### 🐛  Bug Fix
