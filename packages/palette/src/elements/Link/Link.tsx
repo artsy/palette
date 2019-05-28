@@ -1,11 +1,17 @@
 import styled from "styled-components"
-import { color as styledColor, space, SpaceProps } from "styled-system"
+import {
+  color as styledColor,
+  display,
+  DisplayProps,
+  space,
+  SpaceProps,
+} from "styled-system"
 import { color } from "../../helpers"
 import { Color } from "../../Theme"
 
 type UnderlineBehaviors = "default" | "hover" | "none"
 
-export interface LinkProps extends SpaceProps {
+export interface LinkProps extends SpaceProps, DisplayProps {
   color?: Color
   hoverColor?: Color
   noUnderline?: boolean
@@ -40,6 +46,7 @@ export const Link = styled.a<LinkProps>`
     color: ${props =>
       props.hoverColor ? color(props.hoverColor) : color("black100")};
   }
+  ${display};
   ${space};
   ${styledColor};
 `
