@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/react"
 import React from "react"
-import { LargeSelect, MiniSelect } from "./Select"
+import { LargeSelect, SelectSmall } from "./Select"
 
 storiesOf("Components/Select", module)
   .add("LargeSelect", () => {
@@ -20,9 +20,9 @@ storiesOf("Components/Select", module)
       />
     )
   })
-  .add("MiniSelect with title", () => {
+  .add("SelectSmall with title", () => {
     return (
-      <MiniSelect
+      <SelectSmall
         options={[
           {
             text: "Price",
@@ -37,9 +37,9 @@ storiesOf("Components/Select", module)
       />
     )
   })
-  .add("MiniSelect with includeBackground", () => {
+  .add("SelectSmall without title", () => {
     return (
-      <MiniSelect
+      <SelectSmall
         options={[
           {
             text: "First option",

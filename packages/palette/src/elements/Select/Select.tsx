@@ -44,6 +44,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
   )
 }
 
+// TODO: Remove this SmallSelect below once all the clients use SelectSmall
 /**
  * A small drop-down select menu
  */
@@ -73,11 +74,11 @@ export const SmallSelect: SFC<SelectProps> = props => {
 }
 
 /**
- * A mini drop-down select menu
+ * A small version of drop-down select menu
  */
-export const MiniSelect: SFC<SelectProps> = props => {
+export const SelectSmall: SFC<SelectProps> = props => {
   return (
-    <MiniSelectContainer {...props}>
+    <SelectSmallContainer {...props}>
       <label>
         {props.title && (
           <Sans size="2" display="inline" mr={0.5}>
@@ -98,7 +99,7 @@ export const MiniSelect: SFC<SelectProps> = props => {
           ))}
         </select>
       </label>
-    </MiniSelectContainer>
+    </SelectSmallContainer>
   )
 }
 
@@ -191,7 +192,7 @@ const SmallSelectContainer = styled.div<SelectProps>`
   ${styledSpace};
 `
 
-const MiniSelectContainer = styled.div<SelectProps>`
+const SelectSmallContainer = styled.div<SelectProps>`
   position: relative;
 
   select {
