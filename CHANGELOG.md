@@ -1,3 +1,16 @@
+# v4.12.7 (Tue May 28 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Link] Add styled-system display mixin [#476](https://github.com/artsy/palette/pull/476) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.12.6 (Tue May 28 2019)
 
 #### 🐛  Bug Fix
