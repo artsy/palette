@@ -1,3 +1,16 @@
+# v4.12.8 (Tue May 28 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Link] Add styled-system position mixin [#477](https://github.com/artsy/palette/pull/477) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.12.7 (Tue May 28 2019)
 
 #### 🐛  Bug Fix
