@@ -7,11 +7,12 @@ import {
 } from "./Image.shared"
 import { LazyImage } from "./LazyImage"
 
+/** Props for a web-only Image component. */
 interface WebImageProps extends ImageProps {
   preventRightClick?: boolean
 }
 
-/** Image */
+/** A web-only Image component. */
 export const Image = ({
   lazyLoad = false,
   preventRightClick = false,
@@ -27,7 +28,7 @@ export const Image = ({
   )
 }
 
-/** ResponsiveImage */
+/** A web-only ResponsiveImage component. */
 export const ResponsiveImage = ({
   lazyLoad = false,
   ...props
