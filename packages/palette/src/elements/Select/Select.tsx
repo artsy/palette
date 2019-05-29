@@ -44,35 +44,6 @@ export const LargeSelect: SFC<SelectProps> = props => {
   )
 }
 
-// TODO: Remove this SmallSelect below once all the clients use SelectSmall
-/**
- * A small drop-down select menu
- */
-export const SmallSelect: SFC<SelectProps> = props => {
-  return (
-    <SmallSelectContainer {...props}>
-      <label>
-        <Sans size="2" display="inline" mr={0.5}>
-          Sort:
-        </Sans>
-
-        <select
-          value={props.selected}
-          onChange={event =>
-            props.onSelect && props.onSelect(event.target.value)
-          }
-        >
-          {props.options.map(({ value, text }) => (
-            <option value={value} key={value}>
-              {text}
-            </option>
-          ))}
-        </select>
-      </label>
-    </SmallSelectContainer>
-  )
-}
-
 /**
  * A small version of drop-down select menu
  */
@@ -169,38 +140,20 @@ const LargeSelectContainer = styled.div<SelectProps>`
   }
 `
 
-const SmallSelectContainer = styled.div<SelectProps>`
-  position: relative;
-
-  select {
-    font-size: ${themeGet("typeSizes.sans.2.fontSize")}px;
-    line-height: ${themeGet("typeSizes.sans.2.lineHeight")}px;
-    font-weight: bold;
-    ${hideDefaultSkin};
-  }
-
-  &::after {
-    content: "";
-    cursor: pointer;
-    pointer-events: none;
-    position: absolute;
-    top: 10px;
-    margin-left: -8px;
-    ${caretArrow};
-  }
-
-  ${styledSpace};
-`
-
 const SelectSmallContainer = styled.div<SelectProps>`
   position: relative;
+
+  label {
+    padding: 0;
+    margin: 0;
+  }
 
   select {
     ${hideDefaultSkin};
     background-color: ${color("black10")};
     border-radius: 2px;
+    ${themeGet("fontFamily.sans.medium")};
     font-size: ${themeGet("typeSizes.sans.2.fontSize")}px;
-    font-weight: 500;
     line-height: ${themeGet("typeSizes.sans.2.lineHeight")}px;
     padding: ${space(0.5)}px ${space(1) + carretSize * 4}px ${space(0.5)}px
       ${space(1)}px;
