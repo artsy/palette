@@ -24,6 +24,21 @@ prop. This is an important performance optimization.
   />
 </Playground>
 
+### Preventing right-click
+
+We generally don't want artwork images to be downloaded by users. Mark an image
+with the `preventRightClick` prop, and users will be unable to right click to
+"Save Image".
+
+<Playground>
+  <Image
+    width="300px"
+    height="200px"
+    src="https://picsum.photos/300/200/?random"
+    preventRightClick
+  />
+</Playground>
+
 ### Responsive image
 
 Used to fill an area provided regardless of proportions.

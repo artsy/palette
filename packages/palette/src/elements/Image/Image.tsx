@@ -7,12 +7,28 @@ import {
 } from "./Image.shared"
 import { LazyImage } from "./LazyImage"
 
-/** Image */
-export const Image = ({ lazyLoad = false, ...props }: ImageProps) => (
-  <LazyImage preload={!lazyLoad} imageComponent={BaseImage} {...props} />
-)
+/** Props for a web-only Image component. */
+interface WebImageProps extends ImageProps {
+  preventRightClick?: boolean
+}
 
-/** ResponsiveImage */
+/** A web-only Image component. */
+export const Image = ({
+  lazyLoad = false,
+  preventRightClick = false,
+  ...props
+}: WebImageProps) => {
+  return (
+    <LazyImage
+      preload={!lazyLoad}
+      imageComponent={BaseImage}
+      {...props}
+      onContextMenu={e => preventRightClick && e.preventDefault()}
+    />
+  )
+}
+
+/** A web-only ResponsiveImage component. */
 export const ResponsiveImage = ({
   lazyLoad = false,
   ...props
