@@ -1,3 +1,16 @@
+# v4.12.9 (Wed May 29 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - remove unused SmallSelect and remove margin/padding on label for SelectSmall [#478](https://github.com/artsy/palette/pull/478) ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v4.12.8 (Tue May 28 2019)
 
 #### 🐛  Bug Fix
