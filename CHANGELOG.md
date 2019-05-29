@@ -1,3 +1,16 @@
+# v4.13.0 (Wed May 29 2019)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add the ability to prevent right-click on <Image> elements [#473](https://github.com/artsy/palette/pull/473) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 1
+
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v4.12.9 (Wed May 29 2019)
 
 #### 🐛  Bug Fix
