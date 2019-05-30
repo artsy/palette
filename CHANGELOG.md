@@ -1,3 +1,16 @@
+# v4.13.2 (Thu May 30 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Two more stubs [#481](https://github.com/artsy/palette/pull/481) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.13.1 (Thu May 30 2019)
 
 #### 🐛  Bug Fix
