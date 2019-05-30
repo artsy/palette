@@ -1,3 +1,16 @@
+# v4.13.1 (Thu May 30 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Add missing component .ios.tsx stubs [#480](https://github.com/artsy/palette/pull/480) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.13.0 (Wed May 29 2019)
 
 #### 🚀  Enhancement
