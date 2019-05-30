@@ -9,7 +9,7 @@ across our digital product portfolio.
 
 Find out more at [github.com/artsy/palette](https://github.com/artsy/palette)
 
-### ⚠️ Development Gotchas
+### ⚠️ Don't Forget About iOS!
 
 When adding a new component to Palette, it's important to be aware that this library is used on the web as well as in React Native, via Emission, and therefore must follow a few rules in terms of structure, namely:
 
