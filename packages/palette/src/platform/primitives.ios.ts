@@ -1,9 +1,8 @@
 /* tslint:disable:completed-docs */
 
-import styles from "styled-components/native"
-
-// @ts-ignore
-import { ThemedStyledFunction } from "styled-components"
+import styles, {
+  ThemeProvider as NativeThemeProvider,
+} from "styled-components/native"
 
 export const styled = {
   Image: styles.Image,
@@ -15,4 +14,5 @@ export const View = "View"
 export const Text = "Text"
 export const Image = "Image"
 
+export const ThemeProvider = NativeThemeProvider
 export const styledWrapper = styles as typeof styles

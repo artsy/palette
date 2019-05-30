@@ -1,11 +1,6 @@
 /* tslint:disable:completed-docs */
 
-import styles from "styled-components"
-
-// @ts-ignore
-import { ClassAttributes, HTMLAttributes } from "react"
-// @ts-ignore
-import { ThemedStyledFunction } from "styled-components"
+import styles, { ThemeProvider as WebThemeProvider } from "styled-components"
 
 export const styled = {
   Image: styles.img,
@@ -17,4 +12,5 @@ export const View = "div"
 export const Text = "div"
 export const Image = "img"
 
+export const ThemeProvider = WebThemeProvider
 export const styledWrapper = styles as typeof styles

@@ -1,7 +1,7 @@
 import React from "react"
 import { GridThemeProvider } from "styled-bootstrap-grid"
-import { ThemeProvider } from "styled-components"
 import { fontFamily } from "./platform/fonts"
+import { ThemeProvider } from "./platform/primitives"
 
 /**
  * Spec: https://www.notion.so/artsy/Design-92030f16ed7c4c72bb3eb832b4243d04
