@@ -1,3 +1,16 @@
+# v4.13.3 (Fri May 31 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Docs] Add docs around required palette structure [#484](https://github.com/artsy/palette/pull/484) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.13.2 (Thu May 30 2019)
 
 #### 🐛  Bug Fix
