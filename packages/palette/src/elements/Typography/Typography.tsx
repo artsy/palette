@@ -1,7 +1,6 @@
 import React, { CSSProperties } from "react"
-import styled from "styled-components"
 import { FontValue } from "../../platform/fonts"
-import { styled as primitives } from "../../platform/primitives"
+import { styled as primitives, styledWrapper } from "../../platform/primitives"
 
 import {
   DisplaySize,
@@ -173,7 +172,7 @@ function createStyledText<P extends StyledTextProps>(
   fontType: keyof FontFamily,
   selectFontFamilyType: typeof _selectFontFamilyType = _selectFontFamilyType
 ) {
-  return styled<P>(
+  return styledWrapper<P>(
     ({ size, weight, italic, element, ...textProps }: StyledTextProps) => {
       const fontFamilyType = selectFontFamilyType(_fontWeight(weight), italic)
       // This is mostly to narrow the type of `fontFamilyType` to remove `null`.
