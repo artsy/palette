@@ -322,7 +322,7 @@ export const themeProps = {
 }
 
 /**
- * Creates a new Grid context for web. On ReactNative it serves as a noop.
+ * Creates a new Grid context for web. On React Native it serves as a noop.
  */
 const GridThemeProvider = ({ children }) => {
   if (isReactNative()) {
