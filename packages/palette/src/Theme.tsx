@@ -1,5 +1,5 @@
 import React from "react"
-import { GridThemeProvider } from "styled-bootstrap-grid"
+import { isReactNative } from "./helpers/isReactNative"
 import { fontFamily } from "./platform/fonts"
 import { ThemeProvider } from "./platform/primitives"
 
@@ -322,14 +322,28 @@ export const themeProps = {
 }
 
 /**
+ * Creates a new Grid context for web. On ReactNative it serves as a noop.
+ */
+const GridThemeProvider = ({ children }) => {
+  if (isReactNative()) {
+    return children
+  } else {
+    const StyledGrid = require("styled-bootstrap-grid")
+    return (
+      <StyledGrid.GridThemeProvider gridTheme={themeProps.grid}>
+        {children}
+      </StyledGrid.GridThemeProvider>
+    )
+  }
+}
+
+/**
  * A wrapper component for passing down the Artsy theme context
  */
 export const Theme = props => {
   return (
     <ThemeProvider theme={themeProps}>
-      <GridThemeProvider gridTheme={themeProps.grid}>
-        {props.children}
-      </GridThemeProvider>
+      <GridThemeProvider>{props.children}</GridThemeProvider>
     </ThemeProvider>
   )
 }
