@@ -1,3 +1,16 @@
+# v4.13.5 (Sat Jun 01 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Debug] Test deploy [#487](https://github.com/artsy/palette/pull/487) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.13.4 (Sat Jun 01 2019)
 
 #### 🐛  Bug Fix
