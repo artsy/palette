@@ -1,3 +1,16 @@
+# v4.13.4 (Sat Jun 01 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [ReactNative] Create more stub components [#486](https://github.com/artsy/palette/pull/486) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.13.3 (Fri May 31 2019)
 
 #### 🐛  Bug Fix
