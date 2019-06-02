@@ -25,6 +25,8 @@ import {
   MaxHeightProps,
   maxWidth,
   MaxWidthProps,
+  order,
+  OrderProps,
   position,
   PositionProps,
   space,
@@ -56,6 +58,7 @@ export interface FlexProps
     JustifyContentProps,
     MaxHeightProps,
     MaxWidthProps,
+    OrderProps,
     PositionProps,
     SpaceProps,
     WidthProps,
@@ -81,6 +84,7 @@ export const Flex = primitives.View<FlexProps>`
   ${justifyContent};
   ${maxHeight};
   ${maxWidth};
+  ${order};
   ${position};
   ${space};
   ${width};
