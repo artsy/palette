@@ -1,6 +1,9 @@
 ---
 name: Flex
 ---
+
+### Basics
+
 <Playground>
   <Flex flexDirection="column">
     <Box>
@@ -8,5 +11,17 @@ name: Flex
       related flexbox.
     </Box>
     <Box>It's pretty cool!</Box>
+  </Flex>
+</Playground>
+
+### Flex Item Order
+
+Flex items are displayed in the same order as they appear in the source
+document by default. We can use the `order` property to change the ordering.
+
+<Playground>
+  <Flex>
+    <Flex order="2">Item 2</Flex>
+    <Flex order="1">Item 1</Flex>
   </Flex>
 </Playground>
