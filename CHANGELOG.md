@@ -1,3 +1,16 @@
+# v4.14.0 (Sun Jun 02 2019)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Support order for Flex [#488](https://github.com/artsy/palette/pull/488) ([@starsirius](https://github.com/starsirius))
+
+#### Authors: 1
+
+- Chung-Yi Chi ([@starsirius](https://github.com/starsirius))
+
+---
+
 # v4.13.5 (Sat Jun 01 2019)
 
 #### 🐛  Bug Fix
