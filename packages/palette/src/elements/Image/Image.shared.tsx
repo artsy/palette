@@ -19,19 +19,12 @@ import {
   WidthProps,
 } from "styled-system"
 
+/** Props for web & iOS images */
 export interface BaseImageProps {
   /** The url for the image */
   src: string
-  /** Alternate text for image */
-  alt?: string
-  /** A11y text label */
-  ["aria-label"]?: string
-  /** The title of the image */
-  title?: string
   /** Apply additional styles to component */
   style?: object
-  /** Flag for if image should be lazy loaded */
-  lazyLoad?: boolean
 }
 
 export interface ImageProps

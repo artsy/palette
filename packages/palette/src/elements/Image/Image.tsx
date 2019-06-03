@@ -8,7 +8,16 @@ import {
 import { LazyImage } from "./LazyImage"
 
 /** Props for a web-only Image component. */
-interface WebImageProps extends ImageProps {
+export interface WebImageProps extends ImageProps {
+  /** Flag for if image should be lazy loaded */
+  lazyLoad?: boolean
+  /** Alternate text for image */
+  alt?: string
+  /** A11y text label */
+  ["aria-label"]?: string
+  /** The title of the image */
+  title?: string
+  /** Flag indicating that right clicks should be prevented */
   preventRightClick?: boolean
 }
 
@@ -28,11 +37,17 @@ export const Image = ({
   )
 }
 
+/** Props for a web-only ResponsiveImage component. */
+export interface WebResponsiveImageProps extends ResponsiveImageProps {
+  /** Flag for if image should be lazy loaded */
+  lazyLoad?: boolean
+}
+
 /** A web-only ResponsiveImage component. */
 export const ResponsiveImage = ({
   lazyLoad = false,
   ...props
-}: ResponsiveImageProps) => (
+}: WebResponsiveImageProps) => (
   <LazyImage
     preload={!lazyLoad}
     imageComponent={BaseResponsiveImage}
