@@ -10,14 +10,15 @@ import {
 import { color } from "../../helpers/color"
 import { Box, BoxProps } from "../Box"
 import { omitProps, Tag } from "../Tag"
-import { BaseImage as Image, ImageProps } from "./Image.shared"
+import { WebImageProps } from "./Image"
+import { BaseImage as Image } from "./Image.shared"
 
 const imagePropsToOmit = omitProps.filter(
   prop => prop !== "width" && prop !== "height"
 )
 
 const InnerLazyImage = styled(Tag.as(LazyLoadImage))<
-  ImageProps & { onLoad: () => void }
+  WebImageProps & { onLoad: () => void }
 >`
   width: 100%;
   height: 100%;
@@ -49,7 +50,7 @@ const Placeholder = styled(Box)<BoxProps & BorderRadiusProps>`
 `
 
 interface LazyImageProps
-  extends ImageProps,
+  extends WebImageProps,
     WidthProps,
     HeightProps,
     BorderRadiusProps {
