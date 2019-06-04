@@ -32,6 +32,38 @@ $ yarn start
 $ open http://localhost:8000/
 ```
 
+When developing components for [Emission](https://github.com/artsy/emission), boot the Simulator and run:
+
+```
+$ yarn workspace @artsy/palette watch:emission
+```
+
+Since React Native doesn't support symlinks, this will copy changes directly to the Emission folder and hot-reload the app.
+
+### ⚠️ Don't Forget About iOS!
+
+When adding a new component to Palette, it's important to be aware that this library is used on the web as well as in React Native, via Emission, and therefore must follow a few rules in terms of structure, namely:
+
+> Components exported from the main `/elements/index.tsx` must have a corresponding `.ios.tsx` file, even if the component isn't yet used in React Native.
+
+Example:
+
+```
+/elements
+  /MyComponent
+    index.tsx
+    MyComponent.tsx
+    MyComponent.ios.tsx
+```
+
+And from within `/elements/index.tsx`, we export our component:
+
+```tsx
+export * from "./MyComponent";
+```
+
+When React Native imports `@artsy/palette`, it will automatically look for files with a `.ios` extension and import those first, and then secondarily import everything else. If a component contains web-only features but doesn't have a corresponding iOS file stub, React Native tooling will error out.
+
 ## Deployment process
 
 ### Commits and Deployments
