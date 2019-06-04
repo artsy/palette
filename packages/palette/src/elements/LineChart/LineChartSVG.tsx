@@ -5,8 +5,8 @@ import React from "react"
 import { Spring } from "react-spring"
 import styled from "styled-components"
 import { color } from "../../helpers"
+import { PointDescriptor } from "../DataVis/utils/SharedTypes"
 import { Line } from "./Line"
-import { PointDescriptor } from "./LineChart"
 import { Point } from "./Point"
 
 interface LineChartSVGProps {

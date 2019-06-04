@@ -1,25 +1,15 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import { media, space } from "../../helpers"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
-import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
+import { coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
+import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { useGetWrapperWidth } from "../DataVis/utils/useGetWrapperWidth"
 import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { LineChartSVG } from "./LineChartSVG"
-
-export interface PointDescriptor {
-  value: number
-  axisLabelX?: React.ReactNode
-  tooltip?: React.ReactNode | ChartTooltipProps
-}
-
-export interface LineChartProps {
-  points: PointDescriptor[]
-  height?: number
-}
 
 const margin = space(2)
 const DEFAULT_HEIGHT = 87
@@ -28,10 +18,10 @@ const DEFAULT_HEIGHT = 87
  * LineChart is a component that displays some data points connected by lines.
  * Useful for visualizing a time series, etc.
  */
-export const LineChart: React.FC<LineChartProps> = ({
+export const LineChart: React.FC<ChartProps> = ({
   points,
   height = DEFAULT_HEIGHT,
-}: LineChartProps) => {
+}: ChartProps) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
