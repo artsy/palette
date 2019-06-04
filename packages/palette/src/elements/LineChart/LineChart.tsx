@@ -4,6 +4,7 @@ import { media, space } from "../../helpers"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
 import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
+import { useGetWrapperWidth } from "../DataVis/utils/useGetWrapperWidth"
 import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
@@ -31,28 +32,13 @@ export const LineChart: React.FC<LineChartProps> = ({
   points,
   height = DEFAULT_HEIGHT,
 }: LineChartProps) => {
-  const [width, setWidth] = useState(0)
   const [hoverIndex, setHoverIndex] = useState(-1)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
 
-  const setContainerWidth = () => {
-    if (wrapperRef.current) {
-      setWidth(wrapperRef.current.getBoundingClientRect().width - 5)
-    }
-  }
-
-  useEffect(() => {
-    setContainerWidth()
-
-    window.addEventListener("resize", setContainerWidth)
-
-    return function cleanup() {
-      window.removeEventListener("resize", setContainerWidth)
-    }
-  }, [])
-
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
+
+  const width = useGetWrapperWidth(wrapperRef)
 
   return (
     <ProvideMousePosition>
