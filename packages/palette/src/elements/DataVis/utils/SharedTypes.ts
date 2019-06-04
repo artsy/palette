@@ -1,8 +1,8 @@
-import { ChartTooltipProps } from "../DataVis/ChartTooltip"
+import { ChartTooltipProps } from "../ChartTooltip"
 
 export interface PointDescriptor {
   value: number
-  axisLabelX?: React.ReactNode
+  axisLabelX?: React.ReactNode | ChartTooltipProps
   tooltip?: React.ReactNode | ChartTooltipProps
 }
 

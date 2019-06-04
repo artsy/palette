@@ -2,9 +2,10 @@ import { mount } from "enzyme"
 import "jest-styled-components"
 import React from "react"
 import { Theme } from "../../Theme"
+import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
-import { LineChart, LineChartProps, PointHoverArea } from "./LineChart"
+import { LineChart, PointHoverArea } from "./LineChart"
 import { Point } from "./Point"
 
 jest.useFakeTimers()
@@ -29,7 +30,7 @@ const mockPoints = [
 ]
 
 describe("LineChart", () => {
-  const getWrapper = (props: Partial<LineChartProps> = {}) => {
+  const getWrapper = (props: Partial<ChartProps> = {}) => {
     return mount(
       <Theme>
         <LineChart points={mockPoints} {...props} />

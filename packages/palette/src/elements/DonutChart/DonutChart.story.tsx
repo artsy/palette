@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react"
 import React from "react"
-import { DonutChart } from "./DonutChart"
 import { Serif } from "../Typography"
+import { DonutChart } from "./DonutChart"
 
 storiesOf("Components/DonutChart", module).add("DonutChart with labels", () => {
   return (
