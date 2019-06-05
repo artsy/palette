@@ -1,3 +1,25 @@
+# v4.14.4 (Wed Jun 05 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fix error when all linechart values are zero [#496](https://github.com/artsy/palette/pull/496) ([@sepans](https://github.com/sepans))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Add react-native-svg to peerDependencies [#494](https://github.com/artsy/palette/pull/494) ([@pepopowitz](https://github.com/pepopowitz))
+- `@artsy/palette`
+  - Add ios type-checking [#491](https://github.com/artsy/palette/pull/491) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 3
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.14.3 (Tue Jun 04 2019)
 
 
