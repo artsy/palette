@@ -39,7 +39,7 @@ export const LineChartSVG: React.FC<LineChartSVGProps> = ({
   const h = height - 2 * margin
 
   // maps value to x/y position
-  const displayYPosition = d => h - (d * h) / maxValue
+  const displayYPosition = d => (maxValue ? h - (d * h) / maxValue : h)
   const displayXPosition = (_d, i) => (i / (points.length - 1)) * w
 
   const line = d3Line()
