@@ -1,3 +1,22 @@
+# v4.14.6 (Thu Jun 06 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Small fix in StaticCountdownTimer hour logic [#501](https://github.com/artsy/palette/pull/501) ([@kierangillen](https://github.com/kierangillen))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Pin dep @types/luxon from ^1.15.1 to 1.15.1 [#500](https://github.com/artsy/palette/pull/500) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.14.5 (Thu Jun 06 2019)
 
 
