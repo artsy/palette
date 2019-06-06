@@ -15,11 +15,19 @@ import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { Sans } from "../Typography"
 
 const colors: Color[] = ["black10", "black30", "black60"]
+
+interface DonutChartProps extends ChartProps {
+  margin?: number
+}
+
 /**
  * DonutChart is a component that displays data points with donut shaped arcs.
  * Good for illustrating numerical proportions.
  */
-export const DonutChart: React.FC<ChartProps> = ({ points }) => {
+export const DonutChart: React.FC<DonutChartProps> = ({
+  points,
+  margin = space(3),
+}: DonutChartProps) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
   const [rest, setRest] = useState(false)
 
@@ -29,7 +37,6 @@ export const DonutChart: React.FC<ChartProps> = ({ points }) => {
 
   const width = useGetWrapperWidth(wrapperRef)
 
-  const margin = space(3)
   const donutWidth = space(4)
   const donutLabelMargin = space(2) / Math.sqrt(2)
 
@@ -51,7 +58,6 @@ export const DonutChart: React.FC<ChartProps> = ({ points }) => {
     .padAngle(Math.PI / 360)
 
   const pie = d3_pie()
-
   return (
     <ProvideMousePosition>
       <Box ref={wrapperRef as any} position="relative">
@@ -84,7 +90,7 @@ export const DonutChart: React.FC<ChartProps> = ({ points }) => {
             </>
           )
         })}
-        <svg width={width} height={width}>
+        <svg width={width + margin} height={width + margin}>
           <g transform={`translate(${centerX}, ${centerY})`}>
             <Spring
               from={{ num: 0 }}

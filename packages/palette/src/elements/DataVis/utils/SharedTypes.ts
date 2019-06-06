@@ -8,5 +8,4 @@ export interface PointDescriptor {
 
 export interface ChartProps {
   points: PointDescriptor[]
-  height?: number
 }

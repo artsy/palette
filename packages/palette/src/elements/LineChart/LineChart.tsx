@@ -14,14 +14,18 @@ import { LineChartSVG } from "./LineChartSVG"
 const margin = space(2)
 const DEFAULT_HEIGHT = 87
 
+interface LineChartProps extends ChartProps {
+  height?: number
+}
+
 /**
  * LineChart is a component that displays some data points connected by lines.
  * Useful for visualizing a time series, etc.
  */
-export const LineChart: React.FC<ChartProps> = ({
+export const LineChart: React.FC<LineChartProps> = ({
   points,
   height = DEFAULT_HEIGHT,
-}: ChartProps) => {
+}: LineChartProps) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
