@@ -83,7 +83,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
                   center={centerX}
                 >
                   <Sans color="black60" size="2">
-                    {axisLabelX}
+                    {coerceTooltip(axisLabelX)}
                   </Sans>
                 </DonutLabelContainer>
               ) : null}
@@ -133,8 +133,15 @@ interface DonutLabelContainerProps {
 }
 
 // to create a float:right effect for labels that are on left side (also top)
-const computeLabelTranslate = (dim, center) => {
-  return dim < center ? "-100%" : 0
+const computeLabelTranslate = (dim: number, center: number): string => {
+  const diffPercent = (dim - center) / center
+  if (diffPercent < -0.25) {
+    return "-100%"
+  } else if (diffPercent < -0 && diffPercent > -0.25) {
+    return "-50%"
+  } else {
+    return "0"
+  }
 }
 
 const DonutLabelContainer = styled.div<DonutLabelContainerProps>`

@@ -50,6 +50,103 @@ name: DonutChart
   </Box>
 </Playground>
 
+# Two charts in the same row (each take the entire width available)
+
+<Playground>
+  <>
+    <Box width="50%" display="inline-block" p="3">
+      <DonutChart
+        points={[
+          {
+            value: 423,
+            axisLabelX: "Sep 10",
+            tooltip: { title: "Sep 10", description: "423 clicks" },
+          },
+          {
+            value: 567,
+            axisLabelX: "Sep 11",
+            tooltip: (
+              <Serif size="3" p={0.5}>
+                yay!
+              </Serif>
+            ),
+          },
+          {
+            value: 300,
+            axisLabelX: "Sep 12",
+            tooltip: { title: "Sep 12", description: "300 clicks" },
+          },
+          {
+            value: 200,
+            axisLabelX: "Sep 13",
+            tooltip: { title: "Sep 13", description: "200 clicks" },
+          },
+          {
+            value: 501,
+            axisLabelX: "Sep 14",
+            tooltip: { title: "Sep 14", description: "501 clicks" },
+          },
+          {
+            value: 400,
+            axisLabelX: "Sep 15",
+            tooltip: { title: "Sep 15", description: "400 clicks" },
+          },
+          {
+            value: 800,
+            axisLabelX: "Sep 16",
+            tooltip: { title: "Sep 16", description: "800 clicks" },
+          },
+        ]}
+      />
+    </Box>
+    <Box width="50%" display="inline-block" p="3">
+      <DonutChart
+        points={[
+          {
+            value: 423,
+            axisLabelX: "Sep 10",
+            tooltip: { title: "Sep 10", description: "423 clicks" },
+          },
+          {
+            value: 567,
+            axisLabelX: "Sep 11",
+            tooltip: (
+              <Serif size="3" p={0.5}>
+                yay!
+              </Serif>
+            ),
+          },
+          {
+            value: 300,
+            axisLabelX: "Sep 12",
+            tooltip: { title: "Sep 12", description: "300 clicks" },
+          },
+          {
+            value: 200,
+            axisLabelX: "Sep 13",
+            tooltip: { title: "Sep 13", description: "200 clicks" },
+          },
+          {
+            value: 501,
+            axisLabelX: "Sep 14",
+            tooltip: { title: "Sep 14", description: "501 clicks" },
+          },
+          {
+            value: 400,
+            axisLabelX: "Sep 15",
+            tooltip: { title: "Sep 15", description: "400 clicks" },
+          },
+          {
+            value: 800,
+            axisLabelX: "Sep 16",
+            tooltip: { title: "Sep 16", description: "800 clicks" },
+          },
+        ]}
+      />
+    </Box>
+  </>
+</Playground>
+
 # Scroll down to see enter animation 👇
 
 <Playground showEditor={true}>
@@ -137,6 +234,57 @@ name: DonutChart
         {
           value: 300,
           axisLabelX: "September 12",
+          tooltip: { title: "September 12", description: "300 clicks" },
+        },
+        {
+          value: 200,
+          axisLabelX: "September 13",
+          tooltip: { title: "September 13", description: "200 clicks" },
+        },
+        {
+          value: 501,
+          axisLabelX: "September 14",
+          tooltip: { title: "September 14", description: "501 clicks" },
+        },
+        {
+          value: 400,
+          axisLabelX: "September 15",
+          tooltip: { title: "September 15", description: "400 clicks" },
+        },
+        {
+          value: 800,
+          axisLabelX: "September 16",
+          tooltip: { title: "September 16", description: "800 clicks" },
+        },
+      ]}
+    />
+  </Box>
+</Playground>
+
+# With title/description labels
+
+<Playground>
+  <Box width="50%">
+    <DonutChart
+      margin={50}
+      points={[
+        {
+          value: 423,
+          axisLabelX: { title: "September 10", description: "10%" },
+          tooltip: { title: "September 10", description: "423 clicks" },
+        },
+        {
+          value: 567,
+          axisLabelX: { title: "September 11", description: "20%" },
+          tooltip: (
+            <Serif size="3" p={0.5}>
+              yay!
+            </Serif>
+          ),
+        },
+        {
+          value: 300,
+          axisLabelX: { title: "September 12", description: "15%" },
           tooltip: { title: "September 12", description: "300 clicks" },
         },
         {
