@@ -1,8 +1,13 @@
 import { mount } from "enzyme"
+import { Settings } from "luxon"
 import React from "react"
 import { StaticCountdownTimer } from "../StaticCountdownTimer"
 
 describe("StaticCountdownTimer", () => {
+  beforeEach(() => {
+    Settings.defaultZoneName = "America/New_York"
+  })
+
   it("renders time in the future with a day in the future and a countdown clock", () => {
     const wrapper = mount(
       <StaticCountdownTimer
