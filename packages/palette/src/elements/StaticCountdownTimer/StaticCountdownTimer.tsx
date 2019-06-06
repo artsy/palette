@@ -24,7 +24,8 @@ export const StaticCountdownTimer: React.SFC<{
   const dateTime = DateTime.fromISO(countdownEnd).toLocal()
   const minutes = dateTime.minute < 10 ? "0" + dateTime.minute : dateTime.minute
   const amPm = dateTime.hour >= 12 ? "pm" : "am"
-  const time = `${dateTime.hour % 12}:${minutes}${amPm}`
+  const hour = dateTime.hour > 12 ? dateTime.hour - 12 : dateTime.hour
+  const time = `${hour}:${minutes}${amPm}`
   const actionDeadline = `${dateTime.monthShort} ${dateTime.day}, ${time} ${
     dateTime.offsetNameShort
   }`
