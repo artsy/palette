@@ -1,3 +1,16 @@
+# v4.14.7 (Thu Jun 06 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Updates to Luxon logic [#502](https://github.com/artsy/palette/pull/502) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.6 (Thu Jun 06 2019)
 
 #### 🐛  Bug Fix
