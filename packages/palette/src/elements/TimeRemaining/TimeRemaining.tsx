@@ -1,6 +1,5 @@
-import moment from "moment"
+import { DateTime, Duration } from "luxon"
 import React from "react"
-
 import { Sans } from "../"
 import { color } from "../../helpers"
 
@@ -12,20 +11,25 @@ export const TimeRemaining: React.SFC<{
   countdownEnd: string
   highlight: Parameters<typeof color>[0]
 }> = ({ currentTime, countdownEnd, highlight = "purple100" }) => {
-  const timeRemaining = moment.duration(
-    moment(countdownEnd).diff(moment(currentTime))
+  const timeRemaining = Duration.fromISO(
+    DateTime.fromISO(countdownEnd)
+      .diff(DateTime.fromISO(currentTime))
+      .toString()
   )
 
   return (
     <Sans size="3" color={highlight} weight="medium">
-      {Math.floor(timeRemaining.asSeconds()) <= 0 ? (
+      {Math.floor(timeRemaining.seconds) <= 0 ? (
         "0 days"
       ) : (
         <>
-          {timeRemaining.days() > 0 && pad(timeRemaining.days()) + "d "}
-          {timeRemaining.hours() > 0 && pad(timeRemaining.hours()) + "h "}
-          {timeRemaining.minutes() > 0 && pad(timeRemaining.minutes()) + "m "}
-          {pad(timeRemaining.seconds()) + "s"}
+          {timeRemaining.as("days") > 0 &&
+            pad(Math.floor(timeRemaining.as("days"))) + "d "}
+          {timeRemaining.as("hours") > 0 &&
+            pad(Math.floor(timeRemaining.as("hours") % 24)) + "h "}
+          {timeRemaining.as("minutes") > 0 &&
+            pad(Math.floor(timeRemaining.as("minutes") % 60)) + "m "}
+          {pad(Math.floor(timeRemaining.as("seconds") % 60)) + "s"}
         </>
       )}
       <span> left</span>

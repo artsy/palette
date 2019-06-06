@@ -1,6 +1,4 @@
-// FIXME: Consider switching from Moment.js to a lighter library like Luxon
-// https://moment.github.io/luxon
-import moment from "moment-timezone"
+import { DateTime } from "luxon"
 import React from "react"
 import {
   Flex,
@@ -23,13 +21,19 @@ export const StaticCountdownTimer: React.SFC<{
   countdownEnd: string
   currentTime: string
 }> = ({ action, note, countdownEnd, countdownStart, currentTime }) => {
-  const actionDeadline = moment(countdownEnd)
-    .tz(moment.tz.guess())
-    .format("MMM DD, h:mm A z")
+  const dateTime = DateTime.fromISO(countdownEnd).toLocal()
+  const minutes = dateTime.minute < 10 ? "0" + dateTime.minute : dateTime.minute
+  const amPm = dateTime.hour >= 12 ? "pm" : "am"
+  const time = `${dateTime.hour % 12}:${minutes}${amPm}`
+  const actionDeadline = `${dateTime.monthShort} ${dateTime.day}, ${time} ${
+    dateTime.offsetNameShort
+  }`
 
   const highlight =
-    moment(countdownEnd).diff(moment(currentTime), "seconds") <
-    FIVE_HOURS_IN_SECONDS
+    DateTime.fromISO(countdownEnd).diff(
+      DateTime.fromISO(currentTime),
+      "seconds"
+    ).seconds < FIVE_HOURS_IN_SECONDS
       ? "red100"
       : "purple100"
 
