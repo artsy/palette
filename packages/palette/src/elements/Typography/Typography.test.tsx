@@ -17,7 +17,7 @@ describe("Typography", () => {
     describe("concerning font-family", () => {
       it("uses regular by default", () => {
         const sans = renderer.create(<Sans size="3t">Hello world</Sans>).root
-        const text = sans.findByType(Text as React.ComponentClass<any>)
+        const text = sans.findByType(Text)
         expect(text.props.fontFamily).toEqual(
           themeProps.fontFamily.sans.regular
         )
@@ -29,7 +29,7 @@ describe("Typography", () => {
             Hello world
           </Sans>
         ).root
-        const text = sans.findByType(Text as React.ComponentClass<any>)
+        const text = sans.findByType(Text)
         expect(text.props.fontFamily).toEqual(themeProps.fontFamily.sans.medium)
       })
 
@@ -39,7 +39,7 @@ describe("Typography", () => {
             Hello world
           </Sans>
         ).root
-        const text = sans.findByType(Text as React.ComponentClass<any>)
+        const text = sans.findByType(Text)
         expect(text.props.fontFamily).toEqual(themeProps.fontFamily.sans.italic)
       })
 
@@ -49,7 +49,7 @@ describe("Typography", () => {
             Hello world
           </Sans>
         ).root
-        const text = sans.findByType(Text as React.ComponentClass<any>)
+        const text = sans.findByType(Text)
         expect(text.props.fontFamily).toEqual(themeProps.fontFamily.sans.italic)
       })
 
@@ -59,7 +59,7 @@ describe("Typography", () => {
             Hello world
           </Sans>
         ).root
-        const text = sans.findByType(Text as React.ComponentClass<any>)
+        const text = sans.findByType(Text)
         expect(text.props.fontFamily).toEqual(
           themeProps.fontFamily.sans.mediumItalic
         )
@@ -69,7 +69,7 @@ describe("Typography", () => {
     describe("concerning font-size & line-height", () => {
       it("supports a single size", () => {
         const sans = renderer.create(<Sans size="3">Hello world</Sans>).root
-        const text = sans.findByType(Text as React.ComponentClass<any>)
+        const text = sans.findByType(Text)
         expect(text.props.fontSize).toEqual(
           `${themeProps.typeSizes.sans["3"].fontSize}px`
         )
@@ -81,7 +81,7 @@ describe("Typography", () => {
       it("supports multiple responsive sizes", () => {
         const sans = renderer.create(<Sans size={["2", "4"]}>Hello world</Sans>)
           .root
-        const text = sans.findByType(Text as React.ComponentClass<any>)
+        const text = sans.findByType(Text)
         expect(text.props.fontSize).toEqual([
           `${themeProps.typeSizes.sans["2"].fontSize}px`,
           `${themeProps.typeSizes.sans["4"].fontSize}px`,
@@ -98,7 +98,7 @@ describe("Typography", () => {
     describe("concerning font-family", () => {
       it("uses regular by default", () => {
         const serif = renderer.create(<Serif size="3t">Hello world</Serif>).root
-        const text = serif.findByType(Text as React.ComponentClass<any>)
+        const text = serif.findByType(Text)
         expect(text.props.fontFamily).toEqual(
           themeProps.fontFamily.serif.regular
         )
@@ -110,7 +110,7 @@ describe("Typography", () => {
             Hello world
           </Serif>
         ).root
-        const text = serif.findByType(Text as React.ComponentClass<any>)
+        const text = serif.findByType(Text)
         expect(text.props.fontFamily).toEqual(
           themeProps.fontFamily.serif.semibold
         )
@@ -122,7 +122,7 @@ describe("Typography", () => {
             Hello world
           </Serif>
         ).root
-        const text = serif.findByType(Text as React.ComponentClass<any>)
+        const text = serif.findByType(Text)
         expect(text.props.fontFamily).toEqual(
           themeProps.fontFamily.serif.italic
         )
@@ -134,7 +134,7 @@ describe("Typography", () => {
             Hello world
           </Serif>
         ).root
-        const text = serif.findByType(Text as React.ComponentClass<any>)
+        const text = serif.findByType(Text)
         expect(text.props.fontFamily).toEqual(
           themeProps.fontFamily.serif.italic
         )
@@ -173,7 +173,7 @@ describe("Typography", () => {
     describe("concerning font-size & line-height", () => {
       it("supports a single size", () => {
         const serif = renderer.create(<Serif size="3">Hello world</Serif>).root
-        const text = serif.findByType(Text as React.ComponentClass<any>)
+        const text = serif.findByType(Text)
         expect(text.props.fontSize).toEqual(
           `${themeProps.typeSizes.serif["3"].fontSize}px`
         )
@@ -186,7 +186,7 @@ describe("Typography", () => {
         const serif = renderer.create(
           <Serif size={["2", "4"]}>Hello world</Serif>
         ).root
-        const text = serif.findByType(Text as React.ComponentClass<any>)
+        const text = serif.findByType(Text)
         expect(text.props.fontSize).toEqual([
           `${themeProps.typeSizes.serif["2"].fontSize}px`,
           `${themeProps.typeSizes.serif["4"].fontSize}px`,
@@ -204,7 +204,7 @@ describe("Typography", () => {
           const display = renderer.create(
             <Display size="3t">Hello world</Display>
           ).root
-          const text = display.findByType(Text as React.ComponentClass<any>)
+          const text = display.findByType(Text)
           expect(text.props.fontFamily).toEqual(
             themeProps.fontFamily.display.regular
           )

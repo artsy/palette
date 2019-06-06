@@ -111,7 +111,7 @@ const ReadMoreLinkText = styled.span`
   line-height: 16px;
 `
 
-const Container = styled.div.attrs<ReadMoreState>({})`
+const Container = styled.div<ReadMoreState>`
   cursor: ${p => (p.isExpanded ? "auto" : "pointer")};
 
   > span > * {

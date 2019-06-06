@@ -154,7 +154,7 @@ const activeButton = css`
   border: 0;
 `
 
-const Button = styled.button.attrs<{ active?: boolean }>({})`
+const Button = styled.button<{ active?: boolean }>`
   cursor: pointer;
   width: min-content;
   height: 25px;

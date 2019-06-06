@@ -11,7 +11,7 @@ import {
 } from "../../Theme"
 
 // @ts-ignore
-import { StyledComponentClass } from "styled-components"
+import { StyledComponent, StyledComponentClass } from "styled-components"
 
 import {
   color,
@@ -92,6 +92,7 @@ export interface TextProps
    */
   ellipsizeMode?: string
   element?: keyof JSX.IntrinsicElements | React.ComponentType<any>
+  children: React.ReactNode | React.ReactNode[]
 }
 
 /** Base Text component for typography */
@@ -172,32 +173,30 @@ function createStyledText<P extends StyledTextProps>(
   fontType: keyof FontFamily,
   selectFontFamilyType: typeof _selectFontFamilyType = _selectFontFamilyType
 ) {
-  return styledWrapper<P>(
-    ({ size, weight, italic, element, ...textProps }: StyledTextProps) => {
-      const fontFamilyType = selectFontFamilyType(_fontWeight(weight), italic)
-      // This is mostly to narrow the type of `fontFamilyType` to remove `null`.
-      if (fontFamilyType === null) {
-        throw new Error("Did not expect `fontType` to be `null`.")
-      }
-      return (
-        <Text
-          fontFamily={
-            fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
-          }
-          {...determineFontSizes(fontType, size)}
-          // styled-components supports calling the prop `as`, but there are
-          //  issues when passing it into this component named `as`. See
-          //  https://github.com/styled-components/styled-components/issues/2448
-          //  & https://github.com/artsy/palette/pull/327#issuecomment-473434537
-          //  for context.
-          // So we are naming it `element` on the way into this component, and
-          //  renaming it to `as` when we pass it to through.
-          {...(element ? { as: element } : {})}
-          {...textProps}
-        />
-      )
+  return styledWrapper(({ size, weight, italic, element, ...textProps }: P) => {
+    const fontFamilyType = selectFontFamilyType(_fontWeight(weight), italic)
+    // This is mostly to narrow the type of `fontFamilyType` to remove `null`.
+    if (fontFamilyType === null) {
+      throw new Error("Did not expect `fontType` to be `null`.")
     }
-  )``
+    return (
+      <Text
+        fontFamily={
+          fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
+        }
+        {...determineFontSizes(fontType, size)}
+        // styled-components supports calling the prop `as`, but there are
+        //  issues when passing it into this component named `as`. See
+        //  https://github.com/styled-components/styled-components/issues/2448
+        //  & https://github.com/artsy/palette/pull/327#issuecomment-473434537
+        //  for context.
+        // So we are naming it `element` on the way into this component, and
+        //  renaming it to `as` when we pass it to through.
+        {...(element ? { as: element } : {})}
+        {...textProps}
+      />
+    )
+  })``
 }
 
 /**

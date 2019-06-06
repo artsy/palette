@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@types/lodash": "4.14.123",
-    "@types/react": "16.8.7",
+    "@types/react": "16.8.19",
     "@types/styled-components": "4.0.2",
     "gatsby-plugin-typescript": "2.0.13",
     "husky": "2.1.0",

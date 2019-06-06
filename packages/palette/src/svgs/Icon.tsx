@@ -15,11 +15,8 @@ import {
 } from "styled-system"
 import { Color } from "../Theme"
 
-// : React.SVGProps<SVGSVGElement>
-
-// tslint:disable-next-line:no-empty-interface
 export interface IconProps
-  extends React.SVGProps<any>,
+  extends Pick<React.SVGProps<any>, Exclude<keyof React.SVGProps<any>, "ref">>,
     SpaceProps,
     PositionProps,
     TopProps,

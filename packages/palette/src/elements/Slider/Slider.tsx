@@ -1,7 +1,6 @@
 import { Range } from "rc-slider"
 import React from "react"
 import styled from "styled-components"
-import { StyledComponentClass } from "styled-components"
 import {
   BorderProps,
   borders,
@@ -9,6 +8,9 @@ import {
   SpaceProps,
 } from "styled-system"
 import { color, space } from "../../helpers"
+
+// @ts-ignore
+import { StyledComponent } from "styled-components"
 
 export interface SliderProps extends BorderProps, SpaceProps {
   /**
@@ -57,7 +59,7 @@ const Inner: React.SFC<SliderProps> = props => (
 /**
  * A slider component that allows to define a range of values. nin and max
  */
-export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
+export const Slider = styled(Inner)`
   ${borders};
   ${styledSpace};
   box-sizing: border-box;

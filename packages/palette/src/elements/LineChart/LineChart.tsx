@@ -147,7 +147,8 @@ const BarAxisLabelContainer = styled.div<AxisContainerProps>`
   min-height: ${space(2)}px;
   position: relative;
   ${media.xs`
-    display: ${({ first, last }) => (first || last ? "auto" : "none")};;
+    display: ${({ first, last }: AxisContainerProps) =>
+      first || last ? "auto" : "none"};;
   `};
 `
 
