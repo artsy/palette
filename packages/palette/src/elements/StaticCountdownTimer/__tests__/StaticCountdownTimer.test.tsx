@@ -4,8 +4,14 @@ import React from "react"
 import { StaticCountdownTimer } from "../StaticCountdownTimer"
 
 describe("StaticCountdownTimer", () => {
+  const defaultZone = Settings.defaultZoneName
+
   beforeEach(() => {
     Settings.defaultZoneName = "America/New_York"
+  })
+
+  afterEach(() => {
+    Settings.defaultZoneName = defaultZone
   })
 
   it("renders time in the future with a day in the future and a countdown clock", () => {
