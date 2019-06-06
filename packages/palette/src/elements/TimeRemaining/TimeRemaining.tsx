@@ -23,11 +23,11 @@ export const TimeRemaining: React.SFC<{
         "0 days"
       ) : (
         <>
-          {timeRemaining.as("days") > 0 &&
+          {Math.floor(timeRemaining.as("days")) > 0 &&
             pad(Math.floor(timeRemaining.as("days"))) + "d "}
-          {timeRemaining.as("hours") > 0 &&
+          {Math.floor(timeRemaining.as("hours")) > 0 &&
             pad(Math.floor(timeRemaining.as("hours") % 24)) + "h "}
-          {timeRemaining.as("minutes") > 0 &&
+          {Math.floor(timeRemaining.as("minutes")) > 0 &&
             pad(Math.floor(timeRemaining.as("minutes") % 60)) + "m "}
           {pad(Math.floor(timeRemaining.as("seconds") % 60)) + "s"}
         </>
