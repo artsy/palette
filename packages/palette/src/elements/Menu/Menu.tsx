@@ -11,15 +11,21 @@ import { Spacer } from "../Spacer"
 import { Sans } from "../Typography"
 
 interface MenuProps {
-  title?: string
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
+  title?: string
+  width?: number
 }
 
 /** Menu */
-export const Menu: React.FC<MenuProps> = ({ title, children, ...props }) => {
+export const Menu: React.FC<MenuProps> = ({
+  children,
+  title,
+  width = 230,
+  ...props
+}) => {
   return (
-    <MenuContainer width={230} m="2px" {...props}>
+    <MenuContainer width={width} m="2px" {...props}>
       <BorderBox p={0} pb={1} background="white">
         <Flex flexDirection="column" width="100%">
           {title && (
