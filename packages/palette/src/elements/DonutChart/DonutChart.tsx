@@ -16,7 +16,7 @@ import { Sans } from "../Typography"
 
 const colors: Color[] = ["black10", "black30", "black60"]
 
-interface DonutChartProps extends ChartProps {
+export interface DonutChartProps extends ChartProps {
   margin?: number
 }
 
@@ -37,89 +37,110 @@ export const DonutChart: React.FC<DonutChartProps> = ({
 
   const width = useGetWrapperWidth(wrapperRef)
 
-  const donutWidth = space(4)
-  const donutLabelMargin = space(2) / Math.sqrt(2)
+  // width of the arc is %12 of chart width
+  const donutWidth = width * 0.12
+
+  // margin between chart and labels step down to 10px when chart is smaller than 230px
+  const donutLabelMargin = width > 230 ? space(2) : space(1) / Math.sqrt(2)
+
+  // 2px in radians
+  const padAngel = Math.atan(2 / width)
 
   const centerX = width / 2 + margin
   const centerY = width / 2 + margin
 
-  const values = points.map(d => d.value).sort()
+  const values = points.map(d => d.value)
   const angelInterpolator = interpolate(0, 2 * Math.PI)
 
   const arc = d3_arc()
     .innerRadius(width / 2 - margin - donutWidth)
     .outerRadius(width / 2 - margin)
-    .padAngle(Math.PI / 360)
+    .padAngle(padAngel)
 
   // virtual donut to use its arc centroids to calculate label position
   const labelArc = d3_arc()
     .innerRadius(width / 2 - margin + donutLabelMargin)
     .outerRadius(width / 2 - margin + donutLabelMargin)
-    .padAngle(Math.PI / 360)
 
-  const pie = d3_pie()
+  const pie = d3_pie().value((d: any) => d.value)
+
+  const tooltip = points.map((point, index) => {
+    const hover = hoverIndex === index
+    return hover ? (
+      <ChartHoverTooltip key={`${index}-hover`}>
+        {coerceTooltip(point.tooltip)}
+      </ChartHoverTooltip>
+    ) : null
+  })
+
+  const labels = pie(points as any).map((slice, index) => {
+    const [x, y] = labelArc.centroid(slice as any)
+    const axisLabelX = points[index].axisLabelX
+    return (
+      axisLabelX && (
+        <DonutLabelContainer
+          key={index}
+          opacity={rest ? 1 : 0}
+          x={x + centerX}
+          y={y + centerY}
+          center={centerX}
+        >
+          <Sans color="black60" size="2">
+            {coerceTooltip(axisLabelX)}
+          </Sans>
+        </DonutLabelContainer>
+      )
+    )
+  })
+
+  const svg = (
+    <svg key={"svg"} width={width + margin} height={width + margin}>
+      <g transform={`translate(${centerX}, ${centerY})`}>
+        <Spring
+          from={{ num: 0 }}
+          to={hasEnteredViewport ? { num: 1 } : { num: 0 }}
+          delay={500}
+          onRest={() => setRest(true)}
+        >
+          {({ num }) => {
+            const angle = angelInterpolator(num)
+            pie.endAngle(angle)
+            const slices = pie(points as any).map((datum: any, index) => {
+              // d3 by default sorts slices by values. for color assignment we
+              // need sorted index but for hover we need original order in points
+              // to match with correct tooltip
+              const sortedIndex = datum.index
+              let arcColor: string = color(colors[sortedIndex % colors.length])
+              // avoid the first and last arc ending up the same color
+              if (
+                sortedIndex === values.length - 1 &&
+                sortedIndex % colors.length === 0
+              ) {
+                arcColor = color(colors[1])
+              }
+              return (
+                <path
+                  key={index}
+                  fill={arcColor}
+                  d={arc(datum)}
+                  onMouseEnter={() => setHoverIndex(index)}
+                  onMouseLeave={() => setHoverIndex(-1)}
+                />
+              )
+            })
+            return <g>{slices}</g>
+          }}
+        </Spring>
+      </g>
+    </svg>
+  )
+
   return (
     <ProvideMousePosition>
       <Box ref={wrapperRef as any} position="relative">
-        {points.map((point, index) => {
-          const hover = hoverIndex === index
-          return hover ? (
-            <ChartHoverTooltip key={`${index}-hover`}>
-              {coerceTooltip(point.tooltip)}
-            </ChartHoverTooltip>
-          ) : null
-        })}
-        {pie(values).map((slice, index) => {
-          const [x, y] = labelArc.centroid(slice as any)
-          const axisLabelX = points[index].axisLabelX
-          return (
-            <>
-              {axisLabelX ? (
-                <DonutLabelContainer
-                  key={index}
-                  opacity={rest ? 1 : 0}
-                  x={x + centerX}
-                  y={y + centerY}
-                  center={centerX}
-                >
-                  <Sans color="black60" size="2">
-                    {coerceTooltip(axisLabelX)}
-                  </Sans>
-                </DonutLabelContainer>
-              ) : null}
-            </>
-          )
-        })}
-        <svg width={width + margin} height={width + margin}>
-          <g transform={`translate(${centerX}, ${centerY})`}>
-            <Spring
-              from={{ num: 0 }}
-              to={hasEnteredViewport ? { num: 1 } : { num: 0 }}
-              delay={500}
-              onRest={() => setRest(true)}
-            >
-              {({ num }) => {
-                const angle = angelInterpolator(num)
-                pie.endAngle(angle)
-                const slices = pie(values).map((datum: any, index) => {
-                  const arcColor: string = color(colors[index % 3])
-                  return (
-                    <>
-                      <path
-                        key={index}
-                        fill={arcColor}
-                        d={arc(datum)}
-                        onMouseEnter={() => setHoverIndex(index)}
-                        onMouseLeave={() => setHoverIndex(-1)}
-                      />
-                    </>
-                  )
-                })
-                return <g>{slices}</g>
-              }}
-            </Spring>
-          </g>
-        </svg>
+        {tooltip}
+        {labels}
+        {svg}
       </Box>
     </ProvideMousePosition>
   )
