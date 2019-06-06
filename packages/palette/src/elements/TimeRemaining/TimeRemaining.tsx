@@ -16,6 +16,10 @@ export const TimeRemaining: React.SFC<{
       .diff(DateTime.fromISO(currentTime))
       .toString()
   )
+  const days = Math.floor(timeRemaining.as("days"))
+  const hours = Math.floor(timeRemaining.as("hours") % 24)
+  const minutes = Math.floor(timeRemaining.as("minutes") % 60)
+  const seconds = Math.floor(timeRemaining.as("seconds") % 60)
 
   return (
     <Sans size="3" color={highlight} weight="medium">
@@ -23,13 +27,10 @@ export const TimeRemaining: React.SFC<{
         "0 days"
       ) : (
         <>
-          {Math.floor(timeRemaining.as("days")) > 0 &&
-            pad(Math.floor(timeRemaining.as("days"))) + "d "}
-          {Math.floor(timeRemaining.as("hours")) > 0 &&
-            pad(Math.floor(timeRemaining.as("hours") % 24)) + "h "}
-          {Math.floor(timeRemaining.as("minutes")) > 0 &&
-            pad(Math.floor(timeRemaining.as("minutes") % 60)) + "m "}
-          {pad(Math.floor(timeRemaining.as("seconds") % 60)) + "s"}
+          {days > 0 && pad(days) + "d "}
+          {hours > 0 && pad(hours) + "h "}
+          {minutes > 0 && pad(minutes) + "m "}
+          {pad(seconds) + "s"}
         </>
       )}
       <span> left</span>
