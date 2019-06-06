@@ -4,8 +4,14 @@ import React from "react"
 import { TimeRemaining } from "../TimeRemaining"
 
 describe("TimeRemaining", () => {
+  const defaultZone = Settings.defaultZoneName
+
   beforeEach(() => {
     Settings.defaultZoneName = "America/New_York"
+  })
+
+  afterEach(() => {
+    Settings.defaultZoneName = defaultZone
   })
 
   it("doesn't render hours if end hour is the same as current hour", () => {
