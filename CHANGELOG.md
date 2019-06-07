@@ -1,3 +1,16 @@
+# v4.14.9 (Fri Jun 07 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Date Components] Move luxon components to v2 [#504](https://github.com/artsy/palette/pull/504) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.14.8 (Fri Jun 07 2019)
 
 #### 🐛  Bug Fix
