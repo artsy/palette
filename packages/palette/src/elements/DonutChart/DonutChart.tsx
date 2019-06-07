@@ -94,7 +94,12 @@ export const DonutChart: React.FC<DonutChartProps> = ({
   })
 
   const zeroStateArc = pie([{ value: 1 }] as any).map(zeroState => (
-    <path key="zero-state" fill={color("black5")} d={arc(zeroState as any)} />
+    <path
+      key="zero-state"
+      stroke="none"
+      fill={color("black5")}
+      d={arc(zeroState as any)}
+    />
   ))
 
   const svg = (

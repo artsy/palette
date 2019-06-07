@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
  */
 export const useGetWrapperWidth = (ref: React.RefObject<HTMLElement>) => {
   const [width, setWidth] = useState(0)
+  const [widthCheckInterval, setWidthCheckInterval] = useState(null)
 
   useEffect(() => {
     const setContainerWidth = () => {
@@ -16,10 +17,13 @@ export const useGetWrapperWidth = (ref: React.RefObject<HTMLElement>) => {
 
     setContainerWidth()
 
+    setWidthCheckInterval(setInterval(setContainerWidth, 500))
+
     window.addEventListener("resize", setContainerWidth)
 
     return function cleanup() {
       window.removeEventListener("resize", setContainerWidth)
+      clearInterval(widthCheckInterval)
     }
   }, [])
 
