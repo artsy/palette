@@ -1,3 +1,16 @@
+# v4.14.10 (Fri Jun 07 2019)
+
+#### ⚠️  Pushed to master
+
+- `@artsy/palette`
+  - Update README.md  (damassi.pappas@gmail.com)
+
+#### Authors: 1
+
+- Christopher Pappas (damassi.pappas@gmail.com)
+
+---
+
 # v4.14.9 (Fri Jun 07 2019)
 
 #### 🐛  Bug Fix
