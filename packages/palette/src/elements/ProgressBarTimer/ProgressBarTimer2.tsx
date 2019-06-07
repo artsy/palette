@@ -1,8 +1,5 @@
-// FIXME: Consider switching from Moment.js to a lighter library like Luxon
-// https://moment.github.io/luxon
-import moment from "moment"
+import { DateTime } from "luxon"
 import React from "react"
-
 import { ProgressBar } from "../"
 import { color } from "../../helpers"
 
@@ -18,14 +15,14 @@ export const ProgressBarTimer: React.SFC<{
   countdownEnd,
   highlight = "purple100",
 }) => {
-  const secondsRemaining = moment(countdownEnd).diff(
-    moment(currentTime),
+  const secondsRemaining = DateTime.fromISO(countdownEnd).diff(
+    DateTime.fromISO(currentTime),
     "seconds"
-  )
-  const totalSeconds = moment(countdownEnd).diff(
-    moment(countdownStart),
+  ).seconds
+  const totalSeconds = DateTime.fromISO(countdownEnd).diff(
+    DateTime.fromISO(countdownStart),
     "seconds"
-  )
+  ).seconds
   const progress = Math.max(0, (secondsRemaining * 100) / totalSeconds)
 
   return <ProgressBar percentComplete={progress} highlight={highlight as any} />
