@@ -40,6 +40,22 @@ $ yarn workspace @artsy/palette watch:emission
 
 Since React Native doesn't support symlinks, this will copy changes directly to the Emission folder and hot-reload the app.
 
+## Linking and Unlinking with Reaction
+
+To _link_ your local palette with your local reaction, run:
+
+```
+$ yarn workspace @artsy/palette link && yarn workspace @artsy/palette watch
+(wait until you see a message that X files have been successfully compiled before moving on)
+
+$ cd ../reaction && yarn link @artsy/palette && yarn start
+
+To _unlink_ your local palette from your local reaction, run (in **Reaction**):
+
+$ yarn unlink @artsy/palette
+$ yarn add @artsy/palette
+$ yarn start
+
 ### ⚠️ Don't Forget About iOS!
 
 When adding a new component to Palette, it's important to be aware that this library is used on the web as well as in React Native, via Emission, and therefore must follow a few rules in terms of structure, namely:
