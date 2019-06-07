@@ -8,7 +8,6 @@ import { DonutChart, DonutChartProps } from "./DonutChart"
 
 jest.useFakeTimers()
 
-// TODO: add points and test
 const mockPoints = [
   { value: 0, axisLabelX: "x axis label" },
   { value: 100, axisLabelX: <div id="x-axis">lol</div> },
@@ -36,9 +35,9 @@ describe("DonutChart", () => {
     )
   }
 
-  it("shows the correct number of data points", () => {
+  it("renders one path for zero state and one for each data points", () => {
     const chart = getWrapper()
-    expect(chart.find("path")).toHaveLength(mockPoints.length)
+    expect(chart.find("path")).toHaveLength(mockPoints.length + 1)
   })
 
   it("renders x axis labels labels", () => {
