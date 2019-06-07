@@ -93,9 +93,14 @@ export const DonutChart: React.FC<DonutChartProps> = ({
     )
   })
 
+  const zeroStateArc = pie([{ value: 1 }] as any).map(zeroState => (
+    <path fill={color("black5")} d={arc(zeroState as any)} />
+  ))
+
   const svg = (
     <svg key={"svg"} width={width + margin} height={width + margin}>
       <g transform={`translate(${centerX}, ${centerY})`}>
+        {zeroStateArc}
         <Spring
           from={{ num: 0 }}
           to={hasEnteredViewport ? { num: 1 } : { num: 0 }}
