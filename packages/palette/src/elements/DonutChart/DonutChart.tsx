@@ -29,7 +29,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
   margin = space(3),
 }: DonutChartProps) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
-  const [rest, setRest] = useState(false)
+  const [labelFadeIn, setLabelFadeIn] = useState(false)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -41,7 +41,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
   const donutWidth = width * 0.12
 
   // margin between chart and labels step down to 10px when chart is smaller than 230px
-  const donutLabelMargin = width > 230 ? space(2) : space(1) / Math.sqrt(2)
+  const donutLabelMargin = width > 230 ? space(2) : space(1)
 
   // 2px in radians
   const padAngel = Math.atan(2 / width)
@@ -80,7 +80,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
       axisLabelX && (
         <DonutLabelContainer
           key={index}
-          opacity={rest ? 1 : 0}
+          opacity={labelFadeIn ? 1 : 0}
           x={x + centerX}
           y={y + centerY}
           center={centerX}
@@ -100,9 +100,11 @@ export const DonutChart: React.FC<DonutChartProps> = ({
           from={{ num: 0 }}
           to={hasEnteredViewport ? { num: 1 } : { num: 0 }}
           delay={500}
-          onRest={() => setRest(true)}
         >
           {({ num }) => {
+            if (!labelFadeIn && num > 0.7) {
+              setLabelFadeIn(true)
+            }
             const angle = angelInterpolator(num)
             pie.endAngle(angle)
             const slices = pie(points as any).map((datum: any, index) => {

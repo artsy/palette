@@ -10,7 +10,6 @@ import { Point } from "./Point"
 
 jest.useFakeTimers()
 
-// TODO: add points and test
 const mockPoints = [
   { value: 0, axisLabelX: "x axis label" },
   { value: 100, axisLabelX: <div id="x-axis">lol</div> },

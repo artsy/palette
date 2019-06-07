@@ -17,9 +17,11 @@ export const useGetWrapperWidth = (ref: React.RefObject<HTMLElement>) => {
     setContainerWidth()
 
     window.addEventListener("resize", setContainerWidth)
+    ref.current.addEventListener("resize", setContainerWidth)
 
     return function cleanup() {
       window.removeEventListener("resize", setContainerWidth)
+      ref.current.removeEventListener("resize", setContainerWidth)
     }
   }, [])
 
