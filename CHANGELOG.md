@@ -1,3 +1,16 @@
+# v4.14.8 (Fri Jun 07 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Menu] Make width adjustable [#503](https://github.com/artsy/palette/pull/503) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.14.7 (Thu Jun 06 2019)
 
 #### 🐛  Bug Fix
