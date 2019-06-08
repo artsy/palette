@@ -10,8 +10,8 @@ import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
 import { coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
-import { useGetWrapperWidth } from "../DataVis/utils/useGetWrapperWidth"
 import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
+import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
 import { Sans } from "../Typography"
 
 const colors: Color[] = ["black10", "black30", "black60"]
@@ -27,7 +27,7 @@ export interface DonutChartProps extends ChartProps {
 export const DonutChart: React.FC<DonutChartProps> = ({
   points,
   margin = space(3),
-}: DonutChartProps) => {
+}) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
   const [labelFadeIn, setLabelFadeIn] = useState(false)
 
@@ -35,7 +35,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
 
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
 
-  const width = useGetWrapperWidth(wrapperRef)
+  const width = useWrapperWidth(wrapperRef)
 
   // width of the arc is %12 of chart width
   const donutWidth = width * 0.12

@@ -5,8 +5,8 @@ import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
 import { coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
-import { useGetWrapperWidth } from "../DataVis/utils/useGetWrapperWidth"
 import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
+import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { LineChartSVG } from "./LineChartSVG"
@@ -32,7 +32,7 @@ export const LineChart: React.FC<LineChartProps> = ({
 
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
 
-  const width = useGetWrapperWidth(wrapperRef)
+  const width = useWrapperWidth(wrapperRef)
 
   return (
     <ProvideMousePosition>

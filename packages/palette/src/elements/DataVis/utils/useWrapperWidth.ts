@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
  * Returns width of container element
  * @param ref reference to wrapper component
  */
-export const useGetWrapperWidth = (ref: React.RefObject<HTMLElement>) => {
+export const useWrapperWidth = (ref: React.RefObject<HTMLElement>) => {
   const [width, setWidth] = useState(0)
 
   const widthCheckInterval = useRef(null)
