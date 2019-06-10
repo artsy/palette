@@ -1,6 +1,6 @@
 import { DateTime, Duration } from "luxon"
 import React from "react"
-import { Sans } from ".."
+import { Sans } from "../"
 import { color } from "../../helpers"
 
 const pad = (n: number) => n.toString().padStart(2, "0")

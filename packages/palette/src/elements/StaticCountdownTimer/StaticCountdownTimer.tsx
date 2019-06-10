@@ -7,7 +7,7 @@ import {
   Spacer,
   StackableBorderBox,
   TimeRemaining,
-} from ".."
+} from "../"
 
 import { TimerIcon } from "../../svgs"
 
