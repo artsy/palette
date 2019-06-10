@@ -44,7 +44,7 @@ export const ChartTooltip = ({
   ...others
 }: ChartTooltipProps) => (
   <ChartTooltipWrapper {...others}>
-    <Sans weight="medium" size="2">
+    <Sans color={"black100"} weight="medium" size="2">
       {title}
     </Sans>
     <Sans color={"black60"} size="2">

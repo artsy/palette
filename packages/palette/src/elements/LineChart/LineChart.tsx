@@ -1,27 +1,22 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import { media, space } from "../../helpers"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
-import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
+import { coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
+import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
+import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { LineChartSVG } from "./LineChartSVG"
 
-export interface PointDescriptor {
-  value: number
-  axisLabelX?: React.ReactNode
-  tooltip?: React.ReactNode | ChartTooltipProps
-}
-
-export interface LineChartProps {
-  points: PointDescriptor[]
-  height?: number
-}
-
 const margin = space(2)
 const DEFAULT_HEIGHT = 87
+
+interface LineChartProps extends ChartProps {
+  height?: number
+}
 
 /**
  * LineChart is a component that displays some data points connected by lines.
@@ -31,28 +26,13 @@ export const LineChart: React.FC<LineChartProps> = ({
   points,
   height = DEFAULT_HEIGHT,
 }: LineChartProps) => {
-  const [width, setWidth] = useState(0)
   const [hoverIndex, setHoverIndex] = useState(-1)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
 
-  const setContainerWidth = () => {
-    if (wrapperRef.current) {
-      setWidth(wrapperRef.current.getBoundingClientRect().width - 5)
-    }
-  }
-
-  useEffect(() => {
-    setContainerWidth()
-
-    window.addEventListener("resize", setContainerWidth)
-
-    return function cleanup() {
-      window.removeEventListener("resize", setContainerWidth)
-    }
-  }, [])
-
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
+
+  const width = useWrapperWidth(wrapperRef)
 
   return (
     <ProvideMousePosition>

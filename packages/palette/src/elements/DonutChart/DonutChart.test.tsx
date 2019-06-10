@@ -2,11 +2,9 @@ import { mount } from "enzyme"
 import "jest-styled-components"
 import React from "react"
 import { Theme } from "../../Theme"
-import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
-import { LineChart, PointHoverArea } from "./LineChart"
-import { Point } from "./Point"
+import { DonutChart, DonutChartProps } from "./DonutChart"
 
 jest.useFakeTimers()
 
@@ -28,18 +26,18 @@ const mockPoints = [
   },
 ]
 
-describe("LineChart", () => {
-  const getWrapper = (props: Partial<ChartProps> = {}) => {
+describe("DonutChart", () => {
+  const getWrapper = (props: Partial<DonutChartProps> = {}) => {
     return mount(
       <Theme>
-        <LineChart points={mockPoints} {...props} />
+        <DonutChart points={mockPoints} {...props} />
       </Theme>
     )
   }
 
-  it("shows the correct number of data points", () => {
+  it("renders one path for zero state and one for each data points", () => {
     const chart = getWrapper()
-    expect(chart.find(Point)).toHaveLength(mockPoints.length)
+    expect(chart.find("path")).toHaveLength(mockPoints.length + 1)
   })
 
   it("renders x axis labels labels", () => {
@@ -51,11 +49,9 @@ describe("LineChart", () => {
 
   it("shows hover labels when you hover over the bar", () => {
     const chart = getWrapper()
-    const hoverArea = chart
-      .find(PointHoverArea)
-      .last()
-      .find("div")
-      .first()
+    const hoverArea = chart.find("path").last()
+    // .find("div")
+    // .first()
     hoverArea.simulate("mouseenter")
     expect(chart.text()).toContain("423 views")
     hoverArea.simulate("mouseleave")
