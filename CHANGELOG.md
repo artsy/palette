@@ -1,3 +1,16 @@
+# v4.14.12 (Mon Jun 10 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Donut chart [#495](https://github.com/artsy/palette/pull/495) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v4.14.11 (Fri Jun 07 2019)
 
 
