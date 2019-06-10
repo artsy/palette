@@ -1,10 +1,8 @@
 import React, { SFC } from "react"
 import { TouchableWithoutFeedback } from "react-native"
-import styled from "styled-components/native"
 import { Avatar } from "../Avatar"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
-import { Link } from "../Link"
 import { SpacerProps } from "../Spacer"
 import { Sans, Serif } from "../Typography"
 
@@ -30,56 +28,59 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   FollowButton,
   ...remainderProps
 }) => {
-  const ContainerComponent = href ? FlexLink : Flex
-  // new () => React.Component < any, any >
-  // StyledComponentClass < React.ClassAttributes < HTMLAnchorElement >
   const containerProps = href
     ? { color: "black100", noUnderline: true, href }
     : {}
-
   return (
-    <ContainerComponent {...remainderProps} {...containerProps}>
-      {(imageUrl || initials) && (
-        <Flex mr={1}>
-          <Avatar size="xs" src={imageUrl} initials={initials} />
-        </Flex>
-      )}
+    <Flex
+      justifyContent="space-between"
+      flexDirection="row"
+      {...remainderProps}
+      {...containerProps}
+    >
+      <Flex justifyContent="space-between" flexDirection="row">
+        {(imageUrl || initials) && (
+          <Flex mr={1}>
+            <Avatar
+              size="xs"
+              width={45}
+              height={45}
+              src={imageUrl}
+              initials={initials}
+            />
+          </Flex>
+        )}
 
-      <Flex flexDirection="column" justifyContent="center" width="100%">
-        <Serif size="3" weight="semibold" color="black100">
-          {name}
-        </Serif>
-
-        <Sans size="2" color="black60">
-          {!!meta && <span>{meta}</span>}
-
-          {FollowButton && (
-            <>
-              {meta && (
-                <Sans size="2" color="black60" mx={0.3} display="inline-block">
-                  •
-                </Sans>
-              )}
-              <TouchableWithoutFeedback
-                display="inline-block"
-                onPress={event => {
-                  // Capture click event so that interacting with Follow doesn't
-                  // trigger Container's link.
-                  event.stopPropagation()
-                }}
-              >
-                {FollowButton}
-              </TouchableWithoutFeedback>
-            </>
+        <Flex ml="10" flexDirection="column">
+          <Serif mb="-2" size="3t" color="black100">
+            {name}
+          </Serif>
+          {!!meta && (
+            <Sans mt="-2" size="3t" color="black60">
+              {meta}
+            </Sans>
           )}
-        </Sans>
+        </Flex>
       </Flex>
-    </ContainerComponent>
+
+      <Flex>
+        {FollowButton && (
+          <Box width={102} height={34}>
+            <TouchableWithoutFeedback
+              display="inline-block"
+              onPress={event => {
+                // Capture click event so that interacting with Follow doesn't
+                // trigger Container's link.
+                event.stopPropagation()
+              }}
+            >
+              {FollowButton}
+            </TouchableWithoutFeedback>
+          </Box>
+        )}
+      </Flex>
+    </Flex>
   )
 }
-
-const FlexLink = styled(Link)`
-  display: flex;
-`
 
 EntityHeader.displayName = "EntityHeader"
