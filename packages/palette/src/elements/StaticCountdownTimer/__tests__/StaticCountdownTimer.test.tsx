@@ -1,7 +1,7 @@
 import { mount } from "enzyme"
 import { Settings } from "luxon"
 import React from "react"
-import { StaticCountdownTimer } from "../StaticCountdownTimer2"
+import { StaticCountdownTimer } from "../StaticCountdownTimer"
 
 describe("StaticCountdownTimer", () => {
   const defaultZone = Settings.defaultZoneName
