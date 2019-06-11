@@ -1,5 +1,4 @@
 import React, { SFC } from "react"
-import { TouchableWithoutFeedback } from "react-native"
 import { Avatar } from "../Avatar"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
@@ -50,32 +49,30 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
             />
           </Flex>
         )}
+        {!!meta && (
+          <Flex ml="10" flexDirection="column">
+            <Serif mb="-2" size="3t" color="black100">
+              {name}
+            </Serif>
 
-        <Flex ml="10" flexDirection="column">
-          <Serif mb="-2" size="3t" color="black100">
-            {name}
-          </Serif>
-          {!!meta && (
             <Sans mt="-2" size="3t" color="black60">
               {meta}
             </Sans>
-          )}
-        </Flex>
+          </Flex>
+        )}
+        {!meta && (
+          <Flex ml="10" flexDirection="column" justifyContent="center">
+            <Serif size="3t" color="black100">
+              {name}
+            </Serif>
+          </Flex>
+        )}
       </Flex>
 
       <Flex>
         {FollowButton && (
           <Box width={102} height={34}>
-            <TouchableWithoutFeedback
-              display="inline-block"
-              onPress={event => {
-                // Capture click event so that interacting with Follow doesn't
-                // trigger Container's link.
-                event.stopPropagation()
-              }}
-            >
-              {FollowButton}
-            </TouchableWithoutFeedback>
+            {FollowButton}
           </Box>
         )}
       </Flex>
