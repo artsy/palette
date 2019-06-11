@@ -38,6 +38,7 @@ const Tip = styled(BorderBox)<TipProps>`
     p.tipPosition.center ? "translate(-50%)" : "none"};
   transition: opacity 250ms ease-out;
   width: ${(p: TipProps) => p.width}px;
+  pointer-events: none;
 
   &:hover {
     cursor: default;
