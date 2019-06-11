@@ -39,7 +39,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
     >
       <Flex justifyContent="space-between" flexDirection="row">
         {(imageUrl || initials) && (
-          <Flex mr={1}>
+          <Flex mr={1} justifyContent="center">
             <Avatar
               size="xs"
               width={45}
@@ -49,27 +49,19 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
             />
           </Flex>
         )}
-        {!!meta && (
-          <Flex ml="10" flexDirection="column">
-            <Serif mb="-2" size="3t" color="black100">
-              {name}
-            </Serif>
-
+        <Flex ml="10" flexDirection="column" justifyContent="center">
+          <Serif mb="-2" size="3t" color="black100">
+            {name}
+          </Serif>
+          {!!meta && (
             <Sans mt="-2" size="3t" color="black60">
               {meta}
             </Sans>
-          </Flex>
-        )}
-        {!meta && (
-          <Flex ml="10" flexDirection="column" justifyContent="center">
-            <Serif size="3t" color="black100">
-              {name}
-            </Serif>
-          </Flex>
-        )}
+          )}
+        </Flex>
       </Flex>
 
-      <Flex>
+      <Flex justifyContent="center">
         {FollowButton && (
           <Box width={102} height={34}>
             {FollowButton}
