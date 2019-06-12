@@ -1,6 +1,5 @@
 import React, { SFC } from "react"
 import { Avatar } from "../Avatar"
-import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { SpacerProps } from "../Spacer"
 import { Sans, Serif } from "../Typography"
