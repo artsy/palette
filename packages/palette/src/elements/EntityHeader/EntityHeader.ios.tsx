@@ -27,15 +27,11 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   FollowButton,
   ...remainderProps
 }) => {
-  const containerProps = href
-    ? { color: "black100", noUnderline: true, href }
-    : {}
   return (
     <Flex
       justifyContent="space-between"
       flexDirection="row"
       {...remainderProps}
-      {...containerProps}
     >
       <Flex justifyContent="space-between" flexDirection="row">
         {(imageUrl || initials) && (
@@ -49,7 +45,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
             />
           </Flex>
         )}
-        <Flex ml="10" flexDirection="column" justifyContent="center">
+        <Flex ml="2px" flexDirection="column" justifyContent="center">
           <Serif mb="-2" size="3t" color="black100">
             {name}
           </Serif>
@@ -61,13 +57,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
         </Flex>
       </Flex>
 
-      <Flex justifyContent="center">
-        {FollowButton && (
-          <Box width={102} height={34}>
-            {FollowButton}
-          </Box>
-        )}
-      </Flex>
+      <Flex justifyContent="center">{FollowButton && <>{FollowButton}</>}</Flex>
     </Flex>
   )
 }
