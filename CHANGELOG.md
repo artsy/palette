@@ -1,3 +1,27 @@
+# v4.14.14 (Thu Jun 13 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Lib] Upgrade react-spring@8.0.23 [#511](https://github.com/artsy/palette/pull/511) ([@damassi](https://github.com/damassi))
+- `@artsy/palette`
+  - Add pointer-event: none to tooltip content [#510](https://github.com/artsy/palette/pull/510) ([@sepans](https://github.com/sepans))
+- `@artsy/palette`
+  - Allow any 1.x version of luxon [#508](https://github.com/artsy/palette/pull/508) ([@kierangillen](https://github.com/kierangillen))
+
+#### 🏠  Internal
+
+- Pin dependencies [#507](https://github.com/artsy/palette/pull/507) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 4
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.14.13 (Mon Jun 10 2019)
 
 
