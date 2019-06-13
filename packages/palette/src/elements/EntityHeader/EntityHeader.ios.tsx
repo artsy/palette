@@ -27,36 +27,34 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   ...remainderProps
 }) => {
   return (
-    <Flex
-      justifyContent="space-between"
-      flexDirection="row"
-      {...remainderProps}
-    >
-      <Flex justifyContent="space-between" flexDirection="row">
-        {(imageUrl || initials) && (
-          <Flex mr={1} justifyContent="center">
-            <Avatar
-              size="xs"
-              width={45}
-              height={45}
-              src={imageUrl}
-              initials={initials}
-            />
-          </Flex>
-        )}
-        <Flex ml="2px" flexDirection="column" justifyContent="center">
-          <Serif mb="-2" size="3t" color="black100">
-            {name}
-          </Serif>
-          {!!meta && (
-            <Sans mt="-2" size="3t" color="black60">
-              {meta}
-            </Sans>
-          )}
+    <Flex flexDirection="row" {...remainderProps}>
+      {(imageUrl || initials) && (
+        <Flex mr={1} justifyContent="center">
+          <Avatar
+            size="xs"
+            width={45}
+            height={45}
+            src={imageUrl}
+            initials={initials}
+          />
         </Flex>
+      )}
+      <Flex flexGrow={1} ml="2px" justifyContent="center">
+        <Serif mb="-2" size="3t" color="black100">
+          {name}
+        </Serif>
+        {!!meta && (
+          <Sans mt="-2" size="3t" color="black60">
+            {meta}
+          </Sans>
+        )}
       </Flex>
 
-      <Flex justifyContent="center">{FollowButton && <>{FollowButton}</>}</Flex>
+      {FollowButton && (
+        <Flex ml={1} justifyContent="center">
+          {FollowButton}
+        </Flex>
+      )}
     </Flex>
   )
 }
