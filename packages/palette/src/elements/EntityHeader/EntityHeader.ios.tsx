@@ -30,13 +30,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
     <Flex flexDirection="row" {...remainderProps}>
       {(imageUrl || initials) && (
         <Flex mr={1} justifyContent="center">
-          <Avatar
-            size="xs"
-            width={45}
-            height={45}
-            src={imageUrl}
-            initials={initials}
-          />
+          <Avatar size="xs" src={imageUrl} initials={initials} />
         </Flex>
       )}
       <Flex flexGrow={1} ml="2px" justifyContent="center">
