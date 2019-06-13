@@ -253,12 +253,12 @@ const TabsPaddingContainer = styled(Flex)`
 `
 
 const TabsScrollContainer = styled(Flex)`
+  overflow-y: hidden;
+  overflow-x: scroll;
+  margin-bottom: 0;
   ${media.xs`
-    overflow-y: hidden;
-    overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
   `};
-  margin-bottom: 0;
 `
 
 const TabContainer = styled.div`
