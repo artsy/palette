@@ -7,7 +7,10 @@ import "storybook-chromatic"
 // automatically import all files ending in *.story.tsx.
 const req = require.context("../src", true, /\.story\.tsx$/)
 function loadStories() {
-  req.keys().forEach(filename => req(filename))
+  req
+    .keys()
+    .sort()
+    .forEach(filename => req(filename))
 }
 
 addParameters({

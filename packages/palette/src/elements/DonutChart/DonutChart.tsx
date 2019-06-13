@@ -1,7 +1,7 @@
 import { interpolate } from "d3-interpolate"
 import { arc as d3_arc, pie as d3_pie } from "d3-shape"
 import React, { useRef, useState } from "react"
-import { Spring } from "react-spring"
+import { Spring } from "react-spring/renderprops.cjs"
 import styled from "styled-components"
 import { color, space } from "../../helpers"
 import { Color } from "../../Theme"
@@ -102,13 +102,17 @@ export const DonutChart: React.FC<DonutChartProps> = ({
     />
   ))
 
+  const animateProps = e => ({
+    num: e ? 0 : 1,
+  })
+
   const svg = (
     <svg key={"svg"} width={width + margin} height={width + margin}>
       <g transform={`translate(${centerX}, ${centerY})`}>
         {zeroStateArc}
         <Spring
-          from={{ num: 0 }}
-          to={hasEnteredViewport ? { num: 1 } : { num: 0 }}
+          from={animateProps(hasEnteredViewport)}
+          to={animateProps(!hasEnteredViewport)}
           delay={500}
         >
           {({ num }) => {
@@ -147,12 +151,18 @@ export const DonutChart: React.FC<DonutChartProps> = ({
     </svg>
   )
 
+  const ChartSVG = () => (
+    <>
+      {tooltip}
+      {labels}
+      {svg}
+    </>
+  )
+
   return (
     <ProvideMousePosition>
       <Box ref={wrapperRef as any} position="relative">
-        {tooltip}
-        {labels}
-        {svg}
+        <ChartSVG />
       </Box>
     </ProvideMousePosition>
   )
