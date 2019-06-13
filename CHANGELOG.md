@@ -1,3 +1,17 @@
+# v4.14.15 (Thu Jun 13 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - PURCHASE-1060/PURCHASE-1059: iOs Entity Header palette component [#509](https://github.com/artsy/palette/pull/509) ([@lilyfromseattle](https://github.com/lilyfromseattle) [@ds300](https://github.com/ds300))
+
+#### Authors: 2
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.14.14 (Thu Jun 13 2019)
 
 #### 🐛  Bug Fix
