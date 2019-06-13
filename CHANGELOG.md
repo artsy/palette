@@ -1,3 +1,22 @@
+# v4.14.16 (Thu Jun 13 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Moves luxon to dependency [#512](https://github.com/artsy/palette/pull/512) ([@kierangillen](https://github.com/kierangillen))
+
+#### 📝  Documentation
+
+- Create Home “naming” [#474](https://github.com/artsy/palette/pull/474) ([@nicoleyeo](https://github.com/nicoleyeo))
+- Update Home “process” [#479](https://github.com/artsy/palette/pull/479) ([@nicoleyeo](https://github.com/nicoleyeo))
+
+#### Authors: 2
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+- [@nicoleyeo](https://github.com/nicoleyeo)
+
+---
+
 # v4.14.15 (Thu Jun 13 2019)
 
 #### 🐛  Bug Fix
