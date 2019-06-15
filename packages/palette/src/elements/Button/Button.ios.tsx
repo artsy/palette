@@ -67,8 +67,11 @@ export class Button extends Component<ButtonProps, ButtonState> {
       }
     }
 
+    const { purple100 } = themeProps.colors
+
     return {
-      ...getColorsForVariant(this.props.variant).hover,
+      backgroundColor: purple100,
+      borderColor: purple100,
       color: "transparent",
     }
   }
