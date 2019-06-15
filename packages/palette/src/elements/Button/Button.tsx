@@ -1,48 +1,23 @@
-import React, { Component, ReactNode } from "react"
+import React, { Component } from "react"
 import styled, { css } from "styled-components"
 import { themeProps } from "../../Theme"
 import { Spinner } from "../Spinner"
 import { Sans, SansProps } from "../Typography"
 
 import {
-  BorderProps,
   borderRadius,
-  BorderRadiusProps,
   borders,
   height,
-  HeightProps,
   space,
-  SpaceProps,
   textAlign,
-  TextAlignProps,
   width,
-  WidthProps,
 } from "styled-system"
-
-/**
- * Spec: zpl.io/2j8Knq6
- */
-
-/** The size of the button */
-export type ButtonSize = "small" | "medium" | "large"
-const defaultSize: ButtonSize = "medium"
-
-/** Different theme variations */
-export type ButtonVariant =
-  | "primaryBlack"
-  | "primaryWhite"
-  | "secondaryGray"
-  | "secondaryOutline"
-  | "noOutline"
-const defaultVariant: ButtonVariant = "primaryBlack"
-
-export interface ButtonProps extends ButtonBaseProps {
-  children: ReactNode
-  /** The size of the button */
-  size?: ButtonSize
-  /** The theme of the button */
-  variant?: ButtonVariant
-}
+import {
+  ButtonBaseProps,
+  ButtonProps,
+  defaultSize,
+  defaultVariant,
+} from "./Button.shared"
 
 /** A button with various size and color settings */
 export class Button extends Component<ButtonProps> {
@@ -169,26 +144,6 @@ export class Button extends Component<ButtonProps> {
 
     return <ButtonBase {...buttonProps}>{this.props.children}</ButtonBase>
   }
-}
-
-/** Base props that construct button */
-export interface ButtonBaseProps
-  extends BorderProps,
-    BorderRadiusProps,
-    SpaceProps,
-    TextAlignProps,
-    WidthProps,
-    HeightProps {
-  /** Size of the button */
-  buttonSize?: ButtonSize
-  /** Displays a loader in the button */
-  loading?: boolean
-  /** Disabled interactions */
-  disabled?: boolean
-  /** Callback on click */
-  onClick?: (e) => void
-  /** Additional styles to apply to the variant */
-  variantStyles?: any // FIXME
 }
 
 /** A base from which various button implementations can compose from */
