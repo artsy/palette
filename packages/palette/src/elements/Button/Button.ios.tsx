@@ -76,6 +76,16 @@ export class Button extends Component<ButtonProps, ButtonState> {
     }
   }
 
+  get spinnerColor() {
+    const { inline, variant } = this.props
+
+    if (inline) {
+      return variant === "primaryWhite" ? "white100" : "black100"
+    }
+
+    return "white100"
+  }
+
   onPress = args => {
     if (this.props.onPress) {
       // Did someone tap really fast? Flick the highlighted state
@@ -150,10 +160,7 @@ export class Button extends Component<ButtonProps, ButtonState> {
                 </Sans>
 
                 {loading && (
-                  <Spinner
-                    size={this.props.size}
-                    color={inline ? "black100" : "white100"}
-                  />
+                  <Spinner size={this.props.size} color={this.spinnerColor} />
                 )}
               </AnimatedContainer>
             </Flex>
