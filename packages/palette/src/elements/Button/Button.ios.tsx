@@ -14,9 +14,6 @@ import {
   getColorsForVariant,
 } from "./Button.shared"
 
-/**
- * Spec: zpl.io/2j8Knq6
- */
 enum DisplayState {
   Enabled = "default",
   Highlighted = "hover",
