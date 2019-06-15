@@ -1,3 +1,28 @@
+# v4.14.17 (Sat Jun 15 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fix import path [#516](https://github.com/artsy/palette/pull/516) ([@damassi](https://github.com/damassi))
+- `@artsy/palette`
+  - Button & Spinner Component for React Native [#515](https://github.com/artsy/palette/pull/515) ([@l2succes](https://github.com/l2succes))
+
+#### 📝  Documentation
+
+- Adds repos consuming palette to readme [#513](https://github.com/artsy/palette/pull/513) ([@kierangillen](https://github.com/kierangillen))
+- Update Inputs “Input” [#468](https://github.com/artsy/palette/pull/468) ([@owendodd](https://github.com/owendodd))
+- Update Inputs “Select” [#469](https://github.com/artsy/palette/pull/469) ([@owendodd](https://github.com/owendodd) [@zephraph](https://github.com/zephraph))
+
+#### Authors: 5
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Luc Succes ([@l2succes](https://github.com/l2succes))
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+- [@owendodd](https://github.com/owendodd)
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.14.16 (Thu Jun 13 2019)
 
 #### 🐛  Bug Fix
