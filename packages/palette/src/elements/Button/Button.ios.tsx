@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { TouchableWithoutFeedback } from "react-native"
-import { animated, Spring } from "react-spring/dist/native"
+import { animated, Spring } from "react-spring/renderprops-native.cjs"
 import styled from "styled-components/native"
 import { themeProps } from "../../Theme"
 import { Box } from "../Box"
