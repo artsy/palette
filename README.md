@@ -95,3 +95,11 @@ Major, minor, and patch will cause a new release to be generated. Use major for 
 and patch for bug fixes. Trivial will not cause a release and should be used when updating documentation or non-project code.
 
 If you don't want to release on a particular PR but the changes aren't trivial then use the `Skip Release` tag along side the appropriate version tag.
+
+## Repos consuming Palette
+
+- [Force](https://github.com/artsy/force)
+- [Reaction](https://github.com/artsy/reaction)
+- [Volt](https://github.com/artsy/volt)
+- [Prediction](https://github.com/artsy/prediction)
+- [Positron](https://github.com/artsy/positron)
