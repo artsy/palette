@@ -1,3 +1,16 @@
+# v4.14.18 (Mon Jun 17 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds LineChart props type export [#517](https://github.com/artsy/palette/pull/517) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v4.14.17 (Sat Jun 15 2019)
 
 #### 🐛  Bug Fix
