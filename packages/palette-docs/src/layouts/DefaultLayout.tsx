@@ -1,4 +1,6 @@
-import { Box, color, Flex, Sans, Serif } from "@artsy/palette"
+import { Box, color, Flex, Sans, Serif, Tab, Tabs } from "@artsy/palette"
+import { MDXProvider } from "@mdx-js/tag"
+import { MobilePreview } from "components/MobilePreview"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
@@ -14,11 +16,34 @@ export default function DocsLayout(props) {
     data: {
       mdx: {
         code,
-        frontmatter: { name, status, type, lastPointOfContact },
+        frontmatter: { name, status, type, lastPointOfContact, platforms },
       },
     },
     location: { pathname },
   } = props
+
+  const hasMultiplePlatforms = platforms && platforms.length > 1
+
+  // components={{
+  //   Button: require("@artsy/palette/dist/elements/Button/Button.ios"),
+  // }}
+
+  const content = hasMultiplePlatforms ? (
+    <Tabs>
+      <Tab name="Web">
+        <MDXRenderer>{code.body}</MDXRenderer>
+      </Tab>
+      <Tab name="Mobile">
+        <MDXProvider>
+          <MobilePreview>
+            <MDXRenderer>{code.body}</MDXRenderer>
+          </MobilePreview>
+        </MDXProvider>
+      </Tab>
+    </Tabs>
+  ) : (
+    <MDXRenderer>{code.body}</MDXRenderer>
+  )
 
   const Contents = () => {
     return (
@@ -40,7 +65,7 @@ export default function DocsLayout(props) {
               </Serif>
             </Box>
           )}
-          <MDXRenderer>{code.body}</MDXRenderer>
+          {content}
           {lastPointOfContact && (
             <Box mt={3}>
               <Sans color="black60" size="2">
@@ -97,6 +122,7 @@ export const pageQuery = graphql`
         status
         type
         lastPointOfContact
+        platforms
       }
       code {
         body
