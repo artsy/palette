@@ -110,6 +110,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       alias: {
         "styled-components": require.resolve("styled-components"),
         react: require.resolve("react"),
+        "react-native$": require.resolve("react-native-web"),
       },
     },
   })

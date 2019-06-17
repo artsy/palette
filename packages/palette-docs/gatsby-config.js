@@ -35,10 +35,12 @@ module.exports = {
           import * as Elements from "@artsy/palette"
           import { ColorComponent } from "components/ColorComponent"
           import { CodeEditor, Playground  } from "components/Playground"
+          import { MobilePreview } from "components/MobilePreview"
           import { Toggle as Toggler } from 'react-powerplug'
           export default {
             CodeEditor,
             ColorComponent,
+            MobilePreview,
             Playground,
             Toggler,
             ...Elements
