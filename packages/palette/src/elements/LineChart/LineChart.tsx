@@ -14,7 +14,7 @@ import { LineChartSVG } from "./LineChartSVG"
 const margin = space(2)
 const DEFAULT_HEIGHT = 87
 
-interface LineChartProps extends ChartProps {
+export interface LineChartProps extends ChartProps {
   height?: number
 }
 
