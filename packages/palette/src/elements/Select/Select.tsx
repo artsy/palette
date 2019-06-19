@@ -3,16 +3,12 @@ import styled, { css } from "styled-components"
 import { color, space } from "../../helpers"
 import { Sans } from "../Typography"
 
-import {
-  PositionProps,
-  space as styledSpace,
-  SpaceProps,
-  themeGet,
-} from "styled-system"
+import { themeGet } from "@styled-system/theme-get"
+import { PositionProps, space as styledSpace, SpaceProps } from "styled-system"
 
 interface Option {
   value: string
-  text: string
+  text?: string
 }
 export interface SelectProps extends PositionProps, SpaceProps {
   options: Option[]
