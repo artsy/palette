@@ -9,15 +9,15 @@ import {
 } from "styled-system"
 import { color } from "../../helpers/color"
 import { Box, BoxProps } from "../Box"
-import { omitProps, Tag } from "../Tag"
+// import { omitProps, Tag } from "../Tag"
 import { WebImageProps } from "./Image"
 import { BaseImage as Image } from "./Image.shared"
 
-const imagePropsToOmit = omitProps.filter(
-  prop => prop !== "width" && prop !== "height"
-)
+// const imagePropsToOmit = omitProps.filter(
+//   prop => prop !== "width" && prop !== "height"
+// )
 
-const InnerLazyImage = styled(Tag.as(LazyLoadImage))<
+const InnerLazyImage = styled(LazyLoadImage)<
   WebImageProps & { onLoad: () => void }
 >`
   width: 100%;
@@ -91,7 +91,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       {...containerProps}
     >
       <InnerLazyImage
-        omitFromProps={imagePropsToOmit}
+        // omitFromProps={imagePropsToOmit}
         src={src}
         title={title}
         alt={alt}

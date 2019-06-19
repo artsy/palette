@@ -122,7 +122,7 @@
     "react-powerplug": "^1.0.0",
     "react-spring": "^8.0.23",
     "styled-bootstrap-grid": "1.0.4",
-    "styled-system": "^3.1.11",
+    "styled-system": "^4.2.4",
     "trunc-html": "^1.1.2"
   },
   "husky": {
@@ -169,7 +169,7 @@
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
-      "<rootDir>/dist/",
+      "<rootDir>/*/dist/",
       "<rootDir>/www/"
     ]
   }
