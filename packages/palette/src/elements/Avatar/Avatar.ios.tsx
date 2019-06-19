@@ -20,7 +20,7 @@ export const Avatar: FunctionComponent<AvatarProps> = ({ ...props }) => {
           style={{
             width: diameter,
             height: diameter,
-            borderRadies: diameter / 2,
+            borderRadius: diameter / 2,
           }}
           source={{
             uri: props.src,
