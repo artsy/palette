@@ -71,11 +71,15 @@ export const BaseAvatar = ({
 
     return (
       <InitialsHolder
-        width={diameter}
-        height={diameter}
         justifyContent={justifyContent}
         alignItems="center"
         size={size}
+        // FIXME: Not sure why this specific styled-component doesn't like
+        // `width` and `height`.
+        style={{
+          width: diameter,
+          height: diameter
+        }}
       >
         <Serif
           size={typeSize}
