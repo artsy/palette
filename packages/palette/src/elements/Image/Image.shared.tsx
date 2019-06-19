@@ -1,8 +1,6 @@
-// @ts-ignore
-import React from "react"
-import styled from "styled-components"
-import { Image } from "../../platform/primitives"
+import styled, { css } from "styled-components"
 // import { Tag } from "../Tag"
+import { Image } from "../../platform/primitives"
 
 import {
   borderRadius,
@@ -11,8 +9,6 @@ import {
   HeightProps,
   maxWidth,
   MaxWidthProps,
-  ratio,
-  RatioProps,
   space,
   SpaceProps,
   width,
@@ -48,8 +44,9 @@ export interface ResponsiveImageProps
   extends BaseImageProps,
     SpaceProps,
     WidthProps,
-    RatioProps,
-    MaxWidthProps {}
+    MaxWidthProps {
+      ratio?: number
+    }
 
 /**
  * An Image component that responsively resizes within its environment
@@ -59,12 +56,20 @@ export const BaseResponsiveImage = styled.div<ResponsiveImageProps>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  ${ratio};
   ${space};
   ${width};
   ${maxWidth};
+
+  ${props => {
+    if (props.ratio) {
+      return css`
+        height: 0;
+        padding-bottom: ${props.ratio * 100 + '%'};
+      `
+    }
+  }}
 `
 BaseResponsiveImage.defaultProps = {
   width: "100%",
-  ratio: 1,
+  ratio: 1
 }
