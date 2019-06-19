@@ -1,3 +1,16 @@
+# v4.14.20 (Wed Jun 19 2019)
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Fixes typo [#520](https://github.com/artsy/palette/pull/520) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.19 (Wed Jun 19 2019)
 
 #### 🐛  Bug Fix
