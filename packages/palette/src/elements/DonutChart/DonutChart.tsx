@@ -110,11 +110,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
     <svg key={"svg"} width={width + margin} height={width + margin}>
       <g transform={`translate(${centerX}, ${centerY})`}>
         {zeroStateArc}
-        <Spring
-          from={animateProps(hasEnteredViewport)}
-          to={animateProps(!hasEnteredViewport)}
-          delay={500}
-        >
+        <Spring from={{ num: -0.1 }} to={animateProps(!hasEnteredViewport)}>
           {({ num }) => {
             if (!labelFadeIn && num > 0.7) {
               setLabelFadeIn(true)
@@ -151,18 +147,14 @@ export const DonutChart: React.FC<DonutChartProps> = ({
     </svg>
   )
 
-  const ChartSVG = () => (
-    <>
-      {tooltip}
-      {labels}
-      {svg}
-    </>
-  )
-
   return (
     <ProvideMousePosition>
       <Box ref={wrapperRef as any} position="relative">
-        <ChartSVG />
+        <>
+          {tooltip}
+          {labels}
+          {svg}
+        </>
       </Box>
     </ProvideMousePosition>
   )
