@@ -170,7 +170,7 @@
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
-      "<rootDir>/*/dist/",
+      "<rootDir>/dist/",
       "<rootDir>/www/"
     ]
   }
