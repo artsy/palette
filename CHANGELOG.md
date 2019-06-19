@@ -1,3 +1,16 @@
+# v4.14.19 (Wed Jun 19 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fix donut chart animation bug [#519](https://github.com/artsy/palette/pull/519) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v4.14.18 (Mon Jun 17 2019)
 
 #### 🐛  Bug Fix
