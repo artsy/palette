@@ -175,7 +175,7 @@ const Container = styled(Box)<ButtonProps>`
   justify-content: center;
   border-width: 1;
   border-radius: 3;
-  width: auto;
+  width: ${p => (p.block ? "100%" : "auto")};
 `
 
 const AnimatedContainer = animated(Container)

@@ -43,6 +43,7 @@ export interface ButtonBaseProps extends BoxProps {
   /** Uses inline style for button */
   inline?: boolean
   /** Callback on click */
+  block?: boolean
   onClick?: (e) => void
   /** Additional styles to apply to the variant */
   variantStyles?: any // FIXME
