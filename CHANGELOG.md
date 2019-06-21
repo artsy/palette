@@ -1,3 +1,17 @@
+# v4.14.21 (Fri Jun 21 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Add prop to make button full width [#523](https://github.com/artsy/palette/pull/523) ([@lilyfromseattle](https://github.com/lilyfromseattle) 34651588+peril-staging[bot]@users.noreply.github.com)
+
+#### Authors: 2
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- 34651588+peril-staging[bot]@users.noreply.github.com
+
+---
+
 # v4.14.20 (Wed Jun 19 2019)
 
 #### 🏠  Internal
