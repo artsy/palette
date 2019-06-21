@@ -42,8 +42,9 @@ export interface ButtonBaseProps extends BoxProps {
   disabled?: boolean
   /** Uses inline style for button */
   inline?: boolean
-  /** Callback on click */
+  /** Makes button full width */
   block?: boolean
+  /** Callback on click */
   onClick?: (e) => void
   /** Additional styles to apply to the variant */
   variantStyles?: any // FIXME
