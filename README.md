@@ -96,6 +96,10 @@ and patch for bug fixes. Trivial will not cause a release and should be used whe
 
 If you don't want to release on a particular PR but the changes aren't trivial then use the `Skip Release` tag along side the appropriate version tag.
 
+## Zeplin Plugin
+
+Artsy uses [Zeplin](https://app.zeplin.io/) and we have developed [a plugin](https://github.com/artsy/palette-zeplin-extension) that you can install to get Palette component JSX copied directly from Zeplin mocks.
+
 ## Repos consuming Palette
 
 - [Force](https://github.com/artsy/force)
