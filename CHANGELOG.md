@@ -1,3 +1,15 @@
+# v4.14.22 (Mon Jun 24 2019)
+
+#### 🐛  Bug Fix
+
+- Adds note about Zeppelin plugin [#524](https://github.com/artsy/palette/pull/524) ([@ashfurrow](https://github.com/ashfurrow))
+
+#### Authors: 1
+
+- Ash Furrow ([@ashfurrow](https://github.com/ashfurrow))
+
+---
+
 # v4.14.21 (Fri Jun 21 2019)
 
 #### 🐛  Bug Fix
