@@ -1,6 +1,6 @@
-import { Box, color, Flex, Sans, Serif, Tab, Tabs } from "@artsy/palette"
-import { MDXProvider } from "@mdx-js/tag"
+import * as Elements from "@artsy/palette"
 import { MobilePreview } from "components/MobilePreview"
+import { MobileRenderer } from "components/MobileRenderer"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
@@ -10,6 +10,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import { Provider as StateProvider } from "unstated"
+
+const { Box, color, Flex, Sans, Serif, Tab, Tabs } = Elements
 
 export default function DocsLayout(props) {
   const {
@@ -24,21 +26,15 @@ export default function DocsLayout(props) {
 
   const hasMultiplePlatforms = platforms && platforms.length > 1
 
-  // components={{
-  //   Button: require("@artsy/palette/dist/elements/Button/Button.ios"),
-  // }}
-
   const content = hasMultiplePlatforms ? (
     <Tabs>
       <Tab name="Web">
         <MDXRenderer>{code.body}</MDXRenderer>
       </Tab>
       <Tab name="Mobile">
-        <MDXProvider>
-          <MobilePreview>
-            <MDXRenderer>{code.body}</MDXRenderer>
-          </MobilePreview>
-        </MDXProvider>
+        <MobilePreview>
+          <MobileRenderer>{code.body}</MobileRenderer>
+        </MobilePreview>
       </Tab>
     </Tabs>
   ) : (
