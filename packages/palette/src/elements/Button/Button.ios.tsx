@@ -3,9 +3,9 @@ import { TouchableWithoutFeedback } from "react-native"
 import { animated, Spring } from "react-spring/renderprops-native.cjs"
 import styled from "styled-components/native"
 import { themeProps } from "../../Theme"
-import { Box } from "../Box"
-import { Flex } from "../Flex"
-import { Spinner } from "../Spinner"
+import { Box } from "../Box/Box.ios"
+import { Flex } from "../Flex/Flex.ios"
+import { Spinner } from "../Spinner/Spinner.ios"
 import { Sans } from "../Typography"
 import {
   ButtonProps,
