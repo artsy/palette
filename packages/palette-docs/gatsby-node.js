@@ -108,9 +108,15 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
       alias: {
-        "styled-components": require.resolve("styled-components"),
+        "styled-components$": require.resolve("styled-components"),
+        "styled-components/native$": require.resolve(
+          "styled-components/native"
+        ),
         react: require.resolve("react"),
         "react-native$": require.resolve("react-native-web"),
+        "react-spring/renderprops-native.cjs$": require.resolve(
+          "react-spring/renderprops.cjs"
+        ),
       },
     },
   })
