@@ -11,9 +11,9 @@ export const fontFamily: FontFamily = {
     mediumItalic: "Unica77LL-MediumItalic",
   },
   serif: {
-    regular: "AGaramondPro-Regular",
-    italic: "AGaramondPro-Italic",
-    semibold: "AGaramondPro-Semibold",
+    regular: "ReactNativeAGaramondPro-Regular",
+    italic: "ReactNativeAGaramondPro-Italic",
+    semibold: "ReactNativeAGaramondPro-Semibold",
   },
   display: {
     regular: "AvantGardeGothicITC",
