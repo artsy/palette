@@ -30,7 +30,7 @@ export class Button extends Component<ButtonProps> {
   getSize(): { height: string; size: "2" | "3t"; px: number } {
     switch (this.props.size) {
       case "small":
-        return { height: "26px", size: "2", px: 1.5 }
+        return { height: "26px", size: "2", px: 2 }
       case "medium":
         return { height: "41px", size: "3t", px: 2 }
       case "large":
