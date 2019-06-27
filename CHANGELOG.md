@@ -1,3 +1,16 @@
+# v4.14.23 (Thu Jun 27 2019)
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Adds padding to small button [#526](https://github.com/artsy/palette/pull/526) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.22 (Mon Jun 24 2019)
 
 #### 🐛  Bug Fix
