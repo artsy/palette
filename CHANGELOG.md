@@ -1,3 +1,16 @@
+# v4.14.24 (Mon Jul 01 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds width to tabsPadding [#529](https://github.com/artsy/palette/pull/529) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.23 (Thu Jun 27 2019)
 
 #### 🏠  Internal
