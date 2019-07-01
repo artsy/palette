@@ -148,7 +148,6 @@ export class Tabs extends React.Component<TabsProps, TabsState> {
 
   render() {
     const { children = [], separator } = this.props
-
     return (
       <>
         <TabsContainer
@@ -247,6 +246,8 @@ const TabsOuterContainer = styled(Flex)`
 `
 
 const TabsPaddingContainer = styled(Flex)`
+  width: 100%;
+
   ${media.xs`
     padding: 0 ${space(2)}px;
   `};
