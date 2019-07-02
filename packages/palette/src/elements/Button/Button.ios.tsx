@@ -62,8 +62,6 @@ export class Button extends Component<ButtonProps, ButtonState> {
         backgroundColor: "rgba(0, 0, 0, 0)",
         color: "rgba(0, 0, 0, 0)",
         borderWidth: 0,
-        height: "auto",
-        padding: 0,
       }
     }
 
