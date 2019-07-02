@@ -38,14 +38,15 @@ export class Button extends Component<ButtonProps, ButtonState> {
     current: DisplayState.Enabled,
   }
 
-  getSize(): { height: number; size: "2" | "3t"; px: number } {
+  getSize(): { height: number | string; size: "2" | "3t"; px: number } {
+    const { inline } = this.props
     switch (this.props.size) {
       case "small":
-        return { height: 26, size: "2", px: 1 }
+        return { height: inline ? 17 : 26, size: "2", px: inline ? 0 : 1 }
       case "medium":
-        return { height: 41, size: "3t", px: 2 }
+        return { height: inline ? 21 : 41, size: "3t", px: inline ? 0 : 2 }
       case "large":
-        return { height: 50, size: "3t", px: 3 }
+        return { height: inline ? 21 : 50, size: "3t", px: inline ? 0 : 3 }
     }
   }
 
@@ -58,9 +59,11 @@ export class Button extends Component<ButtonProps, ButtonState> {
 
     if (inline) {
       return {
-        backgroundColor: "transparent",
-        color: "transparent",
+        backgroundColor: "rgba(0, 0, 0, 0)",
+        color: "rgba(0, 0, 0, 0)",
         borderWidth: 0,
+        height: "auto",
+        padding: 0,
       }
     }
 
@@ -69,7 +72,7 @@ export class Button extends Component<ButtonProps, ButtonState> {
     return {
       backgroundColor: black100,
       borderColor: black100,
-      color: "transparent",
+      color: "rgba(0, 0, 0, 0)",
     }
   }
 
