@@ -28,13 +28,26 @@ export class Button extends Component<ButtonProps> {
   }
 
   getSize(): { height: string; size: "2" | "3t"; px: number } {
+    const { inline } = this.props
     switch (this.props.size) {
       case "small":
-        return { height: "26px", size: "2", px: 2 }
+        return {
+          height: inline ? "17px" : "26px",
+          size: "2",
+          px: inline ? 0 : 1,
+        }
       case "medium":
-        return { height: "41px", size: "3t", px: 2 }
+        return {
+          height: inline ? "21px" : "41px",
+          size: "3t",
+          px: inline ? 0 : 2,
+        }
       case "large":
-        return { height: "50px", size: "3t", px: 3 }
+        return {
+          height: inline ? "21px" : "50px",
+          size: "3t",
+          px: inline ? 0 : 3,
+        }
     }
   }
 
