@@ -174,7 +174,9 @@ export const TabsContainer: React.SFC<
         {...props}
         ref={scrollRef as any}
       >
-        <TabsPaddingContainer>{props.children}</TabsPaddingContainer>
+        <TabsPaddingContainer justifyContent={props.justifyContent}>
+          {props.children}
+        </TabsPaddingContainer>
       </TabsScrollContainer>
     </TabsOuterContainer>
   )
@@ -244,9 +246,9 @@ const TabsOuterContainer = styled(Flex)`
     top: 1px;
   }
 `
-
-const TabsPaddingContainer = styled(Flex)`
-  width: 100%;
+// TODO: This justifyContent ternary should be removed after we move TabCarousel to Palette
+const TabsPaddingContainer = styled(Flex)<JustifyContentProps>`
+  width: ${props => (props.justifyContent ? "auto" : "100%")};
 
   ${media.xs`
     padding: 0 ${space(2)}px;
