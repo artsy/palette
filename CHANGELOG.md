@@ -1,3 +1,16 @@
+# v4.14.25 (Wed Jul 03 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fixes justify on Tabs [#532](https://github.com/artsy/palette/pull/532) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.24 (Mon Jul 01 2019)
 
 #### 🐛  Bug Fix
