@@ -44,7 +44,13 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
           {name}
         </Serif>
         {!!meta && (
-          <Sans mt="-2" size="3t" color="black60">
+          <Sans
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            mt="-2"
+            size="3t"
+            color="black60"
+          >
             {meta}
           </Sans>
         )}
