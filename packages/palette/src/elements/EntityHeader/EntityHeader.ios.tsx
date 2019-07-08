@@ -33,12 +33,24 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
           <Avatar size="xs" src={imageUrl} initials={initials} />
         </Flex>
       )}
-      <Flex flexGrow={1} ml="2px" justifyContent="center">
-        <Serif mb="-2" size="3t" color="black100">
+      <Flex width="150px" flexGrow={1} ml="2px" justifyContent="center">
+        <Serif
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          mb="-2"
+          size="3t"
+          color="black100"
+        >
           {name}
         </Serif>
         {!!meta && (
-          <Sans mt="-2" size="3t" color="black60">
+          <Sans
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            mt="-2"
+            size="3t"
+            color="black60"
+          >
             {meta}
           </Sans>
         )}
