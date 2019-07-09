@@ -1,3 +1,16 @@
+# v4.14.27 (Tue Jul 09 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds ArrowRightIcon.ios [#534](https://github.com/artsy/palette/pull/534) ([@sweir27](https://github.com/sweir27))
+
+#### Authors: 1
+
+- Sarah Weir ([@sweir27](https://github.com/sweir27))
+
+---
+
 # v4.14.26 (Mon Jul 08 2019)
 
 
