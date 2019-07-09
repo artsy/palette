@@ -2,7 +2,7 @@
   "private": true,
   "name": "artsy-palette-docs",
   "description": "Artsy's design system",
-  "version": "4.14.26",
+  "version": "4.14.27",
   "scripts": {
     "build": "gatsby build",
     "clean": "rm -rf .cache && yarn start",
@@ -68,7 +68,7 @@
     "webpack-shell-plugin": "0.5.0"
   },
   "dependencies": {
-    "@artsy/palette": "^4.14.26",
+    "@artsy/palette": "^4.14.27",
     "@babel/core": "^7.2.2",
     "@mdx-js/mdx": "^0.20.0",
     "@mdx-js/tag": "^0.20.0",
