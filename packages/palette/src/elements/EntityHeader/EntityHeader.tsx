@@ -52,7 +52,13 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
       )}
 
       <Flex flexDirection="column" justifyContent="center" width="100%">
-        <Serif size="3" weight="semibold" color="black100">
+        <Serif
+          numberOfLines={1}
+          ellipsizeMode="tail"
+          size="5"
+          weight="semibold"
+          color="black100"
+        >
           {name}
         </Serif>
 

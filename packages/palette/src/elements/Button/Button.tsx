@@ -166,6 +166,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
       disabled,
       color,
       size,
+      longestText,
       weight,
       onClick,
       ...rest
@@ -183,13 +184,33 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
       >
         {loading && <Spinner size={this.props.buttonSize} />}
 
-        <Sans pt="1px" weight={weight || "medium"} color={color} size={size}>
+        <VisibleText
+          pt="1px"
+          weight={weight || "medium"}
+          color={color}
+          size={size}
+        >
           {children}
-        </Sans>
+        </VisibleText>
+        <HiddenText pt="1px" weight={weight || "medium"} size={size}>
+          {longestText ? longestText : children}
+        </HiddenText>
       </Container>
     )
   }
 }
+
+const VisibleText = styled(Sans)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
+
+const HiddenText = styled(Sans)`
+  opacity: 0;
+  pointer-events: none;
+`
 
 const Container = styled.button<ButtonBaseProps>`
   cursor: pointer;
