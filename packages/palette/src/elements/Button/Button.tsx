@@ -192,7 +192,12 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
         >
           {children}
         </VisibleText>
-        <HiddenText pt="1px" weight={weight || "medium"} size={size}>
+        <HiddenText
+          role="presentation"
+          pt="1px"
+          weight={weight || "medium"}
+          size={size}
+        >
           {longestText ? longestText : children}
         </HiddenText>
       </Container>

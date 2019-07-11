@@ -164,7 +164,7 @@ export class Button extends Component<ButtonProps, ButtonState> {
                     {children}
                   </Sans>
                 </VisibleTextContainer>
-                <HiddenText weight="medium" size={size}>
+                <HiddenText role="presentation" weight="medium" size={size}>
                   {longestText ? longestText : children}
                 </HiddenText>
 

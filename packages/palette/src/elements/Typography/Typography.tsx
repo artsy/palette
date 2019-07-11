@@ -207,6 +207,8 @@ function createStyledText<P extends StyledTextProps>(
 export interface SansProps extends Partial<TextProps> {
   italic?: boolean
 
+  role?: string
+
   size: SansSize
 
   /**
