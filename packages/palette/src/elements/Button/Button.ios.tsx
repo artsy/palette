@@ -64,11 +64,11 @@ export class Button extends Component<ButtonProps, ButtonState> {
       }
     }
 
-    const { purple100 } = themeProps.colors
+    const { black100 } = themeProps.colors
 
     return {
-      backgroundColor: purple100,
-      borderColor: purple100,
+      backgroundColor: black100,
+      borderColor: black100,
       color: "transparent",
     }
   }
@@ -111,7 +111,14 @@ export class Button extends Component<ButtonProps, ButtonState> {
   }
 
   render() {
-    const { children, loading, disabled, inline, ...rest } = this.props
+    const {
+      children,
+      loading,
+      disabled,
+      inline,
+      longestText,
+      ...rest
+    } = this.props
     const { px, size, height } = this.getSize()
     const variantColors = getColorsForVariant(this.props.variant)
     const opacity = this.props.disabled ? 0.1 : 1.0
@@ -148,13 +155,18 @@ export class Button extends Component<ButtonProps, ButtonState> {
                 style={{ ...props, ...this.loadingStyles, height, opacity }}
                 px={px}
               >
-                <Sans
-                  weight="medium"
-                  size={size}
-                  color={this.loadingStyles.color || to.color}
-                >
-                  {children}
-                </Sans>
+                <VisibleTextContainer>
+                  <Sans
+                    weight="medium"
+                    color={this.loadingStyles.color || to.color}
+                    size={size}
+                  >
+                    {children}
+                  </Sans>
+                </VisibleTextContainer>
+                <HiddenText role="presentation" weight="medium" size={size}>
+                  {longestText ? longestText : children}
+                </HiddenText>
 
                 {loading && (
                   <Spinner size={this.props.size} color={this.spinnerColor} />
@@ -170,9 +182,24 @@ export class Button extends Component<ButtonProps, ButtonState> {
 
 /** Base props that construct button */
 
+const VisibleTextContainer = styled(Box)`
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+`
+
+const HiddenText = styled(Sans)`
+  opacity: 0;
+`
+
 const Container = styled(Box)<ButtonProps>`
   align-items: center;
   justify-content: center;
+  position: relative;
   border-width: 1;
   border-radius: 3;
   width: ${p => (p.block ? "100%" : "auto")};

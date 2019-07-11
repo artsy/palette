@@ -48,6 +48,8 @@ export interface ButtonBaseProps extends BoxProps {
   onClick?: (e) => void
   /** Additional styles to apply to the variant */
   variantStyles?: any // FIXME
+  /** Pass the longest text to the button for the button to keep longest text width */
+  longestText?: string
 }
 
 /**
