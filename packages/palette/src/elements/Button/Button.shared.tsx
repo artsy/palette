@@ -119,7 +119,7 @@ export function getColorsForVariant(variant: ButtonVariant) {
         default: {
           backgroundColor: "transparent",
           borderColor: "transparent",
-          color: black60,
+          color: black100,
         },
         hover: {
           backgroundColor: white100,
