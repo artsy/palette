@@ -1,3 +1,16 @@
+# v4.14.28 (Thu Jul 11 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds longestText prop to Button component [#536](https://github.com/artsy/palette/pull/536) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.27 (Tue Jul 09 2019)
 
 #### 🐛  Bug Fix
