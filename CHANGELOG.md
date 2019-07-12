@@ -1,3 +1,15 @@
+# v4.14.29 (Fri Jul 12 2019)
+
+#### 🐛  Bug Fix
+
+- Update to process docs [#531](https://github.com/artsy/palette/pull/531) ([@l2succes](https://github.com/l2succes))
+
+#### Authors: 1
+
+- Luc Succes ([@l2succes](https://github.com/l2succes))
+
+---
+
 # v4.14.28 (Thu Jul 11 2019)
 
 #### 🐛  Bug Fix
