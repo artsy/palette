@@ -8,35 +8,65 @@ status: wip
 **Token:** Should primarily be a value, functionally agnostic. <br/>
 **Element:** Composition of various tokens. Specific function, content agnostic.
 
-<br/> **Component:** Composition of various elements, may serve specific
-functionality that applies to a variety of content use cases.<br/> **Utility:**
-Specific function, is either not visible or exists temporarily.
+<br />
+
+**Component:** Composition of various elements, may serve specific functionality
+that applies to a variety of content use cases.<br/> **Utility:** Specific
+function, is either not visible or exists temporarily.
 
 ### Proposals
 
-1. Design identifies a need for a new shared component in a project within
-   sprint work.
-2. Designer creates a detailed spec for shared component, and surfaces the need
-   for component in sprint planning. If there are known instances of components
-   that the new component will make obsolete, designer will list this audit in
-   the component spec.
-3. When the component is included in a sprint, designer creates a GH Issue,
+1. Designer or engineer identifies a need for a new shared component in a
+   project within sprint work.
+2. The design team evaluates the request as a legitimate candidate to be added
+   to the design system.
+3. If valid, designer creates a detailed spec for shared component, and surfaces
+   the need for component in sprint planning. If there are known instances of
+   components that the new component will make obsolete, designer will list this
+   audit in the component spec. Designer should consider both web and mobile
+   platforms when specing out the new component.
+4. When the component is included in a sprint, designer creates a GH Issue,
    added to the Component Workflow project (link), announcing the new component.
    The issue includes a responsible engineer and designer.
-4. This issue is shared in #design-system.
+5. This issue is shared in #design-system.
 
 ### Build
 
 1. Engineer starts building the component in Palette (link to Readme docs),
-   publishes the component as "WIP"
+   publishes the component as "WIP" with a reference to the issue created by the
+   designer. To keep the project board updated, the pull request for the new
+   component should reference the issue created by the designer. (You can find
+   instructions on how to
+   [close issues via pull requests here](https://github.blog/2013-05-14-closing-issues-via-pull-requests/))
 2. Designer can start adding content to component, in WIP state.
-3. Eng and Design pair to bring component to full QA'ed completion.
+3. Engineering and Design pair to bring component to full QA'ed completion.
 4. When component is ready to merge, WIP label is removed, Issue is "closed".
 5. The new component is ready for use, and announced in #dev (?)
 
 The same process applies for updates to existing components as well — the
 emphasis on communication ensures visibility, trust and successful adoption of
 this system.
+
+### Project board
+
+We use a github [project board](https://github.com/artsy/palette/projects/1) to
+keep track of the process of shipping a new component. The following section
+describes each swimlane and its purpose in the process.
+
+Board columns
+
+1. **To do**: tickets for components being proposed by designers and engineers
+   alike which we review during the design system meeting
+2. **In Design**: new component design and spec is being worked on by the design
+   team
+3. **Design Done**: design for new component is completed and uploaded to Zeplin
+4. **In Progress**: an engineer has created a PR for the component implement and
+   linked the issue to said PR
+5. **Visual QA**: new component is ready to be visually QA'd before merging the
+   PR
+6. **Documentation**: a designer and/or engineer has added documentation for the
+   new component
+7. **Done**: Pr has been merged and new component is now available for use
 
 ### Sizes and naming
 
