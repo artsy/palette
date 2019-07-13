@@ -1,3 +1,16 @@
+# v4.14.30 (Sat Jul 13 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Add close icon ios version [#538](https://github.com/artsy/palette/pull/538) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.14.29 (Fri Jul 12 2019)
 
 #### 🐛  Bug Fix
