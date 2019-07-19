@@ -197,6 +197,10 @@ storiesOf("Components/BarChart", module)
               value: 4000,
               label: { title: "Feb 30", description: "423 clicks" },
               axisLabelX: "February 20 - June 20",
+              highlightLabel: {
+                title: "$30,000–$80,000",
+                description: "This artwork",
+              },
             },
             {
               value: 400,
@@ -216,8 +220,8 @@ storiesOf("Components/BarChart", module)
               axisLabelX: "Jul 30",
             },
           ]}
-          minLabel="$500"
-          maxLabel="$50,000+"
+          minLabel={null}
+          maxLabel={null}
         />
       </Box>
     )
