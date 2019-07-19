@@ -11,7 +11,6 @@ import { Bar } from "./Bar"
 
 const ChartContainer = styled(Flex)`
   border-bottom: 1px solid ${color("black10")};
-  flex: 1;
 `
 
 function useHighlightLabelPositionConstraints(
@@ -79,6 +78,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
   const [minHeight, setMinHeight] = useState(0)
   const maxValue: number = maxBy(bars, item => item.value).value
+  const allZero = bars.every(item => item.value === 0)
   return (
     <ProvideMousePosition>
       <Flex
@@ -103,7 +103,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
               return (
                 <Bar
                   key={index}
-                  heightPercent={heightPercent}
+                  heightPercent={allZero ? 0 : heightPercent}
                   label={coerceTooltip(label)}
                   axisLabelX={axisLabelX}
                   highlightLabelRef={highlightLabelRef}

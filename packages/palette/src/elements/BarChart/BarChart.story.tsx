@@ -226,3 +226,94 @@ storiesOf("Components/BarChart", module)
       </Box>
     )
   })
+
+  .add("Zero state with highlight and x axis label", () => {
+    return (
+      <Box width="50%">
+        <BarChart
+          bars={[
+            {
+              value: 0,
+              axisLabelX: "Sep 30",
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+              label: { title: "Dec 30", description: "0 clicks" },
+            },
+            {
+              value: 0,
+              label: { title: "Jan 30", description: "0 clicks" },
+            },
+            {
+              value: 0,
+              label: { title: "Feb 30", description: "0 clicks" },
+              axisLabelX: "February 20 - June 20",
+              highlightLabel: {
+                title: "0",
+                description: "No clicks",
+              },
+            },
+            {
+              value: 0,
+              label: { title: "Mar 30", description: "0 clicks" },
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+              axisLabelX: "Jul 30",
+            },
+          ]}
+          minLabel={null}
+          maxLabel={null}
+        />
+      </Box>
+    )
+  })
+
+  .add("Zero state no labels", () => {
+    return (
+      <Box width="50%">
+        <BarChart
+          bars={[
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+            {
+              value: 0,
+            },
+          ]}
+          minLabel="Sep 30"
+          maxLabel="Jul 30"
+        />
+      </Box>
+    )
+  })
