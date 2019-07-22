@@ -112,7 +112,7 @@ const HoverHandler: React.FC<HoverHandlerProps> = ({
 export const PointHoverArea = styled.div`
   flex: 1;
   z-index: 1;
-  margin-right: 1%; /* gap between area enabling tooptips */
+  margin: 0 1%; /* gap between area enabling tooptips */
   opacity: 0;
   transition: opacity 0.4s ease-in;
 `
