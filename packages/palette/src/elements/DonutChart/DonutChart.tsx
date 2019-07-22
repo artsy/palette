@@ -7,7 +7,10 @@ import { color, space } from "../../helpers"
 import { Color } from "../../Theme"
 import { Box } from "../Box"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
-import { coerceTooltip } from "../DataVis/ChartTooltip"
+import {
+  coerceTooltip,
+  coerceTooltipWithoutPadding,
+} from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
@@ -86,7 +89,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
           center={centerX}
         >
           <Sans color="black60" size="2">
-            {coerceTooltip(axisLabelX)}
+            {coerceTooltipWithoutPadding(axisLabelX)}
           </Sans>
         </DonutLabelContainer>
       )
