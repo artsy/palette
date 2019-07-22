@@ -1,3 +1,21 @@
+# v4.14.31 (Mon Jul 22 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Bar chart zero state [#541](https://github.com/artsy/palette/pull/541) ([@sepans](https://github.com/sepans))
+
+#### 🏠  Internal
+
+- Update yarn orb to v2 [#539](https://github.com/artsy/palette/pull/539) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.14.30 (Sat Jul 13 2019)
 
 #### 🐛  Bug Fix
