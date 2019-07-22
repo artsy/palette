@@ -57,8 +57,8 @@ export const ChartTooltip = ({
   ...others
 }: ChartTooltipProps) => (
   <ChartTooltipWrapper
-    px={noPadding ? 0 : 0.5}
-    py={noPadding ? 0 : 1}
+    py={noPadding ? 0 : 0.5}
+    px={noPadding ? 0 : 1}
     {...others}
   >
     <Sans color={"black100"} weight="medium" size="2">
