@@ -1,11 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { space } from "../../helpers"
 import { Flex, FlexProps } from "../Flex"
 import { Sans } from "../Typography"
 
 const ChartTooltipWrapper = styled(Flex)`
-  padding: ${space(0.5)}px ${space(1)}px;
   text-align: center;
   align-items: center;
   flex-direction: column;
@@ -19,9 +17,23 @@ const ChartTooltipWrapper = styled(Flex)`
 export const coerceTooltip = (tooltip: React.ReactNode | ChartTooltipProps) =>
   isChartTooltipProps(tooltip) ? <ChartTooltip {...tooltip} /> : tooltip
 
+/**
+ * Similart to `coerceTooltip` but without padding
+ * @param tooltip
+ */
+export const coerceTooltipWithoutPadding = (
+  tooltip: React.ReactNode | ChartTooltipProps
+) =>
+  isChartTooltipProps(tooltip) ? (
+    <ChartTooltip noPadding {...tooltip} />
+  ) : (
+    tooltip
+  )
+
 export interface ChartTooltipProps extends FlexProps {
   title: React.ReactNode
   description: React.ReactNode
+  noPadding: boolean
 }
 
 // tslint:disable-next-line:completed-docs
@@ -41,9 +53,14 @@ export function isChartTooltipProps(obj: any): obj is ChartTooltipProps {
 export const ChartTooltip = ({
   title,
   description,
+  noPadding,
   ...others
 }: ChartTooltipProps) => (
-  <ChartTooltipWrapper {...others}>
+  <ChartTooltipWrapper
+    px={noPadding ? 0 : 0.5}
+    py={noPadding ? 0 : 1}
+    {...others}
+  >
     <Sans color={"black100"} weight="medium" size="2">
       {title}
     </Sans>
