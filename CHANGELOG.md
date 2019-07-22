@@ -1,3 +1,16 @@
+# v4.14.32 (Mon Jul 22 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Minor chart fixes [#542](https://github.com/artsy/palette/pull/542) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v4.14.31 (Mon Jul 22 2019)
 
 #### 🐛  Bug Fix
