@@ -126,7 +126,7 @@ export class Button extends Component<ButtonProps> {
             return `
                 background-color: transparent;
                 border-color: transparent;
-                color: ${colors.black60};
+                color: ${colors.black100};
               `
           }};
         `

@@ -58,7 +58,7 @@ export interface ButtonBaseProps extends BoxProps {
  */
 export function getColorsForVariant(variant: ButtonVariant) {
   const {
-    colors: { black100, black10, black30, black60, white100, purple100 },
+    colors: { black100, black10, black30, white100, purple100 },
   } = themeProps
 
   switch (variant) {
@@ -119,7 +119,7 @@ export function getColorsForVariant(variant: ButtonVariant) {
         default: {
           backgroundColor: "transparent",
           borderColor: "transparent",
-          color: black60,
+          color: black100,
         },
         hover: {
           backgroundColor: white100,
