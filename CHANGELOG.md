@@ -1,3 +1,16 @@
+# v4.14.34 (Tue Jul 23 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - PURCHASE-1019 - Adds modal component [#540](https://github.com/artsy/palette/pull/540) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.33 (Tue Jul 23 2019)
 
 
