@@ -35,12 +35,13 @@ module.exports = {
           import * as Elements from "@artsy/palette"
           import { ColorComponent } from "components/ColorComponent"
           import { CodeEditor, Playground  } from "components/Playground"
-          import { Toggle as Toggler } from 'react-powerplug'
+          import { Toggle as Toggler, State } from 'react-powerplug'
           export default {
             CodeEditor,
             ColorComponent,
             Playground,
             Toggler,
+            State,
             ...Elements
           }
         `,
