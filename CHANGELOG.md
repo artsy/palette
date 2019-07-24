@@ -1,3 +1,15 @@
+# v4.14.36 (Wed Jul 24 2019)
+
+#### 🐛  Bug Fix
+
+- Adds WIP to modal [#545](https://github.com/artsy/palette/pull/545) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.35 (Tue Jul 23 2019)
 
 
