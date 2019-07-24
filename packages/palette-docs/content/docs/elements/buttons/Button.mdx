@@ -165,3 +165,32 @@ Like other form elements, buttons can be disabled.
     </Button>
   </>
 </Playground>
+
+## Display Inline and Block
+
+Use `inline` to remove height and padding from the button, can be used in
+combination of `noOutline` to create an inline button.
+
+<Playground title="noOutline" showToggle={true} expanded={false}>
+  <>
+    <Button inline variant="noOutline" size="small" m={0.5}>
+      Reset
+    </Button>
+    <Button inline variant="noOutline" size="medium" m={0.5}>
+      Reset
+    </Button>
+    <Button inline variant="noOutline" size="large" m={0.5}>
+      Reset
+    </Button>
+  </>
+</Playground>
+
+Use `block` to style a button to be 100% width of its container.
+
+<Playground title="noOutline" showToggle={true} expanded={false}>
+  <>
+    <Button block width="100%" size="medium" m={0.5}>
+      Reset
+    </Button>
+  </>
+</Playground>

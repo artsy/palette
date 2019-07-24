@@ -117,8 +117,8 @@ export function getColorsForVariant(variant: ButtonVariant) {
     case "noOutline":
       return {
         default: {
-          backgroundColor: "transparent",
-          borderColor: "transparent",
+          backgroundColor: "rgba(0, 0, 0, 0)",
+          borderColor: "rgba(0, 0, 0, 0)",
           color: black100,
         },
         hover: {
