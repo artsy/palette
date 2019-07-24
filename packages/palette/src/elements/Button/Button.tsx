@@ -34,7 +34,7 @@ export class Button extends Component<ButtonProps> {
         return {
           height: inline ? "17px" : "26px",
           size: "2",
-          px: inline ? 0 : 1,
+          px: inline ? 0 : 2,
         }
       case "medium":
         return {
