@@ -7,18 +7,23 @@ import { Modal } from "../Modal"
 
 describe("Modal", () => {
   it("displays logo when enabled", () => {
-    const component = mount(<Modal hasLogo show />)
+    const onClose = () => null
+    const component = mount(<Modal onClose={onClose} hasLogo show />)
     expect(component.find(ArtsyLogoBlackIcon).length).toEqual(1)
   })
 
   it("displays custom title", () => {
-    const component = mount(<Modal title="Condimentum Ridiculus" show />)
+    const onClose = () => null
+    const component = mount(
+      <Modal onClose={onClose} title="Condimentum Ridiculus" show />
+    )
     expect(component.html()).toContain("Condimentum Ridiculus")
   })
 
   it("displays children", () => {
+    const onClose = () => null
     const component = mount(
-      <Modal show>
+      <Modal onClose={onClose} show>
         Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
         vestibulum.
       </Modal>
@@ -29,8 +34,9 @@ describe("Modal", () => {
   })
 
   it("displays custom fixed button", () => {
+    const onClose = () => null
     const component = mount(
-      <Modal show FixedButton={<Button>Click me</Button>}>
+      <Modal onClose={onClose} show FixedButton={<Button>Click me</Button>}>
         Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
         vestibulum.
       </Modal>
@@ -52,6 +58,19 @@ describe("Modal", () => {
       .parent()
       .props()
       .onClick()
+    expect(show).toEqual(false)
+  })
+
+  it("closes when escape key is pressed", () => {
+    let show = true
+    const onClose = () => (show = false)
+    mount(
+      <Modal show={show} onClose={onClose}>
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+        vestibulum.
+      </Modal>
+    )
+    document.dispatchEvent(new KeyboardEvent("keyup", { key: "Escape" }))
     expect(show).toEqual(false)
   })
 })

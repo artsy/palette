@@ -16,7 +16,7 @@ interface ModalProps {
   hasLogo?: boolean
   height?: string
   isWide?: boolean
-  onClose?: () => void
+  onClose: () => void
   show?: boolean
   title?: string
 }
@@ -24,6 +24,10 @@ interface ModalProps {
 interface TransitionElementProps {
   isWide?: boolean
   show?: boolean
+}
+
+interface ModalScrollContentProps {
+  FixedButton?: JSX.Element
 }
 
 const AnimatedView = animated(Box)
@@ -206,7 +210,7 @@ const ModalElement = styled(AnimatedView)<TransitionElementProps>`
   `};
 `
 
-const ModalScrollContent = styled(Box)<ModalProps>`
+const ModalScrollContent = styled(Box)<ModalScrollContentProps>`
   height: 100%;
   width: 100%;
   overflow: scroll;
