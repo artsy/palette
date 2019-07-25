@@ -1,7 +1,7 @@
 import React, { SFC, useEffect, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
-import { color, media, space, usePrevious } from "../../helpers"
+import { color, media, space } from "../../helpers"
 import { CloseIcon } from "../../svgs"
 import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
 import { Box } from "../Box"
@@ -11,6 +11,8 @@ import { Serif } from "../Typography"
 
 interface ModalProps {
   FixedButton?: JSX.Element
+  // contentAnimationKey should change if the modal displays new content
+  contentAnimationKey?: string
   hasLogo?: boolean
   height?: string
   isWide?: boolean
@@ -32,6 +34,7 @@ const AnimatedView = animated(Box)
  */
 export const Modal: SFC<ModalProps> = ({
   children,
+  contentAnimationKey,
   FixedButton,
   title,
   show,
@@ -39,7 +42,6 @@ export const Modal: SFC<ModalProps> = ({
   hasLogo,
   onClose,
 }) => {
-  const [childrenState, setChildrenState] = useState(children)
   const [springContentAnimation, setSpringContentAnimation] = useState({
     opacity: 1,
     onRest: null,
@@ -51,7 +53,6 @@ export const Modal: SFC<ModalProps> = ({
   })
   const [visibleContent, setVisibleContent] = useState(null)
 
-  const previousChildren = usePrevious(childrenState)
   const contentAnimation = useSpring(springContentAnimation)
   const modalAnimation = useSpring(springModalAnimation)
 
@@ -80,7 +81,6 @@ export const Modal: SFC<ModalProps> = ({
   }, [show])
 
   const updateVisibleContent = () => {
-    setChildrenState(children)
     // Replaces content
     setVisibleContent(ModalContent)
     // Fades in new content
@@ -92,13 +92,11 @@ export const Modal: SFC<ModalProps> = ({
 
   // Listens for props to change and fades in new content
   useEffect(() => {
-    if (previousChildren && children !== previousChildren) {
-      setSpringContentAnimation({
-        opacity: 0,
-        onRest: () => updateVisibleContent(),
-      })
-    }
-  }, [children])
+    setSpringContentAnimation({
+      opacity: 0,
+      onRest: () => updateVisibleContent(),
+    })
+  }, [contentAnimationKey])
 
   const ModalContent = () => {
     return (
