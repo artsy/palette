@@ -14,6 +14,10 @@ interface EntityHeaderProps extends SpacerProps {
   FollowButton?: JSX.Element
 }
 
+/**
+ * FIXME: We're currently needing to hardcode these widths so that the
+ * text will have a fixed width to allow for the trailing ellipses
+ */
 const PADDING_WIDTH = 40
 const BUTTON_WIDTH = 80
 const IMAGE_WIDTH = 60
