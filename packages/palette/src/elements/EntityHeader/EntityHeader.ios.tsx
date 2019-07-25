@@ -1,4 +1,5 @@
 import React, { SFC } from "react"
+import { Dimensions } from "react-native"
 import { Avatar } from "../Avatar"
 import { Flex } from "../Flex"
 import { SpacerProps } from "../Spacer"
@@ -26,14 +27,21 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   FollowButton,
   ...remainderProps
 }) => {
+  const viewWidth = Dimensions.get("window").width
   return (
-    <Flex flexDirection="row" {...remainderProps}>
+    <Flex
+      flexDirection="row"
+      justifyContent="space-between"
+      flexWrap="nowrap"
+      width={viewWidth - 40}
+      {...remainderProps}
+    >
       {(imageUrl || initials) && (
         <Flex mr={1} justifyContent="center">
           <Avatar size="xs" src={imageUrl} initials={initials} />
         </Flex>
       )}
-      <Flex width="150px" flexGrow={1} ml="2px" justifyContent="center">
+      <Flex ml="2px" justifyContent="center" width={viewWidth - 190}>
         <Serif
           ellipsizeMode="tail"
           numberOfLines={1}
@@ -57,7 +65,12 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
       </Flex>
 
       {FollowButton && (
-        <Flex ml={1} justifyContent="center">
+        <Flex
+          ml={1}
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="flex-end"
+        >
           {FollowButton}
         </Flex>
       )}
