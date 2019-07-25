@@ -11,8 +11,8 @@ import { Serif } from "../Typography"
 
 interface ModalProps {
   FixedButton?: JSX.Element
-  // refreshKey should change if the modal displays new content
-  refreshKey?: string
+  // refreshModalContent should change if the modal displays new content
+  refreshModalContent?: string
   hasLogo?: boolean
   height?: string
   isWide?: boolean
@@ -34,7 +34,7 @@ const AnimatedView = animated(Box)
  */
 export const Modal: SFC<ModalProps> = ({
   children,
-  refreshKey,
+  refreshModalContent,
   FixedButton,
   title,
   show,
@@ -108,7 +108,7 @@ export const Modal: SFC<ModalProps> = ({
       opacity: 0,
       onRest: () => updateVisibleContent(),
     })
-  }, [refreshKey])
+  }, [refreshModalContent])
 
   const ModalContent = () => {
     return (
