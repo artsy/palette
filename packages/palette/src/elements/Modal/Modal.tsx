@@ -26,8 +26,6 @@ interface TransitionElementProps {
   show?: boolean
 }
 
-const KEYBOARD_EVENT = "keyup"
-
 const AnimatedView = animated(Box)
 
 /**
@@ -64,26 +62,21 @@ export const Modal: SFC<ModalProps> = ({
     }
   }
 
-  const updateEscapeKeyListener = () => {
+  useEffect(() => {
     if (show) {
-      document.addEventListener(KEYBOARD_EVENT, handleEscapeKey, true)
-    } else {
-      document.removeEventListener(KEYBOARD_EVENT, handleEscapeKey, true)
-    }
-  }
-
-  const updateBodyScrollBlock = () => {
-    if (show) {
+      // Binds key event for escape to close modal
+      document.addEventListener("keyup", handleEscapeKey, true)
+      // Fixes the body to disable scroll
       document.body.style.overflowY = "hidden"
+      setVisibleContent(ModalContent)
+      setSpringModalAnimation({
+        transform: "translate(-50%, -50%) translateY(0vh)",
+        opacity: 1,
+        onRest: null,
+      })
     } else {
       document.body.style.overflowY = "visible"
-    }
-  }
-
-  useEffect(() => {
-    updateBodyScrollBlock()
-    updateEscapeKeyListener()
-    if (!show) {
+      document.removeEventListener("keyup", handleEscapeKey, true)
       setSpringModalAnimation({
         transform: "translate(-50%, -50%) translateY(0vh)",
         opacity: 0,
@@ -95,13 +88,6 @@ export const Modal: SFC<ModalProps> = ({
           })
           onClose()
         },
-      })
-    } else {
-      setVisibleContent(ModalContent)
-      setSpringModalAnimation({
-        transform: "translate(-50%, -50%) translateY(0vh)",
-        opacity: 1,
-        onRest: null,
       })
     }
   }, [show])
