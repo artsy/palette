@@ -26,6 +26,8 @@ interface TransitionElementProps {
   show?: boolean
 }
 
+const KEYBOARD_EVENT = "keyup"
+
 const AnimatedView = animated(Box)
 
 /**
@@ -56,7 +58,31 @@ export const Modal: SFC<ModalProps> = ({
   const contentAnimation = useSpring(springContentAnimation)
   const modalAnimation = useSpring(springModalAnimation)
 
+  const handleEscapeKey = event => {
+    if (event && event.key === "Escape") {
+      onClose()
+    }
+  }
+
+  const updateEscapeKeyListener = () => {
+    if (show) {
+      document.addEventListener(KEYBOARD_EVENT, handleEscapeKey, true)
+    } else {
+      document.removeEventListener(KEYBOARD_EVENT, handleEscapeKey, true)
+    }
+  }
+
+  const updateBodyScrollBlock = () => {
+    if (show) {
+      document.body.style.overflowY = "hidden"
+    } else {
+      document.body.style.overflowY = "visible"
+    }
+  }
+
   useEffect(() => {
+    updateBodyScrollBlock()
+    updateEscapeKeyListener()
     if (!show) {
       setSpringModalAnimation({
         transform: "translate(-50%, -50%) translateY(0vh)",
@@ -158,7 +184,7 @@ const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 9999;
   width: 100vw;
   height: 100vh;
   background-color: rgba(229, 229, 229, 0.5);
