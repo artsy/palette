@@ -14,6 +14,10 @@ interface EntityHeaderProps extends SpacerProps {
   FollowButton?: JSX.Element
 }
 
+const PADDING_WIDTH = 40
+const BUTTON_WIDTH = 80
+const IMAGE_WIDTH = 60
+
 /**
  * Component that is used as entity header that is paired with rich information about the entity.
  * Spec: zpl.io/aNoYM6d
@@ -33,7 +37,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
       flexDirection="row"
       justifyContent="space-between"
       flexWrap="nowrap"
-      width={viewWidth - 40}
+      width={viewWidth - PADDING_WIDTH}
       {...remainderProps}
     >
       {(imageUrl || initials) && (
@@ -41,7 +45,11 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
           <Avatar size="xs" src={imageUrl} initials={initials} />
         </Flex>
       )}
-      <Flex ml="2px" justifyContent="center" width={viewWidth - 190}>
+      <Flex
+        ml="2px"
+        justifyContent="center"
+        width={viewWidth - PADDING_WIDTH - BUTTON_WIDTH - IMAGE_WIDTH}
+      >
         <Serif
           ellipsizeMode="tail"
           numberOfLines={1}
@@ -67,6 +75,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
       {FollowButton && (
         <Flex
           ml={1}
+          width={BUTTON_WIDTH}
           flexDirection="row"
           alignItems="center"
           justifyContent="flex-end"
