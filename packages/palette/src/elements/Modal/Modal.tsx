@@ -1,7 +1,7 @@
 import React, { SFC, useEffect, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
-import { color, space, usePrevious } from "../../helpers"
+import { color, media, space, usePrevious } from "../../helpers"
 import { CloseIcon } from "../../svgs"
 import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
 import { Box } from "../Box"
@@ -188,6 +188,12 @@ const ModalElement = styled(AnimatedView)<TransitionElementProps>`
   background-color: ${color("white100")};
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   width: ${props => (props.isWide ? "900px" : "440px")};
+  ${media.xs`
+    max-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+  `};
 `
 
 const ModalScrollContent = styled(Box)<ModalProps>`
