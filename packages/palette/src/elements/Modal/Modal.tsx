@@ -1,7 +1,7 @@
 import React, { SFC, useEffect, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
-import { color, space, usePrevious } from "../../helpers"
+import { color, media, space } from "../../helpers"
 import { CloseIcon } from "../../svgs"
 import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
 import { Box } from "../Box"
@@ -11,10 +11,12 @@ import { Serif } from "../Typography"
 
 interface ModalProps {
   FixedButton?: JSX.Element
+  // refreshModalContent should change if the modal displays new content
+  refreshModalContent?: string
   hasLogo?: boolean
   height?: string
   isWide?: boolean
-  onClose?: () => void
+  onClose: () => void
   show?: boolean
   title?: string
 }
@@ -22,6 +24,10 @@ interface ModalProps {
 interface TransitionElementProps {
   isWide?: boolean
   show?: boolean
+}
+
+interface ModalScrollContentProps {
+  FixedButton?: JSX.Element
 }
 
 const AnimatedView = animated(Box)
@@ -32,6 +38,7 @@ const AnimatedView = animated(Box)
  */
 export const Modal: SFC<ModalProps> = ({
   children,
+  refreshModalContent,
   FixedButton,
   title,
   show,
@@ -39,7 +46,6 @@ export const Modal: SFC<ModalProps> = ({
   hasLogo,
   onClose,
 }) => {
-  const [childrenState, setChildrenState] = useState(children)
   const [springContentAnimation, setSpringContentAnimation] = useState({
     opacity: 1,
     onRest: null,
@@ -51,12 +57,30 @@ export const Modal: SFC<ModalProps> = ({
   })
   const [visibleContent, setVisibleContent] = useState(null)
 
-  const previousChildren = usePrevious(childrenState)
   const contentAnimation = useSpring(springContentAnimation)
   const modalAnimation = useSpring(springModalAnimation)
 
+  const handleEscapeKey = event => {
+    if (event && event.key === "Escape") {
+      onClose()
+    }
+  }
+
   useEffect(() => {
-    if (!show) {
+    if (show) {
+      // Binds key event for escape to close modal
+      document.addEventListener("keyup", handleEscapeKey, true)
+      // Fixes the body to disable scroll
+      document.body.style.overflowY = "hidden"
+      setVisibleContent(ModalContent)
+      setSpringModalAnimation({
+        transform: "translate(-50%, -50%) translateY(0vh)",
+        opacity: 1,
+        onRest: null,
+      })
+    } else {
+      document.body.style.overflowY = "visible"
+      document.removeEventListener("keyup", handleEscapeKey, true)
       setSpringModalAnimation({
         transform: "translate(-50%, -50%) translateY(0vh)",
         opacity: 0,
@@ -69,18 +93,10 @@ export const Modal: SFC<ModalProps> = ({
           onClose()
         },
       })
-    } else {
-      setVisibleContent(ModalContent)
-      setSpringModalAnimation({
-        transform: "translate(-50%, -50%) translateY(0vh)",
-        opacity: 1,
-        onRest: null,
-      })
     }
   }, [show])
 
   const updateVisibleContent = () => {
-    setChildrenState(children)
     // Replaces content
     setVisibleContent(ModalContent)
     // Fades in new content
@@ -92,13 +108,11 @@ export const Modal: SFC<ModalProps> = ({
 
   // Listens for props to change and fades in new content
   useEffect(() => {
-    if (previousChildren && children !== previousChildren) {
-      setSpringContentAnimation({
-        opacity: 0,
-        onRest: () => updateVisibleContent(),
-      })
-    }
-  }, [children])
+    setSpringContentAnimation({
+      opacity: 0,
+      onRest: () => updateVisibleContent(),
+    })
+  }, [refreshModalContent])
 
   const ModalContent = () => {
     return (
@@ -160,7 +174,7 @@ const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 9999;
   width: 100vw;
   height: 100vh;
   background-color: rgba(229, 229, 229, 0.5);
@@ -188,9 +202,15 @@ const ModalElement = styled(AnimatedView)<TransitionElementProps>`
   background-color: ${color("white100")};
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   width: ${props => (props.isWide ? "900px" : "440px")};
+  ${media.xs`
+    max-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+  `};
 `
 
-const ModalScrollContent = styled(Box)<ModalProps>`
+const ModalScrollContent = styled(Box)<ModalScrollContentProps>`
   height: 100%;
   width: 100%;
   overflow: scroll;
