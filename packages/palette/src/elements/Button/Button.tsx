@@ -205,12 +205,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
           </>
         )}
         {!longestText && (
-          <Sans
-            role="presentation"
-            pt="1px"
-            weight={weight || "medium"}
-            size={size}
-          >
+          <Sans pt="1px" weight={weight || "medium"} size={size}>
             {children}
           </Sans>
         )}
