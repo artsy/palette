@@ -1,3 +1,18 @@
+# v4.14.37 (Fri Jul 26 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Modal improvements [#547](https://github.com/artsy/palette/pull/547) ([@kierangillen](https://github.com/kierangillen))
+- `@artsy/palette`
+  - Fixes Spring bug and updates Inline to remove padding and height [#530](https://github.com/artsy/palette/pull/530) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.36 (Wed Jul 24 2019)
 
 #### 🐛  Bug Fix
