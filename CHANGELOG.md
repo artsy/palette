@@ -1,3 +1,16 @@
+# v4.14.38 (Mon Jul 29 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Updates button to not always render longestText [#548](https://github.com/artsy/palette/pull/548) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.37 (Fri Jul 26 2019)
 
 #### 🐛  Bug Fix
