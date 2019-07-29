@@ -197,22 +197,30 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
       >
         {loading && <Spinner size={this.props.buttonSize} />}
 
-        <VisibleText
-          pt="1px"
-          weight={weight || "medium"}
-          color={color}
-          size={size}
-        >
-          {children}
-        </VisibleText>
-        <HiddenText
-          role="presentation"
-          pt="1px"
-          weight={weight || "medium"}
-          size={size}
-        >
-          {longestText ? longestText : children}
-        </HiddenText>
+        {longestText ? (
+          <>
+            <VisibleText
+              pt="1px"
+              weight={weight || "medium"}
+              color={color}
+              size={size}
+            >
+              {children}
+            </VisibleText>
+            <HiddenText
+              role="presentation"
+              pt="1px"
+              weight={weight || "medium"}
+              size={size}
+            >
+              {longestText}
+            </HiddenText>
+          </>
+        ) : (
+          <Sans pt="1px" weight={weight || "medium"} size={size}>
+            {children}
+          </Sans>
+        )}
       </Container>
     )
   }
