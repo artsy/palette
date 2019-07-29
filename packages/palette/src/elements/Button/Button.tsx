@@ -184,7 +184,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
       >
         {loading && <Spinner size={this.props.buttonSize} />}
 
-        {longestText && (
+        {longestText ? (
           <>
             <VisibleText
               pt="1px"
@@ -203,8 +203,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
               {longestText}
             </HiddenText>
           </>
-        )}
-        {!longestText && (
+        ) : (
           <Sans pt="1px" weight={weight || "medium"} size={size}>
             {children}
           </Sans>
