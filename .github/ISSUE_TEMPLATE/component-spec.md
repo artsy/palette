@@ -9,20 +9,21 @@ about: Propose additions or updates to palette
 
 ## Component Name
 
-### Zeplin link
+### Zeplin Links
 
-zpl://screen?sid=
+web: <!-- https://zpl.io/aabbccd -->
+app: <!-- zpl://screen?sid=1aaaaaaaaaaaaaaaaaaaaaaa&pid=lbbbbbbbbbbbbbbbbbbbbbbb -->
 
-### Product team
+### Product Team
 
 <!-- Purchase/Sell/etc -->
 
-### Design lead
+### Design Lead
 
 <!-- @person -->
 
 <!-- optional
-### Additional info
+### Additional Info
  Add any additional information here that might not be covered by the spec. Remove if not needed.
 -->
 
