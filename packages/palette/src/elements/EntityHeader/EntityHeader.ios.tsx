@@ -27,13 +27,18 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   ...remainderProps
 }) => {
   return (
-    <Flex flexDirection="row" {...remainderProps}>
+    <Flex
+      flexDirection="row"
+      justifyContent="space-between"
+      flexWrap="nowrap"
+      {...remainderProps}
+    >
       {(imageUrl || initials) && (
         <Flex mr={1} justifyContent="center">
           <Avatar size="xs" src={imageUrl} initials={initials} />
         </Flex>
       )}
-      <Flex width="150px" flexGrow={1} ml="2px" justifyContent="center">
+      <Flex ml="2px" justifyContent="center" width={0} flexGrow={1}>
         <Serif
           ellipsizeMode="tail"
           numberOfLines={1}
@@ -57,7 +62,12 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
       </Flex>
 
       {FollowButton && (
-        <Flex ml={1} justifyContent="center">
+        <Flex
+          ml={1}
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="flex-end"
+        >
           {FollowButton}
         </Flex>
       )}
