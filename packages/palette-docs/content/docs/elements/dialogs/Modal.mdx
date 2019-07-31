@@ -2,12 +2,20 @@
 name: Modal
 ---
 
+## Notes
+
+- This component supports an optional prop `refreshModalContentKey` as a string,
+  which when updated refreshes the modal content with a fade in/fade out
+  animation. See example by pressing the `Change content` button in this
+  example.
+
 <Playground title="Variable text size">
   <State
     initial={{
       children:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nulla vitae elit libero, a pharetra augue.",
       show: false,
+      contentKey: "123",
     }}
   >
     {({ state, setState }) => (
@@ -16,6 +24,7 @@ name: Modal
         <Modal
           title="Tellus Ligula Sit"
           hasLogo
+          refreshModalContentKey={state.contentKey}
           show={state.show}
           onClose={() => setState({ show: false })}
           FixedButton={
@@ -24,6 +33,7 @@ name: Modal
               width="100%"
               onClick={() =>
                 setState({
+                  contentKey: "456",
                   children:
                     "Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum.",
                 })

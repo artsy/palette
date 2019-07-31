@@ -4,15 +4,18 @@ import styled from "styled-components"
 import { color, media, space } from "../../helpers"
 import { CloseIcon } from "../../svgs"
 import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
+import { usePrevious } from "../../utils/usePrevious"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Serif } from "../Typography"
 
+/**
+ * refreshModalContentKey should change if the modal displays new content and should fade in/fade out with content update
+ */
 interface ModalProps {
   FixedButton?: JSX.Element
-  // refreshModalContent should change if the modal displays new content
-  refreshModalContent?: string
+  refreshModalContentKey?: string
   hasLogo?: boolean
   height?: string
   isWide?: boolean
@@ -38,7 +41,7 @@ const AnimatedView = animated(Box)
  */
 export const Modal: SFC<ModalProps> = ({
   children,
-  refreshModalContent,
+  refreshModalContentKey,
   FixedButton,
   title,
   show,
@@ -52,10 +55,11 @@ export const Modal: SFC<ModalProps> = ({
   })
   const [springModalAnimation, setSpringModalAnimation] = useState({
     transform: "translate(-50%, 0%) translateY(50vh)",
-    opacity: 1,
+    opacity: 0,
     onRest: null,
   })
   const [visibleContent, setVisibleContent] = useState(null)
+  const previousChangeKey = usePrevious(refreshModalContentKey)
 
   const contentAnimation = useSpring(springContentAnimation)
   const modalAnimation = useSpring(springModalAnimation)
@@ -65,6 +69,18 @@ export const Modal: SFC<ModalProps> = ({
       onClose()
     }
   }
+
+  useEffect(() => {
+    if (previousChangeKey === refreshModalContentKey) {
+      setVisibleContent(ModalContent)
+    } else {
+      // Fades out content if changeKey updates
+      setSpringContentAnimation({
+        opacity: 0,
+        onRest: () => fadeInNewContent(),
+      })
+    }
+  }, [children])
 
   useEffect(() => {
     if (show) {
@@ -96,7 +112,7 @@ export const Modal: SFC<ModalProps> = ({
     }
   }, [show])
 
-  const updateVisibleContent = () => {
+  const fadeInNewContent = () => {
     // Replaces content
     setVisibleContent(ModalContent)
     // Fades in new content
@@ -105,14 +121,6 @@ export const Modal: SFC<ModalProps> = ({
       onRest: null,
     })
   }
-
-  // Listens for props to change and fades in new content
-  useEffect(() => {
-    setSpringContentAnimation({
-      opacity: 0,
-      onRest: () => updateVisibleContent(),
-    })
-  }, [refreshModalContent])
 
   const ModalContent = () => {
     return (
