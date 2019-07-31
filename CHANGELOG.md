@@ -1,3 +1,22 @@
+# v4.14.39 (Wed Jul 31 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - PURCHASE-1361 Fixes button breaking viewport [#546](https://github.com/artsy/palette/pull/546) ([@kierangillen](https://github.com/kierangillen) [@ds300](https://github.com/ds300))
+
+#### 🏠  Internal
+
+- Update Component Spec template to include web Zeplin link [#553](https://github.com/artsy/palette/pull/553) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 3
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+- David Sheldrick ([@ds300](https://github.com/ds300))
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v4.14.38 (Mon Jul 29 2019)
 
 #### 🐛  Bug Fix
