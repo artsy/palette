@@ -11,7 +11,9 @@ import { Spacer } from "../Spacer"
 import { Serif } from "../Typography"
 
 /**
- * refreshModalContentKey should change if the modal displays new content and should fade in/fade out with content update
+ * refreshModalContentKey should change if the modal displays new content and should fade
+ * in/fade out with content update. If refreshModalContentKey does not change, the content
+ * updates immedately.
  */
 interface ModalProps {
   FixedButton?: JSX.Element
