@@ -9,6 +9,10 @@ name: Modal
   animation. See example by pressing the `Change content` button in this
   example.
 
+## Modal with refreshModalContentKey
+
+- Content will fade out and in when
+
 <Playground title="Variable text size">
   <State
     initial={{
@@ -20,7 +24,9 @@ name: Modal
   >
     {({ state, setState }) => (
       <>
-        <Button onClick={() => setState({ show: true })}>Open modal</Button>
+        <Button onClick={() => setState({ show: true })}>
+          Open modal with refresh key
+        </Button>
         <Modal
           title="Tellus Ligula Sit"
           hasLogo
@@ -34,6 +40,50 @@ name: Modal
               onClick={() =>
                 setState({
                   contentKey: "456",
+                  children:
+                    "Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum.",
+                })
+              }
+            >
+              Change content
+            </Button>
+          }
+        >
+          {state.children}
+        </Modal>
+      </>
+    )}
+  </State>
+</Playground>
+
+## Modal without refreshModalContentKey
+
+- Content will update immediately without fade
+
+<Playground title="Variable text size">
+  <State
+    initial={{
+      children:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nulla vitae elit libero, a pharetra augue.",
+      show: false,
+    }}
+  >
+    {({ state, setState }) => (
+      <>
+        <Button onClick={() => setState({ show: true })}>
+          Open modal without refresh key
+        </Button>
+        <Modal
+          title="Tellus Ligula Sit"
+          hasLogo
+          show={state.show}
+          onClose={() => setState({ show: false })}
+          FixedButton={
+            <Button
+              block
+              width="100%"
+              onClick={() =>
+                setState({
                   children:
                     "Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum.",
                 })
