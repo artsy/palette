@@ -1,5 +1,7 @@
-import { mount } from "enzyme"
+import { mount, ReactWrapper } from "enzyme"
 import "jest-styled-components"
+import createMockRaf from "mock-raf"
+
 import React from "react"
 import { Theme } from "../../Theme"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
@@ -8,13 +10,18 @@ import { Sans } from "../Typography"
 import { LineChart, PointHoverArea } from "./LineChart"
 import { Point } from "./Point"
 
+// mock requestAnimationFrame
+const mockRaf = createMockRaf()
+const globalAny: any = global
+globalAny.requestAnimationFrame = mockRaf.raf
+
 jest.useFakeTimers()
 
 const mockPoints = [
   { value: 0, axisLabelX: "x axis label" },
   { value: 100, axisLabelX: <div id="x-axis">lol</div> },
   {
-    value: 200,
+    value: 50,
     tooltip: (
       <Flex alignItems="center" flexDirection="column">
         <Sans size="2" weight="medium">
@@ -60,5 +67,23 @@ describe("LineChart", () => {
     expect(chart.text()).toContain("423 views")
     hoverArea.simulate("mouseleave")
     expect(chart.text()).not.toContain("423 views")
+  })
+
+  it("animates", () => {
+    const circleYSum = cs =>
+      cs.reduce(
+        (acc: number, c: ReactWrapper) => acc + parseInt(c.prop("cy"), 10),
+        0
+      )
+    const chart = getWrapper()
+    let circles = chart.find("circle")
+    const circleYBeforeAnimate = circleYSum(circles)
+    // step requestAnimationFrame 3000 times
+    mockRaf.step({ count: 3000 })
+    chart.update()
+    circles = chart.find("circle")
+    const circleYAfterAnimate = circleYSum(circles)
+    // points will have lower Y after animation because the Y axis is upside-down
+    expect(circleYBeforeAnimate).toBeGreaterThan(circleYAfterAnimate)
   })
 })

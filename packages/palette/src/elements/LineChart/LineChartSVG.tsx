@@ -45,7 +45,6 @@ export const LineChartSVG: React.FC<LineChartSVGProps> = ({
   const line = d3Line()
     .x(displayXPosition)
     .y(displayYPosition)
-
   return (
     <Svg width={width} height={height}>
       <g transform={`translate(0, ${margin})`}>
