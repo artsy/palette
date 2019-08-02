@@ -70,10 +70,10 @@ Example:
 
 ```
 /elements
-/MyComponent
-index.tsx
-MyComponent.tsx
-MyComponent.ios.tsx
+  /MyComponent
+    index.tsx
+    MyComponent.tsx
+    MyComponent.ios.tsx
 ```
 
 And from within `/elements/index.tsx`, we export our component:
