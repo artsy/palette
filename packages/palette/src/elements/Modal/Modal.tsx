@@ -16,6 +16,7 @@ import { Serif } from "../Typography"
  * updates immedately.
  */
 interface ModalProps {
+  oa
   FixedButton?: JSX.Element
   refreshModalContentKey?: string
   hasLogo?: boolean
@@ -61,6 +62,7 @@ export const Modal: SFC<ModalProps> = ({
     onRest: null,
   })
   const [visibleContent, setVisibleContent] = useState(null)
+  const [renderModal, setRenderModal] = useState(false)
   const previousChangeKey = usePrevious(refreshModalContentKey)
 
   const contentAnimation = useSpring(springContentAnimation)
@@ -86,6 +88,7 @@ export const Modal: SFC<ModalProps> = ({
 
   useEffect(() => {
     if (show) {
+      setRenderModal(true)
       // Binds key event for escape to close modal
       document.addEventListener("keyup", handleEscapeKey, true)
       // Fixes the body to disable scroll
@@ -109,6 +112,7 @@ export const Modal: SFC<ModalProps> = ({
             opacity: 0,
           })
           onClose()
+          setRenderModal(false)
         },
       })
     }
@@ -158,16 +162,20 @@ export const Modal: SFC<ModalProps> = ({
   }
 
   return (
-    <ModalOuterWrapper show={show}>
-      <ModalWrapper>
-        <ModalElement style={modalAnimation} isWide={isWide} show={show}>
-          <CloseIconWrapper onClick={() => onClose()}>
-            <CloseIcon fill="black60" />
-          </CloseIconWrapper>
-          {visibleContent}
-        </ModalElement>
-      </ModalWrapper>
-    </ModalOuterWrapper>
+    <>
+      {renderModal && (
+        <ModalOuterWrapper show={show}>
+          <ModalWrapper>
+            <ModalElement style={modalAnimation} isWide={isWide} show={show}>
+              <CloseIconWrapper onClick={() => onClose()}>
+                <CloseIcon fill="black60" />
+              </CloseIconWrapper>
+              {visibleContent}
+            </ModalElement>
+          </ModalWrapper>
+        </ModalOuterWrapper>
+      )}
+    </>
   )
 }
 
