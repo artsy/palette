@@ -1,39 +1,74 @@
 import { DateTime, Duration } from "luxon"
-import React from "react"
-import { Sans } from "../"
+import React, { useState } from "react"
+import { Flex, Sans } from "../"
 import { color } from "../../helpers"
+import { useInterval } from "../../utils/useInterval"
 
-const pad = (n: number) => n.toString().padStart(2, "0")
+function padWithZero(num: number) {
+  return num.toString().padStart(2, "0")
+}
+
+const SEPARATOR = <>&nbsp;&nbsp;</>
 
 /** TimeRemaining */
 export const TimeRemaining: React.SFC<{
-  currentTime: string
-  countdownEnd: string
+  endDate: string
+  labelWithTimeRemaining?: string
+  labelWithoutTimeRemaining?: string
+  timeEndedDisplayText?: string
+  trailingText?: string
   highlight: Parameters<typeof color>[0]
-}> = ({ currentTime, countdownEnd, highlight = "purple100" }) => {
-  const timeRemaining = Duration.fromISO(
-    DateTime.fromISO(countdownEnd)
-      .diff(DateTime.fromISO(currentTime))
-      .toString()
+}> = ({
+  endDate,
+  highlight = "purple100",
+  labelWithTimeRemaining,
+  labelWithoutTimeRemaining,
+  timeEndedDisplayText,
+  trailingText,
+}) => {
+  const [duration, setDuration] = useState(
+    Duration.fromISO(
+      DateTime.fromISO(endDate)
+        .diff(DateTime.local())
+        .toString()
+    )
   )
-  const days = Math.floor(timeRemaining.as("days"))
-  const hours = Math.floor(timeRemaining.as("hours") % 24)
-  const minutes = Math.floor(timeRemaining.as("minutes") % 60)
-  const seconds = Math.floor(timeRemaining.as("seconds") % 60)
+
+  useInterval(() => {
+    setDuration(
+      Duration.fromISO(
+        DateTime.fromISO(endDate)
+          .diff(DateTime.local())
+          .toString()
+      )
+    )
+  }, 1000)
+
+  const hasEnded = Math.floor(duration.seconds) <= 0
 
   return (
-    <Sans size="3" color={highlight} weight="medium">
-      {Math.floor(timeRemaining.seconds) <= 0 ? (
-        "0 days"
-      ) : (
-        <>
-          {days > 0 && pad(days) + "d "}
-          {hours > 0 && pad(hours) + "h "}
-          {minutes > 0 && pad(minutes) + "m "}
-          {pad(seconds) + "s"}
-        </>
+    <Flex flexDirection="column" alignItems="center">
+      <Sans size="3" color={highlight} weight="medium">
+        {hasEnded && timeEndedDisplayText ? (
+          timeEndedDisplayText
+        ) : (
+          <>
+            {padWithZero(Math.max(0, Math.floor(duration.as("days"))))}d
+            {SEPARATOR}
+            {padWithZero(Math.max(0, Math.floor(duration.as("hours") % 24)))}h
+            {SEPARATOR}
+            {padWithZero(Math.max(0, Math.floor(duration.as("minutes") % 60)))}m
+            {SEPARATOR}
+            {padWithZero(Math.max(0, Math.floor(duration.as("seconds") % 60)))}s
+            {trailingText && ` ${trailingText}`}
+          </>
+        )}
+      </Sans>
+      {(labelWithTimeRemaining || labelWithoutTimeRemaining) && (
+        <Sans size="3" weight="medium">
+          {hasEnded ? labelWithoutTimeRemaining : labelWithTimeRemaining}
+        </Sans>
       )}
-      <span> left</span>
-    </Sans>
+    </Flex>
   )
 }

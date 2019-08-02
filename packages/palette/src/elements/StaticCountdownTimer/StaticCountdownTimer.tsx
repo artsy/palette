@@ -56,9 +56,10 @@ export const StaticCountdownTimer: React.SFC<{
         />
         <Spacer mr="7px" />
         <TimeRemaining
-          countdownEnd={countdownEnd}
-          currentTime={currentTime}
+          endDate={countdownEnd}
           highlight={highlight}
+          timeEndedDisplayText="0 days left"
+          trailingText="left"
         />
       </Flex>
       <ProgressBarTimer
