@@ -32,7 +32,9 @@ $ yarn start
 $ open http://localhost:8000/
 ```
 
-When developing components for [Emission](https://github.com/artsy/emission), boot the Simulator and run:
+## Link with Emission
+
+When developing components for [Emission](https://github.com/artsy/emission), boot the Simulator and from the Palette project root run:
 
 ```
 $ yarn workspace @artsy/palette watch:emission
@@ -55,6 +57,8 @@ To _unlink_ your local palette from your local reaction, run (in **Reaction**):
 $ yarn unlink @artsy/palette
 $ yarn add @artsy/palette
 $ yarn start
+
+```
 
 ### ⚠️ Don't Forget About iOS!
 
