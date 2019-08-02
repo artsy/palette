@@ -16,7 +16,6 @@ import { Serif } from "../Typography"
  * updates immedately.
  */
 interface ModalProps {
-  oa
   FixedButton?: JSX.Element
   refreshModalContentKey?: string
   hasLogo?: boolean
