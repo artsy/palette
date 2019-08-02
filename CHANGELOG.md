@@ -1,3 +1,16 @@
+# v4.14.42 (Fri Aug 02 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fixes entityheader sizes [#557](https://github.com/artsy/palette/pull/557) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.41 (Fri Aug 02 2019)
 
 
