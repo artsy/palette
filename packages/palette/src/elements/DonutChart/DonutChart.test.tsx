@@ -1,5 +1,6 @@
 import { mount } from "enzyme"
 import "jest-styled-components"
+import createMockRaf from "mock-raf"
 import React from "react"
 import { Theme } from "../../Theme"
 import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
@@ -9,12 +10,15 @@ import { DonutChart, DonutChartProps } from "./DonutChart"
 
 jest.useFakeTimers()
 
+const mockRaf = createMockRaf()
+const globalAny: any = global
+globalAny.requestAnimationFrame = mockRaf.raf
 
 jest.mock("../DataVis/utils/useWrapperWidth")
 ;(useWrapperWidth as jest.Mock).mockImplementation(() => 400)
 
 const mockPoints = [
-  { value: 0, axisLabelX: "x axis label" },
+  { value: 40, axisLabelX: "x axis label" },
   { value: 100, axisLabelX: <div id="x-axis">lol</div> },
   {
     value: 200,
@@ -55,11 +59,21 @@ describe("DonutChart", () => {
   it("shows hover labels when you hover over the bar", () => {
     const chart = getWrapper()
     const hoverArea = chart.find("path").last()
-    // .find("div")
-    // .first()
     hoverArea.simulate("mouseenter")
     expect(chart.text()).toContain("423 views")
     hoverArea.simulate("mouseleave")
     expect(chart.text()).not.toContain("423 views")
+  })
+  it("animates", () => {
+    const chart = getWrapper()
+    let aSlice = chart.find("path").last()
+    const pathBeforeAnimation = aSlice.prop("d")
+
+    mockRaf.step({ count: 3000 })
+    chart.update()
+    aSlice = chart.find("path").last()
+    const pathAfterAnimation = aSlice.prop("d")
+
+    expect(pathBeforeAnimation).not.toEqual(pathAfterAnimation)
   })
 })
