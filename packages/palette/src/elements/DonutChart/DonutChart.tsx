@@ -18,6 +18,7 @@ import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
 import { Sans } from "../Typography"
 
 const colors: Color[] = ["black10", "black30", "black60"]
+const MIN_CHART_SIZE = 30
 
 export interface DonutChartProps extends ChartProps {
   margin?: number
@@ -38,7 +39,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
 
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
 
-  const width = useWrapperWidth(wrapperRef)
+  const width = Math.max(useWrapperWidth(wrapperRef), MIN_CHART_SIZE)
 
   // width of the arc is %12 of chart width
   const donutWidth = width * 0.12
@@ -155,7 +156,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
       <Box ref={wrapperRef as any} position="relative">
         <>
           {tooltip}
-          {labels}
+          {width !== MIN_CHART_SIZE && labels}
           {svg}
         </>
       </Box>

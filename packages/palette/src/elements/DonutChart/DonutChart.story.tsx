@@ -215,6 +215,54 @@ storiesOf("Components/DonutChart", module).add(
 )
 
 storiesOf("Components/DonutChart", module).add(
+  "Chart minimum width",
+  () => {
+    return (
+      <Box width="1px" p={2}>
+        <DonutChart
+          margin={0}
+          points={[
+            {
+              value: 423,
+              tooltip: { title: "Sep 10", description: "423 clicks" },
+            },
+            {
+              value: 567,
+              tooltip: (
+                <Serif size="3" p={0.5}>
+                  yay!
+                </Serif>
+              ),
+            },
+            {
+              value: 300,
+              tooltip: { title: "Sep 12", description: "300 clicks" },
+            },
+            {
+              value: 200,
+              tooltip: { title: "Sep 13", description: "200 clicks" },
+            },
+            {
+              value: 501,
+              tooltip: { title: "Sep 14", description: "501 clicks" },
+            },
+            {
+              value: 400,
+              tooltip: { title: "Sep 15", description: "400 clicks" },
+            },
+            {
+              value: 800,
+              tooltip: { title: "Sep 16", description: "800 clicks" },
+            },
+          ]}
+        />
+      </Box>
+    )
+  },
+  { chromatic: { delay: 500 } }
+)
+
+storiesOf("Components/DonutChart", module).add(
   "DonutChart resizes when container size changes",
   () => {
     return (

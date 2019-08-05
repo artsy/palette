@@ -2,11 +2,16 @@ import { mount } from "enzyme"
 import "jest-styled-components"
 import React from "react"
 import { Theme } from "../../Theme"
+import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 import { DonutChart, DonutChartProps } from "./DonutChart"
 
 jest.useFakeTimers()
+
+
+jest.mock("../DataVis/utils/useWrapperWidth")
+;(useWrapperWidth as jest.Mock).mockImplementation(() => 400)
 
 const mockPoints = [
   { value: 0, axisLabelX: "x axis label" },
