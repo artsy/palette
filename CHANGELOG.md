@@ -1,3 +1,16 @@
+# v4.14.46 (Tue Aug 06 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [EntityHeader] Fix interface definition #trivial [#562](https://github.com/artsy/palette/pull/562) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.14.45 (Tue Aug 06 2019)
 
 #### 🐛  Bug Fix
