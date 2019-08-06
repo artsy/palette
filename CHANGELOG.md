@@ -1,3 +1,22 @@
+# v4.14.45 (Tue Aug 06 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [EntityHeader] Add onClick handler #trivial [#561](https://github.com/artsy/palette/pull/561) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Update dep @artsy/auto-config from 1.0.0 to v1.0.1 [#559](https://github.com/artsy/palette/pull/559) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.14.44 (Mon Aug 05 2019)
 
 
