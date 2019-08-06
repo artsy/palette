@@ -19,8 +19,9 @@ interface EntityHeaderProps extends SpacerProps {
 
 interface ContainerComponentProps {
   color?: Color
-  noUnderline?: boolean
   href?: string
+  noUnderline?: boolean
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 /**
