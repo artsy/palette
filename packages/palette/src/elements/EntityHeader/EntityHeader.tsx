@@ -15,13 +15,13 @@ interface EntityHeaderProps extends SpacerProps {
   meta?: string
   name: string
   FollowButton?: JSX.Element
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 interface ContainerComponentProps {
   color?: Color
   href?: string
   noUnderline?: boolean
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 /**
