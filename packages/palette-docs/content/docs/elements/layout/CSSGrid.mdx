@@ -1,0 +1,31 @@
+---
+name: CSSGrid
+---
+
+The CSSGrid component is a layout container for content that exposes props
+related to CSS grid.
+
+### A Simple Grid
+
+<Playground>
+  <CSSGrid gridTemplateColumns="repeat(2, 1fr)" gridGap={2}>
+    <Box>This grid displays...</Box>
+    <Box>...two columns...</Box>
+    <Box>...per row...</Box>
+    <Box>...with a gap of 20px.</Box>
+  </CSSGrid>
+</Playground>
+
+### A Responsive Grid
+
+<Playground>
+  <CSSGrid
+    gridTemplateColumns={["repeat(2, 1fr)", "repeat(4, 1fr)"]}
+    gridGap={[2, 4]}
+  >
+    <Box>This grid displays...</Box>
+    <Box>...two columns at xs...</Box>
+    <Box>...but 4 columns at sm or larger.</Box>
+    <Box>The gap is also different.</Box>
+  </CSSGrid>
+</Playground>
