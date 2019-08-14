@@ -1,8 +1,8 @@
 import { DateTime, Duration } from "luxon"
-import React, { useState } from "react"
+import React from "react"
 import { Flex, Sans } from "../"
 import { color } from "../../helpers"
-import { useInterval } from "../../utils/useInterval"
+import { useCurrentTime } from "../../utils/useCurrentTime"
 
 function padWithZero(num: number) {
   return num.toString().padStart(2, "0")
@@ -17,6 +17,7 @@ export const TimeRemaining: React.SFC<{
   labelWithoutTimeRemaining?: string
   timeEndedDisplayText?: string
   trailingText?: string
+  currentTime?: string | DateTime
   highlight: Parameters<typeof color>[0]
 }> = ({
   endDate,
@@ -25,24 +26,13 @@ export const TimeRemaining: React.SFC<{
   labelWithoutTimeRemaining,
   timeEndedDisplayText,
   trailingText,
+  currentTime,
 }) => {
-  const [duration, setDuration] = useState(
-    Duration.fromISO(
-      DateTime.fromISO(endDate)
-        .diff(DateTime.local())
-        .toString()
-    )
+  const duration = Duration.fromISO(
+    DateTime.fromISO(endDate)
+      .diff(useCurrentTime(currentTime))
+      .toString()
   )
-
-  useInterval(() => {
-    setDuration(
-      Duration.fromISO(
-        DateTime.fromISO(endDate)
-          .diff(DateTime.local())
-          .toString()
-      )
-    )
-  }, 1000)
 
   const hasEnded = Math.floor(duration.seconds) <= 0
 

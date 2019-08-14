@@ -25,7 +25,9 @@ describe("StaticCountdownTimer", () => {
       />
     )
     expect(wrapper.html()).toContain("Respond by Jan 14, 2:30pm EST")
-    expect(wrapper.html()).toContain("09d 03h 29m 30s")
+    expect(wrapper.html()).toContain(
+      "09d&nbsp;&nbsp;03h&nbsp;&nbsp;29m&nbsp;&nbsp;30s left"
+    )
   })
 
   it("renders time in the past and returning 0 days", () => {
@@ -38,7 +40,7 @@ describe("StaticCountdownTimer", () => {
         currentTime="2019-01-15T12:00:00.000-04:00"
       />
     )
-    expect(wrapper.html()).toContain("0 days")
+    expect(wrapper.html()).toContain("0 days left")
   })
 
   it("renders the hour as 12 if noon", () => {

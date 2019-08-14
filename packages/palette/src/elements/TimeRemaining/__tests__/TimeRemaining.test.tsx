@@ -18,10 +18,10 @@ describe("TimeRemaining", () => {
   })
 
   it("doesn't render hours if end hour is the same as current hour", () => {
-    Settings.now = () => new Date("2019-01-05T15:00:30.000-04:00").valueOf()
     const wrapper = mount(
       <TimeRemaining
         endDate="2019-01-14T15:30:00.000-04:00"
+        currentTime="2019-01-05T15:00:30.000-04:00"
         highlight="purple100"
       />
     )
@@ -34,10 +34,10 @@ describe("TimeRemaining", () => {
   })
 
   it("doesn't render minutes if end hour is the same as current hour", () => {
-    Settings.now = () => new Date("2019-01-05T15:30:00.000-04:00").valueOf()
     const wrapper = mount(
       <TimeRemaining
         endDate="2019-01-14T15:30:30.000-04:00"
+        currentTime="2019-01-05T15:30:00.000-04:00"
         highlight="purple100"
       />
     )
@@ -50,12 +50,12 @@ describe("TimeRemaining", () => {
   })
 
   it("renders timeEndedDisplayText when time has ended if passed", () => {
-    Settings.now = () => new Date("2019-01-05T15:30:00.000-04:00").valueOf()
     const wrapper = mount(
       <TimeRemaining
         endDate="2018-01-14T15:30:30.000-04:00"
         highlight="purple100"
-        timeEndedDisplayText="O days left"
+        currentTime="2019-01-05T15:30:00.000-04:00"
+        timeEndedDisplayText="0 days left"
       />
     )
 
@@ -64,15 +64,15 @@ describe("TimeRemaining", () => {
         .find(Sans)
         .at(0)
         .html()
-    ).toContain("O days left")
+    ).toContain("0 days left")
   })
 
-  it("doesn't renders trailing text if provided", () => {
-    Settings.now = () => new Date("2019-01-05T15:30:00.000-04:00").valueOf()
+  it("renders trailing text if provided", () => {
     const wrapper = mount(
       <TimeRemaining
         endDate="2019-01-14T15:30:30.000-04:00"
         highlight="purple100"
+        currentTime="2019-01-05T15:30:00.000-04:00"
         trailingText="left"
       />
     )

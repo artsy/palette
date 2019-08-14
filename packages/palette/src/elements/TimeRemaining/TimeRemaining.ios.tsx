@@ -16,6 +16,8 @@ export const TimeRemaining: React.SFC<{
   labelWithTimeRemaining?: string
   labelWithoutTimeRemaining?: string
   timeEndedDisplayText?: string
+  trailingText?: string
+  currentTime?: DateTime
   highlight: Parameters<typeof color>[0]
 }> = ({
   endDate,
@@ -23,11 +25,14 @@ export const TimeRemaining: React.SFC<{
   labelWithTimeRemaining,
   labelWithoutTimeRemaining,
   timeEndedDisplayText,
+  trailingText,
+  currentTime,
 }) => {
+  const now = currentTime ? currentTime : DateTime.local()
   const [duration, setDuration] = useState(
     Duration.fromISO(
       DateTime.fromISO(endDate)
-        .diff(DateTime.local())
+        .diff(now)
         .toString()
     )
   )
@@ -36,7 +41,7 @@ export const TimeRemaining: React.SFC<{
     setDuration(
       Duration.fromISO(
         DateTime.fromISO(endDate)
-          .diff(DateTime.local())
+          .diff(now)
           .toString()
       )
     )
@@ -58,6 +63,7 @@ export const TimeRemaining: React.SFC<{
             {padWithZero(Math.max(0, Math.floor(duration.as("minutes") % 60)))}m
             {SEPARATOR}
             {padWithZero(Math.max(0, Math.floor(duration.as("seconds") % 60)))}s
+            {trailingText && ` ${trailingText}`}
           </>
         )}
       </Sans>
