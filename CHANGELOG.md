@@ -1,3 +1,23 @@
+# v4.14.47 (Thu Aug 15 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Small CSS adjustments to modal for scroll [#565](https://github.com/artsy/palette/pull/565) ([@kierangillen](https://github.com/kierangillen) [@erikdstock](https://github.com/erikdstock))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Pin dep mock-raf from ^1.0.1 to 1.0.1 [#560](https://github.com/artsy/palette/pull/560) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 3
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+- Erik ([@erikdstock](https://github.com/erikdstock))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.14.46 (Tue Aug 06 2019)
 
 #### 🐛  Bug Fix
