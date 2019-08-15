@@ -1,3 +1,16 @@
+# v4.15.0 (Thu Aug 15 2019)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - New CSSGrid element [#563](https://github.com/artsy/palette/pull/563) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 1
+
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v4.14.48 (Thu Aug 15 2019)
 
 #### 🐛  Bug Fix
