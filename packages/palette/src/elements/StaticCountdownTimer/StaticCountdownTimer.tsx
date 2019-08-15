@@ -58,7 +58,7 @@ export const StaticCountdownTimer: React.SFC<{
         />
         <Spacer mr="7px" />
         <TimeRemaining
-          endDate={countdownEnd}
+          countdownEnd={countdownEnd}
           highlight={highlight}
           currentTime={useCurrentTime(currentTime)}
           timeEndedDisplayText="0 days left"

@@ -10,7 +10,7 @@ function padWithZero(num: number) {
 
 /** TimeRemaining */
 export const TimeRemaining: React.SFC<{
-  endDate: string
+  countdownEnd: string
   labelWithTimeRemaining?: string
   labelWithoutTimeRemaining?: string
   timeEndedDisplayText?: string
@@ -18,7 +18,7 @@ export const TimeRemaining: React.SFC<{
   currentTime?: string | DateTime
   highlight: Parameters<typeof color>[0]
 }> = ({
-  endDate,
+  countdownEnd,
   highlight = "purple100",
   labelWithTimeRemaining,
   labelWithoutTimeRemaining,
@@ -27,7 +27,7 @@ export const TimeRemaining: React.SFC<{
   currentTime,
 }) => {
   const duration = Duration.fromISO(
-    DateTime.fromISO(endDate)
+    DateTime.fromISO(countdownEnd)
       .diff(useCurrentTime(currentTime))
       .toString()
   )
