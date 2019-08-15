@@ -1,39 +1,70 @@
 import { DateTime, Duration } from "luxon"
 import React from "react"
-import { Sans } from "../"
+import { Flex, Sans } from "../"
 import { color } from "../../helpers"
+import { useCurrentTime } from "../../utils/useCurrentTime"
 
-const pad = (n: number) => n.toString().padStart(2, "0")
+function padWithZero(num: number) {
+  return num.toString().padStart(2, "0")
+}
 
 /** TimeRemaining */
 export const TimeRemaining: React.SFC<{
-  currentTime: string
   countdownEnd: string
+  labelWithTimeRemaining?: string
+  labelWithoutTimeRemaining?: string
+  timeEndedDisplayText?: string
+  trailingText?: string
+  currentTime?: string | DateTime
   highlight: Parameters<typeof color>[0]
-}> = ({ currentTime, countdownEnd, highlight = "purple100" }) => {
-  const timeRemaining = Duration.fromISO(
+}> = ({
+  countdownEnd,
+  highlight = "purple100",
+  labelWithTimeRemaining,
+  labelWithoutTimeRemaining,
+  timeEndedDisplayText,
+  trailingText,
+  currentTime,
+}) => {
+  const duration = Duration.fromISO(
     DateTime.fromISO(countdownEnd)
-      .diff(DateTime.fromISO(currentTime))
+      .diff(useCurrentTime(currentTime))
       .toString()
   )
-  const days = Math.floor(timeRemaining.as("days"))
-  const hours = Math.floor(timeRemaining.as("hours") % 24)
-  const minutes = Math.floor(timeRemaining.as("minutes") % 60)
-  const seconds = Math.floor(timeRemaining.as("seconds") % 60)
+
+  const hasEnded = Math.floor(duration.seconds) <= 0
+
+  const days = `${padWithZero(Math.max(0, Math.floor(duration.as("days"))))}d `
+  const hours = `${padWithZero(
+    Math.max(0, Math.floor(duration.as("hours") % 24))
+  )}h `
+  const minutes = `${padWithZero(
+    Math.max(0, Math.floor(duration.as("minutes") % 60))
+  )}m `
+  const seconds = `${padWithZero(
+    Math.max(0, Math.floor(duration.as("seconds") % 60))
+  )}s`
 
   return (
-    <Sans size="3" color={highlight} weight="medium">
-      {Math.floor(timeRemaining.seconds) <= 0 ? (
-        "0 days"
-      ) : (
-        <>
-          {days > 0 && pad(days) + "d "}
-          {hours > 0 && pad(hours) + "h "}
-          {minutes > 0 && pad(minutes) + "m "}
-          {pad(seconds) + "s"}
-        </>
+    <Flex flexDirection="column" alignItems="center">
+      <Sans size="3" color={highlight} weight="medium">
+        {hasEnded && timeEndedDisplayText ? (
+          timeEndedDisplayText
+        ) : (
+          <>
+            {days}
+            {hours}
+            {minutes}
+            {seconds}
+            {trailingText && ` ${trailingText}`}
+          </>
+        )}
+      </Sans>
+      {(labelWithTimeRemaining || labelWithoutTimeRemaining) && (
+        <Sans size="3" weight="medium">
+          {hasEnded ? labelWithoutTimeRemaining : labelWithTimeRemaining}
+        </Sans>
       )}
-      <span> left</span>
-    </Sans>
+    </Flex>
   )
 }

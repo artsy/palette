@@ -64,7 +64,7 @@ $ yarn start
 
 When adding a new component to Palette, it's important to be aware that this library is used on the web as well as in React Native, via Emission, and therefore must follow a few rules in terms of structure, namely:
 
-> Components exported from the main `/elements/index.tsx` must have a corresponding `.ios.tsx` file, even if the component isn't yet used in React Native.
+> If a mobile component has platform-specific features, that code has to live in a `Component.ios.tsx` file. Or if a web component has browser-only features, then a `Component.ios.tsx` file must be created, or React Native will error out. If the code between a web and native component is identical, a `.ios.tx` file isn’t needed. If some code can be shared between platforms, then that shared code should live in a `Component.shared.tsx` file.
 
 Example:
 
