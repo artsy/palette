@@ -6,14 +6,12 @@ import { TimeRemaining } from "../TimeRemaining"
 
 describe("TimeRemaining", () => {
   const defaultZone = Settings.defaultZoneName
-  const realNow = Settings.now
 
   beforeEach(() => {
     Settings.defaultZoneName = "America/New_York"
   })
 
   afterEach(() => {
-    Settings.now = realNow
     Settings.defaultZoneName = defaultZone
   })
 
@@ -30,7 +28,7 @@ describe("TimeRemaining", () => {
         .find(Sans)
         .at(0)
         .html()
-    ).toContain("09d&nbsp;&nbsp;00h&nbsp;&nbsp;29m&nbsp;&nbsp;30s")
+    ).toContain("09d 00h 29m 30s")
   })
 
   it("doesn't render minutes if end hour is the same as current hour", () => {
@@ -46,7 +44,7 @@ describe("TimeRemaining", () => {
         .find(Sans)
         .at(0)
         .html()
-    ).toContain("09d&nbsp;&nbsp;00h&nbsp;&nbsp;00m&nbsp;&nbsp;30s")
+    ).toContain("09d 00h 00m 30s")
   })
 
   it("renders timeEndedDisplayText when time has ended if passed", () => {
@@ -81,6 +79,6 @@ describe("TimeRemaining", () => {
         .find(Sans)
         .at(0)
         .html()
-    ).toContain("09d&nbsp;&nbsp;00h&nbsp;&nbsp;00m&nbsp;&nbsp;30s left")
+    ).toContain("09d 00h 00m 30s left")
   })
 })
