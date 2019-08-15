@@ -10,6 +10,8 @@ import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Serif } from "../Typography"
 
+const FIXED_BUTTON_HEIGHT = "92px"
+
 /**
  * refreshModalContentKey should change if the modal displays new content and should fade
  * in/fade out with content update. If refreshModalContentKey does not change, the content
@@ -231,9 +233,17 @@ const ModalScrollContent = styled(Box)<ModalScrollContentProps>`
   height: 100%;
   width: 100%;
   max-height: ${props =>
-    !!props.FixedButton ? "calc(100vh - 172px)" : "calc(100vh - 80px)"};
+    !!props.FixedButton
+      ? "calc(100vh - (80px + " + FIXED_BUTTON_HEIGHT + "))"
+      : "calc(100vh - 80px)"};
   overflow: auto;
   padding-bottom: ${space(2)}px;
+  ${media.xs`
+    max-height: ${props =>
+      !!props.FixedButton
+        ? "calc(100vh - " + FIXED_BUTTON_HEIGHT + ")"
+        : "100vh"};
+  `};
 `
 
 const CloseIconWrapper = styled(Box)`
