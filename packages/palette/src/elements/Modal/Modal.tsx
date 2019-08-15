@@ -179,7 +179,7 @@ export const Modal: SFC<ModalProps> = ({
 }
 
 const FixedButtonWrapper = styled(Box)`
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -213,7 +213,7 @@ const ModalElement = styled(AnimatedView)<TransitionElementProps>`
   top: 50%;
   left: 50%;
   height: ${props => (props.height ? props.height : "auto")};
-  max-height: calc(100% - 80px);
+  max-height: calc(100vh - 80px);
   min-height: 58px;
   overflow: hidden;
   background-color: ${color("white100")};
@@ -230,8 +230,16 @@ const ModalElement = styled(AnimatedView)<TransitionElementProps>`
 const ModalScrollContent = styled(Box)<ModalScrollContentProps>`
   height: 100%;
   width: 100%;
-  overflow: scroll;
-  padding-bottom: ${props => (!!props.FixedButton ? "112px" : space(2) + "px")};
+  overflow: auto;
+  padding-bottom: ${space(2)}px;
+  max-height: ${props =>
+    !!props.FixedButton
+      ? `calc(100vh - (80px + ${space(9)}px));`
+      : "calc(100vh - 80px)"};
+  ${media.xs`
+    max-height: ${props =>
+      !!props.FixedButton ? `calc(100vh - (80px ${space(9)}px));` : "100vh"};
+  `};
 `
 
 const CloseIconWrapper = styled(Box)`
