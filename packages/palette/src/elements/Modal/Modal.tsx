@@ -234,11 +234,11 @@ const ModalScrollContent = styled(Box)<ModalScrollContentProps>`
   padding-bottom: ${space(2)}px;
   max-height: ${props =>
     !!props.FixedButton
-      ? "calc(100vh - (80px + " + space(9) + "))"
+      ? `calc(100vh - (80px ${space(9)}px));`
       : "calc(100vh - 80px)"};
   ${media.xs`
     max-height: ${props =>
-      !!props.FixedButton ? "calc(100vh - " + space(9) + ")" : "100vh"};
+      !!props.FixedButton ? `calc(100vh - (80px ${space(9)}px));` : "100vh"};
   `};
 `
 
