@@ -1,3 +1,16 @@
+# v4.14.48 (Thu Aug 15 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Creates TimeRemaing.ios.tsx and updates TimeRemaining API [#564](https://github.com/artsy/palette/pull/564) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.14.47 (Thu Aug 15 2019)
 
 #### 🐛  Bug Fix
