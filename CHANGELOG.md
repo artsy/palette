@@ -1,3 +1,16 @@
+# v4.16.0 (Fri Aug 16 2019)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [ReadMore] Add disabled prop [#567](https://github.com/artsy/palette/pull/567) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.15.1 (Fri Aug 16 2019)
 
 #### 🐛  Bug Fix
