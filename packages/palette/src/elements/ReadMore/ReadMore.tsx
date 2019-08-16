@@ -6,10 +6,11 @@ import { DisplayProps } from "styled-system"
 import truncate from "trunc-html"
 
 export interface ReadMoreProps extends DisplayProps {
+  content: string | JSX.Element
+  disabled?: boolean
   isExpanded?: boolean
   maxChars?: number
   onReadMoreClicked?: () => void
-  content: string | JSX.Element
 }
 
 export interface ReadMoreState {
@@ -46,6 +47,10 @@ export class ReadMore extends Component<ReadMoreProps, ReadMoreState> {
   }
 
   expandText() {
+    if (this.props.disabled) {
+      return
+    }
+
     this.setState(
       {
         isExpanded: true,

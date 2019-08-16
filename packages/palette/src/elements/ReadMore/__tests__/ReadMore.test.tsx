@@ -37,4 +37,11 @@ describe("ReadMore", () => {
     wrapper.simulate("click")
     expect(wrapper.find("ReadMoreLink").length).toBe(0)
   })
+
+  it("does not expand if disabled", () => {
+    const wrapper = mount(<ReadMore maxChars={20} content={copy} disabled />)
+    expect(wrapper.find("ReadMoreLink").length).toBe(1)
+    wrapper.simulate("click")
+    expect(wrapper.find("ReadMoreLink").length).toBe(1)
+  })
 })
