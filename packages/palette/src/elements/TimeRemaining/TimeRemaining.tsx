@@ -12,24 +12,24 @@ function padWithZero(num: number) {
 /** TimeRemaining */
 export const TimeRemaining: React.SFC<{
   countdownEnd: string
-  labelWithTimeRemaining?: string
-  labelWithoutTimeRemaining?: string
-  timeEndedDisplayText?: string
-  trailingText?: string
   currentTime?: string | DateTime
-  timerFontSize?: SansSize
-  labelFontSize?: SansSize
   highlight: Parameters<typeof color>[0]
+  labelFontSize?: SansSize
+  labelWithoutTimeRemaining?: string
+  labelWithTimeRemaining?: string
+  timeEndedDisplayText?: string
+  timerFontSize?: SansSize
+  trailingText?: string
 }> = ({
   countdownEnd,
-  highlight = "purple100",
-  labelWithTimeRemaining,
-  labelWithoutTimeRemaining,
-  timeEndedDisplayText,
-  trailingText,
-  timerFontSize,
-  labelFontSize,
   currentTime,
+  highlight = "purple100",
+  labelFontSize = "3",
+  labelWithoutTimeRemaining,
+  labelWithTimeRemaining,
+  timeEndedDisplayText,
+  timerFontSize = "3",
+  trailingText,
 }) => {
   const duration = Duration.fromISO(
     DateTime.fromISO(countdownEnd)
@@ -52,11 +52,7 @@ export const TimeRemaining: React.SFC<{
 
   return (
     <Flex flexDirection="column" alignItems="center">
-      <Sans
-        size={timerFontSize ? timerFontSize : "3"}
-        color={highlight}
-        weight="medium"
-      >
+      <Sans size={timerFontSize} color={highlight} weight="medium">
         {hasEnded && timeEndedDisplayText ? (
           timeEndedDisplayText
         ) : (
@@ -70,7 +66,7 @@ export const TimeRemaining: React.SFC<{
         )}
       </Sans>
       {(labelWithTimeRemaining || labelWithoutTimeRemaining) && (
-        <Sans size={labelFontSize ? labelFontSize : "3"} weight="medium">
+        <Sans size={labelFontSize} weight="medium">
           {hasEnded ? labelWithoutTimeRemaining : labelWithTimeRemaining}
         </Sans>
       )}
