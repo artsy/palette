@@ -1,3 +1,16 @@
+# v4.15.1 (Fri Aug 16 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds fontsize props to TimeRemaining [#566](https://github.com/artsy/palette/pull/566) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.15.0 (Thu Aug 15 2019)
 
 #### 🚀  Enhancement
