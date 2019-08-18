@@ -145,6 +145,50 @@ describe("RadioGroup", () => {
     expect(pickup.props().selected).toBe(true)
   })
 
+  it("allows for updates to defaultValue", () => {
+    const getWrapper = defaultValue =>
+      mount(
+        <RadioGroup defaultValue={defaultValue}>
+          <Radio value="SHIP" selected>
+            Provide shipping address
+          </Radio>
+          <Radio value="PICKUP">Arrange for pickup</Radio>
+        </RadioGroup>
+      )
+
+    let wrapper = getWrapper("PICKUP")
+
+    expect(
+      wrapper
+        .find("Radio")
+        .first()
+        .props().selected
+    ).toBe(false)
+
+    expect(
+      wrapper
+        .find("Radio")
+        .last()
+        .props().selected
+    ).toBe(true)
+
+    wrapper = getWrapper("SHIP")
+
+    expect(
+      wrapper
+        .find("Radio")
+        .first()
+        .props().selected
+    ).toBe(true)
+
+    expect(
+      wrapper
+        .find("Radio")
+        .last()
+        .props().selected
+    ).toBe(false)
+  })
+
   it("allows for using the onSelect callback both on RadioGroup and Radio", () => {
     const spyOnRadioGroup = jest.fn()
     const spyOnRadio = jest.fn()
