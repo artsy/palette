@@ -1,3 +1,16 @@
+# v4.16.1 (Sun Aug 18 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [RadioGroup] Fix defaultValue selection #trivial [#568](https://github.com/artsy/palette/pull/568) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.16.0 (Fri Aug 16 2019)
 
 #### 🚀  Enhancement
