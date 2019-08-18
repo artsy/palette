@@ -36,6 +36,14 @@ export class RadioGroup extends React.Component<
     selectedOption: this.props.defaultValue || null,
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.defaultValue !== this.props.defaultValue) {
+      this.setState({
+        selectedOption: this.props.defaultValue,
+      })
+    }
+  }
+
   onSelect = ({ value }) => {
     // After state update, call back up the tree with the latest state
     const update = () => {
