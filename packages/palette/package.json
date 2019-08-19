@@ -46,7 +46,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-native": "^0.55.4",
-    "react-native-svg": "^9.4.0",
+    "react-native-svg": "^9.6.4",
     "styled-components": "^4"
   },
   "devDependencies": {
@@ -98,7 +98,7 @@
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-native": "0.55.4",
-    "react-native-svg": "9.4.0",
+    "react-native-svg": "9.6.4",
     "react-test-renderer": "16.8.6",
     "regenerator-runtime": "0.11.1",
     "simple-progress-webpack-plugin": "1.1.2",
