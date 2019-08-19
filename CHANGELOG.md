@@ -1,3 +1,16 @@
+# v4.16.2 (Mon Aug 19 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds ios Close and Check Circle Icons [#569](https://github.com/artsy/palette/pull/569) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.16.1 (Sun Aug 18 2019)
 
 #### 🐛  Bug Fix
