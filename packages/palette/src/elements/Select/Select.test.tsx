@@ -23,6 +23,15 @@ describe("Select", () => {
       expect(wrapper.find("select").props().value).toBe("secondOption")
     })
 
+    it("renders with a placeholder value", () => {
+      const wrapper = mount(
+        <SelectSmall options={options} selected="secondOption" />
+      )
+
+      expect(wrapper.find("option").length).toBe(2)
+      expect(wrapper.find("select").props().value).toBe("secondOption")
+    })
+
     it("triggers callback on change", () => {
       const spy = jest.fn()
       const wrapper = mount(<SelectSmall options={options} onSelect={spy} />)

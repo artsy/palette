@@ -21,6 +21,7 @@ export interface SelectProps extends PositionProps, SpaceProps {
   error?: string
   title?: string
   onSelect?: (value) => void
+  placeholder?: string
 }
 
 /**
@@ -34,6 +35,11 @@ export const LargeSelect: SFC<SelectProps> = props => {
         disabled={props.disabled}
         onChange={event => props.onSelect && props.onSelect(event.target.value)}
       >
+        {Boolean(props.placeholder) && !Boolean(props.selected) && (
+          <option value="" disabled selected>
+            {props.placeholder}
+          </option>
+        )}
         {props.options.map(({ value, text }) => (
           <option value={value} key={value}>
             {text}

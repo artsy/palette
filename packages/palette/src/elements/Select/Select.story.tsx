@@ -20,6 +20,23 @@ storiesOf("Components/Select", module)
       />
     )
   })
+  .add("LargeSelect with placeholder", () => {
+    return (
+      <LargeSelect
+        placeholder="You must choose wisely"
+        options={[
+          {
+            text: "First",
+            value: "firstValue",
+          },
+          {
+            text: "Last",
+            value: "lastValue",
+          },
+        ]}
+      />
+    )
+  })
   .add("SelectSmall with title", () => {
     return (
       <SelectSmall
