@@ -1,6 +1,7 @@
 import { mount } from "enzyme"
 import React from "react"
 import { SelectSmall } from "../Select"
+import { LargeSelect } from "./Select"
 
 describe("Select", () => {
   describe("SelectSmall", () => {
@@ -25,11 +26,12 @@ describe("Select", () => {
 
     it("renders with a placeholder value", () => {
       const wrapper = mount(
-        <SelectSmall options={options} selected="secondOption" />
+        <LargeSelect options={options} placeholder="I'm a placeholder" />
       )
-
-      expect(wrapper.find("option").length).toBe(2)
-      expect(wrapper.find("select").props().value).toBe("secondOption")
+      expect(wrapper.find("select").text()).toMatch(
+        new RegExp("^I'm a placeholder")
+      )
+      expect(wrapper.find("option").length).toBe(3)
     })
 
     it("triggers callback on change", () => {

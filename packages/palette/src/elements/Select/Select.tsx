@@ -35,7 +35,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
         disabled={props.disabled}
         onChange={event => props.onSelect && props.onSelect(event.target.value)}
       >
-        {Boolean(props.placeholder) && !Boolean(props.selected) && (
+        {placeholderActive(props) && (
           <option value="" disabled selected>
             {props.placeholder}
           </option>
@@ -69,6 +69,11 @@ export const SelectSmall: SFC<SelectProps> = props => {
             props.onSelect && props.onSelect(event.target.value)
           }
         >
+          {placeholderActive(props) && (
+            <option value="" disabled selected>
+              {props.placeholder}
+            </option>
+          )}
           {props.options.map(({ value, text }) => (
             <option value={value} key={value}>
               {text}
@@ -109,6 +114,9 @@ const caretArrow = css<SelectProps>`
   width: 0;
   height: 0;
 `
+
+const placeholderActive = props =>
+  Boolean(props.placeholder) && !Boolean(props.selected)
 
 const LargeSelectContainer = styled.div<SelectProps>`
   position: relative;
