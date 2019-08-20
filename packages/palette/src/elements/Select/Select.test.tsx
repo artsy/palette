@@ -4,17 +4,28 @@ import { SelectSmall } from "../Select"
 import { LargeSelect } from "./Select"
 
 describe("Select", () => {
+  const options = [
+    {
+      text: "First option",
+      value: "firstOption",
+    },
+    {
+      text: "Second option that is really long",
+      value: "secondOption",
+    },
+  ]
+  describe("LargeSelect", () => {
+    it("renders with a placeholder value", () => {
+      const wrapper = mount(
+        <LargeSelect options={options} placeholder="I'm a placeholder" />
+      )
+      expect(wrapper.find("select").text()).toMatch(
+        new RegExp("^I'm a placeholder")
+      )
+      expect(wrapper.find("option").length).toBe(3)
+    })
+  })
   describe("SelectSmall", () => {
-    const options = [
-      {
-        text: "First option",
-        value: "firstOption",
-      },
-      {
-        text: "Second option that is really long",
-        value: "secondOption",
-      },
-    ]
     it("renders proper options with correct selected one", () => {
       const wrapper = mount(
         <SelectSmall options={options} selected="secondOption" />
@@ -26,7 +37,7 @@ describe("Select", () => {
 
     it("renders with a placeholder value", () => {
       const wrapper = mount(
-        <LargeSelect options={options} placeholder="I'm a placeholder" />
+        <SelectSmall options={options} placeholder="I'm a placeholder" />
       )
       expect(wrapper.find("select").text()).toMatch(
         new RegExp("^I'm a placeholder")

@@ -36,7 +36,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
         onChange={event => props.onSelect && props.onSelect(event.target.value)}
       >
         {placeholderActive(props) && (
-          <option value="" disabled selected>
+          <option selected value="" disabled>
             {props.placeholder}
           </option>
         )}
@@ -70,7 +70,7 @@ export const SelectSmall: SFC<SelectProps> = props => {
           }
         >
           {placeholderActive(props) && (
-            <option value="" disabled selected>
+            <option selected value="" disabled>
               {props.placeholder}
             </option>
           )}

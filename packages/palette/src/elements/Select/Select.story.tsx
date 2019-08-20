@@ -71,3 +71,20 @@ storiesOf("Components/Select", module)
       />
     )
   })
+  .add("SelectSmall with placeholder", () => {
+    return (
+      <SelectSmall
+        placeholder="You must choose small-ly"
+        options={[
+          {
+            text: "First",
+            value: "firstValue",
+          },
+          {
+            text: "Last",
+            value: "lastValue",
+          },
+        ]}
+      />
+    )
+  })
