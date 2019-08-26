@@ -8,5 +8,3 @@ import * as _AllIcons from "./svgs"
 
 /** Icons used as a map for Palette docs */
 export const AllIcons = _AllIcons
-
-console.log("allicons", AllIcons)
