@@ -1,3 +1,27 @@
+# v4.16.3 (Mon Aug 26 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds new icons CertificateIcon & VerifiedIcon [#574](https://github.com/artsy/palette/pull/574) ([@kierangillen](https://github.com/kierangillen))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Add modal examples to Storybook [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https://github.com/dblandin))
+- `@artsy/palette`
+  - Inject global styles into Storybook environment
+
+Apply global styles to the environment where we render Storybook
+examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 2
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v4.16.2 (Mon Aug 19 2019)
 
 #### 🐛  Bug Fix
