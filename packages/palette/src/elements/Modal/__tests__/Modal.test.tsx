@@ -44,6 +44,18 @@ describe("Modal", () => {
     expect(component.find(Button).length).toEqual(1)
   })
 
+  it("doesnt display x if hideCloseXButton is passed", () => {
+    let show = true
+    const onClose = () => (show = false)
+    const component = mount(
+      <Modal show={show} onClose={onClose} hideCloseXButton>
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+        vestibulum.
+      </Modal>
+    )
+    expect(component.find(CloseIcon).length).toEqual(0)
+  })
+
   it("closes when x is clicked", () => {
     let show = true
     const onClose = () => (show = false)
@@ -59,6 +71,38 @@ describe("Modal", () => {
       .props()
       .onClick()
     expect(show).toEqual(false)
+  })
+
+  it("closes when wrapper is clicked", () => {
+    let show = true
+    const onClose = () => (show = false)
+    const component = mount(
+      <Modal show={show} onClose={onClose}>
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+        vestibulum.
+      </Modal>
+    )
+    component
+      .childAt(0)
+      .props()
+      .onClick()
+    expect(show).toEqual(false)
+  })
+
+  it("wont close when wrapper is clicked if hideCloseXButton is passed", () => {
+    let show = true
+    const onClose = () => (show = false)
+    const component = mount(
+      <Modal show={show} hideCloseXButton onClose={onClose}>
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+        vestibulum.
+      </Modal>
+    )
+    component
+      .childAt(0)
+      .props()
+      .onClick()
+    expect(show).toEqual(true)
   })
 
   it("closes when escape key is pressed", () => {
