@@ -1,12 +1,15 @@
-import React from "react"
+import { random } from "lodash"
+import React, { CSSProperties } from "react"
 import { Spring } from "react-spring/renderprops.cjs"
 import { Box } from "../Box"
 import { ProgressBar } from "../ProgressBar"
 
 interface PageLoaderProps {
+  className?: string
+  complete?: boolean
   percentComplete?: number
   showBackground?: boolean
-  complete?: boolean
+  style?: CSSProperties
 }
 
 interface PageLoaderState {
@@ -26,26 +29,21 @@ export class PageLoader extends React.Component<
     progress: 0,
   }
 
-  defaultProps = {
+  static defaultProps = {
     showBackground: true,
+    style: {},
   }
 
   currentProgress = 0
-  step = 0.5
+  step = random(1, 3)
   interval
 
   constructor(props) {
     super(props)
-
-    let progress = this.props.percentComplete || 0
-    if (this.props.complete) {
-      progress = 100
-    }
-
-    this.currentProgress = progress
+    this.currentProgress = this.props.percentComplete || 0
 
     this.state = {
-      progress,
+      progress: this.currentProgress,
     }
   }
 
@@ -58,7 +56,7 @@ export class PageLoader extends React.Component<
             (Math.atan(this.currentProgress) / (Math.PI / 2)) * 100 * 1000
           ) / 1000,
       })
-    }, 1000)
+    }, 100)
   }
 
   componentWillUnmount() {
@@ -66,14 +64,14 @@ export class PageLoader extends React.Component<
   }
 
   render() {
-    const { showBackground } = this.props
+    const { showBackground, style, className } = this.props
     const { progress } = this.state
     const isComplete = progress === 100
 
     const animation = {
       from: {
         opacity: 0,
-        top: -10,
+        top: 0,
       },
       to: {
         opacity: 1,
@@ -82,13 +80,8 @@ export class PageLoader extends React.Component<
     }
 
     return (
-      <Box position="fixed" top={0} width="100%">
-        <Spring
-          from={animation.from}
-          to={animation.to}
-          delay={300}
-          reverse={isComplete}
-        >
+      <Box width="100%" style={style} className={className}>
+        <Spring from={animation.from} to={animation.to} reverse={isComplete}>
           {animationProps => {
             return (
               <Box style={animationProps} position="relative">
