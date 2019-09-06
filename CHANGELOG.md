@@ -1,3 +1,16 @@
+# v4.17.0 (Fri Sep 06 2019)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [PageLoader] Add PageLoader component [#577](https://github.com/artsy/palette/pull/577) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.16.4 (Fri Sep 06 2019)
 
 #### 🐛  Bug Fix
