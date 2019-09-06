@@ -24,6 +24,10 @@ interface ModalProps {
   onClose: () => void
   show?: boolean
   title?: string
+  /*
+   * Hide the X button if we don't want the user to be able to exit the modal without another action closing the modal
+   */
+  hideCloseButton?: boolean
 }
 
 interface TransitionElementProps {
@@ -50,6 +54,7 @@ export const Modal: SFC<ModalProps> = ({
   isWide,
   hasLogo,
   onClose,
+  hideCloseButton,
 }) => {
   const [springContentAnimation, setSpringContentAnimation] = useState({
     opacity: 1,
@@ -88,8 +93,10 @@ export const Modal: SFC<ModalProps> = ({
   useEffect(() => {
     if (show) {
       setRenderModal(true)
-      // Binds key event for escape to close modal
-      document.addEventListener("keyup", handleEscapeKey, true)
+      if (!hideCloseButton) {
+        // Binds key event for escape to close modal
+        document.addEventListener("keyup", handleEscapeKey, true)
+      }
       // Fixes the body to disable scroll
       document.body.style.overflowY = "hidden"
       setVisibleContent(ModalContent)
@@ -115,7 +122,15 @@ export const Modal: SFC<ModalProps> = ({
         },
       })
     }
+    return document.removeEventListener("keyup", handleEscapeKey, true)
   }, [show])
+
+  const handleWrapperClick = () => {
+    // If modal X icon is hidden we don't want to close the modal when the wrapper is clicked
+    if (!hideCloseButton) {
+      onClose()
+    }
+  }
 
   const fadeInNewContent = () => {
     // Replaces content
@@ -163,12 +178,14 @@ export const Modal: SFC<ModalProps> = ({
   return (
     <>
       {renderModal && (
-        <ModalOuterWrapper show={show}>
+        <ModalOuterWrapper show={show} onClick={() => handleWrapperClick()}>
           <ModalWrapper>
             <ModalElement style={modalAnimation} isWide={isWide} show={show}>
-              <CloseIconWrapper onClick={() => onClose()}>
-                <CloseIcon fill="black60" />
-              </CloseIconWrapper>
+              {!hideCloseButton && (
+                <CloseIconWrapper onClick={() => onClose()}>
+                  <CloseIcon fill="black60" />
+                </CloseIconWrapper>
+              )}
               {visibleContent}
             </ModalElement>
           </ModalWrapper>

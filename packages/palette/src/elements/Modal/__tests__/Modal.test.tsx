@@ -44,6 +44,18 @@ describe("Modal", () => {
     expect(component.find(Button).length).toEqual(1)
   })
 
+  it("doesnt display x if hideCloseButton is passed", () => {
+    let show = true
+    const onClose = () => (show = false)
+    const component = mount(
+      <Modal show={show} onClose={onClose} hideCloseButton>
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+        vestibulum.
+      </Modal>
+    )
+    expect(component.find(CloseIcon).length).toEqual(0)
+  })
+
   it("closes when x is clicked", () => {
     let show = true
     const onClose = () => (show = false)
@@ -61,6 +73,38 @@ describe("Modal", () => {
     expect(show).toEqual(false)
   })
 
+  it("closes when wrapper is clicked", () => {
+    let show = true
+    const onClose = () => (show = false)
+    const component = mount(
+      <Modal show={show} onClose={onClose}>
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+        vestibulum.
+      </Modal>
+    )
+    component
+      .childAt(0)
+      .props()
+      .onClick()
+    expect(show).toEqual(false)
+  })
+
+  it("wont close when wrapper is clicked if hideCloseButton is passed", () => {
+    let show = true
+    const onClose = () => (show = false)
+    const component = mount(
+      <Modal show={show} hideCloseButton onClose={onClose}>
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+        vestibulum.
+      </Modal>
+    )
+    component
+      .childAt(0)
+      .props()
+      .onClick()
+    expect(show).toEqual(true)
+  })
+
   it("closes when escape key is pressed", () => {
     let show = true
     const onClose = () => (show = false)
@@ -70,7 +114,9 @@ describe("Modal", () => {
         vestibulum.
       </Modal>
     )
-    document.dispatchEvent(new KeyboardEvent("keyup", { key: "Escape" }))
-    expect(show).toEqual(false)
+    setTimeout(() => {
+      document.dispatchEvent(new KeyboardEvent("keyup", { key: "Escape" }))
+      expect(show).toEqual(false)
+    })
   })
 })
