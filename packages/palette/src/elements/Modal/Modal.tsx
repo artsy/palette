@@ -126,7 +126,6 @@ export const Modal: SFC<ModalProps> = ({
     // If modal X icon is hidden we don't want to close the modal when the wrapper is clicked
     if (!hideCloseXButton) {
       onClose()
-      return
     }
   }
 
