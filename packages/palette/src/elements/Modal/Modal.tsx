@@ -93,8 +93,10 @@ export const Modal: SFC<ModalProps> = ({
   useEffect(() => {
     if (show) {
       setRenderModal(true)
-      // Binds key event for escape to close modal
-      document.addEventListener("keyup", handleEscapeKey, true)
+      if (!hideCloseXButton) {
+        // Binds key event for escape to close modal
+        document.addEventListener("keyup", handleEscapeKey, true)
+      }
       // Fixes the body to disable scroll
       document.body.style.overflowY = "hidden"
       setVisibleContent(ModalContent)
