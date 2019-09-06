@@ -27,7 +27,7 @@ interface ModalProps {
   /*
    * Hide the X button if we don't want the user to be able to exit the modal without another action closing the modal
    */
-  hideCloseXButton?: boolean
+  hideCloseButton?: boolean
 }
 
 interface TransitionElementProps {
@@ -54,7 +54,7 @@ export const Modal: SFC<ModalProps> = ({
   isWide,
   hasLogo,
   onClose,
-  hideCloseXButton,
+  hideCloseButton,
 }) => {
   const [springContentAnimation, setSpringContentAnimation] = useState({
     opacity: 1,
@@ -93,7 +93,7 @@ export const Modal: SFC<ModalProps> = ({
   useEffect(() => {
     if (show) {
       setRenderModal(true)
-      if (!hideCloseXButton) {
+      if (!hideCloseButton) {
         // Binds key event for escape to close modal
         document.addEventListener("keyup", handleEscapeKey, true)
       }
@@ -126,7 +126,7 @@ export const Modal: SFC<ModalProps> = ({
 
   const handleWrapperClick = () => {
     // If modal X icon is hidden we don't want to close the modal when the wrapper is clicked
-    if (!hideCloseXButton) {
+    if (!hideCloseButton) {
       onClose()
     }
   }
@@ -180,7 +180,7 @@ export const Modal: SFC<ModalProps> = ({
         <ModalOuterWrapper show={show} onClick={() => handleWrapperClick()}>
           <ModalWrapper>
             <ModalElement style={modalAnimation} isWide={isWide} show={show}>
-              {!hideCloseXButton && (
+              {!hideCloseButton && (
                 <CloseIconWrapper onClick={() => onClose()}>
                   <CloseIcon fill="black60" />
                 </CloseIconWrapper>

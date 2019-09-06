@@ -44,11 +44,11 @@ describe("Modal", () => {
     expect(component.find(Button).length).toEqual(1)
   })
 
-  it("doesnt display x if hideCloseXButton is passed", () => {
+  it("doesnt display x if hideCloseButton is passed", () => {
     let show = true
     const onClose = () => (show = false)
     const component = mount(
-      <Modal show={show} onClose={onClose} hideCloseXButton>
+      <Modal show={show} onClose={onClose} hideCloseButton>
         Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
         vestibulum.
       </Modal>
@@ -89,11 +89,11 @@ describe("Modal", () => {
     expect(show).toEqual(false)
   })
 
-  it("wont close when wrapper is clicked if hideCloseXButton is passed", () => {
+  it("wont close when wrapper is clicked if hideCloseButton is passed", () => {
     let show = true
     const onClose = () => (show = false)
     const component = mount(
-      <Modal show={show} hideCloseXButton onClose={onClose}>
+      <Modal show={show} hideCloseButton onClose={onClose}>
         Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
         vestibulum.
       </Modal>
