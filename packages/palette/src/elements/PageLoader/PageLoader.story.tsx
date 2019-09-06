@@ -12,3 +12,6 @@ storiesOf("Components/PageLoader", module)
   .add("Without background", () => {
     return <PageLoader showBackground={false} />
   })
+  .add("On complete", () => {
+    return <PageLoader showBackground={false} percentComplete={100} />
+  })

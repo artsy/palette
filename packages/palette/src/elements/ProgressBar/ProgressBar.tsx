@@ -23,7 +23,7 @@ export const ProgressBar: React.SFC<{
     <ProgressBarBackground showBackground={showBackground}>
       <div
         style={{
-          transition: "width 0.34s ease",
+          transition: "width 1s ease",
           backgroundColor: color(highlight as any),
           width: Math.round(percentComplete) + "%",
         }}

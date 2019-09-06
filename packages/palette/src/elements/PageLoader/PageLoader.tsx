@@ -1,10 +1,12 @@
 import React from "react"
+import { Spring } from "react-spring/renderprops.cjs"
 import { Box } from "../Box"
 import { ProgressBar } from "../ProgressBar"
 
 interface PageLoaderProps {
   percentComplete?: number
   showBackground?: boolean
+  complete?: boolean
 }
 
 interface PageLoaderState {
@@ -21,16 +23,31 @@ export class PageLoader extends React.Component<
   PageLoaderState
 > {
   state = {
-    progress: this.props.percentComplete || 0,
+    progress: 0,
   }
 
   defaultProps = {
     showBackground: true,
   }
 
-  currentProgress = this.props.percentComplete || 0
+  currentProgress = 0
   step = 0.5
   interval
+
+  constructor(props) {
+    super(props)
+
+    let progress = this.props.percentComplete || 0
+    if (this.props.complete) {
+      progress = 100
+    }
+
+    this.currentProgress = progress
+
+    this.state = {
+      progress,
+    }
+  }
 
   componentDidMount() {
     this.interval = setInterval(() => {
@@ -41,7 +58,7 @@ export class PageLoader extends React.Component<
             (Math.atan(this.currentProgress) / (Math.PI / 2)) * 100 * 1000
           ) / 1000,
       })
-    }, 200)
+    }, 1000)
   }
 
   componentWillUnmount() {
@@ -49,13 +66,41 @@ export class PageLoader extends React.Component<
   }
 
   render() {
+    const { showBackground } = this.props
+    const { progress } = this.state
+    const isComplete = progress === 100
+
+    const animation = {
+      from: {
+        opacity: 0,
+        top: -10,
+      },
+      to: {
+        opacity: 1,
+        top: 0,
+      },
+    }
+
     return (
       <Box position="fixed" top={0} width="100%">
-        <ProgressBar
-          percentComplete={this.state.progress}
-          highlight="purple100"
-          showBackground={this.props.showBackground}
-        />
+        <Spring
+          from={animation.from}
+          to={animation.to}
+          delay={300}
+          reverse={isComplete}
+        >
+          {animationProps => {
+            return (
+              <Box style={animationProps} position="relative">
+                <ProgressBar
+                  percentComplete={progress}
+                  highlight="purple100"
+                  showBackground={showBackground}
+                />
+              </Box>
+            )
+          }}
+        </Spring>
       </Box>
     )
   }

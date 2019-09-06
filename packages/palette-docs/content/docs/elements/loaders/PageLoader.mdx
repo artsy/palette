@@ -2,6 +2,20 @@
 name: PageLoader
 ---
 
+A `PageLoader` component is used when transitioning between two pages in a
+single-page-app / turbo-links like way. By default, the loading animation is
+faked -- meaning, supply it with a starting percentage, and it will gradually
+animate towards completion. If you would like to retain control over the percent
+loaded then that will have to be passed in as props as changes occur.
+
+By passing in `complete={true}` or `percentComplete={100}` the `PageLoader` will
+animate out.
+
 <Playground>
-  <PageLoader highlight="purple100" percentComplete={0} showBackground={true} />
+  <PageLoader
+    highlight="purple100"
+    percentComplete={0}
+    complete={false}
+    showBackground={true}
+  />
 </Playground>
