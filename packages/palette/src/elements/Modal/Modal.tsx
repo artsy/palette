@@ -122,6 +122,7 @@ export const Modal: SFC<ModalProps> = ({
         },
       })
     }
+    return document.removeEventListener("keyup", handleEscapeKey, true)
   }, [show])
 
   const handleWrapperClick = () => {
