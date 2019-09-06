@@ -1,3 +1,16 @@
+# v4.16.4 (Fri Sep 06 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - PURCHASE-1473 - Adds hideCloseXButton prop and allow for closing from wrapper [#579](https://github.com/artsy/palette/pull/579) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.16.3 (Mon Aug 26 2019)
 
 #### 🐛  Bug Fix
