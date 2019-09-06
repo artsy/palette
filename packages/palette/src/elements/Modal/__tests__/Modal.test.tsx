@@ -114,7 +114,9 @@ describe("Modal", () => {
         vestibulum.
       </Modal>
     )
-    document.dispatchEvent(new KeyboardEvent("keyup", { key: "Escape" }))
-    expect(show).toEqual(false)
+    setTimeout(() => {
+      document.dispatchEvent(new KeyboardEvent("keyup", { key: "Escape" }))
+      expect(show).toEqual(false)
+    })
   })
 })
