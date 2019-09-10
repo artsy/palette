@@ -1,4 +1,4 @@
-import React, { SFC, useEffect, useState } from "react"
+import React, { SFC, useEffect, useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { color, media, space } from "../../helpers"
@@ -67,6 +67,7 @@ export const Modal: SFC<ModalProps> = ({
   })
   const [visibleContent, setVisibleContent] = useState(null)
   const [renderModal, setRenderModal] = useState(false)
+  const wrapperRef = useRef(null)
   const previousChangeKey = usePrevious(refreshModalContentKey)
 
   const contentAnimation = useSpring(springContentAnimation)
@@ -125,9 +126,9 @@ export const Modal: SFC<ModalProps> = ({
     return document.removeEventListener("keyup", handleEscapeKey, true)
   }, [show])
 
-  const handleWrapperClick = () => {
+  const handleWrapperClick = event => {
     // If modal X icon is hidden we don't want to close the modal when the wrapper is clicked
-    if (!hideCloseButton) {
+    if (!hideCloseButton && event.target === wrapperRef.current) {
       onClose()
     }
   }
@@ -178,8 +179,8 @@ export const Modal: SFC<ModalProps> = ({
   return (
     <>
       {renderModal && (
-        <ModalOuterWrapper show={show} onClick={() => handleWrapperClick()}>
-          <ModalWrapper>
+        <ModalOuterWrapper show={show}>
+          <ModalWrapper ref={wrapperRef} onClick={handleWrapperClick}>
             <ModalElement style={modalAnimation} isWide={isWide} show={show}>
               {!hideCloseButton && (
                 <CloseIconWrapper onClick={() => onClose()}>
@@ -271,3 +272,5 @@ const Logo = styled(ArtsyLogoBlackIcon)`
 `
 
 Modal.displayName = "Modal"
+ModalWrapper.displayName = "ModalWrapper"
+ModalScrollContent.displayName = "ModalScrollContent"
