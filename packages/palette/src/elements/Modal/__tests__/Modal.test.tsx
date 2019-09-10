@@ -82,10 +82,9 @@ describe("Modal", () => {
         vestibulum.
       </Modal>
     )
-    component
-      .childAt(0)
-      .props()
-      .onClick()
+    const wrapper = component.find("ModalWrapper")
+    wrapper.simulate("click")
+
     expect(show).toEqual(false)
   })
 
@@ -98,10 +97,22 @@ describe("Modal", () => {
         vestibulum.
       </Modal>
     )
-    component
-      .childAt(0)
-      .props()
-      .onClick()
+    const wrapper = component.find("ModalWrapper")
+    wrapper.simulate("click")
+    expect(show).toEqual(true)
+  })
+
+  it("wont close when another element is clicked", () => {
+    let show = true
+    const onClose = () => (show = false)
+    const component = mount(
+      <Modal show={show} hideCloseButton onClose={onClose}>
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+        vestibulum.
+      </Modal>
+    )
+    const element = component.find("ModalScrollContent")
+    element.simulate("click")
     expect(show).toEqual(true)
   })
 

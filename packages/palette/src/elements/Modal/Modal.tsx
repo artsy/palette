@@ -180,10 +180,7 @@ export const Modal: SFC<ModalProps> = ({
     <>
       {renderModal && (
         <ModalOuterWrapper show={show}>
-          <ModalWrapper
-            ref={wrapperRef}
-            onClick={event => handleWrapperClick(event)}
-          >
+          <ModalWrapper ref={wrapperRef} onClick={handleWrapperClick}>
             <ModalElement style={modalAnimation} isWide={isWide} show={show}>
               {!hideCloseButton && (
                 <CloseIconWrapper onClick={() => onClose()}>
@@ -275,3 +272,5 @@ const Logo = styled(ArtsyLogoBlackIcon)`
 `
 
 Modal.displayName = "Modal"
+ModalWrapper.displayName = "ModalWrapper"
+ModalScrollContent.displayName = "ModalScrollContent"
