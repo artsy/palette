@@ -1,3 +1,16 @@
+# v4.17.1 (Tue Sep 10 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [PageLoader] Cleanup [#580](https://github.com/artsy/palette/pull/580) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.17.0 (Fri Sep 06 2019)
 
 #### 🚀  Enhancement
