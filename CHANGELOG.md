@@ -1,3 +1,16 @@
+# v4.17.2 (Tue Sep 10 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Modal] - Checks if wrapper is clicked before closing [#581](https://github.com/artsy/palette/pull/581) ([@kierangillen](https://github.com/kierangillen))
+
+#### Authors: 1
+
+- Kieran Gillen ([@kierangillen](https://github.com/kierangillen))
+
+---
+
 # v4.17.1 (Tue Sep 10 2019)
 
 #### 🐛  Bug Fix
