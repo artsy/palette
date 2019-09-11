@@ -19,8 +19,13 @@ import {
   defaultVariant,
 } from "./Button.shared"
 
+interface WebButtonProps extends ButtonProps {
+  /** The underlying type of button */
+  type?: string
+}
+
 /** A button with various size and color settings */
-export class Button extends Component<ButtonProps> {
+export class Button extends Component<WebButtonProps> {
   static defaultProps = {
     size: defaultSize,
     variant: defaultVariant,
