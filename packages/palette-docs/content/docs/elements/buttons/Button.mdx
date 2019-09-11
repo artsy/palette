@@ -194,3 +194,35 @@ Use `block` to style a button to be 100% width of its container.
     </Button>
   </>
 </Playground>
+
+## In the context of a form
+
+A button defaults to type submit, so when used in the context of a form, a
+click will submit the form:
+
+<Playground title="noOutline" showToggle={true} expanded={false}>
+  <form>
+    <Button block width="100%" size="medium" m={0.5}>
+      Submit
+    </Button>
+  </form>
+</Playground>
+
+This means that if you have more than one Button in a form, you'll probably
+want to override the type of one of the buttons:
+
+<Playground title="noOutline" showToggle={true} expanded={false}>
+  <form>
+    <Button type="button" block width="100%" size="medium" m={0.5}>
+      Cancel
+    </Button>
+    <Button block width="100%" size="medium" m={0.5}>
+      Submit
+    </Button>
+  </form>
+</Playground>
+
+If you don't do this, then you may have strange behavior when the form is
+submitted by hitting "Enter" on a field. The click handler of the first button
+of type submit will be invoked, so be sure that the only button of this type is
+the one that really is the submit button.
