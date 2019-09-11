@@ -146,32 +146,32 @@ export const Modal: SFC<ModalProps> = ({
   const ModalContent = () => {
     return (
       <AnimatedView style={contentAnimation}>
-        <ModalScrollContent px={4} pt={2} FixedButton={FixedButton}>
-          {hasLogo && (
-            <>
-              <Flex justifyContent="center">
-                <Logo />
-              </Flex>
-              <Spacer mb={1} />
-            </>
+        <ModalFlexContent>
+          <ModalScrollContent>
+            {hasLogo && (
+              <>
+                <Flex justifyContent="center">
+                  <Logo />
+                </Flex>
+                <Spacer mb={2} />
+              </>
+            )}
+            {title && (
+              <>
+                <Flex justifyContent="center">
+                  <Serif size="5t" textAlign="center" color="black100">
+                    {title}
+                  </Serif>
+                </Flex>
+                <Spacer mb={2} />
+              </>
+            )}
+            {children}
+          </ModalScrollContent>
+          {FixedButton && (
+            <FixedButtonWrapper>{FixedButton}</FixedButtonWrapper>
           )}
-          {title && (
-            <>
-              <Flex justifyContent="center">
-                <Serif size="5t" textAlign="center" color="black100">
-                  {title}
-                </Serif>
-              </Flex>
-              <Spacer mb={1} />
-            </>
-          )}
-          {children}
-        </ModalScrollContent>
-        {FixedButton && (
-          <FixedButtonWrapper px={4} pt={2} pb={3}>
-            {FixedButton}
-          </FixedButtonWrapper>
-        )}
+        </ModalFlexContent>
       </AnimatedView>
     )
   }
@@ -196,13 +196,10 @@ export const Modal: SFC<ModalProps> = ({
   )
 }
 
-const FixedButtonWrapper = styled(Box)`
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: ${color("white100")};
+const FixedButtonWrapper = styled(Flex)`
   border-top: 1px solid ${color("black10")};
+  padding: ${space(3)}px;
+  flex: 0 0 auto;
 `
 
 const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
@@ -245,19 +242,20 @@ const ModalElement = styled(AnimatedView)<TransitionElementProps>`
   `};
 `
 
-const ModalScrollContent = styled(Box)<ModalScrollContentProps>`
-  height: 100%;
+const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
+  flex-direction: column;
   width: 100%;
-  overflow: auto;
-  padding-bottom: ${space(2)}px;
-  max-height: ${props =>
-    !!props.FixedButton
-      ? `calc(100vh - (80px + ${space(9)}px));`
-      : "calc(100vh - 80px)"};
+  overflow: hidden;
+  max-height: calc(100vh - 80px);
   ${media.xs`
-    max-height: ${props =>
-      !!props.FixedButton ? `calc(100vh - (80px ${space(9)}px));` : "100vh"};
+    max-height: 100vh;
   `};
+`
+
+const ModalScrollContent = styled(Flex)<ModalScrollContentProps>`
+  overflow: scroll;
+  flex-direction: column;
+  padding: ${space(3)}px;
 `
 
 const CloseIconWrapper = styled(Box)`
