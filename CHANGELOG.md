@@ -1,3 +1,16 @@
+# v4.17.3 (Wed Sep 11 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Improve modal padding [#582](https://github.com/artsy/palette/pull/582) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.17.2 (Tue Sep 10 2019)
 
 #### 🐛  Bug Fix
