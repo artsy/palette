@@ -1,3 +1,16 @@
+# v4.17.4 (Thu Sep 12 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Allow override of button type [#583](https://github.com/artsy/palette/pull/583) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v4.17.3 (Wed Sep 11 2019)
 
 #### 🐛  Bug Fix
