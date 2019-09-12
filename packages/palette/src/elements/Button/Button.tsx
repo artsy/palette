@@ -19,7 +19,7 @@ import {
   defaultVariant,
 } from "./Button.shared"
 
-interface WebButtonProps extends ButtonProps {
+export interface WebButtonProps extends ButtonProps {
   /** The underlying type of button */
   type?: string
 }
