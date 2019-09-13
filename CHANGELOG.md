@@ -1,3 +1,16 @@
+# v4.17.6 (Fri Sep 13 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - @jonallured => [Button] Export shape of props [#587](https://github.com/artsy/palette/pull/587) ([@mzikherman](https://github.com/mzikherman))
+
+#### Authors: 1
+
+- Matt Zikherman ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # v4.17.5 (Fri Sep 13 2019)
 
 #### 🐛  Bug Fix
