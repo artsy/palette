@@ -36,7 +36,7 @@ interface TransitionElementProps {
 }
 
 interface ModalScrollContentProps {
-  FixedButton?: JSX.Element
+  hasLogo?: boolean
 }
 
 const AnimatedView = animated(Box)
@@ -147,7 +147,7 @@ export const Modal: SFC<ModalProps> = ({
     return (
       <AnimatedView style={contentAnimation}>
         <ModalFlexContent>
-          <ModalScrollContent>
+          <ModalScrollContent hasLogo={hasLogo}>
             {hasLogo && (
               <>
                 <Flex justifyContent="center">
@@ -163,7 +163,7 @@ export const Modal: SFC<ModalProps> = ({
                     {title}
                   </Serif>
                 </Flex>
-                <Spacer mb={2} />
+                <Spacer mb={hasLogo ? 2 : [1, 2]} />
               </>
             )}
             {children}
@@ -199,6 +199,9 @@ export const Modal: SFC<ModalProps> = ({
 const FixedButtonWrapper = styled(Flex)`
   border-top: 1px solid ${color("black10")};
   padding: ${space(3)}px;
+  ${media.xs`
+    padding: ${space(2)}px;
+  `};
   flex: 0 0 auto;
 `
 
@@ -255,7 +258,10 @@ const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
 const ModalScrollContent = styled(Flex)<ModalScrollContentProps>`
   overflow: scroll;
   flex-direction: column;
-  padding: ${space(3)}px;
+  padding: ${props => space(props.hasLogo ? 2 : 3)}px;
+  ${media.xs`
+    padding: ${space(2)}px;
+  `};
 `
 
 const CloseIconWrapper = styled(Box)`
