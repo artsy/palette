@@ -1,3 +1,16 @@
+# v4.17.5 (Fri Sep 13 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Final modal spacing fixes [#588](https://github.com/artsy/palette/pull/588) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v4.17.4 (Thu Sep 12 2019)
 
 #### 🐛  Bug Fix
