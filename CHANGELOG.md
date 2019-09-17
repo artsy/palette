@@ -1,3 +1,21 @@
+# v4.17.7 (Tue Sep 17 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - PURCHASE-1492: added BellFillIcon and BellIcon for ios [#590](https://github.com/artsy/palette/pull/590) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 🏠  Internal
+
+- Add artsy footer [#589](https://github.com/artsy/palette/pull/589) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 2
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.17.6 (Fri Sep 13 2019)
 
 #### 🐛  Bug Fix
