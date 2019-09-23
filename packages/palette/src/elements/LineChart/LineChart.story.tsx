@@ -141,5 +141,10 @@ storiesOf("Components/LineChart", module)
         </Box>
       )
     },
-    { chromatic: { delay: 1000 } }
+    {
+      chromatic: {
+        delay: 1000,
+        diffThreshold: 0.2,
+      },
+    }
   )

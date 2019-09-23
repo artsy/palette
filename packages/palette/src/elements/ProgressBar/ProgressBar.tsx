@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { color, space } from "../../helpers"
 
 const ProgressBarBackground = styled.div<{ showBackground: boolean }>`
-  height: 3px;
+  height: 2px;
   background-color: ${props =>
     props.showBackground ? color("black10") : "transparent"};
 
