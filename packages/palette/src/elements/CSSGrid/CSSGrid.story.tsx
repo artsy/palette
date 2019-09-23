@@ -27,5 +27,6 @@ storiesOf("Components/CSSGrid", module).add(
         })}
       </CSSGrid>
     )
-  }
+  },
+  { chromatic: { delay: 500, diffThreshold: 0.2 } }
 )
