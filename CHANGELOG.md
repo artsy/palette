@@ -1,3 +1,16 @@
+# v4.17.8 (Mon Sep 23 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [PreloadBar] Change to black and fix size #trivial [#591](https://github.com/artsy/palette/pull/591) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v4.17.7 (Tue Sep 17 2019)
 
 #### 🐛  Bug Fix
