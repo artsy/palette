@@ -101,28 +101,40 @@ export const MarkdownComponents = {
   },
   h1: props => (
     <Box mb={5}>
-      <Serif size="8" color="black100">
+      <Serif element="h1" size="8" color="black100" className="DocSearch-lvl1">
         {props.children}
       </Serif>
     </Box>
   ),
   h2: props => (
     <Box mb={1}>
-      <Sans size="5" weight="medium" color="black100">
+      <Sans
+        element="h2"
+        size="5"
+        weight="medium"
+        color="black100"
+        className="DocSearch-lvl2"
+      >
         {props.children}
       </Sans>
     </Box>
   ),
   h3: props => (
     <Box mb={1}>
-      <Sans size="4" weight="medium" color="black100">
+      <Sans
+        element="h3"
+        size="4"
+        weight="medium"
+        color="black100"
+        className="DocSearch-lvl3"
+      >
         {props.children}
       </Sans>
     </Box>
   ),
   h4: props => (
     <Box mb={1}>
-      <Serif size="4" color="black100">
+      <Serif element="h4" size="4" color="black100" className="DocSearch-lvl4">
         {props.children}
       </Serif>
     </Box>
@@ -138,7 +150,7 @@ export const MarkdownComponents = {
 
   p: props => (
     // @ts-ignore
-    <Sans size="3" color="black100" className="contentDiv">
+    <Sans element="p" size="3" color="black100" className="contentDiv">
       {props.children}
     </Sans>
   ),

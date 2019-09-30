@@ -30,12 +30,25 @@ export default function DocsLayout(props) {
             rel="stylesheet"
             type="text/css"
           />
+          <meta name="docsearch:language" content="en" />
+          <meta name="docsearch:version" content="1.0.0" />
         </Helmet>
         <Sidebar />
-        <ContentArea flexDirection="column" pt={4} px={6}>
+        <ContentArea
+          className="DocSearch-content"
+          flexDirection="column"
+          pt={4}
+          px={6}
+        >
           {type !== "page" && (
             <Box mb={0.5}>
-              <Serif size="8" color="black100" mb={2}>
+              <Serif
+                element="h1"
+                size="8"
+                color="black100"
+                mb={2}
+                className="DocSearch-lvl1"
+              >
                 {name} {status && <StatusBadge status={status} />}
               </Serif>
             </Box>
