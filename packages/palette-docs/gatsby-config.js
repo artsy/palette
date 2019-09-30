@@ -12,6 +12,7 @@ module.exports = {
     description: "Artsy's design system",
     author: "Artsy",
     changelog: {},
+    siteUrl: "https://palette.artsy.net",
   },
   plugins: [
     {
@@ -69,5 +70,6 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-typescript",
+    "gatsby-plugin-sitemap",
   ],
 }
