@@ -4,7 +4,7 @@ Artsy's Design System
 
 ## Meta
 
-- Point People: [@damassi](https://github.com/damassi), [@zephraph](https://github.com/zephraph), [@l2succes](https://github.com/l2succes)
+- Point People: [@damassi](https://github.com/damassi), [@zephraph](https://github.com/zephraph)
 
 ## What is Palette?
 
