@@ -5,21 +5,6 @@ name: Slider
 Sliders can either control a single value (e.g. volume, or position in a video),
 or a range of values (e.g. price ranges or height/width ranges).
 
-## Disabled
-
-<Playground>
-  <Box p={1}>
-    <Slider
-      allowCross={false}
-      min={10}
-      max={100}
-      step={1}
-      defaultValue={[10, 100]}
-      disabled
-    />
-  </Box>
-</Playground>
-
 ## With label
 
 <Playground>
@@ -44,5 +29,20 @@ or a range of values (e.g. price ranges or height/width ranges).
         )
       }}
     </Value>
+  </Box>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Box p={1}>
+    <Slider
+      allowCross={false}
+      min={10}
+      max={100}
+      step={1}
+      defaultValue={[10, 100]}
+      disabled
+    />
   </Box>
 </Playground>

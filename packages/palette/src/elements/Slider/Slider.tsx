@@ -50,9 +50,9 @@ export interface SliderProps extends BorderProps, SpaceProps {
   onChange?: (minMax: [number, number]) => void
 }
 
-const Inner: React.SFC<SliderProps> = props => (
-  <Range {...props} prefixCls={props.className} />
-)
+const Inner: React.SFC<SliderProps> = props => {
+  return <Range {...props} prefixCls={props.className} />
+}
 
 /**
  * A slider component that allows to define a range of values. nin and max
@@ -69,6 +69,7 @@ export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
   &-track {
     position: absolute;
     left: 0;
+    top: 0;
     height: ${space(0.5)}px;
     border-radius: ${space(0.5)}px;
     background-color: ${props =>
@@ -81,6 +82,7 @@ export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
     position: absolute;
     margin-left: -10px;
     margin-top: -8px;
+    top: 0;
     width: ${space(2)}px;
     height: ${space(2)}px;
     cursor: pointer;
