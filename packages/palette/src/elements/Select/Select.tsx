@@ -157,6 +157,7 @@ const SelectSmallContainer = styled.div<SelectProps>`
     line-height: ${themeGet("typeSizes.sans.2.lineHeight")}px;
     padding: ${space(0.5)}px ${space(1) + carretSize * 4}px ${space(0.5)}px
       ${space(1)}px;
+    ${styledSpace};
 
     &:hover {
       background-color: ${color("black30")};
