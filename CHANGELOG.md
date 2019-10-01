@@ -1,3 +1,24 @@
+# v4.17.9 (Tue Oct 01 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Slider] Fix handles [#598](https://github.com/artsy/palette/pull/598) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Algolia updates [#595](https://github.com/artsy/palette/pull/595) ([@zephraph](https://github.com/zephraph))
+- Remove luc as pont person 😭 [#594](https://github.com/artsy/palette/pull/594) ([@zephraph](https://github.com/zephraph))
+- Update yarn orb to v2.1.1 [#593](https://github.com/artsy/palette/pull/593) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 3
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v4.17.8 (Mon Sep 23 2019)
 
 #### 🐛  Bug Fix
