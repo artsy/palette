@@ -8,13 +8,15 @@ import {
   space as styledSpace,
   SpaceProps,
   themeGet,
+  width,
+  WidthProps,
 } from "styled-system"
 
 interface Option {
   value: string
   text: string
 }
-export interface SelectProps extends PositionProps, SpaceProps {
+export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
   options: Option[]
   selected?: string
   disabled?: boolean
@@ -144,6 +146,7 @@ const SelectSmallContainer = styled.div<SelectProps>`
   position: relative;
 
   label {
+    ${width};
     padding: 0;
     margin: 0;
   }
@@ -157,6 +160,8 @@ const SelectSmallContainer = styled.div<SelectProps>`
     line-height: ${themeGet("typeSizes.sans.2.lineHeight")}px;
     padding: ${space(0.5)}px ${space(1) + carretSize * 4}px ${space(0.5)}px
       ${space(1)}px;
+    ${styledSpace};
+    ${width};
 
     &:hover {
       background-color: ${color("black30")};
