@@ -1,3 +1,16 @@
+# v4.17.10 (Wed Oct 02 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - SelectSmall updates [#596](https://github.com/artsy/palette/pull/596) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v4.17.9 (Tue Oct 01 2019)
 
 #### 🐛  Bug Fix
