@@ -8,7 +8,6 @@ Dialogs appear over content to provide critical information or ask for a
 decision. Dialogs disable all other functionality when they appear and remain on
 screen until an action is taken by the user.
 
-
 Dialogs appear over content and disable all other functionality. The user must
 take an action within the dialog before they can continue.
 
@@ -29,7 +28,7 @@ Dialogs appear at the centerpoint of the screen.
         <Button onClick={() => setState({ show: true })}>
           Open minimal dialog
         </Button>
-        <Dialog 
+        <Dialog
           show={state.show}
           title="Minimal dialog here"
           primaryCta={{
@@ -81,12 +80,12 @@ Dialogs appear at the centerpoint of the screen.
           Dialog with 2 actions
         </Button>
         <Dialog
-          detail="This extra informaton is important."
+          detail="This action cannot be undone."
           show={state.show}
-          title="Dialog with details"
+          title="Permanently delete this work?"
           primaryCta={{
             action: () => setState({ show: false }),
-            text: "Continue",
+            text: "Delete",
           }}
           secondaryCta={{
             action: () => setState({ show: false }),

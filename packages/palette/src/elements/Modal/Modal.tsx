@@ -20,6 +20,7 @@ interface ModalProps {
   refreshModalContentKey?: string
   hasLogo?: boolean
   height?: string
+  modalWidth?: ModalWidth
   isWide?: boolean
   onClose: () => void
   show?: boolean
@@ -33,10 +34,18 @@ interface ModalProps {
 interface TransitionElementProps {
   isWide?: boolean
   show?: boolean
+  modalWidth?: ModalWidth
 }
 
 interface ModalScrollContentProps {
   hasLogo?: boolean
+  modalWidth?: ModalWidth
+}
+
+export enum ModalWidth {
+  Narrow = "300px",
+  Normal = "440px",
+  Wide = "900px",
 }
 
 const AnimatedView = animated(Box)
@@ -51,6 +60,7 @@ export const Modal: SFC<ModalProps> = ({
   FixedButton,
   title,
   show,
+  modalWidth, // modalWidth overwrites isWide if present
   isWide,
   hasLogo,
   onClose,
@@ -147,7 +157,7 @@ export const Modal: SFC<ModalProps> = ({
     return (
       <AnimatedView style={contentAnimation}>
         <ModalFlexContent>
-          <ModalScrollContent hasLogo={hasLogo}>
+          <ModalScrollContent hasLogo={hasLogo} modalWidth={modalWidth}>
             {hasLogo && (
               <>
                 <Flex justifyContent="center">
@@ -181,7 +191,12 @@ export const Modal: SFC<ModalProps> = ({
       {renderModal && (
         <ModalOuterWrapper show={show}>
           <ModalWrapper ref={wrapperRef} onClick={handleWrapperClick}>
-            <ModalElement style={modalAnimation} isWide={isWide} show={show}>
+            <ModalElement
+              style={modalAnimation}
+              modalWidth={modalWidth}
+              isWide={isWide}
+              show={show}
+            >
               {!hideCloseButton && (
                 <CloseIconWrapper onClick={() => onClose()}>
                   <CloseIcon fill="black60" />
@@ -236,7 +251,8 @@ const ModalElement = styled(AnimatedView)<TransitionElementProps>`
   overflow: hidden;
   background-color: ${color("white100")};
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  width: ${props => (props.isWide ? "900px" : "440px")};
+  width: ${props =>
+    props.modalWidth || (props.isWide ? ModalWidth.Wide : ModalWidth.Normal)};
   ${media.xs`
     max-height: 100vh;
     height: 100vh;
@@ -258,7 +274,8 @@ const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
 const ModalScrollContent = styled(Flex)<ModalScrollContentProps>`
   overflow: scroll;
   flex-direction: column;
-  padding: ${props => space(props.hasLogo ? 2 : 3)}px;
+  padding: ${props =>
+    space(props.hasLogo || props.modalWidth === ModalWidth.Narrow ? 2 : 3)}px;
   ${media.xs`
     padding: ${space(2)}px;
   `};

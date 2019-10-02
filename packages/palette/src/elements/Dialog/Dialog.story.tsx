@@ -8,7 +8,6 @@ storiesOf("Components/Dialog", module)
     () => {
       return (
         <Dialog
-          show
           title="Here is a dialog which is modal"
           primaryCta={{
             action: () => ({}),
@@ -24,7 +23,6 @@ storiesOf("Components/Dialog", module)
     () => {
       return (
         <Dialog
-          show
           title="Information"
           detail="This extra informaton is important."
           primaryCta={{
@@ -41,7 +39,6 @@ storiesOf("Components/Dialog", module)
     () => {
       return (
         <Dialog
-          show
           title="Information"
           detail="This extra informaton is important."
           primaryCta={{

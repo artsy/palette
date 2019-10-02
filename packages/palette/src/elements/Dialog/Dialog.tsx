@@ -2,7 +2,7 @@ import React, { SFC } from "react"
 import styled from "styled-components"
 import { color } from "../../helpers"
 import { Flex } from "../Flex"
-import { Modal } from "../Modal"
+import { Modal, ModalWidth } from "../Modal"
 import { Sans } from "../Typography"
 
 interface CtaProps {
@@ -25,7 +25,7 @@ interface DialogProps {
 export const Dialog: SFC<DialogProps> = ({
   title,
   detail,
-  show,
+  show = true,
   primaryCta,
   secondaryCta,
 }) => {
@@ -43,7 +43,12 @@ export const Dialog: SFC<DialogProps> = ({
   }
 
   return (
-    <Modal show={show} onClose={primaryCta.action} hideCloseButton>
+    <Modal
+      show={show}
+      onClose={primaryCta.action}
+      modalWidth={ModalWidth.Narrow}
+      hideCloseButton
+    >
       <>
         <Flex flexDirection="column">
           <Sans size="4" weight="medium" mb={10}>
