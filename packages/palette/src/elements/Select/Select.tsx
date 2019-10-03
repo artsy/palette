@@ -31,6 +31,16 @@ export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
 export const LargeSelect: SFC<SelectProps> = props => {
   const { disabled, onSelect, selected, options } = props
 
+  const optionTags = options.map(option => {
+    const { text, value } = option
+
+    return (
+      <option value={value} key={value}>
+        {text}
+      </option>
+    )
+  })
+
   return (
     <LargeSelectContainer {...props} p={1}>
       <select
@@ -38,11 +48,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
         onChange={event => onSelect && onSelect(event.target.value)}
         value={selected}
       >
-        {options.map(({ value, text }) => (
-          <option value={value} key={value}>
-            {text}
-          </option>
-        ))}
+        {optionTags}
       </select>
     </LargeSelectContainer>
   )
@@ -53,6 +59,16 @@ export const LargeSelect: SFC<SelectProps> = props => {
  */
 export const SelectSmall: SFC<SelectProps> = props => {
   const { onSelect, selected, options, title } = props
+
+  const optionTags = options.map(option => {
+    const { text, value } = option
+
+    return (
+      <option value={value} key={value}>
+        {text}
+      </option>
+    )
+  })
 
   return (
     <SelectSmallContainer {...props}>
@@ -66,11 +82,7 @@ export const SelectSmall: SFC<SelectProps> = props => {
           onChange={event => onSelect && onSelect(event.target.value)}
           value={selected}
         >
-          {options.map(({ value, text }) => (
-            <option value={value} key={value}>
-              {text}
-            </option>
-          ))}
+          {optionTags}
         </select>
       </label>
     </SelectSmallContainer>
