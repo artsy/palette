@@ -9,6 +9,7 @@ import {
   WidthProps,
 } from "styled-system"
 import { color, space } from "../../helpers"
+import { Box } from "../Box"
 import { computeBorderColor, Required } from "../Input"
 import { Sans, Serif } from "../Typography"
 
@@ -62,7 +63,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
   const optionTags = computeOptionTags(options, name)
 
   return (
-    <LargeSelectContainer {...props} p={1}>
+    <Box width="100%">
       {title && (
         <Serif mb="0.5" size="3">
           {title}
@@ -74,20 +75,22 @@ export const LargeSelect: SFC<SelectProps> = props => {
           {description}
         </Serif>
       )}
-      <select
-        disabled={disabled}
-        name={name}
-        onChange={event => onSelect && onSelect(event.target.value)}
-        value={selected}
-      >
-        {optionTags}
-      </select>
+      <LargeSelectContainer {...props} p={1}>
+        <select
+          disabled={disabled}
+          name={name}
+          onChange={event => onSelect && onSelect(event.target.value)}
+          value={selected}
+        >
+          {optionTags}
+        </select>
+      </LargeSelectContainer>
       {error && (
         <Sans color="red100" mt="1" size="2">
           {error}
         </Sans>
       )}
-    </LargeSelectContainer>
+    </Box>
   )
 }
 
