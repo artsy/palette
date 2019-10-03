@@ -11,6 +11,20 @@ import {
 import { color, space } from "../../helpers"
 import { Sans } from "../Typography"
 
+const computeOptionTags = (options: Option[]): JSX.Element[] => {
+  const optionTags = options.map(option => {
+    const { text, value } = option
+
+    return (
+      <option value={value} key={value}>
+        {text}
+      </option>
+    )
+  })
+
+  return optionTags
+}
+
 interface Option {
   value: string
   text: string
@@ -30,16 +44,7 @@ export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
  */
 export const LargeSelect: SFC<SelectProps> = props => {
   const { disabled, onSelect, selected, options } = props
-
-  const optionTags = options.map(option => {
-    const { text, value } = option
-
-    return (
-      <option value={value} key={value}>
-        {text}
-      </option>
-    )
-  })
+  const optionTags = computeOptionTags(options)
 
   return (
     <LargeSelectContainer {...props} p={1}>
@@ -59,16 +64,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
  */
 export const SelectSmall: SFC<SelectProps> = props => {
   const { onSelect, selected, options, title } = props
-
-  const optionTags = options.map(option => {
-    const { text, value } = option
-
-    return (
-      <option value={value} key={value}>
-        {text}
-      </option>
-    )
-  })
+  const optionTags = computeOptionTags(options)
 
   return (
     <SelectSmallContainer {...props}>
