@@ -35,6 +35,7 @@ export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
   description?: string
   disabled?: boolean
   error?: string
+  name?: string
   onSelect?: (value) => void
   options: Option[]
   required?: boolean
@@ -46,7 +47,7 @@ export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
  * A large drop-down select menu
  */
 export const LargeSelect: SFC<SelectProps> = props => {
-  const { description, disabled, error, onSelect, options, required, selected, title } = props
+  const { description, disabled, error, name, onSelect, options, required, selected, title } = props
   const optionTags = computeOptionTags(options)
 
   return (
@@ -64,6 +65,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
       )}
       <select
         disabled={disabled}
+        name={name}
         onChange={event => onSelect && onSelect(event.target.value)}
         value={selected}
       >
