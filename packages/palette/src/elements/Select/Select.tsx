@@ -1,8 +1,5 @@
 import React, { SFC } from "react"
 import styled, { css } from "styled-components"
-import { color, space } from "../../helpers"
-import { Sans } from "../Typography"
-
 import {
   PositionProps,
   space as styledSpace,
@@ -11,18 +8,21 @@ import {
   width,
   WidthProps,
 } from "styled-system"
+import { color, space } from "../../helpers"
+import { Sans } from "../Typography"
 
 interface Option {
   value: string
   text: string
 }
+
 export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
-  options: Option[]
-  selected?: string
   disabled?: boolean
   error?: string
-  title?: string
   onSelect?: (value) => void
+  options: Option[]
+  selected?: string
+  title?: string
 }
 
 /**
@@ -32,9 +32,9 @@ export const LargeSelect: SFC<SelectProps> = props => {
   return (
     <LargeSelectContainer {...props} p={1}>
       <select
-        value={props.selected}
         disabled={props.disabled}
         onChange={event => props.onSelect && props.onSelect(event.target.value)}
+        value={props.selected}
       >
         {props.options.map(({ value, text }) => (
           <option value={value} key={value}>
@@ -58,12 +58,11 @@ export const SelectSmall: SFC<SelectProps> = props => {
             {props.title}:
           </Sans>
         )}
-
         <select
-          value={props.selected}
           onChange={event =>
             props.onSelect && props.onSelect(event.target.value)
           }
+          value={props.selected}
         >
           {props.options.map(({ value, text }) => (
             <option value={value} key={value}>
