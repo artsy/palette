@@ -9,7 +9,7 @@ import {
   WidthProps,
 } from "styled-system"
 import { color, space } from "../../helpers"
-import { computeBorderColor } from "../Input"
+import { computeBorderColor, Required } from "../Input"
 import { Sans, Serif } from "../Typography"
 
 const computeOptionTags = (options: Option[]): JSX.Element[] => {
@@ -37,6 +37,7 @@ export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
   error?: string
   onSelect?: (value) => void
   options: Option[]
+  required?: boolean
   selected?: string
   title?: string
 }
@@ -45,7 +46,7 @@ export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
  * A large drop-down select menu
  */
 export const LargeSelect: SFC<SelectProps> = props => {
-  const { description, disabled, error, onSelect, options, selected, title } = props
+  const { description, disabled, error, onSelect, options, required, selected, title } = props
   const optionTags = computeOptionTags(options)
 
   return (
@@ -53,6 +54,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
       {title && (
         <Serif mb="0.5" size="3">
           {title}
+          {required && <Required>*</Required>}
         </Serif>
       )}
       {description && (
