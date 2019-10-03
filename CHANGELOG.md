@@ -1,3 +1,16 @@
+# v4.17.11 (Thu Oct 03 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Add dialog to palette [#597](https://github.com/artsy/palette/pull/597) ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v4.17.10 (Wed Oct 02 2019)
 
 #### 🐛  Bug Fix
