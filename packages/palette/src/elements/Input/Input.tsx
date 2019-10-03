@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { themeGet } from "styled-system"
 import { color, space } from "../../helpers"
+import { Color } from "../../Theme"
 import { Box } from "../Box"
 import { Sans, Serif } from "../Typography"
 
@@ -55,7 +56,11 @@ interface StyledInputProps extends React.HTMLProps<HTMLInputElement> {
 /**
  * func to compute border color
  */
-export const computeBorderColor = ({ disabled, error, pseudo = null }) => {
+export const computeBorderColor = (
+  disabled: boolean,
+  error: boolean,
+  pseudo?: string
+): Color => {
   if (disabled) return "black10"
   if (error) return "red100"
   if (pseudo === "hover") return "black60"
@@ -70,7 +75,8 @@ const StyledInput = styled.input<StyledInputProps>`
   height: 40px;
   background-color: ${props =>
     props.disabled ? color("black5") : color("white100")};
-  border: 1px solid ${props => color(computeBorderColor(props))};
+  border: 1px solid
+    ${({ disabled, error }) => color(computeBorderColor(disabled, error))};
   border-radius: 0;
   transition: border-color 0.25s;
   padding: ${space(1)}px;
@@ -79,12 +85,12 @@ const StyledInput = styled.input<StyledInputProps>`
 
   &:hover {
     border-color: ${({ disabled, error }) =>
-      color(computeBorderColor({ disabled, error, pseudo: "hover" }))};
+      color(computeBorderColor(disabled, error, "hover"))};
   }
 
   &:focus {
     border-color: ${({ disabled, error }) =>
-      color(computeBorderColor({ disabled, error, pseudo: "focus" }))};
+      color(computeBorderColor(disabled, error, "focus"))};
   }
 `
 StyledInput.displayName = "StyledInput"

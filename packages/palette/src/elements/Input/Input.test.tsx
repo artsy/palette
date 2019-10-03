@@ -49,98 +49,52 @@ describe("Input", () => {
 
 describe("computeBorderColor", () => {
   it("defaults to returning black 10", () => {
-    const props = {
-      disabled: null,
-      error: null,
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(null,  null)
     expect(color).toEqual("black10")
   })
 
   it("returns black10 when disabled", () => {
-    const props = {
-      disabled: true,
-      error: false,
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(true, false)
     expect(color).toEqual("black10")
   })
 
   it("returns black10 when disabled and error", () => {
-    const props = {
-      disabled: true,
-      error: true,
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(true, true)
     expect(color).toEqual("black10")
   })
 
   it("returns black10 when disabled and hover", () => {
-    const props = {
-      disabled: true,
-      error: false,
-      pseudo: "hover",
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(true, false, "hover")
     expect(color).toEqual("black10")
   })
 
   it("returns black10 when disabled and focus", () => {
-    const props = {
-      disabled: true,
-      error: false,
-      pseudo: "focus",
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(true, false, "focus")
     expect(color).toEqual("black10")
   })
 
   it("returns red100 when error", () => {
-    const props = {
-      disabled: false,
-      error: true,
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(false, true)
     expect(color).toEqual("red100")
   })
 
   it("returns red100 when error and hover", () => {
-    const props = {
-      disabled: false,
-      error: true,
-      pseudo: "hover",
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(false, true, "hover")
     expect(color).toEqual("red100")
   })
 
   it("returns red100 when disabled and focus", () => {
-    const props = {
-      disabled: false,
-      error: true,
-      pseudo: "focus",
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(false, true, "focus")
     expect(color).toEqual("red100")
   })
 
   it("returns black60 on hover", () => {
-    const props = {
-      disabled: false,
-      error: false,
-      pseudo: "hover",
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(false, false, "hover")
     expect(color).toEqual("black60")
   })
 
   it("returns purple100 on focus", () => {
-    const props = {
-      disabled: false,
-      error: false,
-      pseudo: "focus",
-    }
-    const color = computeBorderColor(props)
+    const color = computeBorderColor(false, false, "focus")
     expect(color).toEqual("purple100")
   })
 })
