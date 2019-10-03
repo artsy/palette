@@ -53,14 +53,18 @@ interface StyledInputProps extends React.HTMLProps<HTMLInputElement> {
   error: boolean
 }
 
+interface InputStatus {
+  disabled: boolean
+  error: boolean
+  pseudo?: string
+}
+
 /**
  * func to compute border color
  */
-export const computeBorderColor = (
-  disabled: boolean,
-  error: boolean,
-  pseudo?: string
-): Color => {
+export const computeBorderColor = (inputStatus: InputStatus): Color => {
+  const { disabled, error, pseudo } = inputStatus
+
   if (disabled) return "black10"
   if (error) return "red100"
   if (pseudo === "hover") return "black60"
@@ -76,7 +80,7 @@ const StyledInput = styled.input<StyledInputProps>`
   background-color: ${props =>
     props.disabled ? color("black5") : color("white100")};
   border: 1px solid
-    ${({ disabled, error }) => color(computeBorderColor(disabled, error))};
+    ${({ disabled, error }) => color(computeBorderColor({ disabled, error }))};
   border-radius: 0;
   transition: border-color 0.25s;
   padding: ${space(1)}px;
@@ -85,12 +89,12 @@ const StyledInput = styled.input<StyledInputProps>`
 
   &:hover {
     border-color: ${({ disabled, error }) =>
-      color(computeBorderColor(disabled, error, "hover"))};
+      color(computeBorderColor({ disabled, error, pseudo: "hover" }))};
   }
 
   &:focus {
     border-color: ${({ disabled, error }) =>
-      color(computeBorderColor(disabled, error, "focus"))};
+      color(computeBorderColor({ disabled, error, pseudo: "focus" }))};
   }
 `
 StyledInput.displayName = "StyledInput"

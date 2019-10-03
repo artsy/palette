@@ -160,7 +160,8 @@ const LargeSelectContainer = styled.div<SelectProps>`
     height: 40px;
     ${hideDefaultSkin};
     border: 1px solid
-      ${({ disabled, error }) => color(computeBorderColor(disabled, !!error))};
+      ${({ disabled, error }) =>
+        color(computeBorderColor({ disabled, error: !!error }))};
     border-radius: 0;
     transition: border-color 0.25s;
     padding-right: ${space(1)}px;
@@ -168,12 +169,16 @@ const LargeSelectContainer = styled.div<SelectProps>`
     ${styledSpace};
     &:hover {
       border-color: ${({ disabled, error }) =>
-        color(computeBorderColor(disabled, !!error, "hover"))};
+        color(
+          computeBorderColor({ disabled, error: !!error, pseudo: "hover" })
+        )};
     }
 
     &:focus {
       border-color: ${({ disabled, error }) =>
-        color(computeBorderColor(disabled, !!error, "focus"))};
+        color(
+          computeBorderColor({ disabled, error: !!error, pseudo: "focus" })
+        )};
     }
   }
 
