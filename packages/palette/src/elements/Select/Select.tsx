@@ -63,7 +63,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
  * A small version of drop-down select menu
  */
 export const SelectSmall: SFC<SelectProps> = props => {
-  const { onSelect, selected, options, title } = props
+  const { disabled, onSelect, selected, options, title } = props
   const optionTags = computeOptionTags(options)
 
   return (
@@ -75,6 +75,7 @@ export const SelectSmall: SFC<SelectProps> = props => {
           </Sans>
         )}
         <select
+          disabled={disabled}
           onChange={event => onSelect && onSelect(event.target.value)}
           value={selected}
         >
