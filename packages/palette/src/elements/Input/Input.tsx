@@ -89,7 +89,10 @@ const StyledInput = styled.input<StyledInputProps>`
 `
 StyledInput.displayName = "StyledInput"
 
-const Required = styled.span`
+/**
+ * Required
+ */
+export const Required = styled.span`
   color: ${color("purple100")};
 `
 Required.displayName = "Required"
