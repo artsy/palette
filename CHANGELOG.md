@@ -1,3 +1,16 @@
+# v4.17.12 (Thu Oct 03 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Minor clean up. [#599](https://github.com/artsy/palette/pull/599) ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v4.17.11 (Thu Oct 03 2019)
 
 #### 🐛  Bug Fix
