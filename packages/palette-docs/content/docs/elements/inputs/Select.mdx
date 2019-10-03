@@ -9,65 +9,74 @@ therefore require structured inputs with a variety of contextual info. For
 light-weight applications we recommend using the
 [mini-dropdown](https://palette.artsy.net/elements/inputs/select/).
 
-import { Value } from "react-powerplug"
-
 Our default dropdown style. When dropdown is active, display system dropdown
 list. When possible, dropdowns should default to a placeholder as to not force
 users into decisions. Occasionally, we default users to a selection for the sake
 of user-benefitting product strategy.
 
-<Box>
-  <Serif size="3">Title</Serif>
-  <LargeSelect
-    options={[
-      {
-        text: "Most Recent",
-        value: "mostRecent",
-      },
-    ]}
-  />
-</Box>
-
-<Spacer my={2} />
-
-<Box>
-  <Serif size="3">Title</Serif>
-  <Serif size="2">Short description</Serif>
-  <LargeSelect
-    options={[
-      {
-        text: "Most Recent",
-        value: "mostRecent",
-      },
-    ]}
-  />
-</Box>
-
-<Spacer my={6} />
-
-## Error state
+## Select only
 
 <Playground>
-  <Value>
-    {({ value = "badValue", set }) => {
-      const error = value === "goodValue" ? "" : "Error Message"
-      return (
-        <LargeSelect
-          error={error}
-          options={[
-            {
-              text: "Good",
-              value: "goodValue",
-            },
-            {
-              text: "Bad",
-              value: "badValue",
-            },
-          ]}
-          selected={value}
-          onSelect={value => set(value)}
-        />
-      )
-    }}
-  </Value>
+  <BorderBox>
+    <LargeSelect
+      options={[{ text: "Most Recent", value: "mostRecent" }]}
+    />
+  </BorderBox>
+</Playground>
+
+## Select + Title
+
+<Playground>
+  <BorderBox>
+    <LargeSelect
+      options={[{ text: "Most Recent", value: "mostRecent" }]}
+      title="Pick something"
+    />
+  </BorderBox>
+</Playground>
+
+## Select + Title + Required
+
+<Playground>
+  <BorderBox>
+    <LargeSelect
+      options={[{ text: "Most Recent", value: "mostRecent" }]}
+      required
+      title="Pick something"
+    />
+  </BorderBox>
+</Playground>
+
+## Select + Title + Description
+
+<Playground>
+  <BorderBox>
+    <LargeSelect
+      description="This matters a lot."
+      options={[{ text: "Most Recent", value: "mostRecent" }]}
+      title="Pick something"
+    />
+  </BorderBox>
+</Playground>
+
+## Select with error
+
+<Playground>
+  <BorderBox>
+    <LargeSelect
+      error="Something went wrong."
+      options={[{ text: "Most Recent", value: "mostRecent" }]}
+    />
+  </BorderBox>
+</Playground>
+
+## Disabled Select
+
+<Playground>
+  <BorderBox>
+    <LargeSelect
+      disabled
+      options={[{ text: "Most Recent", value: "mostRecent" }]}
+    />
+  </BorderBox>
 </Playground>
