@@ -10,7 +10,7 @@ import {
 } from "styled-system"
 import { color, space } from "../../helpers"
 import { computeBorderColor } from "../Input"
-import { Sans } from "../Typography"
+import { Sans, Serif } from "../Typography"
 
 const computeOptionTags = (options: Option[]): JSX.Element[] => {
   const optionTags = options.map(option => {
@@ -44,11 +44,16 @@ export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
  * A large drop-down select menu
  */
 export const LargeSelect: SFC<SelectProps> = props => {
-  const { disabled, onSelect, selected, options } = props
+  const { disabled, onSelect, options, selected, title } = props
   const optionTags = computeOptionTags(options)
 
   return (
     <LargeSelectContainer {...props} p={1}>
+      {title && (
+        <Serif mb="0.5" size="3">
+          {title}
+        </Serif>
+      )}
       <select
         disabled={disabled}
         onChange={event => onSelect && onSelect(event.target.value)}
@@ -64,7 +69,7 @@ export const LargeSelect: SFC<SelectProps> = props => {
  * A small version of drop-down select menu
  */
 export const SelectSmall: SFC<SelectProps> = props => {
-  const { disabled, onSelect, selected, options, title } = props
+  const { disabled, onSelect, options, selected, title } = props
   const optionTags = computeOptionTags(options)
 
   return (
