@@ -45,7 +45,7 @@ export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
  * A large drop-down select menu
  */
 export const LargeSelect: SFC<SelectProps> = props => {
-  const { description, disabled, onSelect, options, selected, title } = props
+  const { description, disabled, error, onSelect, options, selected, title } = props
   const optionTags = computeOptionTags(options)
 
   return (
@@ -67,6 +67,11 @@ export const LargeSelect: SFC<SelectProps> = props => {
       >
         {optionTags}
       </select>
+      {error && (
+        <Sans color="red100" mt="1" size="2">
+          {error}
+        </Sans>
+      )}
     </LargeSelectContainer>
   )
 }
