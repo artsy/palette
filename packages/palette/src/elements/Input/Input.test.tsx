@@ -49,7 +49,7 @@ describe("Input", () => {
 
 describe("computeBorderColor", () => {
   it("defaults to returning black 10", () => {
-    const color = computeBorderColor(null,  null)
+    const color = computeBorderColor(null, null)
     expect(color).toEqual("black10")
   })
 
