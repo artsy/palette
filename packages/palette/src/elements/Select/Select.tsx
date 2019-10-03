@@ -9,6 +9,7 @@ import {
   WidthProps,
 } from "styled-system"
 import { color, space } from "../../helpers"
+import { computeBorderColor } from "../Input"
 import { Sans } from "../Typography"
 
 const computeOptionTags = (options: Option[]): JSX.Element[] => {
@@ -128,15 +129,20 @@ const LargeSelectContainer = styled.div<SelectProps>`
     height: 40px;
     ${hideDefaultSkin};
     border: 1px solid
-      ${({ error }) => (error && color("red100")) || color("black10")};
+      ${({ disabled, error }) => color(computeBorderColor(disabled, !!error))};
     border-radius: 0;
     transition: border-color 0.25s;
     padding-right: ${space(1)}px;
     cursor: ${props => (props.disabled ? "default" : "pointer")};
     ${styledSpace};
-    &:hover,
+    &:hover {
+      border-color: ${({ disabled, error }) =>
+        color(computeBorderColor(disabled, !!error, "hover"))};
+    }
+
     &:focus {
-      border-color: ${color("purple100")};
+      border-color: ${({ disabled, error }) =>
+        color(computeBorderColor(disabled, !!error, "focus"))};
     }
   }
 
