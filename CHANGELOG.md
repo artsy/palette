@@ -1,3 +1,19 @@
+# v4.17.13 (Fri Oct 04 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Improve selects [#600](https://github.com/artsy/palette/pull/600) ([@jonallured](https://github.com/jonallured))
+- `@artsy/palette`
+  - bug fix for Dialog [#601](https://github.com/artsy/palette/pull/601) ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 2
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v4.17.12 (Thu Oct 03 2019)
 
 #### 🐛  Bug Fix
