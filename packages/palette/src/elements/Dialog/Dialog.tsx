@@ -14,6 +14,7 @@ interface DialogProps {
   detail?: React.ReactNode
   primaryCta: CtaProps
   secondaryCta?: CtaProps
+  onClose?: () => void
   show?: boolean
   title: string
 }
@@ -28,6 +29,7 @@ export const Dialog: SFC<DialogProps> = ({
   show = true,
   primaryCta,
   secondaryCta,
+  onClose = () => null,
 }) => {
   const StyledSans = styled(Sans)`
     transition: color 0.14s ease;
@@ -45,7 +47,7 @@ export const Dialog: SFC<DialogProps> = ({
   return (
     <Modal
       show={show}
-      onClose={primaryCta.action}
+      onClose={onClose}
       modalWidth={ModalWidth.Narrow}
       hideCloseButton
     >
