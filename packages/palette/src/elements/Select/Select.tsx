@@ -28,7 +28,7 @@ const computeOptionTags = (options: Option[], name?: string): JSX.Element[] => {
   return optionTags
 }
 
-interface Option {
+export interface Option {
   value: string
   text: string
 }
