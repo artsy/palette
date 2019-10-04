@@ -1,8 +1,5 @@
 import React, { SFC } from "react"
 import styled, { css } from "styled-components"
-import { color, space } from "../../helpers"
-import { Sans } from "../Typography"
-
 import {
   PositionProps,
   space as styledSpace,
@@ -11,38 +8,89 @@ import {
   width,
   WidthProps,
 } from "styled-system"
+import { color, space } from "../../helpers"
+import { Box } from "../Box"
+import { computeBorderColor, Required } from "../Input"
+import { Sans, Serif } from "../Typography"
+
+const computeOptionTags = (options: Option[], name?: string): JSX.Element[] => {
+  const optionTags = options.map((option, index) => {
+    const { text, value } = option
+    const key = [name || "", value || index].join("-")
+
+    return (
+      <option value={value} key={key}>
+        {text}
+      </option>
+    )
+  })
+
+  return optionTags
+}
 
 interface Option {
   value: string
   text: string
 }
+
 export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
-  options: Option[]
-  selected?: string
+  description?: string
   disabled?: boolean
   error?: string
-  title?: string
+  name?: string
   onSelect?: (value) => void
+  options: Option[]
+  required?: boolean
+  selected?: string
+  title?: string
 }
 
 /**
  * A large drop-down select menu
  */
 export const LargeSelect: SFC<SelectProps> = props => {
+  const {
+    description,
+    disabled,
+    error,
+    name,
+    onSelect,
+    options,
+    required,
+    selected,
+    title,
+  } = props
+  const optionTags = computeOptionTags(options, name)
+
   return (
-    <LargeSelectContainer {...props} p={1}>
-      <select
-        value={props.selected}
-        disabled={props.disabled}
-        onChange={event => props.onSelect && props.onSelect(event.target.value)}
-      >
-        {props.options.map(({ value, text }) => (
-          <option value={value} key={value}>
-            {text}
-          </option>
-        ))}
-      </select>
-    </LargeSelectContainer>
+    <Box width="100%">
+      {title && (
+        <Serif mb="0.5" size="3">
+          {title}
+          {required && <Required>*</Required>}
+        </Serif>
+      )}
+      {description && (
+        <Serif color="black60" mb="1" size="2">
+          {description}
+        </Serif>
+      )}
+      <LargeSelectContainer {...props} p={1}>
+        <select
+          disabled={disabled}
+          name={name}
+          onChange={event => onSelect && onSelect(event.target.value)}
+          value={selected}
+        >
+          {optionTags}
+        </select>
+      </LargeSelectContainer>
+      {error && (
+        <Sans color="red100" mt="1" size="2">
+          {error}
+        </Sans>
+      )}
+    </Box>
   )
 }
 
@@ -50,26 +98,23 @@ export const LargeSelect: SFC<SelectProps> = props => {
  * A small version of drop-down select menu
  */
 export const SelectSmall: SFC<SelectProps> = props => {
+  const { disabled, onSelect, options, selected, title } = props
+  const optionTags = computeOptionTags(options)
+
   return (
     <SelectSmallContainer {...props}>
       <label>
         {props.title && (
           <Sans size="2" display="inline" mr={0.5}>
-            {props.title}:
+            {title}:
           </Sans>
         )}
-
         <select
-          value={props.selected}
-          onChange={event =>
-            props.onSelect && props.onSelect(event.target.value)
-          }
+          disabled={disabled}
+          onChange={event => onSelect && onSelect(event.target.value)}
+          value={selected}
         >
-          {props.options.map(({ value, text }) => (
-            <option value={value} key={value}>
-              {text}
-            </option>
-          ))}
+          {optionTags}
         </select>
       </label>
     </SelectSmallContainer>
@@ -118,15 +163,25 @@ const LargeSelectContainer = styled.div<SelectProps>`
     height: 40px;
     ${hideDefaultSkin};
     border: 1px solid
-      ${({ error }) => (error && color("red100")) || color("black10")};
+      ${({ disabled, error }) =>
+        color(computeBorderColor({ disabled, error: !!error }))};
     border-radius: 0;
     transition: border-color 0.25s;
     padding-right: ${space(1)}px;
     cursor: ${props => (props.disabled ? "default" : "pointer")};
     ${styledSpace};
-    &:hover,
+    &:hover {
+      border-color: ${({ disabled, error }) =>
+        color(
+          computeBorderColor({ disabled, error: !!error, pseudo: "hover" })
+        )};
+    }
+
     &:focus {
-      border-color: ${color("purple100")};
+      border-color: ${({ disabled, error }) =>
+        color(
+          computeBorderColor({ disabled, error: !!error, pseudo: "focus" })
+        )};
     }
   }
 

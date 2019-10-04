@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { themeGet } from "styled-system"
 import { color, space } from "../../helpers"
+import { Color } from "../../Theme"
 import { Box } from "../Box"
 import { Sans, Serif } from "../Typography"
 
@@ -52,10 +53,18 @@ interface StyledInputProps extends React.HTMLProps<HTMLInputElement> {
   error: boolean
 }
 
+interface InputStatus {
+  disabled: boolean
+  error: boolean
+  pseudo?: string
+}
+
 /**
  * func to compute border color
  */
-export const computeBorderColor = ({ disabled, error, pseudo = null }) => {
+export const computeBorderColor = (inputStatus: InputStatus): Color => {
+  const { disabled, error, pseudo } = inputStatus
+
   if (disabled) return "black10"
   if (error) return "red100"
   if (pseudo === "hover") return "black60"
@@ -70,7 +79,8 @@ const StyledInput = styled.input<StyledInputProps>`
   height: 40px;
   background-color: ${props =>
     props.disabled ? color("black5") : color("white100")};
-  border: 1px solid ${props => color(computeBorderColor(props))};
+  border: 1px solid
+    ${({ disabled, error }) => color(computeBorderColor({ disabled, error }))};
   border-radius: 0;
   transition: border-color 0.25s;
   padding: ${space(1)}px;
@@ -89,7 +99,10 @@ const StyledInput = styled.input<StyledInputProps>`
 `
 StyledInput.displayName = "StyledInput"
 
-const Required = styled.span`
+/**
+ * Required
+ */
+export const Required = styled.span`
   color: ${color("purple100")};
 `
 Required.displayName = "Required"
