@@ -1,3 +1,16 @@
+# v4.17.15 (Fri Oct 04 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Export the Option interface [#602](https://github.com/artsy/palette/pull/602) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 1
+
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v4.17.14 (Fri Oct 04 2019)
 
 
