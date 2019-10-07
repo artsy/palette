@@ -1,3 +1,16 @@
+# v4.17.16 (Mon Oct 07 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Allow attributes to be passed to checkbox for testing [#603](https://github.com/artsy/palette/pull/603) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.17.15 (Fri Oct 04 2019)
 
 #### 🐛  Bug Fix
