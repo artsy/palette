@@ -57,19 +57,26 @@ export class Checkbox extends React.Component<CheckboxProps> {
   }
 
   render() {
-    const { selected, children, error, disabled, hover } = this.props
+    const {
+      selected,
+      children,
+      error,
+      disabled,
+      hover,
+      onSelect,
+      ...other
+    } = this.props
 
     return (
       <Container
         className={hover && "hover"}
         my={0.5}
-        onClick={() =>
-          !disabled && this.props.onSelect && this.props.onSelect(!selected)
-        }
+        onClick={() => !disabled && onSelect && onSelect(!selected)}
         selected={selected}
         hover={hover}
         disabled={disabled}
         alignItems="center"
+        {...other}
       >
         <CheckboxButton
           border={1}
