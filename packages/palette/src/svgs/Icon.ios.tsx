@@ -42,6 +42,6 @@ export const Icon = styled(Svg)<IconProps>`
 
 Icon.defaultProps = {
   fill: "black100",
-  height: "16px",
-  width: "16px",
+  height: "18px",
+  width: "18px",
 }
