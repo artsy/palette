@@ -45,3 +45,8 @@ Icon.defaultProps = {
   height: "18px",
   width: "18px",
 }
+
+/** No-op component that exists to maintain api parity with web */
+export const Title = (..._props: any[]) => false
+
+export { Path, G, Circle, Rect } from "react-native-svg"

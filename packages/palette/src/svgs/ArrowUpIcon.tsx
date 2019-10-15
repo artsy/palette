@@ -1,13 +1,13 @@
 import React from "react"
 import { color } from "../helpers"
-import { Icon, IconProps } from "./Icon"
+import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** ArrowUpIcon */
 export const ArrowUpIcon: React.SFC<IconProps> = props => {
   return (
     <Icon {...props} viewBox="0 0 18 18">
-      <title>reveal less</title>
-      <path
+      <Title>reveal less</Title>
+      <Path
         d="M15.06 12.94L9 6.88l-6.06 6.06-.88-.88L9 5.12l6.94 6.94z"
         fill={color(props.fill)}
         fillRule="evenodd"
