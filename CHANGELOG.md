@@ -1,3 +1,16 @@
+# v4.18.0 (Wed Oct 16 2019)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Make all icons emission compatible [#605](https://github.com/artsy/palette/pull/605) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v4.17.16 (Mon Oct 07 2019)
 
 #### 🐛  Bug Fix
