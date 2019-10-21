@@ -1,3 +1,16 @@
+# v5.0.0 (Mon Oct 21 2019)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette`
+  - Rename `Tag` -> `CleanTag` [#607](https://github.com/artsy/palette/pull/607) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v4.18.0 (Wed Oct 16 2019)
 
 #### 🚀  Enhancement
