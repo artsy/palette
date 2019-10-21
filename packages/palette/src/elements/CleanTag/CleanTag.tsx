@@ -77,8 +77,8 @@ const DefaultTag = tagBuilder()
  *  ${background};
  * `
  */
-export const Tag: typeof DefaultTag & {
+export const CleanTag: typeof DefaultTag & {
   as?: typeof tagBuilder
 } = DefaultTag
 
-Tag.as = tagBuilder
+CleanTag.as = tagBuilder

@@ -1,11 +1,11 @@
 import { shallow } from "enzyme"
 import React from "react"
-import { Tag } from "../Tag"
+import { CleanTag } from "../CleanTag"
 
-describe("Tag", () => {
+describe("CleanTag", () => {
   it("omits props", () => {
     const wrap = shallow(
-      React.createElement(Tag, {
+      React.createElement(CleanTag, {
         // @ts-ignore
         id: "hello",
         theme: {},
@@ -22,13 +22,13 @@ describe("Tag", () => {
   })
 
   it("allows the type of element to be specified", () => {
-    const wrap = shallow(React.createElement(Tag.as("span")))
+    const wrap = shallow(React.createElement(CleanTag.as("span")))
     expect(wrap.type()).toBe("span")
   })
 
   it("allows the type of element to be overloaded by props", () => {
     const wrap = shallow(
-      React.createElement(Tag, {
+      React.createElement(CleanTag, {
         is: "section",
       })
     )
@@ -37,7 +37,7 @@ describe("Tag", () => {
 
   it("allows customization of which props are omitted", () => {
     const wrap = shallow(
-      React.createElement(Tag, {
+      React.createElement(CleanTag, {
         omitFromProps: ["foo"],
         // @ts-ignore
         foo: "bar",
