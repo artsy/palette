@@ -82,21 +82,21 @@ const MoreTag: React.FC<{ onClick: (e) => void; count: number }> = ({
 }
 
 const HoverBox = styled(Box)`
-  border: 1px solid ${color("black10")};
+  border: 1px solid ${color("black5")};
   border-radius: 2px;
-  background-color: ${color("black10")};
+  background-color: ${color("black5")};
   &:hover {
-    background-color: ${color("black30")};
-    border-color: ${color("black30")};
+    background-color: ${color("black10")};
+    border-color: ${color("black10")};
   }
   transition: all 0.25s;
 `
 
 const MoreBox = styled(Box)`
-  border: 1px solid ${color("black10")};
+  border: 1px solid ${color("black5")};
   border-radius: 2px;
   &:hover {
-    border-color: ${color("black30")};
+    border-color: ${color("black10")};
   }
   transition: all 0.25s;
   cursor: pointer;
