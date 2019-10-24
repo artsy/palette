@@ -1,3 +1,16 @@
+# v5.1.0 (Thu Oct 24 2019)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [PURCHASE-1577] Tag component [#608](https://github.com/artsy/palette/pull/608) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v5.0.0 (Mon Oct 21 2019)
 
 #### 💥  Breaking Change
