@@ -1,6 +1,8 @@
 import React, { SFC } from "react"
 import styled, { css } from "styled-components"
 import {
+  maxWidth,
+  MaxWidthProps,
   PositionProps,
   space as styledSpace,
   SpaceProps,
@@ -33,7 +35,11 @@ export interface Option {
   text: string
 }
 
-export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
+export interface SelectProps
+  extends PositionProps,
+    SpaceProps,
+    WidthProps,
+    MaxWidthProps {
   description?: string
   disabled?: boolean
   error?: string
@@ -202,6 +208,7 @@ const SelectSmallContainer = styled.div<SelectProps>`
 
   label {
     ${width};
+    ${maxWidth};
     padding: 0;
     margin: 0;
   }
@@ -217,6 +224,7 @@ const SelectSmallContainer = styled.div<SelectProps>`
       ${space(1)}px;
     ${styledSpace};
     ${width};
+    ${maxWidth};
 
     &:hover {
       background-color: ${color("black30")};
