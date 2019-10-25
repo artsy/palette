@@ -2,7 +2,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Image } from "../../platform/primitives"
-import { Tag } from "../Tag"
+import { CleanTag } from "../CleanTag"
 
 import {
   borderRadius,
@@ -37,7 +37,7 @@ export interface ImageProps
 /**
  * Image component with space, width and height properties
  */
-export const BaseImage = styled(Tag.as(Image))<ImageProps>`
+export const BaseImage = styled(CleanTag.as(Image))<ImageProps>`
   ${space};
   ${width};
   ${height};
@@ -54,7 +54,7 @@ export interface ResponsiveImageProps
 /**
  * An Image component that responsively resizes within its environment
  */
-export const BaseResponsiveImage = styled(Tag)<ResponsiveImageProps>`
+export const BaseResponsiveImage = styled(CleanTag)<ResponsiveImageProps>`
   background: url(${props => props.src});
   background-size: contain;
   background-repeat: no-repeat;
