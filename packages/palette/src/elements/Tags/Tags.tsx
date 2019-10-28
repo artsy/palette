@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { color } from "../../helpers"
 import { styledWrapper } from "../../platform/primitives"
 import { Box } from "../Box"
@@ -24,25 +24,69 @@ export const Tags: React.FC<TagsProps> = ({
   displayNum = tags.length,
 }) => {
   const [expanded, setExpanded] = useState(false)
+  const [boxHeight, setBoxHeight] = useState("auto")
+  const flexContainer = useRef<HTMLDivElement>(null)
+  const animatingBox = useRef<HTMLDivElement>(null)
+  // after animating AnimatingBox height set back height to auto (to handle screen resize etc.)
+  useEffect(() => {
+    animatingBox.current.addEventListener("transitionend", e => {
+      const isAnimatingBoxTransition = Array.from(
+        (e.target as HTMLTextAreaElement).classList
+      ).some(elClass => elClass.indexOf("AnimatingBox") > -1)
+      if (isAnimatingBoxTransition) {
+        setBoxHeight("auto")
+      }
+    })
+  }, [])
   const sliceSize = expanded ? tags.length : displayNum
   const tagEls = tags.slice(0, sliceSize).map((tag, i) => {
     return <Tag key={i} {...tag} />
   })
+
+  /**
+   * By default AnimationBox height is auto. for open/close transition:
+   * 1. explicitly set the height to be the same as the flex container inside it,
+   * 2. display new tags (setExpanded(true))
+   * 3. set the height to the new flexContainer height so the animation triggers
+   */
+  const toggleMore = () => {
+    const BORDER_OFFSET = 2
+    const oldHeight = flexContainer.current.offsetHeight
+      ? flexContainer.current.offsetHeight - BORDER_OFFSET
+      : "auto"
+    setBoxHeight(oldHeight + "px")
+
+    setExpanded(!expanded)
+
+    // wait for a tick
+    setTimeout(() => {
+      const newHeight = flexContainer.current.offsetHeight
+        ? flexContainer.current.offsetHeight - BORDER_OFFSET
+        : "auto"
+      setBoxHeight(`${newHeight}px`)
+    }, 10)
+  }
+
   const moreButton = displayNum < tags.length && !expanded && (
-    <MoreTag
-      count={tags.length - displayNum}
-      onClick={() => setExpanded(true)}
-    />
+    <MoreTag count={tags.length - displayNum} onClick={toggleMore} />
   )
+
   return (
-    <Flex flexWrap="wrap" mb={-0.5}>
-      <Join separator={<Box pl={0.5} />}>
-        {tagEls}
-        {moreButton}
-      </Join>
-    </Flex>
+    <AnimatingBox height={boxHeight} ref={animatingBox as any}>
+      <Flex flexWrap="wrap" mb={-0.5} ref={flexContainer as any}>
+        <Join separator={<Box pl={0.5} />}>
+          {tagEls}
+          {moreButton}
+        </Join>
+      </Flex>
+    </AnimatingBox>
   )
 }
+
+const AnimatingBox = styledWrapper(Box)`
+  transition: height 0.25s ease;
+  overflow: hidden;
+`
 
 const Tag: React.FC<TagProps> = ({ name, href }) => {
   return (
