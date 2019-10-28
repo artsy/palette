@@ -1,3 +1,16 @@
+# v5.1.1 (Mon Oct 28 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Add maxWidth and minWidth to selects [#609](https://github.com/artsy/palette/pull/609) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v5.1.0 (Thu Oct 24 2019)
 
 #### 🚀  Enhancement
