@@ -1,6 +1,10 @@
 import React, { SFC } from "react"
 import styled, { css } from "styled-components"
 import {
+  maxWidth,
+  MaxWidthProps,
+  minWidth,
+  MinWidthProps,
   PositionProps,
   space as styledSpace,
   SpaceProps,
@@ -33,7 +37,12 @@ export interface Option {
   text: string
 }
 
-export interface SelectProps extends PositionProps, SpaceProps, WidthProps {
+export interface SelectProps
+  extends PositionProps,
+    SpaceProps,
+    WidthProps,
+    MaxWidthProps,
+    MinWidthProps {
   description?: string
   disabled?: boolean
   error?: string
@@ -157,6 +166,8 @@ const LargeSelectContainer = styled.div<SelectProps>`
 
   select {
     width: 100%;
+    ${maxWidth};
+    ${minWidth};
     font-family: ${themeGet("fontFamily.serif.regular")};
     font-size: ${themeGet("typeSizes.serif.3.fontSize")}px;
     line-height: ${themeGet("typeSizes.serif.3t.lineHeight")}px;
@@ -202,6 +213,8 @@ const SelectSmallContainer = styled.div<SelectProps>`
 
   label {
     ${width};
+    ${maxWidth};
+    ${minWidth};
     padding: 0;
     margin: 0;
   }
@@ -217,6 +230,8 @@ const SelectSmallContainer = styled.div<SelectProps>`
       ${space(1)}px;
     ${styledSpace};
     ${width};
+    ${maxWidth};
+    ${minWidth};
 
     &:hover {
       background-color: ${color("black30")};
