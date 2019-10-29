@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import styled from "styled-components"
 import { color } from "../../helpers"
+import { styledWrapper } from "../../platform/primitives"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Join } from "../Join"
@@ -81,7 +81,7 @@ const MoreTag: React.FC<{ onClick: (e) => void; count: number }> = ({
   )
 }
 
-const HoverBox = styled(Box)`
+const HoverBox = styledWrapper(Box)`
   border: 1px solid ${color("black5")};
   border-radius: 2px;
   background-color: ${color("black5")};
@@ -92,7 +92,7 @@ const HoverBox = styled(Box)`
   transition: all 0.25s;
 `
 
-const MoreBox = styled(Box)`
+const MoreBox = styledWrapper(Box)`
   border: 1px solid ${color("black5")};
   border-radius: 2px;
   &:hover {
