@@ -1,3 +1,16 @@
+# v5.1.2 (Tue Oct 29 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Make Tags cross platform [#611](https://github.com/artsy/palette/pull/611) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v5.1.1 (Mon Oct 28 2019)
 
 #### 🐛  Bug Fix
