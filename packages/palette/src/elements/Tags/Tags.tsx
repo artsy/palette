@@ -51,18 +51,14 @@ export const Tags: React.FC<TagsProps> = ({
    */
   const toggleMore = () => {
     const BORDER_OFFSET = 2
-    const oldHeight = flexContainer.current.offsetHeight
-      ? flexContainer.current.offsetHeight - BORDER_OFFSET
-      : "auto"
+    const oldHeight = flexContainer.current.offsetHeight - BORDER_OFFSET
     setBoxHeight(oldHeight + "px")
 
     setExpanded(!expanded)
 
     // wait for a tick
     setTimeout(() => {
-      const newHeight = flexContainer.current.offsetHeight
-        ? flexContainer.current.offsetHeight - BORDER_OFFSET
-        : "auto"
+      const newHeight = flexContainer.current.offsetHeight - BORDER_OFFSET
       setBoxHeight(`${newHeight}px`)
     }, 10)
   }
