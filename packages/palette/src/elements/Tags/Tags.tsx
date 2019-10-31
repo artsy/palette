@@ -35,14 +35,12 @@ export const Tags: React.FC<TagsProps> = ({
     />
   )
   return (
-    <>
-      <Flex flexWrap="wrap" mb={-0.5}>
-        <Join separator={<Box pl={0.5} />}>
-          {tagEls}
-          {moreButton}
-        </Join>
-      </Flex>
-    </>
+    <Flex flexWrap="wrap" mb={-0.5}>
+      <Join separator={<Box pl={0.5} />}>
+        {tagEls}
+        {moreButton}
+      </Join>
+    </Flex>
   )
 }
 
