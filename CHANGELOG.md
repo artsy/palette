@@ -1,3 +1,16 @@
+# v5.1.4 (Thu Oct 31 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Removes extra fragment. [#612](https://github.com/artsy/palette/pull/612) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v5.1.3 (Tue Oct 29 2019)
 
 
