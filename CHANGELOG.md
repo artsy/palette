@@ -1,3 +1,16 @@
+# v5.1.5 (Mon Nov 04 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds Tags container animation [#610](https://github.com/artsy/palette/pull/610) ([@sepans](https://github.com/sepans))
+
+#### Authors: 1
+
+- Sepand Ansari ([@sepans](https://github.com/sepans))
+
+---
+
 # v5.1.4 (Thu Oct 31 2019)
 
 #### 🐛  Bug Fix
