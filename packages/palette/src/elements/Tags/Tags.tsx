@@ -30,9 +30,7 @@ export const Tags: React.FC<TagsProps> = ({
   // after animating AnimatingBox height set back height to auto (to handle screen resize etc.)
   useEffect(() => {
     animatingBox.current.addEventListener("transitionend", e => {
-      const isAnimatingBoxTransition = Array.from(
-        (e.target as HTMLTextAreaElement).classList
-      ).some(elClass => elClass.indexOf("AnimatingBox") > -1)
+      const isAnimatingBoxTransition = e.target === animatingBox.current
       if (isAnimatingBoxTransition) {
         setBoxHeight("auto")
       }
