@@ -1,3 +1,16 @@
+# v5.1.6 (Wed Nov 06 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - want the Box to support minWidth [#613](https://github.com/artsy/palette/pull/613) ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v5.1.5 (Mon Nov 04 2019)
 
 #### 🐛  Bug Fix
