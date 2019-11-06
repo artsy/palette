@@ -15,10 +15,14 @@ import {
   HeightProps,
   left,
   LeftProps,
+  maxHeight,
+  MaxHeightProps,
   maxWidth,
   MaxWidthProps,
   minHeight,
   MinHeightProps,
+  minWidth,
+  MinWidthProps,
   position,
   PositionProps,
   right,
@@ -43,6 +47,8 @@ export interface BoxProps
     HeightProps,
     LeftProps,
     MaxWidthProps,
+    MinWidthProps,
+    MaxHeightProps,
     MinHeightProps,
     PositionProps,
     RightProps,
@@ -62,8 +68,10 @@ export const Box = primitives.View<BoxProps>`
   ${display};
   ${height};
   ${left};
+  ${minWidth};
   ${maxWidth};
   ${minHeight};
+  ${maxHeight};
   ${position};
   ${right};
   ${styledColor};
