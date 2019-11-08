@@ -52,6 +52,7 @@ export interface SelectProps
   required?: boolean
   selected?: string
   title?: string
+  id?: string
 }
 
 /**
