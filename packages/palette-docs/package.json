@@ -62,7 +62,7 @@
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-react": "3.6.0",
-    "typescript": "3.3.3333",
+    "typescript": "^3.7.2",
     "typescript-styled-plugin": "0.13.0",
     "webpack-notifier": "1.7.0",
     "webpack-shell-plugin": "0.5.0"
