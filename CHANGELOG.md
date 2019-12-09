@@ -3,6 +3,30 @@
 #### 🐛  Bug Fix
 
 - `@artsy/palette`
+  - Add className type to typography components [#619](https://github.com/artsy/palette/pull/619) ([@zephraph](https://github.com/zephraph))
+- `@artsy/palette`
+  - Fix type issues in stylesheet generator [#620](https://github.com/artsy/palette/pull/620) ([@zephraph](https://github.com/zephraph))
+- `@artsy/palette`
+  - Fix SSR issue by updating image lazy loading lib [#618](https://github.com/artsy/palette/pull/618) ([@zephraph](https://github.com/zephraph))
+
+#### 🏠  Internal
+
+- Update typescript to 3.7+ [#615](https://github.com/artsy/palette/pull/615) ([@zephraph](https://github.com/zephraph))
+- `@artsy/palette`
+  - Pin dep typescript from ^3.7.2 to 3.7.2 [#616](https://github.com/artsy/palette/pull/616) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
+# v5.1.7 (Mon Dec 09 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
   - Fix SSR issue by updating image lazy loading lib [#618](https://github.com/artsy/palette/pull/618) ([@zephraph](https://github.com/zephraph))
 
 #### 🏠  Internal
