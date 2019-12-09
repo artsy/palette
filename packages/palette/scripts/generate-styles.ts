@@ -2,6 +2,7 @@ import * as prettier from "prettier"
 import { themeProps } from "../src/Theme"
 
 import * as fs from "fs"
+import { ThemeProps } from "styled-components"
 
 const spaceMapping = {
   m: v => `margin: ${v};`,
@@ -65,34 +66,36 @@ Object.entries(themeProps.colors).forEach(([name, value]) => {
 `
 })
 
-Object.keys(themeProps.fontFamily).forEach(family => {
-  Object.entries(themeProps.fontFamily[family]).forEach(
-    ([type, properties]) => {
-      Object.entries(themeProps.typeSizes[family]).forEach(
-        ([size, sizeProps]) => {
-          // Ensure all props are objects
-          const normalizedProps =
-            typeof properties === "string"
-              ? {
-                  fontFamily: properties,
-                }
-              : properties
+Object.keys(themeProps.fontFamily).forEach(
+  (family: keyof typeof themeProps.fontFamily) => {
+    Object.entries(themeProps.fontFamily[family]).forEach(
+      ([type, properties]) => {
+        Object.entries(themeProps.typeSizes[family]).forEach(
+          ([size, sizeProps]) => {
+            // Ensure all props are objects
+            const normalizedProps =
+              typeof properties === "string"
+                ? {
+                    fontFamily: properties,
+                  }
+                : properties
 
-          const formattedType =
-            type === "regular"
-              ? ""
-              : "-" + type.replace(/([A-Z])/, "-$1").toLowerCase()
+            const formattedType =
+              type === "regular"
+                ? ""
+                : "-" + type.replace(/([A-Z])/, "-$1").toLowerCase()
 
-          styles += `
+            styles += `
             .${family}-${size}${formattedType} {
               ${font({ ...normalizedProps, ...sizeProps })}
             }
           `
-        }
-      )
-    }
-  )
-})
+          }
+        )
+      }
+    )
+  }
+)
 
 const stylesheet = `
   :root {
