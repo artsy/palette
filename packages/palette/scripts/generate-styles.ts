@@ -2,7 +2,6 @@ import * as prettier from "prettier"
 import { themeProps } from "../src/Theme"
 
 import * as fs from "fs"
-import { ThemeProps } from "styled-components"
 
 const spaceMapping = {
   m: v => `margin: ${v};`,
