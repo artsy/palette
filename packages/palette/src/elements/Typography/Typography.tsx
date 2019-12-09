@@ -78,6 +78,7 @@ export interface TextProps
     StyledSystemDisplayProps,
     TextAlignProps,
     VerticalAlignProps {
+  className?: string
   fontFamily?: string
   style?: CSSProperties
   /**
