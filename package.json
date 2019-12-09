@@ -6,7 +6,7 @@
     "test": "yarn workspaces run test",
     "lint": "yarn workspaces run lint",
     "compile-palette": "yarn workspace @artsy/palette compile",
-    "type-check": "yarn compile-palette && yarn workspaces run type-check",
+    "type-check": "yarn compile-palette && yarn workespace @artsy/palette run type-declarations && yarn workspaces run type-check",
     "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
     "storybook": "yarn workspace @artsy/palette storybook",
     "visual-test": "yarn workspace @artsy/palette visual-test"

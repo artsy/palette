@@ -78,6 +78,7 @@ export interface TextProps
     StyledSystemDisplayProps,
     TextAlignProps,
     VerticalAlignProps {
+  className?: string
   fontFamily?: string
   style?: CSSProperties
   /**
@@ -150,7 +151,6 @@ function _selectFontFamilyType(weight?: null | FontWeights, italic?: boolean) {
 }
 
 interface StyledTextProps extends Partial<TextProps> {
-  className?: string
   size: string | string[]
   weight?: null | FontWeights
   italic?: boolean
