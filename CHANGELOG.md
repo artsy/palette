@@ -1,3 +1,16 @@
+# v5.1.12 (Mon Dec 23 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - @mzikherman => [Modal] Add option to disable forcing scrollbars for smaller content [#623](https://github.com/artsy/palette/pull/623) ([@mzikherman](https://github.com/mzikherman))
+
+#### Authors: 1
+
+- Matt Zikherman ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # v5.1.7 (Mon Dec 09 2019)
 
 #### 🐛  Bug Fix
