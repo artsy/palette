@@ -1,3 +1,16 @@
+# v5.1.13 (Fri Jan 03 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Upgrade `react-lazy-load-image-component` off of beta [#624](https://github.com/artsy/palette/pull/624) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v5.1.12 (Mon Dec 23 2019)
 
 #### 🐛  Bug Fix
