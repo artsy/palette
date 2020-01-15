@@ -1,3 +1,16 @@
+# v5.1.14 (Wed Jan 15 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [MX-144] Updates Settings icon #trivial [#625](https://github.com/artsy/palette/pull/625) ([@ashfurrow](https://github.com/ashfurrow))
+
+#### Authors: 1
+
+- Ash Furrow ([@ashfurrow](https://github.com/ashfurrow))
+
+---
+
 # v5.1.13 (Fri Jan 03 2020)
 
 #### 🐛  Bug Fix
