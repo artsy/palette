@@ -1,3 +1,22 @@
+# v5.1.15 (Mon Jan 20 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - add XCircleIcon [#627](https://github.com/artsy/palette/pull/627) ([@ds300](https://github.com/ds300))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Update dep typescript from 3.7.2 to v3.7.5 [#617](https://github.com/artsy/palette/pull/617) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v5.1.14 (Wed Jan 15 2020)
 
 #### 🐛  Bug Fix
