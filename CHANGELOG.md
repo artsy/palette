@@ -1,3 +1,16 @@
+# v5.1.16 (Tue Jan 21 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fix lazy load double download issue by updating lib [#628](https://github.com/artsy/palette/pull/628) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v5.1.15 (Mon Jan 20 2020)
 
 #### 🐛  Bug Fix
