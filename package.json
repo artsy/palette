@@ -2,13 +2,14 @@
   "name": "palette",
   "private": true,
   "scripts": {
-    "start": "concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' 'yarn workspace artsy-palette-docs start'",
-    "test": "yarn workspaces run test",
-    "lint": "yarn workspaces run lint",
-    "compile-palette": "yarn workspace @artsy/palette compile",
-    "type-check": "yarn compile-palette && yarn workspace @artsy/palette run type-declarations && yarn workspaces run type-check",
     "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
+    "compile-palette": "yarn workspace @artsy/palette compile",
+    "deploy-docs": "yarn workspace artsy-palette-docs deploy",
+    "lint": "yarn workspaces run lint",
+    "start": "concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' 'yarn workspace artsy-palette-docs start'",
     "storybook": "yarn workspace @artsy/palette storybook",
+    "test": "yarn workspaces run test",
+    "type-check": "yarn compile-palette && yarn workspace @artsy/palette run type-declarations && yarn workspaces run type-check",
     "visual-test": "yarn workspace @artsy/palette visual-test"
   },
   "repository": {
