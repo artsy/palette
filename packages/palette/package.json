@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette",
-  "version": "5.1.11",
+  "version": "5.1.16",
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
@@ -110,7 +110,7 @@
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-react": "3.6.0",
-    "typescript": "3.7.2",
+    "typescript": "3.7.5",
     "typescript-styled-plugin": "0.10.0"
   },
   "dependencies": {
@@ -119,7 +119,7 @@
     "d3-shape": "^1.3.5",
     "luxon": "^1.15",
     "rc-slider": "^8.6.2",
-    "react-lazy-load-image-component": "^1.4.0-beta.1",
+    "react-lazy-load-image-component": "^1.4.1-beta.0",
     "react-live": "^1.12.0",
     "react-powerplug": "^1.0.0",
     "react-spring": "^8.0.27",

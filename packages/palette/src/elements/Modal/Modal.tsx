@@ -25,6 +25,7 @@ interface ModalProps {
   onClose: () => void
   show?: boolean
   title?: string
+  forcedScroll?: boolean // TODO: Find out if we can globally switch to `overflow: auto`
   /*
    * Hide the X button if we don't want the user to be able to exit the modal without another action closing the modal
    */
@@ -40,6 +41,7 @@ interface TransitionElementProps {
 interface ModalScrollContentProps {
   hasLogo?: boolean
   modalWidth?: ModalWidth
+  forcedScroll?: boolean
 }
 
 export enum ModalWidth {
@@ -65,6 +67,7 @@ export const Modal: SFC<ModalProps> = ({
   hasLogo,
   onClose,
   hideCloseButton,
+  forcedScroll = true,
 }) => {
   const [springContentAnimation, setSpringContentAnimation] = useState({
     opacity: 1,
@@ -157,7 +160,11 @@ export const Modal: SFC<ModalProps> = ({
     return (
       <AnimatedView style={contentAnimation}>
         <ModalFlexContent>
-          <ModalScrollContent hasLogo={hasLogo} modalWidth={modalWidth}>
+          <ModalScrollContent
+            forcedScroll={forcedScroll}
+            hasLogo={hasLogo}
+            modalWidth={modalWidth}
+          >
             {hasLogo && (
               <>
                 <Flex justifyContent="center">
@@ -272,7 +279,7 @@ const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
 `
 
 const ModalScrollContent = styled(Flex)<ModalScrollContentProps>`
-  overflow: scroll;
+  overflow: ${props => (props.forcedScroll ? "scroll" : "auto")};
   flex-direction: column;
   padding: ${props =>
     space(props.hasLogo || props.modalWidth === ModalWidth.Narrow ? 2 : 3)}px;

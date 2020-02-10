@@ -1,3 +1,74 @@
+# v5.1.16 (Tue Jan 21 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fix lazy load double download issue by updating lib [#628](https://github.com/artsy/palette/pull/628) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# v5.1.15 (Mon Jan 20 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - add XCircleIcon [#627](https://github.com/artsy/palette/pull/627) ([@ds300](https://github.com/ds300))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Update dep typescript from 3.7.2 to v3.7.5 [#617](https://github.com/artsy/palette/pull/617) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
+# v5.1.14 (Wed Jan 15 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [MX-144] Updates Settings icon #trivial [#625](https://github.com/artsy/palette/pull/625) ([@ashfurrow](https://github.com/ashfurrow))
+
+#### Authors: 1
+
+- Ash Furrow ([@ashfurrow](https://github.com/ashfurrow))
+
+---
+
+# v5.1.13 (Fri Jan 03 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Upgrade `react-lazy-load-image-component` off of beta [#624](https://github.com/artsy/palette/pull/624) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# v5.1.12 (Mon Dec 23 2019)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - @mzikherman => [Modal] Add option to disable forcing scrollbars for smaller content [#623](https://github.com/artsy/palette/pull/623) ([@mzikherman](https://github.com/mzikherman))
+
+#### Authors: 1
+
+- Matt Zikherman ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # v5.1.7 (Mon Dec 09 2019)
 
 #### 🐛  Bug Fix
