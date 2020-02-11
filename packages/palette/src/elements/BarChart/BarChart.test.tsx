@@ -130,8 +130,11 @@ describe("BarChart", () => {
     const chart = getWrapper()
     const normalBar = chart.find(Bar).at(0)
     const highlightedBar = chart.find(Bar).at(2)
-    expect(normalBar).toHaveStyleRule("background", color("black10"))
-    expect(highlightedBar).toHaveStyleRule("background", color("black60"))
+    ;(expect(normalBar) as any).toHaveStyleRule("background", color("black10"))
+    ;(expect(highlightedBar) as any).toHaveStyleRule(
+      "background",
+      color("black60")
+    )
   })
 
   it("does not show hover labels by default", () => {

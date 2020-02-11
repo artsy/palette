@@ -51,7 +51,7 @@ describe("Pagination", () => {
           />
         </Theme>
       )
-      expect(wrapper.find("NextButton").html()).toContain('class="disabled')
+      expect(wrapper.find("NextButton").html()).toContain("disabled")
     })
 
     it("disables previous button if pageCursors.previous is falsy", () => {
@@ -71,7 +71,7 @@ describe("Pagination", () => {
         </Theme>
       )
 
-      expect(wrapper.find("PrevButton").html()).toContain('class="disabled')
+      expect(wrapper.find("PrevButton").html()).toContain("disabled")
     })
 
     it("triggers next callback on next button click", () => {

@@ -9,13 +9,13 @@ describe("Button", () => {
     const wrapper = mount(
       <Banner message={message} backgroundColor="purple100" />
     )
-    expect(wrapper).toHaveStyleRule("background-color", "purple100")
+    ;(expect(wrapper) as any).toHaveStyleRule("background-color", "purple100")
   })
 
   it("has default red background to Banner", () => {
     const message = "There was an error."
     const wrapper = mount(<Banner message={message} />)
-    expect(wrapper).toHaveStyleRule("background-color", "red100")
+    ;(expect(wrapper) as any).toHaveStyleRule("background-color", "red100")
   })
 
   it("displays the message", () => {
