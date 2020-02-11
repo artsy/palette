@@ -51,6 +51,7 @@ workflows:
       - yarn/run:
           name: deploy-docs
           script: deploy-docs
+          context: hokusai
           requires:
             - yarn/auto-release
           filters:
