@@ -48,3 +48,11 @@ workflows:
             - yarn/lint
             - yarn/type-check
             - yarn/update-cache
+      - yarn/run:
+          name: deploy-docs
+          script: deploy-docs
+          requires:
+            - yarn/auto-release
+          filters:
+            branches:
+              only: master

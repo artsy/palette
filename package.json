@@ -4,7 +4,7 @@
   "scripts": {
     "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
     "compile-palette": "yarn workspace @artsy/palette compile",
-    "deploy-docs": "yarn workspace artsy-palette-docs deploy",
+    "deploy-docs": "yarn compile-palette && yarn workspace artsy-palette-docs deploy",
     "lint": "yarn workspaces run lint",
     "start": "concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' 'yarn workspace artsy-palette-docs start'",
     "storybook": "yarn workspace @artsy/palette storybook",
