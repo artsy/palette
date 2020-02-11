@@ -1,3 +1,22 @@
+# v6.0.0 (Tue Feb 11 2020)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette`
+  - @zephraph => [Package] Update styled-components to v5 [#630](https://github.com/artsy/palette/pull/630) ([@mzikherman](https://github.com/mzikherman))
+
+#### 🏠  Internal
+
+- Deploy docs to s3 on master build [#631](https://github.com/artsy/palette/pull/631) ([@zephraph](https://github.com/zephraph))
+- [Docs] Add gatsby-plugin-s3 for deploying app to S3 bucket [#629](https://github.com/artsy/palette/pull/629) ([@mzikherman](https://github.com/mzikherman))
+
+#### Authors: 2
+
+- Matt Zikherman ([@mzikherman](https://github.com/mzikherman))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v5.1.16 (Tue Jan 21 2020)
 
 #### 🐛  Bug Fix
