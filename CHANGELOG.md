@@ -1,3 +1,16 @@
+# v7.0.0 (Wed Feb 12 2020)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette`
+  - @damassi => Revert "@zephraph => [Package] Update styled-components to v5" [#634](https://github.com/artsy/palette/pull/634) ([@mzikherman](https://github.com/mzikherman))
+
+#### Authors: 1
+
+- Matt Zikherman ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # v6.0.0 (Tue Feb 11 2020)
 
 #### 💥  Breaking Change
