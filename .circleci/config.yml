@@ -61,7 +61,7 @@ workflows:
           script: deploy-docs
           context: hokusai
           requires:
-            - yarn/auto-release
+            - auto/publish
           filters:
             branches:
               only: master
