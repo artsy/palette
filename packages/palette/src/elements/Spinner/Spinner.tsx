@@ -1,5 +1,5 @@
 // @ts-ignore
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import { color } from "../../helpers"
 import { getSize, SpinnerProps } from "./Spinner.shared"
@@ -11,7 +11,25 @@ const spin = keyframes`
 `
 
 /** Generic Spinner component */
-export const Spinner = styled.div<SpinnerProps>`
+export const Spinner: React.FC<SpinnerProps> = props => {
+  const [show, setShow] = useState(props.delay === 0)
+
+  useEffect(() => {
+    if (props.delay > 0) {
+      setTimeout(() => {
+        setShow(true)
+      }, props.delay)
+    }
+  }, [])
+
+  if (!show) {
+    return null
+  }
+
+  return <SpinnerBar {...props} />
+}
+
+const SpinnerBar = styled.div<SpinnerProps>`
   animation: ${spin} 1s infinite linear;
   position: absolute;
 
@@ -29,6 +47,7 @@ export const Spinner = styled.div<SpinnerProps>`
 `
 
 Spinner.defaultProps = {
+  delay: 0,
   width: 25,
   height: 6,
   color: "black100",

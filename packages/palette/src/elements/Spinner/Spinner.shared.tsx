@@ -1,6 +1,8 @@
 import { Color } from "../../Theme"
 
 export interface SpinnerProps {
+  /** Delay before spinner appears */
+  delay?: number
   /** Width of the spinner */
   width?: number
   /** Height of the spinner */
