@@ -232,6 +232,7 @@ const SelectSmallContainer = styled.div<SelectProps>`
     ${width};
     ${maxWidth};
     ${minWidth};
+    margin: 0;
 
     &:hover {
       background-color: ${color("black30")};
