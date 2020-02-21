@@ -77,5 +77,16 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-typescript",
     "gatsby-plugin-sitemap",
+    {
+      // Currently this plugin is only being used to hook up the script & css, so the options don't matter a whole lot.
+      //  We could probably just implement the few bits that work for our scenario instead.
+      resolve: `gatsby-plugin-algolia-docsearch`, //require.resolve("./gatsby-algolia-search.js"),
+      options: {
+        apiKey: "it-doesnt-matter-not-using-it", // required
+        indexName: "it-doesnt-matter-not-using-it", // required
+        inputSelector: ".it-doesnt-matter-not-using-it", // required
+        debug: true, // (bool)Optional. Default `false`
+      },
+    },
   ],
 }
