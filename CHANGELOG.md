@@ -1,3 +1,32 @@
+# v7.1.0 (Fri Feb 21 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [Spinner] Adds delay prop for visibility [#640](https://github.com/artsy/palette/pull/640) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Small dropdown arrow is misaligned [#641](https://github.com/artsy/palette/pull/641) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 🏠  Internal
+
+- Update yarn orb to v4 [#638](https://github.com/artsy/palette/pull/638) ([@renovate-bot](https://github.com/renovate-bot) [@zephraph](https://github.com/zephraph) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update yarn orb to v3 [#636](https://github.com/artsy/palette/pull/636) ([@renovate-bot](https://github.com/renovate-bot) [@zephraph](https://github.com/zephraph) [@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette`
+  - Pin dep @artsy/auto-config from ^1.0.2 to 1.0.2 [#637](https://github.com/artsy/palette/pull/637) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 5
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v7.0.0 (Wed Feb 12 2020)
 
 #### 💥  Breaking Change
