@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { NavTree } from "./NavTree"
 
 import { ArtsyMarkBlackIcon, Box, Sans, Serif } from "@artsy/palette"
+import { SearchBox } from "./SearchBox"
 
 export const Sidebar = _props => {
   return (
@@ -12,6 +13,7 @@ export const Sidebar = _props => {
         <Serif size="4">Palette</Serif>
       </Link>
 
+      <SearchBox />
       <Box mt={2} mb={4}>
         <NavTree />
       </Box>

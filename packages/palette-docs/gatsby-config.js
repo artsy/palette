@@ -77,5 +77,13 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-typescript",
     "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-local-algolia-docsearch",
+      options: {
+        apiKey: "e4ea4437446d07b0549e0db7928d92d1",
+        indexName: "artsy_palette",
+        debug: false,
+      },
+    },
   ],
 }
