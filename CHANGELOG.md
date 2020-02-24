@@ -1,3 +1,15 @@
+# v7.1.1 (Mon Feb 24 2020)
+
+#### 🐛  Bug Fix
+
+- Incorporate Algolia-based search [#642](https://github.com/artsy/palette/pull/642) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 1
+
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v7.1.0 (Fri Feb 21 2020)
 
 #### 🚀  Enhancement
