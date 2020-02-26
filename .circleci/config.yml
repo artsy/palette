@@ -59,7 +59,7 @@ workflows:
       - yarn/run:
           name: deploy-docs
           script: deploy-docs
-          context: hokusai
+          context: palette-docs-upload
           requires:
             - auto/publish
           filters:
