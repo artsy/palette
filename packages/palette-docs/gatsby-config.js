@@ -62,6 +62,7 @@ module.exports = {
       resolve: `gatsby-plugin-s3`,
       options: {
         bucketName: "artsy-palette",
+        acl: null,
       },
     },
     {
