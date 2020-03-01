@@ -1,3 +1,15 @@
+# v7.1.2 (Sun Mar 01 2020)
+
+#### 🐛  Bug Fix
+
+- [Spinner] Remove fade  ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v7.1.0 (Fri Feb 21 2020)
 
 #### 🐛  Bug Fix

@@ -1,3 +1,23 @@
+# v7.1.2 (Sun Mar 01 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Spinner] Remove fade [#647](https://github.com/artsy/palette/pull/647) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Re-add acl permissions to avoid publishing private assets [#645](https://github.com/artsy/palette/pull/645) ([@zephraph](https://github.com/zephraph))
+- Disable acl to bypass requiring the addition of extra permissions [#644](https://github.com/artsy/palette/pull/644) ([@zephraph](https://github.com/zephraph))
+- Add new context w/ proper permissions to upload to S3 [#643](https://github.com/artsy/palette/pull/643) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.1.1 (Mon Feb 24 2020)
 
 #### 🐛  Bug Fix
