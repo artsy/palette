@@ -10,11 +10,6 @@ const spin = keyframes`
   }
 `
 
-const fadeIn = keyframes`
-    from { opacity: 0; }
-    to   { opacity: 1; }
-`
-
 /** Generic Spinner component */
 export const Spinner: React.FC<SpinnerProps> = props => {
   const [show, setShow] = useState(props.delay === 0)
@@ -37,7 +32,7 @@ export const Spinner: React.FC<SpinnerProps> = props => {
 }
 
 const SpinnerBar = styled.div<SpinnerProps>`
-  animation: ${spin} 1s infinite linear, ${fadeIn} 0.4s linear;
+  animation: ${spin} 1s infinite linear;
   position: absolute;
 
   ${props => {
