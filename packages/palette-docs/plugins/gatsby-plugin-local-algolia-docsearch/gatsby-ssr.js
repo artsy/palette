@@ -28,3 +28,17 @@ exports.onRenderBody = (
     />,
   ])
 }
+
+exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
+  const headComponents = getHeadComponents()
+  // Move `docsearch-css` to the top so that our custom styles override it.
+  headComponents.sort((x, y) => {
+    if (x.key === "docsearch-css") {
+      return -1
+    } else if (y.key === "docsearch-css") {
+      return 1
+    }
+    return 0
+  })
+  replaceHeadComponents(headComponents)
+}
