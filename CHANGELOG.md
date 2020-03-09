@@ -1,3 +1,21 @@
+# v7.1.3 (Mon Mar 09 2020)
+
+#### 🐛  Bug Fix
+
+- Move docsearch CSS to beginning of head so that our custom styles override it [#649](https://github.com/artsy/palette/pull/649) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### 🏠  Internal
+
+- Update auto orb to v1.1.0 [#648](https://github.com/artsy/palette/pull/648) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v7.1.2 (Sun Mar 01 2020)
 
 #### 🐛  Bug Fix
