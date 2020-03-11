@@ -1,3 +1,15 @@
+# v7.1.4 (Wed Mar 11 2020)
+
+#### 🐛  Bug Fix
+
+- Update update [#650](https://github.com/artsy/palette/pull/650) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v7.1.3 (Mon Mar 09 2020)
 
 #### 🐛  Bug Fix
