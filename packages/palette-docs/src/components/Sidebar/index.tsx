@@ -21,7 +21,7 @@ export const Sidebar = _props => {
       <Box>
         <ArtsyMarkBlackIcon width="30px" height="30px" mr={2} />
         <Sans size="1" color="black60">
-          Updated: Feb 1st, 2019
+          2020 Artsy
         </Sans>
       </Box>
     </Container>
