@@ -1,3 +1,15 @@
+# v7.2.0 (Wed Mar 18 2020)
+
+#### 🐛  Bug Fix
+
+- added no artwork icon  ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v7.1.2 (Sun Mar 01 2020)
 
 #### 🐛  Bug Fix

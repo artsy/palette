@@ -1,3 +1,21 @@
+# v7.2.0 (Wed Mar 18 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Added no artwork icon [#652](https://github.com/artsy/palette/pull/652) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 📝  Documentation
+
+- Add code snippets to <Banner> docs [#651](https://github.com/artsy/palette/pull/651) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v7.1.4 (Wed Mar 11 2020)
 
 #### 🐛  Bug Fix
