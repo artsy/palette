@@ -1,3 +1,15 @@
+# v7.3.0 (Thu Mar 19 2020)
+
+#### 🐛  Bug Fix
+
+- Add name prop to TextArea  ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 1
+
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v7.2.0 (Wed Mar 18 2020)
 
 #### 🐛  Bug Fix

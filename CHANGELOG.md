@@ -1,3 +1,16 @@
+# v7.3.0 (Thu Mar 19 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add name prop to TextArea [#653](https://github.com/artsy/palette/pull/653) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 1
+
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v7.2.0 (Wed Mar 18 2020)
 
 #### 🚀  Enhancement
