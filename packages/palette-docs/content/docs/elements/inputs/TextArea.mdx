@@ -5,13 +5,18 @@ name: TextArea
 ## Basic
 
 <Playground>
-  <TextArea placeholder="Start typing..." onChange={console.log} />
+  <TextArea
+    name="basic-text-area"
+    placeholder="Start typing..."
+    onChange={console.log}
+  />
 </Playground>
 
 ## Required
 
 <Playground>
   <TextArea
+    name="required-text-area"
     title="Note"
     placeholder="Start typing..."
     onChange={console.log}
@@ -26,6 +31,7 @@ name: TextArea
     {({ on, toggle }) => (
       <>
         <TextArea
+          name="error-text-area"
           error={on ? "There was an error" : null}
           defaultValue="This is some text"
           onChange={console.log}
@@ -44,6 +50,7 @@ name: TextArea
 
 <Playground title="With title">
   <TextArea
+    name="title-text-area"
     title="Note"
     error="There was an error"
     defaultValue="This is some text"
@@ -55,6 +62,7 @@ name: TextArea
 
 <Playground>
   <TextArea
+    name="description-text-area"
     title="Note"
     description="For your security do not share personal information."
     defaultValue="This is some text"
@@ -66,6 +74,7 @@ name: TextArea
 
 <Playground>
   <TextArea
+    name="limited-text-area"
     title="Note"
     description="For your security do not share personal information."
     defaultValue="This is some text"
@@ -81,6 +90,7 @@ name: TextArea
     {({ on, toggle }) => (
       <>
         <TextArea
+          name="limiting-with-error-text-area"
           error={on ? "There was an error" : null}
           defaultValue="This is some text"
           characterLimit="322"
