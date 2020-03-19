@@ -165,4 +165,9 @@ describe("TextArea", () => {
       exceedsCharacterLimit: false,
     })
   })
+
+  it("renders the name if supplied", () => {
+    const wrapper = getWrapper({ name: "my-input" })
+    expect(wrapper.find("textarea[name='my-input']")).toHaveLength(1)
+  })
 })

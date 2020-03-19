@@ -39,9 +39,10 @@ export interface TextAreaProps {
   onChange?(result: TextAreaChange): void
 
   // forwarded to the styled.input
+  className?: string
   defaultValue?: string
   innerRef?: React.RefObject<HTMLTextAreaElement>
-  className?: string
+  name?: string
   placeholder?: string
 }
 
