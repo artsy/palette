@@ -27,10 +27,28 @@ storiesOf("Components/Toggle", module)
       </Box>
     )
   })
+  .add("Toggle disabled", () => {
+    return (
+      <Box width="350px">
+        <Toggle expanded disabled>
+          <h1>Hello world</h1>
+        </Toggle>
+      </Box>
+    )
+  })
   .add("Toggle with secondary action", () => {
     return (
       <Box width="350px">
         <Toggle expanded renderSecondaryAction={SecondaryAction}>
+          <h1>Hello world</h1>
+        </Toggle>
+      </Box>
+    )
+  })
+  .add("Toggle disabled with secondary action", () => {
+    return (
+      <Box width="350px">
+        <Toggle expanded disabled renderSecondaryAction={SecondaryAction}>
           <h1>Hello world</h1>
         </Toggle>
       </Box>
