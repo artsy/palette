@@ -9,6 +9,13 @@ export interface ToggleProps {
   expanded?: boolean
   label?: string
   textSize?: SansSize
+  /**
+   * Adds the ability to render a set of components by the chevron for
+   * secondary actions such as clearing filters
+   */
+  renderSecondaryAction?: (
+    toggleProps: Pick<ToggleProps, "disabled" | "expanded" | "textSize">
+  ) => JSX.Element
 }
 
 export interface ToggleState {
@@ -45,7 +52,7 @@ export class Toggle extends React.Component<ToggleProps> {
 
   render() {
     const { disabled, expanded } = this.state
-    const { children, label, textSize } = this.props
+    const { children, label, textSize, renderSecondaryAction } = this.props
 
     return (
       <Flex width="100%" flexDirection="column" pb={2}>
@@ -60,15 +67,17 @@ export class Toggle extends React.Component<ToggleProps> {
             >
               {label}
             </Sans>
-            {!disabled && (
-              <Flex justifyContent="right">
-                <ChevronIcon
-                  direction={expanded ? "up" : "down"}
-                  width={12}
-                  height={12}
-                />
-              </Flex>
-            )}
+            <Flex justifyContent="right" alignItems="center">
+              {renderSecondaryAction &&
+                renderSecondaryAction({ disabled, expanded, textSize })}
+              <ChevronIcon
+                style={{ visibility: disabled ? "hidden" : "visible" }}
+                direction={expanded ? "up" : "down"}
+                width={12}
+                height={12}
+                ml={1}
+              />
+            </Flex>
           </Flex>
         </Header>
         {expanded && children && (
