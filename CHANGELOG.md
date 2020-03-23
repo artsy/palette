@@ -1,3 +1,22 @@
+# v7.4.0 (Mon Mar 23 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add the ability to have a secondary action on the toggle [#654](https://github.com/artsy/palette/pull/654) ([@zephraph](https://github.com/zephraph))
+
+#### 🏠  Internal
+
+- Update yarn orb to v4.0.2 [#646](https://github.com/artsy/palette/pull/646) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v7.3.0 (Thu Mar 19 2020)
 
 #### 🚀  Enhancement

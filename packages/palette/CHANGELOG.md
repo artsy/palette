@@ -1,3 +1,17 @@
+# v7.4.0 (Mon Mar 23 2020)
+
+#### 🐛  Bug Fix
+
+- Add label to storybooks  ([@zephraph](https://github.com/zephraph))
+- Add more examples to storybook  ([@zephraph](https://github.com/zephraph))
+- Add the ability to have a secondary action on the toggle  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.3.0 (Thu Mar 19 2020)
 
 #### 🐛  Bug Fix
