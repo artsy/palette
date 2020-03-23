@@ -21,7 +21,7 @@ storiesOf("Components/Toggle", module)
   .add("Toggle", () => {
     return (
       <Box width="350px">
-        <Toggle expanded>
+        <Toggle label="Test" expanded>
           <h1>Hello world</h1>
         </Toggle>
       </Box>
@@ -30,7 +30,7 @@ storiesOf("Components/Toggle", module)
   .add("Toggle disabled", () => {
     return (
       <Box width="350px">
-        <Toggle expanded disabled>
+        <Toggle label="Test" expanded disabled>
           <h1>Hello world</h1>
         </Toggle>
       </Box>
@@ -39,7 +39,7 @@ storiesOf("Components/Toggle", module)
   .add("Toggle with secondary action", () => {
     return (
       <Box width="350px">
-        <Toggle expanded renderSecondaryAction={SecondaryAction}>
+        <Toggle label="Test" expanded renderSecondaryAction={SecondaryAction}>
           <h1>Hello world</h1>
         </Toggle>
       </Box>
@@ -48,7 +48,12 @@ storiesOf("Components/Toggle", module)
   .add("Toggle disabled with secondary action", () => {
     return (
       <Box width="350px">
-        <Toggle expanded disabled renderSecondaryAction={SecondaryAction}>
+        <Toggle
+          label="Test"
+          expanded
+          disabled
+          renderSecondaryAction={SecondaryAction}
+        >
           <h1>Hello world</h1>
         </Toggle>
       </Box>
