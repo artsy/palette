@@ -1,3 +1,22 @@
+# v7.4.1 (Tue Mar 24 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - changed casing of fillRule and clipRule for no artwork icon [#656](https://github.com/artsy/palette/pull/656) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Use a stable image for CSSGrid story. [#655](https://github.com/artsy/palette/pull/655) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 2
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v7.4.0 (Mon Mar 23 2020)
 
 #### 🚀  Enhancement

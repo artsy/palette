@@ -1,3 +1,17 @@
+# v7.4.1 (Tue Mar 24 2020)
+
+#### 🐛  Bug Fix
+
+- changed casing of fillrule and cliprule for no artowrk icon  ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- Use a stable image for CSSGrid story, to avoid visual diffs every build.  ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 2
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v7.4.0 (Mon Mar 23 2020)
 
 #### 🐛  Bug Fix
