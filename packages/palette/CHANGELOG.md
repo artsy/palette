@@ -1,3 +1,16 @@
+# v7.4.2 (Wed Mar 25 2020)
+
+#### 🐛  Bug Fix
+
+- changed small button padding  ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- change  ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v7.4.1 (Tue Mar 24 2020)
 
 #### 🐛  Bug Fix

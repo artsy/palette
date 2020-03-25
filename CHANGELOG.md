@@ -1,3 +1,16 @@
+# v7.4.2 (Wed Mar 25 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adjust left/right padding on small buttons for mWeb (to match iOS styling) [#657](https://github.com/artsy/palette/pull/657) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v7.4.1 (Tue Mar 24 2020)
 
 #### 🐛  Bug Fix
