@@ -45,6 +45,10 @@ const flexGrow = style({
   prop: "flexGrow",
 })
 
+const flexShrink = style({
+  prop: "flexShrink",
+})
+
 export interface FlexProps
   extends AlignItemsProps,
     AlignContentProps,
@@ -64,6 +68,7 @@ export interface FlexProps
     WidthProps,
     ZIndexProps {
   flexGrow?: number | string
+  flexShrink?: number | string
 }
 
 /**
@@ -79,6 +84,7 @@ export const Flex = primitives.View<FlexProps>`
   ${flexBasis};
   ${flexDirection};
   ${flexGrow};
+  ${flexShrink};
   ${flexWrap};
   ${height};
   ${justifyContent};
