@@ -1,3 +1,16 @@
+# v7.5.0 (Thu Mar 26 2020)
+
+#### 🐛  Bug Fix
+
+- Update the width/height to be scale  ([@zephraph](https://github.com/zephraph))
+- Allow main artsy logo to be scaled  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.4.2 (Wed Mar 25 2020)
 
 #### 🐛  Bug Fix
