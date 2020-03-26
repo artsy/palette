@@ -1,3 +1,16 @@
+# v7.5.1 (Thu Mar 26 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Add missing `flexShrink` to Flex component [#659](https://github.com/artsy/palette/pull/659) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.5.0 (Thu Mar 26 2020)
 
 #### 🚀  Enhancement

@@ -1,3 +1,15 @@
+# v7.5.1 (Thu Mar 26 2020)
+
+#### 🐛  Bug Fix
+
+- Add flexShrink to Flex component  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.5.0 (Thu Mar 26 2020)
 
 #### 🐛  Bug Fix
