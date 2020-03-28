@@ -1,3 +1,4 @@
+import { themeGet } from "@styled-system/theme-get"
 import React, { SFC } from "react"
 import styled, { css } from "styled-components"
 import {
@@ -8,7 +9,6 @@ import {
   PositionProps,
   space as styledSpace,
   SpaceProps,
-  themeGet,
   width,
   WidthProps,
 } from "styled-system"
