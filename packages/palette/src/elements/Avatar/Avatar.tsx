@@ -30,7 +30,10 @@ export const Avatar = ({
         ) : (
           <LazyImage
             onError={e => {
-              onError ? onError(e) : setUseFallback(true)
+              if (onError) {
+                onError(e)
+              }
+              setUseFallback(true)
             }}
             preload={!lazyLoad}
             width={diameter}
