@@ -7,6 +7,8 @@ import {
   AlignItemsProps,
   background,
   BackgroundProps,
+  borderRadius,
+  BorderRadiusProps,
   bottom,
   BottomProps,
   display,
@@ -54,6 +56,7 @@ export interface FlexProps
     AlignContentProps,
     BackgroundProps,
     BottomProps,
+    BorderRadiusProps,
     DisplayProps,
     FlexBasisProps,
     FlexDirectionProps,
@@ -80,6 +83,7 @@ export const Flex = primitives.View<FlexProps>`
   ${alignItems};
   ${background};
   ${bottom};
+  ${borderRadius};
   ${display};
   ${flexBasis};
   ${flexDirection};

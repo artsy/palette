@@ -18,7 +18,10 @@ const imagePropsToOmit = omitProps.filter(
 )
 
 const InnerLazyImage = styled(CleanTag.as(LazyLoadImage))<
-  WebImageProps & { onLoad: () => void }
+  WebImageProps & {
+    onLoad: () => void
+    onError?: (event: React.SyntheticEvent<any, Event>) => void
+  }
 >`
   width: 100%;
   height: 100%;
@@ -61,6 +64,7 @@ interface LazyImageProps
   /** The image component to render when preload is true */
   imageComponent?: any // FunctionComponent<ImageProps>
   onContextMenu?: (e: any) => void
+  onError?: (event: React.SyntheticEvent<any, Event>) => void
 }
 
 /** LazyImage */
@@ -79,6 +83,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     height,
     borderRadius,
     style,
+    onError,
     ...containerProps
   } = props
   return preload ? (
@@ -92,6 +97,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     >
       <InnerLazyImage
         omitFromProps={imagePropsToOmit}
+        onError={onError}
         src={src}
         title={title}
         alt={alt}

@@ -1,5 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
+import { act } from "react-test-renderer"
 import { Avatar } from "../Avatar"
 
 describe("Avatar", () => {
@@ -34,5 +35,26 @@ describe("Avatar", () => {
     expect(getWrapper("xs").html()).toContain("45px")
     expect(getWrapper("sm").html()).toContain("70px")
     expect(getWrapper("md").html()).toContain("100px")
+  })
+
+  it("renders a fallback if the image fails to load", () => {
+    const Fallback = () => <div id="fallback" />
+    const err = jest.fn()
+    const wrapper = mount(
+      <Avatar
+        src="https://www.artsy.net/does-not-exist"
+        size="md"
+        onError={err}
+        renderFallback={() => <Fallback />}
+      />
+    )
+    act(() => {
+      wrapper.find("img").simulate("error")
+    })
+    act(() => {
+      wrapper.render()
+    })
+    expect(err).toBeCalled()
+    expect(wrapper.find(Fallback).length).toBe(1)
   })
 })
