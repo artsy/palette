@@ -1,3 +1,17 @@
+# v7.6.0 (Sun Mar 29 2020)
+
+#### 🐛  Bug Fix
+
+- Add test for avatar fallback  ([@zephraph](https://github.com/zephraph))
+- Allow fallback to work when hooking into onError  ([@zephraph](https://github.com/zephraph))
+- Add fallback image support to avatar  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.5.1 (Thu Mar 26 2020)
 
 #### 🐛  Bug Fix

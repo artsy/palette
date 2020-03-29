@@ -1,3 +1,16 @@
+# v7.6.0 (Sun Mar 29 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add fallback image support to avatar [#660](https://github.com/artsy/palette/pull/660) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.5.1 (Thu Mar 26 2020)
 
 #### 🐛  Bug Fix
