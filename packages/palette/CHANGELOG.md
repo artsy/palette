@@ -1,3 +1,15 @@
+# v7.7.0 (Sat Apr 04 2020)
+
+#### 🐛  Bug Fix
+
+- Add top to flex  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.6.0 (Sun Mar 29 2020)
 
 #### 🐛  Bug Fix

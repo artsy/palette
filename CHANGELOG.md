@@ -1,3 +1,16 @@
+# v7.7.0 (Sat Apr 04 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add top to flex [#662](https://github.com/artsy/palette/pull/662) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.6.0 (Sun Mar 29 2020)
 
 #### 🚀  Enhancement
