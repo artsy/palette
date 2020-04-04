@@ -1,3 +1,16 @@
+# v7.8.0 (Sat Apr 04 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Allow `Input` to accept refs [#663](https://github.com/artsy/palette/pull/663) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.7.0 (Sat Apr 04 2020)
 
 #### 🚀  Enhancement

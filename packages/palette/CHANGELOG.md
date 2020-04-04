@@ -1,3 +1,15 @@
+# v7.8.0 (Sat Apr 04 2020)
+
+#### 🐛  Bug Fix
+
+- Make input a forwarded ref  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.7.0 (Sat Apr 04 2020)
 
 #### 🐛  Bug Fix
