@@ -17,36 +17,38 @@ export interface InputProps extends React.HTMLProps<HTMLInputElement> {
 /**
  * Input component
  */
-export const Input: React.SFC<InputProps> = ({
-  description,
-  disabled,
-  error,
-  required,
-  title,
-  ...rest
-}) => {
-  return (
-    <Box width="100%">
-      {title && (
-        <Serif mb="0.5" size="3">
-          {title}
-          {required && <Required>*</Required>}
-        </Serif>
-      )}
-      {description && (
-        <Serif color="black60" mb="1" size="2">
-          {description}
-        </Serif>
-      )}
-      <StyledInput disabled={disabled} error={!!error} {...rest as any} />
-      {error && (
-        <Sans color="red100" mt="1" size="2">
-          {error}
-        </Sans>
-      )}
-    </Box>
-  )
-}
+export const Input: React.ForwardRefExoticComponent<
+  InputProps
+> = React.forwardRef(
+  ({ description, disabled, error, required, title, ...rest }, ref) => {
+    return (
+      <Box width="100%">
+        {title && (
+          <Serif mb="0.5" size="3">
+            {title}
+            {required && <Required>*</Required>}
+          </Serif>
+        )}
+        {description && (
+          <Serif color="black60" mb="1" size="2">
+            {description}
+          </Serif>
+        )}
+        <StyledInput
+          ref={ref}
+          disabled={disabled}
+          error={!!error}
+          {...rest as any}
+        />
+        {error && (
+          <Sans color="red100" mt="1" size="2">
+            {error}
+          </Sans>
+        )}
+      </Box>
+    )
+  }
+)
 
 interface StyledInputProps extends React.HTMLProps<HTMLInputElement> {
   disabled: boolean
