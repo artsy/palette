@@ -34,6 +34,8 @@ import {
   space,
   SpaceProps,
   style,
+  top,
+  TopProps,
   width,
   WidthProps,
   zIndex,
@@ -56,6 +58,7 @@ export interface FlexProps
     AlignContentProps,
     BackgroundProps,
     BottomProps,
+    TopProps,
     BorderRadiusProps,
     DisplayProps,
     FlexBasisProps,
@@ -97,6 +100,7 @@ export const Flex = primitives.View<FlexProps>`
   ${order};
   ${position};
   ${space};
+  ${top};
   ${width};
   ${zIndex};
 `
