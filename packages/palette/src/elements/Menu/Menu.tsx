@@ -10,7 +10,6 @@ import { Flex } from "../Flex"
 import { Separator } from "../Separator"
 import { Spacer } from "../Spacer"
 import { Sans } from "../Typography"
-import { themeProps } from "../../Theme"
 
 interface MenuProps {
   children?: React.ReactNode
@@ -59,10 +58,11 @@ interface MenuItemProps extends BoxProps {
   children: React.ReactNode
   fontSize?: SansSize
   href?: string
-  textColor?: string // TODO:  Look into type conflict with styled-system
+  color?: string // TODO:  Look into type conflict with styled-system
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
   px?: SpaceProps["px"]
   py?: SpaceProps["py"]
+  textColor?: string
   textWeight?: "medium" | "regular"
 }
 
