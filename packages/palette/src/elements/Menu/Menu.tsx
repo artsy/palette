@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-import { display } from "styled-system"
+import { display, SpaceProps } from "styled-system"
 import { color } from "../../helpers/color"
+import { SansSize } from "../../Theme"
 import { BorderBox } from "../BorderBox"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
@@ -14,7 +15,7 @@ interface MenuProps {
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
   title?: string
-  width?: number
+  width?: number | string
 }
 
 /** Menu */
@@ -38,7 +39,9 @@ export const Menu: React.FC<MenuProps> = ({
             </Box>
           )}
 
-          <Box pt={title ? 0 : 1}>{children}</Box>
+          <Flex flexDirection="column" pt={title ? 0 : 1}>
+            {children}
+          </Flex>
         </Flex>
       </BorderBox>
     </MenuContainer>
@@ -53,23 +56,33 @@ const MenuContainer = styled(Box)`
 
 interface MenuItemProps extends BoxProps {
   children: React.ReactNode
+  fontSize?: SansSize
   href?: string
   color?: string // TODO:  Look into type conflict with styled-system
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
+  px?: SpaceProps["px"]
+  py?: SpaceProps["py"]
+  textColor?: string
+  textWeight?: "medium" | "regular"
 }
 
 /** MenuItem */
 export const MenuItem: React.FC<MenuItemProps> = ({
   children,
+  fontSize = "2",
   href,
+  px = 2,
+  py = 1,
+  textWeight = "medium",
+  textColor,
   ...props
 }) => {
   return (
     <MenuLink href={href} {...props}>
-      <Box px={2} py={1}>
-        <Sans size="2" weight="medium">
+      <Box px={px} py={py}>
+        <MenuLinkText size={fontSize} weight={textWeight} color={textColor}>
           {children}
-        </Sans>
+        </MenuLinkText>
       </Box>
     </MenuLink>
   )
@@ -93,4 +106,7 @@ const MenuLink = styled.a`
     display: flex;
     align-items: center;
   }
+`
+const MenuLinkText = styled(Sans)<{ color: string }>`
+  color: ${p => p.color || color("black100")};
 `
