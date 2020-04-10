@@ -1,3 +1,15 @@
+# v8.0.0 (Fri Apr 10 2020)
+
+#### 🐛  Bug Fix
+
+- [Deletion] Remove page loader  ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v7.8.1 (Fri Apr 10 2020)
 
 #### 🐛  Bug Fix

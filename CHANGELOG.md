@@ -1,3 +1,16 @@
+# v8.0.0 (Fri Apr 10 2020)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette`
+  - [Deletion] Remove page loader [#665](https://github.com/artsy/palette/pull/665) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v7.8.1 (Fri Apr 10 2020)
 
 #### 🐛  Bug Fix
