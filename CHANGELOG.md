@@ -1,3 +1,23 @@
+# v7.8.1 (Fri Apr 10 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [FX-1889] expand menu component to work with new nav DropDownMenu in reaction [#664](https://github.com/artsy/palette/pull/664) ([@xtina-starr](https://github.com/xtina-starr))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Pin dep @types/react-lazy-load-image-component from ^1.3.0 to 1.3.0 [#661](https://github.com/artsy/palette/pull/661) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christina ([@xtina-starr](https://github.com/xtina-starr))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v7.8.0 (Sat Apr 04 2020)
 
 #### 🚀  Enhancement
