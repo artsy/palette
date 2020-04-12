@@ -12,13 +12,16 @@ import {
   PositionProps,
   space,
   SpaceProps,
+  typography,
+  TypographyProps,
 } from "styled-system"
 
 export interface BoxProps
   extends PositionProps,
     SpaceProps,
     ColorProps,
-    LayoutProps {}
+    LayoutProps,
+    TypographyProps {}
 
 /**
  * Box is just a `View` or `div` (depending on the platform) with common styled-systems
@@ -29,7 +32,8 @@ export const Box = primitives.View<BoxProps>`
     color,
     position,
     space,
-    layout
+    layout,
+    typography
   )}
 `
 
