@@ -2,13 +2,14 @@ import debounce from "lodash/debounce"
 import React from "react"
 import styled, { css } from "styled-components"
 import { Flex, FlexProps } from "../../elements/Flex"
-import { color, space } from "../../helpers"
+import { color, space as spaceMap } from "../../helpers"
 
 import {
+  border,
   BorderProps,
-  borders,
+  compose,
   SizeProps,
-  space as styledSpace,
+  space,
   SpaceProps,
 } from "styled-system"
 
@@ -106,7 +107,7 @@ export const Radio: React.SFC<RadioProps> = props => {
  * A radio button with a border
  */
 export const BorderedRadio = styled(Radio)<RadioProps>`
-  padding: ${space(2)}px;
+  padding: ${spaceMap(2)}px;
   border-radius: 2px;
   border: 1px solid ${color("black10")};
   transition: background-color 0.14s ease-in-out;
@@ -177,8 +178,8 @@ const HiddenInput = styled.input`
 `
 
 const InnerCircle = styled.div`
-  width: ${space(1)}px;
-  height: ${space(1)}px;
+  width: ${spaceMap(1)}px;
+  height: ${spaceMap(1)}px;
   border-radius: 50%;
   position: relative;
   left: 3px;
@@ -211,14 +212,16 @@ const disabledInnerCircleBackgroundColor = ({
 }: RadioFeedbackState) => disabled && !selected && color("black10")
 
 const RadioButton = styled.div<RadioToggleProps>`
-  ${borders};
-  ${styledSpace};
+  ${compose(
+    border,
+    space
+  )};
   background-color: ${radioBackgroundColor};
   border-color: ${radioBorderColor};
-  width: ${space(2)}px;
-  height: ${space(2)}px;
-  min-width: ${space(2)}px;
-  min-height: ${space(2)}px;
+  width: ${spaceMap(2)}px;
+  height: ${spaceMap(2)}px;
+  min-width: ${spaceMap(2)}px;
+  min-height: ${spaceMap(2)}px;
   border-radius: 50%;
   transition: background-color 0.25s, border-color 0.25s;
   ${InnerCircle} {
