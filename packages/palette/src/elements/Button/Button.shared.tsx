@@ -41,7 +41,7 @@ export interface ButtonProps extends ButtonBaseProps {
 export interface ButtonBaseProps
   extends BorderProps,
     SpaceProps,
-    TypographyProps,
+    Pick<TypographyProps, "textAlign">,
     LayoutProps {
   /** Size of the button */
   buttonSize?: ButtonSize

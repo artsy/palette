@@ -16,19 +16,13 @@ import { StyledComponentClass } from "styled-components"
 import {
   color,
   ColorProps,
-  display,
-  DisplayProps as StyledSystemDisplayProps,
-  fontSize,
-  FontSizeProps,
-  lineHeight,
-  LineHeightProps,
-  maxWidth,
-  MaxWidthProps,
+  compose,
+  layout,
+  LayoutProps,
   space,
   SpaceProps,
-  style,
-  textAlign,
-  TextAlignProps,
+  typography,
+  TypographyProps,
 } from "styled-system"
 
 import { determineFontSizes } from "./determineFontSizes"
@@ -36,24 +30,6 @@ import { determineFontSizes } from "./determineFontSizes"
 /**
  * Spec: https://www.notion.so/artsy/Typography-d1f9f6731f3d47c78003d6d016c30221
  */
-
-export interface VerticalAlignProps {
-  verticalAlign?:
-    | "baseline"
-    | "sub"
-    | "super"
-    | "text-top"
-    | "text-bottom"
-    | "middle"
-    | "top"
-    | "bottom"
-    | "inherit"
-    | "initial"
-    | "unset"
-}
-const verticalAlign = style({
-  prop: "verticalAlign",
-})
 
 /** renderFontValue */
 export const renderFontValue = (fontValue: FontValue) => {
@@ -71,15 +47,10 @@ export const renderFontValue = (fontValue: FontValue) => {
 
 export interface TextProps
   extends ColorProps,
-    FontSizeProps,
-    LineHeightProps,
-    MaxWidthProps,
-    SpaceProps,
-    StyledSystemDisplayProps,
-    TextAlignProps,
-    VerticalAlignProps {
+    TypographyProps,
+    LayoutProps,
+    SpaceProps {
   className?: string
-  fontFamily?: string
   style?: CSSProperties
   /**
    * React Native specific. Allows you to tell the native renderers whether
@@ -97,15 +68,13 @@ export interface TextProps
 
 /** Base Text component for typography */
 export const Text = primitives.Text<TextProps>`
-  ${({ fontFamily }) => fontFamily && renderFontValue(fontFamily)};
-  ${fontSize};
-  ${lineHeight};
-  ${color};
-  ${display};
-  ${maxWidth};
-  ${space};
-  ${textAlign};
-  ${verticalAlign};
+  ${({ fontFamily }) => fontFamily && renderFontValue(fontFamily as string)};
+  ${compose(
+    typography,
+    color,
+    layout,
+    space
+  )};
 `
 
 /**
