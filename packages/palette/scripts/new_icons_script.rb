@@ -7,7 +7,10 @@ template = <<-TSX
   import { Icon, IconProps } from "./Icon"
 
   /** REPLACE */
-  export const REPLACE: React.SFC<IconProps> = props => {
+  export const REPLACE: React.SFC<IconProps> = ({ 
+    title = "TITLE", 
+    ...props 
+  }) => {
     return (
       <Icon {...props} viewBox="0 0 18 18">
         INSERT
@@ -44,22 +47,22 @@ def fix_attrs(node)
   node.children.each { |child| fix_attrs(child) }
 end
 
-def format(slug, title)
+def format(slug)
   input_path = "new_icons/output/min/#{slug}.min.svg"
   xml = File.read(input_path)
   doc = Nokogiri::XML(xml)
   svg = doc.at_css('svg')
-  title = "<title>#{title}</title>"
+  title = "<title>{title}</title>"
   svg.prepend_child(title)
   fix_attrs(svg)
   output_path = "new_icons/output/format/#{slug}.svg"
   File.write(output_path, doc.root.children.to_s)
 end
 
-def convert(slug, component_name, template)
+def convert(slug, component_name, template, title)
   input_path = "new_icons/output/format/#{slug}.svg"
   data = File.read(input_path)
-  tsx = template.gsub('REPLACE', component_name).gsub('INSERT', data)
+  tsx = template.gsub('REPLACE', component_name).gsub('INSERT', data).gsub('TITLE', title)
   output_path = "new_icons/output/tsx/#{component_name}.tsx"
   File.write(output_path, tsx)
 end
@@ -72,8 +75,8 @@ rows.each do |row|
   component_name = row['component_name']
 
   minify(slug)
-  format(slug, title)
-  convert(slug, component_name, template)
+  format(slug)
+  convert(slug, component_name, template, title)
 end
 
 system 'cp new_icons/output/tsx/*.tsx new_icons/output/final/'

@@ -2,10 +2,13 @@ import React from "react"
 import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 /** ArtsyMarkWhiteIcon */
-export const ArtsyMarkWhiteIcon: React.SFC<IconProps> = props => {
+export const ArtsyMarkWhiteIcon: React.SFC<IconProps> = ({
+  title = "Artsy",
+  ...props
+}) => {
   return (
     <Icon {...props} viewBox="0 0 32 32">
-      <Title>Artsy</Title>
+      <Title>{title}</Title>
       <G fill="none" fillRule="evenodd">
         <Path fill="#F8F8F8" d="M0 0h32v32H0z" />
         <Path
