@@ -1,3 +1,17 @@
+# v8.1.0 (Sun Apr 12 2020)
+
+#### 🐛  Bug Fix
+
+- Ensure all icons have default titles  ([@zephraph](https://github.com/zephraph))
+- Update icon script to generate w/ editable title  ([@zephraph](https://github.com/zephraph))
+- Allow titles to be modifiable for SVGs  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v8.0.0 (Fri Apr 10 2020)
 
 #### 🐛  Bug Fix

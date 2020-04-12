@@ -1,3 +1,16 @@
+# v8.1.0 (Sun Apr 12 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Allow titles to be modifiable for SVGs [#666](https://github.com/artsy/palette/pull/666) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v8.0.0 (Fri Apr 10 2020)
 
 #### 💥  Breaking Change
