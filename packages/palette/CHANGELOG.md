@@ -1,3 +1,81 @@
+# v8.0.0 (Fri Apr 10 2020)
+
+#### 🐛  Bug Fix
+
+- [Deletion] Remove page loader  ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# v7.8.1 (Fri Apr 10 2020)
+
+#### 🐛  Bug Fix
+
+- fixed a type error  ([@xtina-starr](https://github.com/xtina-starr))
+- add types  ([@xtina-starr](https://github.com/xtina-starr))
+- expand menu component to work with new nav DropDownMenu in reaction  ([@xtina-starr](https://github.com/xtina-starr))
+- Pin dep @types/react-lazy-load-image-component from ^1.3.0 to 1.3.0  ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Christina ([@xtina-starr](https://github.com/xtina-starr))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
+# v7.8.0 (Sat Apr 04 2020)
+
+#### 🐛  Bug Fix
+
+- Make input a forwarded ref  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# v7.7.0 (Sat Apr 04 2020)
+
+#### 🐛  Bug Fix
+
+- Add top to flex  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# v7.6.0 (Sun Mar 29 2020)
+
+#### 🐛  Bug Fix
+
+- Add test for avatar fallback  ([@zephraph](https://github.com/zephraph))
+- Allow fallback to work when hooking into onError  ([@zephraph](https://github.com/zephraph))
+- Add fallback image support to avatar  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# v7.5.1 (Thu Mar 26 2020)
+
+#### 🐛  Bug Fix
+
+- Add flexShrink to Flex component  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.5.0 (Thu Mar 26 2020)
 
 #### 🐛  Bug Fix

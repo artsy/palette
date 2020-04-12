@@ -1,3 +1,88 @@
+# v8.0.0 (Fri Apr 10 2020)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette`
+  - [Deletion] Remove page loader [#665](https://github.com/artsy/palette/pull/665) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# v7.8.1 (Fri Apr 10 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [FX-1889] expand menu component to work with new nav DropDownMenu in reaction [#664](https://github.com/artsy/palette/pull/664) ([@xtina-starr](https://github.com/xtina-starr))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Pin dep @types/react-lazy-load-image-component from ^1.3.0 to 1.3.0 [#661](https://github.com/artsy/palette/pull/661) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christina ([@xtina-starr](https://github.com/xtina-starr))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
+# v7.8.0 (Sat Apr 04 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Allow `Input` to accept refs [#663](https://github.com/artsy/palette/pull/663) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# v7.7.0 (Sat Apr 04 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add top to flex [#662](https://github.com/artsy/palette/pull/662) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# v7.6.0 (Sun Mar 29 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add fallback image support to avatar [#660](https://github.com/artsy/palette/pull/660) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# v7.5.1 (Thu Mar 26 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Add missing `flexShrink` to Flex component [#659](https://github.com/artsy/palette/pull/659) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v7.5.0 (Thu Mar 26 2020)
 
 #### 🚀  Enhancement

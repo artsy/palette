@@ -7,6 +7,8 @@ import {
   AlignItemsProps,
   background,
   BackgroundProps,
+  borderRadius,
+  BorderRadiusProps,
   bottom,
   BottomProps,
   display,
@@ -32,6 +34,8 @@ import {
   space,
   SpaceProps,
   style,
+  top,
+  TopProps,
   width,
   WidthProps,
   zIndex,
@@ -45,11 +49,17 @@ const flexGrow = style({
   prop: "flexGrow",
 })
 
+const flexShrink = style({
+  prop: "flexShrink",
+})
+
 export interface FlexProps
   extends AlignItemsProps,
     AlignContentProps,
     BackgroundProps,
     BottomProps,
+    TopProps,
+    BorderRadiusProps,
     DisplayProps,
     FlexBasisProps,
     FlexDirectionProps,
@@ -64,6 +74,7 @@ export interface FlexProps
     WidthProps,
     ZIndexProps {
   flexGrow?: number | string
+  flexShrink?: number | string
 }
 
 /**
@@ -75,10 +86,12 @@ export const Flex = primitives.View<FlexProps>`
   ${alignItems};
   ${background};
   ${bottom};
+  ${borderRadius};
   ${display};
   ${flexBasis};
   ${flexDirection};
   ${flexGrow};
+  ${flexShrink};
   ${flexWrap};
   ${height};
   ${justifyContent};
@@ -87,6 +100,7 @@ export const Flex = primitives.View<FlexProps>`
   ${order};
   ${position};
   ${space};
+  ${top};
   ${width};
   ${zIndex};
 `
