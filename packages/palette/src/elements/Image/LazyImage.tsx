@@ -1,12 +1,7 @@
 import React, { CSSProperties, useState } from "react"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import styled, { css, keyframes } from "styled-components"
-import {
-  borderRadius as borderRadiusStyle,
-  BorderRadiusProps,
-  HeightProps,
-  WidthProps,
-} from "styled-system"
+import { border, BorderProps, HeightProps, WidthProps } from "styled-system"
 import { color } from "../../helpers/color"
 import { Box, BoxProps } from "../Box"
 import { CleanTag, omitProps } from "../CleanTag"
@@ -25,7 +20,7 @@ const InnerLazyImage = styled(CleanTag.as(LazyLoadImage))<
 >`
   width: 100%;
   height: 100%;
-  ${borderRadiusStyle}
+  ${border}
   transition: opacity 0.25s;
 `
 InnerLazyImage.displayName = "InnerLazyImage"
@@ -46,17 +41,17 @@ const pulseAnimation = () =>
     ${pulse} 2s ease-in-out infinite;
   `
 
-const Placeholder = styled(Box)<BoxProps & BorderRadiusProps>`
+const Placeholder = styled(Box)<BoxProps & BorderProps>`
   background-color: ${color("black10")};
   animation: ${pulseAnimation};
-  ${borderRadiusStyle}
+  ${border}
 `
 
 interface LazyImageProps
   extends WebImageProps,
     WidthProps,
     HeightProps,
-    BorderRadiusProps {
+    BorderProps {
   /** Eagerly load the image instead of lazy loading it */
   preload?: boolean
   style?: CSSProperties

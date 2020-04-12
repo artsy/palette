@@ -5,19 +5,30 @@ import { Image } from "../../platform/primitives"
 import { CleanTag } from "../CleanTag"
 
 import {
-  borderRadius,
-  BorderRadiusProps,
-  height,
-  HeightProps,
-  maxWidth,
-  MaxWidthProps,
-  ratio,
-  RatioProps,
+  border,
+  BorderProps,
+  compose,
+  layout,
+  LayoutProps,
   space,
   SpaceProps,
-  width,
-  WidthProps,
+  system,
 } from "styled-system"
+
+const ratioPadding = system({
+  ratio: {
+    property: "paddingBottom",
+    transform: n => n * 100 + "%",
+  },
+})
+
+const ratio = (props: { ratio?: number }) =>
+  props.ratio
+    ? {
+        height: 0,
+        ...ratioPadding(props),
+      }
+    : null
 
 /** Props for web & iOS images */
 export interface BaseImageProps {
@@ -30,26 +41,26 @@ export interface BaseImageProps {
 export interface ImageProps
   extends BaseImageProps,
     SpaceProps,
-    WidthProps,
-    HeightProps,
-    BorderRadiusProps {}
+    LayoutProps,
+    BorderProps {}
 
 /**
  * Image component with space, width and height properties
  */
 export const BaseImage = styled(CleanTag.as(Image))<ImageProps>`
-  ${space};
-  ${width};
-  ${height};
-  ${borderRadius}
+  ${compose(
+    space,
+    layout,
+    border
+  )}
 `
 
 export interface ResponsiveImageProps
   extends BaseImageProps,
     SpaceProps,
-    WidthProps,
-    RatioProps,
-    MaxWidthProps {}
+    LayoutProps {
+  ratio?: number
+}
 
 /**
  * An Image component that responsively resizes within its environment
@@ -59,10 +70,11 @@ export const BaseResponsiveImage = styled(CleanTag)<ResponsiveImageProps>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  ${ratio};
-  ${space};
-  ${width};
-  ${maxWidth};
+  ${compose(
+    ratio,
+    space,
+    layout
+  )}
 `
 BaseResponsiveImage.defaultProps = {
   width: "100%",
