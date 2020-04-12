@@ -3,7 +3,7 @@ import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 /** ArtsyLogoWhiteIcon */
 export const ArtsyLogoWhiteIcon: React.SFC<IconProps> = ({
-  title,
+  title = "Artsy",
   ...props
 }) => {
   return (

@@ -4,7 +4,7 @@ import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** AddCircleFillIcon */
 export const AddCircleFillIcon: React.SFC<IconProps> = ({
-  title,
+  title = "Unfollow",
   ...props
 }) => {
   return (

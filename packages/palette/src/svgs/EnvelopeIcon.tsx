@@ -4,7 +4,7 @@ import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** EnvelopeIcon */
 export const EnvelopeIcon: React.SFC<IconProps> = ({
-  title = "send email",
+  title = "Send email",
   ...props
 }) => {
   return (

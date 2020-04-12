@@ -4,7 +4,7 @@ import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** MagnifyingGlassIcon */
 export const MagnifyingGlassIcon: React.SFC<IconProps> = ({
-  title,
+  title = "Search",
   ...props
 }) => {
   return (

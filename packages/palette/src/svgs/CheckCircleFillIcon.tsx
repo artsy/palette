@@ -4,7 +4,7 @@ import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** CheckCircleFillIcon */
 export const CheckCircleFillIcon: React.SFC<IconProps> = ({
-  title,
+  title = "Uncheck",
   ...props
 }) => {
   return (

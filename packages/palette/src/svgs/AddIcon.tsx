@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** AddIcon */
-export const AddIcon: React.SFC<IconProps> = ({ title, ...props }) => {
+export const AddIcon: React.SFC<IconProps> = ({ title = "Add", ...props }) => {
   return (
     <Icon {...props} viewBox="0 0 18 18">
       <Title>{title}</Title>

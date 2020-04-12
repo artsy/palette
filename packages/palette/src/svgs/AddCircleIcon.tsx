@@ -3,7 +3,10 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** AddCircleIcon */
-export const AddCircleIcon: React.SFC<IconProps> = ({ title, ...props }) => {
+export const AddCircleIcon: React.SFC<IconProps> = ({
+  title = "Follow",
+  ...props
+}) => {
   return (
     <Icon {...props} viewBox="0 0 18 18">
       <Title>{title}</Title>

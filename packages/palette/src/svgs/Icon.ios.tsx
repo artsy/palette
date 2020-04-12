@@ -27,6 +27,7 @@ export interface IconProps
     RightProps,
     LeftProps {
   fill?: Color
+  title?: string
 }
 
 /** Wrapper for icons to include space */

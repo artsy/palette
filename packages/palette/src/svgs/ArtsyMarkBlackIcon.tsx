@@ -4,7 +4,7 @@ import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 /** ArtsyMarkBlackIcon */
 export const ArtsyMarkBlackIcon: React.SFC<IconProps> = ({
-  title,
+  title = "Artsy",
   ...props
 }) => {
   return (

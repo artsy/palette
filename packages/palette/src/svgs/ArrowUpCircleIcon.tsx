@@ -4,7 +4,7 @@ import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** ArrowUpCircleIcon */
 export const ArrowUpCircleIcon: React.SFC<IconProps> = ({
-  title,
+  title = "Reveal less",
   ...props
 }) => {
   return (
