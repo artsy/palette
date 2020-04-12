@@ -1,3 +1,31 @@
+# v8.0.0 (Fri Apr 10 2020)
+
+#### 🐛  Bug Fix
+
+- [Deletion] Remove page loader  ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# v7.8.1 (Fri Apr 10 2020)
+
+#### 🐛  Bug Fix
+
+- fixed a type error  ([@xtina-starr](https://github.com/xtina-starr))
+- add types  ([@xtina-starr](https://github.com/xtina-starr))
+- expand menu component to work with new nav DropDownMenu in reaction  ([@xtina-starr](https://github.com/xtina-starr))
+- Pin dep @types/react-lazy-load-image-component from ^1.3.0 to 1.3.0  ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Christina ([@xtina-starr](https://github.com/xtina-starr))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v7.8.0 (Sat Apr 04 2020)
 
 #### 🐛  Bug Fix
