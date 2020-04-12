@@ -8,6 +8,8 @@ import {
   FlexboxProps,
   layout,
   LayoutProps,
+  position,
+  PositionProps,
   space,
   SpaceProps,
 } from "styled-system"
@@ -19,6 +21,7 @@ export interface FlexProps
   extends SpaceProps,
     LayoutProps,
     FlexboxProps,
+    PositionProps,
     ColorProps {}
 
 /**
@@ -30,6 +33,7 @@ export const Flex = primitives.View<FlexProps>`
     color,
     flexbox,
     layout,
+    position,
     space
   )}
 `
