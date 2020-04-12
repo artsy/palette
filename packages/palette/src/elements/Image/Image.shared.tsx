@@ -59,7 +59,7 @@ export interface ResponsiveImageProps
   extends BaseImageProps,
     SpaceProps,
     LayoutProps {
-  ratio?: number
+  ratio?: number | number[]
 }
 
 /**
