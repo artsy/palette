@@ -4,14 +4,7 @@ import { themeProps } from "../../Theme"
 import { Spinner } from "../Spinner"
 import { Sans, SansProps } from "../Typography"
 
-import {
-  borderRadius,
-  borders,
-  height,
-  space,
-  textAlign,
-  width,
-} from "styled-system"
+import { border, compose, layout, space, typography } from "styled-system"
 import {
   ButtonBaseProps,
   ButtonProps,
@@ -248,12 +241,12 @@ const Container = styled.button<ButtonBaseProps>`
   position: relative;
   white-space: nowrap;
 
-  ${borders};
-  ${borderRadius};
-  ${space};
-  ${textAlign};
-  ${width};
-  ${height};
+  ${compose(
+    border,
+    space,
+    typography,
+    layout
+  )}
 
   ${props => {
     if (!props.loading) {

@@ -1,7 +1,12 @@
 import { ReactNode } from "react"
 import { css } from "styled-components"
+import {
+  BorderProps,
+  LayoutProps,
+  SpaceProps,
+  TypographyProps,
+} from "styled-system"
 import { themeProps } from "../../Theme"
-import { BoxProps } from "../Box"
 
 /**
  * Spec: zpl.io/2j8Knq6
@@ -33,7 +38,11 @@ export interface ButtonProps extends ButtonBaseProps {
   onPress?: (e) => void
 }
 
-export interface ButtonBaseProps extends BoxProps {
+export interface ButtonBaseProps
+  extends BorderProps,
+    SpaceProps,
+    TypographyProps,
+    LayoutProps {
   /** Size of the button */
   buttonSize?: ButtonSize
   /** Displays a loader in the button */

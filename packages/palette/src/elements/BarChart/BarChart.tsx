@@ -84,7 +84,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
       <Flex
         flexDirection="column"
         ref={wrapperRef as any}
-        flexGrow="1"
+        flexGrow={1}
         id="flex-wrapper"
       >
         <ChartContainer
