@@ -42,9 +42,6 @@ workflows:
             branches:
               ignore: master
           requires:
-            - yarn/test
-            - yarn/lint
-            - yarn/type-check
             - yarn/update-cache
       - auto/publish:
           context: npm-deploy
