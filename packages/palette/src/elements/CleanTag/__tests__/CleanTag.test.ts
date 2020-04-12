@@ -34,17 +34,4 @@ describe("CleanTag", () => {
     )
     expect(wrap.type()).toBe("section")
   })
-
-  it("allows customization of which props are omitted", () => {
-    const wrap = shallow(
-      React.createElement(CleanTag, {
-        omitFromProps: ["foo"],
-        // @ts-ignore
-        foo: "bar",
-        theme: [],
-      })
-    )
-    expect(wrap.prop("foo")).toBeUndefined()
-    expect(wrap.prop("theme")).toBeDefined()
-  })
 })
