@@ -19,7 +19,7 @@ import {
 export interface BoxProps
   extends PositionProps,
     SpaceProps,
-    ColorProps,
+    Omit<ColorProps, "color">,
     LayoutProps,
     TypographyProps {}
 

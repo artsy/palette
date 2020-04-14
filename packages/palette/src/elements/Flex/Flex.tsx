@@ -22,7 +22,7 @@ export interface FlexProps
     LayoutProps,
     FlexboxProps,
     PositionProps,
-    ColorProps {}
+    Omit<ColorProps, "color"> {}
 
 /**
  * A utility component that encapsulates flexbox behavior
