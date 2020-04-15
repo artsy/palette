@@ -1,3 +1,17 @@
+# v8.1.1 (Wed Apr 15 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  -  [#668](https://github.com/artsy/palette/pull/668) ([@willanderson](https://github.com/willanderson) [@zephraph](https://github.com/zephraph))
+
+#### Authors: 2
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- Will Anderson ([@willanderson](https://github.com/willanderson))
+
+---
+
 # v8.1.0 (Sun Apr 12 2020)
 
 #### 🚀  Enhancement
