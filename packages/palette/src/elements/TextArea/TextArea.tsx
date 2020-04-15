@@ -113,9 +113,7 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
             </Sans>
           </>
         )}
-        {(title || description) &&
-          <Spacer mb={1} />
-        }
+        {(title || description) && <Spacer mb={1} />}
         <StyledTextArea
           {...others}
           onChange={this.onChange}
