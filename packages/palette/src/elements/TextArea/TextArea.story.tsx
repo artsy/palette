@@ -25,3 +25,6 @@ storiesOf("Components/TextArea", module)
   .add("TextArea + name", () => {
     return <TextArea {...defaultProps} name="my-text-area" />
   })
+  .add("TextArea + title + desc", () => {
+    return <TextArea {...defaultProps} name="my-text-area" title="Note" description="This is my description" />
+  })

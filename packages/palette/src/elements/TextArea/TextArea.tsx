@@ -6,15 +6,15 @@ import { space } from "../../helpers/space"
 import { Collapse } from "../Collapse"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
-import { Sans, Serif } from "../Typography/Typography"
+import { Sans } from "../Typography/Typography"
 
 const StyledTextArea = styled.textarea`
   transition: border-color 0.25s ease;
   padding: ${space(1)}px;
   min-height: ${space(9)}px;
-  font-family: ${themeGet("fontFamily.serif.regular")};
-  font-size: ${themeGet("typeSizes.serif.3.fontSize")}px;
-  line-height: ${themeGet("typeSizes.serif.3.lineHeight")}px;
+  font-family: ${themeGet("fontFamily.sans.regular")};
+  font-size: ${themeGet("typeSizes.sans.3.fontSize")}px;
+  line-height: ${themeGet("typeSizes.sans.3.lineHeight")}px;
   outline: none;
   ${({ hasError }: { hasError?: boolean }) => css`
     border: 1px solid ${color(hasError ? "red100" : "black10")};
@@ -100,21 +100,22 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       <Flex flexDirection="column">
         {title && (
           <>
-            <Serif size="3t">
+            <Sans size="3t">
               {title}
               {this.props.required && <Required>*</Required>}
-            </Serif>
-            <Spacer mb={1} />
+            </Sans>
           </>
         )}
         {description && (
           <>
-            <Serif size="2" color="black60">
+            <Sans size="2" color="black60">
               {description}
-            </Serif>
-            <Spacer mb={1} />
+            </Sans>
           </>
         )}
+        {(title || description) &&
+          <Spacer mb={1} />
+        }
         <StyledTextArea
           {...others}
           onChange={this.onChange}
