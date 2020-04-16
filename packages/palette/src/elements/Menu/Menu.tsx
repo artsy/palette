@@ -14,6 +14,7 @@ import { Sans } from "../Typography"
 interface MenuProps {
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
+  margin?: SpaceProps["m"]
   title?: string
   width?: number | string
 }
@@ -21,12 +22,13 @@ interface MenuProps {
 /** Menu */
 export const Menu: React.FC<MenuProps> = ({
   children,
+  margin = "2px",
   title,
   width = 230,
   ...props
 }) => {
   return (
-    <MenuContainer width={width} m="2px" {...props}>
+    <MenuContainer width={width} m={margin} {...props}>
       <BorderBox p={0} pb={1} background="white">
         <Flex flexDirection="column" width="100%">
           {title && (
