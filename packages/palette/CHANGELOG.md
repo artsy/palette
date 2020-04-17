@@ -1,3 +1,24 @@
+# v8.1.3 (Fri Apr 17 2020)
+
+#### 🐛  Bug Fix
+
+- Update menu component style props [#671](https://github.com/artsy/palette/pull/671) ([@xtina-starr](https://github.com/xtina-starr))
+- refactor padding ([@xtina-starr](https://github.com/xtina-starr))
+- be able to adjust top and bottom padding in Menu container ([@xtina-starr](https://github.com/xtina-starr))
+- allow menu to expand to fullscreen of the window ([@xtina-starr](https://github.com/xtina-starr))
+
+#### 🏠  Internal
+
+- Update auto orb from 1.1.0 to v1.2.0 [#669](https://github.com/artsy/palette/pull/669) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christina ([@xtina-starr](https://github.com/xtina-starr))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v8.1.2 (Fri Apr 17 2020)
 
 #### 🐛  Bug Fix
