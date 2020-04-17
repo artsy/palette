@@ -15,6 +15,7 @@ interface MenuProps {
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
   margin?: SpaceProps["m"]
+  padding?: SpaceProps["p"]
   title?: string
   width?: number | string
 }
@@ -23,13 +24,14 @@ interface MenuProps {
 export const Menu: React.FC<MenuProps> = ({
   children,
   margin = "2px",
+  padding = 1,
   title,
   width = 230,
   ...props
 }) => {
   return (
     <MenuContainer width={width} m={margin} {...props}>
-      <BorderBox p={0} pb={1} background="white">
+      <BorderBox p={0} pb={padding} background="white">
         <Flex flexDirection="column" width="100%">
           {title && (
             <Box px={2} pt={2} pb={1}>
@@ -41,7 +43,7 @@ export const Menu: React.FC<MenuProps> = ({
             </Box>
           )}
 
-          <Flex flexDirection="column" pt={title ? 0 : 1}>
+          <Flex flexDirection="column" pt={title ? 0 : padding}>
             {children}
           </Flex>
         </Flex>
