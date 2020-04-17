@@ -17,7 +17,13 @@ storiesOf("Components/Input", module)
     return <Input {...defaultProps} title="Your offer" required />
   })
   .add("Input + title + desc", () => {
-    return <Input {...defaultProps} title="Your offer" description="This is my description" />
+    return (
+      <Input
+        {...defaultProps}
+        title="Your offer"
+        description="This is my description"
+      />
+    )
   })
   .add("Input + error", () => {
     return <Input {...defaultProps} error="Something went wrong." />
