@@ -1,3 +1,18 @@
+# v8.1.1 (Wed Apr 15 2020)
+
+#### 🐛  Bug Fix
+
+- More prettier updates  ([@zephraph](https://github.com/zephraph))
+- Fix a prettier issue  ([@zephraph](https://github.com/zephraph))
+- Removed spacing, changed font for text area  ([@willanderson](https://github.com/willanderson))
+
+#### Authors: 2
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- Will Anderson ([@willanderson](https://github.com/willanderson))
+
+---
+
 # v8.1.0 (Sun Apr 12 2020)
 
 #### 🐛  Bug Fix
