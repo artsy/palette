@@ -1,3 +1,20 @@
+# v8.1.2 (Fri Apr 17 2020)
+
+#### 🐛  Bug Fix
+
+- Stop testing implementation details of input  ([@zephraph](https://github.com/zephraph))
+- Fix lint issues  ([@zephraph](https://github.com/zephraph))
+- Style tweaks for text inputs
+
+Changed font family on text inputs to Sans. Created a storybook file for inputs.  ([@willanderson](https://github.com/willanderson))
+
+#### Authors: 2
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- Will Anderson ([@willanderson](https://github.com/willanderson))
+
+---
+
 # v8.1.1 (Wed Apr 15 2020)
 
 #### 🐛  Bug Fix
