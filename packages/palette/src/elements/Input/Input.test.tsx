@@ -14,7 +14,6 @@ describe("Input", () => {
       title: "This is the title",
     }
     const wrapper = mount(<Input {...props} />)
-    expect(wrapper.find("Serif").length).toEqual(1)
     expect(wrapper.text()).toEqual(props.title)
   })
 
@@ -33,7 +32,6 @@ describe("Input", () => {
       description: "This is the title",
     }
     const wrapper = mount(<Input {...props} />)
-    expect(wrapper.find("Serif").length).toEqual(1)
     expect(wrapper.text()).toEqual(props.description)
   })
 
@@ -42,7 +40,6 @@ describe("Input", () => {
       error: "This is the title",
     }
     const wrapper = mount(<Input {...props} />)
-    expect(wrapper.find("Sans").length).toEqual(1)
     expect(wrapper.text()).toEqual(props.error)
   })
 })

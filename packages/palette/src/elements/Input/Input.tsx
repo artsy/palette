@@ -4,7 +4,7 @@ import { themeGet } from "styled-system"
 import { color, space } from "../../helpers"
 import { Color } from "../../Theme"
 import { Box } from "../Box"
-import { Sans, Serif } from "../Typography"
+import { Sans } from "../Typography"
 
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {
   description?: string
@@ -24,15 +24,15 @@ export const Input: React.ForwardRefExoticComponent<
     return (
       <Box width="100%">
         {title && (
-          <Serif mb="0.5" size="3">
+          <Sans mb="0.5" size="3">
             {title}
             {required && <Required>*</Required>}
-          </Serif>
+          </Sans>
         )}
         {description && (
-          <Serif color="black60" mb="1" size="2">
+          <Sans color="black60" mb="1" size="2">
             {description}
-          </Serif>
+          </Sans>
         )}
         <StyledInput
           ref={ref}
@@ -75,9 +75,9 @@ export const computeBorderColor = (inputStatus: InputStatus): Color => {
 }
 
 const StyledInput = styled.input<StyledInputProps>`
-  font-family: ${themeGet("fontFamily.serif.regular")};
-  font-size: ${themeGet("typeSizes.serif.3.fontSize")}px;
-  line-height: ${themeGet("typeSizes.serif.3t.lineHeight")}px;
+  font-family: ${themeGet("fontFamily.sans.regular")};
+  font-size: ${themeGet("typeSizes.sans.3.fontSize")}px;
+  line-height: ${themeGet("typeSizes.sans.3t.lineHeight")}px;
   height: 40px;
   background-color: ${props =>
     props.disabled ? color("black5") : color("white100")};
