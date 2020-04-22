@@ -1,4 +1,4 @@
-import { color, flex, space, textAlign, width } from "styled-system"
+import { color, flex, maxWidth, space, textAlign, width } from "styled-system"
 
 import {
   Col as _Col,
@@ -18,6 +18,7 @@ export const Grid: any = styled(_Container)`
   overflow: hidden;
   max-width: ${props => props.theme.grid.breakpoints.xl}px;
   ${space};
+  ${maxWidth};
 `
 
 /** Grid row */
