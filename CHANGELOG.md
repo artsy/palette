@@ -1,3 +1,16 @@
+# v8.2.0 (Wed Apr 22 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [Grid] Add maxWidth prop [#672](https://github.com/artsy/palette/pull/672) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v8.1.3 (Fri Apr 17 2020)
 
 #### 🐛  Bug Fix
