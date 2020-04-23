@@ -80,7 +80,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   ...props
 }) => {
   return (
-    <MenuLink href={href} {...props}>
+    <MenuLink href={href} {...props} hasLighterColor={Boolean(textColor)}>
       <Box px={px} py={py}>
         <MenuLinkText size={fontSize} weight={textWeight} color={textColor}>
           {children}
@@ -90,7 +90,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   )
 }
 
-const MenuLink = styled.a`
+const MenuLink = styled.a<{ hasLighterColor: boolean }>`
   cursor: pointer;
   display: flex;
   text-decoration: none;
@@ -101,7 +101,8 @@ const MenuLink = styled.a`
   ${display};
 
   &:hover {
-    background-color: ${color("black5")};
+    background-color: ${p =>
+      p.hasLighterColor ? color("black10") : color("black5")};
   }
 
   ${Sans} {
