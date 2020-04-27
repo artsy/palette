@@ -1,3 +1,16 @@
+# v8.2.1 (Mon Apr 27 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [FX-1907] make background color darker for legibility with light text colors [#673](https://github.com/artsy/palette/pull/673) ([@xtina-starr](https://github.com/xtina-starr))
+
+#### Authors: 1
+
+- Christina ([@xtina-starr](https://github.com/xtina-starr))
+
+---
+
 # v8.2.0 (Wed Apr 22 2020)
 
 #### 🚀  Enhancement
