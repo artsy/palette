@@ -66,6 +66,7 @@ interface MenuItemProps extends BoxProps {
   py?: SpaceProps["py"]
   textColor?: string
   textWeight?: "medium" | "regular"
+  hasLighterTextColor?: boolean
 }
 
 /** MenuItem */
@@ -77,10 +78,11 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   py = 1,
   textWeight = "medium",
   textColor,
+  hasLighterTextColor,
   ...props
 }) => {
   return (
-    <MenuLink href={href} {...props} hasLighterColor={Boolean(textColor)}>
+    <MenuLink href={href} {...props} hasLighterTextColor={hasLighterTextColor}>
       <Box px={px} py={py}>
         <MenuLinkText size={fontSize} weight={textWeight} color={textColor}>
           {children}
@@ -90,7 +92,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   )
 }
 
-const MenuLink = styled.a<{ hasLighterColor: boolean }>`
+const MenuLink = styled.a<{ hasLighterTextColor: boolean }>`
   cursor: pointer;
   display: flex;
   text-decoration: none;
@@ -102,7 +104,7 @@ const MenuLink = styled.a<{ hasLighterColor: boolean }>`
 
   &:hover {
     background-color: ${p =>
-      p.hasLighterColor ? color("black10") : color("black5")};
+      p.hasLighterTextColor ? color("black10") : color("black5")};
   }
 
   ${Sans} {
