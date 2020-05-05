@@ -1,4 +1,4 @@
-import React, { SFC, useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { color, media, space } from "../../helpers"
@@ -9,13 +9,15 @@ import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Serif } from "../Typography"
+import { ModalBase } from "./ModalBase"
 
 /**
  * refreshModalContentKey should change if the modal displays new content and should fade
  * in/fade out with content update. If refreshModalContentKey does not change, the content
  * updates immedately.
  */
-interface ModalProps {
+export interface ModalProps {
+  children?: React.ReactNode
   FixedButton?: JSX.Element
   refreshModalContentKey?: string
   hasLogo?: boolean
@@ -56,7 +58,7 @@ const AnimatedView = animated(Box)
  * Modal.
  * Spec: https://app.zeplin.io/project/5acd19ff49a1429169c3128b/screen/5c75ad115c1db5628cc03c2a
  */
-export const Modal: SFC<ModalProps> = ({
+export const Modal: React.FC<ModalProps> = ({
   children,
   refreshModalContentKey,
   FixedButton,
@@ -80,17 +82,9 @@ export const Modal: SFC<ModalProps> = ({
   })
   const [visibleContent, setVisibleContent] = useState(null)
   const [renderModal, setRenderModal] = useState(false)
-  const wrapperRef = useRef(null)
   const previousChangeKey = usePrevious(refreshModalContentKey)
-
   const contentAnimation = useSpring(springContentAnimation)
   const modalAnimation = useSpring(springModalAnimation)
-
-  const handleEscapeKey = event => {
-    if (event && event.key === "Escape") {
-      onClose()
-    }
-  }
 
   useEffect(() => {
     if (previousChangeKey === refreshModalContentKey) {
@@ -106,13 +100,8 @@ export const Modal: SFC<ModalProps> = ({
 
   useEffect(() => {
     if (show) {
+      // Opening
       setRenderModal(true)
-      if (!hideCloseButton) {
-        // Binds key event for escape to close modal
-        document.addEventListener("keyup", handleEscapeKey, true)
-      }
-      // Fixes the body to disable scroll
-      document.body.style.overflowY = "hidden"
       setVisibleContent(ModalContent)
       setSpringModalAnimation({
         transform: "translate(-50%, -50%) translateY(0vh)",
@@ -120,8 +109,7 @@ export const Modal: SFC<ModalProps> = ({
         onRest: null,
       })
     } else {
-      document.body.style.overflowY = "visible"
-      document.removeEventListener("keyup", handleEscapeKey, true)
+      // Closing
       setSpringModalAnimation({
         transform: "translate(-50%, -50%) translateY(0vh)",
         opacity: 0,
@@ -136,15 +124,7 @@ export const Modal: SFC<ModalProps> = ({
         },
       })
     }
-    return document.removeEventListener("keyup", handleEscapeKey, true)
   }, [show])
-
-  const handleWrapperClick = event => {
-    // If modal X icon is hidden we don't want to close the modal when the wrapper is clicked
-    if (!hideCloseButton && event.target === wrapperRef.current) {
-      onClose()
-    }
-  }
 
   const fadeInNewContent = () => {
     // Replaces content
@@ -196,23 +176,21 @@ export const Modal: SFC<ModalProps> = ({
   return (
     <>
       {renderModal && (
-        <ModalOuterWrapper show={show}>
-          <ModalWrapper ref={wrapperRef} onClick={handleWrapperClick}>
-            <ModalElement
-              style={modalAnimation}
-              modalWidth={modalWidth}
-              isWide={isWide}
-              show={show}
-            >
-              {!hideCloseButton && (
-                <CloseIconWrapper onClick={() => onClose()}>
-                  <CloseIcon fill="black60" />
-                </CloseIconWrapper>
-              )}
-              {visibleContent}
-            </ModalElement>
-          </ModalWrapper>
-        </ModalOuterWrapper>
+        <ModalBase onClose={hideCloseButton ? undefined : onClose} show={show}>
+          <ModalElement
+            style={modalAnimation}
+            modalWidth={modalWidth}
+            isWide={isWide}
+            show={show}
+          >
+            {!hideCloseButton && (
+              <CloseButton onClick={() => onClose()}>
+                <CloseIcon fill="black60" />
+              </CloseButton>
+            )}
+            {visibleContent}
+          </ModalElement>
+        </ModalBase>
       )}
     </>
   )
@@ -225,19 +203,6 @@ const FixedButtonWrapper = styled(Flex)`
     padding: ${space(2)}px;
   `};
   flex: 0 0 auto;
-`
-
-const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(229, 229, 229, 0.5);
-  transition: opacity 250ms ease;
-  opacity: ${props => (props.show ? "1" : "0")};
-  pointer-events: ${props => (props.show ? "auto" : "none")};
 `
 
 const ModalWrapper = styled(Box)`
@@ -288,11 +253,24 @@ const ModalScrollContent = styled(Flex)<ModalScrollContentProps>`
   `};
 `
 
-const CloseIconWrapper = styled(Box)`
+// TODO: Consider extracting the equivalent of `TouchableWithoutFeedback`
+// TODO: Icon should support `currentColor` as a valid color
+const CloseButton = styled.button`
   position: fixed;
-  top: ${space(2)}px;
-  right: ${space(2)}px;
+  appearance: none;
+  top: 0;
+  right: 0;
   cursor: pointer;
+  padding: ${space(2)}px ${space(2)}px 0 0;
+  background-color: transparent;
+  border: 0;
+  color: ${color("black100")};
+
+  &:focus {
+    path {
+      fill: ${color("black60")};
+    }
+  }
 `
 
 const Logo = styled(ArtsyLogoBlackIcon)`

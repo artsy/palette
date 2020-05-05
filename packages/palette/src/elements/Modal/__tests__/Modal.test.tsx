@@ -117,6 +117,9 @@ describe("Modal", () => {
   })
 
   it("closes when escape key is pressed", () => {
+    const map: { [event: string]: any } = {}
+    document.addEventListener = jest.fn((event, cb) => (map[event] = cb))
+
     let show = true
     const onClose = () => (show = false)
     mount(
@@ -125,9 +128,7 @@ describe("Modal", () => {
         vestibulum.
       </Modal>
     )
-    setTimeout(() => {
-      document.dispatchEvent(new KeyboardEvent("keyup", { key: "Escape" }))
-      expect(show).toEqual(false)
-    })
+    map.keydown({ key: "Escape" })
+    expect(show).toEqual(false)
   })
 })
