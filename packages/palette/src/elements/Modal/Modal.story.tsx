@@ -1,46 +1,55 @@
 import { storiesOf } from "@storybook/react"
-import React from "react"
+import React, { useState } from "react"
 import { Button } from "../Button"
-import { Modal } from "./Modal"
+import { Modal, ModalProps } from "./Modal"
+
+const Story = (props: Omit<ModalProps, "onClose">) => {
+  const [open, setOpen] = useState(true)
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)} disabled={open}>
+        {open ? "opened" : "open"}
+      </button>
+
+      {open && <Modal onClose={() => setOpen(false)} {...props} />}
+    </>
+  )
+}
 
 storiesOf("Components/Modal", module)
   .add("Default", () => {
-    return (
-      <Modal show onClose={() => null}>
-        Some example content
-      </Modal>
-    )
+    return <Story show>Some example content</Story>
   })
   .add("With title", () => {
     return (
-      <Modal show title="Modal Title" onClose={() => null}>
+      <Story show title="Modal Title">
         Some example content
-      </Modal>
+      </Story>
     )
   })
   .add("With logo", () => {
     return (
-      <Modal show title="Modal Title" hasLogo onClose={() => null}>
+      <Story show title="Modal Title" hasLogo>
         Some example content
-      </Modal>
+      </Story>
     )
   })
   .add("Modal with fixed button", () => {
     return (
-      <Modal
+      <Story
         show
         title="Modal Title"
-        onClose={() => null}
         FixedButton={<Button width="100%">Click me</Button>}
       >
         Some example content
-      </Modal>
+      </Story>
     )
   })
   .add("Wide modal", () => {
     return (
-      <Modal show title="Modal Title" isWide onClose={() => null}>
+      <Story show title="Modal Title" isWide>
         Some example content
-      </Modal>
+      </Story>
     )
   })
