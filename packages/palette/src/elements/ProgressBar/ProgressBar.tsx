@@ -5,7 +5,7 @@ import { color, space } from "../../helpers"
 
 const ProgressBarBackground = styled.div<{ showBackground: boolean }>`
   height: 2px;
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.showBackground ? color("black10") : "transparent"};
 
   margin: ${space(0.5)}px 0 ${space(1)}px;
@@ -18,12 +18,18 @@ export const ProgressBar: React.SFC<{
   percentComplete: number
   highlight: Parameters<typeof color>[0]
   showBackground?: boolean
-}> = ({ percentComplete, highlight = "purple100", showBackground = true }) => {
+  transition?: string
+}> = ({
+  percentComplete,
+  highlight = "purple100",
+  showBackground = true,
+  transition = "width 1s ease",
+}) => {
   return (
     <ProgressBarBackground showBackground={showBackground}>
       <div
         style={{
-          transition: "width 1s ease",
+          transition,
           backgroundColor: color(highlight as any),
           width: Math.round(percentComplete) + "%",
         }}
