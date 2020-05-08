@@ -32,15 +32,15 @@ $ yarn start
 $ open http://localhost:8000/
 ```
 
-## Link with Emission
+## Link with Eigen
 
-When developing components for [Emission](https://github.com/artsy/emission), boot the Simulator and from the Palette project root run:
+When developing components for [our iOS codebase](https://github.com/artsy/eigen), boot the Simulator and from the Palette project root run:
 
 ```
-$ yarn workspace @artsy/palette watch:emission
+$ yarn workspace @artsy/palette watch:eigen
 ```
 
-Since React Native doesn't support symlinks, this will copy changes directly to the Emission folder and hot-reload the app.
+Since React Native doesn't support symlinks, this will copy changes directly to the Eigen folder and hot-reload the app.
 
 ## Linking and Unlinking with Reaction
 
@@ -62,7 +62,7 @@ $ yarn start
 
 ### ⚠️ Don't Forget About iOS!
 
-When adding a new component to Palette, it's important to be aware that this library is used on the web as well as in React Native, via Emission, and therefore must follow a few rules in terms of structure, namely:
+When adding a new component to Palette, it's important to be aware that this library is used on the web as well as in React Native, via Eigen, and therefore must follow a few rules in terms of structure, namely:
 
 > If a mobile component has platform-specific features, that code has to live in a `Component.ios.tsx` file. Or if a web component has browser-only features, then a `Component.ios.tsx` file must be created, or React Native will error out. If the code between a web and native component is identical, a `.ios.tx` file isn’t needed. If some code can be shared between platforms, then that shared code should live in a `Component.shared.tsx` file.
 
@@ -118,7 +118,7 @@ Artsy uses [Zeplin](https://app.zeplin.io/) and we have developed [a plugin](htt
   <img align="left" src="https://avatars2.githubusercontent.com/u/546231?s=200&v=4"/>
 </a>
 
-This project is the work of designers and engineers at [Artsy][footer_website], the 
+This project is the work of designers and engineers at [Artsy][footer_website], the
 world's leading and largest online art marketplace and platform for discovering art.
 One of our core [Engineering Principles][footer_principles] is being [Open
 Source by Default][footer_open] which means we strive to share as many details
