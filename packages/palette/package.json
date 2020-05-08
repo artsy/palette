@@ -10,9 +10,9 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "clean:emission": "rm -rf ../../../emission/node_modules/@artsy/palette/dist",
+    "clean:eigen": "rm -rf ../../../eigen/node_modules/@artsy/palette/dist",
     "compile": "babel src -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ --out-dir dist",
-    "compile:emission": "yarn compile --out-dir ../../../emission/node_modules/@artsy/palette/dist",
+    "compile:eigen": "yarn compile --out-dir ../../../eigen/node_modules/@artsy/palette/dist",
     "prepack": "yarn generate-tokens && yarn generate-styles",
     "generate-tokens": "ts-node scripts/generate-tokens.ts",
     "generate-styles": "ts-node scripts/generate-styles.ts",
@@ -28,7 +28,7 @@
     "type-check-scripts": "tsc -p tsconfig.scripts.json --noEmit --pretty",
     "type-declarations": "tsc --emitDeclarationOnly",
     "watch": "concurrently --raw --kill-others 'yarn compile -w' 'yarn type-declarations -w'",
-    "watch:emission": "yarn clean:emission && concurrently --raw --kill-others 'yarn compile:emission -w' 'yarn type-declarations -w --outDir ../../../emission/node_modules/@artsy/palette/dist'",
+    "watch:eigen": "yarn clean:eigen && concurrently --raw --kill-others 'yarn compile:eigen -w' 'yarn type-declarations -w --outDir ../../../eigen/node_modules/@artsy/palette/dist'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "visual-test": "chromatic test --exit-zero-on-changes --app-code n02zjqmdqq"
