@@ -1,3 +1,16 @@
+# v8.2.2 (Fri May 08 2020)
+
+#### 🐛  Bug Fix
+
+- Updates Palette to use new Eigen repo structure [#678](https://github.com/artsy/palette/pull/678) ([@ashfurrow](https://github.com/ashfurrow))
+- Updates Palette to use new Eigen repo structure. ([@ashfurrow](https://github.com/ashfurrow))
+
+#### Authors: 1
+
+- Ash Furrow ([@ashfurrow](https://github.com/ashfurrow))
+
+---
+
 # v8.2.1 (Mon Apr 27 2020)
 
 #### 🐛  Bug Fix
