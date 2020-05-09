@@ -1,3 +1,16 @@
+# v8.2.3 (Sat May 09 2020)
+
+#### 🐛  Bug Fix
+
+- [ProgressBar] Make transition customizable [#679](https://github.com/artsy/palette/pull/679) ([@damassi](https://github.com/damassi))
+- [ProgressBar] Make transition customizable ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v8.2.2 (Fri May 08 2020)
 
 #### 🐛  Bug Fix
