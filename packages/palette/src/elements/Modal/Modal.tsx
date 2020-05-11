@@ -25,7 +25,6 @@ interface ModalProps {
   onClose: () => void
   show?: boolean
   title?: string
-  forcedScroll?: boolean // TODO: Find out if we can globally switch to `overflow: auto`
   /*
    * Hide the X button if we don't want the user to be able to exit the modal without another action closing the modal
    */
@@ -41,7 +40,6 @@ interface TransitionElementProps {
 interface ModalScrollContentProps {
   hasLogo?: boolean
   modalWidth?: ModalWidth
-  forcedScroll?: boolean
 }
 
 export enum ModalWidth {
@@ -67,7 +65,6 @@ export const Modal: SFC<ModalProps> = ({
   hasLogo,
   onClose,
   hideCloseButton,
-  forcedScroll = true,
 }) => {
   const [springContentAnimation, setSpringContentAnimation] = useState({
     opacity: 1,
@@ -161,7 +158,6 @@ export const Modal: SFC<ModalProps> = ({
       <AnimatedView style={contentAnimation}>
         <ModalFlexContent>
           <ModalScrollContent
-            forcedScroll={forcedScroll}
             hasLogo={hasLogo}
             modalWidth={modalWidth}
           >
@@ -227,7 +223,7 @@ const FixedButtonWrapper = styled(Flex)`
   flex: 0 0 auto;
 `
 
-const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
+const ModalOuterWrapper = styled(Box) <TransitionElementProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -247,7 +243,7 @@ const ModalWrapper = styled(Box)`
   overflow: hidden;
 `
 
-const ModalElement = styled(AnimatedView)<TransitionElementProps>`
+const ModalElement = styled(AnimatedView) <TransitionElementProps>`
   position: absolute;
   border-radius: 5px;
   top: 50%;
@@ -268,7 +264,7 @@ const ModalElement = styled(AnimatedView)<TransitionElementProps>`
   `};
 `
 
-const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
+const ModalFlexContent = styled(Flex) <ModalScrollContentProps>`
   flex-direction: column;
   width: 100%;
   overflow: hidden;
@@ -278,8 +274,8 @@ const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
   `};
 `
 
-const ModalScrollContent = styled(Flex)<ModalScrollContentProps>`
-  overflow: ${props => (props.forcedScroll ? "scroll" : "auto")};
+const ModalScrollContent = styled(Flex) <ModalScrollContentProps>`
+  overflow: auto;
   flex-direction: column;
   padding: ${props =>
     space(props.hasLogo || props.modalWidth === ModalWidth.Narrow ? 2 : 3)}px;
