@@ -5,24 +5,33 @@ import {
   AlignContentProps,
   alignItems,
   AlignItemsProps,
+  alignSelf,
+  AlignSelfProps,
   background,
   BackgroundProps,
   borderRadius,
   BorderRadiusProps,
   bottom,
   BottomProps,
+  compose,
   display,
   DisplayProps,
+  flex,
   flexBasis,
   FlexBasisProps,
   flexDirection,
   FlexDirectionProps,
+  FlexProps as SystemFlexProps,
   flexWrap,
   FlexWrapProps,
   height,
   HeightProps,
   justifyContent,
   JustifyContentProps,
+  justifyItems,
+  JustifyItemsProps,
+  justifySelf,
+  JustifySelfProps,
   maxHeight,
   MaxHeightProps,
   maxWidth,
@@ -54,55 +63,67 @@ const flexShrink = style({
 })
 
 export interface FlexProps
-  extends AlignItemsProps,
-    AlignContentProps,
+  extends AlignContentProps,
+    AlignItemsProps,
+    AlignSelfProps,
     BackgroundProps,
-    BottomProps,
-    TopProps,
     BorderRadiusProps,
+    BottomProps,
     DisplayProps,
     FlexBasisProps,
     FlexDirectionProps,
     FlexWrapProps,
     HeightProps,
     JustifyContentProps,
+    JustifyItemsProps,
+    JustifySelfProps,
     MaxHeightProps,
     MaxWidthProps,
     OrderProps,
     PositionProps,
     SpaceProps,
+    SystemFlexProps,
+    TopProps,
     WidthProps,
     ZIndexProps {
   flexGrow?: number | string
   flexShrink?: number | string
 }
 
+const flexMixin = compose(
+  alignContent,
+  alignItems,
+  alignSelf,
+  background,
+  borderRadius,
+  bottom,
+  display,
+  flex,
+  flexBasis,
+  flexDirection,
+  flexWrap,
+  height,
+  justifyContent,
+  justifyItems,
+  justifySelf,
+  maxHeight,
+  maxWidth,
+  order,
+  position,
+  space,
+  top,
+  width,
+  zIndex
+)
+
 /**
  * A utility component that encapsulates flexbox behavior
  */
 export const Flex = primitives.View<FlexProps>`
   display: flex;
-  ${alignContent};
-  ${alignItems};
-  ${background};
-  ${bottom};
-  ${borderRadius};
-  ${display};
-  ${flexBasis};
-  ${flexDirection};
-  ${flexGrow};
-  ${flexShrink};
-  ${flexWrap};
-  ${height};
-  ${justifyContent};
-  ${maxHeight};
-  ${maxWidth};
-  ${order};
-  ${position};
-  ${space};
-  ${top};
-  ${width};
-  ${zIndex};
+  ${flexMixin}
+  ${flexGrow}
+  ${flexShrink}
 `
 
 Flex.displayName = "Flex"
