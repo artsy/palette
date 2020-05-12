@@ -1,3 +1,16 @@
+# v8.2.4 (Tue May 12 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Mixes in missing flex-related functions [#681](https://github.com/artsy/palette/pull/681) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v8.2.3 (Sat May 09 2020)
 
 #### 🐛  Bug Fix
