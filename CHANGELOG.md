@@ -1,3 +1,16 @@
+# v8.2.6 (Wed May 13 2020)
+
+#### ⚠️  Pushed to `master`
+
+- `@artsy/palette`
+  - Update Theme.tsx ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v8.2.5 (Wed May 13 2020)
 
 #### ⚠️  Pushed to `master`
