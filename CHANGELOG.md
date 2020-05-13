@@ -1,3 +1,22 @@
+# v8.2.5 (Wed May 13 2020)
+
+#### ⚠️  Pushed to `master`
+
+- `@artsy/palette`
+  - Update Theme.tsx ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Update auto orb from 1.2.0 to v1.3.1 [#676](https://github.com/artsy/palette/pull/676) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v8.2.4 (Tue May 12 2020)
 
 #### 🐛  Bug Fix
