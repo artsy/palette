@@ -1,3 +1,16 @@
+# v9.0.1 (Wed May 13 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - [Modal] Do not fire external `onClose` callback on first render [#683](https://github.com/artsy/palette/pull/683) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v9.0.0 (Wed May 13 2020)
 
 #### 💥  Breaking Change
