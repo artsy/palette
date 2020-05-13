@@ -77,6 +77,7 @@ export const Modal: SFC<ModalProps> = ({
   })
   const [visibleContent, setVisibleContent] = useState(null)
   const [renderModal, setRenderModal] = useState(false)
+  const isFirstRender = useRef(true)
   const wrapperRef = useRef(null)
   const previousChangeKey = usePrevious(refreshModalContentKey)
 
@@ -114,7 +115,9 @@ export const Modal: SFC<ModalProps> = ({
       setSpringModalAnimation({
         transform: "translate(-50%, -50%) translateY(0vh)",
         opacity: 1,
-        onRest: null,
+        onRest: () => {
+          isFirstRender.current = false
+        },
       })
     } else {
       document.body.style.overflowY = "visible"
@@ -128,11 +131,17 @@ export const Modal: SFC<ModalProps> = ({
             onRest: null,
             opacity: 0,
           })
-          onClose()
+
+          if (!isFirstRender.current) {
+            onClose()
+          }
+
+          isFirstRender.current = false
           setRenderModal(false)
         },
       })
     }
+
     return document.removeEventListener("keyup", handleEscapeKey, true)
   }, [show])
 
