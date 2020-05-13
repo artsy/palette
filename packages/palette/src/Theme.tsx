@@ -127,6 +127,8 @@ export const themeProps = {
     3: 30,
     /** Equivalent to 40px  */
     4: 40,
+    /** Equivalent to 50px  */
+    5: 50,
     /** Equivalent to 60px  */
     6: 60,
     /** Equivalent to 90px  */
