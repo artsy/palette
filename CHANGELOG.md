@@ -1,3 +1,16 @@
+# v9.0.0 (Wed May 13 2020)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette`
+  - Remove Modal `forcedScroll` prop / Default `overflow` to `auto` [#680](https://github.com/artsy/palette/pull/680) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v8.2.6 (Wed May 13 2020)
 
 #### ⚠️  Pushed to `master`
