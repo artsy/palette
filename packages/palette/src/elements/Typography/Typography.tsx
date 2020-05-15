@@ -20,8 +20,6 @@ import {
   DisplayProps as StyledSystemDisplayProps,
   fontSize,
   FontSizeProps,
-  letterSpacing,
-  LetterSpacingProps,
   lineHeight,
   LineHeightProps,
   maxWidth,
@@ -79,7 +77,6 @@ export interface TextProps
     SpaceProps,
     StyledSystemDisplayProps,
     TextAlignProps,
-    LetterSpacingProps,
     VerticalAlignProps {
   className?: string
   fontFamily?: string
@@ -109,7 +106,6 @@ export const Text = primitives.Text<TextProps>`
   ${space};
   ${textAlign};
   ${verticalAlign};
-  ${letterSpacing};
 `
 
 /**
@@ -183,6 +179,7 @@ function createStyledText<P extends StyledTextProps>(
       size,
       weight,
       italic,
+      style: _style,
       unstable_trackIn,
       element,
       ...textProps
@@ -192,13 +189,17 @@ function createStyledText<P extends StyledTextProps>(
       if (fontFamilyType === null) {
         throw new Error("Did not expect `fontType` to be `null`.")
       }
+
       return (
         <Text
           fontFamily={
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }
+          style={{
+            ...(unstable_trackIn ? { letterSpacing: "-0.03em" } : {}),
+            ..._style,
+          }}
           {...determineFontSizes(fontType, size)}
-          {...(unstable_trackIn ? { letterSpacing: "-0.03em" } : {})}
           // styled-components supports calling the prop `as`, but there are
           //  issues when passing it into this component named `as`. See
           //  https://github.com/styled-components/styled-components/issues/2448
