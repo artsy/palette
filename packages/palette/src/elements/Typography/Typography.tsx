@@ -20,6 +20,8 @@ import {
   DisplayProps as StyledSystemDisplayProps,
   fontSize,
   FontSizeProps,
+  letterSpacing,
+  LetterSpacingProps,
   lineHeight,
   LineHeightProps,
   maxWidth,
@@ -77,6 +79,7 @@ export interface TextProps
     SpaceProps,
     StyledSystemDisplayProps,
     TextAlignProps,
+    LetterSpacingProps,
     VerticalAlignProps {
   className?: string
   fontFamily?: string
@@ -106,6 +109,7 @@ export const Text = primitives.Text<TextProps>`
   ${space};
   ${textAlign};
   ${verticalAlign};
+  ${letterSpacing};
 `
 
 /**
@@ -154,6 +158,7 @@ interface StyledTextProps extends Partial<TextProps> {
   size: string | string[]
   weight?: null | FontWeights
   italic?: boolean
+  unstable_trackIn?: boolean
 }
 
 /**
@@ -174,7 +179,14 @@ function createStyledText<P extends StyledTextProps>(
   selectFontFamilyType: typeof _selectFontFamilyType = _selectFontFamilyType
 ) {
   return styledWrapper<P>(
-    ({ size, weight, italic, element, ...textProps }: StyledTextProps) => {
+    ({
+      size,
+      weight,
+      italic,
+      unstable_trackIn,
+      element,
+      ...textProps
+    }: StyledTextProps) => {
       const fontFamilyType = selectFontFamilyType(_fontWeight(weight), italic)
       // This is mostly to narrow the type of `fontFamilyType` to remove `null`.
       if (fontFamilyType === null) {
@@ -186,6 +198,7 @@ function createStyledText<P extends StyledTextProps>(
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }
           {...determineFontSizes(fontType, size)}
+          {...(unstable_trackIn ? { letterSpacing: "-0.03em" } : {})}
           // styled-components supports calling the prop `as`, but there are
           //  issues when passing it into this component named `as`. See
           //  https://github.com/styled-components/styled-components/issues/2448
@@ -217,6 +230,8 @@ export interface SansProps extends Partial<TextProps> {
    * to `regular`.
    */
   weight?: null | "regular" | "medium"
+
+  unstable_trackIn?: boolean
 }
 
 /**
@@ -247,6 +262,7 @@ export interface SerifProps extends Partial<TextProps> {
    * to `regular`.
    */
   weight?: null | "regular" | "semibold"
+  unstable_trackIn?: boolean
 }
 
 /**
