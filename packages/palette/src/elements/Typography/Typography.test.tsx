@@ -64,6 +64,16 @@ describe("Typography", () => {
           themeProps.fontFamily.sans.mediumItalic
         )
       })
+
+      it("supports unstable_trackIn to adjust letter-spacing", () => {
+        const sans = renderer.create(
+          <Sans size="3t" unstable_trackIn>
+            Hello world
+          </Sans>
+        ).root
+        const text = sans.findByType(Text as React.ComponentClass<any>)
+        expect(text.props.style).toEqual({ letterSpacing: "-0.03em" })
+      })
     })
 
     describe("concerning font-size & line-height", () => {
@@ -138,6 +148,16 @@ describe("Typography", () => {
         expect(text.props.fontFamily).toEqual(
           themeProps.fontFamily.serif.italic
         )
+      })
+
+      it("supports unstable_trackIn to adjust letter-spacing", () => {
+        const sans = renderer.create(
+          <Serif size="3t" unstable_trackIn>
+            Hello world
+          </Serif>
+        ).root
+        const text = sans.findByType(Text as React.ComponentClass<any>)
+        expect(text.props.style).toEqual({ letterSpacing: "-0.03em" })
       })
 
       describe("with invalid options", () => {

@@ -154,6 +154,7 @@ interface StyledTextProps extends Partial<TextProps> {
   size: string | string[]
   weight?: null | FontWeights
   italic?: boolean
+  unstable_trackIn?: boolean
 }
 
 /**
@@ -174,17 +175,30 @@ function createStyledText<P extends StyledTextProps>(
   selectFontFamilyType: typeof _selectFontFamilyType = _selectFontFamilyType
 ) {
   return styledWrapper<P>(
-    ({ size, weight, italic, element, ...textProps }: StyledTextProps) => {
+    ({
+      size,
+      weight,
+      italic,
+      style: _style,
+      unstable_trackIn,
+      element,
+      ...textProps
+    }: StyledTextProps) => {
       const fontFamilyType = selectFontFamilyType(_fontWeight(weight), italic)
       // This is mostly to narrow the type of `fontFamilyType` to remove `null`.
       if (fontFamilyType === null) {
         throw new Error("Did not expect `fontType` to be `null`.")
       }
+
       return (
         <Text
           fontFamily={
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }
+          style={{
+            ...(unstable_trackIn ? { letterSpacing: "-0.03em" } : {}),
+            ..._style,
+          }}
           {...determineFontSizes(fontType, size)}
           // styled-components supports calling the prop `as`, but there are
           //  issues when passing it into this component named `as`. See
@@ -217,6 +231,8 @@ export interface SansProps extends Partial<TextProps> {
    * to `regular`.
    */
   weight?: null | "regular" | "medium"
+
+  unstable_trackIn?: boolean
 }
 
 /**
@@ -247,6 +263,7 @@ export interface SerifProps extends Partial<TextProps> {
    * to `regular`.
    */
   weight?: null | "regular" | "semibold"
+  unstable_trackIn?: boolean
 }
 
 /**
