@@ -1,3 +1,20 @@
+# v9.1.0 (Sat May 16 2020)
+
+#### 🚀  Enhancement
+
+- [COM-16] - add unstable_trackIn as a prop to Sans and Serif [#684](https://github.com/artsy/palette/pull/684) ([@oxaudo](https://github.com/oxaudo))
+
+#### 🐛  Bug Fix
+
+- do not expose letterSpacing directly and add a spec for unstable_trackIn ([@oxaudo](https://github.com/oxaudo))
+- add unstable_trackIn as a prop to Sans and Serif ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v9.0.1 (Wed May 13 2020)
 
 #### 🐛  Bug Fix
