@@ -31,6 +31,7 @@ import {
   TextAlignProps,
 } from "styled-system"
 
+import { isReactNative } from "../../helpers/isReactNative"
 import { determineFontSizes } from "./determineFontSizes"
 
 /**
@@ -195,10 +196,14 @@ function createStyledText<P extends StyledTextProps>(
           fontFamily={
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }
-          style={{
-            ...(unstable_trackIn ? { letterSpacing: "-0.03em" } : {}),
-            ..._style,
-          }}
+          style={
+            isReactNative()
+              ? _style
+              : {
+                  ...(unstable_trackIn ? { letterSpacing: "-0.03em" } : {}),
+                  ..._style,
+                }
+          }
           {...determineFontSizes(fontType, size)}
           // styled-components supports calling the prop `as`, but there are
           //  issues when passing it into this component named `as`. See
