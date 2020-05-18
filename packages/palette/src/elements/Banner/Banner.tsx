@@ -5,7 +5,7 @@ import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 
-const Target = styled.div`
+const Target = styled(Flex)`
   padding-left: 10px;
   cursor: pointer;
 
@@ -28,7 +28,7 @@ const TextWrapper = styled(Flex)`
 
 const CloseButton = ({ onClick }) => {
   return (
-    <Target onClick={onClick}>
+    <Target onClick={onClick} alignItems="center">
       <CloseIcon fill="white100" />
     </Target>
   )
