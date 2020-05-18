@@ -36,7 +36,7 @@ const CloseButton = ({ onClick }) => {
 
 export interface BannerProps {
   dismissable: boolean
-  message: string
+  message?: string
   backgroundColor: string
   textColor: string
 }
