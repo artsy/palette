@@ -1,3 +1,16 @@
+# v9.2.2 (Tue May 19 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - No unstable_trackIn in eigen [#685](https://github.com/artsy/palette/pull/685) ([@ds300](https://github.com/ds300))
+
+#### Authors: 1
+
+- David Sheldrick ([@ds300](https://github.com/ds300))
+
+---
+
 # v9.2.1 (Tue May 19 2020)
 
 #### ⚠️  Pushed to `master`
