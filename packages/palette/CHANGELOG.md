@@ -1,3 +1,15 @@
+# v9.4.0 (Tue May 19 2020)
+
+#### 🚀  Enhancement
+
+- Export BorderBoxProps in top-level package [#688](https://github.com/artsy/palette/pull/688) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v9.3.0 (Tue May 19 2020)
 
 #### 🚀  Enhancement
