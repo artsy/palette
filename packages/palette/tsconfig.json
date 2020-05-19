@@ -17,6 +17,7 @@
       }
     ],
     "rootDir": "src",
+    "skipLibCheck": true,
     "target": "es2015"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
