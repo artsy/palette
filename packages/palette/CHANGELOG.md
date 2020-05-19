@@ -1,3 +1,15 @@
+# v9.2.1 (Tue May 19 2020)
+
+#### 🐛  Bug Fix
+
+- Update tsconfig.json ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v9.2.0 (Tue May 19 2020)
 
 #### 🚀  Enhancement
