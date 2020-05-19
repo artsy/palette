@@ -1,3 +1,20 @@
+# v9.2.0 (Tue May 19 2020)
+
+#### 🚀  Enhancement
+
+- Update the Banner component to work well with a content that takes more space [#686](https://github.com/artsy/palette/pull/686) ([@yuki24](https://github.com/yuki24))
+
+#### 🐛  Bug Fix
+
+- Make sure the close button is always vertically centered ([@yuki24](https://github.com/yuki24))
+- Make the message prop for <Banner> optional ([@yuki24](https://github.com/yuki24))
+
+#### Authors: 1
+
+- Yuki Nishijima ([@yuki24](https://github.com/yuki24))
+
+---
+
 # v9.1.0 (Sat May 16 2020)
 
 #### 🚀  Enhancement
