@@ -1,3 +1,16 @@
+# v9.3.0 (Tue May 19 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [CSGN-203] Add PaymentIcon [#687](https://github.com/artsy/palette/pull/687) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 1
+
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v9.2.2 (Tue May 19 2020)
 
 #### 🐛  Bug Fix
