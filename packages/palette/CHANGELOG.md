@@ -1,3 +1,19 @@
+# v9.5.0 (Wed May 20 2020)
+
+#### 🚀  Enhancement
+
+- Adds HTML component [#690](https://github.com/artsy/palette/pull/690) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Adds HTML component ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v9.4.0 (Tue May 19 2020)
 
 #### 🚀  Enhancement
