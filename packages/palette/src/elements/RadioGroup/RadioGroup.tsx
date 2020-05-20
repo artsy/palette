@@ -7,7 +7,7 @@ import { RadioProps } from "../Radio"
  */
 
 export interface RadioGroupProps extends FlexProps {
-  /** Disable interactions */
+  /** Ability to deselect the selection */
   deselectable?: boolean
   /** Disable interactions */
   disabled?: boolean
