@@ -1,6 +1,7 @@
 import React from "react"
 import { Flex, FlexProps } from "../Flex"
 import { RadioProps } from "../Radio"
+import { Sans } from "../Typography"
 
 /**
  * Spec: zpl.io/bAvnwlB
@@ -92,9 +93,21 @@ export class RadioGroup extends React.Component<
   }
 
   render() {
-    const { disabled, onSelect, defaultValue, children, ...others } = this.props
+    const {
+      disabled,
+      disabledText,
+      onSelect,
+      defaultValue,
+      children,
+      ...others
+    } = this.props
     return (
       <Flex flexDirection="column" {...others}>
+        {disabled && disabledText !== undefined && (
+          <Sans size="2" my={0.3} color="black60">
+            {disabledText}
+          </Sans>
+        )}
         {this.renderRadioButtons()}
       </Flex>
     )
