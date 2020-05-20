@@ -11,6 +11,8 @@ export interface RadioGroupProps extends FlexProps {
   deselectable?: boolean
   /** Disable interactions */
   disabled?: boolean
+  /** Text to display when disabled */
+  disabledText?: string
   /** Callback when selected */
   onSelect?: (selectedOption: string) => void
   /** Default value of radio button */
