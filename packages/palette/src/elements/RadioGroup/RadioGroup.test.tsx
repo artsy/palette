@@ -99,6 +99,17 @@ describe("RadioGroup", () => {
     ).toBe(true)
   })
 
+  it("displays a specific text when disabled", () => {
+    const wrapper = mount(
+      <RadioGroup disabled disabledText="i am disabled right now mate">
+        <Radio value="SHIP">Provide shipping address</Radio>
+        <Radio value="PICKUP">Arrange for pickup</Radio>
+      </RadioGroup>
+    )
+
+    expect(wrapper.find("Sans").text()).toBe("i am disabled right now mate")
+  })
+
   it("allows Radios within the group to be deselectable", () => {
     const wrapper = mount(
       <RadioGroup defaultValue="PICKUP" deselectable>
