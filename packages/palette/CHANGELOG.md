@@ -1,3 +1,19 @@
+# v9.6.0 (Thu May 21 2020)
+
+#### 🚀  Enhancement
+
+- Adds HTML.ios.tsx [#691](https://github.com/artsy/palette/pull/691) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Adds .ios ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v9.5.0 (Wed May 20 2020)
 
 #### 🚀  Enhancement

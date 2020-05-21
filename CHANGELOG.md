@@ -1,3 +1,21 @@
+# v9.6.0 (Thu May 21 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Adds HTML.ios.tsx [#691](https://github.com/artsy/palette/pull/691) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- Update auto orb from 1.3.1 to v1.3.2 [#682](https://github.com/artsy/palette/pull/682) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v9.5.0 (Wed May 20 2020)
 
 #### 🚀  Enhancement
