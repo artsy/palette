@@ -1,3 +1,24 @@
+# v9.7.0 (Thu May 21 2020)
+
+#### 🚀  Enhancement
+
+- Add disabledtext to radiogroup [#689](https://github.com/artsy/palette/pull/689) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- tiny ([@pvinis](https://github.com/pvinis))
+- test too ([@pvinis](https://github.com/pvinis))
+- add the actual functionality ([@pvinis](https://github.com/pvinis))
+- fix comment ([@pvinis](https://github.com/pvinis))
+- adding peripheral code ([@pvinis](https://github.com/pvinis))
+- adding knobs ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # v9.6.0 (Thu May 21 2020)
 
 #### 🚀  Enhancement
