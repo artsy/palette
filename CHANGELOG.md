@@ -1,3 +1,16 @@
+# v9.8.0 (Tue May 26 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Use Sans Instead of Serif in EntityHeader component [#692](https://github.com/artsy/palette/pull/692) ([@ashleyjelks](https://github.com/ashleyjelks))
+
+#### Authors: 1
+
+- Ashley Jelks ([@ashleyjelks](https://github.com/ashleyjelks))
+
+---
+
 # v9.7.0 (Thu May 21 2020)
 
 #### 🚀  Enhancement
