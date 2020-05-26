@@ -6,7 +6,7 @@ import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Link } from "../Link"
 import { SpacerProps } from "../Spacer"
-import { Sans, Serif } from "../Typography"
+import { Sans } from "../Typography"
 
 interface EntityHeaderProps extends SpacerProps {
   href?: string
@@ -53,9 +53,9 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
       )}
 
       <Flex flexDirection="column" justifyContent="center" width="100%">
-        <Serif size="3" weight="semibold" color="black100">
+        <Sans size="3" weight="medium" color="black100">
           {name}
-        </Serif>
+        </Sans>
 
         <Sans size="2" color="black60">
           {!!meta && <span>{meta}</span>}
