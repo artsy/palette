@@ -1,3 +1,16 @@
+# v9.9.0 (Wed May 27 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [FX-1936] Implements ModalBase (take II) [#693](https://github.com/artsy/palette/pull/693) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v9.8.1 (Wed May 27 2020)
 
 #### 🐛  Bug Fix
