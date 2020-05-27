@@ -64,7 +64,7 @@ storiesOf("Components/BarChart", module)
         </Box>
       )
     },
-    { chromatic: { delay: 750 } }
+    { chromatic: { delay: 1000, diffThreshold: 0.75 } }
   )
 
   .add(
@@ -123,7 +123,7 @@ storiesOf("Components/BarChart", module)
         </Box>
       )
     },
-    { chromatic: { delay: 750 } }
+    { chromatic: { delay: 1000, diffThreshold: 0.75 } }
   )
 
   .add(
@@ -182,7 +182,7 @@ storiesOf("Components/BarChart", module)
         </Box>
       )
     },
-    { chromatic: { delay: 750 } }
+    { chromatic: { delay: 1000, diffThreshold: 0.75 } }
   )
 
   .add(
@@ -243,7 +243,7 @@ storiesOf("Components/BarChart", module)
         </Box>
       )
     },
-    { chromatic: { delay: 750 } }
+    { chromatic: { delay: 1000, diffThreshold: 0.75 } }
   )
 
   .add(
@@ -298,7 +298,7 @@ storiesOf("Components/BarChart", module)
         </Box>
       )
     },
-    { chromatic: { delay: 750 } }
+    { chromatic: { delay: 1000, diffThreshold: 0.75 } }
   )
 
   .add(
@@ -342,5 +342,5 @@ storiesOf("Components/BarChart", module)
         </Box>
       )
     },
-    { chromatic: { delay: 750 } }
+    { chromatic: { delay: 1000, diffThreshold: 0.75 } }
   )
