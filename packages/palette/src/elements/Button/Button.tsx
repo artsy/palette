@@ -187,6 +187,7 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
       longestText,
       weight,
       onClick,
+      className,
       ...rest
     } = this.props
 
@@ -195,10 +196,12 @@ export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
 
     return (
       <Container
-        {...rest}
-        className={[loadingClass, disabledClass].join(" ")}
+        className={[loadingClass, disabledClass, className]
+          .filter(Boolean)
+          .join(" ")}
         onClick={this.onClick}
         disabled={disabled}
+        {...rest}
       >
         {loading && <Spinner size={this.props.buttonSize} />}
 
