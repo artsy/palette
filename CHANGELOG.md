@@ -1,3 +1,21 @@
+# v9.8.1 (Wed May 27 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fixes mixed-in classnames coming from styled-components [#697](https://github.com/artsy/palette/pull/697) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Adjusts Chromatic settings [#694](https://github.com/artsy/palette/pull/694) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v9.8.0 (Tue May 26 2020)
 
 #### 🚀  Enhancement
