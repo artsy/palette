@@ -1,3 +1,15 @@
+# v9.10.0 (Thu May 28 2020)
+
+#### 🚀  Enhancement
+
+- Update Modal to use Sans title [#700](https://github.com/artsy/palette/pull/700) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v9.9.0 (Wed May 27 2020)
 
 #### 🚀  Enhancement
