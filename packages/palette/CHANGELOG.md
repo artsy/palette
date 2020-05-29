@@ -1,3 +1,20 @@
+# v9.12.0 (Fri May 29 2020)
+
+#### 🚀  Enhancement
+
+- Clickable [#703](https://github.com/artsy/palette/pull/703) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Implements Clickable ([@dzucconi](https://github.com/dzucconi))
+- Composes and exports the boxMixin ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v9.11.0 (Fri May 29 2020)
 
 #### 🚀  Enhancement
