@@ -1,6 +1,6 @@
+import { themeGet } from "@styled-system/theme-get"
 import React, { ChangeEvent } from "react"
 import styled, { css } from "styled-components"
-import { themeGet } from "styled-system"
 import { color } from "../../helpers/color"
 import { space } from "../../helpers/space"
 import { Collapse } from "../Collapse"
@@ -13,8 +13,8 @@ const StyledTextArea = styled.textarea`
   padding: ${space(1)}px;
   min-height: ${space(9)}px;
   font-family: ${themeGet("fontFamily.sans.regular")};
-  font-size: ${themeGet("typeSizes.sans.3.fontSize")}px;
-  line-height: ${themeGet("typeSizes.sans.3.lineHeight")}px;
+  font-size: ${themeGet("typeSizes.sans.3.fontSize")};
+  line-height: ${themeGet("typeSizes.sans.3.lineHeight")};
   outline: none;
   ${({ hasError }: { hasError?: boolean }) => css`
     border: 1px solid ${color(hasError ? "red100" : "black10")};

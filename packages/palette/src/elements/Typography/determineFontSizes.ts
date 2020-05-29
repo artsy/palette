@@ -11,8 +11,8 @@ export function determineFontSizes(
   if (!Array.isArray(size)) {
     const match = themeProps.typeSizes[fontType][size]
     return {
-      fontSize: `${match.fontSize}px`,
-      lineHeight: `${match.lineHeight}px`,
+      fontSize: `${match.fontSize}`,
+      lineHeight: `${match.lineHeight}`,
     }
   }
 
@@ -21,8 +21,8 @@ export function determineFontSizes(
     .reduce(
       (accumulator, current) => {
         return {
-          fontSize: [...accumulator.fontSize, `${current.fontSize}px`],
-          lineHeight: [...accumulator.lineHeight, `${current.lineHeight}px`],
+          fontSize: [...accumulator.fontSize, `${current.fontSize}`],
+          lineHeight: [...accumulator.lineHeight, `${current.lineHeight}`],
         }
       },
       { fontSize: [], lineHeight: [] }

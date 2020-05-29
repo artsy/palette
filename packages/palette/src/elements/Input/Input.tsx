@@ -1,6 +1,6 @@
+import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled from "styled-components"
-import { themeGet } from "styled-system"
 import { color, space } from "../../helpers"
 import { Color } from "../../Theme"
 import { Box } from "../Box"
@@ -76,8 +76,8 @@ export const computeBorderColor = (inputStatus: InputStatus): Color => {
 
 const StyledInput = styled.input<StyledInputProps>`
   font-family: ${themeGet("fontFamily.sans.regular")};
-  font-size: ${themeGet("typeSizes.sans.3.fontSize")}px;
-  line-height: ${themeGet("typeSizes.sans.3t.lineHeight")}px;
+  font-size: ${themeGet("typeSizes.sans.3.fontSize")};
+  line-height: ${themeGet("typeSizes.sans.3t.lineHeight")};
   height: 40px;
   background-color: ${props =>
     props.disabled ? color("black5") : color("white100")};

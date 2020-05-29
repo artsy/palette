@@ -166,10 +166,7 @@ export const Modal: SFC<ModalProps> = ({
     return (
       <AnimatedView style={contentAnimation}>
         <ModalFlexContent>
-          <ModalScrollContent
-            hasLogo={hasLogo}
-            modalWidth={modalWidth}
-          >
+          <ModalScrollContent hasLogo={hasLogo} modalWidth={modalWidth}>
             {hasLogo && (
               <>
                 <Flex justifyContent="center">
@@ -232,7 +229,7 @@ const FixedButtonWrapper = styled(Flex)`
   flex: 0 0 auto;
 `
 
-const ModalOuterWrapper = styled(Box) <TransitionElementProps>`
+const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -252,7 +249,7 @@ const ModalWrapper = styled(Box)`
   overflow: hidden;
 `
 
-const ModalElement = styled(AnimatedView) <TransitionElementProps>`
+const ModalElement = styled(AnimatedView)<TransitionElementProps>`
   position: absolute;
   border-radius: 5px;
   top: 50%;
@@ -273,7 +270,7 @@ const ModalElement = styled(AnimatedView) <TransitionElementProps>`
   `};
 `
 
-const ModalFlexContent = styled(Flex) <ModalScrollContentProps>`
+const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
   flex-direction: column;
   width: 100%;
   overflow: hidden;
@@ -283,7 +280,7 @@ const ModalFlexContent = styled(Flex) <ModalScrollContentProps>`
   `};
 `
 
-const ModalScrollContent = styled(Flex) <ModalScrollContentProps>`
+const ModalScrollContent = styled(Flex)<ModalScrollContentProps>`
   overflow: auto;
   flex-direction: column;
   padding: ${props =>

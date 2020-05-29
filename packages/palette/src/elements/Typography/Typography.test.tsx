@@ -82,10 +82,10 @@ describe("Typography", () => {
         const sans = renderer.create(<Sans size="3">Hello world</Sans>).root
         const text = sans.findByType(Text as React.ComponentClass<any>)
         expect(text.props.fontSize).toEqual(
-          `${themeProps.typeSizes.sans["3"].fontSize}px`
+          `${themeProps.typeSizes.sans["3"].fontSize}`
         )
         expect(text.props.lineHeight).toEqual(
-          `${themeProps.typeSizes.sans["3"].lineHeight}px`
+          `${themeProps.typeSizes.sans["3"].lineHeight}`
         )
       })
 
@@ -94,12 +94,12 @@ describe("Typography", () => {
           .root
         const text = sans.findByType(Text as React.ComponentClass<any>)
         expect(text.props.fontSize).toEqual([
-          `${themeProps.typeSizes.sans["2"].fontSize}px`,
-          `${themeProps.typeSizes.sans["4"].fontSize}px`,
+          `${themeProps.typeSizes.sans["2"].fontSize}`,
+          `${themeProps.typeSizes.sans["4"].fontSize}`,
         ])
         expect(text.props.lineHeight).toEqual([
-          `${themeProps.typeSizes.sans["2"].lineHeight}px`,
-          `${themeProps.typeSizes.sans["4"].lineHeight}px`,
+          `${themeProps.typeSizes.sans["2"].lineHeight}`,
+          `${themeProps.typeSizes.sans["4"].lineHeight}`,
         ])
       })
     })
@@ -196,10 +196,10 @@ describe("Typography", () => {
         const serif = renderer.create(<Serif size="3">Hello world</Serif>).root
         const text = serif.findByType(Text as React.ComponentClass<any>)
         expect(text.props.fontSize).toEqual(
-          `${themeProps.typeSizes.serif["3"].fontSize}px`
+          `${themeProps.typeSizes.serif["3"].fontSize}`
         )
         expect(text.props.lineHeight).toEqual(
-          `${themeProps.typeSizes.serif["3"].lineHeight}px`
+          `${themeProps.typeSizes.serif["3"].lineHeight}`
         )
       })
 
@@ -209,12 +209,12 @@ describe("Typography", () => {
         ).root
         const text = serif.findByType(Text as React.ComponentClass<any>)
         expect(text.props.fontSize).toEqual([
-          `${themeProps.typeSizes.serif["2"].fontSize}px`,
-          `${themeProps.typeSizes.serif["4"].fontSize}px`,
+          `${themeProps.typeSizes.serif["2"].fontSize}`,
+          `${themeProps.typeSizes.serif["4"].fontSize}`,
         ])
         expect(text.props.lineHeight).toEqual([
-          `${themeProps.typeSizes.serif["2"].lineHeight}px`,
-          `${themeProps.typeSizes.serif["4"].lineHeight}px`,
+          `${themeProps.typeSizes.serif["2"].lineHeight}`,
+          `${themeProps.typeSizes.serif["4"].lineHeight}`,
         ])
       })
     })

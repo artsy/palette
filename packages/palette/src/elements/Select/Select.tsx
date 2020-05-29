@@ -1,3 +1,4 @@
+import { themeGet } from "@styled-system/theme-get"
 import React, { SFC } from "react"
 import styled, { css } from "styled-components"
 import {
@@ -8,7 +9,6 @@ import {
   PositionProps,
   space as styledSpace,
   SpaceProps,
-  themeGet,
   width,
   WidthProps,
 } from "styled-system"
@@ -169,8 +169,8 @@ const LargeSelectContainer = styled.div<SelectProps>`
     ${maxWidth};
     ${minWidth};
     font-family: ${themeGet("fontFamily.serif.regular")};
-    font-size: ${themeGet("typeSizes.serif.3.fontSize")}px;
-    line-height: ${themeGet("typeSizes.serif.3t.lineHeight")}px;
+    font-size: ${themeGet("typeSizes.serif.3.fontSize")};
+    line-height: ${themeGet("typeSizes.serif.3t.lineHeight")};
     height: 40px;
     ${hideDefaultSkin};
     border: 1px solid
@@ -224,8 +224,8 @@ const SelectSmallContainer = styled.div<SelectProps>`
     background-color: ${color("black10")};
     border-radius: 2px;
     ${themeGet("fontFamily.sans.medium")};
-    font-size: ${themeGet("typeSizes.sans.2.fontSize")}px;
-    line-height: ${themeGet("typeSizes.sans.2.lineHeight")}px;
+    font-size: ${themeGet("typeSizes.sans.2.fontSize")};
+    line-height: ${themeGet("typeSizes.sans.2.lineHeight")};
     padding: ${space(0.5)}px ${space(1) + carretSize * 4}px ${space(0.5)}px
       ${space(1)}px;
     ${styledSpace};

@@ -5,7 +5,7 @@ import { color, space } from "../../helpers"
 
 const ProgressBarBackground = styled.div<{ showBackground: boolean }>`
   height: 2px;
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.showBackground ? color("black10") : "transparent"};
 
   margin: ${space(0.5)}px 0 ${space(1)}px;

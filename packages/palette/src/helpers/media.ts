@@ -22,7 +22,7 @@ export const media: Media = Object.entries(breakpoints).reduce(
     return {
       ...accumulator,
       [label]: (strings, ...args) => css`
-        @media (max-width: ${value}px) {
+        @media (max-width: ${value}) {
           ${css(strings, ...args)};
         }
       `,

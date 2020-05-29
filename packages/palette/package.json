@@ -78,7 +78,8 @@
     "@types/react-test-renderer": "16.8.1",
     "@types/semver": "5.5.0",
     "@types/styled-components": "4.0.2",
-    "@types/styled-system": "3.2.2",
+    "@types/styled-system": "5.1.9",
+    "@types/styled-system__theme-get": "5.0.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.5",
@@ -116,6 +117,7 @@
     "typescript-styled-plugin": "0.10.0"
   },
   "dependencies": {
+    "@styled-system/theme-get": "^5.1.2",
     "babel-plugin-styled-components": "^1.10.0",
     "d3-interpolate": "^1.3.2",
     "d3-shape": "^1.3.5",
@@ -127,7 +129,7 @@
     "react-remove-scroll": "^2.3.0",
     "react-spring": "^8.0.27",
     "styled-bootstrap-grid": "1.0.4",
-    "styled-system": "^3.1.11",
+    "styled-system": "^5.1.5",
     "trunc-html": "^1.1.2",
     "use-cursor": "^1.2.0"
   },

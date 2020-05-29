@@ -11,13 +11,20 @@ import {
   HeightProps,
   maxWidth,
   MaxWidthProps,
-  ratio,
-  RatioProps,
+  ResponsiveValue,
   space,
   SpaceProps,
+  system,
   width,
   WidthProps,
 } from "styled-system"
+
+const ratioPadding = system({
+  ratio: {
+    property: "paddingBottom",
+    transform: n => n * 100 + "%",
+  },
+})
 
 /** Props for web & iOS images */
 export interface BaseImageProps {
@@ -48,8 +55,9 @@ export interface ResponsiveImageProps
   extends BaseImageProps,
     SpaceProps,
     WidthProps,
-    RatioProps,
-    MaxWidthProps {}
+    MaxWidthProps {
+  ratio?: ResponsiveValue<number>
+}
 
 /**
  * An Image component that responsively resizes within its environment
@@ -59,10 +67,16 @@ export const BaseResponsiveImage = styled(CleanTag)<ResponsiveImageProps>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  ${ratio};
   ${space};
   ${width};
   ${maxWidth};
+  ${props =>
+    props.ratio
+      ? {
+          height: 0,
+          ...ratioPadding(props),
+        }
+      : null};
 `
 BaseResponsiveImage.defaultProps = {
   width: "100%",

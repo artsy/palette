@@ -41,17 +41,17 @@ const font = ({
   fontFamily,
 }: Font) =>
   `font: ${fontStyle} ${fontVariant} ${fontWeight} ${fontSize}${
-    fontSize && lineHeight ? "px/" + lineHeight : lineHeight
-  }px ${fontFamily};`
+    fontSize && lineHeight ? "/" + lineHeight : lineHeight
+  } ${fontFamily};`
 
 let styles: string = ""
 let variables: string = ""
 
 Object.entries(themeProps.space).forEach(([unit, value]) => {
-  variables += `--space-${unit.replace(".", "_")}: ${value}px;`
+  variables += `--space-${unit.replace(".", "_")}: ${value};`
   Object.entries(spaceMapping).forEach(([classPrefix, cssGenerator]) => {
     styles += `.${classPrefix}-${unit.replace(".", "_")} { ${cssGenerator(
-      value + "px"
+      value
     )} }`
   })
 })
