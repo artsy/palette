@@ -2,7 +2,7 @@ import React, { SFC } from "react"
 import { Avatar } from "../Avatar"
 import { Flex } from "../Flex"
 import { SpacerProps } from "../Spacer"
-import { Sans, Serif } from "../Typography"
+import { Sans } from "../Typography"
 
 interface EntityHeaderProps extends SpacerProps {
   href?: string
@@ -39,14 +39,9 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
         </Flex>
       )}
       <Flex justifyContent="center" width={0} flexGrow={1}>
-        <Serif
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          size="3t"
-          color="black100"
-        >
+        <Sans ellipsizeMode="tail" numberOfLines={1} size="3" color="black100">
           {name}
-        </Serif>
+        </Sans>
         {!!meta && (
           <Sans ellipsizeMode="tail" numberOfLines={1} size="2" color="black60">
             {meta}

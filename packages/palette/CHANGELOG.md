@@ -1,3 +1,119 @@
+# v9.10.0 (Thu May 28 2020)
+
+#### 🚀  Enhancement
+
+- Update Modal to use Sans title [#700](https://github.com/artsy/palette/pull/700) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
+# v9.9.0 (Wed May 27 2020)
+
+#### 🚀  Enhancement
+
+- [FX-1936] Implements ModalBase (take II) [#693](https://github.com/artsy/palette/pull/693) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Makes chromatic specs less sensitive ([@dzucconi](https://github.com/dzucconi))
+- Implements ModalBase ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v9.8.1 (Wed May 27 2020)
+
+#### 🐛  Bug Fix
+
+- Fixes mixed-in classnames coming from styled-components [#697](https://github.com/artsy/palette/pull/697) ([@dzucconi](https://github.com/dzucconi))
+- Fixes mixed-in classnames coming from styled-components ([@dzucconi](https://github.com/dzucconi))
+- Adjusts Chromatic settings ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- Adjusts Chromatic settings [#694](https://github.com/artsy/palette/pull/694) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v9.8.0 (Tue May 26 2020)
+
+#### 🚀  Enhancement
+
+- Use Sans Instead of Serif in EntityHeader component [#692](https://github.com/artsy/palette/pull/692) ([@ashleyjelks](https://github.com/ashleyjelks))
+
+#### 🐛  Bug Fix
+
+- updates entity header to use sans ([@ashleyjelks](https://github.com/ashleyjelks))
+
+#### Authors: 1
+
+- Ashley Jelks ([@ashleyjelks](https://github.com/ashleyjelks))
+
+---
+
+# v9.7.0 (Thu May 21 2020)
+
+#### 🚀  Enhancement
+
+- Add disabledtext to radiogroup [#689](https://github.com/artsy/palette/pull/689) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- tiny ([@pvinis](https://github.com/pvinis))
+- test too ([@pvinis](https://github.com/pvinis))
+- add the actual functionality ([@pvinis](https://github.com/pvinis))
+- fix comment ([@pvinis](https://github.com/pvinis))
+- adding peripheral code ([@pvinis](https://github.com/pvinis))
+- adding knobs ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
+# v9.6.0 (Thu May 21 2020)
+
+#### 🚀  Enhancement
+
+- Adds HTML.ios.tsx [#691](https://github.com/artsy/palette/pull/691) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Adds .ios ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v9.5.0 (Wed May 20 2020)
+
+#### 🚀  Enhancement
+
+- Adds HTML component [#690](https://github.com/artsy/palette/pull/690) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Adds HTML component ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v9.4.0 (Tue May 19 2020)
 
 #### 🚀  Enhancement

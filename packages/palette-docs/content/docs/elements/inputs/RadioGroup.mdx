@@ -63,3 +63,16 @@ selection.
     <Radio value="PICKUP" label="Arrange for pickup" />
   </RadioGroup>
 </Playground>
+
+## Disabled with text
+
+<Playground>
+  <RadioGroup
+    defaultValue="SHIP"
+    disabled
+    disabledText="Delivery not available"
+  >
+    <Radio value="SHIP" label="Provide shipping address" />
+    <Radio value="PICKUP" label="Arrange for pickup" />
+  </RadioGroup>
+</Playground>

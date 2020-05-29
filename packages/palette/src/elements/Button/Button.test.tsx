@@ -1,5 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
+import styled from "styled-components"
 import { Theme } from "../../Theme"
 import { Button } from "../Button"
 
@@ -51,6 +52,7 @@ describe("Button", () => {
       </Theme>
     )
     expect(wrapper.find("Spinner").length).toBe(1)
+    expect(wrapper.html()).toContain('class="loading')
   })
 
   it("does not invoke the onClick callback if loading is true", () => {
@@ -80,5 +82,15 @@ describe("Button", () => {
     )
 
     expect(wrapper.find("button[disabled]")).toHaveLength(1)
+  })
+
+  it("has the styled-components classes on styled(Button)", () => {
+    const StyledButton = styled(Button)`
+      border: 1px solid red;
+    `
+
+    const wrapper = mount(<StyledButton>styled</StyledButton>)
+
+    expect(wrapper.html()).toContain("Buttontest__StyledButton")
   })
 })

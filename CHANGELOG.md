@@ -1,3 +1,104 @@
+# v9.10.0 (Thu May 28 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Update Modal to use Sans title [#700](https://github.com/artsy/palette/pull/700) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
+# v9.9.0 (Wed May 27 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [FX-1936] Implements ModalBase (take II) [#693](https://github.com/artsy/palette/pull/693) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v9.8.1 (Wed May 27 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fixes mixed-in classnames coming from styled-components [#697](https://github.com/artsy/palette/pull/697) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Adjusts Chromatic settings [#694](https://github.com/artsy/palette/pull/694) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v9.8.0 (Tue May 26 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Use Sans Instead of Serif in EntityHeader component [#692](https://github.com/artsy/palette/pull/692) ([@ashleyjelks](https://github.com/ashleyjelks))
+
+#### Authors: 1
+
+- Ashley Jelks ([@ashleyjelks](https://github.com/ashleyjelks))
+
+---
+
+# v9.7.0 (Thu May 21 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add disabledtext to radiogroup [#689](https://github.com/artsy/palette/pull/689) ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
+# v9.6.0 (Thu May 21 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Adds HTML.ios.tsx [#691](https://github.com/artsy/palette/pull/691) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- Update auto orb from 1.3.1 to v1.3.2 [#682](https://github.com/artsy/palette/pull/682) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
+# v9.5.0 (Wed May 20 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Adds HTML component [#690](https://github.com/artsy/palette/pull/690) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v9.4.0 (Tue May 19 2020)
 
 #### 🚀  Enhancement

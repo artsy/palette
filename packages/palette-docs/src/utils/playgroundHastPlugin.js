@@ -59,7 +59,7 @@ const packagePath = path.resolve(__dirname, "../", "package.json")
 const prettierOptions = prettier.resolveConfig.sync(packagePath)
 const prettifyCode = code => {
   return prettier.format(code, {
-    parser: "babylon",
+    parser: "babel",
     ...prettierOptions,
   })
 }

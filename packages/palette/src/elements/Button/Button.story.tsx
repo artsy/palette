@@ -1,6 +1,11 @@
 import { storiesOf } from "@storybook/react"
 import React from "react"
+import styled from "styled-components"
 import { Button } from "./Button"
+
+const StyledButton = styled(Button)`
+  border: 2px solid red;
+`
 
 storiesOf("Components/Button", module)
   .add("small", () => {
@@ -63,6 +68,27 @@ storiesOf("Components/Button", module)
         <Button size="large" variant="noOutline">
           noOutline
         </Button>
+      </>
+    )
+  })
+  .add("styled(Button)", () => {
+    return (
+      <>
+        <StyledButton size="large" variant="primaryBlack" mr={1}>
+          primaryBlack
+        </StyledButton>
+        <StyledButton size="large" variant="primaryWhite" mr={1}>
+          primaryWhite
+        </StyledButton>
+        <StyledButton size="large" variant="secondaryGray" mr={1}>
+          secondaryGray
+        </StyledButton>
+        <StyledButton size="large" variant="secondaryOutline" mr={1}>
+          secondaryOutline
+        </StyledButton>
+        <StyledButton size="large" variant="noOutline">
+          noOutline
+        </StyledButton>
       </>
     )
   })
