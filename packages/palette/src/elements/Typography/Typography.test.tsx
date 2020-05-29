@@ -1,7 +1,8 @@
 import React from "react"
 import renderer from "react-test-renderer"
+import { range } from "../../helpers"
 import { themeProps } from "../../Theme"
-import { Display, Sans, Serif, Text } from "../Typography"
+import { Display, endash, Sans, Serif, Text } from "../Typography"
 
 class Catcher extends React.Component<{ onError: (error: Error) => void }> {
   componentDidCatch(error, _info) {
@@ -229,6 +230,26 @@ describe("Typography", () => {
             themeProps.fontFamily.display.regular
           )
         })
+      })
+    })
+
+    describe("other", () => {
+      it("uses endash in ranges", () => {
+        const usingHelper = renderer.create(
+          <Sans size="3t">{range("10", "20")}</Sans>
+        ).root
+        const usingEndash = renderer.create(
+          <Sans size="3t">10 {endash} 20</Sans>
+        ).root
+        const textHelper = usingHelper.findByType(Text as React.ComponentClass<
+          any
+        >)
+        const textEndash = usingEndash.findByType(Text as React.ComponentClass<
+          any
+        >)
+        expect(textHelper.props.text).toEqual(textEndash.props.text)
+        expect(textHelper.props.text).toEqual("10 – 20") // endash
+        expect(textHelper.props.text).not.toEqual("10 - 20") // minus
       })
     })
   })
