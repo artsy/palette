@@ -312,3 +312,12 @@ export const Display = createStyledText<DisplayProps>("display")
 Sans.displayName = "Sans"
 Serif.displayName = "Serif"
 Display.displayName = "Display"
+
+/**
+ * The endash is used in ranges like `$10k – $20k`.
+ * This export makes it easier to use in the code, without having to find
+ * the character in unicode.
+ * It is a different character to the regular minus, usually a bit longer.
+ * (for reference: minus `-`, endash `–`)
+ */
+export const endash = "–"
