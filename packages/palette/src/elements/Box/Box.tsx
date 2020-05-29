@@ -9,6 +9,7 @@ import {
   BottomProps,
   color as styledColor,
   ColorProps,
+  compose,
   display,
   DisplayProps,
   height,
@@ -59,27 +60,34 @@ export interface BoxProps
     ZIndexProps {}
 
 /**
+ * All the system functions for Box
+ */
+export const boxMixin = compose(
+  background,
+  bottom,
+  display,
+  height,
+  left,
+  minWidth,
+  maxWidth,
+  minHeight,
+  maxHeight,
+  position,
+  right,
+  styledColor,
+  styledSpace,
+  textAlign,
+  top,
+  width,
+  zIndex
+)
+
+/**
  * Box is just a `View` or `div` (depending on the platform) with common styled-systems
  * hooks.
  */
 export const Box = primitives.View<BoxProps>`
-  ${background};
-  ${bottom};
-  ${display};
-  ${height};
-  ${left};
-  ${minWidth};
-  ${maxWidth};
-  ${minHeight};
-  ${maxHeight};
-  ${position};
-  ${right};
-  ${styledColor};
-  ${styledSpace};
-  ${textAlign};
-  ${top};
-  ${width};
-  ${zIndex};
+  ${boxMixin}
 `
 
 Box.displayName = "Box"
