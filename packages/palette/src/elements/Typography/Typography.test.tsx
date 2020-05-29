@@ -235,21 +235,11 @@ describe("Typography", () => {
 
     describe("other", () => {
       it("uses endash in ranges", () => {
-        const usingHelper = renderer.create(
-          <Sans size="3t">{range("10", "20")}</Sans>
-        ).root
-        const usingEndash = renderer.create(
-          <Sans size="3t">10 {endash} 20</Sans>
-        ).root
-        const textHelper = usingHelper.findByType(Text as React.ComponentClass<
-          any
-        >)
-        const textEndash = usingEndash.findByType(Text as React.ComponentClass<
-          any
-        >)
-        expect(textHelper.props.text).toEqual(textEndash.props.text)
-        expect(textHelper.props.text).toEqual("10 – 20") // endash
-        expect(textHelper.props.text).not.toEqual("10 - 20") // minus
+        const usingHelper = range("10", "20")
+        const usingEndash = `10 ${endash} 20`
+        expect(usingHelper).toEqual(usingEndash)
+        expect(usingHelper).toEqual("10 – 20") // endash
+        expect(usingHelper).not.toEqual("10 - 20") // minus
       })
     })
   })
