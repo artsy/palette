@@ -1,3 +1,16 @@
+# v9.11.0 (Fri May 29 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - adding `endash` and a `range` helper [#702](https://github.com/artsy/palette/pull/702) ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # v9.10.0 (Thu May 28 2020)
 
 #### 🚀  Enhancement
