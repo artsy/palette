@@ -11,7 +11,8 @@ or a range of values (e.g. price ranges or height/width ranges).
   <Box p={1}>
     <Value initial={[0, 100]}>
       {({ value, set }) => {
-        const valueToString = ([min, max]) => "$" + min + " - $" + max
+        const valueToString = ([min, max]) =>
+          "$" + min + " " + endash + " " + "$" + max
         return (
           <div>
             <Serif size="3" color="black60" my={2}>
