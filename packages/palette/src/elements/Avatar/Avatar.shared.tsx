@@ -1,14 +1,14 @@
 import React, { ImgHTMLAttributes } from "react"
 import { color } from "../../helpers/color"
 import { styledWrapper } from "../../platform/primitives"
-import { SerifSize } from "../../Theme"
+import { SansSize } from "../../Theme"
 import { Flex } from "../Flex"
-import { Serif } from "../Typography"
+import { Sans } from "../Typography"
 
 export interface SizeProps {
   [key: string]: {
     diameter: string
-    typeSize: SerifSize
+    typeSize: SansSize
   }
 }
 
@@ -77,14 +77,14 @@ export const BaseAvatar = ({
         alignItems="center"
         size={size}
       >
-        <Serif
+        <Sans
           size={typeSize}
           color="black60"
-          weight="semibold"
+          weight="medium"
           lineHeight={parseInt(diameter, 10)}
         >
           {initials}
-        </Serif>
+        </Sans>
       </InitialsHolder>
     )
   } else {
