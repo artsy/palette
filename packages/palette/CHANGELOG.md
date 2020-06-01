@@ -1,3 +1,19 @@
+# v9.13.0 (Mon Jun 01 2020)
+
+#### 🚀  Enhancement
+
+- Update avatar component to use Sans [#706](https://github.com/artsy/palette/pull/706) ([@xtina-starr](https://github.com/xtina-starr))
+
+#### 🐛  Bug Fix
+
+- Change avatar from from serif to sans ([@xtina-starr](https://github.com/xtina-starr))
+
+#### Authors: 1
+
+- Christina ([@xtina-starr](https://github.com/xtina-starr))
+
+---
+
 # v9.12.0 (Fri May 29 2020)
 
 #### 🚀  Enhancement
