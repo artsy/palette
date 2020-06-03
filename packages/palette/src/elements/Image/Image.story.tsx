@@ -8,7 +8,7 @@ storiesOf("Components/Image", module)
       <Image
         width="300px"
         height="200px"
-        src="https://picsum.photos/300/200/?random"
+        src="https://picsum.photos/300/200/?random=1"
       />
     )
   })
