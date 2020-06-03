@@ -1,3 +1,16 @@
+# v10.0.0 (Wed Jun 03 2020)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette`
+  - Upgrades to styled-system v5 [#705](https://github.com/artsy/palette/pull/705) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v9.13.0 (Mon Jun 01 2020)
 
 #### 🚀  Enhancement
