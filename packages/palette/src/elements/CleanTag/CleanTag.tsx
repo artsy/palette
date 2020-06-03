@@ -9,28 +9,51 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 import React, { ComponentClass, FunctionComponent } from "react"
-import { styles, StylesProps } from "styled-system"
 import { View } from "../../platform/primitives"
-
-const allPropTypes: Partial<StylesProps> = Object.keys(styles)
-  .filter(key => typeof styles[key] === "function")
-  .reduce(
-    (styleProps: Partial<StylesProps>, key) => ({
-      ...styleProps,
-      ...styles[key].propTypes,
-    }),
-    {}
-  )
 
 /**
  * The default set of props to remove from components rendered by styled-components
  */
-export const omitProps = [...Object.keys(allPropTypes), "theme"]
+export const omitProps = [
+  "backgroundColor",
+  "bg",
+  "borderRadius",
+  "color",
+  "display",
+  "fontFamily",
+  "fontSize",
+  "fontStyle",
+  "fontWeight",
+  "height",
+  "letterSpacing",
+  "lineHeight",
+  "m",
+  "maxHeight",
+  "maxWidth",
+  "mb",
+  "minHeight",
+  "minWidth",
+  "ml",
+  "mr",
+  "mt",
+  "mx",
+  "my",
+  "p",
+  "pb",
+  "pl",
+  "pr",
+  "pt",
+  "px",
+  "py",
+  "textAlign",
+  "theme",
+  "width",
+]
 
 /**
  * Removes entries from an object based on a list of keys
  */
-export const omit = (obj: object, keys: string[]) => {
+export const omit = (obj: object = {}, keys: string[]) => {
   const next = {}
   for (const key in obj) {
     if (keys.indexOf(key) > -1) continue
@@ -51,11 +74,13 @@ const tagName = tag =>
 
 function tagBuilder(tag: ComponentSpecifier = View) {
   const TagComponent = React.forwardRef<any, TagProps>(
-    ({ is: BaseTag = tag, omitFromProps = omitProps, ...props }, ref) =>
-      React.createElement(BaseTag, {
-        ref,
-        ...omit(props, omitFromProps),
-      })
+    ({ is: BaseTag = tag, omitFromProps = [], ...props } = {}, ref) =>
+      props
+        ? React.createElement(BaseTag, {
+            ref,
+            ...omit(props, [...omitFromProps, ...omitProps]),
+          })
+        : React.createElement(BaseTag, { ref })
   )
   TagComponent.displayName = `Clean.${tagName(tag)}`
   return TagComponent

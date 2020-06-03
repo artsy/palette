@@ -78,8 +78,8 @@ const QRToolTip = styled.div`
   }
 
   img {
-    width: ${QR_SIZE};
-    height: ${QR_SIZE};
+    width: ${QR_SIZE}px;
+    height: ${QR_SIZE}px;
   }
 `
 

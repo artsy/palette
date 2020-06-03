@@ -15,15 +15,31 @@ import { ThemeProvider } from "./platform/primitives"
  */
 export const breakpoints = {
   /** Above 1192 */
-  xl: 1192,
+  xl: "1192px",
   /** Between 1024 and  1191 */
-  lg: 1024,
+  lg: "1024px",
   /** Between 900 and 1023 */
-  md: 900,
+  md: "900px",
   /** Between 768 and  899 */
-  sm: 768,
+  sm: "768px",
   /** Below 767 */
-  xs: 767,
+  xs: "767px",
+}
+
+/**
+ * Copy of `breakpoints` as integers
+ */
+export const unitlessBreakpoints = {
+  /** Above 1192 */
+  xl: parseInt(breakpoints.xl, 10),
+  /** Between 1024 and  1191 */
+  lg: parseInt(breakpoints.lg, 10),
+  /** Between 900 and 1023 */
+  md: parseInt(breakpoints.md, 10),
+  /** Between 768 and  899 */
+  sm: parseInt(breakpoints.sm, 10),
+  /** Below 767 */
+  xs: parseInt(breakpoints.xs, 10),
 }
 
 /**
@@ -82,11 +98,11 @@ export const themeProps = {
   // prettier-ignore
   /** Media queries to work with in web  */
   mediaQueries: {
-    xl: `(min-width: ${breakpoints.xl}px)`,
-    lg: `(min-width: ${breakpoints.lg}px) and (max-width: ${breakpoints.xl - 1}px)`,
-    md: `(min-width: ${breakpoints.md}px) and (max-width: ${breakpoints.lg - 1}px)`,
-    sm: `(min-width: ${breakpoints.sm}px) and (max-width: ${breakpoints.md - 1}px)`,
-    xs: `(max-width: ${breakpoints.sm -1}px)`,
+    xl: `(min-width: ${breakpoints.xl})`,
+    lg: `(min-width: ${breakpoints.lg}) and (max-width: ${parseInt(breakpoints.xl, 10) - 1})`,
+    md: `(min-width: ${breakpoints.md}) and (max-width: ${parseInt(breakpoints.lg, 10) - 1})`,
+    sm: `(min-width: ${breakpoints.sm}) and (max-width: ${parseInt(breakpoints.md, 10) - 1})`,
+    xs: `(max-width: ${parseInt(breakpoints.sm, 10) - 1})`,
     /** Determines if the input device has the notion of hover, e.g. mouse. */
     hover: `not all and (pointer: coarse), not all and (-moz-touch-enabled: 1)`,
   },
@@ -96,8 +112,11 @@ export const themeProps = {
     /**
      * Breakpoints for the Artsy grid,
      * https://www.notion.so/artsy/Grid-e489a52e26bd4319b6ee7898044a8a53
+     *
+     * This version of `styled-bootstrap-grid` requires breakpoint
+     * values to be integers (not px literals)
      */
-    breakpoints,
+    breakpoints: unitlessBreakpoints,
     container: {
       padding: 0,
     },
@@ -116,25 +135,25 @@ export const themeProps = {
   space: {
     // unit: px value
     /** Equivalent to 3px  */
-    0.3: 3,
+    0.3: "3px",
     /** Equivalent to 5px  */
-    0.5: 5,
+    0.5: "5px",
     /** Equivalent to 10px  */
-    1: 10,
+    1: "10px",
     /** Equivalent to 20px  */
-    2: 20,
+    2: "20px",
     /** Equivalent to 30px  */
-    3: 30,
+    3: "30px",
     /** Equivalent to 40px  */
-    4: 40,
+    4: "40px",
     /** Equivalent to 50px  */
-    6: 60,
+    6: "60px",
     /** Equivalent to 90px  */
-    9: 90,
+    9: "90px",
     /** Equivalent to 120px  */
-    12: 120,
+    12: "120px",
     /** Equivalent to 180px  */
-    18: 180,
+    18: "180px",
   },
 
   /**
@@ -146,78 +165,78 @@ export const themeProps = {
     sans: {
       /** Equivalent to 8px size / 8px line-height  */
       "0": {
-        fontSize: 8,
-        lineHeight: 8,
+        fontSize: "8px",
+        lineHeight: "8px",
       },
       /** Equivalent to 10px size / 14px line-height  */
       "1": {
-        fontSize: 10,
-        lineHeight: 14,
+        fontSize: "10px",
+        lineHeight: "14px",
       },
       /** Equivalent to 12px size / 16px line-height  */
       "2": {
-        fontSize: 12,
-        lineHeight: 16,
+        fontSize: "12px",
+        lineHeight: "16px",
       },
       /** Equivalent to 14px size / 24px line-height  */
       "3": {
-        fontSize: 14,
-        lineHeight: 24,
+        fontSize: "14px",
+        lineHeight: "24px",
       },
       /** Equivalent to 14px size / 20px line-height  */
       "3t": {
-        fontSize: 14,
-        lineHeight: 20,
+        fontSize: "14px",
+        lineHeight: "20px",
       },
       /** Equivalent to 16px size / 26px line-height  */
       "4": {
-        fontSize: 16,
-        lineHeight: 26,
+        fontSize: "16px",
+        lineHeight: "26px",
       },
       /** Equivalent to 16px size / 22px line-height  */
       "4t": {
-        fontSize: 16,
-        lineHeight: 22,
+        fontSize: "16px",
+        lineHeight: "22px",
       },
       /** Equivalent to 18px size / 30px line-height  */
       "5": {
-        fontSize: 18,
-        lineHeight: 30,
+        fontSize: "18px",
+        lineHeight: "30px",
       },
       /** Equivalent to 18px size / 26px line-height  */
       "5t": {
-        fontSize: 18,
-        lineHeight: 26,
+        fontSize: "18px",
+        lineHeight: "26px",
       },
       /** Equivalent to 22px size / 30px line-height  */
       "6": {
-        fontSize: 22,
-        lineHeight: 30,
+        fontSize: "22px",
+        lineHeight: "30px",
       },
       /** Equivalent to 28px size / 36px line-height  */
       "8": {
-        fontSize: 28,
-        lineHeight: 36,
+        fontSize: "28px",
+        lineHeight: "36px",
       },
       /** Equivalent to 42px size / 50px line-height  */
       "10": {
-        fontSize: 42,
-        lineHeight: 50,
+        fontSize: "42px",
+        lineHeight: "50px",
       },
       /** Equivalent to 60px size / 66px line-height  */
       "12": {
-        fontSize: 60,
-        lineHeight: 66,
+        fontSize: "60px",
+        lineHeight: "66px",
       },
       /** Equivalent to 80px size / 84px line-height  */
       "14": {
-        fontSize: 80,
-        lineHeight: 84,
+        fontSize: "80px",
+        lineHeight: "84px",
       },
       /** Equivalent to 100px size / 104px line-height  */
       "16": {
-        fontSize: 100,
-        lineHeight: 104,
+        fontSize: "100px",
+        lineHeight: "104px",
       },
     },
 
@@ -225,63 +244,63 @@ export const themeProps = {
     serif: {
       /** Equivalent to 12px size / 16px line-height  */
       "1": {
-        fontSize: 12,
-        lineHeight: 16,
+        fontSize: "12px",
+        lineHeight: "16px",
       },
       /** Equivalent to 14px size / 18px line-height  */
       "2": {
-        fontSize: 14,
-        lineHeight: 18,
+        fontSize: "14px",
+        lineHeight: "18px",
       },
       /** Equivalent to 16px size / 24px line-height  */
       "3": {
-        fontSize: 16,
-        lineHeight: 24,
+        fontSize: "16px",
+        lineHeight: "24px",
       },
       /** Equivalent to 16px size / 20px line-height  */
       "3t": {
-        fontSize: 16,
-        lineHeight: 20,
+        fontSize: "16px",
+        lineHeight: "20px",
       },
       /** Equivalent to 18px size / 26px line-height  */
       "4": {
-        fontSize: 18,
-        lineHeight: 26,
+        fontSize: "18px",
+        lineHeight: "26px",
       },
       /** Equivalent to 18px size / 22px line-height  */
       "4t": {
-        fontSize: 18,
-        lineHeight: 22,
+        fontSize: "18px",
+        lineHeight: "22px",
       },
       /** Equivalent to 22px size / 32px line-height  */
       "5": {
-        fontSize: 22,
-        lineHeight: 32,
+        fontSize: "22px",
+        lineHeight: "32px",
       },
       /** Equivalent to 22px size / 28px line-height  */
       "5t": {
-        fontSize: 22,
-        lineHeight: 28,
+        fontSize: "22px",
+        lineHeight: "28px",
       },
       /** Equivalent to 26px size / 32px line-height  */
       "6": {
-        fontSize: 26,
-        lineHeight: 32,
+        fontSize: "26px",
+        lineHeight: "32px",
       },
       /** Equivalent to 32px size / 38px line-height  */
       "8": {
-        fontSize: 32,
-        lineHeight: 38,
+        fontSize: "32px",
+        lineHeight: "38px",
       },
       /** Equivalent to 44px size / 50px line-height  */
       "10": {
-        fontSize: 44,
-        lineHeight: 50,
+        fontSize: "44px",
+        lineHeight: "50px",
       },
       /** Equivalent to 60px size / 70px line-height  */
       "12": {
-        fontSize: 60,
-        lineHeight: 70,
+        fontSize: "60px",
+        lineHeight: "70px",
       },
     },
 
@@ -289,33 +308,33 @@ export const themeProps = {
     display: {
       /** Equivalent to 10px size / 12px line-height  */
       "2": {
-        fontSize: 10,
-        lineHeight: 12,
+        fontSize: "10px",
+        lineHeight: "12px",
       },
       /** Equivalent to 12px size / 16px line-height  */
       "3t": {
-        fontSize: 12,
-        lineHeight: 16,
+        fontSize: "12px",
+        lineHeight: "16px",
       },
       /** Equivalent to 14px size / 18px line-height  */
       "4t": {
-        fontSize: 14,
-        lineHeight: 18,
+        fontSize: "14px",
+        lineHeight: "18px",
       },
       /** Equivalent to 16px size / 20px line-height  */
       "5t": {
-        fontSize: 16,
-        lineHeight: 20,
+        fontSize: "16px",
+        lineHeight: "20px",
       },
       /** Equivalent to 18px size / 22px line-height  */
       "6": {
-        fontSize: 18,
-        lineHeight: 22,
+        fontSize: "18px",
+        lineHeight: "22px",
       },
       /** Equivalent to 22px size / 24px line-height  */
       "8": {
-        fontSize: 22,
-        lineHeight: 24,
+        fontSize: "22px",
+        lineHeight: "24px",
       },
     },
   },

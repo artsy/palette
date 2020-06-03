@@ -32,7 +32,7 @@ const BarBox = styled(Box)`
   cursor: ${props => (props.onClick ? "pointer" : "default")};
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
-  @media (min-width: ${breakpoints.sm}px) {
+  @media (min-width: ${breakpoints.sm}) {
     :hover {
       background: ${(props: BarBoxProps) =>
         props.isHighlighted ? color("black60") : color("black30")};
@@ -115,7 +115,7 @@ const TriangleHighlight = styled.div`
   `};
   width: 0;
   height: 0;
-  margin-bottom: ${TRIANGLE_BOTTOM_PADDING}px;
+  margin-bottom: ${TRIANGLE_BOTTOM_PADDING};
   border-left: ${TRIANGLE_HEIGHT}px solid transparent;
   border-right: ${TRIANGLE_HEIGHT}px solid transparent;
   border-top: ${TRIANGLE_HEIGHT}px solid ${color("black60")};

@@ -16,7 +16,7 @@ import styled from "styled-components"
 /** Outter wrapper when using a grid */
 export const Grid: any = styled(_Container)`
   overflow: hidden;
-  max-width: ${props => props.theme.grid.breakpoints.xl}px;
+  max-width: ${props => props.theme.grid.breakpoints.xl};
   ${space};
   ${maxWidth};
 `
