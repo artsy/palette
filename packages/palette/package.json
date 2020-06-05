@@ -20,7 +20,7 @@
     "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
     "prettier-project": "yarn prettier --write 'src/**/*.{ts,tsx}'",
     "release": "auto shipit && node scripts/clean-up-after-auto.js",
-    "test": "yarn type-check && yarn jest -w=2",
+    "test": "yarn type-check && yarn jest",
     "test:watch": "jest --watch --runInBand",
     "type-check": "tsc --noEmit --pretty && yarn type-check-ios && yarn type-check-scripts",
     "type-check-ios": "tsc -p tsconfig.ios.json --noEmit --pretty",
