@@ -8,6 +8,8 @@ import { Flex, FlexProps } from "../Flex"
 import {
   background,
   BackgroundProps,
+  border,
+  BorderProps,
   height,
   HeightProps,
   maxWidth,
@@ -20,6 +22,7 @@ import {
 
 export interface BorderBoxProps
   extends BackgroundProps,
+    BorderProps,
     FlexProps,
     HeightProps,
     MaxWidthProps,
@@ -37,6 +40,7 @@ export const BorderBoxBase = styledWrapper(Flex)<BorderBoxProps>`
   border-radius: 2px;
   padding: ${space(2)}px;
   ${background};
+  ${border};
   ${height};
   ${maxWidth};
   ${styledSpace};
