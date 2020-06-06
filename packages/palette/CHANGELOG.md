@@ -1,3 +1,19 @@
+# v10.1.0 (Sat Jun 06 2020)
+
+#### 🚀  Enhancement
+
+- allow customizing border color for BorderBox [#708](https://github.com/artsy/palette/pull/708) ([@oxaudo](https://github.com/oxaudo))
+
+#### 🐛  Bug Fix
+
+- allow customizing border color for BorderBox ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v10.0.0 (Wed Jun 03 2020)
 
 #### 💥  Breaking Change
