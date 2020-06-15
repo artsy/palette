@@ -1,4 +1,5 @@
 import React, { ImgHTMLAttributes } from "react"
+import { borderRadius } from "styled-system"
 import { color } from "../../helpers/color"
 import { styledWrapper } from "../../platform/primitives"
 import { SansSize } from "../../Theme"
@@ -75,6 +76,9 @@ export const BaseAvatar = ({
         height={diameter}
         justifyContent={justifyContent}
         alignItems="center"
+        // NOTE: To make a circle in React Native:
+        // you have to use a numeric value and can't use "50%"
+        borderRadius={diameter}
       >
         <Sans
           size={typeSize}
@@ -96,7 +100,7 @@ export const InitialsHolder = styledWrapper(Flex)`
   background-color: ${color("black10")};
   text-align: center;
   overflow: hidden;
-  border-radius: 50%;
+  ${borderRadius}
 `
 
 InitialsHolder.displayName = "InitialsHolder"
