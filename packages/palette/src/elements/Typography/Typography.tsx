@@ -26,9 +26,10 @@ import {
   MaxWidthProps,
   space,
   SpaceProps,
-  style,
   textAlign,
   TextAlignProps,
+  verticalAlign,
+  VerticalAlignProps,
 } from "styled-system"
 
 import { isReactNative } from "../../helpers/isReactNative"
@@ -37,24 +38,6 @@ import { determineFontSizes } from "./determineFontSizes"
 /**
  * Spec: https://www.notion.so/artsy/Typography-d1f9f6731f3d47c78003d6d016c30221
  */
-
-export interface VerticalAlignProps {
-  verticalAlign?:
-    | "baseline"
-    | "sub"
-    | "super"
-    | "text-top"
-    | "text-bottom"
-    | "middle"
-    | "top"
-    | "bottom"
-    | "inherit"
-    | "initial"
-    | "unset"
-}
-const verticalAlign = style({
-  prop: "verticalAlign",
-})
 
 /** renderFontValue */
 export const renderFontValue = (fontValue: FontValue) => {

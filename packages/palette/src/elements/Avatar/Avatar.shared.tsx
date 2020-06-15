@@ -31,7 +31,7 @@ export const Size: SizeProps = {
 type SizeKey = "xs" | "sm" | "md"
 
 /** sizeValue */
-export const sizeValue = size => {
+export const sizeValue = (size: SizeKey) => {
   switch (size) {
     case "xs":
       return Size.xs
@@ -75,7 +75,6 @@ export const BaseAvatar = ({
         height={diameter}
         justifyContent={justifyContent}
         alignItems="center"
-        size={size}
       >
         <Sans
           size={typeSize}
@@ -93,11 +92,11 @@ export const BaseAvatar = ({
 }
 
 /** InitialsHolder */
-export const InitialsHolder = styledWrapper(Flex)<{ size: SizeKey }>`
+export const InitialsHolder = styledWrapper(Flex)`
   background-color: ${color("black10")};
-  border-radius: ${props => sizeValue(props.size).diameter};
   text-align: center;
   overflow: hidden;
+  border-radius: 50%;
 `
 
 InitialsHolder.displayName = "InitialsHolder"
