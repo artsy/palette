@@ -1,3 +1,20 @@
+# v11.0.0 (Mon Jun 15 2020)
+
+#### 💥  Breaking Change
+
+- Unifies Box/Flex [#707](https://github.com/artsy/palette/pull/707) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Avoids changing picture on every PR ([@dzucconi](https://github.com/dzucconi))
+- Unifies props interfaces for Box/Flex ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v10.1.0 (Sat Jun 06 2020)
 
 #### 🚀  Enhancement
