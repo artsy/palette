@@ -1,3 +1,16 @@
+# v11.0.1 (Mon Jun 15 2020)
+
+#### 🐛  Bug Fix
+
+- Fixes avatars in React Native [#710](https://github.com/artsy/palette/pull/710) ([@dzucconi](https://github.com/dzucconi))
+- Fixes avatars in React Native ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.0.0 (Mon Jun 15 2020)
 
 #### 💥  Breaking Change
