@@ -1,3 +1,16 @@
+# v11.0.2 (Tue Jun 16 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - BorderBox should support custom padding [#711](https://github.com/artsy/palette/pull/711) ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v11.0.1 (Mon Jun 15 2020)
 
 #### 🐛  Bug Fix
