@@ -1,11 +1,16 @@
 // @ts-ignore
 import React from "react"
-import { border, BorderProps } from "styled-system"
+import {
+  border,
+  BorderProps,
+  space as styledSpace,
+  SpaceProps,
+} from "styled-system"
 import { color, space } from "../../helpers"
 import { styledWrapper } from "../../platform/primitives"
 import { Flex, FlexProps } from "../Flex"
 
-export interface BorderBoxProps extends FlexProps, BorderProps {
+export interface BorderBoxProps extends FlexProps, BorderProps, SpaceProps {
   hover?: boolean
 }
 
@@ -18,4 +23,5 @@ export const BorderBoxBase = styledWrapper(Flex)<BorderBoxProps>`
   border-radius: 2px;
   padding: ${space(2)}px;
   ${border}
+  ${styledSpace}
 `
