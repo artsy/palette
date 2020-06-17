@@ -53,7 +53,7 @@ export const renderFontValue = (fontValue: FontValue) => {
   }
 }
 
-export interface TextProps
+interface TextProps
   extends ColorProps,
     FontSizeProps,
     LineHeightProps,
@@ -80,7 +80,7 @@ export interface TextProps
 }
 
 /** Base Text component for typography */
-export const Text = primitives.Text<TextProps>`
+export const BaseText = primitives.Text<TextProps>`
   ${({ fontFamily }) => fontFamily && renderFontValue(fontFamily)};
   ${fontSize};
   ${lineHeight};
@@ -175,7 +175,7 @@ function createStyledText<P extends StyledTextProps>(
       }
 
       return (
-        <Text
+        <BaseText
           fontFamily={
             fontFamilyType && themeProps.fontFamily[fontType][fontFamilyType]
           }

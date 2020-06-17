@@ -1,4 +1,10 @@
 import React from "react"
+import {
+  TEXT_FONT_SIZES,
+  TEXT_FONTS,
+  TEXT_LETTER_SPACING,
+  TEXT_LINE_HEIGHTS,
+} from "./elements/Text"
 import { isReactNative } from "./helpers/isReactNative"
 import { fontFamily } from "./platform/fonts"
 import { ThemeProvider } from "./platform/primitives"
@@ -94,6 +100,11 @@ export const themeProps = {
   },
 
   fontFamily,
+
+  fonts: TEXT_FONTS,
+  fontSizes: TEXT_FONT_SIZES,
+  letterSpacings: TEXT_LETTER_SPACING,
+  lineHeights: TEXT_LINE_HEIGHTS,
 
   // prettier-ignore
   /** Media queries to work with in web  */
