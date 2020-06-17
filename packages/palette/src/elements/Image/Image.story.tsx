@@ -8,18 +8,22 @@ storiesOf("Components/Image", module)
       <Image
         width="300px"
         height="200px"
-        src="https://picsum.photos/300/200/?random=1"
+        src="https://picsum.photos/seed/example/300/200"
       />
     )
   })
   .add("LazyImage", () => {
-    return [...new Array(100)].map((_, i) => (
-      <Image
-        key={i}
-        lazyLoad
-        width="300px"
-        height="200px"
-        src={`https://picsum.photos/300/200/?random=${i}`}
-      />
-    ))
+    return (
+      <>
+        {[...new Array(100)].map((_, i) => (
+          <Image
+            key={i}
+            lazyLoad
+            width="300px"
+            height="200px"
+            src={`https://picsum.photos/seed/${i}/300/200`}
+          />
+        ))}
+      </>
+    )
   })
