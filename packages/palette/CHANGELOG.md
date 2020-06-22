@@ -1,3 +1,29 @@
+# v11.1.0 (Mon Jun 22 2020)
+
+#### 🚀  Enhancement
+
+- Remove margin on Toggle component [#712](https://github.com/artsy/palette/pull/712) ([@williardx](https://github.com/williardx))
+
+#### 🐛  Bug Fix
+
+- Fixes random images breaking visual specs by utilizing seed param ([@dzucconi](https://github.com/dzucconi))
+- Configures viewport to use our breakpoints in addition to the defaults ([@dzucconi](https://github.com/dzucconi))
+- Upgrades Storybook packages ([@dzucconi](https://github.com/dzucconi))
+- Remove margin on Toggle component ([@williardx](https://github.com/williardx))
+
+#### 🏠  Internal
+
+- Pin dependencies [#699](https://github.com/artsy/palette/pull/699) ([@renovate-bot](https://github.com/renovate-bot))
+- [chore] Minor Storybook updates [#713](https://github.com/artsy/palette/pull/713) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 3
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+- Will Doenlen ([@williardx](https://github.com/williardx))
+
+---
+
 # v11.0.2 (Tue Jun 16 2020)
 
 #### 🐛  Bug Fix
