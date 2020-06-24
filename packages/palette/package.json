@@ -61,7 +61,6 @@
     "@babel/preset-react": "7.0.0",
     "@babel/preset-typescript": "7.3.3",
     "@storybook/addon-actions": "5.3.19",
-    "@storybook/addon-knobs": "5.3.19",
     "@storybook/addon-links": "5.3.19",
     "@storybook/addon-viewport": "5.3.19",
     "@storybook/addons": "5.3.19",
