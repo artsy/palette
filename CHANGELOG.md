@@ -1,3 +1,16 @@
+# v11.1.1 (Wed Jun 24 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Disables knobs to remove dependency on emotion typings [#715](https://github.com/artsy/palette/pull/715) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.1.0 (Mon Jun 22 2020)
 
 #### 🚀  Enhancement
