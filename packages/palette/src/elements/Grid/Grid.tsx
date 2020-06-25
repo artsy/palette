@@ -1,17 +1,14 @@
-import { color, flex, maxWidth, space, textAlign, width } from "styled-system"
-
 import {
   Col as _Col,
   Container as _Container,
   Row as _Row,
 } from "styled-bootstrap-grid"
-
 import styled from "styled-components"
+import { color, flex, maxWidth, space, textAlign, width } from "styled-system"
 
 /** Outer wrapper when using a grid */
 export const Grid: any = styled(_Container)`
-  overflow: hidden;
-  max-width: ${props => props.theme.grid.breakpoints.xl};
+  max-width: ${props => props.theme.grid.breakpoints.xl}px;
   ${space};
   ${maxWidth};
 `
