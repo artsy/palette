@@ -12,7 +12,7 @@ const Example: React.FC<
   ModalBaseProps & { dialogChildren?: JSX.Element; bodyChildren?: JSX.Element }
 > = ({ bodyChildren, dialogChildren, ...rest } = {}) => {
   const [open, setOpen] = useState(false)
-  const label = open ? 'opened' : 'open'
+  const label = open ? "opened" : "open"
   const handleClose = () => setOpen(false)
 
   return (
