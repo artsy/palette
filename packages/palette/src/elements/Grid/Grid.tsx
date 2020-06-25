@@ -8,12 +8,7 @@ import {
 
 import styled from "styled-components"
 
-/**
- * TODO: v2 of `styled-bootstrap-grid` contains TS typings, but we need to
- * upgrade to styled-components 4 before it's possible to upgrade to v2.
- */
-
-/** Outter wrapper when using a grid */
+/** Outer wrapper when using a grid */
 export const Grid: any = styled(_Container)`
   overflow: hidden;
   max-width: ${props => props.theme.grid.breakpoints.xl};
