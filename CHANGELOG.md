@@ -1,3 +1,16 @@
+# v11.2.0 (Fri Jun 26 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [web] Implements new typographic styles [#714](https://github.com/artsy/palette/pull/714) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.1.1 (Wed Jun 24 2020)
 
 #### 🐛  Bug Fix
