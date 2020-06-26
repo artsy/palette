@@ -5,5 +5,5 @@ export interface TagProps {
   textColor: string
   color: string
   borderColor?: string
-  style: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>
 }

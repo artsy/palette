@@ -1,0 +1,72 @@
+---
+name: Cards
+---
+
+<Playground title="Small Card with two images">
+  <SmallCard
+    images={[
+      "https://www.fillmurray.com/400/400",
+      "https://www.fillmurray.com/400/200",
+    ]}
+    title="Check this out"
+    subtitle="It's good"
+  />
+</Playground>
+
+<Playground title="Small Card with three images">
+  <SmallCard
+    images={[
+      "https://www.fillmurray.com/400/400",
+      "https://www.fillmurray.com/200/200",
+      "https://www.fillmurray.com/200/200",
+    ]}
+    title="Check this out"
+    subtitle="It's good"
+  />
+</Playground>
+
+<Playground title="Small Card with three images and tag">
+  <SmallCard
+    images={[
+      "https://www.fillmurray.com/400/400",
+      "https://www.fillmurray.com/200/200",
+      "https://www.fillmurray.com/200/200",
+    ]}
+    title="Check this out"
+    subtitle="It's good"
+    tag={{
+      color: "white",
+      borderColor: "magenta",
+      text: "wowza!",
+      textColor: "black",
+    }}
+  />
+</Playground>
+
+<Playground title="Medium Card with tag">
+  <MediumCard
+    image="https://www.fillmurray.com/400/300"
+    title="Check this out"
+    subtitle="It's good"
+    tag={{
+      color: "white",
+      borderColor: "magenta",
+      text: "wowza!",
+      textColor: "black",
+    }}
+  />
+</Playground>
+
+<Playground title="Large Card with tag">
+  <LargeCard
+    image="https://www.fillmurray.com/400/300"
+    title="Check this out"
+    subtitle="It's good"
+    tag={{
+      color: "white",
+      borderColor: "magenta",
+      text: "wowza!",
+      textColor: "black",
+    }}
+  />
+</Playground>
