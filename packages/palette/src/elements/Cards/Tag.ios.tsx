@@ -1,14 +1,7 @@
 import { Sans } from "@artsy/palette"
 import React from "react"
-import { StyleProp, View, ViewStyle } from "react-native"
-
-export interface TagProps {
-  text: string
-  textColor: string
-  color: string
-  borderColor?: string
-  style: StyleProp<ViewStyle>
-}
+import { View } from "react-native"
+import { TagProps } from "./Tag.shared"
 
 /**
  * `Tag` is used for the Cards, and is controlled by their `tag` prop.

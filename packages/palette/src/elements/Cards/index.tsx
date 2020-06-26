@@ -1,3 +1,3 @@
-export * from "./SmallCard.ios"
-export * from "./MediumCard.ios"
-export * from "./LargeCard.ios"
+export * from "./SmallCard"
+export * from "./MediumCard"
+export * from "./LargeCard"

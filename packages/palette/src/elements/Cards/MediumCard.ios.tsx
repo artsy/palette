@@ -2,14 +2,8 @@ import { color, Flex, Sans, space, Spacer } from "@artsy/palette"
 import React from "react"
 import { Image, View } from "react-native"
 import LinearGradient from "react-native-linear-gradient"
-import { Tag, TagProps } from "./Tag.ios"
-
-export interface MediumCardProps {
-  image: string
-  title: string
-  subtitle?: string
-  tag?: TagProps
-}
+import { MediumCardProps } from "./MediumCard.shared"
+import { Tag } from "./Tag.ios"
 
 /**
  * `MediumCard` is a card with one image one tall image, and text for title and subtitle
