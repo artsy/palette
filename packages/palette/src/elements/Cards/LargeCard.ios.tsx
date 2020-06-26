@@ -2,8 +2,8 @@ import { color, Flex, Sans, space, Spacer } from "@artsy/palette"
 import React from "react"
 import { Image, View } from "react-native"
 import LinearGradient from "react-native-linear-gradient"
+import { Tag } from "./CardTag.ios"
 import { LargeCardProps } from "./LargeCard.shared"
-import { Tag } from "./Tag.ios"
 
 /**
  * `Large` is a card with one image one tall image, and text for title and subtitle

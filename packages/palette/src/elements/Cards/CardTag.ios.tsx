@@ -1,12 +1,12 @@
 import { Sans } from "@artsy/palette"
 import React from "react"
 import { View } from "react-native"
-import { TagProps } from "./Tag.shared"
+import { CardTagProps } from "./CardTag.shared"
 
 /**
  * `Tag` is used for the Cards, and is controlled by their `tag` prop.
  */
-export const Tag: React.FC<TagProps> = ({
+export const Tag: React.FC<CardTagProps> = ({
   text,
   textColor,
   color,

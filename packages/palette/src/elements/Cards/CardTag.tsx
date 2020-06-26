@@ -1,9 +1,9 @@
 import React from "react"
-import { TagProps } from "./Tag.shared"
+import { CardTagProps } from "./CardTag.shared"
 
 /**
  * `Tag` is used for the Cards, and is controlled by their `tag` prop.
  */
-export const Tag: React.FC<TagProps> = () => {
+export const Tag: React.FC<CardTagProps> = () => {
   return null
 }

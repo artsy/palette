@@ -1,8 +1,8 @@
-import { Sans, space, Spacer, color, Flex } from "@artsy/palette"
+import { color, Flex, Sans, space, Spacer } from "@artsy/palette"
 import React from "react"
 import { Image, View } from "react-native"
+import { Tag } from "./CardTag.ios"
 import { SmallCardProps } from "./SmallCard.shared"
-import { Tag } from "./Tag.ios"
 
 /**
  * `SmallCard` is a card with a layout one square image on the left,
