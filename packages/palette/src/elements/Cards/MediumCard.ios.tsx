@@ -1,7 +1,7 @@
 import { color, Flex, Sans, space, Spacer } from "@artsy/palette"
 import React from "react"
 import { Image, View } from "react-native"
-import { LinearGradient } from "react-native-linear-gradient"
+import LinearGradient from "react-native-linear-gradient"
 import { Tag, TagProps } from "./Tag.ios"
 
 export interface MediumCardProps {
