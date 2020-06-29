@@ -38,7 +38,7 @@ export const LargeCard: React.FC<LargeCardProps> = ({
         style={{
           position: "absolute",
           bottom: 0,
-          left: space(1),
+          left: space(2),
           right: space(6),
         }}
       >
