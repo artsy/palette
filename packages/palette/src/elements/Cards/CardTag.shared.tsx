@@ -1,9 +1,10 @@
 import { StyleProp, ViewStyle } from "react-native"
+import { Color } from "../../Theme"
 
 export interface CardTagProps {
   text: string
-  textColor: string
-  color: string
-  borderColor?: string
+  textColor: Color
+  color: Color
+  borderColor?: Color
   style?: StyleProp<ViewStyle>
 }
