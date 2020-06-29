@@ -1,5 +1,6 @@
 import React from "react"
 import { View } from "react-native"
+import { color } from "../../helpers"
 import { Sans } from "../Typography"
 import { CardTagProps } from "./CardTag.shared"
 
@@ -9,7 +10,7 @@ import { CardTagProps } from "./CardTag.shared"
 export const CardTag: React.FC<CardTagProps> = ({
   text,
   textColor,
-  color,
+  color: bgColor,
   borderColor,
   style,
 }) => {
@@ -18,7 +19,10 @@ export const CardTag: React.FC<CardTagProps> = ({
       style={[
         { borderRadius: 2, overflow: "hidden", borderWidth: 1 },
         style,
-        { backgroundColor: color, borderColor },
+        {
+          backgroundColor: color(bgColor) || bgColor,
+          borderColor: color(borderColor) || borderColor,
+        },
       ]}
     >
       <Sans size="2" px={0.5} py={0.3} color={textColor}>
