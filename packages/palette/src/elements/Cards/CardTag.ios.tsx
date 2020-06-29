@@ -1,6 +1,6 @@
-import { Sans } from "@artsy/palette"
 import React from "react"
 import { View } from "react-native"
+import { Sans } from "../Typography"
 import { CardTagProps } from "./CardTag.shared"
 
 /**

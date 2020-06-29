@@ -1,6 +1,9 @@
-import { color, Flex, Sans, space, Spacer } from "@artsy/palette"
 import React from "react"
 import { Image, View } from "react-native"
+import { color, space } from "../../helpers"
+import { Flex } from "../Flex"
+import { Spacer } from "../Spacer"
+import { Sans } from "../Typography"
 import { Tag } from "./CardTag.ios"
 import { SmallCardProps } from "./SmallCard.shared"
 
