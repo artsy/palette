@@ -1,3 +1,22 @@
+# v11.3.0 (Mon Jun 29 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add cards from viewing rooms [#717](https://github.com/artsy/palette/pull/717) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Bumps react-lazy-load-image-component [#718](https://github.com/artsy/palette/pull/718) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # v11.2.0 (Fri Jun 26 2020)
 
 #### 🚀  Enhancement
