@@ -4,7 +4,7 @@ import { LargeCard } from "./LargeCard"
 import { MediumCard } from "./MediumCard"
 import { SmallCard } from "./SmallCard"
 
-storiesOf("Components/Avatar", module)
+storiesOf("Components/Cards", module)
   .add("Small", () => {
     return (
       <SmallCard
