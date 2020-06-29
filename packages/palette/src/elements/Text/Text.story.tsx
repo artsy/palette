@@ -148,6 +148,7 @@ storiesOf("Components/Text", module)
         lineHeight: "solid",
         letterSpacing: "tightest",
       },
+      { fontFamily: "serif" },
     ]
 
     return (
