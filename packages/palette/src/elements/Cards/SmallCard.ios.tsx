@@ -32,7 +32,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
         <Flex flex={2} background={color("black10")}>
           <Image source={{ uri: images[0] }} style={{ flex: 1 }} />
         </Flex>
-        <Spacer mr={0.3} />
+        <Spacer mr="2px" />
         <Flex flex={1}>
           {images.length < 2 && <Flex flex={1} background={color("black10")} />}
           {!!images[1] && (
@@ -43,7 +43,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
           )}
           {images.length > 2 && (
             <>
-              <Spacer mt={0.3} />
+              <Spacer mt="2px" />
               <Image source={{ uri: images[2] }} style={{ flex: 1 }} />
             </>
           )}
