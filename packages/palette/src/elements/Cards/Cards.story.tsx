@@ -16,10 +16,10 @@ storiesOf("Components/Cards", module)
         title="Check this out"
         subtitle="It's good"
         tag={{
-          color: "white",
-          borderColor: "magenta",
+          color: "white100",
+          borderColor: "purple100",
           text: "wowza!",
-          textColor: "black",
+          textColor: "black100",
         }}
       />
     )
@@ -31,10 +31,10 @@ storiesOf("Components/Cards", module)
         title="Check this out"
         subtitle="It's good"
         tag={{
-          color: "white",
-          borderColor: "magenta",
+          color: "white100",
+          borderColor: "purple100",
           text: "wowza!",
-          textColor: "black",
+          textColor: "black100",
         }}
       />
     )
@@ -46,10 +46,10 @@ storiesOf("Components/Cards", module)
         title="Check this out"
         subtitle="It's good"
         tag={{
-          color: "white",
-          borderColor: "magenta",
+          color: "white100",
+          borderColor: "purple100",
           text: "wowza!",
-          textColor: "black",
+          textColor: "black100",
         }}
       />
     )
