@@ -5,7 +5,7 @@ import { color, space } from "../../helpers"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Sans } from "../Typography"
-import { Tag } from "./CardTag.ios"
+import { CardTag } from "./CardTag.ios"
 import { LargeCardProps } from "./LargeCard.shared"
 
 /**
@@ -53,7 +53,7 @@ export const LargeCard: React.FC<LargeCardProps> = ({
         <Spacer mt={1} />
       </Flex>
       {!!tag && (
-        <Tag
+        <CardTag
           {...tag}
           style={{ position: "absolute", top: space(1), left: space(1) }}
         />

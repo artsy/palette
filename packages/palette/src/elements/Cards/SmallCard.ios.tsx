@@ -4,7 +4,7 @@ import { color, space } from "../../helpers"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Sans } from "../Typography"
-import { Tag } from "./CardTag.ios"
+import { CardTag } from "./CardTag.ios"
 import { SmallCardProps } from "./SmallCard.shared"
 
 /**
@@ -59,7 +59,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
         </Sans>
       )}
       {!!tag && (
-        <Tag
+        <CardTag
           {...tag}
           style={{ position: "absolute", top: space(1), left: space(1) }}
         />
