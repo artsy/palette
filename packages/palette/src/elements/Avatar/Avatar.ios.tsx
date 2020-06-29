@@ -13,6 +13,7 @@ export const Avatar: FunctionComponent<AvatarProps> = ({ ...props }) => {
 
   return (
     <BaseAvatar
+      size={props.size}
       renderAvatar={() => (
         <Image
           resizeMode="stretch"
