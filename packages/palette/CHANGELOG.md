@@ -1,3 +1,21 @@
+# v11.4.0 (Tue Jun 30 2020)
+
+#### 🚀  Enhancement
+
+- [FX-2067] Implements Text.ios [#719](https://github.com/artsy/palette/pull/719) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Sets runInBand flag ([@dzucconi](https://github.com/dzucconi))
+- Utilize the existing font names ([@dzucconi](https://github.com/dzucconi))
+- Implements Text.ios ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.3.0 (Mon Jun 29 2020)
 
 #### 🚀  Enhancement
