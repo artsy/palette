@@ -1,34 +1,66 @@
+import React from "react"
+import { variant as systemVariant } from "styled-system"
+import { styled as primitives } from "../../platform/primitives"
+import { textMixin, TextProps } from "./Text.shared"
 import {
-  TEXT_FONT_SIZES,
-  TEXT_LETTER_SPACING,
-  TEXT_LINE_HEIGHTS,
-  TextFontSize,
-  TextLetterSpacing,
-  TextLineHeight,
-} from "./tokens"
+  calculateLetterSpacing,
+  calculateLineHeight,
+  isControlledFontSize,
+  isControlledLetterSpacing,
+  isControlledLineHeight,
+  TEXT_VARIANTS,
+} from "./tokens.ios"
 
 /**
- * em-units don't exist on React Native so we convert it to a number
- * which will be evaluated as px based on the given font-size.
+ * InnerText
  */
-export const calculateLetterSpacing = (
-  fontSize: TextFontSize,
-  letterSpacing: TextLetterSpacing
-): number => {
-  const tracking = parseFloat(TEXT_LETTER_SPACING[letterSpacing])
-  const size = parseInt(TEXT_FONT_SIZES[fontSize], 10)
-  return size * tracking
+const InnerText = primitives.Text<TextProps>`
+  ${systemVariant({ variants: TEXT_VARIANTS })}
+  ${textMixin}
+`
+
+/**
+ * Text
+ * TODO: Compose RN props
+ */
+export const Text: React.FC<TextProps> = ({
+  children,
+  variant,
+  fontSize,
+  letterSpacing,
+  lineHeight,
+  ...rest
+}) => {
+  const props = {
+    variant,
+    fontSize,
+    ...(!variant && letterSpacing && fontSize
+      ? // Possibly convert the letterSpacing
+        {
+          letterSpacing:
+            isControlledLetterSpacing(letterSpacing) &&
+            isControlledFontSize(fontSize)
+              ? calculateLetterSpacing(fontSize, letterSpacing)
+              : letterSpacing,
+        }
+      : {}),
+    ...(!variant && lineHeight && fontSize
+      ? // Possibly convert the lineHeight
+        {
+          lineHeight:
+            isControlledLineHeight(lineHeight) && isControlledFontSize(fontSize)
+              ? calculateLineHeight(fontSize, lineHeight)
+              : lineHeight,
+        }
+      : {}),
+    ...rest,
+  }
+
+  return <InnerText {...props}>{children}</InnerText>
 }
 
-/**
- * unitless line-heights don't exist on React Native so we convert it
- * to a px string. Since unitless line-heights are valid/normal, styled-system
- * won't convert it to px.
- */
-export const calculateLineHeight = (
-  fontSize: TextFontSize,
-  lineHeight: TextLineHeight
-): string => {
-  const size = parseInt(TEXT_FONT_SIZES[fontSize], 10)
-  return `${size * TEXT_LINE_HEIGHTS[lineHeight]}px`
+Text.displayName = "Text"
+
+Text.defaultProps = {
+  fontFamily: "sans",
 }
