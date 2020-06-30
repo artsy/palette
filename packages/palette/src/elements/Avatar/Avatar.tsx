@@ -29,6 +29,7 @@ export const Avatar = ({
           renderFallback({ diameter })
         ) : (
           <LazyImage
+            alt={initials}
             onError={e => {
               if (onError) {
                 onError(e)

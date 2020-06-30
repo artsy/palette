@@ -6,6 +6,7 @@ storiesOf("Components/Image", module)
   .add("Image", () => {
     return (
       <Image
+        alt="Random Example"
         width="300px"
         height="200px"
         src="https://picsum.photos/seed/example/300/200"
@@ -18,6 +19,7 @@ storiesOf("Components/Image", module)
         {[...new Array(100)].map((_, i) => (
           <Image
             key={i}
+            alt="Random Example"
             lazyLoad
             width="300px"
             height="200px"

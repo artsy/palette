@@ -19,6 +19,7 @@ storiesOf("Components/CSSGrid", module).add(
         {[1, 2, 3, 4, 5, 6, 7, 8].map(i => {
           return (
             <Image
+              alt="Random Example"
               src="https://picsum.photos/id/1025/140/100/"
               width={[100, 120, 140]}
               key={i}

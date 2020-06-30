@@ -12,7 +12,7 @@ export interface WebImageProps extends ImageProps {
   /** Flag for if image should be lazy loaded */
   lazyLoad?: boolean
   /** Alternate text for image */
-  alt?: string
+  alt: string
   /** A11y text label */
   ["aria-label"]?: string
   /** The title of the image */
@@ -39,6 +39,7 @@ export const Image = ({
 
 /** Props for a web-only ResponsiveImage component. */
 export interface WebResponsiveImageProps extends ResponsiveImageProps {
+  alt: string
   /** Flag for if image should be lazy loaded */
   lazyLoad?: boolean
 }
