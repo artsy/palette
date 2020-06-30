@@ -16,8 +16,8 @@ export * from "./tokens.shared"
  * font-families
  */
 export const TEXT_FONTS = {
-  sans: "ll-unica77",
-  serif: "adobe-garamond-pro",
+  sans: "Unica77LL-Regular",
+  serif: "ReactNativeAGaramondPro-Regular",
 }
 /**
  * em-units don't exist on React Native so we convert it to a number
