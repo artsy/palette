@@ -1,3 +1,19 @@
+# v11.5.0 (Wed Jul 01 2020)
+
+#### 🚀  Enhancement
+
+- Add new BriefcaseIcon to palette system [#721](https://github.com/artsy/palette/pull/721) ([@jpotts244](https://github.com/jpotts244))
+
+#### 🐛  Bug Fix
+
+- Add new BriefcaseIcon to palette system ([@jpotts244](https://github.com/jpotts244))
+
+#### Authors: 1
+
+- Jacqueline Potts ([@jpotts244](https://github.com/jpotts244))
+
+---
+
 # v11.4.0 (Tue Jun 30 2020)
 
 #### 🚀  Enhancement
