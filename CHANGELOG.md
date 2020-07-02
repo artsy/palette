@@ -1,3 +1,16 @@
+# v11.6.0 (Thu Jul 02 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Supports a small entity header design via "smallVariant" prop [#722](https://github.com/artsy/palette/pull/722) ([@ashleyjelks](https://github.com/ashleyjelks))
+
+#### Authors: 1
+
+- Ashley Jelks ([@ashleyjelks](https://github.com/ashleyjelks))
+
+---
+
 # v11.5.0 (Wed Jul 01 2020)
 
 #### 🚀  Enhancement
