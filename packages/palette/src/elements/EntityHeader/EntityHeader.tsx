@@ -16,6 +16,7 @@ interface EntityHeaderProps extends SpacerProps {
   name: string
   FollowButton?: JSX.Element
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
+  smallVariant?: boolean
 }
 
 interface ContainerComponentProps {
@@ -35,6 +36,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   name,
   meta,
   FollowButton,
+  smallVariant,
   ...remainderProps
 }) => {
   const ContainerComponent = href ? FlexLink : Flex
@@ -52,35 +54,68 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
         </Flex>
       )}
 
-      <Flex flexDirection="column" justifyContent="center" width="100%">
-        <Sans size="3" weight="medium" color="black100">
-          {name}
-        </Sans>
+      {smallVariant ? (
+        <Flex alignItems="center" width="100%">
+          <Sans size="3">{name}</Sans>
 
-        <Sans size="2" color="black60">
-          {!!meta && <span>{meta}</span>}
+          <Sans size="3">
+            {FollowButton && (
+              <>
+                {
+                  <Sans size="3" mx={0.3} display="inline-block">
+                    •
+                  </Sans>
+                }
+                <Box
+                  display="inline-block"
+                  onClick={event => {
+                    // Capture click event so that interacting with Follow doesn't
+                    // trigger Container's link.
+                    event.stopPropagation()
+                  }}
+                >
+                  {FollowButton}
+                </Box>
+              </>
+            )}
+          </Sans>
+        </Flex>
+      ) : (
+        <Flex flexDirection="column" justifyContent="center" width="100%">
+          <Sans size="3" weight="medium" color="black100">
+            {name}
+          </Sans>
 
-          {FollowButton && (
-            <>
-              {meta && (
-                <Sans size="2" color="black60" mx={0.3} display="inline-block">
-                  •
-                </Sans>
-              )}
-              <Box
-                display="inline-block"
-                onClick={event => {
-                  // Capture click event so that interacting with Follow doesn't
-                  // trigger Container's link.
-                  event.stopPropagation()
-                }}
-              >
-                {FollowButton}
-              </Box>
-            </>
-          )}
-        </Sans>
-      </Flex>
+          <Sans size="2" color="black60">
+            {!!meta && <span>{meta}</span>}
+
+            {FollowButton && (
+              <>
+                {meta && (
+                  <Sans
+                    size="2"
+                    color="black60"
+                    mx={0.3}
+                    display="inline-block"
+                  >
+                    •
+                  </Sans>
+                )}
+                <Box
+                  display="inline-block"
+                  onClick={event => {
+                    // Capture click event so that interacting with Follow doesn't
+                    // trigger Container's link.
+                    event.stopPropagation()
+                  }}
+                >
+                  {FollowButton}
+                </Box>
+              </>
+            )}
+          </Sans>
+        </Flex>
+      )}
     </ContainerComponent>
   )
 }
