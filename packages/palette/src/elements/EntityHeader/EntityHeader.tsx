@@ -16,7 +16,7 @@ interface EntityHeaderProps extends SpacerProps {
   name: string
   FollowButton?: JSX.Element
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
-  small?: boolean
+  smallVariant?: boolean
 }
 
 interface ContainerComponentProps {
@@ -36,7 +36,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   name,
   meta,
   FollowButton,
-  small,
+  smallVariant,
   ...remainderProps
 }) => {
   const ContainerComponent = href ? FlexLink : Flex
@@ -54,7 +54,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
         </Flex>
       )}
 
-      {small ? (
+      {smallVariant ? (
         <Flex alignItems="center" width="100%">
           <Sans size="3">{name}</Sans>
 

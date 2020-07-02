@@ -5,7 +5,7 @@ import { SpacerProps } from "../Spacer"
 import { Sans } from "../Typography"
 
 interface EntityHeaderProps extends SpacerProps {
-  small?: boolean
+  smallVariant?: boolean
   href?: string
   imageUrl?: string
   initials?: string
@@ -19,7 +19,7 @@ interface EntityHeaderProps extends SpacerProps {
  * Spec: zpl.io/aNoYM6d
  */
 export const EntityHeader: SFC<EntityHeaderProps> = ({
-  small,
+  smallVariant,
   href,
   imageUrl,
   initials,
@@ -30,7 +30,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
 }) => {
   const followButton = FollowButton && (
     <Flex
-      ml={1}
+      ml={smallVariant ? 0.3 : 1}
       flexDirection="row"
       alignItems="center"
       justifyContent="flex-end"
@@ -58,7 +58,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
         </Flex>
       )}
 
-      {small ? (
+      {smallVariant ? (
         <Flex
           flexDirection="row"
           justifyContent="flex-start"
@@ -67,7 +67,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
         >
           {headerName}
 
-          <Sans size="3" mx={0.3}>
+          <Sans size="3" ml={0.3}>
             •
           </Sans>
 
