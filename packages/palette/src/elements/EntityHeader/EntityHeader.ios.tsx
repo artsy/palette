@@ -5,6 +5,7 @@ import { SpacerProps } from "../Spacer"
 import { Sans } from "../Typography"
 
 interface EntityHeaderProps extends SpacerProps {
+  small?: boolean
   href?: string
   imageUrl?: string
   initials?: string
@@ -18,6 +19,7 @@ interface EntityHeaderProps extends SpacerProps {
  * Spec: zpl.io/aNoYM6d
  */
 export const EntityHeader: SFC<EntityHeaderProps> = ({
+  small,
   href,
   imageUrl,
   initials,
@@ -26,6 +28,23 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   FollowButton,
   ...remainderProps
 }) => {
+  const followButton = FollowButton && (
+    <Flex
+      ml={1}
+      flexDirection="row"
+      alignItems="center"
+      justifyContent="flex-end"
+    >
+      {FollowButton}
+    </Flex>
+  )
+
+  const headerName = (
+    <Sans ellipsizeMode="tail" numberOfLines={1} size="3">
+      {name}
+    </Sans>
+  )
+
   return (
     <Flex
       flexDirection="row"
@@ -38,25 +57,42 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
           <Avatar size="xs" src={imageUrl} initials={initials} />
         </Flex>
       )}
-      <Flex justifyContent="center" width={0} flexGrow={1}>
-        <Sans ellipsizeMode="tail" numberOfLines={1} size="3" color="black100">
-          {name}
-        </Sans>
-        {!!meta && (
-          <Sans ellipsizeMode="tail" numberOfLines={1} size="2" color="black60">
-            {meta}
-          </Sans>
-        )}
-      </Flex>
 
-      {FollowButton && (
+      {small ? (
         <Flex
-          ml={1}
           flexDirection="row"
+          justifyContent="flex-start"
+          flexGrow={1}
           alignItems="center"
-          justifyContent="flex-end"
         >
-          {FollowButton}
+          {headerName}
+
+          <Sans size="3" mx={0.3}>
+            •
+          </Sans>
+
+          {followButton}
+        </Flex>
+      ) : (
+        <Flex
+          justifyContent="space-between"
+          width={0}
+          flexGrow={1}
+          flexDirection="row"
+        >
+          <Flex>
+            {headerName}
+
+            <Sans
+              ellipsizeMode="tail"
+              numberOfLines={1}
+              size="2"
+              color="black60"
+            >
+              {meta ? meta : ""}
+            </Sans>
+          </Flex>
+          {followButton}
         </Flex>
       )}
     </Flex>
