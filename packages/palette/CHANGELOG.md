@@ -1,3 +1,16 @@
+# v11.6.1 (Tue Jul 07 2020)
+
+#### 🐛  Bug Fix
+
+- Removes blanket focus disable [#724](https://github.com/artsy/palette/pull/724) ([@dzucconi](https://github.com/dzucconi))
+- Removes blanket focus disable ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.6.0 (Thu Jul 02 2020)
 
 #### 🚀  Enhancement
