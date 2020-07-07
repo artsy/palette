@@ -12,6 +12,9 @@ export const CardTag: React.FC<CardTagProps> = ({
   textColor,
   color: bgColor,
   borderColor,
+  position,
+  top,
+  left,
 }) => {
   return (
     <BorderBox
@@ -21,9 +24,9 @@ export const CardTag: React.FC<CardTagProps> = ({
       borderColor={color(borderColor) || borderColor}
       m={0}
       p={0}
-      position="absolute"
-      top="10px"
-      left="10px"
+      position={position}
+      top={top}
+      left={left}
     >
       <Sans size="2" px={0.5} py={0.3} color={textColor}>
         {text}

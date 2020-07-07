@@ -76,7 +76,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
           {subtitle}
         </Sans>
       )}
-      {!!tag && <CardTag {...tag} />}
+      {!!tag && <CardTag {...tag} position="absolute" top={1} left={1} />}
     </Box>
   )
 }
