@@ -10,11 +10,6 @@ export function injectGlobalStyles<P>(
   additionalStyles?: string | ReturnType<typeof css>
 ) {
   const GlobalStyles = createGlobalStyle<P>`
-
-    *:focus {
-      outline: none;
-    }
-
     html {
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
@@ -136,7 +131,7 @@ export function injectGlobalStyles<P>(
       font-size: inherit;
       margin: 0;
     }
-    
+
     ${additionalStyles};
   `
 
