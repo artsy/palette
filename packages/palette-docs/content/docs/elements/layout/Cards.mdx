@@ -2,42 +2,54 @@
 name: Cards
 ---
 
-<Playground title="Small Card with two images">
-  <div style={{ width: 200 }}>
+<Playground title="Small Card with one image">
+  <Box width="50%" p="2px" backgroundColor="yellow30">
     <SmallCard
       images={[
         "https://www.fillmurray.com/400/400",
-        "https://www.fillmurray.com/400/200",
       ]}
-      title="Check this out"
+      title="This one has one image"
       subtitle="It's good"
     />
-  </div>
+  </Box>
+</Playground>
+
+<Playground title="Small Card with two images">
+  <Box width="50%" p="2px" backgroundColor="yellow30">
+    <SmallCard
+      images={[
+        "https://www.fillmurray.com/400/400",
+        "https://www.fillmurray.com/300/300",
+      ]}
+      title="This one has 2 images"
+      subtitle="It's good"
+    />
+  </Box>
 </Playground>
 
 <Playground title="Small Card with three images">
-  <div style={{ width: 200 }}>
+  <Box width="50%" p="2px" backgroundColor="yellow30">
     <SmallCard
       images={[
         "https://www.fillmurray.com/400/400",
-        "https://www.fillmurray.com/200/200",
+        "https://www.fillmurray.com/300/300",
         "https://www.fillmurray.com/200/200",
       ]}
-      title="Check this out"
+      title="This one has 3 images"
       subtitle="It's good"
     />
-  </div>
+  </Box>
 </Playground>
 
 <Playground title="Small Card with three images and tag">
-  <div style={{ width: 200 }}>
+  <Box width="50%" p="2px" backgroundColor="yellow30">
     <SmallCard
       images={[
         "https://www.fillmurray.com/400/400",
-        "https://www.fillmurray.com/200/200",
+        "https://www.fillmurray.com/300/300",
         "https://www.fillmurray.com/200/200",
       ]}
-      title="Check this out"
+      title="This one has 3 images and a tag"
       subtitle="It's good"
       tag={{
         color: "white100",
@@ -46,11 +58,11 @@ name: Cards
         textColor: "black100",
       }}
     />
-  </div>
+  </Box>
 </Playground>
 
 <Playground title="Medium Card with tag">
-  <div style={{ width: 200 }}>
+  <Box width="50%" p="2px" backgroundColor="yellow30">
     <MediumCard
       image="https://www.fillmurray.com/400/300"
       title="Check this out"
@@ -62,11 +74,11 @@ name: Cards
         textColor: "black100",
       }}
     />
-  </div>
+  </Box>
 </Playground>
 
 <Playground title="Large Card with tag">
-  <div style={{ width: 200 }}>
+  <Box width="50%" p="2px" backgroundColor="yellow30">
     <LargeCard
       image="https://www.fillmurray.com/400/300"
       title="Check this out"
@@ -78,5 +90,5 @@ name: Cards
         textColor: "black100",
       }}
     />
-  </div>
+  </Box>
 </Playground>
