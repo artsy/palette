@@ -1,3 +1,16 @@
+# v11.7.0 (Tue Jul 07 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [Part of GALL-2970] - adding a small card to web view [#723](https://github.com/artsy/palette/pull/723) ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v11.6.2 (Tue Jul 07 2020)
 
 #### 🐛  Bug Fix

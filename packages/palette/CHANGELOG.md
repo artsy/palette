@@ -1,3 +1,21 @@
+# v11.7.0 (Tue Jul 07 2020)
+
+#### 🚀  Enhancement
+
+- [Part of GALL-2970] - adding a small card to web view [#723](https://github.com/artsy/palette/pull/723) ([@oxaudo](https://github.com/oxaudo))
+
+#### 🐛  Bug Fix
+
+- add option to set CardTag position ([@oxaudo](https://github.com/oxaudo))
+- Merge branch 'master' of github.com:artsy/palette into updates ([@oxaudo](https://github.com/oxaudo))
+- adding a small card to web view ([@oxaudo](https://github.com/oxaudo))
+
+#### Authors: 1
+
+- Oksana ([@oxaudo](https://github.com/oxaudo))
+
+---
+
 # v11.6.2 (Tue Jul 07 2020)
 
 #### 🐛  Bug Fix
