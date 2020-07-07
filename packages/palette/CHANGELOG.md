@@ -1,3 +1,16 @@
+# v11.6.2 (Tue Jul 07 2020)
+
+#### 🐛  Bug Fix
+
+- Removes theme from config [#725](https://github.com/artsy/palette/pull/725) ([@dzucconi](https://github.com/dzucconi))
+- Removes theme ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.6.1 (Tue Jul 07 2020)
 
 #### 🐛  Bug Fix
