@@ -9,9 +9,9 @@ storiesOf("Components/Cards", module)
     return (
       <SmallCard
         images={[
-          "https://www.fillmurray.com/400/400",
-          "https://www.fillmurray.com/200/200",
-          "https://www.fillmurray.com/200/200",
+          "https://picsum.photos/seed/example/400/400",
+          "https://picsum.photos/seed/example/200/200",
+          "https://picsum.photos/seed/example/200/200",
         ]}
         title="Check this out"
         subtitle="It's good"
@@ -27,7 +27,7 @@ storiesOf("Components/Cards", module)
   .add("Medium", () => {
     return (
       <MediumCard
-        image="https://www.fillmurray.com/400/300"
+        image="https://picsum.photos/seed/example/400/300"
         title="Check this out"
         subtitle="It's good"
         tag={{
@@ -42,7 +42,7 @@ storiesOf("Components/Cards", module)
   .add("Large", () => {
     return (
       <LargeCard
-        image="https://www.fillmurray.com/400/300"
+        image="https://picsum.photos/seed/example/400/300"
         title="Check this out"
         subtitle="It's good"
         tag={{
