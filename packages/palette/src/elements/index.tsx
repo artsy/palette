@@ -1,4 +1,5 @@
 export * from "./Avatar"
+export * from "./AspectRatioBox"
 export * from "./Banner"
 export * from "./BarChart"
 export * from "./BorderBox"
