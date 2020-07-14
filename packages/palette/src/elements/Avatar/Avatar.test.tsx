@@ -13,7 +13,7 @@ describe("Avatar", () => {
 
     it("renders an InnerLazyImage if image url provided and lazy loaded", () => {
       const wrapper = mount(<Avatar lazyLoad src="some/path.img" />)
-      expect(wrapper.find("InnerLazyImage").length).toBe(1)
+      expect(wrapper.find("LazyImage").length).toBe(1)
     })
   })
 

@@ -26,7 +26,7 @@ const ratioPadding = system({
   },
 })
 
-/** Props for web & iOS images */
+/** Props for iOS images */
 export interface BaseImageProps {
   /** The url for the image */
   src: string

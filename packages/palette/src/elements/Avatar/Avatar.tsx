@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { LazyImage } from "../Image/LazyImage"
+import { LazyImage } from "../LazyImage"
 import { AvatarProps, BaseAvatar, sizeValue } from "./Avatar.shared"
 
 interface AvatarWebProps extends AvatarProps {
@@ -39,6 +39,7 @@ export const Avatar = ({
             width={diameter}
             height={diameter}
             borderRadius={diameter}
+            overflow="hidden"
             src={src}
           />
         )
