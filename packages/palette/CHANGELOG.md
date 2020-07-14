@@ -1,3 +1,26 @@
+# v11.8.0 (Tue Jul 14 2020)
+
+#### 🚀  Enhancement
+
+- addinging some grammer :p [#728](https://github.com/artsy/palette/pull/728) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- Upping the diffThreshold a bit more for BarChart ([@pvinis](https://github.com/pvinis))
+- Prevents Chromatic spec diffs ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- Upping the diffThreshold a bit more for BarChart [#729](https://github.com/artsy/palette/pull/729) ([@pvinis](https://github.com/pvinis))
+- [chore] Prevents Chromatic spec diffs [#727](https://github.com/artsy/palette/pull/727) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # v11.7.0 (Tue Jul 07 2020)
 
 #### 🚀  Enhancement
