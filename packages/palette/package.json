@@ -130,7 +130,7 @@
     "react-powerplug": "^1.0.0",
     "react-remove-scroll": "^2.3.0",
     "react-spring": "^8.0.27",
-    "styled-bootstrap-grid": "1.0.4",
+    "styled-bootstrap-grid": "3.1.0",
     "styled-system": "^5.1.5",
     "trunc-html": "^1.1.2",
     "use-cursor": "^1.2.0"
