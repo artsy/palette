@@ -1,3 +1,16 @@
+# v11.8.1 (Wed Jul 15 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Upgrades styled-bootstrap-grid; removes overflow: hidden [#716](https://github.com/artsy/palette/pull/716) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.8.0 (Tue Jul 14 2020)
 
 #### 🚀  Enhancement
