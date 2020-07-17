@@ -1,3 +1,19 @@
+# v11.9.0 (Fri Jul 17 2020)
+
+#### 🚀  Enhancement
+
+- GALL-2970 Add web version of medium card [#731](https://github.com/artsy/palette/pull/731) ([@ansor4](https://github.com/ansor4))
+
+#### 🐛  Bug Fix
+
+- Add web version of medium_card ([@ansor4](https://github.com/ansor4))
+
+#### Authors: 1
+
+- Anson Wang ([@ansor4](https://github.com/ansor4))
+
+---
+
 # v11.8.1 (Wed Jul 15 2020)
 
 #### 🐛  Bug Fix
