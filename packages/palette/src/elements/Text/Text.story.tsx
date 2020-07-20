@@ -131,7 +131,6 @@ storiesOf("Components/Text", module)
         letterSpacing: "tightest",
       },
       {
-        fontFamily: "serif",
         fontSize: "70px",
         lineHeight: "solid",
         letterSpacing: "tight",
@@ -143,13 +142,15 @@ storiesOf("Components/Text", module)
         letterSpacing: "tightest",
       },
       {
-        fontFamily: "serif",
         fontSize: "55px",
         lineHeight: "solid",
         letterSpacing: "tightest",
       },
-      { fontFamily: "serif" },
-    ]
+      {
+        variant: 'text',
+        lineHeight: 'solid'
+      }
+    ] as const
 
     return (
       <Table>
@@ -179,5 +180,17 @@ storiesOf("Components/Text", module)
           ))}
         </tbody>
       </Table>
+    )
+  })
+  .add("overflowEllipsis", () => {
+    return (
+      <Text variant="text" overflowEllipsis>
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+      </Text>
     )
   })
