@@ -146,7 +146,11 @@ storiesOf("Components/Text", module)
         lineHeight: "solid",
         letterSpacing: "tightest",
       },
-    ]
+      {
+        variant: 'text',
+        lineHeight: 'solid'
+      }
+    ] as const
 
     return (
       <Table>

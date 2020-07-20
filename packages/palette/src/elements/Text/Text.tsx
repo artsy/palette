@@ -14,12 +14,13 @@ export const overflowEllipsisMixin = css`
 /** Text */
 export const Text = styled.div<TextProps & { overflowEllipsis?: boolean }>`
   ${variant({ variants: TEXT_VARIANTS.small })}
+  ${textMixin}
 
   @media (min-width: ${themeGet("breakpoints.0")}) {
     ${variant({ variants: TEXT_VARIANTS.large })}
+    ${textMixin}
   }
 
-  ${textMixin}
   ${({ overflowEllipsis }) => overflowEllipsis && overflowEllipsisMixin}
 `
 
