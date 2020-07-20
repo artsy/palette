@@ -1,3 +1,23 @@
+# v11.10.0 (Mon Jul 20 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Text extends Box [#736](https://github.com/artsy/palette/pull/736) ([@dzucconi](https://github.com/dzucconi))
+- `@artsy/palette`
+  - Removes serif from Text [#734](https://github.com/artsy/palette/pull/734) ([@dzucconi](https://github.com/dzucconi))
+
+#### ⚠️  Pushed to `master`
+
+- Regenerate lock file ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.9.0 (Fri Jul 17 2020)
 
 #### 🚀  Enhancement

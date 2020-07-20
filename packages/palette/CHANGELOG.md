@@ -1,3 +1,25 @@
+# v11.10.0 (Mon Jul 20 2020)
+
+#### 🚀  Enhancement
+
+- Text extends Box [#736](https://github.com/artsy/palette/pull/736) ([@dzucconi](https://github.com/dzucconi))
+- Removes serif from Text [#734](https://github.com/artsy/palette/pull/734) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Has Text extend Box ([@dzucconi](https://github.com/dzucconi))
+- Updates to support styled-components v5 ([@dzucconi](https://github.com/dzucconi))
+- Cleans up after styled-system upgrade ([@dzucconi](https://github.com/dzucconi))
+- Supports overrides on variants ([@dzucconi](https://github.com/dzucconi))
+- Adds overflowEllipsis ([@dzucconi](https://github.com/dzucconi))
+- Removes serif option ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.9.0 (Fri Jul 17 2020)
 
 #### 🚀  Enhancement
