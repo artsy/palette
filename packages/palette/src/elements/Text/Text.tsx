@@ -1,13 +1,18 @@
 import { themeGet } from "@styled-system/theme-get"
+import styled, { css } from "styled-components"
 import { variant } from "styled-system"
-import { styled as primitives } from "../../platform/primitives"
 import { textMixin, TextProps } from "./Text.shared"
 import { TEXT_VARIANTS } from "./tokens"
 
-/**
- * Text
- */
-export const Text = primitives.Text<TextProps>`
+/** Adds ellipsis to overflowing text */
+export const overflowEllipsisMixin = css`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`
+
+/** Text */
+export const Text = styled.div<TextProps & { overflowEllipsis?: boolean }>`
   ${variant({ variants: TEXT_VARIANTS.small })}
 
   @media (min-width: ${themeGet("breakpoints.0")}) {
@@ -15,6 +20,7 @@ export const Text = primitives.Text<TextProps>`
   }
 
   ${textMixin}
+  ${({ overflowEllipsis }) => overflowEllipsis && overflowEllipsisMixin}
 `
 
 Text.displayName = "Text"

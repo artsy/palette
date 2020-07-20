@@ -178,3 +178,15 @@ storiesOf("Components/Text", module)
       </Table>
     )
   })
+  .add("overflowEllipsis", () => {
+    return (
+      <Text variant="text" overflowEllipsis>
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+      </Text>
+    )
+  })
