@@ -90,7 +90,7 @@ export class Toggle extends React.Component<ToggleProps> {
   }
 }
 
-const Header = styled.div.attrs<ToggleProps & SpaceProps>({})`
+const Header = styled.div<ToggleProps & SpaceProps>`
   cursor: pointer;
   pointer-events: ${props => (props.disabled ? "none" : "auto")};
   user-select: none;

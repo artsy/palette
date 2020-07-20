@@ -100,7 +100,7 @@ export class LabeledRange extends React.Component<
   }
 }
 
-const Header = styled.div.attrs<SpaceProps>({})`
+const Header = styled.div<SpaceProps>`
   cursor: pointer;
   padding-bottom: 16px;
   user-select: none;
