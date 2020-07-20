@@ -1,43 +1,35 @@
-// @ts-ignore
 import React, { FC } from "react"
 import styled from "styled-components"
 import {
-  left,
-  LeftProps,
+  compose,
+  layout,
+  LayoutProps,
   position,
   PositionProps,
-  right,
-  RightProps,
   space,
   SpaceProps,
-  top,
-  TopProps,
 } from "styled-system"
 import { Color } from "../Theme"
 
-// : React.SVGProps<SVGSVGElement>
-
-// tslint:disable-next-line:no-empty-interface
 export interface IconProps
-  extends React.SVGProps<any>,
+  extends React.HTMLAttributes<SVGElement>,
     SpaceProps,
     PositionProps,
-    TopProps,
-    RightProps,
-    LeftProps {
+    LayoutProps {
   fill?: Color
   title?: string
 }
 
-/** Wrapper for icons to include space */
-export const Icon = styled.svg.attrs<IconProps>({})`
-  position: relative;
+const iconMixin = compose(
+  space,
+  position,
+  layout
+)
 
-  ${space};
-  ${top};
-  ${right};
-  ${left};
-  ${position};
+/** Wrapper for icons to include space */
+export const Icon = styled.svg<IconProps>`
+  position: relative;
+  ${iconMixin};
 `
 
 Icon.defaultProps = {
@@ -45,6 +37,7 @@ Icon.defaultProps = {
   height: "18px",
   width: "18px",
 }
+
 /** Compatibility component used to normalize paths between react dom and react native */
 export const Path: FC<JSX.IntrinsicElements["path"]> = ({ ...props }) => {
   return <path {...props} />

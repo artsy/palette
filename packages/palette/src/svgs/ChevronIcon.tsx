@@ -35,10 +35,10 @@ interface ChevronProps extends IconProps {
 }
 
 /** ChevronIcon */
-export const ChevronIcon = ({
+export const ChevronIcon: React.FC<ChevronProps> = ({
   direction = "right",
   ...props
-}: ChevronProps) => {
+}) => {
   const Arrow = rotationMap[direction] || directionMap[direction]
   return <Arrow {...props} />
 }
