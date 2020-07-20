@@ -1,43 +1,31 @@
-// @ts-ignore
 import React, { FC } from "react"
 import styled from "styled-components"
 import {
-  left,
-  LeftProps,
+  compose,
   position,
   PositionProps,
-  right,
-  RightProps,
   space,
   SpaceProps,
-  top,
-  TopProps,
 } from "styled-system"
 import { Color } from "../Theme"
 
-// : React.SVGProps<SVGSVGElement>
-
-// tslint:disable-next-line:no-empty-interface
 export interface IconProps
   extends React.SVGProps<any>,
     SpaceProps,
-    PositionProps,
-    TopProps,
-    RightProps,
-    LeftProps {
+    PositionProps {
   fill?: Color
   title?: string
 }
 
-/** Wrapper for icons to include space */
-export const Icon = styled.svg.attrs<IconProps>({})`
-  position: relative;
+const iconMixin = compose(
+  space,
+  position
+)
 
-  ${space};
-  ${top};
-  ${right};
-  ${left};
-  ${position};
+/** Wrapper for icons to include space */
+export const Icon = styled.svg<IconProps>`
+  position: relative;
+  ${iconMixin}
 `
 
 Icon.defaultProps = {

@@ -1,6 +1,7 @@
 import { themeGet } from "@styled-system/theme-get"
 import styled, { css } from "styled-components"
 import { variant } from "styled-system"
+import { Box, BoxProps } from "../Box"
 import { textMixin, TextProps } from "./Text.shared"
 import { TEXT_VARIANTS } from "./tokens"
 
@@ -12,7 +13,9 @@ export const overflowEllipsisMixin = css`
 `
 
 /** Text */
-export const Text = styled.div<TextProps & { overflowEllipsis?: boolean }>`
+export const Text = styled(Box)<
+  TextProps & BoxProps & { overflowEllipsis?: boolean }
+>`
   ${variant({ variants: TEXT_VARIANTS.small })}
   ${textMixin}
 
