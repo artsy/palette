@@ -1,3 +1,19 @@
+# v11.11.0 (Tue Jul 21 2020)
+
+#### 🚀  Enhancement
+
+- Implements utility for breaking apart layout props [#737](https://github.com/artsy/palette/pull/737) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Implements utility for breaking apart layout props ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.10.0 (Mon Jul 20 2020)
 
 #### 🚀  Enhancement
