@@ -49,6 +49,15 @@ export const unitlessBreakpoints = {
 }
 
 /**
+ * We alias breakpoints onto the scale so that styled-system has access
+ * to the named breakpoints as well as the scale
+ */
+const BREAKPOINTS_SCALE = Object.assign(
+  [breakpoints.sm, breakpoints.md, breakpoints.lg, breakpoints.xl],
+  breakpoints
+)
+
+/**
  * All of the config for the Artsy theming system, based on the
  * design system from our design team:
  * https://www.notion.so/artsy/Master-Library-810612339f474d0997fe359af4285c56
@@ -60,7 +69,7 @@ export const themeProps = {
   /**
    *  This allows styled-system to hook into our breakpoints
    */
-  breakpoints: [breakpoints.sm, breakpoints.md, breakpoints.lg, breakpoints.xl],
+  breakpoints: BREAKPOINTS_SCALE,
 
   /**
    * Artsy's color schemes:
