@@ -1,3 +1,16 @@
+# v11.11.1 (Wed Jul 22 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Breakpoints aliasing [#738](https://github.com/artsy/palette/pull/738) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.11.0 (Tue Jul 21 2020)
 
 #### 🚀  Enhancement
