@@ -9,44 +9,14 @@ should be contextually applied. The goal is for this system to increase overall
 design consistency for our product as well as to increase efficiency for both
 the design and engineering teams.
 
-<Playground showToggle={true} title="Text" expanded={true}>
-  <>
-    <Text variant="largeTitle">Text largeTitle</Text>
-    <Text variant="title">Text title</Text>
-    <Text variant="subtitle">Text subtitle</Text>
-    <Text variant="text">Text text</Text>
-    <Text variant="mediumText">Text mediumText</Text>
-    <Text variant="caption">Text caption</Text>
-    <Text variant="small">Text small</Text>
-  </>
-</Playground>
-
-<Separator my={1} />
-
-Text extends Box and supports the same set of styled-system props.
-
-<Playground showToggle={true} title="Text" expanded={true}>
-  <>
-    <Text
-      variant="largeTitle"
-      py={3}
-      px={4}
-      bg="purple100"
-      color="white100"
-      borderRadius={6}
-      textAlign="center"
-    >
-      All their equipment and instruments are alive
-    </Text>
-  </>
-</Playground>
-
-<Separator my={1} />
+<Spacer my={2} />
 
 A single variant is shorthand for a set of typography-specific tokens. The
 text-treatments vary slightly depending on screen size.
 
-<Table mb={4}>
+<Spacer my={2} />
+
+<Table>
   <thead>
     <tr>
       <th>
@@ -91,3 +61,35 @@ text-treatments vary slightly depending on screen size.
     ))}
   </tbody>
 </Table>
+
+<Spacer my={4} />
+
+Text extends Box and supports the same set of styled-system props.
+
+<Playground>
+  <>
+    <Text
+      variant="largeTitle"
+      py={3}
+      px={4}
+      bg="purple100"
+      color="white100"
+      borderRadius={6}
+      textAlign="center"
+    >
+      All their equipment and instruments are alive
+    </Text>
+  </>
+</Playground>
+
+<Playground>
+  <>
+    <Text variant="largeTitle">Text largeTitle</Text>
+    <Text variant="title">Text title</Text>
+    <Text variant="subtitle">Text subtitle</Text>
+    <Text variant="text">Text text</Text>
+    <Text variant="mediumText">Text mediumText</Text>
+    <Text variant="caption">Text caption</Text>
+    <Text variant="small">Text small</Text>
+  </>
+</Playground>
