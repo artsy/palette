@@ -1,3 +1,15 @@
+# v11.12.0 (Wed Jul 22 2020)
+
+#### 🚀  Enhancement
+
+- [palette-docs] Fixes mysterious error [#739](https://github.com/artsy/palette/pull/739) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.11.1 (Wed Jul 22 2020)
 
 #### 🐛  Bug Fix
