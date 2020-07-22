@@ -26,7 +26,7 @@ export default function DocsLayout(props) {
         <Helmet defaultTitle="Palette" titleTemplate="Palette | %s">
           <title>{name}</title>
           <link
-            href="https://webfonts.artsy.net/all-webfonts.css"
+            href="https://production-webfonts.artsy.net/all-webfonts.css"
             rel="stylesheet"
             type="text/css"
           />
