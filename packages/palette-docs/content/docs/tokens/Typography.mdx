@@ -10,13 +10,84 @@ design consistency for our product as well as to increase efficiency for both
 the design and engineering teams.
 
 <Playground showToggle={true} title="Text" expanded={true}>
-  <Box mt={4}>
-    <Text variant="largeTitle">largeTitle</Text>
-    <Text variant="title">title</Text>
-    <Text variant="subtitle">subtitle</Text>
-    <Text variant="text">text</Text>
-    <Text variant="mediumText">mediumText</Text>
-    <Text variant="caption">caption</Text>
-    <Text variant="small">small</Text>
-  </Box>
+  <>
+    <Text variant="largeTitle">Text largeTitle</Text>
+    <Text variant="title">Text title</Text>
+    <Text variant="subtitle">Text subtitle</Text>
+    <Text variant="text">Text text</Text>
+    <Text variant="mediumText">Text mediumText</Text>
+    <Text variant="caption">Text caption</Text>
+    <Text variant="small">Text small</Text>
+  </>
 </Playground>
+
+<Separator my={1} />
+
+Text extends Box and supports the same set of styled-system props.
+
+<Playground showToggle={true} title="Text" expanded={true}>
+  <>
+    <Text
+      variant="largeTitle"
+      py={3}
+      px={4}
+      bg="purple100"
+      color="white100"
+      borderRadius={6}
+      textAlign="center"
+    >
+      All their equipment and instruments are alive
+    </Text>
+  </>
+</Playground>
+
+<Separator my={1} />
+
+A single variant is shorthand for a set of typography-specific tokens. The
+text-treatments vary slightly depending on screen size.
+
+<Table mb={4}>
+  <thead>
+    <tr>
+      <th>
+        <Text variant="small">Variant</Text>
+      </th>
+      <th>
+        <Text variant="small">Large (&gt;&nbsp;767)</Text>
+      </th>
+      <th>
+        <Text variant="small">Small (&lt;&nbsp;767)</Text>
+      </th>
+      <th>
+        <Text variant="small">Example</Text>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {TEXT_TREATMENTS.map((key) => (
+      <tr key={key}>
+        <td>
+          <Text variant="small">{key}</Text>
+        </td>
+        <td>
+          <TextSpecification
+            size="large"
+            treatment={TEXT_VARIANTS.large[key]}
+          />
+        </td>
+        <td>
+          <TextSpecification
+            size="small"
+            treatment={TEXT_VARIANTS.small[key]}
+          />
+        </td>
+        <td>
+          <Text variant={key}>
+            All their equipment and instruments are alive
+          </Text>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</Table>

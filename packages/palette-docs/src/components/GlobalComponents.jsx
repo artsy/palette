@@ -79,7 +79,7 @@ export const MarkdownComponents = {
    *
    * Color is the color from Palette's theme, e.g. purple100
    */
-  ColorComponent: props => {
+  ColorComponent: (props) => {
     return <ColorComponent color={props.color} />
   },
   /**
@@ -96,17 +96,17 @@ export const MarkdownComponents = {
       />
     )
   },
-  div: props => {
+  div: (props) => {
     return <div className="contentDiv">{props.children}</div>
   },
-  h1: props => (
+  h1: (props) => (
     <Box mb={5}>
       <Serif element="h1" size="8" color="black100" className="DocSearch-lvl1">
         {props.children}
       </Serif>
     </Box>
   ),
-  h2: props => (
+  h2: (props) => (
     <Box mb={1}>
       <Sans
         element="h2"
@@ -119,7 +119,7 @@ export const MarkdownComponents = {
       </Sans>
     </Box>
   ),
-  h3: props => (
+  h3: (props) => (
     <Box mb={1}>
       <Sans
         element="h3"
@@ -132,7 +132,7 @@ export const MarkdownComponents = {
       </Sans>
     </Box>
   ),
-  h4: props => (
+  h4: (props) => (
     <Box mb={1}>
       <Serif element="h4" size="4" color="black100" className="DocSearch-lvl4">
         {props.children}
@@ -140,7 +140,7 @@ export const MarkdownComponents = {
     </Box>
   ),
 
-  ol: props => {
+  ol: (props) => {
     return (
       <ol>
         <Sans size="3">{props.children}</Sans>
@@ -148,7 +148,7 @@ export const MarkdownComponents = {
     )
   },
 
-  p: props => (
+  p: (props) => (
     // @ts-ignore
     <Sans element="p" size="3" color="black100" className="contentDiv">
       {props.children}
