@@ -10,10 +10,8 @@ import {
 import { Color } from "../../Theme"
 import { TextVariant } from "./tokens"
 
-/**
- * Text
- */
-export type TextProps = TypographyProps &
+/** BaseTextProps */
+export type BaseTextProps = TypographyProps &
   Omit<ColorProps, "color"> & {
     variant?: TextVariant
     textColor?: ResponsiveValue<Color>
@@ -25,9 +23,7 @@ const textColor = style({
   key: "colors",
 })
 
-/**
- * styled functions for Text
- */
+/** styled functions for Text */
 export const textMixin = compose(
   typography,
   color,

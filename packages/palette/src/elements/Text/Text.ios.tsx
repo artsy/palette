@@ -1,7 +1,7 @@
 import React from "react"
 import { variant as systemVariant } from "styled-system"
 import { styled as primitives } from "../../platform/primitives"
-import { textMixin, TextProps } from "./Text.shared"
+import { BaseTextProps, textMixin } from "./Text.shared"
 import {
   calculateLetterSpacing,
   calculateLineHeight,
@@ -11,18 +11,15 @@ import {
   TEXT_VARIANTS,
 } from "./tokens.ios"
 
-/**
- * InnerText
- */
+/** TextProps */
+export type TextProps = BaseTextProps
+
 const InnerText = primitives.Text<TextProps>`
   ${systemVariant({ variants: TEXT_VARIANTS })}
   ${textMixin}
 `
 
-/**
- * Text
- * TODO: Compose RN props
- */
+/** Text */
 export const Text: React.FC<TextProps> = ({
   children,
   variant,
