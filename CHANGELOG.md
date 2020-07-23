@@ -1,3 +1,22 @@
+# v11.13.0 (Thu Jul 23 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Implements Skeleton [#741](https://github.com/artsy/palette/pull/741) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- Update Typography docs [#742](https://github.com/artsy/palette/pull/742) ([@damassi](https://github.com/damassi))
+- Improves Typography documentation [#740](https://github.com/artsy/palette/pull/740) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.12.0 (Wed Jul 22 2020)
 
 #### 🚀  Enhancement

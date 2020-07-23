@@ -1,3 +1,23 @@
+# v11.13.0 (Thu Jul 23 2020)
+
+#### 🚀  Enhancement
+
+- Implements Skeleton [#741](https://github.com/artsy/palette/pull/741) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Adds docs for Skeleton ([@dzucconi](https://github.com/dzucconi))
+- Adds support for SkeletonText; specifies SkeletonBox ([@dzucconi](https://github.com/dzucconi))
+- Improves Text typing ([@dzucconi](https://github.com/dzucconi))
+- Makes the splitProps function generic ([@dzucconi](https://github.com/dzucconi))
+- Implements Skeleton ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.11.1 (Wed Jul 22 2020)
 
 #### 🐛  Bug Fix
