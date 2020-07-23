@@ -19,6 +19,7 @@ import {
   textAlign,
   TextAlignProps,
 } from "styled-system"
+import { splitProps } from "../../utils/splitProps"
 
 export interface BoxProps
   extends BackgroundProps,
@@ -54,27 +55,5 @@ export const Box = primitives.View<BoxProps>`
 
 Box.displayName = "Box"
 
-/** RegExp for filtering BoxProps */
-export const BOX_PROP_REGEX = new RegExp(`^(${boxMixin.propNames.join("|")})$`)
-
 /** Splits out props into valid and invalid BoxProps */
-export const splitBoxProps = <
-  T extends BoxProps,
-  U extends Omit<T, keyof BoxProps>
->(
-  props: T
-): [BoxProps, U] => {
-  const boxProps = {} as T
-  const notBoxProps = {} as U
-
-  for (const key of Object.keys(props)) {
-    if (BOX_PROP_REGEX.test(key)) {
-      boxProps[key] = props[key]
-      continue
-    }
-
-    notBoxProps[key] = props[key]
-  }
-
-  return [boxProps, notBoxProps]
-}
+export const splitBoxProps = splitProps<BoxProps>(boxMixin)
