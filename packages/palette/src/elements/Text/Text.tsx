@@ -2,7 +2,7 @@ import { themeGet } from "@styled-system/theme-get"
 import styled, { css } from "styled-components"
 import { variant } from "styled-system"
 import { Box, BoxProps } from "../Box"
-import { textMixin, TextProps } from "./Text.shared"
+import { BaseTextProps, textMixin } from "./Text.shared"
 import { TEXT_VARIANTS } from "./tokens"
 
 /** Adds ellipsis to overflowing text */
@@ -12,10 +12,12 @@ export const overflowEllipsisMixin = css`
   text-overflow: ellipsis;
 `
 
+/** TextProps */
+export type TextProps = BaseTextProps &
+  BoxProps & { overflowEllipsis?: boolean }
+
 /** Text */
-export const Text = styled(Box)<
-  TextProps & BoxProps & { overflowEllipsis?: boolean }
->`
+export const Text = styled(Box)<TextProps>`
   ${variant({ variants: TEXT_VARIANTS.small })}
   ${textMixin}
 
