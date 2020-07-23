@@ -15,23 +15,23 @@ storiesOf("Components/Skeleton", module)
   })
   .add("SkeletonText", () => {
     return (
-      <>
-        <SkeletonText variant="text" m={1} borderRadius={4}>
+      <Box m={1}>
+        <SkeletonText variant="text" borderRadius={4}>
           loading
         </SkeletonText>
 
-        <SkeletonText variant="mediumText" m={1} borderRadius={4}>
+        <SkeletonText variant="mediumText" borderRadius={4}>
           still waiting...
         </SkeletonText>
 
-        <SkeletonText variant="title" m={1} borderRadius={4}>
+        <SkeletonText variant="title" borderRadius={4}>
           please wait
         </SkeletonText>
 
-        <SkeletonText variant="largeTitle" m={1} borderRadius={4}>
+        <SkeletonText variant="largeTitle" borderRadius={4}>
           hold
         </SkeletonText>
-      </>
+      </Box>
     )
   })
   .add("Example placeholder", () => {
