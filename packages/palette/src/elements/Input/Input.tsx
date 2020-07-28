@@ -75,6 +75,7 @@ export const computeBorderColor = (inputStatus: InputStatus): Color => {
 }
 
 const StyledInput = styled.input<StyledInputProps>`
+  appearance: none;
   font-family: ${themeGet("fontFamily.sans.regular")};
   font-size: ${themeGet("typeSizes.sans.3.fontSize")};
   line-height: ${themeGet("typeSizes.sans.3t.lineHeight")};
