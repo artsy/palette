@@ -1,3 +1,16 @@
+# v11.13.1 (Tue Jul 28 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Removes shadow on iOS [#744](https://github.com/artsy/palette/pull/744) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.13.0 (Thu Jul 23 2020)
 
 #### 🚀  Enhancement
