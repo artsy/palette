@@ -16,29 +16,30 @@ export enum Rotation {
   DOWN,
 }
 
-const rotationMap = {
+const ROTATION_MAP = {
   [Rotation.LEFT]: ArrowLeftIcon,
   [Rotation.RIGHT]: ArrowRightIcon,
   [Rotation.UP]: ArrowUpIcon,
   [Rotation.DOWN]: ArrowDownIcon,
-}
+} as const
 
-const directionMap = {
+const DIRECTION_MAP = {
   left: ArrowLeftIcon,
   right: ArrowRightIcon,
   up: ArrowUpIcon,
   down: ArrowDownIcon,
-}
+} as const
 
 interface ChevronProps extends IconProps {
   direction?: Direction | Rotation
 }
 
 /** ChevronIcon */
-export const ChevronIcon = ({
+export const ChevronIcon: React.FC<ChevronProps> = ({
   direction = "right",
   ...props
-}: ChevronProps) => {
-  const Arrow = rotationMap[direction] || directionMap[direction]
+}) => {
+  const Arrow =
+    ROTATION_MAP[direction as Rotation] || DIRECTION_MAP[direction as Direction]
   return <Arrow {...props} />
 }

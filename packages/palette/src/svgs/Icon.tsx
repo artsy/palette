@@ -9,23 +9,23 @@ import {
 } from "styled-system"
 import { Color } from "../Theme"
 
-export interface IconProps
-  extends React.SVGProps<any>,
-    SpaceProps,
-    PositionProps {
-  fill?: Color
-  title?: string
-}
+/** IconProps */
+export type IconProps = React.SVGAttributes<SVGSVGElement> &
+  SpaceProps &
+  PositionProps & {
+    fill?: Color
+    title?: string
+  }
 
 const iconMixin = compose(
   space,
   position
 )
 
-/** Wrapper for icons to include space */
+/** Icon */
 export const Icon = styled.svg<IconProps>`
   position: relative;
-  ${iconMixin}
+  ${iconMixin};
 `
 
 Icon.defaultProps = {
@@ -33,6 +33,7 @@ Icon.defaultProps = {
   height: "18px",
   width: "18px",
 }
+
 /** Compatibility component used to normalize paths between react dom and react native */
 export const Path: FC<JSX.IntrinsicElements["path"]> = ({ ...props }) => {
   return <path {...props} />
