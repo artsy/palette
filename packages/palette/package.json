@@ -96,7 +96,7 @@
     "fork-ts-checker-webpack-plugin": "1.2.0",
     "husky": "2.1.0",
     "jest": "23.6.0",
-    "jest-styled-components": "7.0.0-2",
+    "jest-styled-components": "6.3.4",
     "lint-staged": "8.1.5",
     "mock-raf": "1.0.1",
     "prettier": "1.17.0",
