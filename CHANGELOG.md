@@ -1,3 +1,15 @@
+# v11.14.0 (Wed Jul 29 2020)
+
+#### 🚀  Enhancement
+
+- [Docs] Remove WIP from SelectSmall [#746](https://github.com/artsy/palette/pull/746) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v11.13.1 (Tue Jul 28 2020)
 
 #### 🐛  Bug Fix
