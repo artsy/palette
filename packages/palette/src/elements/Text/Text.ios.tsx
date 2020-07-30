@@ -1,6 +1,7 @@
 import React from "react"
+import { Text as NativeText, TextProps as NativeTextProps } from "react-native"
+import { styled } from "styled-components/native"
 import { variant as systemVariant } from "styled-system"
-import { styled as primitives } from "../../platform/primitives"
 import { BaseTextProps, textMixin } from "./Text.shared"
 import {
   calculateLetterSpacing,
@@ -12,9 +13,9 @@ import {
 } from "./tokens.ios"
 
 /** TextProps */
-export type TextProps = BaseTextProps
+export type TextProps = BaseTextProps & NativeTextProps
 
-const InnerText = primitives.Text<TextProps>`
+const InnerText = styled(NativeText)<TextProps>`
   ${systemVariant({ variants: TEXT_VARIANTS })}
   ${textMixin}
 `
