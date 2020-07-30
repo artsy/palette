@@ -1,36 +1,63 @@
-import { scale } from "proportional-scale"
+import { paddingBottom, scale } from "proportional-scale"
 import React from "react"
 import { Box, BoxProps } from "../Box"
 
-/** ResponsiveBoxProps */
-export type ResponsiveBoxProps = Omit<BoxProps, "maxWidth" | "maxHeight"> & {
+/** ResponsiveBoxMaxDimensions */
+export type ResponsiveBoxMaxDimensions =
+  | {
+      maxWidth: number
+      maxHeight: number
+    }
+  | { maxWidth: number }
+  | { maxHeight: number }
+  | { maxWidth: "100%" }
+
+export interface ResponsiveBoxAspectDimensions {
   aspectWidth: number
   aspectHeight: number
-  maxWidth: number
-  maxHeight: number
 }
+
+const responsiveScale = (
+  args: ResponsiveBoxAspectDimensions & ResponsiveBoxMaxDimensions
+) => {
+  if ("maxWidth" in args && args.maxWidth === "100%") {
+    return {
+      maxWidth: "100%",
+      paddingBottom: paddingBottom({
+        width: args.aspectWidth,
+        height: args.aspectHeight,
+      }),
+    }
+  }
+
+  const { aspectWidth: width, aspectHeight: height, ...rest } = args
+  const scaled = scale({ width, height, ...rest })
+
+  return {
+    maxWidth: `${scaled.width}px`,
+    paddingBottom: scaled.paddingBottom,
+  }
+}
+
+/** ResponsiveBoxProps */
+export type ResponsiveBoxProps = Omit<BoxProps, "maxWidth" | "maxHeight"> &
+  ResponsiveBoxAspectDimensions &
+  ResponsiveBoxMaxDimensions
 
 /** ResponsiveBox */
 export const ResponsiveBox: React.FC<ResponsiveBoxProps> = ({
   aspectWidth,
   aspectHeight,
-  maxWidth,
-  maxHeight,
   children,
   ...rest
 }) => {
-  const { width, paddingBottom } = scale({
-    width: aspectWidth,
-    height: aspectHeight,
-    maxWidth,
-    maxHeight,
-  })
+  const scaled = responsiveScale({ aspectHeight, aspectWidth, ...rest })
 
   return (
     <Box
       position="relative"
       width="100%"
-      style={{ maxWidth: `${width}px` }}
+      style={{ maxWidth: scaled.maxWidth }}
       {...rest}
     >
       <Box
@@ -38,7 +65,7 @@ export const ResponsiveBox: React.FC<ResponsiveBoxProps> = ({
         width="100%"
         height={0}
         overflow="hidden"
-        paddingBottom={paddingBottom}
+        style={{ paddingBottom: scaled.paddingBottom }}
       />
 
       <Box position="absolute" top={0} left={0} width="100%" height="100%">
