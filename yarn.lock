@@ -20508,6 +20508,11 @@ property-information@^5.0.0, property-information@^5.0.1:
   dependencies:
     xtend "^4.0.1"
 
+proportional-scale@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/proportional-scale/-/proportional-scale-3.0.1.tgz#321801b38dd00fa76708dd13697de9e211cdf04b"
+  integrity sha512-Jxf/kFvVqbOA0tgMJaU/ujX8idBY+vy39+13mRSWWTbFeZ5eSb6gT/a/AGeKwbboGYigFGinnshaTAUeJNNgfg==
+
 proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
