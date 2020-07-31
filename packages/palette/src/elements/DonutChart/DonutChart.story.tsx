@@ -53,7 +53,7 @@ storiesOf("Components/DonutChart", module).add(
       </Box>
     )
   },
-  { chromatic: { delay: 500 } }
+  { chromatic: { pauseAnimationAtEnd: true } }
 )
 
 storiesOf("Components/DonutChart", module).add(
@@ -108,7 +108,7 @@ storiesOf("Components/DonutChart", module).add(
       </Box>
     )
   },
-  { chromatic: { delay: 500 } }
+  { chromatic: { pauseAnimationAtEnd: true } }
 )
 
 storiesOf("Components/DonutChart", module).add(
@@ -163,7 +163,7 @@ storiesOf("Components/DonutChart", module).add(
       </Box>
     )
   },
-  { chromatic: { delay: 500 } }
+  { chromatic: { pauseAnimationAtEnd: true } }
 )
 
 storiesOf("Components/DonutChart", module).add(
@@ -211,7 +211,7 @@ storiesOf("Components/DonutChart", module).add(
       </Box>
     )
   },
-  { chromatic: { delay: 500 } }
+  { chromatic: { pauseAnimationAtEnd: true } }
 )
 
 storiesOf("Components/DonutChart", module).add(
@@ -259,7 +259,7 @@ storiesOf("Components/DonutChart", module).add(
       </Box>
     )
   },
-  { chromatic: { delay: 500 } }
+  { chromatic: { pauseAnimationAtEnd: true } }
 )
 
 storiesOf("Components/DonutChart", module).add(
@@ -313,7 +313,7 @@ storiesOf("Components/DonutChart", module).add(
       </>
     )
   },
-  { chromatic: { delay: 500 } }
+  { chromatic: { pauseAnimationAtEnd: true } }
 )
 
 const GrowingBox = styled(Box)`

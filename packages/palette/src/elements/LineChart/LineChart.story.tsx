@@ -71,7 +71,7 @@ storiesOf("Components/LineChart", module)
         </Box>
       )
     },
-    { chromatic: { delay: 1000 } }
+    { chromatic: { pauseAnimationAtEnd: true } }
   )
 
   .add(
@@ -142,6 +142,6 @@ storiesOf("Components/LineChart", module)
       )
     },
     {
-      chromatic: { delay: 1000 },
+      chromatic: { pauseAnimationAtEnd: true },
     }
   )
