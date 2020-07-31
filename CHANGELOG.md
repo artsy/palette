@@ -1,3 +1,16 @@
+# v11.15.0 (Fri Jul 31 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Implements ResponsiveBox [#747](https://github.com/artsy/palette/pull/747) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.14.0 (Wed Jul 29 2020)
 
 #### 🚀  Enhancement

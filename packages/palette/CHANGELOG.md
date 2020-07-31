@@ -1,3 +1,20 @@
+# v11.15.0 (Fri Jul 31 2020)
+
+#### 🚀  Enhancement
+
+- Implements ResponsiveBox [#747](https://github.com/artsy/palette/pull/747) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Supports 100% maxWidth ([@dzucconi](https://github.com/dzucconi))
+- Implements ResponsiveBox ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.13.1 (Tue Jul 28 2020)
 
 #### 🐛  Bug Fix
