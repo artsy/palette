@@ -1,62 +1,46 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import styled, { css } from "styled-components"
 import { space } from "../../helpers/space"
-import { Box } from "../Box"
-import { Sans, SansProps, Serif, SerifProps } from "../Typography"
+import { Text, TextProps } from "../Text"
 
 /**
  * HTML
  */
-export type HTMLProps = (SansProps | SerifProps) & {
-  fontFamily?: "sans" | "serif"
-  html: string
-}
+export type HTMLProps = TextProps &
+  HTMLAttributes<HTMLDivElement | HTMLHeadingElement | HTMLParagraphElement> & {
+    html: string
+  }
 
 const htmlMixin = css`
-  > ${Box} {
-    > h1,
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > ul,
-    > ol,
-    > p {
-      margin: ${space(1)}px auto;
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > ul,
+  > ol,
+  > p {
+    margin: ${space(1)}px auto;
 
-      &:first-child {
-        margin-top: 0;
-      }
+    &:first-child {
+      margin-top: 0;
+    }
 
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 `
 
-const TYPEFACES = {
-  sans: styled(Sans)`
-    ${htmlMixin}
-  `,
-  serif: styled(Serif)`
-    ${htmlMixin}
-  `,
-} as const
-
-type Typeface = keyof typeof TYPEFACES
+const Container = styled(Text)`
+  ${htmlMixin}
+`
 
 /**
  * HTML
  */
-export const HTML = ({ fontFamily = "sans", html, size, ...rest }) => {
-  const Component = TYPEFACES[fontFamily as Typeface]
-
-  return (
-    <Component size={size} {...rest}>
-      <Box dangerouslySetInnerHTML={{ __html: html }} />
-    </Component>
-  )
+export const HTML: React.FC<HTMLProps> = ({ html, ...rest }) => {
+  return <Container dangerouslySetInnerHTML={{ __html: html }} {...rest} />
 }
 
 HTML.displayName = "HTML"

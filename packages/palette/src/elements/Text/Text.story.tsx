@@ -131,6 +131,7 @@ storiesOf("Components/Text", module)
         letterSpacing: "tightest",
       },
       {
+        fontFamily: "serif",
         fontSize: "70px",
         lineHeight: "solid",
         letterSpacing: "tight",
@@ -142,14 +143,16 @@ storiesOf("Components/Text", module)
         letterSpacing: "tightest",
       },
       {
+        fontFamily: "serif",
         fontSize: "55px",
         lineHeight: "solid",
         letterSpacing: "tightest",
       },
       {
-        variant: 'text',
-        lineHeight: 'solid'
-      }
+        fontFamily: "serif",
+        variant: "text",
+        lineHeight: "solid",
+      },
     ] as const
 
     return (
