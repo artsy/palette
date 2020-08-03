@@ -1,3 +1,20 @@
+# v12.0.0 (Mon Aug 03 2020)
+
+#### 💥  Breaking Change
+
+- Reverts serif removal, migrates HTML to new typography [#751](https://github.com/artsy/palette/pull/751) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Moves HTML to new typography ([@dzucconi](https://github.com/dzucconi))
+- Revert "Removes serif option" ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v11.15.0 (Fri Jul 31 2020)
 
 #### 🚀  Enhancement
