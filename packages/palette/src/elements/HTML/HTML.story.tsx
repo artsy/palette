@@ -11,7 +11,7 @@ const HTML_EXAMPLE = `
 
 <h4>H4 Headline</h4>
 
-<p>I’m of the opinion that they use no inert material. All their equipment and instruments are alive, in some form or other.</p>
+<p>I’m <em>of the opinion</em> that they use <strong>no <em>inert</em> material.</strong> All their equipment and instruments are alive, in some form or other.</p>
 
 <p>They don’t construct or build at all. The idea of making is foreign to them. They utilize existing forms. Even their ships—</p>
 
@@ -31,9 +31,21 @@ const HTML_EXAMPLE = `
 storiesOf("Components/HTML", module).add("HTML", () => {
   return (
     <>
-      <HTML style={{ border: "1px dotted" }} size="6" html={HTML_EXAMPLE} />
-      <HTML style={{ border: "1px dotted" }} size="4" html={HTML_EXAMPLE} />
-      <HTML style={{ border: "1px dotted" }} size="1" html={HTML_EXAMPLE} />
+      <HTML
+        style={{ border: "1px dotted" }}
+        variant="title"
+        html={HTML_EXAMPLE}
+      />
+      <HTML
+        style={{ border: "1px dotted" }}
+        variant="text"
+        html={HTML_EXAMPLE}
+      />
+      <HTML
+        style={{ border: "1px dotted" }}
+        variant="small"
+        html={HTML_EXAMPLE}
+      />
     </>
   )
 })
