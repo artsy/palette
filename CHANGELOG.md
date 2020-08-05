@@ -1,3 +1,16 @@
+# v12.0.1 (Wed Aug 05 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Adds remaining block-level elements that can come from rendered Markdown [#752](https://github.com/artsy/palette/pull/752) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v12.0.0 (Mon Aug 03 2020)
 
 #### 💥  Breaking Change
