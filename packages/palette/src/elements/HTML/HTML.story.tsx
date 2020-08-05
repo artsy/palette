@@ -26,6 +26,12 @@ const HTML_EXAMPLE = `
   <li>second</li>
   <li>third</li>
 </ul>
+
+<hr />
+
+<pre><code>this is a code block</code></pre>
+
+<blockquote>This is a block quote</blockquote>
 `
 
 storiesOf("Components/HTML", module).add("HTML", () => {

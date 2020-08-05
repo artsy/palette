@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import styled, { css } from "styled-components"
+import { color } from "../../helpers"
 import { space } from "../../helpers/space"
 import { Text, TextProps } from "../Text"
 
@@ -19,7 +20,10 @@ const htmlMixin = css`
   > h5,
   > ul,
   > ol,
-  > p {
+  > p,
+  > blockquote,
+  > pre,
+  > hr {
     margin: ${space(1)}px auto;
 
     &:first-child {
@@ -29,6 +33,12 @@ const htmlMixin = css`
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  > hr {
+    height: 1px;
+    border: 0;
+    background-color: ${color("black10")};
   }
 `
 
