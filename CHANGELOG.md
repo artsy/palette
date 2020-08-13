@@ -1,3 +1,22 @@
+# v12.0.2 (Thu Aug 13 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Removes lodash [#755](https://github.com/artsy/palette/pull/755) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Pin dep @types/debounce from ^1.2.0 to 1.2.0 [#756](https://github.com/artsy/palette/pull/756) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v12.0.1 (Wed Aug 05 2020)
 
 #### 🐛  Bug Fix
