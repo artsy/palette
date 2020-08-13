@@ -1,7 +1,7 @@
 import { DateTime } from "luxon"
 import React from "react"
-import { ProgressBar } from ".."
 import { color } from "../../helpers"
+import { ProgressBar } from "../ProgressBar"
 
 /** ProgressBarTimer */
 export const ProgressBarTimer: React.SFC<{

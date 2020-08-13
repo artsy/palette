@@ -1,5 +1,4 @@
 import { storiesOf } from "@storybook/react"
-import _ from "lodash"
 import React from "react"
 import { Box } from "../elements/Box/Box"
 import { Flex } from "../elements/Flex/Flex"
@@ -13,7 +12,7 @@ storiesOf("Icons", module).add("all icons", () => {
       {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
         const blacklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
         if (
-          !_.isFunction(IconComponent) ||
+          !(typeof IconComponent === 'function') ||
           blacklist.some(icon => icon === iconName)
         ) {
           return null

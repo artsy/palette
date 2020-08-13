@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import React, { useState } from "react"
 import { BorderBox } from "../BorderBox/BorderBox.ios"
@@ -20,8 +21,8 @@ storiesOf("Components/RadioGroup", module)
             Toggle default value: {defaultValue}
           </BorderBox>
           <RadioGroup defaultValue={defaultValue}>
-            <Radio value="SHIP" label="Provide shipping address" />
-            <Radio value="PICKUP" label="Arrange for pickup" />
+            <Radio value="SHIP" label="Provide shipping address" onSelect={action('onSelect')} />
+            <Radio value="PICKUP" label="Arrange for pickup" onSelect={action('onSelect')} />
           </RadioGroup>
         </>
       )

@@ -1,6 +1,5 @@
 import { interpolateArray } from "d3-interpolate"
 import { line as d3Line } from "d3-shape"
-import { maxBy } from "lodash"
 import React from "react"
 import { Spring } from "react-spring/renderprops.cjs"
 import styled from "styled-components"
@@ -30,7 +29,7 @@ export const LineChartSVG: React.FC<LineChartSVGProps> = ({
   hasEnteredViewport,
 }: LineChartSVGProps) => {
   const values = points.map(d => d.value)
-  const maxValue: number = maxBy(points, item => item.value).value
+  const maxValue = Math.max(...points.map(({ value }) => value))
 
   const zeros = values.map(() => 0)
   const valuesInterpolator = interpolateArray(zeros, values)
