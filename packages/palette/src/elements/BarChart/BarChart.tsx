@@ -1,4 +1,3 @@
-import { maxBy } from "lodash"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { color, space } from "../../helpers"
@@ -77,7 +76,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
 
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
   const [minHeight, setMinHeight] = useState(0)
-  const maxValue: number = maxBy(bars, item => item.value).value
+  const maxValue = Math.max(...bars.map(({ value }) => value))
   const allZero = bars.every(item => item.value === 0)
   return (
     <ProvideMousePosition>

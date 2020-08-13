@@ -1,10 +1,8 @@
-import { isString } from "lodash"
 import React, { Component } from "react"
 import { renderToStaticMarkup } from "react-dom/server"
 import styled from "styled-components"
 import { DisplayProps } from "styled-system"
 import truncate from "trunc-html"
-
 export interface ReadMoreProps extends DisplayProps {
   content: string | JSX.Element
   disabled?: boolean
@@ -33,9 +31,10 @@ export class ReadMore extends Component<ReadMoreProps, ReadMoreState> {
   constructor(props) {
     super(props)
 
-    this.html = isString(props.content)
-      ? props.content
-      : renderToStaticMarkup(<>{props.content}</>)
+    this.html =
+      typeof props.content === "string"
+        ? props.content
+        : renderToStaticMarkup(<>{props.content}</>)
 
     const RE = /(<([^>]+)>)/gi // Strip HTML tags to get innerText char count
     const { length } = this.html.replace(RE, "") //

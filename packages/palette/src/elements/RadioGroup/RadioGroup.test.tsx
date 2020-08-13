@@ -3,7 +3,7 @@ import React from "react"
 import { Radio } from "../Radio"
 import { RadioGroup } from "../RadioGroup"
 
-jest.mock("lodash/debounce", () => x => x)
+jest.mock("debounce", () => x => x)
 
 describe("RadioGroup", () => {
   it("renders a radio group", () => {

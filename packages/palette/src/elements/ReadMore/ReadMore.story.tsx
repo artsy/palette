@@ -46,11 +46,13 @@ storiesOf("Components/ReadMore", module)
     return (
       <ReadMore
         maxChars={300}
-        content='<p>Donald Judd, widely regarded as one of the most significant American artists of <a href="#">the post-war period</a>, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa. Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa. </p>'
+        content={
+          <p>Donald Judd, widely regarded as one of the most significant American artists of <a href="#">the post-war period</a>, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa. Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa.</p>
+        }
       />
     )
   })
-  .add("Character cap with html", () => {
+  .add("Character cap with html (disabled)", () => {
     return (
       <ReadMore
         disabled

@@ -1,4 +1,4 @@
-import debounce from "lodash/debounce"
+import debounce from "debounce"
 import React from "react"
 import styled, { css } from "styled-components"
 import { Flex, FlexProps } from "../../elements/Flex"

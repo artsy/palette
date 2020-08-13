@@ -1,5 +1,4 @@
 import { mount } from "enzyme"
-import { set } from "lodash/fp"
 import React from "react"
 import { Theme } from "../../../Theme"
 import { LargePagination, SmallPagination } from "../Pagination"
@@ -55,11 +54,7 @@ describe("Pagination", () => {
     })
 
     it("disables previous button if pageCursors.previous is falsy", () => {
-      const updatedProps = set(
-        "cursor.previous",
-        undefined,
-        paginationProps
-      ) as any
+      const updatedProps = { ...paginationProps, cursor: { ...paginationProps.cursor, previous: undefined }}
 
       const wrapper = mount(
         <Theme>
