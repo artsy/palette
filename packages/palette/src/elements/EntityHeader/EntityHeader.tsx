@@ -6,7 +6,7 @@ import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Link } from "../Link"
 import { SpacerProps } from "../Spacer"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 interface EntityHeaderProps extends SpacerProps {
   href?: string
@@ -50,21 +50,25 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
     <ContainerComponent {...remainderProps} {...containerProps}>
       {(imageUrl || initials) && (
         <Flex mr={1}>
-          <Avatar size="xs" src={imageUrl} initials={initials} />
+          <Avatar
+            size={smallVariant ? "xxs" : "xs"}
+            src={imageUrl}
+            initials={initials}
+          />
         </Flex>
       )}
 
       {smallVariant ? (
         <Flex alignItems="center" width="100%">
-          <Sans size="3">{name}</Sans>
+          <Text variant="text">{name}</Text>
 
-          <Sans size="3">
+          <Text variant="text">
             {FollowButton && (
               <>
                 {
-                  <Sans size="3" mx={0.3} display="inline-block">
+                  <Text variant="text" mx={0.3} display="inline-block">
                     •
-                  </Sans>
+                  </Text>
                 }
                 <Box
                   display="inline-block"
@@ -78,28 +82,28 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
                 </Box>
               </>
             )}
-          </Sans>
+          </Text>
         </Flex>
       ) : (
         <Flex flexDirection="column" justifyContent="center" width="100%">
-          <Sans size="3" weight="medium" color="black100">
+          <Text variant="mediumText" color="black100">
             {name}
-          </Sans>
+          </Text>
 
-          <Sans size="2" color="black60">
+          <Text variant="caption" color="black60">
             {!!meta && <span>{meta}</span>}
 
             {FollowButton && (
               <>
                 {meta && (
-                  <Sans
-                    size="2"
+                  <Text
+                    variant="caption"
                     color="black60"
                     mx={0.3}
                     display="inline-block"
                   >
                     •
-                  </Sans>
+                  </Text>
                 )}
                 <Box
                   display="inline-block"
@@ -113,7 +117,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
                 </Box>
               </>
             )}
-          </Sans>
+          </Text>
         </Flex>
       )}
     </ContainerComponent>

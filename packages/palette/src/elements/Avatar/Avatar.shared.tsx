@@ -15,6 +15,10 @@ export interface SizeProps {
 
 /** Size */
 export const Size: SizeProps = {
+  xxs: {
+    diameter: "30px",
+    typeSize: "3",
+  },
   xs: {
     diameter: "45px",
     typeSize: "3",
@@ -29,11 +33,13 @@ export const Size: SizeProps = {
   },
 }
 
-type SizeKey = "xs" | "sm" | "md"
+type SizeKey = "xxs" | "xs" | "sm" | "md"
 
 /** sizeValue */
 export const sizeValue = (size: SizeKey) => {
   switch (size) {
+    case "xxs":
+      return Size.xxs
     case "xs":
       return Size.xs
     case "sm":
