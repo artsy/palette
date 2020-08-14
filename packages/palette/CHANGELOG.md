@@ -1,3 +1,19 @@
+# v12.1.0 (Fri Aug 14 2020)
+
+#### 🚀  Enhancement
+
+- Updates avatar size and typography for entity header small variant [#757](https://github.com/artsy/palette/pull/757) ([@sweir27](https://github.com/sweir27))
+
+#### 🐛  Bug Fix
+
+- Updates avatar size and typography for entity header small variant ([@sweir27](https://github.com/sweir27))
+
+#### Authors: 1
+
+- Sarah Weir ([@sweir27](https://github.com/sweir27))
+
+---
+
 # v12.0.2 (Thu Aug 13 2020)
 
 #### 🐛  Bug Fix
