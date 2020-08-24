@@ -1,15 +1,13 @@
 import { DateTime } from "luxon"
 import React from "react"
-import {
-  Flex,
-  ProgressBarTimer,
-  Sans,
-  Spacer,
-  StackableBorderBox,
-  TimeRemaining,
-} from "../"
-import { TimerIcon } from "../../svgs"
+import { TimerIcon } from "../../svgs/TimerIcon"
 import { useCurrentTime } from "../../utils/useCurrentTime"
+import { Flex } from "../Flex"
+import { ProgressBarTimer } from "../ProgressBarTimer"
+import { Spacer } from "../Spacer"
+import { StackableBorderBox } from "../StackableBorderBox"
+import { TimeRemaining } from "../TimeRemaining"
+import { Sans } from "../Typography"
 
 const FIVE_HOURS_IN_SECONDS = 60 * 60 * 5
 
@@ -37,7 +35,7 @@ export const StaticCountdownTimer: React.SFC<{
   const time = `${hour}:${minutes}${amPm}`
   const actionDeadline = `${endDateTime.monthShort} ${
     endDateTime.day
-  }, ${time} ${endDateTime.offsetNameShort}`
+    }, ${time} ${endDateTime.offsetNameShort}`
 
   const highlight =
     endDateTime.diff(
