@@ -1,8 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { space, SpaceProps } from "styled-system"
-import { ChevronIcon, Flex, Sans, Separator } from "../../"
+import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { SansSize } from "../../Theme"
+import { Flex } from "../Flex"
+import { Separator } from "../Separator"
+import { Sans } from "../Typography"
 
 export interface ToggleProps {
   disabled?: boolean
