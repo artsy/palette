@@ -24,7 +24,12 @@ export type SkipProps =
       href: string
     }
 
-/** Skip */
+/**
+ * Skip link or button.
+ * Utilize `as="a"` for an anchor tag to link to landmark IDs.
+ * Used, for example, to skip to content in the nav.
+ * Is visually hidden until focused, which reveals it.
+ */
 export const Skip = React.forwardRef(
   (
     { children, ...rest }: SkipProps,
