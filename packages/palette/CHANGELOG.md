@@ -1,3 +1,19 @@
+# v12.2.0 (Mon Aug 24 2020)
+
+#### 🚀  Enhancement
+
+- Chore - Cleanup Dependency Cycles [#759](https://github.com/artsy/palette/pull/759) ([@icirellik](https://github.com/icirellik))
+
+#### 🐛  Bug Fix
+
+- Chore - Cleanup Dependency Cycles ([@icirellik](https://github.com/icirellik))
+
+#### Authors: 1
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+
+---
+
 # v12.1.0 (Fri Aug 14 2020)
 
 #### 🚀  Enhancement
