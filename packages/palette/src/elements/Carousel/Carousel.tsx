@@ -21,7 +21,11 @@ import { paginate } from "./paginate"
 const ARROW_WIDTH: SpacingUnit[] = [2, 4]
 const ARROW_TRANSITION_MS = 250
 const RAIL_TRANSITION_MS = 500
-const CELL_GAP_PADDING_AMOUNT: SpacingUnit[] = [1, 2]
+
+/**
+ * We share this spacing value with the `Swiper` component
+ */
+export const CELL_GAP_PADDING_AMOUNT: SpacingUnit[] = [1, 2]
 
 const Container = styled(Box)`
   position: relative;
