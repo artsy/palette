@@ -1,3 +1,21 @@
+# v12.3.0 (Tue Aug 25 2020)
+
+#### 🚀  Enhancement
+
+- [FX-2175] Carousel [#760](https://github.com/artsy/palette/pull/760) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Implements Carousel ([@dzucconi](https://github.com/dzucconi))
+- Implements Skip ([@dzucconi](https://github.com/dzucconi))
+- Implements VisuallyHidden ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v12.2.0 (Mon Aug 24 2020)
 
 #### 🚀  Enhancement
