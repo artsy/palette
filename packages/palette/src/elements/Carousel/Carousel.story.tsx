@@ -4,18 +4,20 @@ import React, { useEffect, useState } from "react"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
 import { Text } from "../Text"
-import { Carousel } from "./Carousel"
+import { Carousel, CarouselProps } from "./Carousel"
+import { CarouselNext, CarouselPrevious } from "./CarouselNavigation"
 
 const Demo = ({
-  widths,
+  widths = [...new Array(25)].map(_ => 300),
   heights = [400],
+  ...rest
 }: {
-  widths: number[]
+  widths?: number[]
   heights?: number[]
-}) => {
+} & Omit<CarouselProps, "children">) => {
   return (
     <Box mx={[2, 4]} my={2}>
-      <Carousel onChange={action("onChange")}>
+      <Carousel onChange={action("onChange")} {...rest}>
         {widths.map((width, i) => (
           <Clickable
             key={i}
@@ -48,16 +50,14 @@ const Dynamic = () => {
 
 storiesOf("Components/Carousel", module)
   .add("Simple", () => {
-    const widths = [...new Array(25)].map(_ => 300)
-    return <Demo widths={widths} />
+    return <Demo />
   })
   .add("Multiple", () => {
-    const widths = [...new Array(25)].map(_ => 300)
     return (
       <>
-        <Demo widths={widths} />
-        <Demo widths={widths} />
-        <Demo widths={widths} />
+        <Demo />
+        <Demo />
+        <Demo />
       </>
     )
   })
@@ -105,4 +105,34 @@ storiesOf("Components/Carousel", module)
   })
   .add("Dynamic items", () => {
     return <Dynamic />
+  })
+  .add("Custom arrows", () => {
+    return (
+      <Demo
+        Previous={props => (
+          <CarouselPrevious
+            {...props}
+            style={{ transform: "translateX(0)" }}
+            bg="black5"
+            color="red100"
+            height={300}
+            opacity={0.75}
+            zIndex={1}
+          />
+        )}
+        Next={props => {
+          return (
+            <CarouselNext
+              {...props}
+              style={{ transform: "translateX(0)" }}
+              bg="black5"
+              color="red100"
+              height={300}
+              opacity={0.75}
+              zIndex={1}
+            />
+          )
+        }}
+      />
+    )
   })
