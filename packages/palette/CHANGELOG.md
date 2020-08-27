@@ -1,3 +1,22 @@
+# v12.4.0 (Thu Aug 27 2020)
+
+#### 🚀  Enhancement
+
+- [FX-2175] Swiper, ProgressDots, custom navigation Carousel buttons [#761](https://github.com/artsy/palette/pull/761) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Fixes initial onChange handling ([@dzucconi](https://github.com/dzucconi))
+- Supports custom navigation arrows ([@dzucconi](https://github.com/dzucconi))
+- Implements Swiper ([@dzucconi](https://github.com/dzucconi))
+- Implements ProgressDots ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v12.3.0 (Tue Aug 25 2020)
 
 #### 🚀  Enhancement
