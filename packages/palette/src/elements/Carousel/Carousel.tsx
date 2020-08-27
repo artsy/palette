@@ -155,7 +155,7 @@ export const Carousel: React.FC<CarouselProps> = ({
           disabled={index === 0}
           aria-label="Previous page"
         >
-          <ChevronIcon direction="left" width={30} height={30} />
+          <ChevronIcon direction="left" width={15} height={15} />
         </Previous>
 
         <Next
@@ -163,7 +163,7 @@ export const Carousel: React.FC<CarouselProps> = ({
           disabled={index === pages.length - 1}
           aria-label="Next page"
         >
-          <ChevronIcon direction="right" width={30} height={30} />
+          <ChevronIcon direction="right" width={15} height={15} />
         </Next>
       </nav>
 
