@@ -11,6 +11,7 @@ import styled from "styled-components"
 import { useCursor } from "use-cursor"
 import { ChevronIcon } from "../../svgs"
 import { SpacingUnit } from "../../Theme"
+import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Skip } from "../Skip"
 import { VisuallyHidden } from "../VisuallyHidden"
@@ -136,7 +137,7 @@ export const Carousel: React.FC<CarouselProps> = ({
     return () => document.removeEventListener("keydown", handleKeydown)
   }, [handleKeydown])
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     onChange && onChange(index)
   }, [onChange, index])
 
