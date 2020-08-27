@@ -38,7 +38,7 @@ const Arrow = styled(Clickable)`
 Arrow.defaultProps = {
   width: ARROW_WIDTH.map(value => space(value)),
   height: "100%",
-  color: "black30",
+  color: "black60",
 }
 
 /**
