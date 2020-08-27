@@ -9,19 +9,21 @@ import React, {
 } from "react"
 import styled from "styled-components"
 import { useCursor } from "use-cursor"
-import { color, space } from "../../helpers"
 import { ChevronIcon } from "../../svgs"
 import { SpacingUnit } from "../../Theme"
+import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
-import { Clickable } from "../Clickable"
 import { Skip } from "../Skip"
 import { VisuallyHidden } from "../VisuallyHidden"
+import { CarouselNext, CarouselPrevious } from "./CarouselNavigation"
 import { paginate } from "./paginate"
 
-const ARROW_WIDTH: SpacingUnit[] = [2, 4]
-const ARROW_TRANSITION_MS = 250
 const RAIL_TRANSITION_MS = 500
-const CELL_GAP_PADDING_AMOUNT: SpacingUnit[] = [1, 2]
+
+/**
+ * We share this spacing value with the `Swiper` component
+ */
+export const CELL_GAP_PADDING_AMOUNT: SpacingUnit[] = [1, 2]
 
 const Container = styled(Box)`
   position: relative;
@@ -36,56 +38,18 @@ const Viewport = styled(Box)`
 const Rail = styled(Box)`
   display: flex;
   height: 100%;
-  transition: transform ${RAIL_TRANSITION_MS}ms;
-  list-style: none;
   margin: 0;
   padding: 0;
-`
-
-const Arrow = styled(Clickable).attrs({
-  width: ARROW_WIDTH.map(value => space(value)),
-})`
-  position: absolute;
-  top: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  color: ${color("black30")};
-  transition: opacity ${ARROW_TRANSITION_MS}ms, color ${ARROW_TRANSITION_MS}ms;
-
-  > svg {
-    fill: currentColor;
-  }
-
-  &:hover,
-  &:focus {
-    outline: 0;
-    color: ${color("black100")};
-  }
-
-  &:disabled {
-    opacity: 0;
-    cursor: default;
-  }
-`
-
-const Next = styled(Arrow)`
-  right: 0;
-  transform: translateX(100%);
-`
-
-const Previous = styled(Arrow)`
-  left: 0;
-  transform: translateX(-100%);
+  list-style: none;
+  transition: transform ${RAIL_TRANSITION_MS}ms;
 `
 
 const Cell = styled(Box)``
 
 export interface CarouselProps extends BoxProps {
   children: JSX.Element | JSX.Element[]
+  Next?: React.ComponentType<React.ButtonHTMLAttributes<HTMLButtonElement>>
+  Previous?: React.ComponentType<React.ButtonHTMLAttributes<HTMLButtonElement>>
   onChange?(index: number): void
 }
 
@@ -97,6 +61,8 @@ export interface CarouselProps extends BoxProps {
  */
 export const Carousel: React.FC<CarouselProps> = ({
   children,
+  Previous = CarouselPrevious,
+  Next = CarouselNext,
   onChange,
   ...rest
 }) => {
@@ -171,7 +137,7 @@ export const Carousel: React.FC<CarouselProps> = ({
     return () => document.removeEventListener("keydown", handleKeydown)
   }, [handleKeydown])
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     onChange && onChange(index)
   }, [onChange, index])
 
