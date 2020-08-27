@@ -1,3 +1,16 @@
+# v12.4.1 (Thu Aug 27 2020)
+
+#### 🐛  Bug Fix
+
+- Updates carousel arrow sizing and color [#762](https://github.com/artsy/palette/pull/762) ([@dzucconi](https://github.com/dzucconi))
+- Updates carousel arrow sizing and color ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v12.4.0 (Thu Aug 27 2020)
 
 #### 🚀  Enhancement
