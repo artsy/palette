@@ -69,7 +69,7 @@ export const SkeletonText: React.FC<SkeletonTextProps> = ({
       >
         {children}
 
-        <SkeletonTextOverlay {...borderProps} />
+        <SkeletonTextOverlay done={done} {...borderProps} />
       </Box>
     </Text>
   )
