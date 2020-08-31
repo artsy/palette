@@ -31,6 +31,10 @@ storiesOf("Components/Skeleton", module)
         <SkeletonText variant="largeTitle" borderRadius={4}>
           hold
         </SkeletonText>
+
+        <SkeletonText variant="text" borderRadius={4} done>
+          done
+        </SkeletonText>
       </Box>
     )
   })
