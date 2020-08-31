@@ -1,3 +1,16 @@
+# v12.4.3 (Mon Aug 31 2020)
+
+#### 🐛  Bug Fix
+
+- Adds support for `srcSet` [#764](https://github.com/artsy/palette/pull/764) ([@dzucconi](https://github.com/dzucconi))
+- Adds support for `srcSet` ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v12.4.2 (Mon Aug 31 2020)
 
 #### 🐛  Bug Fix
