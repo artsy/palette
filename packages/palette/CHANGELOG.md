@@ -1,3 +1,16 @@
+# v12.4.2 (Mon Aug 31 2020)
+
+#### 🐛  Bug Fix
+
+- Pass through done prop on SkeletonText [#763](https://github.com/artsy/palette/pull/763) ([@dzucconi](https://github.com/dzucconi))
+- Pass through done prop on SkeletonText ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v12.4.1 (Thu Aug 27 2020)
 
 #### 🐛  Bug Fix
