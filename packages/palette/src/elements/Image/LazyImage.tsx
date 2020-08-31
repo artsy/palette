@@ -76,6 +76,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   const [isImageLoaded, setImageLoaded] = useState(false)
   const {
     src,
+    srcSet,
     title,
     alt,
     ["aria-label"]: ariaLabel,
@@ -99,6 +100,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         omitFromProps={imagePropsToOmit}
         onError={onError}
         src={src}
+        srcSet={srcSet}
         title={title}
         alt={alt}
         aria-label={ariaLabel}
