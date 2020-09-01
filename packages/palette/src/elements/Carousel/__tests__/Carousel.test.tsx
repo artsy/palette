@@ -4,7 +4,7 @@ import { Box } from "../../Box"
 import { Carousel } from "../Carousel"
 
 jest.mock("../paginate", () => ({
-  paginate: () => [0, 100],
+  paginateCarousel: () => [0, 100],
 }))
 
 const tick = () => new Promise(resolve => setTimeout(resolve, 0))

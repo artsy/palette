@@ -40,7 +40,7 @@ export type CarouselPaginationAlignment = "left" | "right"
  * @param values array of cell widths
  * @param alignment align last page to the left or right
  */
-export const paginate = ({
+export const paginateCarousel = ({
   viewport,
   values,
   alignment = "right",

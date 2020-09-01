@@ -16,7 +16,7 @@ import { Box, BoxProps } from "../Box"
 import { Skip } from "../Skip"
 import { VisuallyHidden } from "../VisuallyHidden"
 import { CarouselNext, CarouselPrevious } from "./CarouselNavigation"
-import { paginate } from "./paginate"
+import { paginateCarousel } from "./paginate"
 
 const RAIL_TRANSITION_MS = 500
 
@@ -89,7 +89,7 @@ export const Carousel: React.FC<CarouselProps> = ({
     const { current: viewport } = viewportRef
     const els = cells.map(({ ref }) => ref.current)
     const values = els.map(node => node.clientWidth)
-    setPages(paginate({ viewport: viewport.clientWidth, values }))
+    setPages(paginateCarousel({ viewport: viewport.clientWidth, values }))
   }
 
   useEffect(() => {
