@@ -1,4 +1,4 @@
-import { chunk, compound, paginate } from "../paginate"
+import { chunk, compound, paginateCarousel } from "../paginate"
 
 describe("compound", () => {
   it("sums correctly (1)", () => {
@@ -61,13 +61,13 @@ describe("chunk", () => {
 describe("paginate", () => {
   it("returns a single page of 0 when the widths fit within the viewport", () => {
     expect(
-      paginate({ viewport: 1000, values: [100, 100, 100, 100, 100] })
+      paginateCarousel({ viewport: 1000, values: [100, 100, 100, 100, 100] })
     ).toStrictEqual([0])
   })
 
   it("returns multiple pages (1)", () => {
     expect(
-      paginate({
+      paginateCarousel({
         viewport: 1000,
         values: [
           // 0
@@ -81,7 +81,7 @@ describe("paginate", () => {
 
   it("returns multiple pages (2)", () => {
     expect(
-      paginate({
+      paginateCarousel({
         viewport: 1000,
         values: [
           // 0
@@ -97,7 +97,7 @@ describe("paginate", () => {
 
   it("returns multiple pages (3)", () => {
     expect(
-      paginate({
+      paginateCarousel({
         viewport: 1000,
         values: [
           // 0
@@ -116,7 +116,7 @@ describe("paginate", () => {
 
   it("returns multiple pages (4)", () => {
     expect(
-      paginate({
+      paginateCarousel({
         viewport: 1000,
         values: [
           // 0
@@ -136,7 +136,7 @@ describe("paginate", () => {
 
   it("handles the last page remainder (1)", () => {
     expect(
-      paginate({
+      paginateCarousel({
         viewport: 1000,
         values: [
           // 0
@@ -150,7 +150,7 @@ describe("paginate", () => {
 
   it("handles the last page remainder (2)", () => {
     expect(
-      paginate({ viewport: 880, values: [333, 333, 333, 333, 333] })
+      paginateCarousel({ viewport: 880, values: [333, 333, 333, 333, 333] })
     ).toStrictEqual([0, 666, 785])
   })
 })
