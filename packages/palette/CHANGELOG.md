@@ -1,3 +1,19 @@
+# v12.5.0 (Tue Sep 01 2020)
+
+#### 🚀  Enhancement
+
+- Move paginateCarousel Rename to Original File [#765](https://github.com/artsy/palette/pull/765) ([@icirellik](https://github.com/icirellik))
+
+#### 🐛  Bug Fix
+
+- Move paginateCarousel Rename to Original File ([@icirellik](https://github.com/icirellik))
+
+#### Authors: 1
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+
+---
+
 # v12.4.3 (Mon Aug 31 2020)
 
 #### 🐛  Bug Fix
