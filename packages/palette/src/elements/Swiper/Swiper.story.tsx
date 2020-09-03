@@ -1,11 +1,11 @@
 import { storiesOf } from "@storybook/react"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
 import { ProgressDots } from "../ProgressDots"
 import { Text } from "../Text"
-import { Swiper, SwiperProps } from "./Swiper"
+import { Swiper, SwiperCell, SwiperProps, SwiperRail } from "./"
 
 const Demo = ({
   widths,
@@ -67,7 +67,7 @@ const ProgressBarDemo = () => {
 
   return (
     <>
-      <Demo widths={widths} onChange={setIndex} snap="center" />
+      <Demo widths={widths} onChange={setIndex} snap="start" />
       <ProgressBar progress={progress} />
     </>
   )
@@ -79,7 +79,25 @@ const ProgressDotsDemo = () => {
 
   return (
     <>
-      <Demo widths={widths} onChange={setIndex} snap="center" />
+      <Demo widths={widths} onChange={setIndex} />
+      <ProgressDots amount={widths.length} activeIndex={index} />
+    </>
+  )
+}
+
+const Dynamic = () => {
+  const [index, setIndex] = useState(0)
+  const [widths, setWidths] = useState([300])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWidths(prevWidths => [...prevWidths, 300])
+    }, 500)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <>
+      <Demo widths={widths} onChange={setIndex} />
       <ProgressDots amount={widths.length} activeIndex={index} />
     </>
   )
@@ -99,4 +117,29 @@ storiesOf("Components/Swiper", module)
   })
   .add("Progress dots example", () => {
     return <ProgressDotsDemo />
+  })
+  .add("Custom rail and cells", () => {
+    return (
+      <Demo
+        snap="start"
+        widths={["100%", "100%", "100%", "100%"]}
+        Cell={React.forwardRef((props, ref) => {
+          return (
+            <SwiperCell
+              {...props}
+              ref={ref as any}
+              display="inline-flex"
+              width="100%"
+              pr={0}
+            />
+          )
+        })}
+        Rail={props => {
+          return <SwiperRail {...props} display="block" />
+        }}
+      />
+    )
+  })
+  .add("Dynamic items", () => {
+    return <Dynamic />
   })

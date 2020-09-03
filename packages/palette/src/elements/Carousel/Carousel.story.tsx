@@ -4,15 +4,21 @@ import React, { useEffect, useState } from "react"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
 import { Text } from "../Text"
-import { Carousel, CarouselProps } from "./Carousel"
-import { CarouselNext, CarouselPrevious } from "./CarouselNavigation"
+import {
+  Carousel,
+  CarouselCell,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselProps,
+  CarouselRail,
+} from "./"
 
 const Demo = ({
   widths = [...new Array(25)].map(_ => 300),
   heights = [400],
   ...rest
 }: {
-  widths?: number[]
+  widths?: Array<number | string>
   heights?: number[]
 } & Omit<CarouselProps, "children">) => {
   return (
@@ -132,6 +138,27 @@ storiesOf("Components/Carousel", module)
               zIndex={1}
             />
           )
+        }}
+      />
+    )
+  })
+  .add("Custom rail and cells", () => {
+    return (
+      <Demo
+        widths={["100%", "100%", "100%", "100%"]}
+        Cell={React.forwardRef((props, ref) => {
+          return (
+            <CarouselCell
+              {...props}
+              ref={ref as any}
+              display="inline-flex"
+              width="100%"
+              pr={0}
+            />
+          )
+        })}
+        Rail={props => {
+          return <CarouselRail {...props} transition="none" display="block" />
         }}
       />
     )

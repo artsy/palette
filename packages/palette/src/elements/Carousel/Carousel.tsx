@@ -8,6 +8,7 @@ import React, {
   useState,
 } from "react"
 import styled from "styled-components"
+import { ResponsiveValue, system } from "styled-system"
 import { useCursor } from "use-cursor"
 import { ChevronIcon } from "../../svgs"
 import { SpacingUnit } from "../../Theme"
@@ -15,10 +16,47 @@ import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Skip } from "../Skip"
 import { VisuallyHidden } from "../VisuallyHidden"
-import { CarouselNext, CarouselPrevious } from "./CarouselNavigation"
+import {
+  CarouselNavigationProps,
+  CarouselNext,
+  CarouselPrevious,
+} from "./CarouselNavigation"
 import { paginateCarousel } from "./paginate"
 
 const RAIL_TRANSITION_MS = 500
+
+const transition = system({ transition: true })
+
+/** CarouselRailProps */
+export type CarouselRailProps = BoxProps & {
+  transition?: ResponsiveValue<string>
+}
+
+/** A `CarouselRail` slides back and forth within the viewport */
+export const CarouselRail = styled(Box)<CarouselRailProps>`
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+  ${transition}
+`
+
+CarouselRail.defaultProps = {
+  as: "ul",
+  display: "flex",
+  transition: `transform ${RAIL_TRANSITION_MS}ms`,
+}
+
+/** CarouselCellProps */
+export type CarouselCellProps = BoxProps
+
+/** A `CarouselCell` wraps a single child in the carousel */
+export const CarouselCell = styled(Box)``
+
+CarouselCell.defaultProps = {
+  as: "li",
+}
 
 /**
  * We share this spacing value with the `Swiper` component
@@ -35,21 +73,16 @@ const Viewport = styled(Box)`
   overflow: hidden;
 `
 
-const Rail = styled(Box)`
-  display: flex;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  transition: transform ${RAIL_TRANSITION_MS}ms;
-`
-
-const Cell = styled(Box)``
-
 export interface CarouselProps extends BoxProps {
   children: JSX.Element | JSX.Element[]
-  Next?: React.ComponentType<React.ButtonHTMLAttributes<HTMLButtonElement>>
-  Previous?: React.ComponentType<React.ButtonHTMLAttributes<HTMLButtonElement>>
+  Next?: typeof CarouselNext | React.FC<CarouselNavigationProps>
+  Previous?: typeof CarouselPrevious | React.FC<CarouselNavigationProps>
+  Rail?: typeof CarouselRail | React.FC<CarouselRailProps>
+  /**
+   * If providing a custom `Cell` you must forward a ref so
+   * that cell widths can be calculated.
+   */
+  Cell?: React.ForwardRefExoticComponent<CarouselCellProps>
   onChange?(index: number): void
 }
 
@@ -63,6 +96,8 @@ export const Carousel: React.FC<CarouselProps> = ({
   children,
   Previous = CarouselPrevious,
   Next = CarouselNext,
+  Rail = CarouselRail,
+  Cell = CarouselCell,
   onChange,
   ...rest
 }) => {
@@ -168,17 +203,12 @@ export const Carousel: React.FC<CarouselProps> = ({
       </nav>
 
       <Viewport ref={viewportRef as any}>
-        <Rail as="ul" style={{ transform: `translateX(${offset})` }}>
+        <Rail style={{ transform: `translateX(${offset})` }}>
           {cells.map(({ child, ref }, i) => {
             const isLast = i === cells.length - 1
 
             return (
-              <Cell
-                as="li"
-                key={i}
-                ref={ref as any}
-                pr={!isLast && CELL_GAP_PADDING_AMOUNT}
-              >
+              <Cell key={i} ref={ref} pr={!isLast && CELL_GAP_PADDING_AMOUNT}>
                 {child}
               </Cell>
             )
