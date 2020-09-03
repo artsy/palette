@@ -32,16 +32,6 @@ $ yarn start
 $ open http://localhost:8000/
 ```
 
-## Link with Eigen
-
-When developing components for [our iOS codebase](https://github.com/artsy/eigen), boot the Simulator and from the Palette project root run:
-
-```
-$ yarn workspace @artsy/palette watch:eigen
-```
-
-Since React Native doesn't support symlinks, this will copy changes directly to the Eigen folder and hot-reload the app.
-
 ## Linking and Unlinking with Reaction
 
 To _link_ your local palette with your local reaction, run:
@@ -59,30 +49,6 @@ $ yarn add @artsy/palette
 $ yarn start
 
 ```
-
-### ⚠️ Don't Forget About iOS!
-
-When adding a new component to Palette, it's important to be aware that this library is used on the web as well as in React Native, via Eigen, and therefore must follow a few rules in terms of structure, namely:
-
-> If a mobile component has platform-specific features, that code has to live in a `Component.ios.tsx` file. Or if a web component has browser-only features, then a `Component.ios.tsx` file must be created, or React Native will error out. If the code between a web and native component is identical, a `.ios.tx` file isn’t needed. If some code can be shared between platforms, then that shared code should live in a `Component.shared.tsx` file.
-
-Example:
-
-```
-/elements
-  /MyComponent
-    index.tsx
-    MyComponent.tsx
-    MyComponent.ios.tsx
-```
-
-And from within `/elements/index.tsx`, we export our component:
-
-```tsx
-export * from "./MyComponent";
-```
-
-When React Native imports `@artsy/palette`, it will automatically look for files with a `.ios` extension and import those first, and then secondarily import everything else. If a component contains web-only features but doesn't have a corresponding iOS file stub, React Native tooling will error out.
 
 ## Deployment process
 
