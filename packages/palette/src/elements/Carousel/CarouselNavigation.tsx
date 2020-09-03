@@ -1,10 +1,13 @@
 import styled from "styled-components"
 import { color, space } from "../../helpers"
 import { SpacingUnit } from "../../Theme"
-import { Clickable } from "../Clickable"
+import { Clickable, ClickableProps } from "../Clickable"
 
 const ARROW_WIDTH: SpacingUnit[] = [2, 4]
 const ARROW_TRANSITION_MS = 250
+
+/** CarouselNavigationProps */
+export type CarouselNavigationProps = ClickableProps
 
 const Arrow = styled(Clickable)`
   position: absolute;
