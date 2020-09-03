@@ -2,7 +2,16 @@ import React from "react"
 import { color } from "../../helpers"
 import { BorderBox } from "../BorderBox"
 import { Sans } from "../Typography"
-import { CardTagProps } from "./CardTag.shared"
+
+import { PositionProps } from "styled-system"
+import { Color } from "../../Theme"
+
+export interface CardTagProps extends PositionProps {
+  text: string
+  textColor: Color
+  color: Color
+  borderColor?: Color
+}
 
 /**
  * `CardTag` is used for the Cards, and is controlled by their `tag` prop.

@@ -4,7 +4,14 @@ import { Flex } from "../Flex"
 import { Image } from "../Image"
 import { Sans } from "../Typography"
 import { CardTag } from "./CardTag"
-import { MediumCardProps } from "./MediumCard.shared"
+import { CardTagProps } from "./CardTag"
+
+export interface MediumCardProps {
+  image: string
+  title: string
+  subtitle?: string
+  tag?: CardTagProps
+}
 
 /**
  * `MediumCard` is a card with one image one tall image, and text for title and subtitle
@@ -14,7 +21,7 @@ export const MediumCard: React.FC<MediumCardProps> = ({
   image,
   title,
   subtitle,
-  tag
+  tag,
 }) => {
   return (
     <Box width="280px" height="370px" position="relative">
@@ -30,9 +37,11 @@ export const MediumCard: React.FC<MediumCardProps> = ({
         <Box
           style={{
             background: "linear-gradient(rgba(0, 0, 0, 0), rgba(0,0,0,1))",
-            opacity: 0.15
+            opacity: 0.15,
           }}
-          position="absolute" width="100%" height="100%"
+          position="absolute"
+          width="100%"
+          height="100%"
         />
         <Box position="absolute" bottom="15px" left="15px">
           <Sans size="5t" weight="regular" color="white100">
@@ -42,8 +51,10 @@ export const MediumCard: React.FC<MediumCardProps> = ({
             {subtitle}
           </Sans>
         </Box>
-        {!!tag && <CardTag {...tag} position="absolute" top="15px" left="15px" />}
+        {!!tag && (
+          <CardTag {...tag} position="absolute" top="15px" left="15px" />
+        )}
       </Flex>
-    </Box >
+    </Box>
   )
 }
