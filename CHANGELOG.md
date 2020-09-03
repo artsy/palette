@@ -1,3 +1,16 @@
+# v13.1.0 (Thu Sep 03 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [Carousel/Swiper] Allows structural components to be injected [#767](https://github.com/artsy/palette/pull/767) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.0.0 (Thu Sep 03 2020)
 
 #### 💥  Breaking Change
