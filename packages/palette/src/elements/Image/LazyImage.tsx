@@ -11,7 +11,7 @@ import { color } from "../../helpers/color"
 import { Box, BoxProps } from "../Box"
 import { CleanTag, omitProps } from "../CleanTag"
 import { WebImageProps } from "./Image"
-import { BaseImage as Image } from "./Image.shared"
+import { BaseImage as Image } from "./Image"
 
 const imagePropsToOmit = omitProps.filter(
   prop => prop !== "width" && prop !== "height"

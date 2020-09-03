@@ -12,7 +12,6 @@ about: Propose additions or updates to palette
 ### Zeplin Links
 
 web: <!-- https://zpl.io/aabbccd -->
-app: <!-- zpl://screen?sid=1aaaaaaaaaaaaaaaaaaaaaaa&pid=lbbbbbbbbbbbbbbbbbbbbbbb -->
 
 ### Product Team
 
@@ -112,7 +111,3 @@ Has the new component been reviewed in [Browserstack](https://live.browserstack.
 - [ ] Desktop Safari
 
 - [ ] Desktop Firefox
-
-- [ ] Android
-
-- [ ] iOS

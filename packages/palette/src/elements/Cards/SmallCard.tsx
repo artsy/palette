@@ -5,7 +5,14 @@ import { Image } from "../Image"
 import { Spacer } from "../Spacer"
 import { Sans } from "../Typography"
 import { CardTag } from "./CardTag"
-import { SmallCardProps } from "./SmallCard.shared"
+import { CardTagProps } from "./CardTag"
+
+export interface SmallCardProps {
+  images: string[]
+  title: string
+  subtitle?: string
+  tag?: CardTagProps
+}
 
 /**
  * `SmallCard` is a card with a layout one square image on the left,

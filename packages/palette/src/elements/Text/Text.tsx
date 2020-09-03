@@ -1,9 +1,39 @@
 import { themeGet } from "@styled-system/theme-get"
 import styled, { css } from "styled-components"
-import { variant } from "styled-system"
+import {} from "styled-system"
+import {
+  color,
+  ColorProps,
+  compose,
+  ResponsiveValue,
+  style,
+  typography,
+  TypographyProps,
+  variant,
+} from "styled-system"
+import { Color } from "../../Theme"
 import { Box, BoxProps } from "../Box"
-import { BaseTextProps, textMixin } from "./Text.shared"
-import { TEXT_VARIANTS } from "./tokens"
+import { TEXT_VARIANTS, TextVariant } from "./tokens"
+
+/** BaseTextProps */
+export type BaseTextProps = TypographyProps &
+  Omit<ColorProps, "color"> & {
+    variant?: TextVariant
+    textColor?: ResponsiveValue<Color>
+  }
+
+const textColor = style({
+  prop: "textColor",
+  cssProperty: "color",
+  key: "colors",
+})
+
+/** styled functions for Text */
+export const textMixin = compose(
+  typography,
+  color,
+  textColor
+)
 
 /** Adds ellipsis to overflowing text */
 export const overflowEllipsisMixin = css`
