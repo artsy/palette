@@ -1,3 +1,67 @@
+# v13.0.0 (Thu Sep 03 2020)
+
+#### 💥  Breaking Change
+
+- [MX-444] Remove iOS components [#766](https://github.com/artsy/palette/pull/766) ([@MounirDhahri](https://github.com/MounirDhahri))
+
+#### 🐛  Bug Fix
+
+- removed Modal.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed eigen scripts from package.json ([@MounirDhahri](https://github.com/MounirDhahri))
+- updated documentation ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed LabeledRange.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed ModalBase.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Radio.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed ios svg icons ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed typescript configuration on ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed ProgressBarTimer.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Slider.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Platfrom.ios and Primitives.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Tooltip.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Toggle.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed TextArea.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Text.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Tags.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Tabs.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Stepper.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed StaticCountdownTimer.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed SelectableBorderBox.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Spinner.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed ProgressBar.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed PriceRange.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Pagination.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- remove type-check-ios from ci type-check ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Menu.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Link.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed LineChart.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Input.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Image.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed HTML.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Grid.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed EntityHeader.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed DonutChart.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Dialog.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Datavis.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Colors.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Collapse.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Clickable.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Checkbox.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Caroussel.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed cssgrid.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Cards.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed  Button.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Radiogroup.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Borderbox.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Barchart.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Banner.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+- removed Avatar.ios ([@MounirDhahri](https://github.com/MounirDhahri))
+
+#### Authors: 1
+
+- Mounir Dhahri ([@MounirDhahri](https://github.com/MounirDhahri))
+
+---
+
 # v12.5.0 (Tue Sep 01 2020)
 
 #### 🚀  Enhancement

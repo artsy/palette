@@ -1,3 +1,16 @@
+# v13.0.0 (Thu Sep 03 2020)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette`
+  - [MX-444] Remove iOS components [#766](https://github.com/artsy/palette/pull/766) ([@MounirDhahri](https://github.com/MounirDhahri))
+
+#### Authors: 1
+
+- Mounir Dhahri ([@MounirDhahri](https://github.com/MounirDhahri))
+
+---
+
 # v12.5.0 (Tue Sep 01 2020)
 
 #### 🚀  Enhancement
