@@ -1,6 +1,6 @@
 import { themeGet } from "@styled-system/theme-get"
 import styled, { css } from "styled-components"
-import {} from "styled-system"
+import { system } from "styled-system"
 import {
   color,
   ColorProps,
@@ -20,7 +20,11 @@ export type BaseTextProps = TypographyProps &
   Omit<ColorProps, "color"> & {
     variant?: TextVariant
     textColor?: ResponsiveValue<Color>
-  }
+  } & TextDecorationProps
+
+const textDecoration = system({ textDecoration: true })
+
+interface TextDecorationProps { textDecoration?: ResponsiveValue<string> }
 
 const textColor = style({
   prop: "textColor",
@@ -32,7 +36,8 @@ const textColor = style({
 export const textMixin = compose(
   typography,
   color,
-  textColor
+  textColor,
+  textDecoration
 )
 
 /** Adds ellipsis to overflowing text */

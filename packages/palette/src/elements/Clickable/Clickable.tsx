@@ -1,12 +1,25 @@
 import React from "react"
 import styled from "styled-components"
+import { compose, ResponsiveValue, system } from "styled-system"
 import { boxMixin, BoxProps } from "../Box"
+
+const cursor = system({ cursor: true })
+
+export interface CursorProps {
+  cursor?: ResponsiveValue<"pointer" | "default" | string>
+}
+
+const clickableMixin = compose(
+  boxMixin,
+  cursor
+)
 
 /**
  * ClickableProps
  */
 export type ClickableProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  BoxProps
+  BoxProps &
+  CursorProps
 
 /**
  * Clickable is a utility component useful for wrapping things like <div>s
@@ -17,5 +30,9 @@ export const Clickable = styled.button<ClickableProps>`
   padding: 0;
   border: 0;
   background-color: transparent;
-  ${boxMixin}
+  ${clickableMixin}
 `
+
+Clickable.defaultProps = {
+  cursor: "pointer",
+}

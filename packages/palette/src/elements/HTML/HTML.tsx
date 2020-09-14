@@ -9,6 +9,7 @@ import { Text, TextProps } from "../Text"
  */
 export type HTMLProps = TextProps &
   HTMLAttributes<HTMLDivElement | HTMLHeadingElement | HTMLParagraphElement> & {
+    as?: React.ElementType<any>
     html: string
   }
 
