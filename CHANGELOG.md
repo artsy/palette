@@ -1,3 +1,16 @@
+# v13.2.0 (Mon Sep 14 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add 1.5 and 5 to our spacing units [#777](https://github.com/artsy/palette/pull/777) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v13.1.0 (Thu Sep 03 2020)
 
 #### 🚀  Enhancement
