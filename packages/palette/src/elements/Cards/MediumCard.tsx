@@ -43,7 +43,7 @@ export const MediumCard: React.FC<MediumCardProps> = ({
           width="100%"
           height="100%"
         />
-        <Box position="absolute" bottom="15px" left="15px">
+        <Box position="absolute" bottom={1.5} left={1.5}>
           <Sans size="5t" weight="regular" color="white100">
             {title}
           </Sans>
@@ -51,9 +51,7 @@ export const MediumCard: React.FC<MediumCardProps> = ({
             {subtitle}
           </Sans>
         </Box>
-        {!!tag && (
-          <CardTag {...tag} position="absolute" top="15px" left="15px" />
-        )}
+        {!!tag && <CardTag {...tag} position="absolute" top={1.5} left={1.5} />}
       </Flex>
     </Box>
   )
