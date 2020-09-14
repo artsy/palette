@@ -187,7 +187,7 @@ export class Button extends Component<WebButtonProps> {
         return {
           height: inline ? "17px" : "26px",
           size: "2",
-          px: inline ? 0 : ("15px" as any),
+          px: inline ? 0 : 1.5,
         }
       case "medium":
         return {
