@@ -1,10 +1,9 @@
 import React from "react"
-import { color } from "../../helpers"
-import { BorderBox } from "../BorderBox"
-import { Sans } from "../Typography"
-
 import { PositionProps } from "styled-system"
+import { color } from "../../helpers"
 import { Color } from "../../Theme"
+import { BorderBox } from "../BorderBox"
+import { Text } from "../Text"
 
 export interface CardTagProps extends PositionProps {
   text: string
@@ -27,8 +26,7 @@ export const CardTag: React.FC<CardTagProps> = ({
 }) => {
   return (
     <BorderBox
-      borderRadius="2"
-      overflow="hidden"
+      borderRadius={2}
       backgroundColor={color(bgColor) || bgColor}
       borderColor={color(borderColor) || borderColor}
       m={0}
@@ -37,9 +35,9 @@ export const CardTag: React.FC<CardTagProps> = ({
       top={top}
       left={left}
     >
-      <Sans size="2" px={0.5} py={0.3} color={textColor}>
+      <Text variant="caption" px={0.5} py={0.3} color={textColor}>
         {text}
-      </Sans>
+      </Text>
     </BorderBox>
   )
 }

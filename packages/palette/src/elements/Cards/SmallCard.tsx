@@ -1,18 +1,22 @@
 import React from "react"
-import { Box } from "../Box"
+import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
-import { Image } from "../Image"
-import { Spacer } from "../Spacer"
-import { Sans } from "../Typography"
+import { Image, WebImageProps } from "../Image"
+import { Text } from "../Text"
 import { CardTag } from "./CardTag"
 import { CardTagProps } from "./CardTag"
 
-export interface SmallCardProps {
-  images: string[]
+type Images = string[] | WebImageProps[]
+
+export interface SmallCardProps extends BoxProps {
+  images: Images
   title: string
   subtitle?: string
   tag?: CardTagProps
 }
+
+const isArrayOfStrings = (images: Images): images is string[] =>
+  [...images].every(src => typeof src === "string")
 
 /**
  * `SmallCard` is a card with a layout one square image on the left,
@@ -24,9 +28,14 @@ export const SmallCard: React.FC<SmallCardProps> = ({
   title,
   subtitle,
   tag,
+  ...rest
 }) => {
+  const imageAttributes: WebImageProps[] = isArrayOfStrings(images)
+    ? images.map(src => ({ src }))
+    : images
+
   return (
-    <Box width="100%" position="relative">
+    <Box width="100%" position="relative" {...rest}>
       <Box width="100%" height="0" pt="67%" position="relative">
         <Flex
           flexDirection="row"
@@ -38,8 +47,14 @@ export const SmallCard: React.FC<SmallCardProps> = ({
           overflow="hidden"
         >
           <Box backgroundColor="black10" width="67%" overflow="hidden" mr="1px">
-            <Image src={images[0]} alt={title} height="100%" width="auto" />
+            <Image
+              alt={title}
+              height="100%"
+              width="auto"
+              {...imageAttributes[0]}
+            />
           </Box>
+
           <Flex width="33%" flexDirection="column">
             {images.length < 2 && (
               <Box
@@ -49,6 +64,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
                 ml="1px"
               />
             )}
+
             {!!images[1] && (
               <Box
                 backgroundColor="black10"
@@ -57,9 +73,15 @@ export const SmallCard: React.FC<SmallCardProps> = ({
                 ml="1px"
                 mb={!!images[2] ? "1px" : "0"}
               >
-                <Image src={images[1]} alt={title} height="100%" width="auto" />
+                <Image
+                  alt={title}
+                  height="100%"
+                  width="auto"
+                  {...imageAttributes[1]}
+                />
               </Box>
             )}
+
             {!!images[2] && (
               <Box
                 backgroundColor="black10"
@@ -68,21 +90,28 @@ export const SmallCard: React.FC<SmallCardProps> = ({
                 ml="1px"
                 mt="1px"
               >
-                <Image src={images[2]} alt={title} height="100%" width="auto" />
+                <Image
+                  alt={title}
+                  height="100%"
+                  width="auto"
+                  {...imageAttributes[2]}
+                />
               </Box>
             )}
           </Flex>
         </Flex>
       </Box>
-      <Spacer mt={1} />
-      <Sans size="3t" weight="medium">
+
+      <Text mt={1} variant="mediumText">
         {title}
-      </Sans>
+      </Text>
+
       {!!subtitle && (
-        <Sans size="3t" color="black60">
+        <Text variant="text" color="black60">
           {subtitle}
-        </Sans>
+        </Text>
       )}
+
       {!!tag && <CardTag {...tag} position="absolute" top={1} left={1} />}
     </Box>
   )
