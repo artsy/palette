@@ -1,3 +1,16 @@
+# v13.3.0 (Mon Sep 14 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Cleans up Cards; support all image attributes [#776](https://github.com/artsy/palette/pull/776) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.2.0 (Mon Sep 14 2020)
 
 #### 🚀  Enhancement
