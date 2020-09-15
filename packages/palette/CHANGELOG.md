@@ -1,3 +1,19 @@
+# v13.4.0 (Tue Sep 15 2020)
+
+#### 🚀  Enhancement
+
+- Exposes text variants under theme [#778](https://github.com/artsy/palette/pull/778) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Exposes text variants under theme ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.3.0 (Mon Sep 14 2020)
 
 #### 🚀  Enhancement
