@@ -108,12 +108,6 @@ const ReadMoreLink: React.FC<ClickableProps> = ({ children, ...rest }) => {
 const Container = styled.div<ReadMoreState>`
   cursor: ${p => (p.isExpanded ? "auto" : "pointer")};
 
-  > span > * {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-bottom: 1em;
-  }
-
   > span > *:last-child {
     display: inline;
   }
