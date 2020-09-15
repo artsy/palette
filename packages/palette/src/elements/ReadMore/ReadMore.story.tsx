@@ -1,5 +1,6 @@
 import { storiesOf } from "@storybook/react"
 import React from "react"
+import { HTMLStyles } from "../HTML"
 import { ReadMore } from "./ReadMore"
 
 storiesOf("Components/ReadMore", module)
@@ -47,7 +48,15 @@ storiesOf("Components/ReadMore", module)
       <ReadMore
         maxChars={300}
         content={
-          <p>Donald Judd, widely regarded as one of the most significant American artists of <a href="#">the post-war period</a>, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa. Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa.</p>
+          <p>
+            Donald Judd, widely regarded as one of the most significant American
+            artists of <a href="#">the post-war period</a>, is perhaps
+            best-known for the large-scale outdoor installations and long,
+            spacious interiors he designed in Marfa. Donald Judd, widely
+            regarded as one of the most significant American artists of the
+            post-war period, is perhaps best-known for the large-scale outdoor
+            installations and long, spacious interiors he designed in Marfa.
+          </p>
         }
       />
     )
@@ -69,5 +78,37 @@ storiesOf("Components/ReadMore", module)
           </div>
         }
       />
+    )
+  })
+  .add("HTML styled", () => {
+    return (
+      <HTMLStyles>
+        <ReadMore
+          maxChars={300}
+          content={
+            <>
+              <p>
+                Donald Judd, widely regarded as one of the most significant
+                American artists of <a href="#">the post-war period</a>, is
+                perhaps best-known for the large-scale outdoor installations and
+                long, spacious interiors he designed in Marfa. Donald Judd,
+                widely regarded as one of the most significant American artists
+                of the post-war period, is perhaps best-known for the
+                large-scale outdoor installations and long, spacious interiors
+                he designed in Marfa.
+              </p>
+
+              <hr />
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Provident fuga amet nesciunt atque quam quibusdam? Modi totam
+                commodi illum reprehenderit itaque, molestiae tenetur nisi
+                doloribus recusandae. At sapiente neque minus.
+              </p>
+            </>
+          }
+        />
+      </HTMLStyles>
     )
   })
