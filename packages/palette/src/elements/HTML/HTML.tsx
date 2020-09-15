@@ -12,18 +12,21 @@ export type HTMLProps = TextProps &
     html: string
   }
 
-const htmlMixin = css`
-  > h1,
-  > h2,
-  > h3,
-  > h4,
-  > h5,
-  > ul,
-  > ol,
-  > p,
-  > blockquote,
-  > pre,
-  > hr {
+/**
+ * Sets reasonable defaults for tags that we might encounter in Markdown output.
+ */
+export const htmlMixin = css`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  ul,
+  ol,
+  p,
+  blockquote,
+  pre,
+  hr {
     margin: ${space(1)}px auto;
 
     &:first-child {
@@ -35,22 +38,29 @@ const htmlMixin = css`
     }
   }
 
-  > hr {
+  hr {
     height: 1px;
     border: 0;
     background-color: ${color("black10")};
   }
 `
 
-const Container = styled(Text)`
+/**
+ * Sets reasonable defaults for tags that we might encounter in Markdown output.
+ */
+export const HTMLStyles = styled(Text)`
   ${htmlMixin}
 `
 
+HTMLStyles.defaultProps = {
+  variant: "text",
+}
+
 /**
- * HTML
+ * Sets reasonable defaults for tags that we might encounter in Markdown output.
  */
 export const HTML: React.FC<HTMLProps> = ({ html, ...rest }) => {
-  return <Container dangerouslySetInnerHTML={{ __html: html }} {...rest} />
+  return <HTMLStyles dangerouslySetInnerHTML={{ __html: html }} {...rest} />
 }
 
 HTML.displayName = "HTML"
