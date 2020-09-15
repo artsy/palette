@@ -4,6 +4,7 @@ import {
   TEXT_FONTS,
   TEXT_LETTER_SPACING,
   TEXT_LINE_HEIGHTS,
+  TEXT_VARIANTS,
 } from "./elements/Text"
 import { isReactNative } from "./helpers/isReactNative"
 import { fontFamily } from "./platform/fonts"
@@ -362,6 +363,8 @@ export const themeProps = {
       },
     },
   },
+
+  textVariants: TEXT_VARIANTS,
 }
 
 /**
