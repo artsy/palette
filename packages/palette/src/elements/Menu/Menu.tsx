@@ -1,3 +1,5 @@
+// TODO: Is this being used in force?
+
 import React from "react"
 import styled from "styled-components"
 
@@ -10,6 +12,7 @@ import { Flex } from "../Flex"
 import { Separator } from "../Separator"
 import { Spacer } from "../Spacer"
 import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 interface MenuProps {
   children?: React.ReactNode
@@ -35,9 +38,7 @@ export const Menu: React.FC<MenuProps> = ({
         <Flex flexDirection="column" width="100%">
           {title && (
             <Box px={2} pt={1} pb={1}>
-              <Sans size="3" weight="medium">
-                {title}
-              </Sans>
+              <Text variant="mediumText">{title}</Text>
               <Spacer py={0.5} />
               <Separator />
             </Box>
