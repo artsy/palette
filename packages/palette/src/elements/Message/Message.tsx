@@ -3,7 +3,7 @@ import { color } from "../../helpers"
 import { styledWrapper } from "../../platform/primitives"
 import { SansSize } from "../../Theme"
 import { Flex, FlexProps } from "../Flex"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 /**
  * Spec: zpl.io/2Zg4Rdq
@@ -29,14 +29,15 @@ const StyledFlex = styledWrapper(Flex)`
  */
 export const Message: SFC<MessageProps> = ({
   children,
-  textSize = "3t",
+  textSize,
   ...others
 }) => {
   return (
     <StyledFlex p={2} {...others}>
-      <Sans size={textSize} color={color("black60")} weight="regular">
+      {/* TODO: Can the size be left here? */}
+      <Text size={textSize} color={color("black60")} variant="text">
         {children}
-      </Sans>
+      </Text>
     </StyledFlex>
   )
 }
