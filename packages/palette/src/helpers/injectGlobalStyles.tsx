@@ -1,5 +1,4 @@
 import { createGlobalStyle, css } from "styled-components"
-import { TEXT_LINE_HEIGHTS } from "../elements/Text/tokens"
 import { Display, Sans, Serif } from "../elements/Typography"
 import { themeProps } from "../Theme"
 import { color } from "./color"
@@ -38,9 +37,9 @@ export function injectGlobalStyles<P>(
     }
 
     html, body {
-      font-family: ${themeProps.fontFamily.sans.regular as string};
-      font-size: ${themeProps.fontSizes.size3};
-      line-height: ${TEXT_LINE_HEIGHTS.body};
+      font-family: ${themeProps.fonts.sans};
+      font-size: ${themeProps.fontSizes.size5};
+      line-height: ${themeProps.lineHeights.body};
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
