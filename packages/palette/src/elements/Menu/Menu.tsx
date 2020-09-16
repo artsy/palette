@@ -11,8 +11,8 @@ import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Separator } from "../Separator"
 import { Spacer } from "../Spacer"
-import { Sans } from "../Typography"
 import { Text } from "../Text"
+import { Sans } from "../Typography"
 
 interface MenuProps {
   children?: React.ReactNode

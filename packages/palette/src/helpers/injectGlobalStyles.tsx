@@ -1,8 +1,8 @@
 import { createGlobalStyle, css } from "styled-components"
-import { Display, Sans, Serif } from "../elements/Typography"
-import { color } from "./color"
 import { TEXT_LINE_HEIGHTS } from "../elements/Text/tokens"
+import { Display, Sans, Serif } from "../elements/Typography"
 import { themeProps } from "../Theme"
+import { color } from "./color"
 
 /**
  * Injects globally relevant styles, including helper classes for our Typography.
