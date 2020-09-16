@@ -8,7 +8,7 @@ import { usePrevious } from "../../utils/usePrevious"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 /**
  * refreshModalContentKey should change if the modal displays new content and should fade
@@ -178,9 +178,9 @@ export const Modal: SFC<ModalProps> = ({
             {title && (
               <>
                 <Flex justifyContent="center">
-                  <Sans size="5t" textAlign="center" color="black100">
+                  <Text variant="subtitle" textAlign="center" color="black100">
                     {title}
-                  </Sans>
+                  </Text>
                 </Flex>
                 <Spacer mb={hasLogo ? 2 : [1, 2]} />
               </>
