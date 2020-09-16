@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { color, space } from "../../helpers"
 import { Color } from "../../Theme"
 import { Box } from "../Box"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {
   description?: string
@@ -24,15 +24,15 @@ export const Input: React.ForwardRefExoticComponent<
     return (
       <Box width="100%">
         {title && (
-          <Sans mb="0.5" size="3">
+          <Text mb="0.5" variant="text">
             {title}
             {required && <Required>*</Required>}
-          </Sans>
+          </Text>
         )}
         {description && (
-          <Sans color="black60" mb="1" size="2">
+          <Text color="black60" mb="1" variant="caption">
             {description}
-          </Sans>
+          </Text>
         )}
         <StyledInput
           ref={ref}
@@ -41,9 +41,9 @@ export const Input: React.ForwardRefExoticComponent<
           {...rest as any}
         />
         {error && (
-          <Sans color="red100" mt="1" size="2">
+          <Text color="red100" mt="1" variant="caption">
             {error}
-          </Sans>
+          </Text>
         )}
       </Box>
     )
