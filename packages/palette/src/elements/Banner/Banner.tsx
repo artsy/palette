@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { CloseIcon } from "../../svgs"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 const Target = styled(Flex)`
   padding-left: 10px;
@@ -70,7 +70,9 @@ export class Banner extends React.Component<BannerProps> {
         p={1}
       >
         <TextWrapper>
-          <Sans size="2">{this.props.children || this.props.message}</Sans>
+          <Text variant="text">
+            {this.props.children || this.props.message}
+          </Text>
         </TextWrapper>
         {showCloseButton && <CloseButton onClick={this.handleCloseClick} />}
       </Wrapper>
