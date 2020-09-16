@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { color } from "../../helpers"
 import { Flex } from "../Flex"
 import { Modal, ModalWidth } from "../Modal"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 interface CtaProps {
   action(): void
@@ -31,7 +31,8 @@ export const Dialog: SFC<DialogProps> = ({
   secondaryCta,
   onClose = () => null,
 }) => {
-  const StyledSans = styled(Sans)`
+  // FIXME: Refactor to a button
+  const StyledText = styled(Text)`
     transition: color 0.14s ease;
     cursor: pointer;
     color: ${color("purple100")};
@@ -41,7 +42,7 @@ export const Dialog: SFC<DialogProps> = ({
     secondary?: boolean
     onClick: () => void
   }> = props => {
-    return <StyledSans pl={4} size="3" weight="medium" {...props} />
+    return <StyledText pl={4} variant="mediumText" {...props} />
   }
 
   return (
@@ -53,13 +54,13 @@ export const Dialog: SFC<DialogProps> = ({
     >
       <>
         <Flex flexDirection="column">
-          <Sans size="4" weight="medium" mb={10}>
+          <Text variant="subtitle" mb={10}>
             {title}
-          </Sans>
+          </Text>
           {detail && (
-            <Sans size="3" color="black60">
+            <Text variant="text" color="black60">
               {detail}
-            </Sans>
+            </Text>
           )}
         </Flex>
         <Flex mt={3} justifyContent="flex-end">
