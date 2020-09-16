@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { space, SpaceProps } from "styled-system"
 import { Flex } from "../Flex"
 import { Slider, SliderProps } from "../Slider"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 interface LabeledRangeProps extends SliderProps {
   label: string
@@ -22,7 +22,7 @@ interface LabeledRangeState {
 export class LabeledRange extends React.Component<
   LabeledRangeProps,
   LabeledRangeState
-  > {
+> {
   static defaultProps = {
     disabled: false,
   }
@@ -67,21 +67,21 @@ export class LabeledRange extends React.Component<
       <Flex width="100%" flexDirection="column">
         <Header mt="-6px">
           {disabledWithText ? (
-            <Sans size="2" mt={0.3} color="black60">
+            <Text variant="text" mt={0.3} color="black60">
               {disabledText}
-            </Sans>
+            </Text>
           ) : (
-              <Flex justifyContent="space-between">
-                <Sans size="2" color="black100" mt={0.3}>
-                  {label}
-                </Sans>
-                <Sans size="2" color="black60" mt={0.3}>
-                  {formatter
-                    ? formatter(min, max, this.maxIndicator())
-                    : this.toString()}
-                </Sans>
-              </Flex>
-            )}
+            <Flex justifyContent="space-between">
+              <Text variant="text" color="black100" mt={0.3}>
+                {label}
+              </Text>
+              <Text variant="text" color="black60" mt={0.3}>
+                {formatter
+                  ? formatter(min, max, this.maxIndicator())
+                  : this.toString()}
+              </Text>
+            </Flex>
+          )}
         </Header>
 
         <Flex flexDirection="column" alignItems="left" mt={-1} mb={1}>
