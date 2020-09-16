@@ -1,6 +1,8 @@
 import { createGlobalStyle, css } from "styled-components"
 import { Display, Sans, Serif } from "../elements/Typography"
 import { color } from "./color"
+import { themeProps } from "../Theme"
+import { TEXT_LINE_HEIGHT } from "../elements/Text/tokens"
 
 /**
  * Injects globally relevant styles, including helper classes for our Typography.
@@ -36,9 +38,9 @@ export function injectGlobalStyles<P>(
     }
 
     html, body {
-      font-family: 'AGaramondPro-Regular';
-      font-size: 16px;
-      line-height: 24px;
+      font-family: ${themeProps.fontFamily.sans.regular as string};
+      font-size: ${themeProps.fontSizes.size3};
+      line-height: ${TEXT_LINE_HEIGHT.body};
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
