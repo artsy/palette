@@ -1,9 +1,8 @@
 import React, { SFC } from "react"
 import { color } from "../../helpers"
 import { styledWrapper } from "../../platform/primitives"
-import { SansSize } from "../../Theme"
 import { Flex, FlexProps } from "../Flex"
-import { Text } from "../Text"
+import { Text, TextVariant } from "../Text"
 
 /**
  * Spec: zpl.io/2Zg4Rdq
@@ -14,7 +13,7 @@ interface MessageProps extends FlexProps {
   /**
    * Size of text to display in message window
    */
-  textSize?: SansSize
+  variant?: TextVariant
 }
 
 const StyledFlex = styledWrapper(Flex)`
@@ -29,13 +28,12 @@ const StyledFlex = styledWrapper(Flex)`
  */
 export const Message: SFC<MessageProps> = ({
   children,
-  textSize,
+  variant = "text",
   ...others
 }) => {
   return (
     <StyledFlex p={2} {...others}>
-      {/* TODO: Can the size be left here? */}
-      <Text size={textSize} color={color("black60")} variant="text">
+      <Text color={color("black60")} variant="text">
         {children}
       </Text>
     </StyledFlex>
