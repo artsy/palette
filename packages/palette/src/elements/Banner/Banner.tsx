@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { CloseIcon } from "../../svgs"
+import { CloseIcon } from "../../svgs/CloseIcon"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
