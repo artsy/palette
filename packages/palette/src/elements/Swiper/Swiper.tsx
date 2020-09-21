@@ -26,7 +26,6 @@ const visuallyDisableScrollbar = css`
 const Container = styled(Box)`
   display: flex;
   height: 100%;
-  margin: 0;
   padding: 0;
   list-style: none;
   overflow-y: hidden;
@@ -35,6 +34,11 @@ const Container = styled(Box)`
   scroll-snap-type: x mandatory;
   ${visuallyDisableScrollbar}
 `
+
+Container.defaultProps = {
+  mx: 0,
+  my: 0,
+}
 
 /** SwiperRailProps */
 export type SwiperRailProps = BoxProps
