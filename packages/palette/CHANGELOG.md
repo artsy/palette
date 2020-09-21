@@ -1,3 +1,19 @@
+# v13.5.0 (Mon Sep 21 2020)
+
+#### 🚀  Enhancement
+
+- Add receipt and pending icon [#784](https://github.com/artsy/palette/pull/784) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 🐛  Bug Fix
+
+- added receipt and pending icon ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v13.4.1 (Mon Sep 21 2020)
 
 #### 🐛  Bug Fix
