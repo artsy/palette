@@ -77,6 +77,8 @@ export * from "./UserSingleIcon"
 export * from "./VerifiedIcon"
 export * from "./WeChatIcon"
 export * from "./XCircleIcon"
+export * from "./ReceiptIcon"
+export * from "./PendingCircleIcon"
 
 // TODO: remove this once removed from reaction
 export * from "./PageViewsIcon"
