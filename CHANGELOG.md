@@ -1,3 +1,26 @@
+# v13.4.1 (Mon Sep 21 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Fixes horizontal margin overrides [#783](https://github.com/artsy/palette/pull/783) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Update dep typescript from 3.7.5 to v4 [#758](https://github.com/artsy/palette/pull/758) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette`
+  - Update gatsby plugins to be node v12 compatible [#781](https://github.com/artsy/palette/pull/781) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 4
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v13.4.0 (Tue Sep 15 2020)
 
 #### 🚀  Enhancement
