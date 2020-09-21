@@ -108,6 +108,15 @@ storiesOf("Components/Swiper", module)
     const widths = [...new Array(25)].map(_ => 300)
     return <Demo widths={widths} />
   })
+  .add("With horizontal margins", () => {
+    const widths = [...new Array(25)].map(_ => 300)
+    return (
+      <>
+        <Text>Should be flush with horizontal edges</Text>
+        <Demo widths={widths} mx={[-2, -4]} />
+      </>
+    )
+  })
   .add("Simple with left-edge snapping", () => {
     const widths = [...new Array(25)].map(_ => 300)
     return <Demo widths={widths} snap="start" />
