@@ -1,3 +1,16 @@
+# v13.7.1 (Tue Sep 22 2020)
+
+#### 🐛  Bug Fix
+
+- Removed white background from XCircleIcon [#786](https://github.com/artsy/palette/pull/786) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- removed white background from x circle icon ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v13.7.0 (Tue Sep 22 2020)
 
 #### 🚀  Enhancement
