@@ -10,7 +10,6 @@ export const XCircleIcon: React.SFC<IconProps> = ({
   return (
     <Icon {...props} viewBox="0 0 18 18">
       <Title>{title}</Title>
-      <Path d="M0 0H18V18H0V0Z" fill="white" />
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
