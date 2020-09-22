@@ -1,3 +1,16 @@
+# v13.7.0 (Tue Sep 22 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - [FX-2245] ReadMore styling [#782](https://github.com/artsy/palette/pull/782) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.6.0 (Tue Sep 22 2020)
 
 #### 🚀  Enhancement
