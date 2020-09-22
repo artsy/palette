@@ -63,4 +63,5 @@ Text.displayName = "Text"
 
 Text.defaultProps = {
   fontFamily: "sans",
+  variant: "text",
 }
