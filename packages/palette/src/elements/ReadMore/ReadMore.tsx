@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import { renderToStaticMarkup } from "react-dom/server"
 import styled from "styled-components"
-import { DisplayProps } from "styled-system"
 import truncate from "trunc-html"
-export interface ReadMoreProps extends DisplayProps {
+import { Clickable, ClickableProps } from "../Clickable"
+import { Text } from "../Text"
+
+export interface ReadMoreProps {
   content: string | JSX.Element
   disabled?: boolean
   isExpanded?: boolean
@@ -86,43 +88,26 @@ export class ReadMore extends Component<ReadMoreProps, ReadMoreState> {
   }
 }
 
-const ReadMoreLink = ({ children }) => {
+const ReadMoreLink: React.FC<ClickableProps> = ({ children, ...rest }) => {
   return (
-    <span>
+    <>
       {" "}
-      <ReadMoreLinkContainer>
-        <ReadMoreLinkText>{children}</ReadMoreLinkText>
-      </ReadMoreLinkContainer>
-    </span>
+      <Clickable
+        aria-expanded="false"
+        cursor="pointer"
+        textDecoration="underline"
+        {...rest}
+      >
+        <Text variant="mediumText">{children}</Text>
+      </Clickable>
+    </>
   )
 }
 
-const ReadMoreLinkContainer = styled.span`
-  cursor: pointer;
-  text-decoration: underline;
-  display: inline-block;
-  white-space: nowrap;
-`
-
-// NOTE: Couldn't use @artsy/palette / Sans due to root element being a `div`;
-// as html content from CMS comes through as a p tag, markup is rendered invalid.
-const ReadMoreLinkText = styled.span`
-  display: inline;
-  font-family: Unica77LLWebMedium, "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-`
+ReadMoreLink.displayName = "ReadMoreLink"
 
 const Container = styled.div<ReadMoreState>`
   cursor: ${p => (p.isExpanded ? "auto" : "pointer")};
-
-  > span > * {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-bottom: 1em;
-  }
 
   > span > *:last-child {
     display: inline;

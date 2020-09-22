@@ -33,9 +33,9 @@ describe("ReadMore", () => {
 
   it("expands text on click", () => {
     const wrapper = mount(<ReadMore maxChars={20} content={copy} />)
-    expect(wrapper.find("ReadMoreLink").length).toBe(1)
-    wrapper.simulate("click")
-    expect(wrapper.find("ReadMoreLink").length).toBe(0)
+    expect(wrapper.find("button").length).toBe(1)
+    wrapper.find("button").simulate("click")
+    expect(wrapper.find("button").length).toBe(0)
   })
 
   it("does not expand if disabled", () => {
