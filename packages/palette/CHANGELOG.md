@@ -1,3 +1,19 @@
+# v13.6.0 (Tue Sep 22 2020)
+
+#### 🚀  Enhancement
+
+- Sets default Text variant to `"text"` [#785](https://github.com/artsy/palette/pull/785) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Sets default Text variant to `"text"` ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.5.0 (Mon Sep 21 2020)
 
 #### 🚀  Enhancement
