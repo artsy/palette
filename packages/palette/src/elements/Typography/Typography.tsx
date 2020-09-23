@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react"
+import styled from "styled-components"
 import { FontValue } from "../../platform/fonts"
-import { styled as primitives, styledWrapper } from "../../platform/primitives"
 
 import {
   DisplaySize,
@@ -80,7 +80,7 @@ interface TextProps
 }
 
 /** Base Text component for typography */
-export const BaseText = primitives.Text<TextProps>`
+export const BaseText = styled.div<TextProps>`
   ${({ fontFamily }) => fontFamily && renderFontValue(fontFamily)};
   ${fontSize};
   ${lineHeight};
@@ -158,7 +158,7 @@ function createStyledText<P extends StyledTextProps>(
   fontType: keyof FontFamily,
   selectFontFamilyType: typeof _selectFontFamilyType = _selectFontFamilyType
 ) {
-  return styledWrapper<P>(
+  return styled<P>(
     ({
       size,
       weight,

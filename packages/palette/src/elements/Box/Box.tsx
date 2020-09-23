@@ -1,5 +1,4 @@
-import { styled as primitives } from "../../platform/primitives"
-
+import styled from "styled-components"
 import {
   background,
   BackgroundProps,
@@ -49,7 +48,7 @@ export const boxMixin = compose(
  * Box is just a `View` or `div` (depending on the platform) with common styled-systems
  * hooks.
  */
-export const Box = primitives.View<BoxProps>`
+export const Box = styled.div<BoxProps>`
   ${boxMixin}
 `
 

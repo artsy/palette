@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
+import styled from "styled-components"
 import { color } from "../../helpers"
-import { styledWrapper } from "../../platform/primitives"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Join } from "../Join"
@@ -77,7 +77,7 @@ export const Tags: React.FC<TagsProps> = ({
   )
 }
 
-const AnimatingBox = styledWrapper(Box)`
+const AnimatingBox = styled(Box)`
   transition: height 0.25s ease;
   overflow: hidden;
 `
@@ -117,7 +117,7 @@ const MoreTag: React.FC<{ onClick: (e) => void; count: number }> = ({
   )
 }
 
-const HoverBox = styledWrapper(Box)`
+const HoverBox = styled(Box)`
   border: 1px solid ${color("black5")};
   border-radius: 2px;
   background-color: ${color("black5")};
@@ -128,7 +128,7 @@ const HoverBox = styledWrapper(Box)`
   transition: all 0.25s;
 `
 
-const MoreBox = styledWrapper(Box)`
+const MoreBox = styled(Box)`
   border: 1px solid ${color("black5")};
   border-radius: 2px;
   &:hover {

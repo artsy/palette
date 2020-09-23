@@ -1,4 +1,5 @@
 import React from "react"
+import { ThemeProvider } from "styled-components"
 import {
   TEXT_FONT_SIZES,
   TEXT_FONTS,
@@ -8,7 +9,6 @@ import {
 } from "./elements/Text"
 import { isReactNative } from "./helpers/isReactNative"
 import { fontFamily } from "./platform/fonts"
-import { ThemeProvider } from "./platform/primitives"
 
 /**
  * Spec: https://www.notion.so/artsy/Design-92030f16ed7c4c72bb3eb832b4243d04

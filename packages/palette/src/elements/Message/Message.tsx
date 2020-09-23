@@ -1,6 +1,6 @@
-import React, { SFC } from "react"
+import React, { FC } from "react"
+import styled from "styled-components"
 import { color } from "../../helpers"
-import { styledWrapper } from "../../platform/primitives"
 import { SansSize } from "../../Theme"
 import { Flex, FlexProps } from "../Flex"
 import { Sans } from "../Typography"
@@ -17,7 +17,7 @@ interface MessageProps extends FlexProps {
   textSize?: SansSize
 }
 
-const StyledFlex = styledWrapper(Flex)`
+const StyledFlex = styled(Flex)`
   background-color: ${color("black5")};
   border-radius: 2px;
 `
@@ -27,7 +27,7 @@ const StyledFlex = styledWrapper(Flex)`
  *
  * Spec: zpl.io/2Zg4Rdq
  */
-export const Message: SFC<MessageProps> = ({
+export const Message: FC<MessageProps> = ({
   children,
   textSize = "3t",
   ...others
