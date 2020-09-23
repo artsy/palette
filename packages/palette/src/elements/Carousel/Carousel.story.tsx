@@ -111,7 +111,7 @@ storiesOf("Components/Carousel", module)
   })
   .add("Dynamic items", () => {
     return <Dynamic />
-  })
+  }, { chromatic: { disable: true }})
   .add("Custom arrows", () => {
     return (
       <Demo

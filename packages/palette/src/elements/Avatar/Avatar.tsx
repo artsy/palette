@@ -1,7 +1,7 @@
 import React, { ImgHTMLAttributes, useState } from "react"
+import styled from "styled-components"
 import { borderRadius } from "styled-system"
 import { color } from "../../helpers/color"
-import { styledWrapper } from "../../platform/primitives"
 import { SansSize } from "../../Theme"
 import { Flex } from "../Flex"
 import { LazyImage } from "../Image/LazyImage"
@@ -52,7 +52,7 @@ export const sizeValue = (size: SizeKey) => {
 }
 
 /** InitialsHolder */
-export const InitialsHolder = styledWrapper(Flex)`
+export const InitialsHolder = styled(Flex)`
   background-color: ${color("black10")};
   text-align: center;
   overflow: hidden;

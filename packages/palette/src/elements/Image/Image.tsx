@@ -1,10 +1,7 @@
 import React from "react"
-
-import { LazyImage } from "./LazyImage"
-
 import styled from "styled-components"
-import { Image as ImageTag } from "../../platform/primitives"
 import { CleanTag } from "../CleanTag"
+import { LazyImage } from "./LazyImage"
 
 import {
   borderRadius,
@@ -62,7 +59,7 @@ export interface ImageProps
 /**
  * Image component with space, width and height properties
  */
-export const BaseImage = styled(CleanTag.as(ImageTag))<ImageProps>`
+export const BaseImage = styled(CleanTag.as("img"))<ImageProps>`
   ${space};
   ${width};
   ${height};

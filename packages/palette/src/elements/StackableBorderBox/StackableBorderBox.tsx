@@ -1,13 +1,13 @@
+import styled from "styled-components"
 import { space as styledSpace } from "styled-system"
 import { media, space } from "../../helpers"
-import { styledWrapper } from "../../platform/primitives"
 import { BorderBox } from "../BorderBox"
 import { BorderBoxProps } from "../BorderBox/BorderBoxBase"
 
 /**
  * A stackable border box is a BorderBox that shares borders with its siblings.
  */
-export const StackableBorderBox = styledWrapper(BorderBox)<BorderBoxProps>`
+export const StackableBorderBox = styled(BorderBox)<BorderBoxProps>`
   padding: ${space(3)}px;
   ${styledSpace};
 
