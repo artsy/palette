@@ -1,3 +1,22 @@
+# v13.7.2 (Wed Sep 23 2020)
+
+#### 🐛  Bug Fix
+
+- Ensures consistent typography in EntityHeaders [#788](https://github.com/artsy/palette/pull/788) ([@dzucconi](https://github.com/dzucconi))
+- Ensures consistent typography in EntityHeaders ([@dzucconi](https://github.com/dzucconi))
+- Disables spurious spec ([@dzucconi](https://github.com/dzucconi))
+- Removes primitives indirection ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- Removes primitives indirection [#787](https://github.com/artsy/palette/pull/787) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.7.1 (Tue Sep 22 2020)
 
 #### 🐛  Bug Fix

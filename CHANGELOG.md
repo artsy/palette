@@ -1,3 +1,21 @@
+# v13.7.2 (Wed Sep 23 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Ensures consistent typography in EntityHeaders [#788](https://github.com/artsy/palette/pull/788) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette`
+  - Removes primitives indirection [#787](https://github.com/artsy/palette/pull/787) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.7.1 (Tue Sep 22 2020)
 
 #### 🐛  Bug Fix
