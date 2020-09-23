@@ -40,8 +40,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
   ...remainderProps
 }) => {
   const ContainerComponent = href ? FlexLink : Flex
-  // new () => React.Component < any, any >
-  // StyledComponentClass < React.ClassAttributes < HTMLAnchorElement >
+
   const containerProps: ContainerComponentProps = href
     ? { color: "black100", noUnderline: true, href }
     : {}
@@ -90,14 +89,14 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
             {name}
           </Text>
 
-          <Text variant="caption" color="black60">
+          <Text variant="text" color="black60">
             {!!meta && <span>{meta}</span>}
 
             {FollowButton && (
               <>
                 {meta && (
                   <Text
-                    variant="caption"
+                    variant="text"
                     color="black60"
                     mx={0.3}
                     display="inline-block"
