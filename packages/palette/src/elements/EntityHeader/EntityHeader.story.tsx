@@ -7,7 +7,7 @@ storiesOf("Components/EntityHeader", module)
   .add("Default", () => {
     return (
       <EntityHeader
-        imageUrl="https://picsum.photos/110/110/?random"
+        imageUrl="https://picsum.photos/seed/example/110/110"
         initials="FD"
         name="Francesca DiMattio"
         meta="American, b. 1979"
@@ -33,7 +33,7 @@ storiesOf("Components/EntityHeader", module)
         smallVariant
         initials="FD"
         name="Francesca DiMattio"
-        imageUrl="https://picsum.photos/110/110/?random"
+        imageUrl="https://picsum.photos/seed/example/110/110"
         href="http://www.artsy.net/artist/francesca-dimattio"
         FollowButton={
           <Text style={{ textDecoration: "underline" }}>Following</Text>
@@ -44,7 +44,7 @@ storiesOf("Components/EntityHeader", module)
   .add("with less info", () => {
     return (
       <EntityHeader
-        imageUrl="https://picsum.photos/110/110/?random"
+        imageUrl="https://picsum.photos/seed/example/110/110"
         name="Francesca DiMattio"
       />
     )
