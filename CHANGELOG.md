@@ -1,3 +1,16 @@
+# v13.7.3 (Thu Sep 24 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Only calls onChange when the active index actually changes [#789](https://github.com/artsy/palette/pull/789) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.7.2 (Wed Sep 23 2020)
 
 #### 🐛  Bug Fix
