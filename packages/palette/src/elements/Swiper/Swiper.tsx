@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
+  useState,
 } from "react"
 import styled, { css } from "styled-components"
 import { Box, BoxProps } from "../Box"
@@ -102,6 +103,8 @@ export const Swiper: React.FC<SwiperProps> = ({
     [children]
   )
 
+  const [index, setIndex] = useState(0)
+
   useEffect(() => {
     // Not mounted
     if (!containerRef.current) return
@@ -118,7 +121,7 @@ export const Swiper: React.FC<SwiperProps> = ({
         left: rail.scrollLeft,
       })
 
-      onChange && onChange(activeIndex({ progress, length: cells.length }))
+      onChange && setIndex(activeIndex({ progress, length: cells.length }))
     }
 
     rail.addEventListener("scroll", handleScroll, { passive: true })
@@ -126,6 +129,10 @@ export const Swiper: React.FC<SwiperProps> = ({
       rail.removeEventListener("scroll", handleScroll)
     }
   }, [cells])
+
+  useEffect(() => {
+    onChange && onChange(index)
+  }, [onChange, index])
 
   return (
     <Container ref={containerRef as any} {...rest}>
