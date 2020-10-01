@@ -1,3 +1,16 @@
+# v13.7.5 (Thu Oct 01 2020)
+
+#### 🐛  Bug Fix
+
+- [FX-2317] Fixes pagination arrow alignment [#791](https://github.com/artsy/palette/pull/791) ([@dzucconi](https://github.com/dzucconi))
+- Fixes pagination arrow alignment ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.7.4 (Thu Oct 01 2020)
 
 #### 🐛  Bug Fix
