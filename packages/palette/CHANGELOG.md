@@ -1,3 +1,16 @@
+# v13.7.4 (Thu Oct 01 2020)
+
+#### 🐛  Bug Fix
+
+- Converts ReadMore class component to functional component [#790](https://github.com/artsy/palette/pull/790) ([@dzucconi](https://github.com/dzucconi))
+- Converts ReadMore class component to functional component ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.7.3 (Thu Sep 24 2020)
 
 #### 🐛  Bug Fix
