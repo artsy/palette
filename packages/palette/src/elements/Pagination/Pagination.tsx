@@ -1,6 +1,5 @@
 import React from "react"
 import styled, { css } from "styled-components"
-
 import { color } from "../../helpers/color"
 import { space } from "../../helpers/space"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
@@ -177,7 +176,7 @@ const PrevButton = ({ onClick, disabled }) => {
     <PrevNextContainer className={disabled ? "disabled" : null}>
       <Sans size="3" weight="medium" display="inline" mx={0.5}>
         <a onClick={() => onClick()} className="noUnderline">
-          <ChevronIcon direction="left" top={space(0.5)} /> Prev
+          <ChevronIcon direction="left" top={0.5} /> Prev
         </a>
       </Sans>
     </PrevNextContainer>
@@ -189,7 +188,7 @@ const NextButton = ({ onClick, disabled }) => {
     <PrevNextContainer className={disabled ? "disabled" : null}>
       <Sans size="3" weight="medium" display="inline" mx={0.5}>
         <a onClick={() => onClick()} className="noUnderline">
-          Next <ChevronIcon direction="right" top={space(0.5)} />
+          Next <ChevronIcon direction="right" top={0.5} />
         </a>
       </Sans>
     </PrevNextContainer>
