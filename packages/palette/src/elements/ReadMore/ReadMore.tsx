@@ -1,92 +1,9 @@
-import React, { Component } from "react"
+import React, { useMemo, useState } from "react"
 import { renderToStaticMarkup } from "react-dom/server"
 import styled from "styled-components"
 import truncate from "trunc-html"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Text } from "../Text"
-
-export interface ReadMoreProps {
-  content: string | JSX.Element
-  disabled?: boolean
-  isExpanded?: boolean
-  maxChars?: number
-  onReadMoreClicked?: () => void
-}
-
-export interface ReadMoreState {
-  isExpanded: boolean
-}
-
-/** ReadMore */
-export class ReadMore extends Component<ReadMoreProps, ReadMoreState> {
-  private html: string
-
-  state = {
-    isExpanded: true,
-  }
-
-  static defaultProps = {
-    isExpanded: false,
-    maxChars: Infinity,
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.html =
-      typeof props.content === "string"
-        ? props.content
-        : renderToStaticMarkup(<>{props.content}</>)
-
-    const RE = /(<([^>]+)>)/gi // Strip HTML tags to get innerText char count
-    const { length } = this.html.replace(RE, "") //
-    const isExpanded = props.isExpanded || length < props.maxChars
-
-    this.state = {
-      isExpanded,
-    }
-  }
-
-  expandText() {
-    if (this.props.disabled) {
-      return
-    }
-
-    this.setState(
-      {
-        isExpanded: true,
-      },
-      () => {
-        this.props.onReadMoreClicked && this.props.onReadMoreClicked()
-      }
-    )
-  }
-
-  getContent() {
-    if (this.state.isExpanded) {
-      return this.html
-    } else {
-      return truncate(this.html, this.props.maxChars).html
-    }
-  }
-
-  render() {
-    const content = this.getContent()
-    const isExpanded = this.state.isExpanded || this.props.isExpanded
-
-    return (
-      <Container onClick={this.expandText.bind(this)} isExpanded={isExpanded}>
-        <span
-          dangerouslySetInnerHTML={{
-            __html: content,
-          }}
-        />
-
-        {!this.state.isExpanded && <ReadMoreLink>Read more</ReadMoreLink>}
-      </Container>
-    )
-  }
-}
 
 const ReadMoreLink: React.FC<ClickableProps> = ({ children, ...rest }) => {
   return (
@@ -106,8 +23,8 @@ const ReadMoreLink: React.FC<ClickableProps> = ({ children, ...rest }) => {
 
 ReadMoreLink.displayName = "ReadMoreLink"
 
-const Container = styled.div<ReadMoreState>`
-  cursor: ${p => (p.isExpanded ? "auto" : "pointer")};
+const Container = styled.div<{ isExpanded: boolean }>`
+  cursor: ${({ isExpanded }) => (isExpanded ? "auto" : "pointer")};
 
   > span > *:last-child {
     display: inline;
@@ -115,3 +32,56 @@ const Container = styled.div<ReadMoreState>`
 `
 
 Container.displayName = "Container"
+
+const HTML_TAG_REGEX = /(<([^>]+)>)/gi
+
+export interface ReadMoreProps {
+  content: string | JSX.Element
+  disabled?: boolean
+  isExpanded?: boolean
+  maxChars?: number
+  onReadMoreClicked?: () => void
+}
+
+/** ReadMore */
+export const ReadMore: React.FC<ReadMoreProps> = ({
+  content,
+  disabled,
+  isExpanded,
+  maxChars = Infinity,
+  onReadMoreClicked,
+}) => {
+  const expandedHTML = useMemo(() => {
+    return typeof content === "string" ? content : renderToStaticMarkup(content)
+  }, [content])
+
+  const charCount = useMemo(
+    () => expandedHTML.replace(HTML_TAG_REGEX, "").length,
+    [expandedHTML]
+  )
+
+  const truncatedHTML = useMemo(() => truncate(expandedHTML, maxChars).html, [
+    expandedHTML,
+    maxChars,
+  ])
+
+  const [expanded, setExpanded] = useState(isExpanded || charCount < maxChars)
+
+  const handleClick = () => {
+    if (disabled) return
+    setExpanded(true)
+    onReadMoreClicked && onReadMoreClicked()
+  }
+
+  return (
+    <Container onClick={handleClick} isExpanded={expanded}>
+      <span
+        dangerouslySetInnerHTML={{
+          __html: expanded ? expandedHTML : truncatedHTML,
+        }}
+      />
+
+      {!expanded && <ReadMoreLink>Read more</ReadMoreLink>}
+    </Container>
+  )
+}

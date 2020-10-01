@@ -44,4 +44,14 @@ describe("ReadMore", () => {
     wrapper.simulate("click")
     expect(wrapper.find("ReadMoreLink").length).toBe(1)
   })
+
+  it("calls the click callback when clicked", () => {
+    const callback = jest.fn()
+    const wrapper = mount(
+      <ReadMore maxChars={20} content={copy} onReadMoreClicked={callback} />
+    )
+    expect(callback).not.toBeCalled()
+    wrapper.simulate("click")
+    expect(callback).toBeCalled()
+  })
 })
