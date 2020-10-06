@@ -1,3 +1,15 @@
+# v13.8.0 (Tue Oct 06 2020)
+
+#### 🚀  Enhancement
+
+- style(FX-2320): Remove XS horizontal padding within tabs container [#793](https://github.com/artsy/palette/pull/793) ([@dblandin](https://github.com/dblandin))
+
+#### Authors: 1
+
+- Devon Blandin ([@dblandin](https://github.com/dblandin))
+
+---
+
 # v13.7.5 (Thu Oct 01 2020)
 
 #### 🐛  Bug Fix
