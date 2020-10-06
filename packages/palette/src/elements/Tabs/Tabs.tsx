@@ -6,7 +6,7 @@ import { Flex, FlexProps } from "../Flex"
 import { Join } from "../Join"
 import { Sans } from "../Typography"
 
-import { color, media, space } from "../../helpers"
+import { color, media } from "../../helpers"
 
 export interface TabLike extends JSX.Element {
   props: TabProps
@@ -174,9 +174,9 @@ export const TabsContainer: React.SFC<
         {...props}
         ref={scrollRef as any}
       >
-        <TabsPaddingContainer justifyContent={props.justifyContent}>
+        <TabsJustifyContentContainer justifyContent={props.justifyContent}>
           {props.children}
-        </TabsPaddingContainer>
+        </TabsJustifyContentContainer>
       </TabsScrollContainer>
     </TabsOuterContainer>
   )
@@ -247,12 +247,8 @@ const TabsOuterContainer = styled(Flex)`
   }
 `
 // TODO: This justifyContent ternary should be removed after we move TabCarousel to Palette
-const TabsPaddingContainer = styled(Flex)<JustifyContentProps>`
+const TabsJustifyContentContainer = styled(Flex)<JustifyContentProps>`
   width: ${props => (props.justifyContent ? "auto" : "100%")};
-
-  ${media.xs`
-    padding: 0 ${space(2)}px;
-  `};
 `
 
 const TabsScrollContainer = styled(Flex)`
