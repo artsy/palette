@@ -1,3 +1,16 @@
+# v13.9.1 (Thu Oct 08 2020)
+
+#### 🐛  Bug Fix
+
+- GridColumns typing [#795](https://github.com/artsy/palette/pull/795) ([@dzucconi](https://github.com/dzucconi))
+- Omits gridTemplateColumns; since it cannot be set ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.9.0 (Thu Oct 08 2020)
 
 #### 🚀  Enhancement
