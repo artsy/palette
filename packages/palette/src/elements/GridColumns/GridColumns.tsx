@@ -10,12 +10,12 @@ import {
 } from "./calculateGridColumn"
 
 /** GridColumns implements `Box` and the common grid properties */
-export type GridColumnsProps = CSSGridProps
+export type GridColumnsProps = Omit<CSSGridProps, "gridTemplateColumns">
 
 /**
  * A 12-column fluid grid
  */
-export const GridColumns = styled(CSSGrid).attrs({})`
+export const GridColumns = styled(CSSGrid)`
   grid-template-columns: repeat(12, 1fr);
 `
 
