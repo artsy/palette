@@ -1,3 +1,20 @@
+# v13.9.0 (Thu Oct 08 2020)
+
+#### 🚀  Enhancement
+
+- Implements GridColumns [#794](https://github.com/artsy/palette/pull/794) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Lowers diff sensitivity on cards ([@dzucconi](https://github.com/dzucconi))
+- Implements GridColumns ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.8.0 (Tue Oct 06 2020)
 
 #### 🚀  Enhancement
