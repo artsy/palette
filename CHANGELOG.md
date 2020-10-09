@@ -1,3 +1,16 @@
+# v13.10.0 (Fri Oct 09 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - feat: add drag icon to icon library [#796](https://github.com/artsy/palette/pull/796) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v13.9.1 (Thu Oct 08 2020)
 
 #### 🐛  Bug Fix
