@@ -1,3 +1,16 @@
+# v13.10.1 (Tue Oct 13 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette`
+  - Swiper and Carousel cells should have normal white-space [#797](https://github.com/artsy/palette/pull/797) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.10.0 (Fri Oct 09 2020)
 
 #### 🚀  Enhancement
