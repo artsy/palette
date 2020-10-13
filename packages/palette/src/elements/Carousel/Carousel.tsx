@@ -52,7 +52,9 @@ CarouselRail.defaultProps = {
 export type CarouselCellProps = BoxProps
 
 /** A `CarouselCell` wraps a single child in the carousel */
-export const CarouselCell = styled(Box)``
+export const CarouselCell = styled(Box)`
+  white-space: normal;
+`
 
 CarouselCell.defaultProps = {
   as: "li",

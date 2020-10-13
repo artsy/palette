@@ -7,6 +7,9 @@ import { ProgressDots } from "../ProgressDots"
 import { Text } from "../Text"
 import { Swiper, SwiperCell, SwiperProps, SwiperRail } from "./"
 
+const LOREM =
+  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis dicta sunt nihil perspiciatis aperiam asperiores, earum facere repellendus in veniam, mollitia, ducimus delectus perferendis beatae facilis molestiae et ad quaerat!"
+
 const Demo = ({
   widths,
   heights = [400],
@@ -151,4 +154,31 @@ storiesOf("Components/Swiper", module)
   })
   .add("Dynamic items", () => {
     return <Dynamic />
+  })
+  .add("Swiper with text", () => {
+    return (
+      <Box mx={[2, 4]} my={2}>
+        <Swiper>
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+        </Swiper>
+      </Box>
+    )
   })

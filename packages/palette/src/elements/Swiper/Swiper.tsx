@@ -62,7 +62,9 @@ SwiperRail.defaultProps = {
 export type SwiperCellProps = BoxProps
 
 /** A `SwiperCell` wraps a single child in the carousel */
-export const SwiperCell = styled(Box)``
+export const SwiperCell = styled(Box)`
+  white-space: normal;
+`
 
 type ScrollSnapAlign = "none" | "start" | "end" | "center"
 

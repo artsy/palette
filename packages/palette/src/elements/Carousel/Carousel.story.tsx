@@ -13,6 +13,9 @@ import {
   CarouselRail,
 } from "./"
 
+const LOREM =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, adipisci. Voluptate voluptatum porro facere atque dolores est neque ipsam quaerat necessitatibus? Deleniti tempora assumenda accusantium, quia quo ad rem expedita!"
+
 const Demo = ({
   widths = [...new Array(25)].map(_ => 300),
   heights = [400],
@@ -109,9 +112,13 @@ storiesOf("Components/Carousel", module)
 
     return <Demo widths={widths} heights={[400, 300, 333, 275]} />
   })
-  .add("Dynamic items", () => {
-    return <Dynamic />
-  }, { chromatic: { disable: true }})
+  .add(
+    "Dynamic items",
+    () => {
+      return <Dynamic />
+    },
+    { chromatic: { disable: true } }
+  )
   .add("Custom arrows", () => {
     return (
       <Demo
@@ -161,5 +168,36 @@ storiesOf("Components/Carousel", module)
           return <CarouselRail {...props} transition="none" display="block" />
         }}
       />
+    )
+  })
+  .add("Carousel with text", () => {
+    return (
+      <Box mx={[2, 4]} my={2}>
+        <Carousel>
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+
+          <Text bg="black10" p={1} width={300}>
+            {LOREM}
+          </Text>
+        </Carousel>
+      </Box>
     )
   })
