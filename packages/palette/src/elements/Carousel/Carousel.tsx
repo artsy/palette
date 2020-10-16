@@ -76,6 +76,7 @@ const Viewport = styled(Box)`
 `
 
 export interface CarouselProps extends BoxProps {
+  initialIndex?: number
   children: JSX.Element | JSX.Element[]
   Next?: typeof CarouselNext | React.FC<CarouselNavigationProps>
   Previous?: typeof CarouselPrevious | React.FC<CarouselNavigationProps>
@@ -95,6 +96,7 @@ export interface CarouselProps extends BoxProps {
  * through them.
  */
 export const Carousel: React.FC<CarouselProps> = ({
+  initialIndex = 0,
   children,
   Previous = CarouselPrevious,
   Next = CarouselNext,
@@ -119,13 +121,13 @@ export const Carousel: React.FC<CarouselProps> = ({
   const [pages, setPages] = useState([0])
 
   const { index, handleNext, handlePrev, setCursor } = useCursor({
+    initialCursor: initialIndex,
     max: pages.length,
   })
 
   const init = () => {
     const { current: viewport } = viewportRef
-    const els = cells.map(({ ref }) => ref.current)
-    const values = els.map(node => node.clientWidth)
+    const values = cells.map(({ ref }) => ref.current.clientWidth)
     setPages(paginateCarousel({ viewport: viewport.clientWidth, values }))
   }
 
@@ -182,7 +184,7 @@ export const Carousel: React.FC<CarouselProps> = ({
 
   return (
     <Container ref={containerRef as any} {...rest}>
-      <Skip ref={startRef} onClick={skipToEnd} mb={1}>
+      <Skip ref={startRef} onClick={skipToEnd} width="100%" mb={1}>
         Skip to end of content
       </Skip>
 
@@ -218,7 +220,7 @@ export const Carousel: React.FC<CarouselProps> = ({
         </Rail>
       </Viewport>
 
-      <Skip ref={endRef} onClick={skipToStart} mt={1}>
+      <Skip ref={endRef} onClick={skipToStart} width="100%" mt={1}>
         Skip to beginning of content
       </Skip>
 

@@ -5,9 +5,9 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-  useState,
 } from "react"
 import styled, { css } from "styled-components"
+import { useCursor } from "use-cursor"
 import { Box, BoxProps } from "../Box"
 import { CELL_GAP_PADDING_AMOUNT } from "../Carousel"
 import { activeIndex } from "./activeIndex"
@@ -70,6 +70,7 @@ type ScrollSnapAlign = "none" | "start" | "end" | "center"
 
 /** SwiperProps */
 export type SwiperProps = BoxProps & {
+  initialIndex?: number
   snap?: ScrollSnapAlign
   children: JSX.Element | JSX.Element[]
   Rail?: typeof SwiperRail | React.FC<SwiperRailProps>
@@ -88,6 +89,7 @@ export type SwiperProps = BoxProps & {
  * for horitonzal swiping (or scrolling) with the option to snap to elements.
  */
 export const Swiper: React.FC<SwiperProps> = ({
+  initialIndex = 0,
   children,
   snap = "none",
   Rail = SwiperRail,
@@ -105,7 +107,36 @@ export const Swiper: React.FC<SwiperProps> = ({
     [children]
   )
 
-  const [index, setIndex] = useState(0)
+  const { index, cursor, setCursor } = useCursor({
+    initialCursor: initialIndex,
+    max: cells.length,
+  })
+
+  useEffect(() => {
+    /**
+     * If on initial mount there is an `initialIndex` other than `0`,
+     * scroll it into view. The dependency array is left empty as we explicitly
+     * only want this to run on mount, and ignore any updates to `initialIndex`,
+     * which are handled separately below.
+     */
+    if (initialIndex === 0) return
+    const cell = cells[initialIndex]
+    if (!cell) return
+    cell.ref.current.scrollIntoView({ inline: "start", block: "nearest" })
+  }, [])
+
+  useEffect(() => {
+    /**
+     * Since `cursor` tracks progress, if `cursor` and `initialIndex` are out
+     * of sync then that means the index has been changed programmatically
+     * and we should scroll the cell corresponding with that index into view.
+     */
+    if (initialIndex !== cursor) {
+      const cell = cells[initialIndex]
+      if (!cell) return
+      cell.ref.current.scrollIntoView({ inline: "start", block: "nearest" })
+    }
+  }, [initialIndex])
 
   useEffect(() => {
     // Not mounted
@@ -123,7 +154,9 @@ export const Swiper: React.FC<SwiperProps> = ({
         left: rail.scrollLeft,
       })
 
-      onChange && setIndex(activeIndex({ progress, length: cells.length }))
+      const page = activeIndex({ progress, length: cells.length })
+
+      setCursor(page)
     }
 
     rail.addEventListener("scroll", handleScroll, { passive: true })

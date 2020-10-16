@@ -10,5 +10,5 @@ export const activeIndex = ({
   progress: number
   length: number
 }) => {
-  return Math.floor((progress * (length - 1)) / 100)
+  return Math.round((progress * (length - 1)) / 100)
 }
