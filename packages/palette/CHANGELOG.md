@@ -1,3 +1,19 @@
+# v13.11.0 (Tue Oct 20 2020)
+
+#### 🚀  Enhancement
+
+- [PCI-3] Supports props based navigation in Swiper/Carousel [#799](https://github.com/artsy/palette/pull/799) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Supports props based navigation in Swiper/Carousel ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.10.1 (Tue Oct 13 2020)
 
 #### 🐛  Bug Fix
