@@ -14,5 +14,5 @@ export const percentage = ({
   total: number
   left: number
 }) => {
-  return Math.floor((left / (total - viewport)) * 100)
+  return Math.round((left / (total - viewport)) * 100)
 }

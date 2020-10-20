@@ -6,7 +6,7 @@ describe("activeIndex", () => {
   })
 
   it("calculates the active index given the progress (2)", () => {
-    expect(activeIndex({ progress: 50, length: 50 })).toBe(24)
+    expect(activeIndex({ progress: 50, length: 50 })).toBe(25)
   })
 
   it("calculates the active index given the progress (3)", () => {

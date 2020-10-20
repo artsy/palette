@@ -11,11 +11,11 @@ const LOREM =
   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis dicta sunt nihil perspiciatis aperiam asperiores, earum facere repellendus in veniam, mollitia, ducimus delectus perferendis beatae facilis molestiae et ad quaerat!"
 
 const Demo = ({
-  widths,
+  widths = [...new Array(25)].map(_ => 300),
   heights = [400],
   ...rest
 }: {
-  widths: Array<number | string>
+  widths?: Array<number | string>
   heights?: number[]
 } & Omit<SwiperProps, "children">) => {
   return (
@@ -70,7 +70,7 @@ const ProgressBarDemo = () => {
 
   return (
     <>
-      <Demo widths={widths} onChange={setIndex} snap="start" />
+      <Demo widths={widths} onChange={setIndex} />
       <ProgressBar progress={progress} />
     </>
   )
@@ -106,23 +106,35 @@ const Dynamic = () => {
   )
 }
 
+const Navigation = () => {
+  const [initialIndex, resetIndex] = useState(0)
+  return (
+    <Box>
+      <Demo initialIndex={initialIndex} onChange={resetIndex} />
+      <Box display="flex" justifyContent="space-around">
+        <Clickable onClick={() => resetIndex(0)}>Navigate to page 1</Clickable>
+        <Clickable onClick={() => resetIndex(1)}>Navigate to page 2</Clickable>
+        <Clickable onClick={() => resetIndex(2)}>Navigate to page 3</Clickable>
+        <Clickable onClick={() => resetIndex(3)}>Navigate to page 4</Clickable>
+      </Box>
+    </Box>
+  )
+}
+
 storiesOf("Components/Swiper", module)
   .add("Simple", () => {
-    const widths = [...new Array(25)].map(_ => 300)
-    return <Demo widths={widths} />
+    return <Demo />
   })
   .add("With horizontal margins", () => {
-    const widths = [...new Array(25)].map(_ => 300)
     return (
       <>
         <Text>Should be flush with horizontal edges</Text>
-        <Demo widths={widths} mx={[-2, -4]} />
+        <Demo mx={[-2, -4]} />
       </>
     )
   })
   .add("Simple with left-edge snapping", () => {
-    const widths = [...new Array(25)].map(_ => 300)
-    return <Demo widths={widths} snap="start" />
+    return <Demo snap="start" />
   })
   .add("Progress bar example", () => {
     return <ProgressBarDemo />
@@ -181,4 +193,10 @@ storiesOf("Components/Swiper", module)
         </Swiper>
       </Box>
     )
+  })
+  .add("initialIndex on mount", () => {
+    return <Demo initialIndex={3} />
+  })
+  .add("Navigate via props", () => {
+    return <Navigation />
   })

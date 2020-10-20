@@ -57,6 +57,22 @@ const Dynamic = () => {
   return <Demo widths={widths} />
 }
 
+const Navigation = () => {
+  const [initialIndex, resetIndex] = useState(0)
+  return (
+    <Box>
+      <Demo initialIndex={initialIndex} onChange={resetIndex} />
+      <Box display="flex" justifyContent="space-around">
+        <Clickable onClick={() => resetIndex(0)}>Navigate to page 1</Clickable>
+        <Clickable onClick={() => resetIndex(1)}>Navigate to page 2</Clickable>
+        <Clickable onClick={() => resetIndex(2)}>Navigate to page 3</Clickable>
+        <Clickable onClick={() => resetIndex(3)}>Navigate to page 4</Clickable>
+        <Clickable onClick={() => resetIndex(4)}>Navigate to page 5</Clickable>
+      </Box>
+    </Box>
+  )
+}
+
 storiesOf("Components/Carousel", module)
   .add("Simple", () => {
     return <Demo />
@@ -200,4 +216,10 @@ storiesOf("Components/Carousel", module)
         </Carousel>
       </Box>
     )
+  })
+  .add("initialIndex on mount", () => {
+    return <Demo initialIndex={3} />
+  })
+  .add("Navigate via props", () => {
+    return <Navigation />
   })
