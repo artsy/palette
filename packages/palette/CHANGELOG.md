@@ -1,3 +1,19 @@
+# v13.13.0 (Fri Oct 23 2020)
+
+#### 🚀  Enhancement
+
+- fix: All icon to be filled [#803](https://github.com/artsy/palette/pull/803) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix: All icon to be filled ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v13.12.0 (Fri Oct 23 2020)
 
 #### 🚀  Enhancement
