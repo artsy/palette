@@ -1,4 +1,5 @@
 import React from "react"
+import { color } from "../helpers"
 import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 /** TriangleDownIcon */
@@ -14,7 +15,7 @@ export const TriangleDownIcon: React.SFC<IconProps> = ({
           fillRule="evenodd"
           clip-rule="evenodd"
           d="M5.5 6L0 0L11 0L5.5 6Z"
-          fill="black"
+          fill={color(props.fill)}
         />
       </G>
     </Icon>
