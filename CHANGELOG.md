@@ -1,3 +1,16 @@
+# v13.12.0 (Fri Oct 23 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - feat: [Icons] Add TriangleDownIcon [#802](https://github.com/artsy/palette/pull/802) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v13.11.0 (Tue Oct 20 2020)
 
 #### 🚀  Enhancement
