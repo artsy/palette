@@ -1,3 +1,21 @@
+# v13.15.0 (Mon Oct 26 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - feat: Add blue100 color [#807](https://github.com/artsy/palette/pull/807) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Updates GridColumns documentation [#806](https://github.com/artsy/palette/pull/806) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.14.0 (Mon Oct 26 2020)
 
 #### 🚀  Enhancement

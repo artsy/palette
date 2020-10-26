@@ -1,3 +1,19 @@
+# v13.15.0 (Mon Oct 26 2020)
+
+#### 🚀  Enhancement
+
+- feat: Add blue100 color [#807](https://github.com/artsy/palette/pull/807) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat: Add blue100 color ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v13.13.0 (Fri Oct 23 2020)
 
 #### 🚀  Enhancement
