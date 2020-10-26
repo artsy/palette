@@ -1,8 +1,10 @@
 ---
-name: GridColumn
+name: GridColumns
 ---
 
-(WIP text) The Grid element is a layout container for rendering a Grid
+`GridColumns` implements `Box` and the common grid properties. It has a layout of 12, fluid-width columns and a default column and row gap of `space(2)` (which is configurable).
+
+`Column` is a `Box` that sits inside of this 12-column grid layout, respecting the gutters. It accepts a `span` which will determine the width of the column. One can also optionally specify a `start` to offset where that column begins on the grid.
 
 ## Examples
 
