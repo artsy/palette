@@ -15,6 +15,9 @@
   "[json]": {
     "editor.formatOnSave": false
   },
+  "[mdx]": {
+    "editor.formatOnSave": false
+  },
   "tslint.autoFixOnSave": true,
   "typescript.tsdk": "./node_modules/typescript/lib",
   "eslint.enable": false,
