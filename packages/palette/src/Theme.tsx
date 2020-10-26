@@ -89,6 +89,8 @@ export const themeProps = {
     black10: "#E5E5E5",
     /** 5 black (light grey), backgrounds only */
     black5: "#F8F8F8",
+    /** 100 Blue, highlight */
+    blue100: "#0A1AB4",
     /** Full purple, secondary brand color. Should only used in time/transitions (on hover, active state), for highlighting vital text, and links.   */
     purple100: "#6E1EFF",
     /** 30 purple (light purple), avoid usage  */
