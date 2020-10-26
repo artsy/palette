@@ -1,3 +1,15 @@
+# v13.14.0 (Mon Oct 26 2020)
+
+#### 🚀  Enhancement
+
+- docs: Add GridColumn docs [#804](https://github.com/artsy/palette/pull/804) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v13.13.0 (Fri Oct 23 2020)
 
 #### 🚀  Enhancement
