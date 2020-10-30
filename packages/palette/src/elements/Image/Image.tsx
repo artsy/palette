@@ -120,7 +120,10 @@ export interface WebResponsiveImageProps extends ResponsiveImageProps {
   lazyLoad?: boolean
 }
 
-/** A web-only ResponsiveImage component. */
+/**
+ * A web-only ResponsiveImage component.
+ * @deprecated See the recipe for creating a responsive image at https://palette.artsy.net/elements/images/image/
+ */
 export const ResponsiveImage = ({
   lazyLoad = false,
   ...props

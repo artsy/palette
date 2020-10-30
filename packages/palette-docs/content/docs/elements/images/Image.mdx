@@ -39,12 +39,33 @@ with the `preventRightClick` prop, and users will be unable to right click to
   />
 </Playground>
 
-## Responsive image
+## Responsive image recipe using an Image component
 
-Used to fill an area provided regardless of proportions.
+You may wish to include an image that responsively scales down with the width of the container.
+Try scaling the viewport smaller than the below image.
 
 <Playground>
-  <BorderBox maxWidth="400px" width="100%" height="auto" p={0}>
-    <ResponsiveImage src="https://picsum.photos/400/250/?random" />
-  </BorderBox>
+  <ResponsiveBox aspectWidth={700} aspectHeight={400} maxWidth={700} maxHeight={400}>
+    <Image
+      width="100%"
+      height="100%"
+      src="https://picsum.photos/seed/hello/700/400"
+      srcSet="https://picsum.photos/seed/hello/700/400 1x, https://picsum.photos/seed/hello/1400/800 2x"
+      alt="Please make sure you describe the image"
+    />
+  </ResponsiveBox>
+</Playground>
+
+You may wish to keep the image at 100% width, regardless of the original native width of the image.
+
+<Playground>
+  <ResponsiveBox aspectWidth={700} aspectHeight={400} maxWidth="100%">
+    <Image
+      width="100%"
+      height="100%"
+      src="https://picsum.photos/seed/hello/700/400"
+      srcSet="https://picsum.photos/seed/hello/700/400 1x, https://picsum.photos/seed/hello/1400/800 2x"
+      alt="Please make sure you describe the image"
+    />
+  </ResponsiveBox>
 </Playground>
