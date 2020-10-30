@@ -1,3 +1,16 @@
+# v13.16.0 (Fri Oct 30 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Includes documentation on how to create a responsive image [#809](https://github.com/artsy/palette/pull/809) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.15.0 (Mon Oct 26 2020)
 
 #### 🚀  Enhancement
