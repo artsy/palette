@@ -9,7 +9,7 @@ import { Sans } from "../Typography"
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {
   description?: string
   disabled?: boolean
-  error?: string
+  error?: string | boolean
   required?: boolean
   title?: string
 }
@@ -40,7 +40,7 @@ export const Input: React.ForwardRefExoticComponent<
           error={!!error}
           {...rest as any}
         />
-        {error && (
+        {error && typeof error === "string" && (
           <Sans color="red100" mt="1" size="2">
             {error}
           </Sans>
