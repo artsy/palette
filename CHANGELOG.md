@@ -1,3 +1,16 @@
+# v13.17.0 (Mon Nov 09 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - feat: support boolean errors for Input [#810](https://github.com/artsy/palette/pull/810) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v13.16.0 (Fri Oct 30 2020)
 
 #### 🚀  Enhancement
