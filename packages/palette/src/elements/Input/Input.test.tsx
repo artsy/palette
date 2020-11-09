@@ -35,12 +35,22 @@ describe("Input", () => {
     expect(wrapper.text()).toEqual(props.description)
   })
 
-  it("returns an input with error when provided", () => {
-    const props = {
-      error: "This is the title",
-    }
-    const wrapper = mount(<Input {...props} />)
-    expect(wrapper.text()).toEqual(props.error)
+  describe("error states", () => {
+    it("returns an input with error text when provided", () => {
+      const props = {
+        error: "This is the title",
+      }
+      const wrapper = mount(<Input {...props} />)
+      expect(wrapper.text()).toEqual(props.error)
+      expect(wrapper.find("Sans").length).toEqual(1)
+    })
+    it("returns an input without an error text box if error is boolean", () => {
+      const props = {
+        error: true,
+      }
+      const wrapper = mount(<Input {...props} />)
+      expect(wrapper.find("Sans").length).toEqual(0)
+    })
   })
 })
 
