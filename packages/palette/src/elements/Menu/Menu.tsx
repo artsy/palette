@@ -64,6 +64,7 @@ interface MenuItemProps extends BoxProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
   px?: SpaceProps["px"]
   py?: SpaceProps["py"]
+  target?: HTMLAnchorElement['target']
   textColor?: string
   textWeight?: "medium" | "regular"
   hasLighterTextColor?: boolean
