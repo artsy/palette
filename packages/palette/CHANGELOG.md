@@ -1,3 +1,19 @@
+# v13.18.0 (Thu Nov 12 2020)
+
+#### 🚀  Enhancement
+
+- trivial: add target to MenuItem [#812](https://github.com/artsy/palette/pull/812) ([@eessex](https://github.com/eessex))
+
+#### 🐛  Bug Fix
+
+- add target to MenuItem ([@eessex](https://github.com/eessex))
+
+#### Authors: 1
+
+- Eve Essex ([@eessex](https://github.com/eessex))
+
+---
+
 # v13.17.0 (Mon Nov 09 2020)
 
 #### 🚀  Enhancement
