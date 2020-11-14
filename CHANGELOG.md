@@ -1,3 +1,16 @@
+# v13.19.0 (Sat Nov 14 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - Add new icons for /consign2 [#813](https://github.com/artsy/palette/pull/813) ([@williardx](https://github.com/williardx))
+
+#### Authors: 1
+
+- Will Doenlen ([@williardx](https://github.com/williardx))
+
+---
+
 # v13.18.0 (Thu Nov 12 2020)
 
 #### 🚀  Enhancement
