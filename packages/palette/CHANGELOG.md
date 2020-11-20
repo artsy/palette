@@ -1,3 +1,19 @@
+# v13.21.0 (Fri Nov 20 2020)
+
+#### 🚀  Enhancement
+
+- fix: Fix type def [#815](https://github.com/artsy/palette/pull/815) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix: Fix type def ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v13.20.0 (Fri Nov 20 2020)
 
 #### 🚀  Enhancement
