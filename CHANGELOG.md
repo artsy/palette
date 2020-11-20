@@ -1,3 +1,16 @@
+# v13.22.0 (Fri Nov 20 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - fix: Use ResponsiveValue helper [#816](https://github.com/artsy/palette/pull/816) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v13.21.0 (Fri Nov 20 2020)
 
 #### 🚀  Enhancement
