@@ -18,7 +18,7 @@ import { TEXT_VARIANTS, TextVariant } from "./tokens"
 /** BaseTextProps */
 export type BaseTextProps = TypographyProps &
   Omit<ColorProps, "color"> & {
-    variant?: TextVariant | TextVariant[]
+    variant?: ResponsiveValue<TextVariant>
     textColor?: ResponsiveValue<Color>
   }
 
