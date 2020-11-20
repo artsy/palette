@@ -170,4 +170,4 @@ export const TEXT_VARIANTS: { [key: string]: TextTreatments } = {
 /**
  * Name of typographic treatment
  */
-export type TextVariant = keyof TextTreatments
+export type TextVariant = keyof TextTreatments | Array<keyof TextTreatment>
