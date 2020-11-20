@@ -1,3 +1,16 @@
+# v13.20.0 (Fri Nov 20 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette`
+  - fix: [Text] update variant type to support array syntax [#814](https://github.com/artsy/palette/pull/814) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v13.19.0 (Sat Nov 14 2020)
 
 #### 🚀  Enhancement
