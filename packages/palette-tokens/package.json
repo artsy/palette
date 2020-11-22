@@ -1,0 +1,43 @@
+{
+  "name": "@artsy/palette-tokens",
+  "version": "1.0.0",
+  "description": "The design tokens for Artsy's palette",
+  "keywords": [
+    "design",
+    "tokens",
+    "theme",
+    "config",
+    "styled-system",
+    "styled-components",
+    "design",
+    "system"
+  ],
+  "author": "Justin Bennett <justin.bennett@artsymail.com>",
+  "homepage": "https://palette.artsy.net",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artsy/palette.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "compile": "tsc -p tsconfig.json",
+    "type-check": "tsc --noEmit --pretty",
+    "prepublishOnly": "yarn clean && yarn compile",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/artsy/palette/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
