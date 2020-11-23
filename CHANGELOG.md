@@ -1,3 +1,16 @@
+# (Mon Nov 23 2020)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette-tokens@1.0.0`
+  - Extract palette tokens into a separate package [#817](https://github.com/artsy/palette/pull/817) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v13.22.0 (Fri Nov 20 2020)
 
 #### 🚀  Enhancement
