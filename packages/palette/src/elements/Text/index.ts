@@ -1,2 +1,2 @@
 export * from "./Text"
-export * from "./tokens"
+export * from "@artsy/palette-tokens/dist/text"

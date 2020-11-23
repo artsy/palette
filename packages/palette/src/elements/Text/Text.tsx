@@ -13,7 +13,7 @@ import {
 } from "styled-system"
 import { Color } from "../../Theme"
 import { Box, BoxProps } from "../Box"
-import { TEXT_VARIANTS, TextVariant } from "./tokens"
+import { TEXT_VARIANTS, TextVariant } from "@artsy/palette-tokens/dist/text"
 
 /** BaseTextProps */
 export type BaseTextProps = TypographyProps &
