@@ -30,8 +30,7 @@
     "clean": "rm -rf dist",
     "compile": "tsc -p tsconfig.json",
     "type-check": "tsc --noEmit --pretty",
-    "prepublishOnly": "yarn clean && yarn compile",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "prepublishOnly": "yarn clean && yarn compile"
   },
   "bugs": {
     "url": "https://github.com/artsy/palette/issues"
