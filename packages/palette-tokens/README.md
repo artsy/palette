@@ -2,18 +2,31 @@
 
 The [design tokens](https://www.lightningdesignsystem.com/design-tokens/) that power [Artsy](https://www.artsy.net)'s [Palette](https://palette.artsy.net).
 
-This package isn't intended to be consumed directly, but rather included as a transitive dependency of palette.
+:warning: This package isn't intended to be consumed directly, but rather included as a transitive dependency of palette. :warning:
 
 ## Usage
 
-In the main theme file...
+In the main theme file for a Palette implementation:
 
 ```
-import buildTheme from "@artsy/palette-tokens"
-export * from "@artsy/palette-tokens";
+import tokens from "@artsy/palette-tokens"
 import { fontFamily } from "./platform/fonts"
 
-export const themeConfig = buildTheme(fontFamily);
+/**
+ * This is required only in consuming versions of palette to keep
+ * the existing api the same. If you're using the tokens as a standalone
+ * you may not necessarily need to include this export statement.
+ */
+export * from "@artsy/palette-tokens";
+
+/**
+ * Any platform specific tokens can be included in the final `themeConfig` as
+ * shown.
+ */
+export const themeConfig = {
+  ...tokens,
+  fontFamily
+}
 ```
 
 ## License
