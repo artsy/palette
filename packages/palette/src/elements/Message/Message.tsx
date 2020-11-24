@@ -15,10 +15,23 @@ interface MessageProps extends FlexProps {
    * Size of text to display in message window
    */
   textSize?: SansSize
+  /**
+   * Determines the background color. Variants are "info" (blue) and "warning"
+   * (copper). No value will default to light grey
+   */
+  variant?: "info" | "warning"
 }
 
-const StyledFlex = styled(Flex)`
-  background-color: ${color("black5")};
+const StyledFlex = styled(Flex)<MessageProps>`
+  background-color: ${({ variant }) => {
+    if (variant === "info") {
+      return color("blue10")
+    } else if (variant === "warning") {
+      return color("copper10")
+    } else {
+      return color("black5")
+    }
+  }};
   border-radius: 2px;
 `
 
@@ -34,7 +47,7 @@ export const Message: FC<MessageProps> = ({
 }) => {
   return (
     <StyledFlex p={2} {...others}>
-      <Sans size={textSize} color={color("black60")} weight="regular">
+      <Sans size={textSize} color={color("black100")} weight="regular">
         {children}
       </Sans>
     </StyledFlex>
