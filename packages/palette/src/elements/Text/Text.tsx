@@ -1,3 +1,4 @@
+import { TEXT_VARIANTS, TextVariant } from "@artsy/palette-tokens/dist/text"
 import { themeGet } from "@styled-system/theme-get"
 import styled, { css } from "styled-components"
 import {} from "styled-system"
@@ -13,7 +14,6 @@ import {
 } from "styled-system"
 import { Color } from "../../Theme"
 import { Box, BoxProps } from "../Box"
-import { TEXT_VARIANTS, TextVariant } from "@artsy/palette-tokens/dist/text"
 
 /** BaseTextProps */
 export type BaseTextProps = TypographyProps &
