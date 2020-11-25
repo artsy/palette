@@ -1,3 +1,23 @@
+# (Tue Nov 24 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette-tokens@1.1.0`, `@artsy/palette@13.23.0`
+  - feat: update colors [#819](https://github.com/artsy/palette/pull/819) ([@mdole](https://github.com/mdole))
+
+#### 🏠  Internal
+
+- `@artsy/palette@13.23.0`
+  - Update dep typescript from 4.0.3 to v4.1.2 [#808](https://github.com/artsy/palette/pull/808) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Matt Dole ([@mdole](https://github.com/mdole))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Mon Nov 23 2020)
 
 #### 💥  Breaking Change
