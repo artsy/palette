@@ -1,3 +1,16 @@
+# (Mon Nov 30 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.24.0`
+  - feat: update message component [#820](https://github.com/artsy/palette/pull/820) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # (Tue Nov 24 2020)
 
 #### 🚀  Enhancement
