@@ -1,1 +1,2 @@
-export * from "./Pagination"
+export * from "./LargePagination"
+export * from "./SmallPagination"

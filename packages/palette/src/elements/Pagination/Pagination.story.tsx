@@ -1,7 +1,8 @@
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import React from "react"
-import { LargePagination, SmallPagination } from "./Pagination"
+import { LargePagination } from "./LargePagination"
+import { SmallPagination } from "./SmallPagination"
 
 storiesOf("Components/Pagination", module)
   .add("LargePagination", () => {
