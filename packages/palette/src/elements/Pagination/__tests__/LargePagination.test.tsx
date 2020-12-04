@@ -4,104 +4,124 @@ import { Theme } from "../../../Theme"
 import { LargePagination } from "../LargePagination"
 
 describe("LargePagination", () => {
+  const first = { page: 1, cursor: "Y3Vyc29yMg==", isCurrent: false }
+  const last = { page: 20, cursor: "Y3Vyc29yMw==", isCurrent: false }
+  const around = [
+    { page: 6, cursor: "Y3Vyc29yMw==", isCurrent: true },
+    { page: 7, cursor: "Y3Vyc29yMg==", isCurrent: false },
+    { page: 8, cursor: "Y3Vyc29yMw==", isCurrent: false },
+    { page: 9, cursor: "Y3Vyc29yMw==", isCurrent: false },
+  ]
+  const previous = { page: 5, cursor: "Y3Vyc29yMw==", isCurrent: false }
+  const pageCursors = {
+    around,
+    first,
+    last,
+    previous,
+  }
+  const onClickMock = jest.fn()
+  const onNextMock = jest.fn()
+
+  const props = {
+    hasNextPage: true,
+    onClick: onClickMock,
+    onNext: onNextMock,
+    pageCursors,
+  }
+
+  const mountWrapper = () => {
+    const wrapper = mount(
+      <Theme>
+        <LargePagination {...props} />
+      </Theme>
+    )
+
+    return wrapper
+  }
+
+  afterEach(() => {
+    jest.clearAllMocks()
+    props.pageCursors = pageCursors
+  })
+
   describe("page numbers", () => {
-    const paginationProps = {
-      cursor: {
-        first: { page: 1, cursor: "Y3Vyc29yMg==", isCurrent: false },
-        last: { page: 20, cursor: "Y3Vyc29yMw==", isCurrent: false },
-        around: [
-          { page: 6, cursor: "Y3Vyc29yMw==", isCurrent: true },
-          { page: 7, cursor: "Y3Vyc29yMg==", isCurrent: false },
-          { page: 8, cursor: "Y3Vyc29yMw==", isCurrent: false },
-          { page: 9, cursor: "Y3Vyc29yMw==", isCurrent: false },
-        ],
-        previous: { page: 5, cursor: "Y3Vyc29yMw==", isCurrent: false },
-        " $refType": null,
-      },
-      callbacks: {
-        onClick: () => {
-          /* */
-        },
-        onNext: () => {
-          /* */
-        },
-      },
-    }
+    describe("with some around pages", () => {
+      beforeAll(() => {
+        props.pageCursors.first = null
+        props.pageCursors.last = null
+        props.pageCursors.around = around
+      })
 
-    const { cursor, callbacks } = paginationProps
-    let matchMedia
+      it("renders those pages and calls the onClick function when clicked", () => {
+        const wrapper = mountWrapper()
+        const html = wrapper.html()
+        const pages = ["6", "7", "8", "9"]
+        pages.forEach(page => {
+          expect(html).toContain(`>${page}<`)
+        })
 
-    beforeAll(() => {
-      matchMedia = window.matchMedia
-      window.matchMedia = undefined // Immediately set matching media query inMockBoot
+        wrapper
+          .find("Page")
+          .first()
+          .simulate("click")
+
+        expect(onClickMock).toHaveBeenCalled()
+      })
     })
 
-    afterAll(() => {
-      window.matchMedia = matchMedia
+    describe("when there is no first page", () => {
+      beforeAll(() => {
+        props.pageCursors.first = null
+        props.pageCursors.last = last
+        props.pageCursors.around = around
+      })
+
+      it("skips rendering the first page and dot dot dot", () => {
+        const wrapper = mountWrapper()
+        const html = wrapper.html()
+        const pages = ["6", "7", "8", "9", "...", "20"]
+        pages.forEach(page => {
+          expect(html).toContain(`>${page}<`)
+        })
+      })
     })
 
-    it("triggers on click on number click", () => {
-      const spy = jest.fn()
-      const wrapper = mount(
-        <Theme>
-          <LargePagination
-            hasNextPage
-            pageCursors={cursor}
-            {...callbacks}
-            onClick={spy}
-          />
-        </Theme>
-      )
-      wrapper
-        .find("Page")
-        .first()
-        .simulate("click")
+    describe("when there is no last page", () => {
+      beforeAll(() => {
+        props.pageCursors.first = first
+        props.pageCursors.last = null
+        props.pageCursors.around = around
+      })
 
-      expect(spy).toHaveBeenCalled()
+      it("skips rendering the last page and dot dot dot", () => {
+        const wrapper = mountWrapper()
+        const html = wrapper.html()
+        const pages = ["1", "...", "6", "7", "8", "9"]
+        pages.forEach(page => {
+          expect(html).toContain(`>${page}<`)
+        })
+      })
     })
 
-    it("renders first, last and page range", () => {
-      const wrapper = mount(
-        <Theme>
-          <LargePagination hasNextPage pageCursors={cursor} {...callbacks} />
-        </Theme>
-      )
-      const html = wrapper.html()
-      const pages = ["1", "...", "6", "7", "8", "9", "...", "20"]
-      pages.forEach(page => {
-        expect(html).toContain(`>${page}<`)
+    describe("when there are first, last and around pages", () => {
+      beforeAll(() => {
+        props.pageCursors.first = first
+        props.pageCursors.last = last
+        props.pageCursors.around = around
+      })
+
+      it("renders the first, last and dot dot dots plus around pages", () => {
+        const wrapper = mountWrapper()
+        const html = wrapper.html()
+        const pages = ["1", "...", "6", "7", "8", "9", "...", "20"]
+        pages.forEach(page => {
+          expect(html).toContain(`>${page}<`)
+        })
       })
     })
   })
 
   describe("previous/next buttons", () => {
-    const around = []
-    const previous = { page: 1, cursor: "ABC123==", isCurrent: false }
-    const pageCursors = { around, previous }
-    const onClickMock = jest.fn()
-    const onNextMock = jest.fn()
-
-    const props = {
-      hasNextPage: true,
-      onClick: onClickMock,
-      onNext: onNextMock,
-      pageCursors: pageCursors,
-    }
-
-    const mountWrapper = () => {
-      const wrapper = mount(
-        <Theme>
-          <LargePagination {...props} />
-        </Theme>
-      )
-
-      return wrapper
-    }
-
-    afterEach(() => {
-      jest.clearAllMocks()
-    })
-
     describe("when there is only a previous page", () => {
       beforeAll(() => {
         pageCursors.previous = previous

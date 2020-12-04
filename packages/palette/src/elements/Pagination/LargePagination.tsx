@@ -40,19 +40,19 @@ export const LargePagination = (props: Props) => {
       mr={-1}
     >
       {first && (
-        <div>
+        <>
           {renderPage(first, onClick)}
           <PageSpan mx={0.5} />
-        </div>
+        </>
       )}
 
       {around.map(pageInfo => renderPage(pageInfo, onClick))}
 
       {last && (
-        <div>
+        <>
           <PageSpan mx={0.5} />
           {renderPage(last, onClick)}
-        </div>
+        </>
       )}
 
       <Box ml={4}>
