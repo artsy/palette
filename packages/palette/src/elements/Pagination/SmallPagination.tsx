@@ -24,12 +24,10 @@ export const SmallPagination = (props: Props) => {
 }
 
 const PrevButton = ({ previous, onClick }) => {
+  const opacity = previous ? 1 : 0.1
+
   return (
-    <PrevNextFlex
-      className={!previous ? "disabled" : null}
-      width="50%"
-      pr={0.5}
-    >
+    <Flex opacity={opacity} pr={0.5} width="50%">
       <ButtonWithBorder
         alignItems="center"
         justifyContent="flex-start"
@@ -42,17 +40,15 @@ const PrevButton = ({ previous, onClick }) => {
       >
         <ChevronIcon direction="left" />
       </ButtonWithBorder>
-    </PrevNextFlex>
+    </Flex>
   )
 }
 
 const NextButton = ({ onNext, hasNextPage }) => {
+  const opacity = hasNextPage ? 1 : 0.1
+
   return (
-    <PrevNextFlex
-      className={!hasNextPage ? "disabled" : null}
-      width="50%"
-      pl={0.5}
-    >
+    <Flex opacity={opacity} pl={0.5} width="50%">
       <ButtonWithBorder
         onClick={() => onNext()}
         alignItems="center"
@@ -61,7 +57,7 @@ const NextButton = ({ onNext, hasNextPage }) => {
       >
         <ChevronIcon direction="right" />
       </ButtonWithBorder>
-    </PrevNextFlex>
+    </Flex>
   )
 }
 
@@ -72,12 +68,6 @@ const ButtonWithBorder = styled(Flex)`
   width: 100%;
   height: ${space(4)}px;
   cursor: pointer;
-`
-
-const PrevNextFlex = styled(Flex)`
-  &.disabled {
-    opacity: 0.1;
-  }
 `
 
 // Tests
