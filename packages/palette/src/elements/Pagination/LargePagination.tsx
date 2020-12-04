@@ -35,7 +35,7 @@ export const LargePagination = (props: Props) => {
   const aroundPages = around.map(pageCursor => {
     const { cursor, page } = pageCursor
     const key = cursor + page
-    return <RenderPage key={key} onClick={onClick} pageCursor={pageCursor} />
+    return <Page key={key} onClick={onClick} pageCursor={pageCursor} />
   })
 
   return (
@@ -47,7 +47,7 @@ export const LargePagination = (props: Props) => {
     >
       {first && (
         <>
-          <RenderPage onClick={onClick} pageCursor={first} />
+          <Page onClick={onClick} pageCursor={first} />
           <DotDotDot />
         </>
       )}
@@ -57,7 +57,7 @@ export const LargePagination = (props: Props) => {
       {last && (
         <>
           <DotDotDot />
-          <RenderPage onClick={onClick} pageCursor={last} />
+          <Page onClick={onClick} pageCursor={last} />
         </>
       )}
 
@@ -77,19 +77,17 @@ const DotDotDot = () => {
   )
 }
 
-const RenderPage = ({ onClick, pageCursor }) => {
+const Page = ({ onClick, pageCursor }) => {
   const { cursor, isCurrent, page } = pageCursor
 
-  return (
-    <Page onClick={() => onClick(cursor, page)} num={page} active={isCurrent} />
-  )
-}
+  const handleClick = () => {
+    onClick(cursor, page)
+  }
 
-const Page = ({ num, onClick, ...props }) => {
   return (
-    <Button {...props} onClick={() => onClick()}>
+    <Button active={isCurrent} onClick={handleClick}>
       <Sans size="3" weight="medium" display="inline">
-        {num}
+        {page}
       </Sans>
     </Button>
   )
