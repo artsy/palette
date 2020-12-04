@@ -32,6 +32,12 @@ export const LargePagination = (props: Props) => {
     onNext()
   }
 
+  const aroundPages = around.map(pageCursor => {
+    const { cursor, page } = pageCursor
+    const key = cursor + page
+    return <RenderPage key={key} onClick={onClick} pageCursor={pageCursor} />
+  })
+
   return (
     <Flex
       flexDirection="row"
@@ -41,17 +47,17 @@ export const LargePagination = (props: Props) => {
     >
       {first && (
         <>
-          {renderPage(first, onClick)}
+          <RenderPage onClick={onClick} pageCursor={first} />
           <DotDotDot />
         </>
       )}
 
-      {around.map(pageInfo => renderPage(pageInfo, onClick))}
+      {aroundPages}
 
       {last && (
         <>
           <DotDotDot />
-          {renderPage(last, onClick)}
+          <RenderPage onClick={onClick} pageCursor={last} />
         </>
       )}
 
@@ -71,18 +77,11 @@ const DotDotDot = () => {
   )
 }
 
-const renderPage = (
-  pageCursor,
-  onClick: (cursor: string, page: number) => void
-) => {
+const RenderPage = ({ onClick, pageCursor }) => {
   const { cursor, isCurrent, page } = pageCursor
+
   return (
-    <Page
-      onClick={() => onClick(cursor, page)}
-      num={page}
-      active={isCurrent}
-      key={cursor + page}
-    />
+    <Page onClick={() => onClick(cursor, page)} num={page} active={isCurrent} />
   )
 }
 
