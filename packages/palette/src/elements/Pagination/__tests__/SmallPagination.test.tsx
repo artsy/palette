@@ -44,11 +44,7 @@ describe("SmallPagination", () => {
         </Theme>
       )
 
-      wrapper
-        .find("ButtonWithBorder")
-        .first()
-        .simulate("click")
-
+      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
       expect(onClickMock).toHaveBeenCalled()
     })
 
@@ -59,11 +55,7 @@ describe("SmallPagination", () => {
         </Theme>
       )
 
-      wrapper
-        .find("ButtonWithBorder")
-        .last()
-        .simulate("click")
-
+      wrapper.find("NextButton ButtonWithBorder").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })
@@ -81,11 +73,7 @@ describe("SmallPagination", () => {
         </Theme>
       )
 
-      wrapper
-        .find("ButtonWithBorder")
-        .first()
-        .simulate("click")
-
+      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
       expect(onClickMock).not.toHaveBeenCalled()
     })
 
@@ -96,11 +84,7 @@ describe("SmallPagination", () => {
         </Theme>
       )
 
-      wrapper
-        .find("ButtonWithBorder")
-        .last()
-        .simulate("click")
-
+      wrapper.find("NextButton ButtonWithBorder").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })
@@ -118,11 +102,7 @@ describe("SmallPagination", () => {
         </Theme>
       )
 
-      wrapper
-        .find("ButtonWithBorder")
-        .first()
-        .simulate("click")
-
+      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
       expect(onClickMock).toHaveBeenCalled()
     })
 
@@ -133,11 +113,7 @@ describe("SmallPagination", () => {
         </Theme>
       )
 
-      wrapper
-        .find("ButtonWithBorder")
-        .last()
-        .simulate("click")
-
+      wrapper.find("NextButton ButtonWithBorder").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })

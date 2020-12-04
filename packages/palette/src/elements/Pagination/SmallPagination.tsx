@@ -17,39 +17,51 @@ export const SmallPagination = (props: Props) => {
 
   return (
     <Flex flexDirection="row" width="100%">
-      <PrevNextFlex
-        className={!previous ? "disabled" : null}
-        width="50%"
-        pr={0.5}
-      >
-        <ButtonWithBorder
-          alignItems="center"
-          justifyContent="flex-start"
-          pl={1}
-          onClick={() => {
-            if (previous) {
-              onClick(previous.cursor, previous.page)
-            }
-          }}
-        >
-          <ChevronIcon direction="left" />
-        </ButtonWithBorder>
-      </PrevNextFlex>
-      <PrevNextFlex
-        className={!hasNextPage ? "disabled" : null}
-        width="50%"
-        pl={0.5}
-      >
-        <ButtonWithBorder
-          onClick={() => onNext()}
-          alignItems="center"
-          justifyContent="flex-end"
-          pr={1}
-        >
-          <ChevronIcon direction="right" />
-        </ButtonWithBorder>
-      </PrevNextFlex>
+      <PrevButton onClick={onClick} previous={previous} />
+      <NextButton onNext={onNext} hasNextPage={hasNextPage} />
     </Flex>
+  )
+}
+
+const PrevButton = ({ previous, onClick }) => {
+  return (
+    <PrevNextFlex
+      className={!previous ? "disabled" : null}
+      width="50%"
+      pr={0.5}
+    >
+      <ButtonWithBorder
+        alignItems="center"
+        justifyContent="flex-start"
+        pl={1}
+        onClick={() => {
+          if (previous) {
+            onClick(previous.cursor, previous.page)
+          }
+        }}
+      >
+        <ChevronIcon direction="left" />
+      </ButtonWithBorder>
+    </PrevNextFlex>
+  )
+}
+
+const NextButton = ({ onNext, hasNextPage }) => {
+  return (
+    <PrevNextFlex
+      className={!hasNextPage ? "disabled" : null}
+      width="50%"
+      pl={0.5}
+    >
+      <ButtonWithBorder
+        onClick={() => onNext()}
+        alignItems="center"
+        justifyContent="flex-end"
+        pr={1}
+      >
+        <ChevronIcon direction="right" />
+      </ButtonWithBorder>
+    </PrevNextFlex>
   )
 }
 
