@@ -15,28 +15,34 @@ export const SmallPagination = (props: Props) => {
     hasNextPage,
   } = props
 
+  const handlePrevClick = () => {
+    if (previous) {
+      onClick(previous.cursor, previous.page)
+    }
+  }
+
+  const handleNextClick = () => {
+    onNext()
+  }
+
   return (
     <Flex flexDirection="row" width="100%">
-      <PrevButton onClick={onClick} previous={previous} />
-      <NextButton onNext={onNext} hasNextPage={hasNextPage} />
+      <PrevButton enabled={previous} onClick={handlePrevClick} />
+      <NextButton enabled={hasNextPage} onClick={handleNextClick} />
     </Flex>
   )
 }
 
-const PrevButton = ({ previous, onClick }) => {
-  const opacity = previous ? 1 : 0.1
+const PrevButton = ({ enabled, onClick }) => {
+  const opacity = enabled ? 1 : 0.1
 
   return (
     <Flex opacity={opacity} pr={0.5} width="50%">
       <ButtonWithBorder
         alignItems="center"
         justifyContent="flex-start"
+        onClick={onClick}
         pl={1}
-        onClick={() => {
-          if (previous) {
-            onClick(previous.cursor, previous.page)
-          }
-        }}
       >
         <ChevronIcon direction="left" />
       </ButtonWithBorder>
@@ -44,15 +50,15 @@ const PrevButton = ({ previous, onClick }) => {
   )
 }
 
-const NextButton = ({ onNext, hasNextPage }) => {
-  const opacity = hasNextPage ? 1 : 0.1
+const NextButton = ({ onClick, enabled }) => {
+  const opacity = enabled ? 1 : 0.1
 
   return (
     <Flex opacity={opacity} pl={0.5} width="50%">
       <ButtonWithBorder
-        onClick={() => onNext()}
         alignItems="center"
         justifyContent="flex-end"
+        onClick={onClick}
         pr={1}
       >
         <ChevronIcon direction="right" />
