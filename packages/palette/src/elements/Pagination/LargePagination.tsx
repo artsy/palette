@@ -14,6 +14,7 @@ export interface Props {
   scrollTo?: string
 }
 
+/** LargePagination */
 export const LargePagination = (props: Props) => {
   const {
     pageCursors: { around, first, last, previous },
@@ -125,7 +126,7 @@ const PrevButton = ({ enabled, onClick }) => {
   const opacity = enabled ? 1 : 0.1
 
   return (
-    <span style={{ opacity: opacity }}>
+    <span style={{ opacity }}>
       <Sans size="3" weight="medium" display="inline" mx={0.5}>
         <a onClick={onClick} className="noUnderline">
           <ChevronIcon direction="left" top={0.5} /> Prev
@@ -139,7 +140,7 @@ const NextButton = ({ enabled, onClick }) => {
   const opacity = enabled ? 1 : 0.1
 
   return (
-    <span style={{ opacity: opacity }}>
+    <span style={{ opacity }}>
       <Sans size="3" weight="medium" display="inline" mx={0.5}>
         <a onClick={onClick} className="noUnderline">
           Next <ChevronIcon direction="right" top={0.5} />

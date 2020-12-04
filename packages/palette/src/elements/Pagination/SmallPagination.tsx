@@ -7,6 +7,7 @@ import { Flex } from "../Flex"
 
 import { Props } from "./LargePagination"
 
+/** SmallPagination */
 export const SmallPagination = (props: Props) => {
   const {
     pageCursors: { previous },

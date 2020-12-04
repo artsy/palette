@@ -13,7 +13,7 @@ describe("SmallPagination", () => {
     hasNextPage: true,
     onClick: onClickMock,
     onNext: onNextMock,
-    pageCursors: pageCursors,
+    pageCursors,
   }
 
   const mountWrapper = () => {
