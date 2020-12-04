@@ -50,7 +50,7 @@ const PrevButton = ({ enabled, onClick }) => {
   )
 }
 
-const NextButton = ({ onClick, enabled }) => {
+const NextButton = ({ enabled, onClick }) => {
   const opacity = enabled ? 1 : 0.1
 
   return (

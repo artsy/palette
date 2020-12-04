@@ -22,6 +22,16 @@ export const LargePagination = (props: Props) => {
     hasNextPage,
   } = props
 
+  const handlePrevClick = () => {
+    if (previous) {
+      onClick(previous.cursor, previous.page)
+    }
+  }
+
+  const handleNextClick = () => {
+    onNext()
+  }
+
   return (
     <Flex
       flexDirection="row"
@@ -46,15 +56,8 @@ export const LargePagination = (props: Props) => {
       )}
 
       <Box ml={4}>
-        <PrevButton
-          disabled={!previous}
-          onClick={() => {
-            if (previous) {
-              props.onClick(previous.cursor, previous.page)
-            }
-          }}
-        />
-        <NextButton disabled={!hasNextPage} onClick={() => onNext()} />
+        <PrevButton enabled={previous} onClick={handlePrevClick} />
+        <NextButton enabled={hasNextPage} onClick={handleNextClick} />
       </Box>
     </Flex>
   )
@@ -115,35 +118,33 @@ const Button = styled.button<{ active?: boolean }>`
   }
 `
 
-const PrevButton = ({ onClick, disabled }) => {
+const PrevButton = ({ enabled, onClick }) => {
+  const opacity = enabled ? 1 : 0.1
+
   return (
-    <PrevNextContainer className={disabled ? "disabled" : null}>
+    <span style={{ opacity: opacity }}>
       <Sans size="3" weight="medium" display="inline" mx={0.5}>
-        <a onClick={() => onClick()} className="noUnderline">
+        <a onClick={onClick} className="noUnderline">
           <ChevronIcon direction="left" top={0.5} /> Prev
         </a>
       </Sans>
-    </PrevNextContainer>
+    </span>
   )
 }
 
-const NextButton = ({ onClick, disabled }) => {
+const NextButton = ({ enabled, onClick }) => {
+  const opacity = enabled ? 1 : 0.1
+
   return (
-    <PrevNextContainer className={disabled ? "disabled" : null}>
+    <span style={{ opacity: opacity }}>
       <Sans size="3" weight="medium" display="inline" mx={0.5}>
-        <a onClick={() => onClick()} className="noUnderline">
+        <a onClick={onClick} className="noUnderline">
           Next <ChevronIcon direction="right" top={0.5} />
         </a>
       </Sans>
-    </PrevNextContainer>
+    </span>
   )
 }
-
-const PrevNextContainer = styled.span`
-  &.disabled {
-    opacity: 0.1;
-  }
-`
 
 // Tests
 PrevButton.displayName = "PrevButton"
