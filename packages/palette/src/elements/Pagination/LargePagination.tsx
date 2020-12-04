@@ -40,40 +40,20 @@ export const LargePagination = (props: Props) => {
 
   return (
     <Flex
+      alignItems="baseline"
       flexDirection="row"
       justifyContent="flex-end"
-      alignItems="baseline"
       mr={-1}
     >
-      {first && (
-        <>
-          <Page onClick={onClick} pageCursor={first} />
-          <DotDotDot />
-        </>
-      )}
-
+      {first && <FirstPage onClick={onClick} pageCursor={first} />}
       {aroundPages}
-
-      {last && (
-        <>
-          <DotDotDot />
-          <Page onClick={onClick} pageCursor={last} />
-        </>
-      )}
+      {last && <LastPage onClick={onClick} pageCursor={last} />}
 
       <Box ml={4}>
         <PrevButton enabled={previous} onClick={handlePrevClick} />
         <NextButton enabled={hasNextPage} onClick={handleNextClick} />
       </Box>
     </Flex>
-  )
-}
-
-const DotDotDot = () => {
-  return (
-    <Sans size="3" display="inline" mx={0.5} color="black30">
-      ...
-    </Sans>
   )
 }
 
@@ -90,6 +70,32 @@ const Page = ({ onClick, pageCursor }) => {
         {page}
       </Sans>
     </Button>
+  )
+}
+
+const DotDotDot = () => {
+  return (
+    <Sans size="3" display="inline" mx={0.5} color="black30">
+      ...
+    </Sans>
+  )
+}
+
+const FirstPage = ({ onClick, pageCursor }) => {
+  return (
+    <>
+      <Page onClick={onClick} pageCursor={pageCursor} />
+      <DotDotDot />
+    </>
+  )
+}
+
+const LastPage = ({ onClick, pageCursor }) => {
+  return (
+    <>
+      <DotDotDot />
+      <Page onClick={onClick} pageCursor={pageCursor} />
+    </>
   )
 }
 
