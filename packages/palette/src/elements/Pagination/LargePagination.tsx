@@ -42,7 +42,7 @@ export const LargePagination = (props: Props) => {
       {first && (
         <>
           {renderPage(first, onClick)}
-          <PageSpan mx={0.5} />
+          <DotDotDot />
         </>
       )}
 
@@ -50,7 +50,7 @@ export const LargePagination = (props: Props) => {
 
       {last && (
         <>
-          <PageSpan mx={0.5} />
+          <DotDotDot />
           {renderPage(last, onClick)}
         </>
       )}
@@ -63,9 +63,9 @@ export const LargePagination = (props: Props) => {
   )
 }
 
-const PageSpan = ({ mx }) => {
+const DotDotDot = () => {
   return (
-    <Sans size="3" display="inline" mx={mx} color="black30">
+    <Sans size="3" display="inline" mx={0.5} color="black30">
       ...
     </Sans>
   )
