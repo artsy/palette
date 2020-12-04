@@ -26,19 +26,8 @@ describe("SmallPagination", () => {
     return wrapper
   }
 
-  let matchMedia
-
-  beforeAll(() => {
-    matchMedia = window.matchMedia
-    window.matchMedia = undefined // Immediately set matching media query inMockBoot
-  })
-
   afterEach(() => {
     jest.clearAllMocks()
-  })
-
-  afterAll(() => {
-    window.matchMedia = matchMedia
   })
 
   describe("when there is only a previous page", () => {
