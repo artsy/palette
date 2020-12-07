@@ -1,7 +1,8 @@
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import React from "react"
-import { LargePagination, SmallPagination } from "./Pagination"
+import { LargePagination } from "./LargePagination"
+import { SmallPagination } from "./SmallPagination"
 
 storiesOf("Components/Pagination", module)
   .add("LargePagination", () => {
@@ -18,7 +19,6 @@ storiesOf("Components/Pagination", module)
             { page: 9, cursor: "Y3Vyc29yMw==", isCurrent: false },
           ],
           previous: { page: 5, cursor: "Y3Vyc29yMw==", isCurrent: false },
-          " $refType": null,
         }}
         onClick={action("onClick")}
         onNext={action("onNext")}
