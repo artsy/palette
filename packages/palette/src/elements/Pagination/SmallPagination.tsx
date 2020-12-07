@@ -5,7 +5,7 @@ import { space } from "../../helpers/space"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { Flex } from "../Flex"
 
-import { Props, PageButton } from "./LargePagination"
+import { PageButton, Props } from "./LargePagination"
 
 /** SmallPagination */
 export const SmallPagination = (props: Props) => {

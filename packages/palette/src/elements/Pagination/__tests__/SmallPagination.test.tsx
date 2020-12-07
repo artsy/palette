@@ -1,8 +1,8 @@
 import { mount } from "enzyme"
 import React from "react"
 import { Theme } from "../../../Theme"
-import { SmallPagination } from "../SmallPagination"
 import { PageCursors } from "../LargePagination"
+import { SmallPagination } from "../SmallPagination"
 
 describe("SmallPagination", () => {
   const previous = { page: 1, cursor: "ABC123==", isCurrent: false }
