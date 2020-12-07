@@ -1,3 +1,22 @@
+# (Mon Dec 07 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.24.1`
+  - chore(webfonts): update webfonts domain references [#823](https://github.com/artsy/palette/pull/823) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@13.24.1`
+  - refactor: Reorganize pagination and improve tests [#822](https://github.com/artsy/palette/pull/822) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # (Mon Nov 30 2020)
 
 #### 🚀  Enhancement

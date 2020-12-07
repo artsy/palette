@@ -1,3 +1,38 @@
+# v13.24.1 (Mon Dec 07 2020)
+
+#### 🐛  Bug Fix
+
+- Improve coverage for the pages part ([@jonallured](https://github.com/jonallured))
+- chore(webfonts): update webfonts domain references [#823](https://github.com/artsy/palette/pull/823) ([@dzucconi](https://github.com/dzucconi))
+- Fix linting issues ([@jonallured](https://github.com/jonallured))
+- Add page cursor interfaces ([@jonallured](https://github.com/jonallured))
+- Fix some linter misses ([@jonallured](https://github.com/jonallured))
+- Extract components for first/last page ([@jonallured](https://github.com/jonallured))
+- Remove a level of indirection ([@jonallured](https://github.com/jonallured))
+- Promote RenderPage to React component ([@jonallured](https://github.com/jonallured))
+- Simplify dot dot dot component ([@jonallured](https://github.com/jonallured))
+- chore(webfonts): update webfonts domain references ([@dzucconi](https://github.com/dzucconi))
+- Make buttons more similar across sizes ([@jonallured](https://github.com/jonallured))
+- Migrate prev/next tests to large component ([@jonallured](https://github.com/jonallured))
+- Remove setup that I don't understand ([@jonallured](https://github.com/jonallured))
+- Make buttons look more alike ([@jonallured](https://github.com/jonallured))
+- Extract factory for mounting the component ([@jonallured](https://github.com/jonallured))
+- Reduce indirection around opacity for buttons ([@jonallured](https://github.com/jonallured))
+- Extract button components ([@jonallured](https://github.com/jonallured))
+- Cover more cases and simplify test setup ([@jonallured](https://github.com/jonallured))
+- Split pagination components into separate files ([@jonallured](https://github.com/jonallured))
+
+#### 🏠  Internal
+
+- refactor: Reorganize pagination and improve tests [#822](https://github.com/artsy/palette/pull/822) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v13.24.0 (Mon Nov 30 2020)
 
 #### 🚀  Enhancement
