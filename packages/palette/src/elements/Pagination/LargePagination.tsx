@@ -6,10 +6,23 @@ import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
 
+interface PageCursor {
+  cursor: string
+  isCurrent: boolean
+  page: number
+}
+
+export interface PageCursors {
+  first: PageCursor
+  last: PageCursor
+  around: PageCursor[]
+  previous: PageCursor
+}
+
 export interface Props {
   onClick?: (cursor: string, page: number) => void
   onNext?: () => void
-  pageCursors: any
+  pageCursors: PageCursors
   hasNextPage: boolean
   scrollTo?: string
 }
@@ -51,14 +64,20 @@ export const LargePagination = (props: Props) => {
       {last && <LastPage onClick={onClick} pageCursor={last} />}
 
       <Box ml={4}>
-        <PrevButton enabled={previous} onClick={handlePrevClick} />
+        <PrevButton enabled={!!previous} onClick={handlePrevClick} />
         <NextButton enabled={hasNextPage} onClick={handleNextClick} />
       </Box>
     </Flex>
   )
 }
 
-const Page = ({ onClick, pageCursor }) => {
+interface PageProps {
+  onClick?: (cursor: string, page: number) => void
+  pageCursor: PageCursor
+}
+
+const Page: React.FC<PageProps> = props => {
+  const { onClick, pageCursor } = props
   const { cursor, isCurrent, page } = pageCursor
 
   const handleClick = () => {
@@ -82,7 +101,9 @@ const DotDotDot = () => {
   )
 }
 
-const FirstPage = ({ onClick, pageCursor }) => {
+const FirstPage: React.FC<PageProps> = props => {
+  const { onClick, pageCursor } = props
+
   return (
     <>
       <Page onClick={onClick} pageCursor={pageCursor} />
@@ -91,7 +112,9 @@ const FirstPage = ({ onClick, pageCursor }) => {
   )
 }
 
-const LastPage = ({ onClick, pageCursor }) => {
+const LastPage: React.FC<PageProps> = props => {
+  const { onClick, pageCursor } = props
+
   return (
     <>
       <DotDotDot />
@@ -122,7 +145,13 @@ const Button = styled.button<{ active?: boolean }>`
   }
 `
 
-const PrevButton = ({ enabled, onClick }) => {
+export interface PageButton {
+  enabled: boolean
+  onClick: () => void
+}
+
+const PrevButton: React.FC<PageButton> = props => {
+  const { enabled, onClick } = props
   const opacity = enabled ? 1 : 0.1
 
   return (
@@ -136,7 +165,8 @@ const PrevButton = ({ enabled, onClick }) => {
   )
 }
 
-const NextButton = ({ enabled, onClick }) => {
+const NextButton: React.FC<PageButton> = props => {
+  const { enabled, onClick } = props
   const opacity = enabled ? 1 : 0.1
 
   return (
@@ -149,7 +179,3 @@ const NextButton = ({ enabled, onClick }) => {
     </span>
   )
 }
-
-// Tests
-PrevButton.displayName = "PrevButton"
-NextButton.displayName = "NextButton"

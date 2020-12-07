@@ -2,10 +2,14 @@ import { mount } from "enzyme"
 import React from "react"
 import { Theme } from "../../../Theme"
 import { SmallPagination } from "../SmallPagination"
+import { PageCursors } from "../LargePagination"
 
 describe("SmallPagination", () => {
   const previous = { page: 1, cursor: "ABC123==", isCurrent: false }
-  const pageCursors = { previous }
+  const first = { page: 1, cursor: "first==", isCurrent: false }
+  const last = { page: 3, cursor: "last==", isCurrent: false }
+  const around = []
+  const pageCursors: PageCursors = { first, last, around, previous }
   const onClickMock = jest.fn()
   const onNextMock = jest.fn()
 

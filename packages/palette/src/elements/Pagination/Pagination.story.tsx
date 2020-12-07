@@ -19,7 +19,6 @@ storiesOf("Components/Pagination", module)
             { page: 9, cursor: "Y3Vyc29yMw==", isCurrent: false },
           ],
           previous: { page: 5, cursor: "Y3Vyc29yMw==", isCurrent: false },
-          " $refType": null,
         }}
         onClick={action("onClick")}
         onNext={action("onNext")}

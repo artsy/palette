@@ -5,7 +5,7 @@ import { space } from "../../helpers/space"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { Flex } from "../Flex"
 
-import { Props } from "./LargePagination"
+import { Props, PageButton } from "./LargePagination"
 
 /** SmallPagination */
 export const SmallPagination = (props: Props) => {
@@ -28,13 +28,14 @@ export const SmallPagination = (props: Props) => {
 
   return (
     <Flex flexDirection="row" width="100%">
-      <PrevButton enabled={previous} onClick={handlePrevClick} />
+      <PrevButton enabled={!!previous} onClick={handlePrevClick} />
       <NextButton enabled={hasNextPage} onClick={handleNextClick} />
     </Flex>
   )
 }
 
-const PrevButton = ({ enabled, onClick }) => {
+const PrevButton: React.FC<PageButton> = props => {
+  const { enabled, onClick } = props
   const opacity = enabled ? 1 : 0.1
 
   return (
@@ -51,7 +52,8 @@ const PrevButton = ({ enabled, onClick }) => {
   )
 }
 
-const NextButton = ({ enabled, onClick }) => {
+const NextButton: React.FC<PageButton> = props => {
+  const { enabled, onClick } = props
   const opacity = enabled ? 1 : 0.1
 
   return (
