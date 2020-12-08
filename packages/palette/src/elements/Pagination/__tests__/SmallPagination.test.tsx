@@ -42,13 +42,13 @@ describe("SmallPagination", () => {
 
     it("renders the previous button and calls the onClick function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
+      wrapper.find("PrevButton Link").simulate("click")
       expect(onClickMock).toHaveBeenCalled()
     })
 
     it("renders the next button as disabled and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("NextButton ButtonWithBorder").simulate("click")
+      wrapper.find("NextButton Link").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })
@@ -61,13 +61,13 @@ describe("SmallPagination", () => {
 
     it("renders the previous button as disabled and does not call the onClick function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
+      wrapper.find("PrevButton Link").simulate("click")
       expect(onClickMock).not.toHaveBeenCalled()
     })
 
     it("renders the next button and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("NextButton ButtonWithBorder").simulate("click")
+      wrapper.find("NextButton Link").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })
@@ -80,13 +80,13 @@ describe("SmallPagination", () => {
 
     it("renders the previous button and calls the onClick function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
+      wrapper.find("PrevButton Link").simulate("click")
       expect(onClickMock).toHaveBeenCalled()
     })
 
     it("renders the next button and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("NextButton ButtonWithBorder").simulate("click")
+      wrapper.find("NextButton Link").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })

@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { color } from "../../helpers/color"
-import { space } from "../../helpers/space"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
+import { BorderBox } from "../BorderBox"
 import { Flex } from "../Flex"
+import { Link } from "../Link"
 
 import { PageButton, Props } from "./LargePagination"
 
@@ -27,57 +27,58 @@ export const SmallPagination = (props: Props) => {
   }
 
   return (
-    <Flex flexDirection="row" width="100%">
+    <Flex flexDirection="row" height="40px" width="100%">
       <PrevButton enabled={!!previous} onClick={handlePrevClick} />
       <NextButton enabled={hasNextPage} onClick={handleNextClick} />
     </Flex>
   )
 }
 
+const Wrapper = styled(BorderBox)`
+  border-radius: 3px;
+  border-width: 2px;
+  padding: 0;
+  width: 50%;
+
+  a {
+    height: 100%;
+    width: 100%;
+
+    > div {
+      align-items: center;
+      height: 100%;
+    }
+  }
+`
+
 const PrevButton: React.FC<PageButton> = props => {
   const { enabled, onClick } = props
   const opacity = enabled ? 1 : 0.1
+  const href = ""
 
   return (
-    <Flex opacity={opacity} pr={0.5} width="50%">
-      <ButtonWithBorder
-        alignItems="center"
-        justifyContent="flex-start"
-        onClick={onClick}
-        pl={1}
-      >
-        <ChevronIcon direction="left" />
-      </ButtonWithBorder>
-    </Flex>
+    <Wrapper mr={0.5} opacity={opacity}>
+      <Link href={href} onClick={onClick}>
+        <Flex justifyContent="flex-start" pl={1}>
+          <ChevronIcon direction="left" />
+        </Flex>
+      </Link>
+    </Wrapper>
   )
 }
 
 const NextButton: React.FC<PageButton> = props => {
   const { enabled, onClick } = props
   const opacity = enabled ? 1 : 0.1
+  const href = ""
 
   return (
-    <Flex opacity={opacity} pl={0.5} width="50%">
-      <ButtonWithBorder
-        alignItems="center"
-        justifyContent="flex-end"
-        onClick={onClick}
-        pr={1}
-      >
-        <ChevronIcon direction="right" />
-      </ButtonWithBorder>
-    </Flex>
+    <Wrapper ml={0.5} opacity={opacity}>
+      <Link href={href} onClick={onClick}>
+        <Flex justifyContent="flex-end" pr={1}>
+          <ChevronIcon direction="right" />
+        </Flex>
+      </Link>
+    </Wrapper>
   )
 }
-
-const ButtonWithBorder = styled(Flex)`
-  border: ${props => props.theme.borders[1]};
-  border-color: ${color("black10")};
-  border-radius: 3px;
-  width: 100%;
-  height: ${space(4)}px;
-  cursor: pointer;
-`
-
-// Tests
-ButtonWithBorder.displayName = "ButtonWithBorder"

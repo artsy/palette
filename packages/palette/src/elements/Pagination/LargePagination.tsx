@@ -1,10 +1,9 @@
 import React from "react"
-import styled, { css } from "styled-components"
-import { color } from "../../helpers/color"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
-import { Sans } from "../Typography"
+import { Link } from "../Link"
+import { Text } from "../Text"
 
 interface PageCursor {
   cursor: string
@@ -84,20 +83,25 @@ const Page: React.FC<PageProps> = props => {
     onClick(cursor, page)
   }
 
+  const highlight = isCurrent ? "black5" : "white100"
+  const href = ""
+
   return (
-    <Button active={isCurrent} onClick={handleClick}>
-      <Sans size="3" weight="medium" display="inline">
-        {page}
-      </Sans>
-    </Button>
+    <Box bg={highlight} borderRadius={2}>
+      <Link href={href} onClick={handleClick} underlineBehavior="hover">
+        <Text px={0.5} variant="mediumText">
+          {page}
+        </Text>
+      </Link>
+    </Box>
   )
 }
 
 const DotDotDot = () => {
   return (
-    <Sans size="3" display="inline" mx={0.5} color="black30">
+    <Text color="black30" display="inline" mx={0.5} variant="mediumText">
       ...
-    </Sans>
+    </Text>
   )
 }
 
@@ -123,28 +127,6 @@ const LastPage: React.FC<PageProps> = props => {
   )
 }
 
-const activeButton = css`
-  background: ${color("black5")};
-  border-radius: 2px;
-  border: 0;
-`
-
-const Button = styled.button<{ active?: boolean }>`
-  cursor: pointer;
-  width: min-content;
-  height: 25px;
-  background: transparent;
-  border: 0;
-
-  outline: 0;
-
-  ${p => p.active && activeButton};
-
-  &:hover {
-    ${activeButton};
-  }
-`
-
 export interface PageButton {
   enabled: boolean
   onClick: () => void
@@ -153,29 +135,39 @@ export interface PageButton {
 const PrevButton: React.FC<PageButton> = props => {
   const { enabled, onClick } = props
   const opacity = enabled ? 1 : 0.1
+  const href = ""
 
   return (
-    <span style={{ opacity }}>
-      <Sans size="3" weight="medium" display="inline" mx={0.5}>
-        <a onClick={onClick} className="noUnderline">
-          <ChevronIcon direction="left" top={0.5} /> Prev
-        </a>
-      </Sans>
-    </span>
+    <Link
+      href={href}
+      onClick={onClick}
+      style={{ opacity }}
+      underlineBehavior="hover"
+    >
+      <ChevronIcon direction="left" top={0.5} />
+      <Text display="inline" px={0.5} variant="mediumText">
+        Prev
+      </Text>
+    </Link>
   )
 }
 
 const NextButton: React.FC<PageButton> = props => {
   const { enabled, onClick } = props
   const opacity = enabled ? 1 : 0.1
+  const href = ""
 
   return (
-    <span style={{ opacity }}>
-      <Sans size="3" weight="medium" display="inline" mx={0.5}>
-        <a onClick={onClick} className="noUnderline">
-          Next <ChevronIcon direction="right" top={0.5} />
-        </a>
-      </Sans>
-    </span>
+    <Link
+      href={href}
+      onClick={onClick}
+      style={{ opacity }}
+      underlineBehavior="hover"
+    >
+      <Text display="inline" px={0.5} variant="mediumText">
+        Next
+      </Text>
+      <ChevronIcon direction="right" top={0.5} />
+    </Link>
   )
 }
