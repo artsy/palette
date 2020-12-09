@@ -1,3 +1,16 @@
+# (Wed Dec 09 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.24.2`
+  - feature: Development Dependencies [#825](https://github.com/artsy/palette/pull/825) ([@icirellik](https://github.com/icirellik))
+
+#### Authors: 1
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+
+---
+
 # (Mon Dec 07 2020)
 
 #### 🐛  Bug Fix
