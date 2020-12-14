@@ -7,21 +7,21 @@ import { Join } from "../Join"
 import { Sans } from "../Typography"
 
 import { color, media } from "../../helpers"
+import { Text } from "../Text"
 
 export interface TabLike extends JSX.Element {
   props: TabProps
 }
 
 type TabNameType = string | JSX.Element
+
 export interface TabInfo {
   /** Display name of the newly selected Tab */
   name: TabNameType
-
   /** Index of the newly selected Tab */
   tabIndex: number
-
   /** Data associated with the newly selected Tab */
-  data: any
+  data: unknown
 }
 
 // tslint:disable-next-line:ban-types
@@ -30,25 +30,23 @@ type InnerRef<T> = Extract<Ref<T>, Function>
 export interface TabsProps extends WidthProps, JustifyContentProps {
   /** Function that will be called when a new Tab is selected */
   onChange?: (tabInfo?: TabInfo) => void
-
   /** Index of the Tab that should be pre-selected */
   initialTabIndex?: number
-
-  /** To be able to extend or modify the way tab buttons are getting rendered
+  /**
+   * To be able to extend or modify the way tab buttons are getting rendered
    * default value is an identity function
    */
   transformTabBtn?: (
     Button: JSX.Element,
     tabIndex?: number,
-    props?: any
+    props?: unknown
   ) => JSX.Element
-
   separator?: JSX.Element
-
-  // If the tabs do not fit on screen, should the list automatically scroll
-  // to keep the active tab in view
+  /**
+   * If the tabs do not fit on screen, should the list automatically scroll
+   * to keep the active tab in view.
+   */
   autoScroll?: boolean
-
   children: TabLike[]
 }
 
@@ -56,7 +54,7 @@ export interface TabsState {
   activeTabIndex: number
 }
 
-/** A tabbar navigation component */
+/** A tab bar navigation component */
 export class Tabs extends React.Component<TabsProps, TabsState> {
   public static defaultProps: Partial<TabsProps> = {
     justifyContent: "left",
@@ -156,7 +154,7 @@ export class Tabs extends React.Component<TabsProps, TabsState> {
         >
           <Join separator={separator}>{children.map(this.renderTab)}</Join>
         </TabsContainer>
-        <Box pt={3}>{children[this.state.activeTabIndex]}</Box>
+        <Box pt={2}>{children[this.state.activeTabIndex]}</Box>
       </>
     )
   }
@@ -187,10 +185,9 @@ interface TabProps {
   name: TabNameType
   /**
    * Arbitrary data that can be associated with a Tab.
-   *
    * Will be passed to the parent <Tabs>'s onChange handler.
    */
-  data?: any
+  data?: unknown
 }
 
 /** An individual tab */
@@ -203,9 +200,9 @@ export class Tab extends React.Component<TabProps> {
 const TabButton = ({ children, ...props }) => {
   return (
     <TabContainer {...props}>
-      <Sans size="3t" weight="medium" color="black30">
+      <Text variant="mediumText" color="black60">
         {children}
-      </Sans>
+      </Text>
     </TabContainer>
   )
 }
@@ -213,9 +210,7 @@ const TabButton = ({ children, ...props }) => {
 const ActiveTabButton: React.SFC = ({ children }) => {
   return (
     <ActiveTabContainer>
-      <Sans size="3t" weight="medium">
-        {children}
-      </Sans>
+      <Text variant="mediumText">{children}</Text>
     </ActiveTabContainer>
   )
 }
@@ -231,7 +226,7 @@ export const sharedTabsStyles = {
     pointer-events: none;
     padding-bottom: 13px;
     white-space: nowrap;
-    border-bottom: 1px solid ${color("black60")};
+    border-bottom: 2px solid ${color("black100")};
   `,
 }
 
