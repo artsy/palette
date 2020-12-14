@@ -1,3 +1,16 @@
+# (Mon Dec 14 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.25.0`
+  - feat: implements base tabs [#821](https://github.com/artsy/palette/pull/821) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Dec 09 2020)
 
 #### 🐛  Bug Fix

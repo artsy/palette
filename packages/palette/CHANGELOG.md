@@ -1,3 +1,21 @@
+# v13.25.0 (Mon Dec 14 2020)
+
+#### 🚀  Enhancement
+
+- feat: implements base tabs [#821](https://github.com/artsy/palette/pull/821) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(tabs): minor styling updates for consistency ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): adds stories for tabs and stepper ([@dzucconi](https://github.com/dzucconi))
+- feat: implements base tabs component ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.24.2 (Wed Dec 09 2020)
 
 #### 🐛  Bug Fix
