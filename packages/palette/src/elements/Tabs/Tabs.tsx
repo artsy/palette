@@ -21,7 +21,7 @@ export interface TabInfo {
   /** Index of the newly selected Tab */
   tabIndex: number
   /** Data associated with the newly selected Tab */
-  data: unknown
+  data: any
 }
 
 // tslint:disable-next-line:ban-types
@@ -39,7 +39,7 @@ export interface TabsProps extends WidthProps, JustifyContentProps {
   transformTabBtn?: (
     Button: JSX.Element,
     tabIndex?: number,
-    props?: unknown
+    props?: any
   ) => JSX.Element
   separator?: JSX.Element
   /**
@@ -187,7 +187,7 @@ interface TabProps {
    * Arbitrary data that can be associated with a Tab.
    * Will be passed to the parent <Tabs>'s onChange handler.
    */
-  data?: unknown
+  data?: any
 }
 
 /** An individual tab */
