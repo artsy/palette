@@ -1,5 +1,18 @@
 # (Mon Dec 14 2020)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.25.1`
+  - fix(tabs): converts back to anys [#829](https://github.com/artsy/palette/pull/829) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Mon Dec 14 2020)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@13.25.0`
