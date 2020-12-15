@@ -1,3 +1,16 @@
+# v13.26.1 (Tue Dec 15 2020)
+
+#### 🐛  Bug Fix
+
+- fix(swiper): inlines default margins to simplify setting alternatives [#831](https://github.com/artsy/palette/pull/831) ([@dzucconi](https://github.com/dzucconi))
+- fix(swiper): inlines default margins to simplify setting alternatives ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.26.0 (Tue Dec 15 2020)
 
 #### 🚀  Enhancement
