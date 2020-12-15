@@ -36,11 +36,6 @@ const Container = styled(Box)`
   ${visuallyDisableScrollbar}
 `
 
-Container.defaultProps = {
-  mx: 0,
-  my: 0,
-}
-
 /** SwiperRailProps */
 export type SwiperRailProps = BoxProps
 
@@ -170,7 +165,7 @@ export const Swiper: React.FC<SwiperProps> = ({
   }, [onChange, index])
 
   return (
-    <Container ref={containerRef as any} {...rest}>
+    <Container ref={containerRef as any} mx={0} my={0} {...rest}>
       <Rail as="ul">
         {cells.map(({ child, ref }, i) => {
           const isLast = i === cells.length - 1

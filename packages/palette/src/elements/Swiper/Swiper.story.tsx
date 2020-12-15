@@ -200,3 +200,6 @@ storiesOf("Components/Swiper", module)
   .add("Navigate via props", () => {
     return <Navigation />
   })
+  .add("Overwriting default margins", () => {
+    return <Demo mt={6} ml={6} />
+  })
