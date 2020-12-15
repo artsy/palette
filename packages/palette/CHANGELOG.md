@@ -1,3 +1,20 @@
+# v13.26.0 (Tue Dec 15 2020)
+
+#### 🚀  Enhancement
+
+- fix(basetabs): support nested fragments [#830](https://github.com/artsy/palette/pull/830) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(basetabs): support nested fragments ([@dzucconi](https://github.com/dzucconi))
+- feat(helpers): adds flattenChildren ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.25.1 (Mon Dec 14 2020)
 
 #### 🐛  Bug Fix

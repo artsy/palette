@@ -1,3 +1,16 @@
+# (Tue Dec 15 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.26.0`
+  - fix(basetabs): support nested fragments [#830](https://github.com/artsy/palette/pull/830) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Dec 14 2020)
 
 #### 🐛  Bug Fix
