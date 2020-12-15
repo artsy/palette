@@ -180,3 +180,17 @@ storiesOf("Components/BaseTabs", module)
       </BaseTabs>
     )
   })
+  .add("nested children", () => {
+    return (
+      <BaseTabs m={3}>
+        <>
+          <BaseTab>First</BaseTab>
+          <BaseTab>Second</BaseTab>
+          <>
+            <BaseTab active>Active</BaseTab>
+            <BaseTab>Last</BaseTab>
+          </>
+        </>
+      </BaseTabs>
+    )
+  })

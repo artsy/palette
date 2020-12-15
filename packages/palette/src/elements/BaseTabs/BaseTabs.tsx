@@ -1,10 +1,4 @@
-import React, {
-  Children,
-  isValidElement,
-  useMemo,
-  useRef,
-  useState,
-} from "react"
+import React, { useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import {
   compose,
@@ -14,6 +8,7 @@ import {
   PaddingProps,
 } from "styled-system"
 import { space } from "../../helpers"
+import { flattenChildren } from "../../helpers/flattenChildren"
 import { splitProps } from "../../utils/splitProps"
 import { Box, BoxProps } from "../Box"
 import { Join } from "../Join"
@@ -86,10 +81,7 @@ export const BaseTabs: React.FC<BaseTabsProps> = ({
 
   const [atEnd, setAtEnd] = useState(false)
 
-  const cells = useMemo(
-    () => Children.toArray(children).filter(isValidElement),
-    [children]
-  )
+  const cells = useMemo(() => flattenChildren(children), [children])
 
   const handleScroll = () => {
     if (!ref.current) return
