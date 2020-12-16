@@ -19,30 +19,30 @@ export interface PageCursors {
 }
 
 export interface PaginationProps {
-  onClick?: (cursor: string, page: number) => void
-  onNext?: () => void
-  pageCursors: PageCursors
   hasNextPage: boolean
+  onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
+  onNext?: (event: React.MouseEvent) => void
+  pageCursors: PageCursors
   scrollTo?: string
 }
 
 /** LargePagination */
 export const LargePagination = (props: PaginationProps) => {
   const {
-    pageCursors: { around, first, last, previous },
+    hasNextPage,
     onClick,
     onNext,
-    hasNextPage,
+    pageCursors: { around, first, last, previous },
   } = props
 
-  const handlePrevClick = () => {
+  const handlePrevClick = event => {
     if (previous) {
-      onClick(previous.cursor, previous.page)
+      onClick(previous.cursor, previous.page, event)
     }
   }
 
-  const handleNextClick = () => {
-    onNext()
+  const handleNextClick = event => {
+    onNext(event)
   }
 
   const aroundPages = around.map(pageCursor => {
@@ -71,7 +71,7 @@ export const LargePagination = (props: PaginationProps) => {
 }
 
 interface PageProps {
-  onClick?: (cursor: string, page: number) => void
+  onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
   pageCursor: PageCursor
 }
 
@@ -79,8 +79,8 @@ const Page: React.FC<PageProps> = props => {
   const { onClick, pageCursor } = props
   const { cursor, isCurrent, page } = pageCursor
 
-  const handleClick = () => {
-    onClick(cursor, page)
+  const handleClick = event => {
+    onClick(cursor, page, event)
   }
 
   const highlight = isCurrent ? "black5" : "white100"
@@ -129,7 +129,7 @@ const LastPage: React.FC<PageProps> = props => {
 
 export interface PageButton {
   enabled: boolean
-  onClick: () => void
+  onClick: (event: React.MouseEvent) => void
 }
 
 const PrevButton: React.FC<PageButton> = props => {

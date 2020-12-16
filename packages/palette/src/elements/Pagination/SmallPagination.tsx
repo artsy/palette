@@ -16,14 +16,14 @@ export const SmallPagination = (props: PaginationProps) => {
     hasNextPage,
   } = props
 
-  const handlePrevClick = () => {
+  const handlePrevClick = event => {
     if (previous) {
-      onClick(previous.cursor, previous.page)
+      onClick(previous.cursor, previous.page, event)
     }
   }
 
-  const handleNextClick = () => {
-    onNext()
+  const handleNextClick = event => {
+    onNext(event)
   }
 
   return (
