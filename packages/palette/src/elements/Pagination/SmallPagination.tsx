@@ -5,10 +5,10 @@ import { BorderBox } from "../BorderBox"
 import { Flex } from "../Flex"
 import { Link } from "../Link"
 
-import { PageButton, Props } from "./LargePagination"
+import { PageButton, PaginationProps } from "./LargePagination"
 
 /** SmallPagination */
-export const SmallPagination = (props: Props) => {
+export const SmallPagination = (props: PaginationProps) => {
   const {
     pageCursors: { previous },
     onClick,

@@ -18,7 +18,7 @@ export interface PageCursors {
   previous: PageCursor
 }
 
-export interface Props {
+export interface PaginationProps {
   onClick?: (cursor: string, page: number) => void
   onNext?: () => void
   pageCursors: PageCursors
@@ -27,7 +27,7 @@ export interface Props {
 }
 
 /** LargePagination */
-export const LargePagination = (props: Props) => {
+export const LargePagination = (props: PaginationProps) => {
   const {
     pageCursors: { around, first, last, previous },
     onClick,
