@@ -19,6 +19,7 @@ export interface PageCursors {
 }
 
 export interface PaginationProps {
+  getHref?: (page: number) => string
   hasNextPage: boolean
   onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
   onNext?: (event: React.MouseEvent) => void
@@ -29,6 +30,7 @@ export interface PaginationProps {
 /** LargePagination */
 export const LargePagination = (props: PaginationProps) => {
   const {
+    getHref,
     hasNextPage,
     onClick,
     onNext,
@@ -48,7 +50,14 @@ export const LargePagination = (props: PaginationProps) => {
   const aroundPages = around.map(pageCursor => {
     const { cursor, page } = pageCursor
     const key = cursor + page
-    return <Page key={key} onClick={onClick} pageCursor={pageCursor} />
+    return (
+      <Page
+        key={key}
+        onClick={onClick}
+        pageCursor={pageCursor}
+        getHref={getHref}
+      />
+    )
   })
 
   return (
@@ -58,9 +67,13 @@ export const LargePagination = (props: PaginationProps) => {
       justifyContent="flex-end"
       mr={-1}
     >
-      {first && <FirstPage onClick={onClick} pageCursor={first} />}
+      {first && (
+        <FirstPage onClick={onClick} pageCursor={first} getHref={getHref} />
+      )}
       {aroundPages}
-      {last && <LastPage onClick={onClick} pageCursor={last} />}
+      {last && (
+        <LastPage onClick={onClick} pageCursor={last} getHref={getHref} />
+      )}
 
       <Box ml={4}>
         <PrevButton enabled={!!previous} onClick={handlePrevClick} />
@@ -71,12 +84,13 @@ export const LargePagination = (props: PaginationProps) => {
 }
 
 interface PageProps {
+  getHref?: (page: number) => string
   onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
   pageCursor: PageCursor
 }
 
 const Page: React.FC<PageProps> = props => {
-  const { onClick, pageCursor } = props
+  const { getHref, onClick, pageCursor } = props
   const { cursor, isCurrent, page } = pageCursor
 
   const handleClick = event => {
@@ -84,7 +98,8 @@ const Page: React.FC<PageProps> = props => {
   }
 
   const highlight = isCurrent ? "black5" : "white100"
-  const href = ""
+
+  const href = getHref(page)
 
   return (
     <Box bg={highlight} borderRadius={2}>
@@ -106,23 +121,23 @@ const DotDotDot = () => {
 }
 
 const FirstPage: React.FC<PageProps> = props => {
-  const { onClick, pageCursor } = props
+  const { onClick, pageCursor, getHref } = props
 
   return (
     <>
-      <Page onClick={onClick} pageCursor={pageCursor} />
+      <Page onClick={onClick} pageCursor={pageCursor} getHref={getHref} />
       <DotDotDot />
     </>
   )
 }
 
 const LastPage: React.FC<PageProps> = props => {
-  const { onClick, pageCursor } = props
+  const { onClick, pageCursor, getHref } = props
 
   return (
     <>
       <DotDotDot />
-      <Page onClick={onClick} pageCursor={pageCursor} />
+      <Page onClick={onClick} pageCursor={pageCursor} getHref={getHref} />
     </>
   )
 }
