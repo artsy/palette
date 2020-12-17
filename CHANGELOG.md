@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@13.26.3`
+  - feat: add circle fill icon [#833](https://github.com/artsy/palette/pull/833) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
+# (Thu Dec 17 2020)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@13.26.2`
   - fix(skeleton): implements appropriate scaling for multiline texts [#832](https://github.com/artsy/palette/pull/832) ([@dzucconi](https://github.com/dzucconi))
 

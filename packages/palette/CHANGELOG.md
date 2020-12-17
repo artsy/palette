@@ -1,3 +1,16 @@
+# v13.26.3 (Thu Dec 17 2020)
+
+#### 🐛  Bug Fix
+
+- feat: add circle fill icon [#833](https://github.com/artsy/palette/pull/833) ([@mdole](https://github.com/mdole))
+- feat: add circle fill icon ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v13.26.2 (Thu Dec 17 2020)
 
 #### 🐛  Bug Fix
