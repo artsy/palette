@@ -37,6 +37,8 @@ export const LargePagination = (props: PaginationProps) => {
     pageCursors: { around, first, last, previous },
   } = props
 
+  console.log(getHref)
+
   const handlePrevClick = event => {
     if (previous) {
       onClick(previous.cursor, previous.page, event)
@@ -52,13 +54,15 @@ export const LargePagination = (props: PaginationProps) => {
     const key = cursor + page
     return (
       <Page
+        getHref={getHref}
         key={key}
         onClick={onClick}
         pageCursor={pageCursor}
-        getHref={getHref}
       />
     )
   })
+
+  const nextPage = (previous?.page || -1) + 2
 
   return (
     <Flex
@@ -76,8 +80,8 @@ export const LargePagination = (props: PaginationProps) => {
       )}
 
       <Box ml={4}>
-        <PrevButton enabled={!!previous} onClick={handlePrevClick} />
-        <NextButton enabled={hasNextPage} onClick={handleNextClick} />
+        <PrevButton enabled={!!previous} getHref={getHref} onClick={handlePrevClick} page={previous?.page} />
+        <NextButton enabled={hasNextPage} getHref={getHref} onClick={handleNextClick} page={nextPage} />
       </Box>
     </Flex>
   )
@@ -144,13 +148,23 @@ const LastPage: React.FC<PageProps> = props => {
 
 export interface PageButton {
   enabled: boolean
+  // getHref?: (page: number) => string
+  getHref?: any
   onClick: (event: React.MouseEvent) => void
+  page?: number
 }
 
 const PrevButton: React.FC<PageButton> = props => {
-  const { enabled, onClick } = props
+  const { enabled, getHref, onClick, page } = props
   const opacity = enabled ? 1 : 0.1
-  const href = ""
+
+  let href = ""
+
+  console.log(getHref)
+
+  if (page && typeof getHref !== "undefined") {
+    href = getHref(page)
+  }
 
   return (
     <Link
@@ -168,9 +182,14 @@ const PrevButton: React.FC<PageButton> = props => {
 }
 
 const NextButton: React.FC<PageButton> = props => {
-  const { enabled, onClick } = props
+  const { enabled, getHref, onClick, page } = props
   const opacity = enabled ? 1 : 0.1
-  const href = ""
+
+  let href = ""
+
+  if (page && getHref) {
+    href = getHref(page)
+  }
 
   return (
     <Link
