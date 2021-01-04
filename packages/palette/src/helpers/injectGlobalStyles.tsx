@@ -132,6 +132,12 @@ export function injectGlobalStyles<P>(
       margin: 0;
     }
 
+    dl,
+    dt,
+    dd {
+      margin: 0;
+    }
+
     ${additionalStyles};
   `
 
