@@ -30,10 +30,10 @@ describe("LargePagination", () => {
     getHref: (x) => x,
   }
 
-  const mountWrapper = () => {
+  const mountWrapper = (passedProps = {}) => {
     const wrapper = mount(
       <Theme>
-        <LargePagination {...props} />
+        <LargePagination {...props} {...passedProps} />
       </Theme>
     )
 
@@ -43,6 +43,12 @@ describe("LargePagination", () => {
   afterEach(() => {
     jest.clearAllMocks()
     props.pageCursors = pageCursors
+  })
+
+  it("computes the href for links", () => {
+    const wrapper = mountWrapper({ getHref: () => "http://foo.com" })
+    const html = wrapper.html()
+    expect(html).toContain("http://foo.com")
   })
 
   describe("page numbers", () => {
@@ -60,9 +66,7 @@ describe("LargePagination", () => {
         pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
-
         wrapper.find("Link").first().simulate("click")
-
         expect(onClickMock).toHaveBeenCalled()
       })
     })

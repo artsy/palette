@@ -20,10 +20,10 @@ describe("SmallPagination", () => {
     pageCursors,
   }
 
-  const mountWrapper = () => {
+  const mountWrapper = (passedProps = {}) => {
     const wrapper = mount(
       <Theme>
-        <SmallPagination {...props} />
+        <SmallPagination {...props} {...passedProps} />
       </Theme>
     )
 
@@ -32,6 +32,12 @@ describe("SmallPagination", () => {
 
   afterEach(() => {
     jest.clearAllMocks()
+  })
+
+  it("computes the href for links", () => {
+    const wrapper = mountWrapper({ getHref: () => "http://foo.com" })
+    const html = wrapper.html()
+    expect(html).toContain("http://foo.com")
   })
 
   describe("when there is only a previous page", () => {
