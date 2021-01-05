@@ -1,3 +1,26 @@
+# v13.27.0 (Tue Jan 05 2021)
+
+#### 🚀  Enhancement
+
+- refactor: Use links for pagination [#824](https://github.com/artsy/palette/pull/824) ([@jonallured](https://github.com/jonallured) [@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- Add test around getHref ([@damassi](https://github.com/damassi))
+- Update structure a bit ([@damassi](https://github.com/damassi))
+- WIP: next next/prev buttons working ([@jonallured](https://github.com/jonallured))
+- WIP ([@jonallured](https://github.com/jonallured))
+- Bubble click events ([@jonallured](https://github.com/jonallured))
+- Use better props name ([@jonallured](https://github.com/jonallured))
+- Use links for pagination ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
 # v13.26.4 (Tue Jan 05 2021)
 
 #### 🐛  Bug Fix

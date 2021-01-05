@@ -1,5 +1,19 @@
 # (Tue Jan 05 2021)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.27.0`
+  - refactor: Use links for pagination [#824](https://github.com/artsy/palette/pull/824) ([@jonallured](https://github.com/jonallured) [@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
+# (Tue Jan 05 2021)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@13.26.4`
