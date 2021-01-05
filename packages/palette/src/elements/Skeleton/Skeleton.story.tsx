@@ -35,6 +35,20 @@ storiesOf("Components/Skeleton", module)
         <SkeletonText variant="text" borderRadius={4} done>
           done
         </SkeletonText>
+
+        <SkeletonText my={2} maxWidth={300}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione
+          impedit commodi quo, dolorem id animi ipsa voluptas eius cum suscipit
+          distinctio qui quae aliquam consequuntur officiis numquam iste
+          deleniti.
+        </SkeletonText>
+
+        <SkeletonText variant="largeTitle" my={2} maxWidth={300}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione
+          impedit commodi quo, dolorem id animi ipsa voluptas eius cum suscipit
+          distinctio qui quae aliquam consequuntur officiis numquam iste
+          deleniti.
+        </SkeletonText>
       </Box>
     )
   })

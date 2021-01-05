@@ -47,7 +47,7 @@ const SkeletonTextOverlay = styled(SkeletonBox)`
   top: 50%;
   left: 0;
   width: 100%;
-  height: 85%;
+  height: calc(100% - 0.25em);
   transform: translateY(-50%);
 `
 
@@ -60,7 +60,7 @@ export const SkeletonText: React.FC<SkeletonTextProps> = ({
   const [borderProps, notBorderProps] = splitBorderProps(rest)
 
   return (
-    <Text aria-busy={!done} {...notBorderProps}>
+    <Text aria-busy={!done} color="transparent" {...notBorderProps}>
       <Box
         as="span"
         display="inline-flex"

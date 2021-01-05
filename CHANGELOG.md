@@ -1,3 +1,126 @@
+# (Thu Dec 17 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.26.3`
+  - feat: add circle fill icon [#833](https://github.com/artsy/palette/pull/833) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
+# (Thu Dec 17 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.26.2`
+  - fix(skeleton): implements appropriate scaling for multiline texts [#832](https://github.com/artsy/palette/pull/832) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Dec 15 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.26.1`
+  - fix(swiper): inlines default margins to simplify setting alternatives [#831](https://github.com/artsy/palette/pull/831) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Dec 15 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.26.0`
+  - fix(basetabs): support nested fragments [#830](https://github.com/artsy/palette/pull/830) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Mon Dec 14 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.25.1`
+  - fix(tabs): converts back to anys [#829](https://github.com/artsy/palette/pull/829) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Mon Dec 14 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.25.0`
+  - feat: implements base tabs [#821](https://github.com/artsy/palette/pull/821) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Dec 09 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.24.2`
+  - feature: Development Dependencies [#825](https://github.com/artsy/palette/pull/825) ([@icirellik](https://github.com/icirellik))
+
+#### Authors: 1
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+
+---
+
+# (Mon Dec 07 2020)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.24.1`
+  - chore(webfonts): update webfonts domain references [#823](https://github.com/artsy/palette/pull/823) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@13.24.1`
+  - refactor: Reorganize pagination and improve tests [#822](https://github.com/artsy/palette/pull/822) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
+# (Mon Nov 30 2020)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.24.0`
+  - feat: update message component [#820](https://github.com/artsy/palette/pull/820) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # (Tue Nov 24 2020)
 
 #### 🚀  Enhancement

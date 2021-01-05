@@ -1,3 +1,154 @@
+# v13.26.3 (Thu Dec 17 2020)
+
+#### 🐛  Bug Fix
+
+- feat: add circle fill icon [#833](https://github.com/artsy/palette/pull/833) ([@mdole](https://github.com/mdole))
+- feat: add circle fill icon ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
+# v13.26.2 (Thu Dec 17 2020)
+
+#### 🐛  Bug Fix
+
+- fix(skeleton): implements appropriate scaling for multiline texts [#832](https://github.com/artsy/palette/pull/832) ([@dzucconi](https://github.com/dzucconi))
+- fix(skeleton): implements appropriate scaling for multiline texts ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v13.26.1 (Tue Dec 15 2020)
+
+#### 🐛  Bug Fix
+
+- fix(swiper): inlines default margins to simplify setting alternatives [#831](https://github.com/artsy/palette/pull/831) ([@dzucconi](https://github.com/dzucconi))
+- fix(swiper): inlines default margins to simplify setting alternatives ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v13.26.0 (Tue Dec 15 2020)
+
+#### 🚀  Enhancement
+
+- fix(basetabs): support nested fragments [#830](https://github.com/artsy/palette/pull/830) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(basetabs): support nested fragments ([@dzucconi](https://github.com/dzucconi))
+- feat(helpers): adds flattenChildren ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v13.25.1 (Mon Dec 14 2020)
+
+#### 🐛  Bug Fix
+
+- fix(tabs): converts back to anys [#829](https://github.com/artsy/palette/pull/829) ([@dzucconi](https://github.com/dzucconi))
+- fix(tabs): converts back to anys ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v13.25.0 (Mon Dec 14 2020)
+
+#### 🚀  Enhancement
+
+- feat: implements base tabs [#821](https://github.com/artsy/palette/pull/821) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(tabs): minor styling updates for consistency ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): adds stories for tabs and stepper ([@dzucconi](https://github.com/dzucconi))
+- feat: implements base tabs component ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v13.24.2 (Wed Dec 09 2020)
+
+#### 🐛  Bug Fix
+
+- feature: Development Dependencies [#825](https://github.com/artsy/palette/pull/825) ([@icirellik](https://github.com/icirellik))
+- feature: Development Dependencies ([@icirellik](https://github.com/icirellik))
+
+#### Authors: 1
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+
+---
+
+# v13.24.1 (Mon Dec 07 2020)
+
+#### 🐛  Bug Fix
+
+- Improve coverage for the pages part ([@jonallured](https://github.com/jonallured))
+- chore(webfonts): update webfonts domain references [#823](https://github.com/artsy/palette/pull/823) ([@dzucconi](https://github.com/dzucconi))
+- Fix linting issues ([@jonallured](https://github.com/jonallured))
+- Add page cursor interfaces ([@jonallured](https://github.com/jonallured))
+- Fix some linter misses ([@jonallured](https://github.com/jonallured))
+- Extract components for first/last page ([@jonallured](https://github.com/jonallured))
+- Remove a level of indirection ([@jonallured](https://github.com/jonallured))
+- Promote RenderPage to React component ([@jonallured](https://github.com/jonallured))
+- Simplify dot dot dot component ([@jonallured](https://github.com/jonallured))
+- chore(webfonts): update webfonts domain references ([@dzucconi](https://github.com/dzucconi))
+- Make buttons more similar across sizes ([@jonallured](https://github.com/jonallured))
+- Migrate prev/next tests to large component ([@jonallured](https://github.com/jonallured))
+- Remove setup that I don't understand ([@jonallured](https://github.com/jonallured))
+- Make buttons look more alike ([@jonallured](https://github.com/jonallured))
+- Extract factory for mounting the component ([@jonallured](https://github.com/jonallured))
+- Reduce indirection around opacity for buttons ([@jonallured](https://github.com/jonallured))
+- Extract button components ([@jonallured](https://github.com/jonallured))
+- Cover more cases and simplify test setup ([@jonallured](https://github.com/jonallured))
+- Split pagination components into separate files ([@jonallured](https://github.com/jonallured))
+
+#### 🏠  Internal
+
+- refactor: Reorganize pagination and improve tests [#822](https://github.com/artsy/palette/pull/822) ([@jonallured](https://github.com/jonallured))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
+# v13.24.0 (Mon Nov 30 2020)
+
+#### 🚀  Enhancement
+
+- feat: update message component [#820](https://github.com/artsy/palette/pull/820) ([@mdole](https://github.com/mdole))
+
+#### 🐛  Bug Fix
+
+- feat: new Message variants ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # v13.23.0 (Tue Nov 24 2020)
 
 #### 🚀  Enhancement
