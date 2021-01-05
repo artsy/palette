@@ -4,7 +4,7 @@
     "declaration": true,
     "jsx": "react",
     "lib": ["dom", "es2015", "es2016", "es2017"],
-    "module": "commonjs",
+    "module": "es6",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "noUnusedLocals": true,
