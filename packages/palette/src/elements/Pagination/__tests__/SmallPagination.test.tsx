@@ -20,10 +20,10 @@ describe("SmallPagination", () => {
     pageCursors,
   }
 
-  const mountWrapper = () => {
+  const mountWrapper = (passedProps = {}) => {
     const wrapper = mount(
       <Theme>
-        <SmallPagination {...props} />
+        <SmallPagination {...props} {...passedProps} />
       </Theme>
     )
 
@@ -34,6 +34,12 @@ describe("SmallPagination", () => {
     jest.clearAllMocks()
   })
 
+  it("computes the href for links", () => {
+    const wrapper = mountWrapper({ getHref: () => "http://foo.com" })
+    const html = wrapper.html()
+    expect(html).toContain("http://foo.com")
+  })
+
   describe("when there is only a previous page", () => {
     beforeAll(() => {
       pageCursors.previous = previous
@@ -42,13 +48,13 @@ describe("SmallPagination", () => {
 
     it("renders the previous button and calls the onClick function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
+      wrapper.find("PrevButton Link").simulate("click")
       expect(onClickMock).toHaveBeenCalled()
     })
 
     it("renders the next button as disabled and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("NextButton ButtonWithBorder").simulate("click")
+      wrapper.find("NextButton Link").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })
@@ -61,13 +67,13 @@ describe("SmallPagination", () => {
 
     it("renders the previous button as disabled and does not call the onClick function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
+      wrapper.find("PrevButton Link").simulate("click")
       expect(onClickMock).not.toHaveBeenCalled()
     })
 
     it("renders the next button and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("NextButton ButtonWithBorder").simulate("click")
+      wrapper.find("NextButton Link").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })
@@ -80,13 +86,13 @@ describe("SmallPagination", () => {
 
     it("renders the previous button and calls the onClick function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("PrevButton ButtonWithBorder").simulate("click")
+      wrapper.find("PrevButton Link").simulate("click")
       expect(onClickMock).toHaveBeenCalled()
     })
 
     it("renders the next button and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
-      wrapper.find("NextButton ButtonWithBorder").simulate("click")
+      wrapper.find("NextButton Link").simulate("click")
       expect(onNextMock).toHaveBeenCalled()
     })
   })

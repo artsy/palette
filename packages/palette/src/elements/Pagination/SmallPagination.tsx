@@ -1,83 +1,105 @@
 import React from "react"
 import styled from "styled-components"
-import { color } from "../../helpers/color"
-import { space } from "../../helpers/space"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
+import { BorderBox } from "../BorderBox"
 import { Flex } from "../Flex"
+import { Link } from "../Link"
 
-import { PageButton, Props } from "./LargePagination"
+import { PageButton, PaginationProps } from "./LargePagination"
 
 /** SmallPagination */
-export const SmallPagination = (props: Props) => {
+export const SmallPagination: React.FC<PaginationProps> = (props) => {
   const {
     pageCursors: { previous },
+    getHref,
     onClick,
     onNext,
     hasNextPage,
   } = props
 
-  const handlePrevClick = () => {
+  const handlePrevClick = (event) => {
     if (previous) {
-      onClick(previous.cursor, previous.page)
+      onClick(previous.cursor, previous.page, event)
     }
   }
 
-  const handleNextClick = () => {
-    onNext()
+  const handleNextClick = (event) => {
+    onNext(event)
+  }
+
+  const nextPage = (previous?.page || -1) + 2
+
+  return (
+    <Flex flexDirection="row" height="40px" width="100%">
+      <PrevButton
+        enabled={!!previous}
+        getHref={getHref}
+        onClick={handlePrevClick}
+        page={previous?.page}
+      />
+      <NextButton
+        enabled={hasNextPage}
+        getHref={getHref}
+        onClick={handleNextClick}
+        page={nextPage}
+      />
+    </Flex>
+  )
+}
+
+const Wrapper = styled(BorderBox)`
+  border-radius: 3px;
+  border-width: 2px;
+  padding: 0;
+  width: 50%;
+
+  a {
+    height: 100%;
+    width: 100%;
+
+    > div {
+      align-items: center;
+      height: 100%;
+    }
+  }
+`
+
+const PrevButton: React.FC<PageButton> = (props) => {
+  const { enabled, getHref, onClick, page } = props
+  const opacity = enabled ? 1 : 0.1
+  let href = ""
+
+  if (page && typeof getHref !== "undefined") {
+    href = getHref(page)
   }
 
   return (
-    <Flex flexDirection="row" width="100%">
-      <PrevButton enabled={!!previous} onClick={handlePrevClick} />
-      <NextButton enabled={hasNextPage} onClick={handleNextClick} />
-    </Flex>
+    <Wrapper mr={0.5} opacity={opacity}>
+      <Link href={href} onClick={onClick}>
+        <Flex justifyContent="flex-start" pl={1}>
+          <ChevronIcon direction="left" />
+        </Flex>
+      </Link>
+    </Wrapper>
   )
 }
 
-const PrevButton: React.FC<PageButton> = props => {
-  const { enabled, onClick } = props
+const NextButton: React.FC<PageButton> = (props) => {
+  const { enabled, getHref, onClick, page } = props
   const opacity = enabled ? 1 : 0.1
+  let href = ""
+
+  if (page && typeof getHref !== "undefined") {
+    href = getHref(page)
+  }
 
   return (
-    <Flex opacity={opacity} pr={0.5} width="50%">
-      <ButtonWithBorder
-        alignItems="center"
-        justifyContent="flex-start"
-        onClick={onClick}
-        pl={1}
-      >
-        <ChevronIcon direction="left" />
-      </ButtonWithBorder>
-    </Flex>
+    <Wrapper ml={0.5} opacity={opacity}>
+      <Link href={href} onClick={onClick}>
+        <Flex justifyContent="flex-end" pr={1}>
+          <ChevronIcon direction="right" />
+        </Flex>
+      </Link>
+    </Wrapper>
   )
 }
-
-const NextButton: React.FC<PageButton> = props => {
-  const { enabled, onClick } = props
-  const opacity = enabled ? 1 : 0.1
-
-  return (
-    <Flex opacity={opacity} pl={0.5} width="50%">
-      <ButtonWithBorder
-        alignItems="center"
-        justifyContent="flex-end"
-        onClick={onClick}
-        pr={1}
-      >
-        <ChevronIcon direction="right" />
-      </ButtonWithBorder>
-    </Flex>
-  )
-}
-
-const ButtonWithBorder = styled(Flex)`
-  border: ${props => props.theme.borders[1]};
-  border-color: ${color("black10")};
-  border-radius: 3px;
-  width: 100%;
-  height: ${space(4)}px;
-  cursor: pointer;
-`
-
-// Tests
-ButtonWithBorder.displayName = "ButtonWithBorder"

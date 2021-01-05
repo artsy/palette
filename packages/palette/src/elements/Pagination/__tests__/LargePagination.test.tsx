@@ -27,12 +27,13 @@ describe("LargePagination", () => {
     onClick: onClickMock,
     onNext: onNextMock,
     pageCursors,
+    getHref: (x) => x,
   }
 
-  const mountWrapper = () => {
+  const mountWrapper = (passedProps = {}) => {
     const wrapper = mount(
       <Theme>
-        <LargePagination {...props} />
+        <LargePagination {...props} {...passedProps} />
       </Theme>
     )
 
@@ -42,6 +43,12 @@ describe("LargePagination", () => {
   afterEach(() => {
     jest.clearAllMocks()
     props.pageCursors = pageCursors
+  })
+
+  it("computes the href for links", () => {
+    const wrapper = mountWrapper({ getHref: () => "http://foo.com" })
+    const html = wrapper.html()
+    expect(html).toContain("http://foo.com")
   })
 
   describe("page numbers", () => {
@@ -56,15 +63,10 @@ describe("LargePagination", () => {
         const wrapper = mountWrapper()
         const html = wrapper.html()
         const pages = ["6", "7", "8", "9"]
-        pages.forEach(page => {
+        pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
-
-        wrapper
-          .find("Page")
-          .first()
-          .simulate("click")
-
+        wrapper.find("Link").first().simulate("click")
         expect(onClickMock).toHaveBeenCalled()
       })
     })
@@ -80,7 +82,7 @@ describe("LargePagination", () => {
         const wrapper = mountWrapper()
         const html = wrapper.html()
         const pages = ["6", "7", "8", "9", "...", "20"]
-        pages.forEach(page => {
+        pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
       })
@@ -97,7 +99,7 @@ describe("LargePagination", () => {
         const wrapper = mountWrapper()
         const html = wrapper.html()
         const pages = ["1", "...", "6", "7", "8", "9"]
-        pages.forEach(page => {
+        pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
       })
@@ -114,7 +116,7 @@ describe("LargePagination", () => {
         const wrapper = mountWrapper()
         const html = wrapper.html()
         const pages = ["1", "...", "6", "7", "8", "9", "...", "20"]
-        pages.forEach(page => {
+        pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
       })
@@ -130,13 +132,13 @@ describe("LargePagination", () => {
 
       it("renders the previous button and calls the onClick function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("PrevButton a").simulate("click")
+        wrapper.find("PrevButton Link").simulate("click")
         expect(onClickMock).toHaveBeenCalled()
       })
 
       it("renders the next button as disabled and calls the onNext function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("NextButton a").simulate("click")
+        wrapper.find("NextButton Link").simulate("click")
         expect(onNextMock).toHaveBeenCalled()
       })
     })
@@ -149,13 +151,13 @@ describe("LargePagination", () => {
 
       it("renders the previous button as disabled and does not call the onClick function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("PrevButton a").simulate("click")
+        wrapper.find("PrevButton Link").simulate("click")
         expect(onClickMock).not.toHaveBeenCalled()
       })
 
       it("renders the next button and calls the onNext function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("NextButton a").simulate("click")
+        wrapper.find("NextButton Link").simulate("click")
         expect(onNextMock).toHaveBeenCalled()
       })
     })
@@ -168,13 +170,13 @@ describe("LargePagination", () => {
 
       it("renders the previous button and calls the onClick function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("PrevButton a").simulate("click")
+        wrapper.find("PrevButton Link").simulate("click")
         expect(onClickMock).toHaveBeenCalled()
       })
 
       it("renders the next button and calls the onNext function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("NextButton a").simulate("click")
+        wrapper.find("NextButton Link").simulate("click")
         expect(onNextMock).toHaveBeenCalled()
       })
     })
