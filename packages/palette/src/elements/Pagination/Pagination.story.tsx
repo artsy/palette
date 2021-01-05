@@ -22,6 +22,7 @@ storiesOf("Components/Pagination", module)
         }}
         onClick={action("onClick")}
         onNext={action("onNext")}
+        getHref={(x) => x as any}
       />
     )
   })
@@ -42,6 +43,7 @@ storiesOf("Components/Pagination", module)
         }}
         onClick={action("onClick")}
         onNext={action("onNext")}
+        getHref={(x) => x as any}
       />
     )
   })

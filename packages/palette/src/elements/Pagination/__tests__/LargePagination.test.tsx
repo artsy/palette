@@ -27,6 +27,7 @@ describe("LargePagination", () => {
     onClick: onClickMock,
     onNext: onNextMock,
     pageCursors,
+    getHref: (x) => x,
   }
 
   const mountWrapper = () => {
@@ -56,14 +57,11 @@ describe("LargePagination", () => {
         const wrapper = mountWrapper()
         const html = wrapper.html()
         const pages = ["6", "7", "8", "9"]
-        pages.forEach(page => {
+        pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
 
-        wrapper
-          .find("Link")
-          .first()
-          .simulate("click")
+        wrapper.find("Link").first().simulate("click")
 
         expect(onClickMock).toHaveBeenCalled()
       })
@@ -80,7 +78,7 @@ describe("LargePagination", () => {
         const wrapper = mountWrapper()
         const html = wrapper.html()
         const pages = ["6", "7", "8", "9", "...", "20"]
-        pages.forEach(page => {
+        pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
       })
@@ -97,7 +95,7 @@ describe("LargePagination", () => {
         const wrapper = mountWrapper()
         const html = wrapper.html()
         const pages = ["1", "...", "6", "7", "8", "9"]
-        pages.forEach(page => {
+        pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
       })
@@ -114,7 +112,7 @@ describe("LargePagination", () => {
         const wrapper = mountWrapper()
         const html = wrapper.html()
         const pages = ["1", "...", "6", "7", "8", "9", "...", "20"]
-        pages.forEach(page => {
+        pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
       })
