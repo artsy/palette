@@ -18,6 +18,12 @@ export interface PageCursors {
   previous: PageCursor
 }
 
+export interface PageButton {
+  enabled: boolean
+  getHref?: (page: number) => string
+  onClick: (event: React.MouseEvent) => void
+  page?: number
+}
 export interface PaginationProps {
   getHref?: (page: number) => string
   hasNextPage: boolean
@@ -25,6 +31,12 @@ export interface PaginationProps {
   onNext?: (event: React.MouseEvent) => void
   pageCursors: PageCursors
   scrollTo?: string
+}
+
+interface PageProps {
+  getHref?: (page: number) => string
+  onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
+  pageCursor: PageCursor
 }
 
 /** LargePagination */
@@ -37,19 +49,17 @@ export const LargePagination = (props: PaginationProps) => {
     pageCursors: { around, first, last, previous },
   } = props
 
-  console.log(getHref)
-
-  const handlePrevClick = event => {
+  const handlePrevClick = (event) => {
     if (previous) {
       onClick(previous.cursor, previous.page, event)
     }
   }
 
-  const handleNextClick = event => {
+  const handleNextClick = (event) => {
     onNext(event)
   }
 
-  const aroundPages = around.map(pageCursor => {
+  const aroundPages = around.map((pageCursor) => {
     const { cursor, page } = pageCursor
     const key = cursor + page
     return (
@@ -63,6 +73,32 @@ export const LargePagination = (props: PaginationProps) => {
   })
 
   const nextPage = (previous?.page || -1) + 2
+
+  const DotDotDot = () => {
+    return (
+      <Text color="black30" display="inline" mx={0.5} variant="mediumText">
+        ...
+      </Text>
+    )
+  }
+
+  const FirstPage: React.FC<PageProps> = (p) => {
+    return (
+      <>
+        <Page onClick={onClick} pageCursor={p.pageCursor} getHref={getHref} />
+        <DotDotDot />
+      </>
+    )
+  }
+
+  const LastPage: React.FC<PageProps> = (p) => {
+    return (
+      <>
+        <DotDotDot />
+        <Page onClick={onClick} pageCursor={p.pageCursor} getHref={getHref} />
+      </>
+    )
+  }
 
   return (
     <Flex
@@ -80,24 +116,28 @@ export const LargePagination = (props: PaginationProps) => {
       )}
 
       <Box ml={4}>
-        <PrevButton enabled={!!previous} getHref={getHref} onClick={handlePrevClick} page={previous?.page} />
-        <NextButton enabled={hasNextPage} getHref={getHref} onClick={handleNextClick} page={nextPage} />
+        <PrevButton
+          enabled={!!previous}
+          getHref={getHref}
+          onClick={handlePrevClick}
+          page={previous?.page}
+        />
+        <NextButton
+          enabled={hasNextPage}
+          getHref={getHref}
+          onClick={handleNextClick}
+          page={nextPage}
+        />
       </Box>
     </Flex>
   )
 }
 
-interface PageProps {
-  getHref?: (page: number) => string
-  onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
-  pageCursor: PageCursor
-}
-
-const Page: React.FC<PageProps> = props => {
+const Page: React.FC<PageProps> = (props) => {
   const { getHref, onClick, pageCursor } = props
   const { cursor, isCurrent, page } = pageCursor
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     onClick(cursor, page, event)
   }
 
@@ -116,51 +156,12 @@ const Page: React.FC<PageProps> = props => {
   )
 }
 
-const DotDotDot = () => {
-  return (
-    <Text color="black30" display="inline" mx={0.5} variant="mediumText">
-      ...
-    </Text>
-  )
-}
-
-const FirstPage: React.FC<PageProps> = props => {
-  const { onClick, pageCursor, getHref } = props
-
-  return (
-    <>
-      <Page onClick={onClick} pageCursor={pageCursor} getHref={getHref} />
-      <DotDotDot />
-    </>
-  )
-}
-
-const LastPage: React.FC<PageProps> = props => {
-  const { onClick, pageCursor, getHref } = props
-
-  return (
-    <>
-      <DotDotDot />
-      <Page onClick={onClick} pageCursor={pageCursor} getHref={getHref} />
-    </>
-  )
-}
-
-export interface PageButton {
-  enabled: boolean
-  // getHref?: (page: number) => string
-  getHref?: any
-  onClick: (event: React.MouseEvent) => void
-  page?: number
-}
-
-const PrevButton: React.FC<PageButton> = props => {
+const PrevButton: React.FC<PageButton> = (props) => {
   const { enabled, getHref, onClick, page } = props
   const opacity = enabled ? 1 : 0.1
+  const pointerEvents = enabled ? "inherit" : "none"
 
   let href = ""
-
-  console.log(getHref)
 
   if (page && typeof getHref !== "undefined") {
     href = getHref(page)
@@ -170,7 +171,7 @@ const PrevButton: React.FC<PageButton> = props => {
     <Link
       href={href}
       onClick={onClick}
-      style={{ opacity }}
+      style={{ opacity, pointerEvents }}
       underlineBehavior="hover"
     >
       <ChevronIcon direction="left" top={0.5} />
@@ -181,13 +182,14 @@ const PrevButton: React.FC<PageButton> = props => {
   )
 }
 
-const NextButton: React.FC<PageButton> = props => {
+const NextButton: React.FC<PageButton> = (props) => {
   const { enabled, getHref, onClick, page } = props
   const opacity = enabled ? 1 : 0.1
+  const pointerEvents = enabled ? "inherit" : "none"
 
   let href = ""
 
-  if (page && getHref) {
+  if (page && typeof getHref !== "undefined") {
     href = getHref(page)
   }
 
@@ -195,7 +197,7 @@ const NextButton: React.FC<PageButton> = props => {
     <Link
       href={href}
       onClick={onClick}
-      style={{ opacity }}
+      style={{ opacity, pointerEvents }}
       underlineBehavior="hover"
     >
       <Text display="inline" px={0.5} variant="mediumText">
