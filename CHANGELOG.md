@@ -1,3 +1,16 @@
+# (Tue Jan 05 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.26.4`
+  - Add global styles for lists [#834](https://github.com/artsy/palette/pull/834) ([@eessex](https://github.com/eessex))
+
+#### Authors: 1
+
+- Eve Essex ([@eessex](https://github.com/eessex))
+
+---
+
 # (Thu Dec 17 2020)
 
 #### 🐛  Bug Fix

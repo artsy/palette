@@ -1,3 +1,17 @@
+# v13.26.4 (Tue Jan 05 2021)
+
+#### 🐛  Bug Fix
+
+- Add global styles for lists [#834](https://github.com/artsy/palette/pull/834) ([@eessex](https://github.com/eessex))
+- add global ol/ul styles ([@eessex](https://github.com/eessex))
+- add description list margins to global styles ([@eessex](https://github.com/eessex))
+
+#### Authors: 1
+
+- Eve Essex ([@eessex](https://github.com/eessex))
+
+---
+
 # v13.26.3 (Thu Dec 17 2020)
 
 #### 🐛  Bug Fix
