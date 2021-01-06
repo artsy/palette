@@ -143,7 +143,11 @@ const Page: React.FC<PageProps> = (props) => {
 
   const highlight = isCurrent ? "black5" : "white100"
 
-  const href = getHref(page)
+  let href = ""
+
+  if (page && typeof getHref !== "undefined") {
+    href = getHref(page)
+  }
 
   return (
     <Box bg={highlight} borderRadius={2}>
