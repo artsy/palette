@@ -1,3 +1,24 @@
+# v13.27.1 (Wed Jan 06 2021)
+
+#### 🐛  Bug Fix
+
+- Fix failing storybook tests by guarding getHref call [#838](https://github.com/artsy/palette/pull/838) ([@zephraph](https://github.com/zephraph))
+- Fix failing storybook tests by guarding getHref call ([@zephraph](https://github.com/zephraph))
+- chore(deps): update dep typescript from 4.1.2 to v4.1.3 ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 🏠  Internal
+
+- Update yarn orb from 4.0.2 to v5 [#811](https://github.com/artsy/palette/pull/811) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dep typescript from 4.1.2 to v4.1.3 [#828](https://github.com/artsy/palette/pull/828) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v13.27.0 (Tue Jan 05 2021)
 
 #### 🚀  Enhancement
