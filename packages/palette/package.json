@@ -10,7 +10,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "babel src -s --source-map --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ --out-dir dist",
+    "compile": "babel src --source-maps --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ --out-dir dist",
     "prepack": "yarn generate-tokens && yarn generate-styles",
     "generate-tokens": "ts-node scripts/generate-tokens.ts",
     "generate-styles": "ts-node scripts/generate-styles.ts",
