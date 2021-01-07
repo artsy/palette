@@ -27,7 +27,7 @@ export const SmallPagination: React.FC<PaginationProps> = (props) => {
     onNext(event)
   }
 
-  const nextPage = (previous?.page || -1) + 2
+  const nextPage = (previous?.page || 0) + 2
 
   return (
     <Flex flexDirection="row" height="40px" width="100%">
@@ -69,7 +69,7 @@ const PrevButton: React.FC<PageButton> = (props) => {
   const opacity = enabled ? 1 : 0.1
   let href = ""
 
-  if (page && typeof getHref !== "undefined") {
+  if (enabled && page && typeof getHref !== "undefined") {
     href = getHref(page)
   }
 
@@ -89,7 +89,7 @@ const NextButton: React.FC<PageButton> = (props) => {
   const opacity = enabled ? 1 : 0.1
   let href = ""
 
-  if (page && typeof getHref !== "undefined") {
+  if (enabled && page && typeof getHref !== "undefined") {
     href = getHref(page)
   }
 

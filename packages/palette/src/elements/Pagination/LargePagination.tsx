@@ -72,7 +72,7 @@ export const LargePagination = (props: PaginationProps) => {
     )
   })
 
-  const nextPage = (previous?.page || -1) + 2
+  const nextPage = (previous?.page || 0) + 2
 
   const DotDotDot = () => {
     return (
@@ -167,7 +167,7 @@ const PrevButton: React.FC<PageButton> = (props) => {
 
   let href = ""
 
-  if (page && typeof getHref !== "undefined") {
+  if (enabled && page && typeof getHref !== "undefined") {
     href = getHref(page)
   }
 
@@ -193,7 +193,7 @@ const NextButton: React.FC<PageButton> = (props) => {
 
   let href = ""
 
-  if (page && typeof getHref !== "undefined") {
+  if (enabled && page && typeof getHref !== "undefined") {
     href = getHref(page)
   }
 
