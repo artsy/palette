@@ -1,3 +1,26 @@
+# (Thu Jan 07 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.27.2`
+  - fix: Populate pagination next/prev hrefs correctly [#839](https://github.com/artsy/palette/pull/839) ([@jonallured](https://github.com/jonallured))
+
+#### 🏠  Internal
+
+- `@artsy/palette@13.27.2`
+  - Pin dependencies [#826](https://github.com/artsy/palette/pull/826) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette@13.27.2`
+  - Update babel [#837](https://github.com/artsy/palette/pull/837) ([@renovate-bot](https://github.com/renovate-bot) [@zephraph](https://github.com/zephraph) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 4
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Wed Jan 06 2021)
 
 #### 🐛  Bug Fix
