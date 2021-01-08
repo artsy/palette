@@ -28,7 +28,7 @@ export interface PaginationProps {
   getHref?: (page: number) => string
   hasNextPage: boolean
   onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
-  onNext?: (event: React.MouseEvent) => void
+  onNext?: (event: React.MouseEvent, page: number) => void
   pageCursors: PageCursors
   scrollTo?: string
 }
@@ -49,14 +49,14 @@ export const LargePagination = (props: PaginationProps) => {
     pageCursors: { around, first, last, previous },
   } = props
 
-  const handlePrevClick = (event) => {
+  const handlePrevClick = (event: React.MouseEvent) => {
     if (previous) {
       onClick(previous.cursor, previous.page, event)
     }
   }
 
-  const handleNextClick = (event) => {
-    onNext(event)
+  const handleNextClick = (event: React.MouseEvent) => {
+    onNext(event, nextPage)
   }
 
   const aroundPages = around.map((pageCursor) => {
