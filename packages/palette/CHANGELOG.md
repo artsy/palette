@@ -1,3 +1,19 @@
+# v13.28.0 (Fri Jan 08 2021)
+
+#### 🚀  Enhancement
+
+- feat(pagination): includes page number on next callback [#840](https://github.com/artsy/palette/pull/840) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(pagination): includes page number on next callback ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.27.2 (Thu Jan 07 2021)
 
 #### 🐛  Bug Fix
