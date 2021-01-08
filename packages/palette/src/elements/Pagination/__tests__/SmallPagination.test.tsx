@@ -4,7 +4,7 @@ import { Theme } from "../../../Theme"
 import { PageCursors } from "../LargePagination"
 import { SmallPagination } from "../SmallPagination"
 
-const mockGetHref = (page) => {
+const mockGetHref = page => {
   const baseUrl = "http://www.example.com"
 
   if (page > 1) {
@@ -115,13 +115,13 @@ describe("SmallPagination", () => {
     it("renders the previous button and calls the onClick function when clicked", () => {
       const wrapper = mountWrapper()
       wrapper.find("PrevButton Link").simulate("click")
-      expect(onClickMock).toHaveBeenCalled()
+      expect(onClickMock).toHaveBeenCalledWith("ABC123==", 1, expect.anything())
     })
 
     it("renders the next button as disabled and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
       wrapper.find("NextButton Link").simulate("click")
-      expect(onNextMock).toHaveBeenCalled()
+      expect(onNextMock).toHaveBeenCalledWith(expect.anything(), 3)
     })
   })
 
@@ -140,7 +140,7 @@ describe("SmallPagination", () => {
     it("renders the next button and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
       wrapper.find("NextButton Link").simulate("click")
-      expect(onNextMock).toHaveBeenCalled()
+      expect(onNextMock).toHaveBeenCalledWith(expect.anything(), 2)
     })
   })
 
@@ -153,13 +153,13 @@ describe("SmallPagination", () => {
     it("renders the previous button and calls the onClick function when clicked", () => {
       const wrapper = mountWrapper()
       wrapper.find("PrevButton Link").simulate("click")
-      expect(onClickMock).toHaveBeenCalled()
+      expect(onClickMock).toHaveBeenCalledWith("ABC123==", 1, expect.anything())
     })
 
     it("renders the next button and calls the onNext function when clicked", () => {
       const wrapper = mountWrapper()
       wrapper.find("NextButton Link").simulate("click")
-      expect(onNextMock).toHaveBeenCalled()
+      expect(onNextMock).toHaveBeenCalledWith(expect.anything(), 3)
     })
   })
 })
