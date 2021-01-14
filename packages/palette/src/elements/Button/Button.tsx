@@ -1,8 +1,9 @@
-import React, { Component, ReactNode } from "react"
+import React from "react"
 import styled, { css } from "styled-components"
 import {
   borderRadius,
   borders,
+  compose,
   height,
   space,
   textAlign,
@@ -12,11 +13,6 @@ import { themeProps } from "../../Theme"
 import { BoxProps } from "../Box"
 import { Spinner } from "../Spinner"
 import { Sans, SansProps } from "../Typography"
-
-export interface WebButtonProps extends ButtonProps {
-  /** The underlying type of button */
-  type?: string
-}
 
 /**
  * Spec: zpl.io/2j8Knq6
@@ -29,6 +25,7 @@ export type ButtonVariant =
   | "secondaryGray"
   | "secondaryOutline"
   | "noOutline"
+
 /** Default button color variant */
 export const defaultVariant: ButtonVariant = "primaryBlack"
 
@@ -39,16 +36,17 @@ export type ButtonSize = "small" | "medium" | "large"
 export const defaultSize: ButtonSize = "medium"
 
 export interface ButtonProps extends ButtonBaseProps {
-  children: ReactNode
   /** The size of the button */
   size?: ButtonSize
   /** The theme of the button */
   variant?: ButtonVariant
-  /** React Native only, Callback on press, use instead of onClick */
-  onPress?: (e) => void
+  /** The underlying type of button */
+  type?: string
 }
 
-export interface ButtonBaseProps extends BoxProps {
+export interface ButtonBaseProps
+  extends BoxProps,
+    React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Size of the button */
   buttonSize?: ButtonSize
   /** Displays a loader in the button */
@@ -59,8 +57,6 @@ export interface ButtonBaseProps extends BoxProps {
   inline?: boolean
   /** Makes button full width */
   block?: boolean
-  /** Callback on click */
-  onClick?: (e) => void
   /** Additional styles to apply to the variant */
   variantStyles?: any // FIXME
   /** Pass the longest text to the button for the button to keep longest text width */
@@ -172,214 +168,219 @@ export const getStylesForVariant = (variant: ButtonVariant) => {
   `
 }
 
-/** A button with various size and color settings */
-export class Button extends Component<WebButtonProps> {
-  static defaultProps = {
-    size: defaultSize,
-    variant: defaultVariant,
-    theme: themeProps,
-  }
-
-  getSize(): { height: string; size: "2" | "3t"; px: number } {
-    const { inline } = this.props
-    switch (this.props.size) {
-      case "small":
-        return {
-          height: inline ? "17px" : "26px",
-          size: "2",
-          px: inline ? 0 : 1.5,
-        }
-      case "medium":
-        return {
-          height: inline ? "21px" : "41px",
-          size: "3t",
-          px: inline ? 0 : 2,
-        }
-      case "large":
-        return {
-          height: inline ? "21px" : "50px",
-          size: "3t",
-          px: inline ? 0 : 3,
-        }
-    }
-  }
-
-  getVariant() {
-    switch (this.props.variant) {
-      case "primaryBlack":
-        return css`
-          ${props => {
-            const { colors } = props.theme
-
-            return `
-                background-color: ${colors.black100};
-                border-color: ${colors.black100};
-                color: ${colors.white100};
-
-                @media ${themeProps.mediaQueries.hover} {
-                  &:hover {
-                    background-color: ${colors.purple100};
-                    border-color: ${colors.purple100};
-                    color: ${colors.white100};
-                  }
-                }
-              `
-          }};
-        `
-      case "primaryWhite":
-        return css`
-          ${props => {
-            const { colors } = props.theme
-
-            return `
-                background-color: ${colors.white100};
-                border-color: ${colors.white100};
-                color: ${colors.black100};
-
-                @media ${themeProps.mediaQueries.hover} {
-                  &:hover {
-                    background-color: ${colors.purple100};
-                    border-color: ${colors.purple100};
-                    color: ${colors.white100};
-                  }
-                }
-              `
-          }};
-        `
-      case "secondaryGray":
-        return css`
-          ${props => {
-            const { colors } = props.theme
-
-            return `
-                background-color: ${colors.black10};
-                border-color: ${colors.black10};
-                color: ${colors.black100};
-
-                @media ${themeProps.mediaQueries.hover} {
-                  &:hover {
-                    background-color: ${colors.black30};
-                    border-color: ${colors.black30};
-                    color: ${colors.black100};
-                  }
-                }
-              `
-          }};
-        `
-      case "secondaryOutline":
-        return css`
-          ${props => {
-            const { colors } = props.theme
-            return `
-                background-color: ${colors.white100};
-                border-color: ${colors.black10};
-                color: ${colors.black100};
-
-                @media ${themeProps.mediaQueries.hover} {
-                  &:hover {
-                    background-color: ${colors.white100};
-                    border-color: ${colors.black100};
-                    color: ${colors.black100};
-                  }
-                }
-              `
-          }};
-        `
-      case "noOutline":
-        return css`
-          ${props => {
-            const { colors } = props.theme
-            return `
-                background-color: transparent;
-                border-color: transparent;
-                color: ${colors.black100};
-              `
-          }};
-        `
-      default:
-    }
-  }
-
-  render() {
-    const buttonProps = {
-      ...this.props,
-      ...this.getSize(),
-      buttonSize: this.props.size,
-      variantStyles: this.getVariant(),
-    }
-
-    return <ButtonBase {...buttonProps}>{this.props.children}</ButtonBase>
+const getSize = ({
+  inline,
+  size,
+}: Pick<ButtonProps, "inline" | "size">): {
+  height: string
+  size: "2" | "3t"
+  px: number
+} => {
+  switch (size) {
+    case "small":
+      return {
+        height: inline ? "17px" : "26px",
+        size: "2",
+        px: inline ? 0 : 1.5,
+      }
+    case "medium":
+      return {
+        height: inline ? "21px" : "41px",
+        size: "3t",
+        px: inline ? 0 : 2,
+      }
+    case "large":
+      return {
+        height: inline ? "21px" : "50px",
+        size: "3t",
+        px: inline ? 0 : 3,
+      }
   }
 }
 
-/** A base from which various button implementations can compose from */
-export class ButtonBase extends Component<ButtonBaseProps & SansProps> {
-  static defaultProps = {
-    border: 1,
-    borderRadius: 3,
-  }
+const getVariant = ({ variant }: Pick<ButtonProps, "variant">) => {
+  switch (variant) {
+    case "primaryBlack":
+      return css`
+        ${props => {
+          const { colors } = props.theme
 
-  onClick = event => {
-    if (!this.props.loading && this.props.onClick) {
-      this.props.onClick(event)
+          return `
+              background-color: ${colors.black100};
+              border-color: ${colors.black100};
+              color: ${colors.white100};
+
+              @media ${themeProps.mediaQueries.hover} {
+                &:hover {
+                  background-color: ${colors.purple100};
+                  border-color: ${colors.purple100};
+                  color: ${colors.white100};
+                }
+              }
+            `
+        }};
+      `
+    case "primaryWhite":
+      return css`
+        ${props => {
+          const { colors } = props.theme
+
+          return `
+              background-color: ${colors.white100};
+              border-color: ${colors.white100};
+              color: ${colors.black100};
+
+              @media ${themeProps.mediaQueries.hover} {
+                &:hover {
+                  background-color: ${colors.purple100};
+                  border-color: ${colors.purple100};
+                  color: ${colors.white100};
+                }
+              }
+            `
+        }};
+      `
+    case "secondaryGray":
+      return css`
+        ${props => {
+          const { colors } = props.theme
+
+          return `
+              background-color: ${colors.black10};
+              border-color: ${colors.black10};
+              color: ${colors.black100};
+
+              @media ${themeProps.mediaQueries.hover} {
+                &:hover {
+                  background-color: ${colors.black30};
+                  border-color: ${colors.black30};
+                  color: ${colors.black100};
+                }
+              }
+            `
+        }};
+      `
+    case "secondaryOutline":
+      return css`
+        ${props => {
+          const { colors } = props.theme
+          return `
+              background-color: ${colors.white100};
+              border-color: ${colors.black10};
+              color: ${colors.black100};
+
+              @media ${themeProps.mediaQueries.hover} {
+                &:hover {
+                  background-color: ${colors.white100};
+                  border-color: ${colors.black100};
+                  color: ${colors.black100};
+                }
+              }
+            `
+        }};
+      `
+    case "noOutline":
+      return css`
+        ${props => {
+          const { colors } = props.theme
+          return `
+              background-color: transparent;
+              border-color: transparent;
+              color: ${colors.black100};
+            `
+        }};
+      `
+    default:
+  }
+}
+
+/** A button with various size and color settings */
+export const Button: React.FC<ButtonProps> = ({
+  size = defaultSize,
+  variant = defaultVariant,
+  children,
+  ...rest
+}) => {
+  return (
+    <ButtonBase
+      {...rest}
+      {...getSize({ inline: rest.inline, size })}
+      buttonSize={size}
+      variantStyles={getVariant({ variant })}
+    >
+      {children}
+    </ButtonBase>
+  )
+}
+
+/** A base from which various button implementations can compose from */
+export const ButtonBase: React.FC<ButtonBaseProps & SansProps> = ({
+  children,
+  loading,
+  disabled,
+  color,
+  size,
+  longestText,
+  weight,
+  className,
+  onClick,
+  ...rest
+}) => {
+  const loadingClass = loading ? "loading" : ""
+  const disabledClass = disabled ? "disabled" : ""
+  const classNames = [loadingClass, disabledClass, className]
+    .filter(Boolean)
+    .join(" ")
+
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    if (!loading && onClick) {
+      onClick(event)
     }
   }
 
-  render() {
-    const {
-      children,
-      loading,
-      disabled,
-      color,
-      size,
-      longestText,
-      weight,
-      onClick,
-      className,
-      ...rest
-    } = this.props
+  return (
+    <Container
+      className={classNames}
+      onClick={handleClick}
+      disabled={disabled}
+      {...rest}
+    >
+      {loading && <Spinner size={rest.buttonSize} />}
 
-    const loadingClass = loading ? "loading" : ""
-    const disabledClass = disabled ? "disabled" : ""
-
-    return (
-      <Container
-        className={[loadingClass, disabledClass, className]
-          .filter(Boolean)
-          .join(" ")}
-        onClick={this.onClick}
-        disabled={disabled}
-        {...rest}
-      >
-        {loading && <Spinner size={this.props.buttonSize} />}
-
-        {longestText ? (
-          <>
-            <VisibleText
-              pt="1px"
-              weight={weight || "medium"}
-              color={color}
-              size={size}
-            >
-              {children}
-            </VisibleText>
-            <HiddenText
-              role="presentation"
-              pt="1px"
-              weight={weight || "medium"}
-              size={size}
-            >
-              {longestText}
-            </HiddenText>
-          </>
-        ) : (
-          <Sans pt="1px" weight={weight || "medium"} size={size}>
+      {longestText ? (
+        <>
+          <VisibleText
+            pt="1px"
+            weight={weight || "medium"}
+            color={color}
+            size={size}
+          >
             {children}
-          </Sans>
-        )}
-      </Container>
-    )
-  }
+          </VisibleText>
+
+          <HiddenText
+            role="presentation"
+            pt="1px"
+            weight={weight || "medium"}
+            size={size}
+          >
+            {longestText}
+          </HiddenText>
+        </>
+      ) : (
+        <Sans pt="1px" weight={weight || "medium"} size={size}>
+          {children}
+        </Sans>
+      )}
+    </Container>
+  )
+}
+
+ButtonBase.defaultProps = {
+  border: 1,
+  borderRadius: 3,
 }
 
 const VisibleText = styled(Sans)`
@@ -399,12 +400,14 @@ const Container = styled.button<ButtonBaseProps>`
   position: relative;
   white-space: nowrap;
 
-  ${borders};
-  ${borderRadius};
-  ${space};
-  ${textAlign};
-  ${width};
-  ${height};
+  ${compose(
+    borders,
+    borderRadius,
+    space,
+    textAlign,
+    width,
+    height
+  )};
 
   ${props => {
     if (!props.loading) {

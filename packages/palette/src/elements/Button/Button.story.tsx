@@ -1,6 +1,9 @@
 import { storiesOf } from "@storybook/react"
 import React from "react"
 import styled from "styled-components"
+import { Box } from "../Box"
+import { Join } from "../Join"
+import { Spacer } from "../Spacer"
 import { Button } from "./Button"
 
 const StyledButton = styled(Button)`
@@ -90,5 +93,43 @@ storiesOf("Components/Button", module)
           noOutline
         </StyledButton>
       </>
+    )
+  })
+  .add("states", () => {
+    return (
+      <Box m={2} p={2} border="1px solid" borderColor="black10">
+        <Join separator={<Spacer my={1} />}>
+          <Button variant="secondaryOutline">resting</Button>
+
+          <Button variant="secondaryOutline" loading>
+            loading
+          </Button>
+
+          <Button variant="secondaryOutline" disabled>
+            disabled
+          </Button>
+
+          {/* TODO: hover, focus, active */}
+        </Join>
+      </Box>
+    )
+  })
+  .add("native button props", () => {
+    return (
+      <Box m={2} p={2} border="1px solid" borderColor="black10">
+        <Join separator={<Spacer my={1} />}>
+          <Button autoFocus>autofocused</Button>
+
+          <Button tabIndex={-1}>not focusable with keyboard</Button>
+
+          <Button
+            onClick={event => {
+              event.preventDefault()
+            }}
+          >
+            correctly typed click event
+          </Button>
+        </Join>
+      </Box>
     )
   })
