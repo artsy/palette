@@ -1,30 +1,21 @@
+import { themeGet } from "@styled-system/theme-get"
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import {
   borderRadius,
   borders,
   compose,
   height,
+  ResponsiveValue,
   space,
   textAlign,
+  variant,
   width,
 } from "styled-system"
-import { themeProps } from "../../Theme"
 import { BoxProps } from "../Box"
 import { Spinner } from "../Spinner"
 import { Sans, SansProps } from "../Typography"
-
-/**
- * Spec: zpl.io/2j8Knq6
- */
-
-/** Different theme variations */
-export type ButtonVariant =
-  | "primaryBlack"
-  | "primaryWhite"
-  | "secondaryGray"
-  | "secondaryOutline"
-  | "noOutline"
+import { BUTTON_VARIANTS, ButtonVariant } from "./tokens"
 
 /** Default button color variant */
 export const defaultVariant: ButtonVariant = "primaryBlack"
@@ -40,8 +31,6 @@ export interface ButtonProps extends ButtonBaseProps {
   size?: ButtonSize
   /** The theme of the button */
   variant?: ButtonVariant
-  /** The underlying type of button */
-  type?: string
 }
 
 export interface ButtonBaseProps
@@ -57,8 +46,6 @@ export interface ButtonBaseProps
   inline?: boolean
   /** Makes button full width */
   block?: boolean
-  /** Additional styles to apply to the variant */
-  variantStyles?: any // FIXME
 }
 
 const getSize = ({
@@ -91,123 +78,32 @@ const getSize = ({
   }
 }
 
-const getVariant = ({ variant }: Pick<ButtonProps, "variant">) => {
-  switch (variant) {
-    case "primaryBlack":
-      return css`
-        ${props => {
-          const { colors } = props.theme
-
-          return `
-              background-color: ${colors.black100};
-              border-color: ${colors.black100};
-              color: ${colors.white100};
-
-              @media ${themeProps.mediaQueries.hover} {
-                &:hover {
-                  background-color: ${colors.purple100};
-                  border-color: ${colors.purple100};
-                  color: ${colors.white100};
-                }
-              }
-            `
-        }};
-      `
-    case "primaryWhite":
-      return css`
-        ${props => {
-          const { colors } = props.theme
-
-          return `
-              background-color: ${colors.white100};
-              border-color: ${colors.white100};
-              color: ${colors.black100};
-
-              @media ${themeProps.mediaQueries.hover} {
-                &:hover {
-                  background-color: ${colors.purple100};
-                  border-color: ${colors.purple100};
-                  color: ${colors.white100};
-                }
-              }
-            `
-        }};
-      `
-    case "secondaryGray":
-      return css`
-        ${props => {
-          const { colors } = props.theme
-
-          return `
-              background-color: ${colors.black10};
-              border-color: ${colors.black10};
-              color: ${colors.black100};
-
-              @media ${themeProps.mediaQueries.hover} {
-                &:hover {
-                  background-color: ${colors.black30};
-                  border-color: ${colors.black30};
-                  color: ${colors.black100};
-                }
-              }
-            `
-        }};
-      `
-    case "secondaryOutline":
-      return css`
-        ${props => {
-          const { colors } = props.theme
-          return `
-              background-color: ${colors.white100};
-              border-color: ${colors.black10};
-              color: ${colors.black100};
-
-              @media ${themeProps.mediaQueries.hover} {
-                &:hover {
-                  background-color: ${colors.white100};
-                  border-color: ${colors.black100};
-                  color: ${colors.black100};
-                }
-              }
-            `
-        }};
-      `
-    case "noOutline":
-      return css`
-        ${props => {
-          const { colors } = props.theme
-          return `
-              background-color: transparent;
-              border-color: transparent;
-              color: ${colors.black100};
-            `
-        }};
-      `
-    default:
-  }
-}
-
 /** A button with various size and color settings */
 export const Button: React.FC<ButtonProps> = ({
   size = defaultSize,
-  variant = defaultVariant,
   children,
   ...rest
 }) => {
   return (
     <ButtonBase
-      {...rest}
-      {...getSize({ inline: rest.inline, size })}
       buttonSize={size}
-      variantStyles={getVariant({ variant })}
+      {...getSize({ inline: rest.inline, size })}
+      {...rest}
     >
       {children}
     </ButtonBase>
   )
 }
 
+Button.defaultProps = {
+  size: defaultSize,
+  variant: defaultVariant,
+}
+
 /** A base from which various button implementations can compose from */
-export const ButtonBase: React.FC<ButtonBaseProps & SansProps> = ({
+export const ButtonBase: React.FC<
+  ButtonBaseProps & SansProps & { variant?: ResponsiveValue<ButtonVariant> }
+> = ({
   children,
   loading,
   disabled,
@@ -250,10 +146,13 @@ export const ButtonBase: React.FC<ButtonBaseProps & SansProps> = ({
 
 ButtonBase.defaultProps = {
   border: 1,
+  borderColor: "inherit",
   borderRadius: 3,
 }
 
-const Container = styled.button<ButtonBaseProps>`
+const Container = styled.button<
+  ButtonBaseProps & { variant?: ResponsiveValue<ButtonVariant> }
+>`
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -267,15 +166,15 @@ const Container = styled.button<ButtonBaseProps>`
     height
   )};
 
+  ${variant({ variants: BUTTON_VARIANTS })};
+
   ${props => {
     if (!props.loading) {
       return `
-        transition: 0.25s ease;
+        transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
       `
     }
   }};
-
-  ${props => props.variantStyles};
 
   &.loading {
     transition: none;
@@ -286,15 +185,9 @@ const Container = styled.button<ButtonBaseProps>`
   }
 
   &.disabled {
-    ${props => {
-      const { colors } = props.theme
-
-      return `
-        background-color: ${colors.black10};
-        border-color: ${colors.black10};
-        color: ${colors.white100};
-        pointer-events: none;
-      `
-    }};
+    background-color: ${themeGet("colors.black10")};
+    border-color: ${themeGet("colors.black10")};
+    color: ${themeGet("colors.white100")};
+    pointer-events: none;
   }
 `

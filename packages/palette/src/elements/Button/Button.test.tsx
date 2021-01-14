@@ -89,7 +89,11 @@ describe("Button", () => {
       border: 1px solid red;
     `
 
-    const wrapper = mount(<StyledButton>styled</StyledButton>)
+    const wrapper = mount(
+      <Theme>
+        <StyledButton>styled</StyledButton>
+      </Theme>
+    )
 
     expect(wrapper.html()).toContain("Buttontest__StyledButton")
   })
