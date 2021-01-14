@@ -59,8 +59,6 @@ export interface ButtonBaseProps
   block?: boolean
   /** Additional styles to apply to the variant */
   variantStyles?: any // FIXME
-  /** Pass the longest text to the button for the button to keep longest text width */
-  longestText?: string
 }
 
 /**
@@ -320,7 +318,6 @@ export const ButtonBase: React.FC<ButtonBaseProps & SansProps> = ({
   disabled,
   color,
   size,
-  longestText,
   weight,
   className,
   onClick,
@@ -349,31 +346,9 @@ export const ButtonBase: React.FC<ButtonBaseProps & SansProps> = ({
     >
       {loading && <Spinner size={rest.buttonSize} />}
 
-      {longestText ? (
-        <>
-          <VisibleText
-            pt="1px"
-            weight={weight || "medium"}
-            color={color}
-            size={size}
-          >
-            {children}
-          </VisibleText>
-
-          <HiddenText
-            role="presentation"
-            pt="1px"
-            weight={weight || "medium"}
-            size={size}
-          >
-            {longestText}
-          </HiddenText>
-        </>
-      ) : (
-        <Sans pt="1px" weight={weight || "medium"} size={size}>
-          {children}
-        </Sans>
-      )}
+      <Sans pt="1px" weight={weight || "medium"} size={size}>
+        {children}
+      </Sans>
     </Container>
   )
 }
@@ -382,18 +357,6 @@ ButtonBase.defaultProps = {
   border: 1,
   borderRadius: 3,
 }
-
-const VisibleText = styled(Sans)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`
-
-const HiddenText = styled(Sans)`
-  opacity: 0;
-  pointer-events: none;
-`
 
 const Container = styled.button<ButtonBaseProps>`
   cursor: pointer;
