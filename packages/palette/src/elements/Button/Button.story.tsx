@@ -1,77 +1,29 @@
 import { storiesOf } from "@storybook/react"
-import React from "react"
+import React, { useState } from "react"
 import { Box } from "../Box"
 import { Join } from "../Join"
 import { Spacer } from "../Spacer"
 import { Button, BUTTON_VARIANTS, ButtonSize } from "./index"
 import { ButtonVariant } from "./tokens"
 
+const LoadingDemo = () => {
+  const [loading, setLoading] = useState(false)
+
+  const handleClick = () => {
+    if (loading) return
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+  }
+  return (
+    <Button loading={loading} onClick={handleClick}>
+      click to load
+    </Button>
+  )
+}
+
 storiesOf("Components/Button", module)
-  // TODO: Remove these once it's validated that nothing has shifted around
-  .add("small", () => {
-    return (
-      <>
-        <Button size="small" variant="primaryBlack" mr={1}>
-          primaryBlack
-        </Button>
-        <Button size="small" variant="primaryWhite" mr={1}>
-          primaryWhite
-        </Button>
-        <Button size="small" variant="secondaryGray" mr={1}>
-          secondaryGray
-        </Button>
-        <Button size="small" variant="secondaryOutline" mr={1}>
-          secondaryOutline
-        </Button>
-        <Button size="small" variant="noOutline">
-          noOutline
-        </Button>
-      </>
-    )
-  })
-  .add("medium", () => {
-    return (
-      <>
-        <Button size="medium" variant="primaryBlack" mr={1}>
-          primaryBlack
-        </Button>
-        <Button size="medium" variant="primaryWhite" mr={1}>
-          primaryWhite
-        </Button>
-        <Button size="medium" variant="secondaryGray" mr={1}>
-          secondaryGray
-        </Button>
-        <Button size="medium" variant="secondaryOutline" mr={1}>
-          secondaryOutline
-        </Button>
-        <Button size="medium" variant="noOutline">
-          noOutline
-        </Button>
-      </>
-    )
-  })
-  .add("large", () => {
-    return (
-      <>
-        <Button size="large" variant="primaryBlack" mr={1}>
-          primaryBlack
-        </Button>
-        <Button size="large" variant="primaryWhite" mr={1}>
-          primaryWhite
-        </Button>
-        <Button size="large" variant="secondaryGray" mr={1}>
-          secondaryGray
-        </Button>
-        <Button size="large" variant="secondaryOutline" mr={1}>
-          secondaryOutline
-        </Button>
-        <Button size="large" variant="noOutline">
-          noOutline
-        </Button>
-      </>
-    )
-  })
-  // END TODO
   .add("sizes", () => {
     return (
       <>
@@ -188,17 +140,10 @@ storiesOf("Components/Button", module)
       </Box>
     )
   })
-// TODO:
-// .add('as="a"', () => {
-//   return (
-//     <Box m={2} p={2} border="1px solid" borderColor="black10">
-//       <Button
-//         as="a"
-//         href="https://google.com"
-//         target="_blank"
-//       >
-//         an anchor tag
-//       </Button>
-//     </Box>
-//   )
-// })
+  .add("loading", () => {
+    return (
+      <Box m={2} p={2} border="1px solid" borderColor="black10">
+        <LoadingDemo />
+      </Box>
+    )
+  })

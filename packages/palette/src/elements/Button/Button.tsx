@@ -87,9 +87,9 @@ const Container = styled.button<ContainerProps>`
     loading
       ? css`
           transition: none;
-          background-color: transparent;
-          color: transparent;
-          border: 0;
+          background-color: transparent !important;
+          color: transparent !important;
+          border-color: transparent !important;
           cursor: auto;
         `
       : css`
