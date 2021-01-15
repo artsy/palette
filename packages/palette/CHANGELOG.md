@@ -1,3 +1,16 @@
+# v13.29.1 (Fri Jan 15 2021)
+
+#### 🐛  Bug Fix
+
+- fix(button): ensure loading styles take precedence over hover [#842](https://github.com/artsy/palette/pull/842) ([@dzucconi](https://github.com/dzucconi))
+- fix(button): ensure loading styles take precedence over hover ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.29.0 (Fri Jan 15 2021)
 
 #### 🚀  Enhancement
