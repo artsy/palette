@@ -18,31 +18,30 @@ describe("Button", () => {
       variant: "primaryBlack",
     })
     expect(button.find("Spinner").length).toBe(0)
-    expect((button.find("ButtonBase").props() as any).variant).toBe(
-      "primaryBlack"
-    )
+    expect((button.find("Button").props() as any).variant).toBe("primaryBlack")
 
     button = getWrapper({
       variant: "primaryWhite",
     })
-    expect((button.find("ButtonBase").props() as any).variant).toBe(
-      "primaryWhite"
-    )
+    expect((button.find("Button").props() as any).variant).toBe("primaryWhite")
 
     button = getWrapper({
       size: "small",
     })
-    expect((button.find("ButtonBase").props() as any).size).toBe("2")
+    expect((button.find("Button").props() as any).size).toBe("small")
+    expect((button.find("Sans").props() as any).size).toBe("2")
 
     button = getWrapper({
       size: "medium",
     })
-    expect((button.find("ButtonBase").props() as any).size).toBe("3t")
+    expect((button.find("Button").props() as any).size).toBe("medium")
+    expect((button.find("Sans").props() as any).size).toBe("3t")
 
     button = getWrapper({
       size: "large",
     })
-    expect((button.find("ButtonBase").props() as any).size).toBe("3t")
+    expect((button.find("Button").props() as any).size).toBe("large")
+    expect((button.find("Sans").props() as any).size).toBe("3t")
   })
 
   it("shows spinner if loading is true", () => {
@@ -52,7 +51,6 @@ describe("Button", () => {
       </Theme>
     )
     expect(wrapper.find("Spinner").length).toBe(1)
-    expect(wrapper.html()).toContain('class="loading')
   })
 
   it("does not invoke the onClick callback if loading is true", () => {
@@ -89,7 +87,11 @@ describe("Button", () => {
       border: 1px solid red;
     `
 
-    const wrapper = mount(<StyledButton>styled</StyledButton>)
+    const wrapper = mount(
+      <Theme>
+        <StyledButton>styled</StyledButton>
+      </Theme>
+    )
 
     expect(wrapper.html()).toContain("Buttontest__StyledButton")
   })
