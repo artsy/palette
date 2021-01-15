@@ -1,3 +1,16 @@
+# (Fri Jan 15 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.29.0`
+  - fix(button): button updates [#841](https://github.com/artsy/palette/pull/841) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Jan 08 2021)
 
 #### 🚀  Enhancement

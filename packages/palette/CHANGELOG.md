@@ -1,3 +1,24 @@
+# v13.29.0 (Fri Jan 15 2021)
+
+#### 🚀  Enhancement
+
+- fix(button): button updates [#841](https://github.com/artsy/palette/pull/841) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- refactor(button): cleans up ([@dzucconi](https://github.com/dzucconi))
+- refactor(button): converts color themes to use styled-system variants ([@dzucconi](https://github.com/dzucconi))
+- chore(button): removes unused code ([@dzucconi](https://github.com/dzucconi))
+- chore(button): clean up stories ([@dzucconi](https://github.com/dzucconi))
+- refactor(button): removes longesttext ([@dzucconi](https://github.com/dzucconi))
+- fix(button): types and clean up ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.28.0 (Fri Jan 08 2021)
 
 #### 🚀  Enhancement
