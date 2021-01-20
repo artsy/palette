@@ -1,3 +1,113 @@
+# (Fri Jan 15 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.29.1`
+  - fix(button): ensure loading styles take precedence over hover [#842](https://github.com/artsy/palette/pull/842) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Jan 15 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.29.0`
+  - fix(button): button updates [#841](https://github.com/artsy/palette/pull/841) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Jan 08 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.28.0`
+  - feat(pagination): includes page number on next callback [#840](https://github.com/artsy/palette/pull/840) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Jan 07 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.27.2`
+  - fix: Populate pagination next/prev hrefs correctly [#839](https://github.com/artsy/palette/pull/839) ([@jonallured](https://github.com/jonallured))
+
+#### 🏠  Internal
+
+- `@artsy/palette@13.27.2`
+  - Pin dependencies [#826](https://github.com/artsy/palette/pull/826) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette@13.27.2`
+  - Update babel [#837](https://github.com/artsy/palette/pull/837) ([@renovate-bot](https://github.com/renovate-bot) [@zephraph](https://github.com/zephraph) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 4
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
+# (Wed Jan 06 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.27.1`
+  - Fix failing storybook tests by guarding getHref call [#838](https://github.com/artsy/palette/pull/838) ([@zephraph](https://github.com/zephraph))
+
+#### 🏠  Internal
+
+- Update yarn orb from 4.0.2 to v5 [#811](https://github.com/artsy/palette/pull/811) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette@13.27.1`
+  - Update dep typescript from 4.1.2 to v4.1.3 [#828](https://github.com/artsy/palette/pull/828) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
+# (Tue Jan 05 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.27.0`
+  - refactor: Use links for pagination [#824](https://github.com/artsy/palette/pull/824) ([@jonallured](https://github.com/jonallured) [@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Jon Allured ([@jonallured](https://github.com/jonallured))
+
+---
+
+# (Tue Jan 05 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.26.4`
+  - Add global styles for lists [#834](https://github.com/artsy/palette/pull/834) ([@eessex](https://github.com/eessex))
+
+#### Authors: 1
+
+- Eve Essex ([@eessex](https://github.com/eessex))
+
+---
+
 # (Thu Dec 17 2020)
 
 #### 🐛  Bug Fix

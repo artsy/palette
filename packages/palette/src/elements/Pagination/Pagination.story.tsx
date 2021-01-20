@@ -20,8 +20,14 @@ storiesOf("Components/Pagination", module)
           ],
           previous: { page: 5, cursor: "Y3Vyc29yMw==", isCurrent: false },
         }}
-        onClick={action("onClick")}
-        onNext={action("onNext")}
+        onClick={(cursor, page, event) => {
+          event.preventDefault()
+          action("onClick")(cursor, page, event)
+        }}
+        onNext={(event, ...rest) => {
+          event.preventDefault()
+          action("onNext")(event, ...rest)
+        }}
       />
     )
   })
@@ -40,8 +46,14 @@ storiesOf("Components/Pagination", module)
           ],
           previous: { page: 5, cursor: "Y3Vyc29yMw==", isCurrent: false },
         }}
-        onClick={action("onClick")}
-        onNext={action("onNext")}
+        onClick={(cursor, page, event) => {
+          event.preventDefault()
+          action("onClick")(cursor, page, event)
+        }}
+        onNext={(event, ...rest) => {
+          event.preventDefault()
+          action("onNext")(event, ...rest)
+        }}
       />
     )
   })

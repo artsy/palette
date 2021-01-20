@@ -1,3 +1,30 @@
+# v1.2.2 (Thu Jan 07 2021)
+
+#### 🏠  Internal
+
+- Update babel [#837](https://github.com/artsy/palette/pull/837) ([@renovate-bot](https://github.com/renovate-bot) [@zephraph](https://github.com/zephraph) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
+# v1.2.1 (Wed Jan 06 2021)
+
+#### 🏠  Internal
+
+- Update yarn orb from 4.0.2 to v5 [#811](https://github.com/artsy/palette/pull/811) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v1.2.0 (Mon Nov 30 2020)
 
 #### 🚀  Enhancement

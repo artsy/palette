@@ -3,6 +3,16 @@ import React from "react"
 import { Theme } from "../../../Theme"
 import { LargePagination } from "../LargePagination"
 
+const mockGetHref = page => {
+  const baseUrl = "http://www.example.com"
+
+  if (page > 1) {
+    return `${baseUrl}?page=${page}`
+  } else {
+    return baseUrl
+  }
+}
+
 describe("LargePagination", () => {
   const first = { page: 1, cursor: "Y3Vyc29yMg==", isCurrent: false }
   const last = { page: 20, cursor: "Y3Vyc29yMw==", isCurrent: false }
@@ -27,12 +37,13 @@ describe("LargePagination", () => {
     onClick: onClickMock,
     onNext: onNextMock,
     pageCursors,
+    getHref: x => x,
   }
 
-  const mountWrapper = () => {
+  const mountWrapper = (passedProps = {}) => {
     const wrapper = mount(
       <Theme>
-        <LargePagination {...props} />
+        <LargePagination {...props} {...passedProps} />
       </Theme>
     )
 
@@ -42,6 +53,68 @@ describe("LargePagination", () => {
   afterEach(() => {
     jest.clearAllMocks()
     props.pageCursors = pageCursors
+  })
+
+  it("computes the href for links", () => {
+    const wrapper = mountWrapper({ getHref: () => "http://foo.com" })
+    const html = wrapper.html()
+    expect(html).toContain("http://foo.com")
+  })
+
+  describe("button hrefs", () => {
+    it("on page 1", () => {
+      const wrapper = mountWrapper({
+        getHref: mockGetHref,
+        hasNextPage: true,
+        pageCursors: {
+          ...pageCursors,
+          previous: undefined,
+        },
+      })
+
+      const prevButton = wrapper.find("PrevButton")
+      expect(prevButton.find("Link").prop("href")).toEqual("")
+
+      const nextButton = wrapper.find("NextButton")
+      expect(nextButton.find("Link").prop("href")).toMatch("page=2")
+    })
+
+    it("on page 2", () => {
+      const wrapper = mountWrapper({
+        getHref: mockGetHref,
+        hasNextPage: true,
+        pageCursors: {
+          ...pageCursors,
+          previous: { page: 1, cursor: "first==", isCurrent: false },
+        },
+      })
+
+      const prevButton = wrapper.find("PrevButton")
+      expect(prevButton.find("Link").prop("href")).toEqual(
+        "http://www.example.com"
+      )
+
+      const nextButton = wrapper.find("NextButton")
+      expect(nextButton.find("Link").prop("href")).toMatch("page=3")
+    })
+
+    it("on page 3", () => {
+      const wrapper = mountWrapper({
+        getHref: mockGetHref,
+        hasNextPage: false,
+        pageCursors: {
+          ...pageCursors,
+          previous: { page: 2, cursor: "second==", isCurrent: false },
+        },
+      })
+
+      const prevButton = wrapper.find("PrevButton")
+      expect(prevButton.find("Link").prop("href")).toMatch("page=2")
+
+      const nextButton = wrapper.find("NextButton")
+      expect(nextButton.prop("enabled")).toEqual(false)
+      expect(nextButton.find("Link").prop("href")).toEqual("")
+    })
   })
 
   describe("page numbers", () => {
@@ -59,12 +132,10 @@ describe("LargePagination", () => {
         pages.forEach(page => {
           expect(html).toContain(`>${page}<`)
         })
-
         wrapper
-          .find("Page")
+          .find("Link")
           .first()
           .simulate("click")
-
         expect(onClickMock).toHaveBeenCalled()
       })
     })
@@ -130,14 +201,19 @@ describe("LargePagination", () => {
 
       it("renders the previous button and calls the onClick function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("PrevButton a").simulate("click")
+        wrapper.find("PrevButton").simulate("click")
         expect(onClickMock).toHaveBeenCalled()
+        expect(onClickMock).toHaveBeenCalledWith(
+          "Y3Vyc29yMw==",
+          5,
+          expect.anything()
+        )
       })
 
       it("renders the next button as disabled and calls the onNext function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("NextButton a").simulate("click")
-        expect(onNextMock).toHaveBeenCalled()
+        wrapper.find("NextButton").simulate("click")
+        expect(onNextMock).toHaveBeenCalledWith(expect.anything(), 7)
       })
     })
 
@@ -149,14 +225,14 @@ describe("LargePagination", () => {
 
       it("renders the previous button as disabled and does not call the onClick function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("PrevButton a").simulate("click")
+        wrapper.find("PrevButton").simulate("click")
         expect(onClickMock).not.toHaveBeenCalled()
       })
 
       it("renders the next button and calls the onNext function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("NextButton a").simulate("click")
-        expect(onNextMock).toHaveBeenCalled()
+        wrapper.find("NextButton").simulate("click")
+        expect(onNextMock).toHaveBeenCalledWith(expect.anything(), 2)
       })
     })
 
@@ -168,14 +244,18 @@ describe("LargePagination", () => {
 
       it("renders the previous button and calls the onClick function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("PrevButton a").simulate("click")
-        expect(onClickMock).toHaveBeenCalled()
+        wrapper.find("PrevButton").simulate("click")
+        expect(onClickMock).toHaveBeenCalledWith(
+          "Y3Vyc29yMw==",
+          5,
+          expect.anything()
+        )
       })
 
       it("renders the next button and calls the onNext function when clicked", () => {
         const wrapper = mountWrapper()
-        wrapper.find("NextButton a").simulate("click")
-        expect(onNextMock).toHaveBeenCalled()
+        wrapper.find("NextButton").simulate("click")
+        expect(onNextMock).toHaveBeenCalledWith(expect.anything(), 7)
       })
     })
   })
