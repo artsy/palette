@@ -1,3 +1,16 @@
+# v1.3.1 (Thu Jan 21 2021)
+
+#### 🐛  Bug Fix
+
+- Ensure the looser color type definition gets exported [#844](https://github.com/artsy/palette/pull/844) ([@zephraph](https://github.com/zephraph))
+- Ensure the looser color type definition gets exported ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v1.3.0 (Thu Jan 21 2021)
 
 #### 🚀  Enhancement

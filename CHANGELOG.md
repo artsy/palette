@@ -1,5 +1,18 @@
 # (Thu Jan 21 2021)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette-tokens@1.3.1`
+  - Ensure the looser color type definition gets exported [#844](https://github.com/artsy/palette/pull/844) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
+# (Thu Jan 21 2021)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette-tokens@1.3.0`
