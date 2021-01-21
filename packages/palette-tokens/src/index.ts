@@ -404,3 +404,5 @@ export type SerifSize =
 export type DisplaySize =
   | keyof TypeSizes["display"]
   | Array<keyof TypeSizes["display"]>;
+
+export { color, space } from "./helpers";
