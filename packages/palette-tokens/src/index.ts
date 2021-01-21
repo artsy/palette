@@ -387,6 +387,8 @@ type ThemeProps = typeof tokens;
 export type SpacingUnit = keyof ThemeProps["space"];
 /** All available color keys */
 export type Color = keyof ThemeProps["colors"];
+/** All available color values */
+export type ColorValue = ThemeProps["colors"][Color];
 /** All available width breakpoint */
 export type Breakpoint = keyof typeof breakpoints;
 
