@@ -14,6 +14,7 @@ export const space = (spaceKey: SpacingUnit): number => {
  */
 export function color(colorKey: undefined): undefined;
 export function color(colorKey: Color): ColorValue;
+export function color(colorKey?: Color): ColorValue | undefined;
 export function color(colorKey?: Color): ColorValue | undefined {
   if (colorKey === undefined) {
     return undefined;
