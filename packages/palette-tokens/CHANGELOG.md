@@ -1,3 +1,20 @@
+# v1.3.0 (Thu Jan 21 2021)
+
+#### 🚀  Enhancement
+
+- Centralize some of the minor helpers w/ type updates [#843](https://github.com/artsy/palette/pull/843) ([@zephraph](https://github.com/zephraph))
+
+#### 🐛  Bug Fix
+
+- Export helpers from tokens package ([@zephraph](https://github.com/zephraph))
+- Centralize some of the minor helpers w/ type updates ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v1.2.2 (Thu Jan 07 2021)
 
 #### 🏠  Internal

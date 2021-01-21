@@ -1,3 +1,21 @@
+# (Thu Jan 21 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette-tokens@1.3.0`
+  - Centralize some of the minor helpers w/ type updates [#843](https://github.com/artsy/palette/pull/843) ([@zephraph](https://github.com/zephraph))
+
+#### ⚠️  Pushed to `master`
+
+- `@artsy/palette-tokens@1.3.0`
+  - Export helpers from tokens package ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # (Fri Jan 15 2021)
 
 #### 🐛  Bug Fix
