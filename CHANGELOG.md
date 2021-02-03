@@ -1,3 +1,16 @@
+# (Wed Feb 03 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.30.0`
+  - feat: Add chevronSize prop to Toggle component [#846](https://github.com/artsy/palette/pull/846) ([@annacarey](https://github.com/annacarey))
+
+#### Authors: 1
+
+- Anna Carey ([@annacarey](https://github.com/annacarey))
+
+---
+
 # (Thu Jan 21 2021)
 
 #### 🐛  Bug Fix
