@@ -8,6 +8,7 @@ import { Separator } from "../Separator"
 import { Sans } from "../Typography"
 
 export interface ToggleProps {
+  chevronSize?: number
   disabled?: boolean
   expanded?: boolean
   label?: string
@@ -30,6 +31,7 @@ export interface ToggleState {
 export class Toggle extends React.Component<ToggleProps> {
   static defaultProps = {
     textSize: "2",
+    chevronSize: 12
   }
 
   state = {
@@ -55,7 +57,7 @@ export class Toggle extends React.Component<ToggleProps> {
 
   render() {
     const { disabled, expanded } = this.state
-    const { children, label, textSize, renderSecondaryAction } = this.props
+    const { children, chevronSize, label, textSize, renderSecondaryAction } = this.props
 
     return (
       <Flex width="100%" flexDirection="column" pb={2}>
@@ -76,8 +78,8 @@ export class Toggle extends React.Component<ToggleProps> {
               <ChevronIcon
                 style={{ visibility: disabled ? "hidden" : "visible" }}
                 direction={expanded ? "up" : "down"}
-                width={12}
-                height={12}
+                width={chevronSize}
+                height={chevronSize}
                 ml={1}
               />
             </Flex>

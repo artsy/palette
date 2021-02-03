@@ -1,5 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
+import { ChevronIcon } from "../../../svgs"
 import { Toggle } from "../Toggle"
 
 describe("Toggle", () => {
@@ -34,5 +35,16 @@ describe("Toggle", () => {
     expect(wrapper.html()).toContain("tab content")
     header.simulate("click")
     expect(wrapper.html()).toContain("tab content")
+  })
+
+  it("defaults chevron size to 12px", () => {
+    const wrapper = mount(
+      <Toggle>
+        tab content
+      </Toggle>
+    )
+    const chevron = wrapper.find(ChevronIcon)
+    expect(chevron.props().width).toEqual(12)
+    expect(chevron.props().height).toEqual(12)
   })
 })
