@@ -1,3 +1,16 @@
+# (Thu Feb 04 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette-tokens@1.4.0`
+  - Use full 6 digits for hex colors [#847](https://github.com/artsy/palette/pull/847) ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # (Wed Feb 03 2021)
 
 #### 🚀  Enhancement

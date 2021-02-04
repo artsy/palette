@@ -1,3 +1,19 @@
+# v1.4.0 (Thu Feb 04 2021)
+
+#### 🚀  Enhancement
+
+- Use full 6 digits for hex colors [#847](https://github.com/artsy/palette/pull/847) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- Use full 6 digits for hex colors ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # v1.3.1 (Thu Jan 21 2021)
 
 #### 🐛  Bug Fix
