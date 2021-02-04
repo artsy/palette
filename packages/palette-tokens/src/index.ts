@@ -74,11 +74,11 @@ const tokens = {
    */
   colors: {
     /** Full black, primary brand color  */
-    black100: "#000",
+    black100: "#000000",
     /** 80% black  */
-    black80: "#333",
+    black80: "#333333",
     /** 60% black, bold copy, lower in hierarchy  */
-    black60: "#666",
+    black60: "#666666",
     /** 30 black (dark grey), placeholder text only  */
     black30: "#C2C2C2",
     /** 10 black (grey), borders, divider lines, and grey button only */
@@ -114,7 +114,7 @@ const tokens = {
     /** Replaced by copper10; hex updated here for consistency but copper10 should be used instead! */
     yellow10: "#F6EFE5",
     /** Full white */
-    white100: "#FFF",
+    white100: "#FFFFFF",
   },
 
   fonts: TEXT_FONTS,
