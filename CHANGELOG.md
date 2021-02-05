@@ -1,3 +1,16 @@
+# (Fri Feb 05 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette-tokens@1.5.0`
+  - lowercase for better readability [#848](https://github.com/artsy/palette/pull/848) ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # (Thu Feb 04 2021)
 
 #### 🚀  Enhancement

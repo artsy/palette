@@ -1,3 +1,19 @@
+# v1.5.0 (Fri Feb 05 2021)
+
+#### 🚀  Enhancement
+
+- lowercase for better readability [#848](https://github.com/artsy/palette/pull/848) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- lowercase for better readability ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # v1.4.0 (Thu Feb 04 2021)
 
 #### 🚀  Enhancement
