@@ -1,9 +1,12 @@
-import { storiesOf } from "@storybook/react"
 import React from "react"
 import { BorderBox } from "../BorderBox"
 import { Col, Grid, Row } from "./Grid"
 
-storiesOf("Components/Grid", module).add("Basic", () => {
+export default {
+  title: "Components/Grid",
+}
+
+export const Basic = () => {
   return (
     <Grid
       border={{
@@ -26,4 +29,4 @@ storiesOf("Components/Grid", module).add("Basic", () => {
       </Row>
     </Grid>
   )
-})
+}

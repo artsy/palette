@@ -1,12 +1,18 @@
-import { storiesOf } from "@storybook/react"
 import React from "react"
 import { Spinner } from "./Spinner"
 
-storiesOf("Components/Spinner", module)
-  .add("Default Spinner", () => {
-    return <Spinner />
-  })
+export default {
+  title: "Components/Spinner",
+}
 
-  .add("Spinner with delayed show", () => {
-    return <Spinner delay={1000} />
-  })
+export const DefaultSpinner = () => {
+  return <Spinner />
+}
+
+export const SpinnerWithDelayedShow = () => {
+  return <Spinner delay={1000} />
+}
+
+SpinnerWithDelayedShow.story = {
+  name: "Spinner with delayed show",
+}

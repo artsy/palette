@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import React from "react"
 import { Box } from "../elements/Box/Box"
 import { Flex } from "../elements/Flex/Flex"
@@ -6,14 +5,18 @@ import { Separator } from "../elements/Separator/Separator"
 import { Sans } from "../elements/Typography"
 import * as AllIcons from "./index"
 
-storiesOf("Icons", module).add("all icons", () => {
+export default {
+  title: "Icons",
+}
+
+export const _AllIcons = () => {
   return (
     <Flex flexWrap="wrap" m={2}>
       {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
         const blacklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
         if (
-          !(typeof IconComponent === 'function') ||
-          blacklist.some(icon => icon === iconName)
+          !(typeof IconComponent === "function") ||
+          blacklist.some((icon) => icon === iconName)
         ) {
           return null
         }
@@ -30,4 +33,8 @@ storiesOf("Icons", module).add("all icons", () => {
       })}
     </Flex>
   )
-})
+}
+
+_AllIcons.story = {
+  name: "all icons",
+}
