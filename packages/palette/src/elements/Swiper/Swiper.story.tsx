@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { Box } from "../Box"
@@ -11,7 +10,7 @@ const LOREM =
   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis dicta sunt nihil perspiciatis aperiam asperiores, earum facere repellendus in veniam, mollitia, ducimus delectus perferendis beatae facilis molestiae et ad quaerat!"
 
 const Demo = ({
-  widths = [...new Array(25)].map(_ => 300),
+  widths = [...new Array(25)].map((_) => 300),
   heights = [400],
   ...rest
 }: {
@@ -64,7 +63,7 @@ const ProgressBar = ({ progress = 0 }: { progress: number }) => {
 }
 
 const ProgressBarDemo = () => {
-  const widths = [...new Array(10)].map(_ => 300)
+  const widths = [...new Array(10)].map((_) => 300)
   const [index, setIndex] = useState(0)
   const progress = (index * 100) / (widths.length - 1)
 
@@ -77,7 +76,7 @@ const ProgressBarDemo = () => {
 }
 
 const ProgressDotsDemo = () => {
-  const widths = [...new Array(10)].map(_ => 300)
+  const widths = [...new Array(10)].map((_) => 300)
   const [index, setIndex] = useState(0)
 
   return (
@@ -93,7 +92,7 @@ const Dynamic = () => {
   const [widths, setWidths] = useState([300])
   useEffect(() => {
     const interval = setInterval(() => {
-      setWidths(prevWidths => [...prevWidths, 300])
+      setWidths((prevWidths) => [...prevWidths, 300])
     }, 500)
     return () => clearInterval(interval)
   }, [])
@@ -121,85 +120,136 @@ const Navigation = () => {
   )
 }
 
-storiesOf("Components/Swiper", module)
-  .add("Simple", () => {
-    return <Demo />
-  })
-  .add("With horizontal margins", () => {
-    return (
-      <>
-        <Text>Should be flush with horizontal edges</Text>
-        <Demo mx={[-2, -4]} />
-      </>
-    )
-  })
-  .add("Simple with left-edge snapping", () => {
-    return <Demo snap="start" />
-  })
-  .add("Progress bar example", () => {
-    return <ProgressBarDemo />
-  })
-  .add("Progress dots example", () => {
-    return <ProgressDotsDemo />
-  })
-  .add("Custom rail and cells", () => {
-    return (
-      <Demo
-        snap="start"
-        widths={["100%", "100%", "100%", "100%"]}
-        Cell={React.forwardRef((props, ref) => {
-          return (
-            <SwiperCell
-              {...props}
-              ref={ref as any}
-              display="inline-flex"
-              width="100%"
-              pr={0}
-            />
-          )
-        })}
-        Rail={props => {
-          return <SwiperRail {...props} display="block" />
-        }}
-      />
-    )
-  })
-  .add("Dynamic items", () => {
-    return <Dynamic />
-  })
-  .add("Swiper with text", () => {
-    return (
-      <Box mx={[2, 4]} my={2}>
-        <Swiper>
-          <Text bg="black10" p={1} width={300}>
-            {LOREM}
-          </Text>
+export default { title: "Components/Swiper" }
 
-          <Text bg="black10" p={1} width={300}>
-            {LOREM}
-          </Text>
+export const Simple = () => {
+  return <Demo />
+}
 
-          <Text bg="black10" p={1} width={300}>
-            {LOREM}
-          </Text>
+export const WithHorizontalMargins = () => {
+  return (
+    <>
+      <Text>Should be flush with horizontal edges</Text>
+      <Demo mx={[-2, -4]} />
+    </>
+  )
+}
 
-          <Text bg="black10" p={1} width={300}>
-            {LOREM}
-          </Text>
+WithHorizontalMargins.story = {
+  name: "With horizontal margins",
+}
 
-          <Text bg="black10" p={1} width={300}>
-            {LOREM}
-          </Text>
-        </Swiper>
-      </Box>
-    )
-  })
-  .add("initialIndex on mount", () => {
-    return <Demo initialIndex={3} />
-  })
-  .add("Navigate via props", () => {
-    return <Navigation />
-  })
-  .add("Overwriting default margins", () => {
-    return <Demo mt={6} ml={6} />
-  })
+export const SimpleWithLeftEdgeSnapping = () => {
+  return <Demo snap="start" />
+}
+
+SimpleWithLeftEdgeSnapping.story = {
+  name: "Simple with left-edge snapping",
+}
+
+export const ProgressBarExample = () => {
+  return <ProgressBarDemo />
+}
+
+ProgressBarExample.story = {
+  name: "Progress bar example",
+}
+
+export const ProgressDotsExample = () => {
+  return <ProgressDotsDemo />
+}
+
+ProgressDotsExample.story = {
+  name: "Progress dots example",
+}
+
+export const CustomRailAndCells = () => {
+  return (
+    <Demo
+      snap="start"
+      widths={["100%", "100%", "100%", "100%"]}
+      Cell={React.forwardRef((props, ref) => {
+        return (
+          <SwiperCell
+            {...props}
+            ref={ref as any}
+            display="inline-flex"
+            width="100%"
+            pr={0}
+          />
+        )
+      })}
+      Rail={(props) => {
+        return <SwiperRail {...props} display="block" />
+      }}
+    />
+  )
+}
+
+CustomRailAndCells.story = {
+  name: "Custom rail and cells",
+}
+
+export const DynamicItems = () => {
+  return <Dynamic />
+}
+
+DynamicItems.story = {
+  name: "Dynamic items",
+}
+
+export const SwiperWithText = () => {
+  return (
+    <Box mx={[2, 4]} my={2}>
+      <Swiper>
+        <Text bg="black10" p={1} width={300}>
+          {LOREM}
+        </Text>
+
+        <Text bg="black10" p={1} width={300}>
+          {LOREM}
+        </Text>
+
+        <Text bg="black10" p={1} width={300}>
+          {LOREM}
+        </Text>
+
+        <Text bg="black10" p={1} width={300}>
+          {LOREM}
+        </Text>
+
+        <Text bg="black10" p={1} width={300}>
+          {LOREM}
+        </Text>
+      </Swiper>
+    </Box>
+  )
+}
+
+SwiperWithText.story = {
+  name: "Swiper with text",
+}
+
+export const InitialIndexOnMount = () => {
+  return <Demo initialIndex={3} />
+}
+
+InitialIndexOnMount.story = {
+  name: "initialIndex on mount",
+}
+
+export const NavigateViaProps = () => {
+  return <Navigation />
+}
+
+NavigateViaProps.story = {
+  name: "Navigate via props",
+}
+
+export const OverwritingDefaultMargins = () => {
+  return <Demo mt={6} ml={6} />
+}
+
+OverwritingDefaultMargins.story = {
+  name: "Overwriting default margins",
+}

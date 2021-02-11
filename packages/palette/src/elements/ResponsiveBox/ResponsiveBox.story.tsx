@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import React, { useEffect, useRef, useState } from "react"
 import { Box } from "../Box"
 import { Text } from "../Text"
@@ -9,7 +8,7 @@ import {
   ResponsiveBoxProps,
 } from "./ResponsiveBox"
 
-const Measure: React.FC<ResponsiveBoxProps> = props => {
+const Measure: React.FC<ResponsiveBoxProps> = (props) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   const ref = useRef<null | HTMLDivElement>(null)
@@ -65,44 +64,50 @@ const EXAMPLE_MAXIMUMS: ResponsiveBoxMaxDimensions[] = [
   { maxHeight: 1024, maxWidth: 1024 },
 ]
 
-storiesOf("Components/ResponsiveBox", module)
-  .add("Basic", () => {
-    return (
-      <>
-        {EXAMPLE_ASPECTS.map((aspect, i) =>
-          EXAMPLE_MAXIMUMS.map((maximum, j) => {
-            return (
-              <ResponsiveBox
-                key={[i, j].join(".")}
-                {...aspect}
-                {...maximum}
-                bg="purple100"
-                my={2}
-              >
-                <Measure {...aspect} {...maximum} />
-              </ResponsiveBox>
-            )
-          })
-        )}
-      </>
-    )
-  })
-  .add("maxWidth: 100%", () => {
-    return (
-      <>
-        {EXAMPLE_ASPECTS.map((aspect, i) => {
+export default { title: "Components/ResponsiveBox" }
+
+export const Basic = () => {
+  return (
+    <>
+      {EXAMPLE_ASPECTS.map((aspect, i) =>
+        EXAMPLE_MAXIMUMS.map((maximum, j) => {
           return (
             <ResponsiveBox
-              key={i}
+              key={[i, j].join(".")}
               {...aspect}
-              maxWidth="100%"
+              {...maximum}
               bg="purple100"
               my={2}
             >
-              <Measure {...aspect} maxWidth="100%" />
+              <Measure {...aspect} {...maximum} />
             </ResponsiveBox>
           )
-        })}
-      </>
-    )
-  })
+        })
+      )}
+    </>
+  )
+}
+
+export const MaxWidth100 = () => {
+  return (
+    <>
+      {EXAMPLE_ASPECTS.map((aspect, i) => {
+        return (
+          <ResponsiveBox
+            key={i}
+            {...aspect}
+            maxWidth="100%"
+            bg="purple100"
+            my={2}
+          >
+            <Measure {...aspect} maxWidth="100%" />
+          </ResponsiveBox>
+        )
+      })}
+    </>
+  )
+}
+
+MaxWidth100.story = {
+  name: "maxWidth: 100%",
+}

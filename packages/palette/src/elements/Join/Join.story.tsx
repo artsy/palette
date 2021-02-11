@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import React, { Component } from "react"
 import { Box } from "../Box/Box"
 import { Separator } from "../Separator/Separator"
@@ -28,37 +27,52 @@ class NonBlankComponent extends Component {
   }
 }
 
-storiesOf("Components/Join", module)
-  .add("with multiple components", () => {
-    return (
-      <Join separator={<Separator m={1} />}>
-        <Box>Fist in the list</Box>
-        <Box>Second in the list</Box>
-      </Join>
-    )
-  })
-  .add("with one component", () => {
-    return (
-      <Join separator={<Separator m={1} />}>
-        <Box>Only one component here</Box>
-      </Join>
-    )
-  })
-  .add("with some of the children empty", () => {
-    return (
-      <Join separator={<Separator m={1} />}>
-        <Box>Fist in the list</Box>
-        <BlankFunction />
-        <NonBlankFunction />
-        <BlankSFC />
-        <NonBlankSFC />
-        <BlankComponent />
-        <NonBlankComponent />
-        <Box m="2" />
-        <div>Some div with the content</div>
-        <div />
-        <Box>Another box with content</Box>
-        <div />
-      </Join>
-    )
-  })
+export default { title: "Components/Join" }
+
+export const WithMultipleComponents = () => {
+  return (
+    <Join separator={<Separator m={1} />}>
+      <Box>Fist in the list</Box>
+      <Box>Second in the list</Box>
+    </Join>
+  )
+}
+
+WithMultipleComponents.story = {
+  name: "with multiple components",
+}
+
+export const WithOneComponent = () => {
+  return (
+    <Join separator={<Separator m={1} />}>
+      <Box>Only one component here</Box>
+    </Join>
+  )
+}
+
+WithOneComponent.story = {
+  name: "with one component",
+}
+
+export const WithSomeOfTheChildrenEmpty = () => {
+  return (
+    <Join separator={<Separator m={1} />}>
+      <Box>Fist in the list</Box>
+      <BlankFunction />
+      <NonBlankFunction />
+      <BlankSFC />
+      <NonBlankSFC />
+      <BlankComponent />
+      <NonBlankComponent />
+      <Box m="2" />
+      <div>Some div with the content</div>
+      <div />
+      <Box>Another box with content</Box>
+      <div />
+    </Join>
+  )
+}
+
+WithSomeOfTheChildrenEmpty.story = {
+  name: "with some of the children empty",
+}
