@@ -1,3 +1,25 @@
+# v13.31.0 (Thu Feb 11 2021)
+
+#### 🚀  Enhancement
+
+- Adds Money Icon [#851](https://github.com/artsy/palette/pull/851) ([@jo-rs](https://github.com/jo-rs))
+
+#### 🐛  Bug Fix
+
+- Adds Money Icon ([@jo-rs](https://github.com/jo-rs))
+
+#### 🏠  Internal
+
+- Update dep typescript from 4.1.4 to v4.1.5 [#850](https://github.com/artsy/palette/pull/850) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dep typescript from 4.1.3 to v4.1.4 [#849](https://github.com/artsy/palette/pull/849) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Joel Rosenblatt ([@jo-rs](https://github.com/jo-rs))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v13.30.0 (Wed Feb 03 2021)
 
 #### 🚀  Enhancement
