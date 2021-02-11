@@ -6,15 +6,6 @@ import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { breakpoints } from "../src/Theme"
 import "storybook-chromatic"
 
-// Automatically import all files ending in *.story.tsx.
-const req = require.context("../src", true, /\.story\.tsx$/)
-function loadStories() {
-  req
-    .keys()
-    .sort()
-    .forEach(filename => req(filename))
-}
-
 addParameters({
   options: {
     inline: true,
@@ -25,7 +16,7 @@ addParameters({
 
 const { GlobalStyles } = injectGlobalStyles()
 
-addDecorator(storyFn => (
+addDecorator((storyFn) => (
   <Theme>
     <>
       <GlobalStyles />
@@ -58,4 +49,4 @@ addParameters({
   },
 })
 
-configure(loadStories, module)
+configure(require.context("../src", true, /\.story\.tsx$/), module)
