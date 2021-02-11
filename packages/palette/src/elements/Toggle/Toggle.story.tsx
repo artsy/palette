@@ -18,13 +18,6 @@ const SecondaryAction = () => {
   )
 }
 
-const labelComponent = (
-  <>
-    <Text variant="mediumText">Heading</Text>
-    <Text variant="text">Subheading</Text>
-  </>
-)
-
 storiesOf("Components/Toggle", module)
   .add("Toggle", () => {
     return (
@@ -71,7 +64,12 @@ storiesOf("Components/Toggle", module)
     return (
       <Box width="350px">
         <Toggle
-          label={labelComponent}
+          label={
+            <>
+              <Text variant="mediumText">Heading</Text>
+              <Text variant="text">Subheading</Text>
+            </>
+          }
           expanded
         >
           <h1>Hello world</h1>
