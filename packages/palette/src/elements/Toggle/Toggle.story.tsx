@@ -2,12 +2,13 @@ import { storiesOf } from "@storybook/react"
 import React from "react"
 import { Box } from "../Box"
 import { Link } from "../Link"
+import { Text } from "../Text"
 import { Toggle } from "./Toggle"
 
 const SecondaryAction = () => {
   return (
     <Link
-      onClick={e => {
+      onClick={(e) => {
         alert("hello world!")
         e.stopPropagation()
       }}
@@ -16,6 +17,13 @@ const SecondaryAction = () => {
     </Link>
   )
 }
+
+const labelComponent = (
+  <>
+    <Text variant="mediumText">Heading</Text>
+    <Text variant="text">Subheading</Text>
+  </>
+)
 
 storiesOf("Components/Toggle", module)
   .add("Toggle", () => {
@@ -53,6 +61,18 @@ storiesOf("Components/Toggle", module)
           expanded
           disabled
           renderSecondaryAction={SecondaryAction}
+        >
+          <h1>Hello world</h1>
+        </Toggle>
+      </Box>
+    )
+  })
+  .add("Toggle with a component as the label", () => {
+    return (
+      <Box width="350px">
+        <Toggle
+          label={labelComponent}
+          expanded
         >
           <h1>Hello world</h1>
         </Toggle>
