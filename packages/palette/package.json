@@ -42,10 +42,6 @@
     "react-dom": "^16.2.0",
     "styled-components": "^4"
   },
-  "resolutions": {
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
-  },
   "devDependencies": {
     "@artsy/auto-config": "1.0.2",
     "@babel/cli": "7.12.16",
