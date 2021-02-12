@@ -1,3 +1,20 @@
+# v13.32.0 (Fri Feb 12 2021)
+
+#### 🚀  Enhancement
+
+- feat: Add ability to pass in a component into Toggle label prop [#852](https://github.com/artsy/palette/pull/852) ([@annacarey](https://github.com/annacarey))
+
+#### 🐛  Bug Fix
+
+- Move label component inline in story ([@annacarey](https://github.com/annacarey))
+- Add ability to pass in a component as well as a string to the label prop in Toggle ([@annacarey](https://github.com/annacarey))
+
+#### Authors: 1
+
+- Anna Carey ([@annacarey](https://github.com/annacarey))
+
+---
+
 # v13.31.0 (Thu Feb 11 2021)
 
 #### 🚀  Enhancement
