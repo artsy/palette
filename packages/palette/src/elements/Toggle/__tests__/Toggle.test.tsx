@@ -1,6 +1,7 @@
 import { mount } from "enzyme"
 import React from "react"
 import { ChevronIcon } from "../../../svgs"
+import { Text } from "../../Text"
 import { Toggle } from "../Toggle"
 
 describe("Toggle", () => {
@@ -38,13 +39,21 @@ describe("Toggle", () => {
   })
 
   it("defaults chevron size to 12px", () => {
-    const wrapper = mount(
-      <Toggle>
-        tab content
-      </Toggle>
-    )
+    const wrapper = mount(<Toggle>tab content</Toggle>)
     const chevron = wrapper.find(ChevronIcon)
     expect(chevron.props().width).toEqual(12)
     expect(chevron.props().height).toEqual(12)
+  })
+
+  it("renders proper component when passed component as label", () => {
+    const component = <Text>Hello</Text>
+    const wrapper = mount(<Toggle label={component}>tab content</Toggle>)
+    expect(wrapper.find("Text")).toHaveLength(1)
+  })
+
+  it("renders Sans component when passed string as label", () => {
+    const wrapper = mount(<Toggle label="label">tab content</Toggle>)
+    expect(wrapper.find("Sans")).toHaveLength(1)
+    expect(wrapper.find("Sans").text()).toEqual("label")
   })
 })
