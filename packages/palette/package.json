@@ -42,6 +42,10 @@
     "react-dom": "^16.2.0",
     "styled-components": "^4"
   },
+  "resolutions": {
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
   "devDependencies": {
     "@artsy/auto-config": "1.0.2",
     "@babel/cli": "7.12.16",
@@ -74,8 +78,9 @@
     "@types/styled-components": "4.0.2",
     "@types/styled-system": "5.1.9",
     "@types/styled-system__theme-get": "5.0.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "26.6.3",
+    "babel-jest": "^26.6.3",
     "babel-loader": "8.2.2",
     "babel-plugin-add-react-displayname": "0.0.5",
     "babel-plugin-module-resolver": "4.1.0",
@@ -83,13 +88,12 @@
     "cache-loader": "3.0.0",
     "concurrently": "3.6.1",
     "enzyme": "3.9.0",
-    "enzyme-adapter-react-16": "1.12.1",
     "enzyme-to-json": "3.3.5",
     "fork-ts-checker-notifier-webpack-plugin": "1.0.0",
     "fork-ts-checker-webpack-plugin": "1.2.0",
     "husky": "2.1.0",
     "jest": "26.6.3",
-    "jest-styled-components": "7.0.3",
+    "jest-styled-components": "7.0.0-2",
     "lint-staged": "8.1.5",
     "mock-raf": "1.0.1",
     "prettier": "2.2.1",
