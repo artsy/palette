@@ -23,7 +23,7 @@
     "type-check": "tsc --noEmit --pretty",
     "type-declarations": "tsc --emitDeclarationOnly",
     "watch": "concurrently --raw --kill-others 'yarn compile -w' 'yarn type-declarations -w'",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --quiet",
     "build-storybook": "build-storybook",
     "visual-test": "chromatic test --exit-zero-on-changes --app-code n02zjqmdqq"
   },
