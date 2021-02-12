@@ -14,7 +14,7 @@
   "plugins": [
     "babel-plugin-add-react-displayname",
     "babel-plugin-styled-components",
-    "@babel/plugin-proposal-class-properties",
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
     "@babel/plugin-proposal-optional-chaining",
     [
       "module-resolver",

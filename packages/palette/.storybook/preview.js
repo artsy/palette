@@ -1,5 +1,5 @@
 import React from "react"
-import { configure, addDecorator, addParameters } from "@storybook/react"
+import { addDecorator, addParameters } from "@storybook/react"
 import { Theme } from "../src/Theme"
 import { injectGlobalStyles } from "../src/helpers/injectGlobalStyles"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
@@ -49,4 +49,4 @@ addParameters({
   },
 })
 
-configure(require.context("../src", true, /\.story\.tsx$/), module)
+// configure(require.context("../src", true, /\.story\.tsx$/), module)
