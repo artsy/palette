@@ -4,7 +4,6 @@ import { Theme } from "../src/Theme"
 import { injectGlobalStyles } from "../src/helpers/injectGlobalStyles"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { breakpoints } from "../src/Theme"
-import "storybook-chromatic"
 
 addParameters({
   options: {
