@@ -1,3 +1,17 @@
+# (Tue Feb 16 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.32.1`
+  - [storybook 6 upgrade]: Converts stories to CSF [#853](https://github.com/artsy/palette/pull/853) ([@dzucconi](https://github.com/dzucconi) [@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Feb 12 2021)
 
 #### 🚀  Enhancement

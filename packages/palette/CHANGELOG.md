@@ -1,3 +1,28 @@
+# v13.32.1 (Tue Feb 16 2021)
+
+#### 🐛  Bug Fix
+
+- Fix more tests ([@damassi](https://github.com/damassi))
+- [storybook 6 upgrade]: Converts stories to CSF [#853](https://github.com/artsy/palette/pull/853) ([@dzucconi](https://github.com/dzucconi) [@damassi](https://github.com/damassi))
+- chore(chromatic): upgrades chromatic ([@dzucconi](https://github.com/dzucconi))
+- chore: passing specs ([@dzucconi](https://github.com/dzucconi))
+- Ensure styled-components resolves to 4.3.2 ([@damassi](https://github.com/damassi))
+- Remove netlify cms ([@damassi](https://github.com/damassi))
+- chore(storybook): cleans up preview config ([@dzucconi](https://github.com/dzucconi))
+- Ensure react resolves to react@17 ([@damassi](https://github.com/damassi))
+- chore: upgrades babel/jest/etc ([@dzucconi](https://github.com/dzucconi))
+- chore(storybook): upgrades to storybook 6 ([@dzucconi](https://github.com/dzucconi))
+- chore(storybook): converts remaining by hand to csf ([@dzucconi](https://github.com/dzucconi))
+- chore(storybook): runs codemod to convert to csf format ([@dzucconi](https://github.com/dzucconi))
+- chore(storybook): ensures csf stories are loaded ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.32.0 (Fri Feb 12 2021)
 
 #### 🚀  Enhancement
