@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { act } from "react-test-renderer"
 import { ModalBase } from "../ModalBase"
 
-const tick = () => new Promise(resolve => setTimeout(resolve, 0))
+const tick = () => new Promise((resolve) => setTimeout(resolve, 0))
 
 describe("ModalBase", () => {
   it("renders the children", () => {
@@ -18,7 +18,7 @@ describe("ModalBase", () => {
         <>
           <input id="qux" autoFocus />
 
-          <button id="open" onClick={() => setOpen(prevOpen => !prevOpen)}>
+          <button id="open" onClick={() => setOpen((prevOpen) => !prevOpen)}>
             toggle
           </button>
 
@@ -74,9 +74,9 @@ describe("ModalBase", () => {
     })
 
     it("returns focus to the previous element when closed", () => {
-      const wrapper = mount(<Example />)
+      const wrapper = mount(<Example />, { attachTo: document.body })
       expect(document.activeElement.id).toEqual("foo")
-      act(() => wrapper.find("#open").simulate("click"))
+      wrapper.find("#open").simulate("click")
       expect(document.activeElement.id).toEqual("qux")
     })
   })

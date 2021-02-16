@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import React, { useState } from "react"
 import { Box } from "../Box"
 import { Button } from "../Button"
@@ -52,9 +51,14 @@ const Example: React.FC<
   )
 }
 
-storiesOf("Components/ModalBase", module)
-  .add("Default", () => <Example />)
-  .add("Fullscreen", () => (
+export default { title: "Components/ModalBase" }
+
+export const Default = () => {
+  return <Example />
+}
+
+export const Fullscreen = () => {
+  return (
     <Example
       dialogProps={{
         width: "100%",
@@ -64,8 +68,11 @@ storiesOf("Components/ModalBase", module)
         justifyContent: "center",
       }}
     />
-  ))
-  .add("Scrolling", () => (
+  )
+}
+
+export const Scrolling = () => {
+  return (
     <Example
       bodyChildren={
         <>
@@ -82,4 +89,5 @@ storiesOf("Components/ModalBase", module)
         </>
       }
     />
-  ))
+  )
+}

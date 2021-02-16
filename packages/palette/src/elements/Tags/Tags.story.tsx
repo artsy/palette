@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import React from "react"
 import { BorderBox } from "../BorderBox"
 import { Tags } from "./Tags"
@@ -46,25 +45,42 @@ const tagList = [
   },
 ]
 
-storiesOf("Components/Tags", module)
-  .add("default props", () => {
-    return (
-      <BorderBox>
-        <Tags tags={tagList} />
-      </BorderBox>
-    )
-  })
-  .add("within a narrow container", () => {
-    return (
-      <BorderBox width="350px">
-        <Tags tags={tagList} />
-      </BorderBox>
-    )
-  })
-  .add("with displayNum", () => {
-    return (
-      <BorderBox width="350px">
-        <Tags tags={tagList} displayNum={5} />
-      </BorderBox>
-    )
-  })
+export default {
+  title: "Components/Tags",
+}
+
+export const DefaultProps = () => {
+  return (
+    <BorderBox>
+      <Tags tags={tagList} />
+    </BorderBox>
+  )
+}
+
+DefaultProps.story = {
+  name: "default props",
+}
+
+export const WithinANarrowContainer = () => {
+  return (
+    <BorderBox width="350px">
+      <Tags tags={tagList} />
+    </BorderBox>
+  )
+}
+
+WithinANarrowContainer.story = {
+  name: "within a narrow container",
+}
+
+export const WithDisplayNum = () => {
+  return (
+    <BorderBox width="350px">
+      <Tags tags={tagList} displayNum={5} />
+    </BorderBox>
+  )
+}
+
+WithDisplayNum.story = {
+  name: "with displayNum",
+}

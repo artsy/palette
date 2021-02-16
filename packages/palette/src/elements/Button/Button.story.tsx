@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import React, { useState } from "react"
 import { Box } from "../Box"
 import { Join } from "../Join"
@@ -23,127 +22,145 @@ const LoadingDemo = () => {
   )
 }
 
-storiesOf("Components/Button", module)
-  .add("sizes", () => {
-    return (
-      <>
-        {(["small", "medium", "large"] as ButtonSize[]).map(size => {
-          return (
-            <Box
-              key={size}
-              m={2}
-              p={2}
-              border="1px solid"
-              borderColor="black10"
-            >
-              <Join separator={<Spacer my={1} />}>
-                {(Object.keys(BUTTON_VARIANTS) as ButtonVariant[]).map(
-                  variant => {
-                    return (
-                      <Button key={variant} size={size} variant={variant}>
-                        {variant}
-                      </Button>
-                    )
-                  }
-                )}
-              </Join>
-            </Box>
-          )
-        })}
-      </>
-    )
-  })
-  .add("modes", () => {
-    return (
-      <>
-        {(["small", "medium", "large"] as ButtonSize[]).map(size => {
-          return (
-            <Box
-              key={size}
-              m={2}
-              p={2}
-              border="1px solid"
-              borderColor="black10"
-            >
+export default { title: "Components/Button" }
+
+export const Sizes = () => {
+  return (
+    <>
+      {(["small", "medium", "large"] as ButtonSize[]).map((size) => {
+        return (
+          <Box key={size} m={2} p={2} border="1px solid" borderColor="black10">
+            <Join separator={<Spacer my={1} />}>
               {(Object.keys(BUTTON_VARIANTS) as ButtonVariant[]).map(
-                variant => {
+                (variant) => {
                   return (
-                    <Box my={1} key={variant}>
-                      <Button variant={variant} size={size}>
-                        block (default)
-                      </Button>{" "}
-                      <Button variant={variant} size={size} inline>
-                        inline
-                      </Button>
-                    </Box>
+                    <Button key={variant} size={size} variant={variant}>
+                      {variant}
+                    </Button>
                   )
                 }
               )}
-            </Box>
-          )
-        })}
-      </>
-    )
-  })
-  .add("states", () => {
-    return (
-      <Box m={2} p={2} border="1px solid" borderColor="black10">
-        <Join separator={<Spacer my={1} />}>
-          <Button variant="secondaryOutline">resting</Button>
+            </Join>
+          </Box>
+        )
+      })}
+    </>
+  )
+}
 
-          <Button variant="secondaryOutline" loading>
-            loading
-          </Button>
+Sizes.story = {
+  name: "sizes",
+}
 
-          <Button variant="secondaryOutline" disabled>
-            disabled
-          </Button>
+export const Modes = () => {
+  return (
+    <>
+      {(["small", "medium", "large"] as ButtonSize[]).map((size) => {
+        return (
+          <Box key={size} m={2} p={2} border="1px solid" borderColor="black10">
+            {(Object.keys(BUTTON_VARIANTS) as ButtonVariant[]).map(
+              (variant) => {
+                return (
+                  <Box my={1} key={variant}>
+                    <Button variant={variant} size={size}>
+                      block (default)
+                    </Button>{" "}
+                    <Button variant={variant} size={size} inline>
+                      inline
+                    </Button>
+                  </Box>
+                )
+              }
+            )}
+          </Box>
+        )
+      })}
+    </>
+  )
+}
 
-          {/* TODO: hover, focus, active */}
-        </Join>
-      </Box>
-    )
-  })
-  .add("native button props", () => {
-    return (
-      <Box m={2} p={2} border="1px solid" borderColor="black10">
-        <Join separator={<Spacer my={1} />}>
-          <Button autoFocus>autofocused</Button>
+Modes.story = {
+  name: "modes",
+}
 
-          <Button tabIndex={-1}>not focusable with keyboard</Button>
+export const States = () => {
+  return (
+    <Box m={2} p={2} border="1px solid" borderColor="black10">
+      <Join separator={<Spacer my={1} />}>
+        <Button variant="secondaryOutline">resting</Button>
 
-          <Button
-            onClick={event => {
-              event.preventDefault()
-            }}
-          >
-            correctly typed click event
-          </Button>
-        </Join>
-      </Box>
-    )
-  })
-  .add("with BoxProps", () => {
-    return (
-      <Box m={2} p={2} border="1px solid" borderColor="black10">
-        <Button display="block" width="100%" my={2}>
-          full width
+        <Button variant="secondaryOutline" loading>
+          loading
         </Button>
 
-        <Button display="block" width="100%" my={2}>
-          with collapsing
+        <Button variant="secondaryOutline" disabled>
+          disabled
         </Button>
 
-        <Button display="block" width="100%" my={2}>
-          margins
+        {/* TODO: hover, focus, active */}
+      </Join>
+    </Box>
+  )
+}
+
+States.story = {
+  name: "states",
+}
+
+export const NativeButtonProps = () => {
+  return (
+    <Box m={2} p={2} border="1px solid" borderColor="black10">
+      <Join separator={<Spacer my={1} />}>
+        <Button autoFocus>autofocused</Button>
+
+        <Button tabIndex={-1}>not focusable with keyboard</Button>
+
+        <Button
+          onClick={(event) => {
+            event.preventDefault()
+          }}
+        >
+          correctly typed click event
         </Button>
-      </Box>
-    )
-  })
-  .add("loading", () => {
-    return (
-      <Box m={2} p={2} border="1px solid" borderColor="black10">
-        <LoadingDemo />
-      </Box>
-    )
-  })
+      </Join>
+    </Box>
+  )
+}
+
+NativeButtonProps.story = {
+  name: "native button props",
+}
+
+export const WithBoxProps = () => {
+  return (
+    <Box m={2} p={2} border="1px solid" borderColor="black10">
+      <Button display="block" width="100%" my={2}>
+        full width
+      </Button>
+
+      <Button display="block" width="100%" my={2}>
+        with collapsing
+      </Button>
+
+      <Button display="block" width="100%" my={2}>
+        margins
+      </Button>
+    </Box>
+  )
+}
+
+WithBoxProps.story = {
+  name: "with BoxProps",
+}
+
+export const Loading = () => {
+  return (
+    <Box m={2} p={2} border="1px solid" borderColor="black10">
+      <LoadingDemo />
+    </Box>
+  )
+}
+
+Loading.story = {
+  name: "loading",
+}

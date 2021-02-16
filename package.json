@@ -22,6 +22,9 @@
       "packages/*"
     ]
   },
+  "resolutions": {
+    "styled-components": "4.3.2"
+  },
   "devDependencies": {
     "concurrently": "4.1.0",
     "lerna": "3.13.1"

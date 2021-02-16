@@ -1,10 +1,13 @@
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import React from "react"
 import { Box } from "../Box"
 import { Step, Stepper } from "./"
 
-storiesOf("Components/Stepper", module).add("Stepper", () => {
+export default {
+  title: "Components/Stepper",
+}
+
+export const _Stepper = () => {
   return (
     <Box m={3}>
       <Stepper
@@ -19,4 +22,4 @@ storiesOf("Components/Stepper", module).add("Stepper", () => {
       </Stepper>
     </Box>
   )
-})
+}

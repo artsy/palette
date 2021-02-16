@@ -1,7 +1,7 @@
 import { mount } from "enzyme"
 import { Settings } from "luxon"
 import React from "react"
-import { Sans } from "../.."
+import { Sans } from "../../Typography"
 import { TimeRemaining } from "../TimeRemaining"
 
 describe("TimeRemaining", () => {
@@ -23,12 +23,7 @@ describe("TimeRemaining", () => {
         highlight="purple100"
       />
     )
-    expect(
-      wrapper
-        .find(Sans)
-        .at(0)
-        .html()
-    ).toContain("09d 00h 29m 30s")
+    expect(wrapper.find(Sans).at(0).html()).toContain("09d 00h 29m 30s")
   })
 
   it("doesn't render minutes if end hour is the same as current hour", () => {
@@ -39,12 +34,7 @@ describe("TimeRemaining", () => {
         highlight="purple100"
       />
     )
-    expect(
-      wrapper
-        .find(Sans)
-        .at(0)
-        .html()
-    ).toContain("09d 00h 00m 30s")
+    expect(wrapper.find(Sans).at(0).html()).toContain("09d 00h 00m 30s")
   })
 
   it("renders timeEndedDisplayText when time has ended if passed", () => {
@@ -57,12 +47,7 @@ describe("TimeRemaining", () => {
       />
     )
 
-    expect(
-      wrapper
-        .find(Sans)
-        .at(0)
-        .html()
-    ).toContain("0 days left")
+    expect(wrapper.find(Sans).at(0).html()).toContain("0 days left")
   })
 
   it("renders trailing text if provided", () => {
@@ -74,11 +59,6 @@ describe("TimeRemaining", () => {
         trailingText="left"
       />
     )
-    expect(
-      wrapper
-        .find(Sans)
-        .at(0)
-        .html()
-    ).toContain("09d 00h 00m 30s left")
+    expect(wrapper.find(Sans).at(0).html()).toContain("09d 00h 00m 30s left")
   })
 })

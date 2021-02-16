@@ -11,7 +11,7 @@ describe("ReadMore", () => {
 
   it("it truncates text", () => {
     const wrapper = cap => render(<ReadMore maxChars={cap} content={copy} />)
-    expect(wrapper(20).html()).toContain(">Donald Judd &#x2026;<")
+    expect(wrapper(20).html()).toContain(">Donald Judd …<")
     expect(wrapper(Infinity).html()).toContain(copy)
     expect(wrapper(undefined).html()).toContain(copy)
   })
@@ -20,7 +20,7 @@ describe("ReadMore", () => {
     const wrapper = cap =>
       render(<ReadMore maxChars={cap} content={htmlCopy} />)
     expect(wrapper(30).html()).toContain(
-      "<p>Donald Judd <a>regarded as one &#x2026;</a></p>"
+      "<p>Donald Judd <a>regarded as one …</a></p>"
     )
     expect(wrapper(Infinity).html()).toContain(htmlCopy)
     expect(wrapper(undefined).html()).toContain(htmlCopy)
