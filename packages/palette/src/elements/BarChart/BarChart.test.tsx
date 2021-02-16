@@ -1,7 +1,6 @@
 import { mount } from "enzyme"
 import "jest-styled-components"
 import React from "react"
-import { color } from "../../helpers"
 import { Theme } from "../../Theme"
 import { BarChart, BarChartProps } from "../BarChart"
 import { Flex } from "../Flex"
@@ -122,7 +121,6 @@ describe("BarChart", () => {
 
   it("shows the highlighted bar in a different color", () => {
     const chart = getWrapper()
-    const normalBar = chart.find(Bar).at(0)
     const highlightedBar = chart.find(Bar).at(2)
     expect(highlightedBar.debug()).toContain("black60")
   })

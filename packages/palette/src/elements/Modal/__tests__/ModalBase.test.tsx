@@ -74,7 +74,7 @@ describe("ModalBase", () => {
     })
 
     it("returns focus to the previous element when closed", () => {
-      const wrapper = mount(<Example />)
+      const wrapper = mount(<Example />, { attachTo: document.body })
       expect(document.activeElement.id).toEqual("foo")
       wrapper.find("#open").simulate("click")
       expect(document.activeElement.id).toEqual("qux")
