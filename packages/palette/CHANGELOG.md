@@ -1,3 +1,24 @@
+# v13.33.0 (Wed Feb 17 2021)
+
+#### 🚀  Enhancement
+
+- fix(checkbox): makes checkbox accessible; supports box props [#855](https://github.com/artsy/palette/pull/855) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(checkbox): makes checkbox accessible; supports box props ([@dzucconi](https://github.com/dzucconi))
+- chore(checkbox): adds stories for checkbox ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(checkbox): adds stories for checkbox [#854](https://github.com/artsy/palette/pull/854) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.32.1 (Tue Feb 16 2021)
 
 #### 🐛  Bug Fix
