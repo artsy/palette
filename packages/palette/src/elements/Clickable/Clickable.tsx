@@ -24,11 +24,11 @@ export const Clickable = styled.button<ClickableProps>`
   padding: 0;
   border: 0;
   background-color: transparent;
-  ${compose(
-    boxMixin,
-    cursor,
-    textDecoration
-  )}
+  ${compose(boxMixin, cursor, textDecoration)}
+
+  &:disabled {
+    cursor: default;
+  }
 `
 
 Clickable.defaultProps = {
