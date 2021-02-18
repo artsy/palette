@@ -1,7 +1,5 @@
 import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
-import { Box } from "../Box"
-import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Checkbox } from "./Checkbox"
 
@@ -10,16 +8,7 @@ export default {
 }
 
 export const States = () => {
-  const states = [
-    {},
-    { selected: true },
-    { disabled: true },
-    { error: true },
-    { selected: true, disabled: true },
-    { error: true, disabled: true },
-    { selected: true, error: true, disabled: true },
-  ]
-
+  const states = [{}, { selected: true }, { disabled: true }, { error: true }]
   return (
     <>
       {states.map((props, i) => {
@@ -43,22 +32,7 @@ export const Demo = () => {
         action("onClick")(selected)
       }}
     >
-      <Text lineHeight="solid">
-        use a `solid` line-height to ensure vertical centering
-      </Text>
+      <Text>click me</Text>
     </Checkbox>
-  )
-}
-
-export const Extended = () => {
-  return (
-    <Box width={300} border="1px solid" borderColor="black10" p={2}>
-      <Checkbox width="100%">
-        <Flex width="35%" justifyContent="space-between" alignItems="center">
-          <Text lineHeight="solid">Purple</Text>
-          <Box bg="purple100" width={20} height={20} borderRadius="50%" />
-        </Flex>
-      </Checkbox>
-    </Box>
   )
 }
