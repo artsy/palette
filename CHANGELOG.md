@@ -1,5 +1,18 @@
 # (Thu Feb 18 2021)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.34.1`
+  - Change default Clickable type; minor checkbox fix [#858](https://github.com/artsy/palette/pull/858) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Feb 18 2021)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@13.34.0`

@@ -1,3 +1,18 @@
+# v13.34.1 (Thu Feb 18 2021)
+
+#### 🐛  Bug Fix
+
+- Change default Clickable type; minor checkbox fix [#858](https://github.com/artsy/palette/pull/858) ([@dzucconi](https://github.com/dzucconi))
+- chore(chromatic): loosens up spec ([@dzucconi](https://github.com/dzucconi))
+- fix(checkbox): prevents scrolling when using keyboard to select ([@dzucconi](https://github.com/dzucconi))
+- fix(clickable): sets default type to button ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.34.0 (Thu Feb 18 2021)
 
 #### 🚀  Enhancement
