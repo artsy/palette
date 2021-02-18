@@ -196,6 +196,7 @@ export const DynamicItems = () => {
 
 DynamicItems.story = {
   name: "Dynamic items",
+  parameters: { chromatic: { delay: 1000 } },
 }
 
 export const SwiperWithText = () => {
