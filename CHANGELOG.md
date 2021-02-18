@@ -1,3 +1,16 @@
+# (Thu Feb 18 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.33.1`
+  - Revert "fix(checkbox): makes checkbox accessible; supports box props" [#856](https://github.com/artsy/palette/pull/856) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Feb 17 2021)
 
 #### 🚀  Enhancement
