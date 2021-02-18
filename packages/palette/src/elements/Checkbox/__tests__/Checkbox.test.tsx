@@ -34,7 +34,7 @@ describe("Checkbox", () => {
 
     expect(handleSelect).not.toBeCalled()
 
-    wrapper.simulate("keypress", { code: "Space" })
+    wrapper.simulate("keypress", { key: " " })
 
     expect(handleSelect).toBeCalledTimes(1)
   })

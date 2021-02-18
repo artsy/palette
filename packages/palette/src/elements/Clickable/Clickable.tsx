@@ -33,4 +33,5 @@ export const Clickable = styled.button<ClickableProps>`
 
 Clickable.defaultProps = {
   cursor: "pointer",
+  type: "button",
 }
