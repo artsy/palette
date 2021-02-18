@@ -50,6 +50,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.code === "Space" && isSelectable) {
+      event.preventDefault()
       onSelect(!selected)
     }
   }
