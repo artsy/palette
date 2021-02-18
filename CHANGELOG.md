@@ -1,5 +1,18 @@
 # (Thu Feb 18 2021)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.34.0`
+  - fix(checkbox): makes a11y updates without using button [#857](https://github.com/artsy/palette/pull/857) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Feb 18 2021)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@13.33.1`

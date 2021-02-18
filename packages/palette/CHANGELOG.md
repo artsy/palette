@@ -1,3 +1,20 @@
+# v13.34.0 (Thu Feb 18 2021)
+
+#### 🚀  Enhancement
+
+- fix(checkbox): makes a11y updates without using button [#857](https://github.com/artsy/palette/pull/857) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(checkbox): makes a11y updates without using button ([@dzucconi](https://github.com/dzucconi))
+- Revert "Revert "fix(checkbox): makes checkbox accessible; supports box props"" ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.33.1 (Thu Feb 18 2021)
 
 #### 🐛  Bug Fix
