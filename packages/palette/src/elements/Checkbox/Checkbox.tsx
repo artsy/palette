@@ -1,11 +1,13 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import { color } from "../../helpers"
-import { Clickable, ClickableProps } from "../Clickable"
+import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Check } from "./Check"
 
-export interface CheckboxProps extends Omit<ClickableProps, "onSelect"> {
+export interface CheckboxProps
+  extends BoxProps,
+    Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect"> {
   /** Disable checkbox interactions */
   disabled?: boolean
   /** Select the checkbox on render */
@@ -20,8 +22,7 @@ export interface CheckboxProps extends Omit<ClickableProps, "onSelect"> {
 
 /** A checkbox */
 export const Checkbox: React.FC<CheckboxProps> = ({
-  className,
-  selected,
+  selected = false,
   children,
   error,
   disabled,
@@ -35,10 +36,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     if (error) return "red100"
   }
 
-  const handleClick = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    if (!disabled && onSelect !== undefined) {
+  const isSelectable = !disabled && onSelect !== undefined
+
+  const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (isSelectable) {
       onSelect(!selected)
     }
 
@@ -47,9 +48,14 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     }
   }
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.code === "Space" && isSelectable) {
+      onSelect(!selected)
+    }
+  }
+
   return (
     <Container
-      className={hover && "hover"}
       my={0.5}
       display="flex"
       alignItems="center"
@@ -58,6 +64,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       disabled={disabled}
       error={error}
       onClick={handleClick}
+      tabIndex={0}
+      onKeyPress={handleKeyPress}
       role="checkbox"
       aria-checked={selected}
       {...rest}
@@ -71,7 +79,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   )
 }
 
-const Container = styled(Clickable)<
+const Container = styled(Box)<
   Pick<CheckboxProps, "selected" | "error" | "hover" | "disabled">
 >`
   user-select: none;
@@ -99,3 +107,5 @@ const Container = styled(Clickable)<
     `
   }}
 `
+
+Container.displayName = "Container"

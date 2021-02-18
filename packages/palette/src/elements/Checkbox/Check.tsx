@@ -68,7 +68,7 @@ export const Check: React.FC<CheckProps> = ({
       selected={selected}
       {...rest}
     >
-      <CheckIcon fill={iconColor()} />
+      <CheckIcon aria-hidden fill={iconColor()} />
     </Container>
   )
 }
