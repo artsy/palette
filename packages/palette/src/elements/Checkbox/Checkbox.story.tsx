@@ -36,17 +36,19 @@ export const States = () => {
 export const Demo = () => {
   const [isSelected, setSelected] = useState(false)
   return (
-    <Checkbox
-      selected={isSelected}
-      onSelect={(selected) => {
-        setSelected(selected)
-        action("onClick")(selected)
-      }}
-    >
-      <Text lineHeight="solid">
-        use a `solid` line-height to ensure vertical centering
-      </Text>
-    </Checkbox>
+    <Box height="200vh">
+      <Checkbox
+        selected={isSelected}
+        onSelect={(selected) => {
+          setSelected(selected)
+          action("onClick")(selected)
+        }}
+      >
+        <Text lineHeight="solid">
+          use a `solid` line-height to ensure vertical centering
+        </Text>
+      </Checkbox>
+    </Box>
   )
 }
 
