@@ -1,47 +1,31 @@
 import React from "react"
-import { Avatar } from "./Avatar"
-
-const imgURL = "https://randomuser.me/api/portraits/lego/2.jpg"
+import { States } from "storybook-states"
+import { Avatar, AvatarProps } from "./Avatar"
 
 export default {
   title: "Components/Avatar",
 }
 
-export const Xs = () => {
+export const Sizes = () => {
   return (
-    <>
-      <Avatar size="xs" src={imgURL} />
+    <States<AvatarProps>
+      states={[{ size: "xxs" }, { size: "xs" }, { size: "sm" }, { size: "md" }]}
+    >
       <Avatar size="xs" initials="TK" />
-    </>
+    </States>
   )
 }
 
-Xs.story = {
-  name: "xs",
-}
-
-export const Sm = () => {
+export const WithSrc = () => {
   return (
-    <>
-      <Avatar size="sm" src={imgURL} />
-      <Avatar size="sm" initials="TK" />
-    </>
+    <States<AvatarProps>
+      states={[{ size: "xxs" }, { size: "xs" }, { size: "sm" }, { size: "md" }]}
+    >
+      <Avatar size="xs" src="https://randomuser.me/api/portraits/lego/2.jpg" />
+    </States>
   )
 }
 
-Sm.story = {
-  name: "sm",
-}
-
-export const Md = () => {
-  return (
-    <>
-      <Avatar size="md" src={imgURL} />
-      <Avatar size="md" initials="TK" />
-    </>
-  )
-}
-
-Md.story = {
-  name: "md",
+WithSrc.story = {
+  name: "With `src`",
 }
