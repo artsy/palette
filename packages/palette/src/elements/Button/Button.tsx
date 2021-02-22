@@ -76,7 +76,7 @@ const Container = styled.button<ContainerProps>`
 
   ${variant({ variants: BUTTON_VARIANTS })};
 
-  ${props => {
+  ${(props) => {
     return variant({
       prop: "size",
       variants: BUTTON_SIZES[props.inline ? "inline" : "block"],
