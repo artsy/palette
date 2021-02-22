@@ -1,6 +1,5 @@
 import React from "react"
 import { States } from "storybook-states"
-import { Box } from "../Box"
 import { Link } from "../Link"
 import { Text } from "../Text"
 import { Toggle, ToggleProps } from "./Toggle"
@@ -28,7 +27,8 @@ export const Default = () => {
       states={[
         {},
         { expanded: true },
-        { expanded: true, disabled: false },
+        { expanded: false, disabled: true },
+        { expanded: true, disabled: true },
         { renderSecondaryAction: SecondaryAction },
         { renderSecondaryAction: SecondaryAction, disabled: true },
         {
@@ -41,7 +41,7 @@ export const Default = () => {
         },
       ]}
     >
-      <Toggle label="Example">
+      <Toggle label="Example" maxWidth={350}>
         <Text>Expanded content</Text>
       </Toggle>
     </States>

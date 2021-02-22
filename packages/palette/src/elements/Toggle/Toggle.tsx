@@ -1,13 +1,12 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { space, SpaceProps } from "styled-system"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { SansSize } from "../../Theme"
-import { Flex } from "../Flex"
-import { Separator } from "../Separator"
+import { Clickable } from "../Clickable"
+import { Flex, FlexProps } from "../Flex"
 import { Sans } from "../Typography"
 
-export interface ToggleProps {
+export interface ToggleProps extends FlexProps {
   chevronSize?: number
   disabled?: boolean
   expanded?: boolean
@@ -36,6 +35,7 @@ export const Toggle: React.FC<ToggleProps> = ({
   disabled,
   children,
   renderSecondaryAction,
+  ...rest
 }) => {
   const [expanded, setExpanded] = useState(defaultExpanded)
 
@@ -46,9 +46,15 @@ export const Toggle: React.FC<ToggleProps> = ({
   }
 
   return (
-    <Flex width="100%" flexDirection="column" pb={2}>
-      <Separator mb={2} />
-      <Header onClick={toggleExpand} disabled={disabled}>
+    <Flex width="100%" flexDirection="column" pb={2} {...rest}>
+      <Header
+        onClick={toggleExpand}
+        disabled={disabled}
+        borderTop="1px solid"
+        borderColor="black10"
+        pt={2}
+        aria-expanded={expanded}
+      >
         <Flex justifyContent="space-between" alignItems="center">
           {typeof label === "string" ? (
             <Sans
@@ -73,6 +79,7 @@ export const Toggle: React.FC<ToggleProps> = ({
               width={chevronSize}
               height={chevronSize}
               ml={1}
+              aria-hidden="true"
             />
           </Flex>
         </Flex>
@@ -87,11 +94,9 @@ export const Toggle: React.FC<ToggleProps> = ({
   )
 }
 
-const Header = styled.div<ToggleProps & SpaceProps>`
-  cursor: pointer;
+const Header = styled(Clickable)`
   pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
   user-select: none;
-  ${space};
 `
 
 Header.displayName = "Header"
