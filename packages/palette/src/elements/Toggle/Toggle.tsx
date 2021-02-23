@@ -5,6 +5,7 @@ import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { SansSize } from "../../Theme"
 import { Flex } from "../Flex"
 import { Separator } from "../Separator"
+import { Text } from "../Text"
 import { Sans } from "../Typography"
 
 export interface ToggleProps {
@@ -64,14 +65,15 @@ export class Toggle extends React.Component<ToggleProps> {
         <Separator mb={2} />
         <Header onClick={this.toggleExpand} disabled={disabled}>
           <Flex justifyContent="space-between" alignItems="center">
-            <Sans
+            <Text
               size={textSize as SansSize}
-              weight="medium"
+              // weight="medium"
+              variant="mediumText"
               color="black100"
               my={0.5}
             >
               {label}
-            </Sans>
+            </Text>
             <Flex justifyContent="right" alignItems="center">
               {renderSecondaryAction &&
                 renderSecondaryAction({ disabled, expanded, textSize })}
