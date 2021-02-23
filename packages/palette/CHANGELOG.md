@@ -1,3 +1,22 @@
+# v13.34.2 (Tue Feb 23 2021)
+
+#### 🐛  Bug Fix
+
+- fix(toggle): supports keyboard accessibility [#860](https://github.com/artsy/palette/pull/860) ([@dzucconi](https://github.com/dzucconi))
+- fix(toggle): makes toggle keyboard accessible ([@dzucconi](https://github.com/dzucconi))
+- refactor(toggle): converts to functional component; converts stories ([@dzucconi](https://github.com/dzucconi))
+- chore(storybook): rewrites some stories with storybook-states ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(storybook): rewrites some stories with storybook-states [#859](https://github.com/artsy/palette/pull/859) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.34.1 (Thu Feb 18 2021)
 
 #### 🐛  Bug Fix
