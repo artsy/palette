@@ -1,9 +1,6 @@
 import debounce from "debounce"
 import React from "react"
 import styled, { css } from "styled-components"
-import { Flex, FlexProps } from "../../elements/Flex"
-import { color, space } from "../../helpers"
-
 import {
   BorderProps,
   borders,
@@ -11,12 +8,11 @@ import {
   space as styledSpace,
   SpaceProps,
 } from "styled-system"
+import { Flex } from "../../elements/Flex"
+import { color, space } from "../../helpers"
+import { Clickable, ClickableProps } from "../Clickable"
 
-/**
- * Spec: zpl.io/bAvnwlB
- */
-
-export interface RadioProps extends FlexProps {
+export interface RadioProps extends Omit<ClickableProps, "onSelect"> {
   /** Disable interactions */
   disabled?: boolean
   /** Select the button on render. If the Radio is inside a RadioGroup, use RadioGroup.defaultValue instead. */
@@ -41,66 +37,74 @@ export interface RadioToggleProps
 
 /**
  * A Radio button
- *
- * Spec: zpl.io/bAvnwlB
  */
-export const Radio: React.SFC<RadioProps> = props => {
-  const {
-    children,
-    disabled,
-    hover,
-    name,
-    onSelect: _onSelect,
-    selected,
-    value,
-    label,
-    ...others
-  } = props
+export const Radio: React.ForwardRefExoticComponent<
+  RadioProps & { ref?: React.Ref<HTMLButtonElement> }
+> = React.forwardRef(
+  (
+    {
+      children,
+      disabled,
+      hover,
+      name,
+      onSelect: _onSelect,
+      selected,
+      value,
+      label,
+      ...rest
+    },
+    forwardedRef
+  ) => {
+    // Ensures that only one call to `onSelect` occurs, regardless of whether the
+    // user clicks the radio element or the label.
+    const onSelect = _onSelect && debounce(_onSelect, 0)
 
-  // Ensures that only one call to `onSelect` occurs, regardless of whether the
-  // user clicks the radio element or the label.
-  const onSelect = _onSelect && debounce(_onSelect, 0)
-
-  return (
-    <Container
-      disabled={disabled}
-      alignItems="center"
-      selected={selected}
-      hover={hover}
-      onClick={() =>
-        !disabled && onSelect && onSelect({ selected: !selected, value })
-      }
-      {...others}
-    >
-      <RadioButton
-        role="presentation"
-        border={1}
-        mr={1}
-        mt="2px"
-        mb="-2px"
-        selected={selected}
+    return (
+      <Container
+        ref={forwardedRef as any}
         disabled={disabled}
+        alignItems="center"
+        selected={selected}
+        hover={hover}
+        onClick={() =>
+          !disabled && onSelect && onSelect({ selected: !selected, value })
+        }
+        {...rest}
       >
-        <InnerCircle />
-      </RadioButton>
-      <Flex flexDirection="column">
-        <Label disabled={disabled}>
-          <HiddenInput
-            type="radio"
-            name={name}
-            checked={selected}
-            disabled={disabled}
-            onChange={() =>
-              !disabled && onSelect && onSelect({ selected: !selected, value })
-            }
-          />
-          {label ? label : children}
-        </Label>
-        {label ? children : null}
-      </Flex>
-    </Container>
-  )
-}
+        <RadioButton
+          role="presentation"
+          border={1}
+          mr={1}
+          selected={selected}
+          disabled={disabled}
+        >
+          <InnerCircle />
+        </RadioButton>
+
+        <Flex flexDirection="column">
+          <Label disabled={disabled}>
+            <HiddenInput
+              tabIndex={-1}
+              type="radio"
+              name={name}
+              checked={selected}
+              disabled={disabled}
+              onChange={() =>
+                !disabled &&
+                onSelect &&
+                onSelect({ selected: !selected, value })
+              }
+            />
+            {label ? label : children}
+          </Label>
+          {label ? children : null}
+        </Flex>
+      </Container>
+    )
+  }
+)
+
+Radio.displayName = "Radio"
 
 /**
  * A radio button with a border
@@ -145,16 +149,18 @@ const hoverStyles = ({ selected, hover }) => {
   }
 }
 
-interface ContainerProps extends FlexProps {
+interface ContainerProps extends ClickableProps {
   disabled: boolean
   hover: boolean
   selected: boolean
 }
 
-const Container = styled(Flex)<ContainerProps>`
+const Container = styled(Clickable)<ContainerProps>`
+  display: flex;
   align-items: flex-start;
-  cursor: ${({ disabled }) => !disabled && "pointer"};
+  text-align: left;
   user-select: none;
+  cursor: ${({ disabled }) => !disabled && "pointer"};
   ${hoverStyles};
 `
 

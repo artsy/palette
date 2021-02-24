@@ -1,11 +1,15 @@
-import React from "react"
+import React, {
+  Children,
+  createRef,
+  isValidElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
+import { useCursor } from "use-cursor"
 import { Flex, FlexProps } from "../Flex"
 import { RadioProps } from "../Radio"
-import { Sans } from "../Typography"
-
-/**
- * Spec: zpl.io/bAvnwlB
- */
+import { Text } from "../Text"
 
 export interface RadioGroupProps extends FlexProps {
   /** Ability to deselect the selection */
@@ -22,94 +26,119 @@ export interface RadioGroupProps extends FlexProps {
   children: Array<React.ReactElement<RadioProps>>
 }
 
-interface RadioGroupState {
-  selectedOption: string | null
-}
-
 /**
  * A stateful collection of Radio buttons
- *
- * Spec: zpl.io/bAvnwlB
  */
-export class RadioGroup extends React.Component<
-  RadioGroupProps,
-  RadioGroupState
-> {
-  state = {
-    selectedOption: this.props.defaultValue || null,
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.defaultValue !== this.props.defaultValue) {
-      this.setState({
-        selectedOption: this.props.defaultValue,
+export const RadioGroup: React.FC<RadioGroupProps> = ({
+  disabled,
+  disabledText,
+  defaultValue,
+  deselectable,
+  children,
+  onSelect,
+  ...rest
+}) => {
+  const nodes = Children.toArray(children)
+    .filter(isValidElement)
+    .map(
+      (
+        child: React.ReactElement<
+          RadioProps & {
+            ref?: React.Ref<HTMLButtonElement>
+          }
+        >
+      ) => ({
+        child,
+        ref: createRef<HTMLButtonElement>(),
       })
-    }
-  }
+    )
 
-  onSelect = ({ value }) => {
-    // After state update, call back up the tree with the latest state
-    const update = () => {
-      if (this.props.onSelect) {
-        this.props.onSelect(this.state.selectedOption)
-      }
-    }
+  const [selectedOption, setSelectedOption] = useState(defaultValue)
 
-    if (this.props.deselectable) {
-      if (this.state.selectedOption === value) {
-        this.setState(
-          {
-            selectedOption: null,
-          },
-          update
-        )
+  const options = nodes.map((node) => node.child.props.value)
+  const selectedIndex = options.indexOf(selectedOption)
+
+  const inputModality = useRef<"mouse" | "keyboard">("mouse")
+
+  const { index: focusIndex, handleNext, handlePrev } = useCursor({
+    max: options.length,
+    initialCursor: selectedIndex === -1 ? 0 : selectedIndex,
+  })
+
+  const handleSelect = ({ value }) => {
+    if (deselectable) {
+      if (selectedOption === value) {
+        setSelectedOption(null)
         return
       }
     }
 
-    this.setState({ selectedOption: value }, update)
+    setSelectedOption(value)
   }
 
-  renderRadioButtons() {
-    return React.Children.map(
-      this.props.children,
-      (child: React.ReactElement<RadioProps>) => {
+  const handleKeydown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    inputModality.current = "keyboard"
+
+    switch (event.key) {
+      case "ArrowDown":
+      case "ArrowRight":
+        handleNext()
+        break
+      case "ArrowUp":
+      case "ArrowLeft":
+        handlePrev()
+        break
+    }
+  }
+
+  useEffect(() => {
+    setSelectedOption(defaultValue)
+  }, [defaultValue])
+
+  useEffect(() => {
+    if (onSelect) {
+      onSelect(selectedOption)
+    }
+  }, [selectedOption])
+
+  useEffect(() => {
+    if (inputModality.current === "mouse") return
+
+    const timeout = setTimeout(() => {
+      nodes[focusIndex].ref.current?.focus()
+    }, 0)
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [nodes, focusIndex])
+
+  return (
+    <Flex flexDirection="column" role="radiogroup" {...rest}>
+      {disabled && disabledText && (
+        <Text variant="small" mb={0.3} color="black60">
+          {disabledText}
+        </Text>
+      )}
+
+      {nodes.map(({ child, ref }) => {
         return React.cloneElement(child, {
+          ref,
+          selected: selectedOption === child.props.value,
+          tabIndex: selectedOption === child.props.value ? 0 : -1,
+          onKeyDown: handleKeydown,
           disabled:
             child.props.disabled !== undefined
               ? child.props.disabled
-              : this.props.disabled,
+              : disabled,
           onSelect: child.props.onSelect
-            ? selected => {
-                this.onSelect(selected)
+            ? (selected: { selected: boolean; value: string }) => {
+                handleSelect(selected)
                 child.props.onSelect(selected)
               }
-            : this.onSelect,
-          // FIXME: Throw an error `child.props.selected' is set once we enable the dev code elimination.
-          selected: this.state.selectedOption === child.props.value,
+            : handleSelect,
         })
-      }
-    )
-  }
-
-  render() {
-    const {
-      disabled,
-      disabledText,
-      onSelect,
-      defaultValue,
-      children,
-      ...others
-    } = this.props
-    return (
-      <Flex flexDirection="column" {...others}>
-        {disabled && disabledText && (
-          <Sans size="2" my={0.3} color="black60">
-            {disabledText}
-          </Sans>
-        )}
-        {this.renderRadioButtons()}
-      </Flex>
-    )
-  }
+      })}
+    </Flex>
+  )
 }
