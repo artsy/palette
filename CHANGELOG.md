@@ -1,3 +1,22 @@
+# (Thu Feb 25 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.35.0`
+  - fix: check for empty strings in join [#864](https://github.com/artsy/palette/pull/864) ([@MounirDhahri](https://github.com/MounirDhahri))
+
+#### 🏠  Internal
+
+- `@artsy/palette@13.35.0`
+  - chore(deps): update dep typescript from 4.1.5 to v4.2.2 [#862](https://github.com/artsy/palette/pull/862) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Mounir Dhahri ([@MounirDhahri](https://github.com/MounirDhahri))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Tue Feb 23 2021)
 
 #### 🐛  Bug Fix
