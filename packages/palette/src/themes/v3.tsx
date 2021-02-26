@@ -11,13 +11,11 @@ import { fontFamily } from "../platform/fonts"
  * A list of breakpoints accessible by key/value.
  */
 export const breakpoints = {
-  /** Above 1192 */
-  xl: "1192px",
-  /** Between 1024 and  1191 */
-  lg: "1024px",
-  /** Between 900 and 1023 */
-  md: "900px",
-  /** Between 768 and  899 */
+  /** Above 1920 */
+  lg: "1920px",
+  /** Between 1280 and 1919 */
+  md: "1280px",
+  /** Between 768 and  1279 */
   sm: "768px",
   /** Below 767 */
   xs: "767px",
@@ -27,13 +25,11 @@ export const breakpoints = {
  * Copy of `breakpoints` as integers
  */
 export const unitlessBreakpoints = {
-  /** Above 1192 */
-  xl: parseInt(breakpoints.xl, 10),
-  /** Between 1024 and  1191 */
+  /** Above 1920 */
   lg: parseInt(breakpoints.lg, 10),
-  /** Between 900 and 1023 */
+  /** Between 1280 and 1919 */
   md: parseInt(breakpoints.md, 10),
-  /** Between 768 and  899 */
+  /** Between 768 and  1279 */
   sm: parseInt(breakpoints.sm, 10),
   /** Below 767 */
   xs: parseInt(breakpoints.xs, 10),
@@ -44,7 +40,7 @@ export const unitlessBreakpoints = {
  * to the named breakpoints as well as the scale
  */
 const BREAKPOINTS_SCALE = Object.assign(
-  [breakpoints.sm, breakpoints.md, breakpoints.lg, breakpoints.xl],
+  [breakpoints.sm, breakpoints.md, breakpoints.lg],
   breakpoints
 )
 
@@ -68,7 +64,7 @@ export const THEME = {
    */
   colors: {
     /** Full black, primary brand color  */
-    black100: "#000",
+    black100: "#000000",
     /** 60% black, bold copy, lower in hierarchy  */
     black60: "#707070",
     /** 30 black (dark grey), placeholder text only  */
@@ -96,7 +92,7 @@ export const THEME = {
     /** 10% of red100 on white. Backgrounds */
     red10: "#F4E4E3",
     /** Full white */
-    white100: "#FFF",
+    white100: "#FFFFFF",
   },
 
   fontFamily,
@@ -109,8 +105,7 @@ export const THEME = {
   // prettier-ignore
   /** Media queries to work with in web  */
   mediaQueries: {
-    xl: `(min-width: ${breakpoints.xl})`,
-    lg: `(min-width: ${breakpoints.lg}) and (max-width: ${parseInt(breakpoints.xl, 10) - 1})`,
+    lg: `(min-width: ${breakpoints.lg})`,
     md: `(min-width: ${breakpoints.md}) and (max-width: ${parseInt(breakpoints.lg, 10) - 1})`,
     sm: `(min-width: ${breakpoints.sm}) and (max-width: ${parseInt(breakpoints.md, 10) - 1})`,
     xs: `(max-width: ${parseInt(breakpoints.sm, 10) - 1})`,
@@ -120,30 +115,18 @@ export const THEME = {
 
   space: {
     // unit: px value
-    /** Equivalent to 3px  */
-    0.3: "3px",
     /** Equivalent to 5px  */
     0.5: "5px",
     /** Equivalent to 10px  */
     1: "10px",
-    /** Equivalent to 15px  */
-    1.5: "15px",
     /** Equivalent to 20px  */
     2: "20px",
-    /** Equivalent to 30px  */
-    3: "30px",
     /** Equivalent to 40px  */
     4: "40px",
-    /** Equivalent to 50px  */
-    5: "50px",
     /** Equivalent to 60px  */
     6: "60px",
-    /** Equivalent to 90px  */
-    9: "90px",
     /** Equivalent to 120px  */
     12: "120px",
-    /** Equivalent to 180px  */
-    18: "180px",
   },
 
   textVariants: TEXT_VARIANTS,
