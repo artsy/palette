@@ -1,6 +1,5 @@
 import { themeGet } from "@styled-system/theme-get"
 import styled, { css } from "styled-components"
-import {} from "styled-system"
 import {
   color,
   ColorProps,
@@ -13,12 +12,17 @@ import {
 } from "styled-system"
 import { Color } from "../../Theme"
 import { Box, BoxProps } from "../Box"
-import { TEXT_VARIANTS, TextVariant } from "./tokens"
+import {
+  TEXT_VARIANTS,
+  TextVariant,
+  V3_TEXT_VARIANTS,
+  V3TextVariant,
+} from "./tokens"
 
 /** BaseTextProps */
 export type BaseTextProps = TypographyProps &
   Omit<ColorProps, "color"> & {
-    variant?: ResponsiveValue<TextVariant>
+    variant?: ResponsiveValue<TextVariant | V3TextVariant>
     textColor?: ResponsiveValue<Color>
   }
 
@@ -29,11 +33,7 @@ const textColor = style({
 })
 
 /** styled functions for Text */
-export const textMixin = compose(
-  typography,
-  color,
-  textColor
-)
+export const textMixin = compose(typography, color, textColor)
 
 /** Adds ellipsis to overflowing text */
 export const overflowEllipsisMixin = css`
@@ -48,7 +48,7 @@ export type TextProps = BaseTextProps &
 
 /** Text */
 export const Text = styled(Box)<TextProps>`
-  ${variant({ variants: TEXT_VARIANTS.small })}
+  ${variant({ variants: { ...TEXT_VARIANTS.small, ...V3_TEXT_VARIANTS } })}
   ${textMixin}
 
   @media (min-width: ${themeGet("breakpoints.0")}) {

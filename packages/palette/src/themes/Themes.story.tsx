@@ -1,5 +1,14 @@
 import React from "react"
-import { Box, Column, GridColumns, Join, Spacer, Text } from "../elements"
+import {
+  Box,
+  Column,
+  GridColumns,
+  Join,
+  Separator,
+  Spacer,
+  Text,
+  TextVariant,
+} from "../elements"
 import { useTheme } from "../Theme"
 
 export default {
@@ -8,7 +17,18 @@ export default {
 
 export const Theme = () => {
   const { theme } = useTheme()
-  return <pre>{JSON.stringify(theme, null, 2)}</pre>
+
+  return (
+    <>
+      <Text variant="xxl" mb={4}>
+        Theme
+      </Text>
+
+      <Box as="pre" my={0}>
+        {JSON.stringify(theme, null, 2)}
+      </Box>
+    </>
+  )
 }
 
 export const Colors = () => {
@@ -16,23 +36,56 @@ export const Colors = () => {
   const colors = Object.entries(theme.colors)
 
   return (
-    <Join separator={<Spacer my={2} />}>
+    <Box>
+      <Text variant="xxl" mb={4}>
+        Color Palette
+      </Text>
+
+      <Text variant="sm">
+        The Artsy color palette has been updated to improve the accessibility.
+        Each color has been adjusted to ensure sufficient contrast and has
+        specific roles as to which colors can be used in conjunction with each
+        other.
+      </Text>
+
+      <Separator color="black30" my={12} />
+
+      <GridColumns>
+        <Column span={6}>
+          <Text variant="sm" color="black60">
+            Color Value
+          </Text>
+        </Column>
+
+        <Column span={6}>
+          <Text variant="sm" color="black60">
+            Hex Value
+          </Text>
+        </Column>
+      </GridColumns>
+
+      <Separator color="black30" my={6} />
+
       {colors.map(([name, value]) => {
         return (
-          <GridColumns key={name} justifyContent="space-between">
-            <Column span={3} display="flex" alignItems="center">
-              <Box width={30} height={30} bg={name} borderRadius="50%" />
-              <Text ml={1}>{name}</Text>
+          <GridColumns key={name} justifyContent="space-between" my={4}>
+            <Column span={6} display="flex" alignItems="center">
+              <Box width={60} height={60} bg={name} borderRadius="50%" />
+              <Text variant="xl" ml={2}>
+                {name}
+              </Text>
             </Column>
 
-            <Column span={9} display="flex" alignItems="center">
-              <Text color="black60">color:&nbsp;</Text>
-              <Text>{value}</Text>
+            <Column span={6} display="flex" alignItems="center">
+              <Text variant="sm" color="black60">
+                color:&nbsp;
+              </Text>
+              <Text variant="sm">{value}</Text>
             </Column>
           </GridColumns>
         )
       })}
-    </Join>
+    </Box>
   )
 }
 
@@ -44,19 +97,25 @@ export const Spacing = () => {
   )
 
   return (
-    <Join separator={<Spacer my={2} />}>
-      {spacing.map((key) => {
-        const px = parseFloat(key) * 10
+    <Box>
+      <Text variant="xxl" mb={4}>
+        Spacing
+      </Text>
 
-        return (
-          <Box key={key}>
-            <Text variant="title">{key}</Text>
-            <Text color="black60">{px}px</Text>
-            <Box width={px} height={1} bg="black60" />
-          </Box>
-        )
-      })}
-    </Join>
+      <Join separator={<Spacer my={2} />}>
+        {spacing.map((key) => {
+          const px = parseFloat(key) * 10
+
+          return (
+            <Box key={key}>
+              <Text variant="lg">{key}</Text>
+              <Text variant="xs">{px}px</Text>
+              <Box width={px} height={1} bg="black60" />
+            </Box>
+          )
+        })}
+      </Join>
+    </Box>
   )
 }
 
@@ -65,29 +124,101 @@ export const Grid = () => {
 
   return (
     <Join separator={<Spacer my={2} />}>
-      <Text variant="largeTitle">Desktop</Text>
+      <Text variant="xxl">Desktop</Text>
 
-      <GridColumns width="100%" height={600}>
+      <GridColumns my={12} width="100%" height={800}>
         {[...new Array(12)].map((_, i) => (
           <Column key={i} span={[1]} bg="black10" height="100%" />
         ))}
       </GridColumns>
 
-      <Text variant="largeTitle">Tablet</Text>
+      <Separator my={12} color="black30" />
 
-      <GridColumns width={theme.breakpoints.sm} height={600} mx="auto">
+      <Text variant="xxl">Tablet</Text>
+
+      <GridColumns my={12} width={theme.breakpoints.sm} height={800} mx="auto">
         {[...new Array(12)].map((_, i) => (
           <Column key={i} span={[1]} bg="black10" height="100%" />
         ))}
       </GridColumns>
 
-      <Text variant="largeTitle">Mobile</Text>
+      <Separator my={12} color="black30" />
 
-      <GridColumns width={480} gridColumnGap={1} height={600} mx="auto">
+      <Text variant="xxl">Mobile</Text>
+
+      <GridColumns my={12} width={480} gridColumnGap={1} height={800} mx="auto">
         {[...new Array(12)].map((_, i) => (
           <Column key={i} span={[1]} bg="black10" height="100%" />
         ))}
       </GridColumns>
     </Join>
+  )
+}
+
+export const Typography = () => {
+  const { theme } = useTheme()
+
+  const variants =
+    theme.id === "v2" ? theme.textVariants.large : theme.textVariants
+
+  const treatments = Object.keys(variants) as TextVariant[]
+
+  return (
+    <Box>
+      <Text variant="xxl" mb={4}>
+        Type Scale
+      </Text>
+
+      <GridColumns>
+        <Column span={6}>
+          <Text variant="sm" color="black60">
+            Size
+          </Text>
+        </Column>
+
+        <Column span={6}>
+          <Text variant="sm" color="black60">
+            Details
+          </Text>
+        </Column>
+      </GridColumns>
+
+      <Separator my={4} color="black30" />
+
+      <Join separator={<Separator my={4} color="black30" />}>
+        {treatments.map((name) => {
+          return (
+            <GridColumns key={name}>
+              <Column span={6}>
+                <Text variant={name}>
+                  {name}
+                  <br />
+                  {[
+                    variants[name].fontSize,
+                    variants[name].lineHeight,
+                    variants[name].letterSpacing,
+                  ]
+                    .filter(Boolean)
+                    .join("/")}
+                </Text>
+              </Column>
+
+              <Column span={6}>
+                {Object.entries(variants[name]).map(([key, value]) => {
+                  return (
+                    <Text key={key} variant="sm">
+                      <Box as="span" color="black60">
+                        {key}:
+                      </Box>{" "}
+                      {value}
+                    </Text>
+                  )
+                })}
+              </Column>
+            </GridColumns>
+          )
+        })}
+      </Join>
+    </Box>
   )
 }

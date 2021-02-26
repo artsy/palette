@@ -1,11 +1,10 @@
 import {
   TEXT_FONT_SIZES,
-  TEXT_FONTS,
   TEXT_LETTER_SPACING,
   TEXT_LINE_HEIGHTS,
-  TEXT_VARIANTS,
+  V3_TEXT_FONTS,
+  V3_TEXT_VARIANTS,
 } from "../elements/Text"
-import { fontFamily } from "../platform/fonts"
 
 /**
  * A list of breakpoints accessible by key/value.
@@ -95,11 +94,13 @@ export const THEME = {
     white100: "#FFFFFF",
   },
 
-  fontFamily,
+  fonts: V3_TEXT_FONTS,
 
-  fonts: TEXT_FONTS,
+  // TODO: Remove
   fontSizes: TEXT_FONT_SIZES,
+  // TODO: Remove
   letterSpacings: TEXT_LETTER_SPACING,
+  // TODO: Remove
   lineHeights: TEXT_LINE_HEIGHTS,
 
   // prettier-ignore
@@ -129,8 +130,8 @@ export const THEME = {
     12: "120px",
   },
 
-  textVariants: TEXT_VARIANTS,
-}
+  textVariants: V3_TEXT_VARIANTS,
+} as const
 
 /** All available px spacing maps */
 export type SpacingUnit = keyof typeof THEME["space"]

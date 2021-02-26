@@ -363,7 +363,7 @@ export const THEME = {
   },
 
   textVariants: TEXT_VARIANTS,
-}
+} as const
 
 /** All available px spacing maps */
 export type SpacingUnit = keyof typeof THEME["space"]
