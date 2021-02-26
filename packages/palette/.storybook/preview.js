@@ -10,7 +10,7 @@ const { GlobalStyles } = injectGlobalStyles()
 
 export const decorators = [
   (Story) => {
-    const [theme, setTheme] = useState("v2")
+    const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "v2")
 
     return (
       <Theme theme={THEMES[theme]}>
@@ -18,8 +18,10 @@ export const decorators = [
           <GlobalStyles />
 
           <Tabs
+            initialTabIndex={["v2", "v3"].indexOf(theme)}
             onChange={({ name }) => {
               setTheme(name)
+              localStorage.setItem("theme", name)
             }}
           >
             <Tab name="v2">
