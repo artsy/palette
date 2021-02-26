@@ -20,8 +20,8 @@ export const GridColumns = styled(CSSGrid)`
 `
 
 GridColumns.defaultProps = {
-  gridColumnGap: 2,
-  gridRowGap: 2,
+  gridColumnGap: [1, 2],
+  gridRowGap: [1, 2],
 }
 
 type CellProps = ColumnCell & GridColumnProps & BoxProps
@@ -67,7 +67,7 @@ const ColumnWrap: React.FC<{ gridColumnValue: string[] }> = ({
       gridColumn={["auto / -1"]}
       // Hides the break if the value presented is going to span the full
       // width of the column anyway. Prevents duplicated row gaps.
-      display={gridColumnValue.map(value => {
+      display={gridColumnValue.map((value) => {
         return GRID_COLUMN_FULL_WIDTHS.includes(value) ? "none" : "block"
       })}
     />
