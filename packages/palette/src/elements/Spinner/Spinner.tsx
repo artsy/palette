@@ -14,7 +14,7 @@ export interface SpinnerProps {
   /** Size of the spinner */
   size?: "small" | "medium" | "large"
   /** Color of the spinner */
-  color?: Color
+  color?: Color | "currentColor"
 }
 
 /**
@@ -55,7 +55,7 @@ const spin = keyframes`
 `
 
 /** Generic Spinner component */
-export const Spinner: React.FC<SpinnerProps> = props => {
+export const Spinner: React.FC<SpinnerProps> = (props) => {
   const [show, setShow] = useState(props.delay === 0)
 
   useEffect(() => {
@@ -79,11 +79,13 @@ const SpinnerBar = styled.div<SpinnerProps>`
   animation: ${spin} 1s infinite linear;
   position: absolute;
 
-  ${props => {
+  ${(props) => {
     const { width, height } = getSize(props)
 
     return `
-      background: ${color(props.color)};
+      background-color: ${
+        props.color === "currentColor" ? "currentColor" : color(props.color)
+      };
       width: ${width}px;
       height: ${height}px;
       top: calc(50% - ${height}px / 2);
