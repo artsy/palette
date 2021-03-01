@@ -1,6 +1,8 @@
 import React from "react"
 import {
   Box,
+  Button,
+  BUTTON_TREATMENTS,
   Column,
   GridColumns,
   Join,
@@ -24,6 +26,8 @@ export const Theme = () => {
         Theme
       </Text>
 
+      <Separator color="black30" my={12} />
+
       <Box as="pre" my={0}>
         {JSON.stringify(theme, null, 2)}
       </Box>
@@ -36,7 +40,7 @@ export const Colors = () => {
   const colors = Object.entries(theme.colors)
 
   return (
-    <Box>
+    <>
       <Text variant="xxl" mb={4}>
         Color Palette
       </Text>
@@ -50,19 +54,12 @@ export const Colors = () => {
 
       <Separator color="black30" my={12} />
 
-      <GridColumns>
-        <Column span={6}>
-          <Text variant="sm" color="black60">
-            Color Value
-          </Text>
-        </Column>
-
-        <Column span={6}>
-          <Text variant="sm" color="black60">
-            Hex Value
-          </Text>
-        </Column>
-      </GridColumns>
+      <Text variant="sm" color="black60">
+        <GridColumns>
+          <Column span={6}>Color Value</Column>
+          <Column span={6}>Hex Value</Column>
+        </GridColumns>
+      </Text>
 
       <Separator color="black30" my={6} />
 
@@ -85,7 +82,7 @@ export const Colors = () => {
           </GridColumns>
         )
       })}
-    </Box>
+    </>
   )
 }
 
@@ -97,10 +94,12 @@ export const Spacing = () => {
   )
 
   return (
-    <Box>
+    <>
       <Text variant="xxl" mb={4}>
         Spacing
       </Text>
+
+      <Separator color="black30" my={12} />
 
       <Join separator={<Spacer my={2} />}>
         {spacing.map((key) => {
@@ -115,7 +114,7 @@ export const Spacing = () => {
           )
         })}
       </Join>
-    </Box>
+    </>
   )
 }
 
@@ -123,8 +122,10 @@ export const Grid = () => {
   const { theme } = useTheme()
 
   return (
-    <Join separator={<Spacer my={2} />}>
+    <>
       <Text variant="xxl">Desktop</Text>
+
+      <Separator color="black30" my={12} />
 
       <GridColumns my={12} width="100%" height={800}>
         {[...new Array(12)].map((_, i) => (
@@ -151,7 +152,7 @@ export const Grid = () => {
           <Column key={i} span={[1]} bg="black10" height="100%" />
         ))}
       </GridColumns>
-    </Join>
+    </>
   )
 }
 
@@ -164,24 +165,19 @@ export const Typography = () => {
   const treatments = Object.keys(variants) as TextVariant[]
 
   return (
-    <Box>
+    <>
       <Text variant="xxl" mb={4}>
         Type Scale
       </Text>
 
-      <GridColumns>
-        <Column span={6}>
-          <Text variant="sm" color="black60">
-            Size
-          </Text>
-        </Column>
+      <Separator color="black30" my={12} />
 
-        <Column span={6}>
-          <Text variant="sm" color="black60">
-            Details
-          </Text>
-        </Column>
-      </GridColumns>
+      <Text variant="sm" color="black60">
+        <GridColumns>
+          <Column span={6}>Size</Column>
+          <Column span={6}>Details</Column>
+        </GridColumns>
+      </Text>
 
       <Separator my={4} color="black30" />
 
@@ -219,6 +215,114 @@ export const Typography = () => {
           )
         })}
       </Join>
-    </Box>
+    </>
+  )
+}
+
+export const Buttons = () => {
+  return (
+    <>
+      <Text variant="xxl" mb={4}>
+        Buttons
+      </Text>
+
+      <Separator my={12} color="black30" />
+
+      <Text variant="sm" color="black60">
+        <GridColumns>
+          <Column span={2}>Default</Column>
+          <Column span={2}>Focus</Column>
+          <Column span={2}>Hover</Column>
+          <Column span={2}>Loading</Column>
+          <Column span={2}>Disabled</Column>
+        </GridColumns>
+      </Text>
+
+      <Separator my={4} color="black30" />
+
+      <Text variant="lg" my={6}>
+        Large - 50px
+      </Text>
+
+      <GridColumns gridRowGap={6}>
+        {BUTTON_TREATMENTS.map((variant) => {
+          return (
+            <React.Fragment key={variant}>
+              <Column span={2}>
+                <Button variant={variant} width={150}>
+                  Default
+                </Button>
+              </Column>
+
+              <Column span={2}>
+                <Button variant={variant} width={150} focus>
+                  Focus
+                </Button>
+              </Column>
+
+              <Column span={2}>
+                <Button variant={variant} width={150} hover>
+                  Hover
+                </Button>
+              </Column>
+
+              <Column span={2}>
+                <Button variant={variant} width={150} loading>
+                  Loading
+                </Button>
+              </Column>
+
+              <Column span={2} wrap>
+                <Button variant={variant} width={150} disabled>
+                  Disabled
+                </Button>
+              </Column>
+            </React.Fragment>
+          )
+        })}
+      </GridColumns>
+
+      <Text variant="lg" my={6}>
+        Small - 30px
+      </Text>
+
+      <GridColumns gridColumnGap={12} gridRowGap={6}>
+        {BUTTON_TREATMENTS.map((variant) => {
+          return (
+            <React.Fragment key={variant}>
+              <Column span={1}>
+                <Button variant={variant} size="small" width={100}>
+                  Default
+                </Button>
+              </Column>
+
+              <Column span={1}>
+                <Button variant={variant} size="small" width={100} focus>
+                  Focus
+                </Button>
+              </Column>
+
+              <Column span={1}>
+                <Button variant={variant} size="small" width={100} hover>
+                  Hover
+                </Button>
+              </Column>
+
+              <Column span={1}>
+                <Button variant={variant} size="small" width={100} loading>
+                  Loading
+                </Button>
+              </Column>
+
+              <Column span={1} wrap>
+                <Button variant={variant} size="small" width={100} disabled>
+                  Disabled
+                </Button>
+              </Column>
+            </React.Fragment>
+          )
+        })}
+      </GridColumns>
+    </>
   )
 }
