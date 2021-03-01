@@ -50,9 +50,6 @@ const BREAKPOINTS_SCALE = Object.assign(
 export const THEME = {
   id: "v3",
 
-  /** Border variations */
-  borders: ["1px solid", "2px solid"],
-
   /**
    * This allows styled-system to hook into our breakpoints
    */
