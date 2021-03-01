@@ -1,22 +1,8 @@
 import { BoxProps } from "../../Box"
 import { SansProps } from "../../Typography"
+import { ButtonMode, ButtonSize, ButtonState, ButtonVariant } from "../types"
 
-/** Names of button treatments */
-export const BUTTON_TREATMENTS = [
-  "primaryBlack",
-  "primaryWhite",
-  "secondaryGray",
-  "secondaryOutline",
-  "noOutline",
-]
-
-/** Name of treatments */
-export type ButtonVariant = typeof BUTTON_TREATMENTS[number]
-
-/** Possible states that require styling */
-export type ButtonState = "default" | "hover" | "focus" | "loading" | "disabled"
-
-/** Available variants */
+/** Available button variants */
 export const BUTTON_VARIANTS: Record<
   ButtonState,
   Record<ButtonVariant, any>
@@ -163,16 +149,8 @@ export const BUTTON_VARIANTS: Record<
   },
 }
 
-/** Buttons can be displayed "block" or "inline" (defaults to "block") */
-export type ButtonMode = "block" | "inline"
-
-/** Available sizes */
-export type ButtonSize = "small" | "medium" | "large"
-
-/** Styles associated with available sizes */
-export const BUTTON_SIZES: {
-  [K in ButtonMode]: Record<ButtonSize, BoxProps>
-} = {
+/** Available button sizes */
+export const BUTTON_SIZES: Record<ButtonMode, Record<ButtonSize, BoxProps>> = {
   block: {
     small: {
       height: "26px",
@@ -204,7 +182,7 @@ export const BUTTON_SIZES: {
 }
 
 /** Text sizes associated with available button sizes */
-export const BUTTON_TEXT_SIZES: { [K in ButtonSize]: SansProps["size"] } = {
+export const BUTTON_TEXT_SIZES: Record<ButtonSize, SansProps["size"]> = {
   small: "2",
   medium: "3t",
   large: "3t",

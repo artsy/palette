@@ -2,7 +2,7 @@ import React from "react"
 import {
   Box,
   Button,
-  BUTTON_TREATMENTS,
+  BUTTON_VARIANT_NAMES,
   Column,
   GridColumns,
   Join,
@@ -245,7 +245,7 @@ export const Buttons = () => {
       </Text>
 
       <GridColumns gridRowGap={6}>
-        {BUTTON_TREATMENTS.map((variant) => {
+        {BUTTON_VARIANT_NAMES.map((variant) => {
           return (
             <React.Fragment key={variant}>
               <Column span={2}>
@@ -287,7 +287,7 @@ export const Buttons = () => {
       </Text>
 
       <GridColumns gridColumnGap={12} gridRowGap={6}>
-        {BUTTON_TREATMENTS.map((variant) => {
+        {BUTTON_VARIANT_NAMES.map((variant) => {
           return (
             <React.Fragment key={variant}>
               <Column span={1}>

@@ -1,8 +1,8 @@
-import { BoxProps } from "../../Box"
 import { TextProps } from "../../Text"
-import { ButtonMode, ButtonSize, ButtonState, ButtonVariant } from "./v2"
+import { ButtonSize, ButtonState, ButtonVariant } from "../types"
 
-export const V3_BUTTON_VARIANTS: Record<
+/** Available button variants */
+export const BUTTON_VARIANTS: Record<
   ButtonState,
   Record<ButtonVariant, any>
 > = {
@@ -156,37 +156,22 @@ export const V3_BUTTON_VARIANTS: Record<
   },
 }
 
-export const V3_BUTTON_SIZES: Record<
-  ButtonMode,
-  Record<ButtonSize, BoxProps>
-> = {
-  block: {
-    small: {
-      height: "30px",
-      borderRadius: "15px",
-      px: 2,
-    },
-    medium: {
-      height: "50px",
-      borderRadius: "25px",
-      px: 4,
-    },
-    large: {
-      height: "50px",
-      borderRadius: "25px",
-      px: 4,
-    },
+/** Available button sizes */
+export const BUTTON_SIZES = {
+  small: {
+    height: "30px",
+    borderRadius: "15px",
+    px: 2,
   },
-  // No longer relevant
-  inline: {
-    small: {},
-    medium: {},
-    large: {},
+  medium: {
+    height: "50px",
+    borderRadius: "25px",
+    px: 4,
   },
-}
+} as const
 
 /** Text sizes associated with available button sizes */
-export const V3_BUTTON_TEXT_SIZES: Record<ButtonSize, TextProps["variant"]> = {
+export const BUTTON_TEXT_SIZES: Record<ButtonSize, TextProps["variant"]> = {
   small: "xs",
   medium: "sm",
   large: "sm",

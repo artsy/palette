@@ -5,12 +5,7 @@ import styled from "styled-components"
 import { Box } from "../Box"
 import { Spacer } from "../Spacer"
 import { ButtonProps } from "./Button"
-import {
-  Button,
-  BUTTON_SIZES,
-  BUTTON_TREATMENTS,
-  BUTTON_VARIANTS,
-} from "./index"
+import { Button, BUTTON_SIZE_NAMES, BUTTON_VARIANT_NAMES } from "./index"
 
 export default { title: "Components/Button" }
 
@@ -37,11 +32,7 @@ _States.story = {
 
 export const Sizes = () => {
   return (
-    <States<ButtonProps>
-      states={(Object.keys(BUTTON_SIZES.block) as Array<
-        keyof typeof BUTTON_SIZES.block
-      >).map((size) => ({ size }))}
-    >
+    <States<ButtonProps> states={BUTTON_SIZE_NAMES.map((size) => ({ size }))}>
       <Button>Label</Button>
     </States>
   )
@@ -56,7 +47,7 @@ _Demo.displayName = "Button"
 export const Variants = () => {
   return (
     <States<ButtonProps>
-      states={BUTTON_TREATMENTS.map((variant) => ({ variant }))}
+      states={BUTTON_VARIANT_NAMES.map((variant) => ({ variant }))}
     >
       {(props) => (
         <_Demo>
