@@ -65,6 +65,8 @@ export const Radio: React.ForwardRefExoticComponent<
         disabled={disabled}
         alignItems="center"
         selected={selected}
+        aria-checked={selected}
+        role="radio"
         hover={hover}
         onClick={() =>
           !disabled && onSelect && onSelect({ selected: !selected, value })
@@ -75,6 +77,8 @@ export const Radio: React.ForwardRefExoticComponent<
           role="presentation"
           border={1}
           mr={1}
+          mt="2px"
+          mb="-2px"
           selected={selected}
           disabled={disabled}
         >
