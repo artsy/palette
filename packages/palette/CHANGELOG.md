@@ -1,3 +1,18 @@
+# v13.35.1 (Tue Mar 02 2021)
+
+#### 🐛  Bug Fix
+
+- fix(a11y): makes radio / radio groups accessible [#863](https://github.com/artsy/palette/pull/863) ([@dzucconi](https://github.com/dzucconi))
+- fix(radio): re-break vertical alignment ([@dzucconi](https://github.com/dzucconi))
+- fix(radio): makes radio / radio groups accessible ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): fleshes out entityheader stories ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.35.0 (Thu Feb 25 2021)
 
 #### 🚀  Enhancement
