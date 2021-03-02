@@ -12,17 +12,14 @@ import {
 } from "styled-system"
 import { Color } from "../../Theme"
 import { Box, BoxProps } from "../Box"
-import {
-  TEXT_VARIANTS,
-  TextVariant,
-  V3_TEXT_VARIANTS,
-  V3TextVariant,
-} from "./tokens"
+import { TextVariant } from "./tokens/types"
+import { TEXT_VARIANTS as V2_TEXT_VARIANTS } from "./tokens/v2"
+import { TEXT_VARIANTS as V3_TEXT_VARIANTS } from "./tokens/v3"
 
 /** BaseTextProps */
 export type BaseTextProps = TypographyProps &
   Omit<ColorProps, "color"> & {
-    variant?: ResponsiveValue<TextVariant | V3TextVariant>
+    variant?: ResponsiveValue<TextVariant>
     textColor?: ResponsiveValue<Color>
   }
 
@@ -48,13 +45,24 @@ export type TextProps = BaseTextProps &
 
 /** Text */
 export const Text = styled(Box)<TextProps>`
-  ${variant({ variants: { ...TEXT_VARIANTS.small, ...V3_TEXT_VARIANTS } })}
-  ${textMixin}
+  ${(props) => {
+    if (props.theme.id === "v2") {
+      return css`
+        ${variant({ variants: V2_TEXT_VARIANTS.small })(props)}
+        ${textMixin}
 
-  @media (min-width: ${themeGet("breakpoints.0")}) {
-    ${variant({ variants: TEXT_VARIANTS.large })}
-    ${textMixin}
-  }
+      @media (min-width: ${themeGet("breakpoints.0")}) {
+          ${variant({ variants: V2_TEXT_VARIANTS.large })}
+          ${textMixin}
+        }
+      `
+    }
+
+    return css`
+      ${variant({ variants: V3_TEXT_VARIANTS })(props)}
+      ${textMixin}
+    `
+  }}
 
   ${({ overflowEllipsis }) => overflowEllipsis && overflowEllipsisMixin}
 `

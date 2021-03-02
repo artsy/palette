@@ -1,10 +1,4 @@
-import {
-  TEXT_FONT_SIZES,
-  TEXT_LETTER_SPACING,
-  TEXT_LINE_HEIGHTS,
-  V3_TEXT_FONTS,
-  V3_TEXT_VARIANTS,
-} from "../elements/Text"
+import { TEXT_FONTS, TEXT_VARIANTS } from "../elements/Text/tokens/v3"
 
 /**
  * A list of breakpoints accessible by key/value.
@@ -91,14 +85,7 @@ export const THEME = {
     white100: "#FFFFFF",
   },
 
-  fonts: V3_TEXT_FONTS,
-
-  // TODO: Remove
-  fontSizes: TEXT_FONT_SIZES,
-  // TODO: Remove
-  letterSpacings: TEXT_LETTER_SPACING,
-  // TODO: Remove
-  lineHeights: TEXT_LINE_HEIGHTS,
+  fonts: TEXT_FONTS,
 
   // prettier-ignore
   /** Media queries to work with in web  */
@@ -127,7 +114,7 @@ export const THEME = {
     12: "120px",
   },
 
-  textVariants: V3_TEXT_VARIANTS,
+  textVariants: TEXT_VARIANTS,
 } as const
 
 /** All available px spacing maps */

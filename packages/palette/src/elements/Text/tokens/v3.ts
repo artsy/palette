@@ -1,11 +1,14 @@
-import { TEXT_FONTS, TextTreatment } from "./v2"
+import { TextTreatment } from "./types"
 
-export const V3_TEXT_FONTS = { sans: TEXT_FONTS.sans }
+/** Available fonts */
+export const TEXT_FONTS = { sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif', }
 
-export const V3_TEXT_TREATMENTS = ["xxl", "xl", "lg", "md", "sm", "xs"] as const
+/** Available text variant names */
+export const TEXT_VARIANT_NAMES = ["xxl", "xl", "lg", "md", "sm", "xs"] as const
 
-export const V3_TEXT_VARIANTS: Record<
-  typeof V3_TEXT_TREATMENTS[number],
+/** Available text variants */
+export const TEXT_VARIANTS: Record<
+  typeof TEXT_VARIANT_NAMES[number],
   TextTreatment
 > = {
   xxl: {
@@ -38,4 +41,4 @@ export const V3_TEXT_VARIANTS: Record<
 }
 
 /** Name of typographic treatment */
-export type V3TextVariant = keyof typeof V3_TEXT_VARIANTS
+export type TextVariant = keyof typeof TEXT_VARIANTS

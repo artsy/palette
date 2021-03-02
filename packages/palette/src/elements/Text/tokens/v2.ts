@@ -1,3 +1,5 @@
+import { TextTreatment } from "./types"
+
 /** font-families */
 export const TEXT_FONTS = {
   sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif',
@@ -20,9 +22,6 @@ export const TEXT_FONT_SIZES = {
   size1: "12px",
 }
 
-/** Available font-sizes */
-export type TextFontSize = keyof typeof TEXT_FONT_SIZES
-
 /** line-height scale */
 export const TEXT_LINE_HEIGHTS = {
   solid: 1,
@@ -30,27 +29,14 @@ export const TEXT_LINE_HEIGHTS = {
   body: 1.5,
 }
 
-/** Available line-heights */
-export type TextLineHeight = keyof typeof TEXT_LINE_HEIGHTS
-
 /** letter-spacing scale */
 export const TEXT_LETTER_SPACING = {
   tight: "-0.02em",
   tightest: "-0.03em",
 }
 
-/** Available letter-spacings */
-export type TextLetterSpacing = keyof typeof TEXT_LETTER_SPACING
-
-export interface TextTreatment {
-  fontSize: TextFontSize | string
-  lineHeight: TextLineHeight | string
-  letterSpacing?: TextLetterSpacing | string
-  fontWeight?: "normal" | "bold"
-}
-
 /** Names of typographic treatments */
-export const TEXT_TREATMENTS = [
+export const TEXT_VARIANT_NAMES = [
   "largeTitle",
   "title",
   "subtitle",
@@ -60,14 +46,11 @@ export const TEXT_TREATMENTS = [
   "small",
 ] as const
 
-/** TextTreatments */
-export type TextTreatments = Record<
-  typeof TEXT_TREATMENTS[number],
-  TextTreatment
->
-
 /** Available typographic treatments */
-export const TEXT_VARIANTS: Record<string, TextTreatments> = {
+export const TEXT_VARIANTS: Record<
+  string,
+  Record<typeof TEXT_VARIANT_NAMES[number], TextTreatment>
+> = {
   large: {
     largeTitle: {
       fontSize: "size9",
@@ -149,4 +132,4 @@ export const TEXT_VARIANTS: Record<string, TextTreatments> = {
 }
 
 /** Name of typographic treatment */
-export type TextVariant = keyof TextTreatments
+export type TextVariant = typeof TEXT_VARIANT_NAMES[number]

@@ -4,7 +4,7 @@ import {
   TEXT_LETTER_SPACING,
   TEXT_LINE_HEIGHTS,
   TEXT_VARIANTS,
-} from "../elements/Text"
+} from "../elements/Text/tokens/v2"
 import { fontFamily } from "../platform/fonts"
 
 /**

@@ -162,6 +162,7 @@ export const Typography = () => {
   const variants =
     theme.id === "v2" ? theme.textVariants.large : theme.textVariants
 
+  // TODO
   const treatments = Object.keys(variants) as TextVariant[]
 
   return (
