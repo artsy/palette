@@ -1,9 +1,14 @@
-import { mount } from "enzyme"
+import { mount as __mount__ } from "enzyme"
 import React from "react"
 import { CloseIcon } from "../../../svgs"
 import { ArtsyLogoBlackIcon } from "../../../svgs/ArtsyLogoBlackIcon"
+import { Theme } from "../../../Theme"
 import { Button } from "../../Button"
 import { Modal } from "../Modal"
+
+const mount: typeof __mount__ = (children) => {
+  return __mount__(<Theme>{children}</Theme>)
+}
 
 describe("Modal", () => {
   it("displays logo when enabled", () => {
@@ -65,11 +70,7 @@ describe("Modal", () => {
         vestibulum.
       </Modal>
     )
-    component
-      .find(CloseIcon)
-      .parent()
-      .props()
-      .onClick()
+    component.find(CloseIcon).parent().props().onClick()
     expect(show).toEqual(false)
   })
 
