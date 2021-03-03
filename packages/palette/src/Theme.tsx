@@ -4,7 +4,7 @@ import { GridThemeProvider as StyledGridThemeProvider } from "styled-bootstrap-g
 // Notably: `Icon` and `Sans|Serif`
 // @ts-ignore
 import { ThemeContext, ThemeProvider } from "styled-components"
-import { Theme as TTheme, THEME_V2, THEME_V3 } from "./themes"
+import { Theme as TTheme, THEME_V2, THEME_V3, ThemeV2, ThemeV3 } from "./themes"
 
 export * from "./themes/v2"
 
@@ -47,4 +47,14 @@ export const ThemeProviderV3: React.FC = ({ children }) => {
 export const useTheme = <T extends TTheme>() => {
   const theme: T = useContext(ThemeContext)
   return { theme }
+}
+
+/** Typeguard for v2 */
+export const isThemeV2 = (theme: TTheme): theme is ThemeV2 => {
+  return theme.id === "v2"
+}
+
+/** Typeguard for v3 */
+export const isThemeV3 = (theme: TTheme): theme is ThemeV3 => {
+  return theme.id === "v3"
 }

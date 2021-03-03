@@ -1,8 +1,6 @@
 import { TEXT_FONTS, TEXT_VARIANTS } from "../elements/Text/tokens/v3"
 
-/**
- * A list of breakpoints accessible by key/value.
- */
+/** A list of breakpoints accessible by key/value. */
 export const breakpoints = {
   /** Above 1920 */
   lg: "1920px",
@@ -14,9 +12,7 @@ export const breakpoints = {
   xs: "767px",
 }
 
-/**
- * Copy of `breakpoints` as integers
- */
+/** Copy of `breakpoints` as integers */
 export const unitlessBreakpoints = {
   /** Above 1920 */
   lg: parseInt(breakpoints.lg, 10),
@@ -44,14 +40,8 @@ const BREAKPOINTS_SCALE = Object.assign(
 export const THEME = {
   id: "v3",
 
-  /**
-   * This allows styled-system to hook into our breakpoints
-   */
   breakpoints: BREAKPOINTS_SCALE,
 
-  /**
-   * Artsy's color schemes
-   */
   colors: {
     /** Full black, primary brand color  */
     black100: "#000000",
@@ -88,7 +78,7 @@ export const THEME = {
   fonts: TEXT_FONTS,
 
   // prettier-ignore
-  /** Media queries to work with in web  */
+  // Media queries to work with in web
   mediaQueries: {
     lg: `(min-width: ${breakpoints.lg})`,
     md: `(min-width: ${breakpoints.md}) and (max-width: ${parseInt(breakpoints.lg, 10) - 1})`,
@@ -96,6 +86,11 @@ export const THEME = {
     xs: `(max-width: ${parseInt(breakpoints.sm, 10) - 1})`,
     /** Determines if the input device has the notion of hover, e.g. mouse. */
     hover: `not all and (pointer: coarse), not all and (-moz-touch-enabled: 1)`,
+  },
+
+  // Empty grid object to prevent `Grid` component from throwing
+  grid: {
+    breakpoints: {},
   },
 
   space: {
@@ -115,11 +110,4 @@ export const THEME = {
   },
 
   textVariants: TEXT_VARIANTS,
-} as const
-
-/** All available px spacing maps */
-export type SpacingUnit = keyof typeof THEME["space"]
-/** All available color keys */
-export type Color = keyof typeof THEME["colors"]
-/** All available width breakpoint */
-export type Breakpoint = keyof typeof breakpoints
+}

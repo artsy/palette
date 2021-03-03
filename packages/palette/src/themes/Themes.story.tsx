@@ -11,7 +11,7 @@ import {
   Text,
   TextVariant,
 } from "../elements"
-import { useTheme } from "../Theme"
+import { isThemeV2, useTheme } from "../Theme"
 
 export default {
   title: "Theme",
@@ -159,10 +159,10 @@ export const Grid = () => {
 export const Typography = () => {
   const { theme } = useTheme()
 
-  const variants =
-    theme.id === "v2" ? theme.textVariants.large : theme.textVariants
+  const variants = isThemeV2(theme)
+    ? theme.textVariants.large
+    : theme.textVariants
 
-  // TODO
   const treatments = Object.keys(variants) as TextVariant[]
 
   return (
