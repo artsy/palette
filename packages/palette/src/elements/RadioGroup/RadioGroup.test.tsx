@@ -152,4 +152,21 @@ describe("RadioGroup", () => {
     expect(spyOnRadioGroup).toHaveBeenCalled()
     expect(spyOnRadio).toHaveBeenCalled()
   })
+
+  it("does not call onSelect on mount", () => {
+    const handleSelect = jest.fn()
+
+    const wrapper = mount(
+      <RadioGroup onSelect={handleSelect}>
+        <Radio value="one">one</Radio>
+        <Radio value="two">two</Radio>
+      </RadioGroup>
+    )
+
+    expect(handleSelect).toBeCalledTimes(0)
+
+    wrapper.find("Radio").first().simulate("click")
+
+    expect(handleSelect).toBeCalledTimes(1)
+  })
 })

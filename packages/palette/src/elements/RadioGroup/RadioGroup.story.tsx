@@ -21,16 +21,11 @@ export const Default = () => {
         { disabled: true, disabledText: "Reason for disabled" },
       ]}
     >
-      <RadioGroup>
+      <RadioGroup onSelect={action("onSelect")}>
         {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
           (value) => {
             return (
-              <Radio
-                key={value}
-                value={value}
-                label={<Text>{value}</Text>}
-                onSelect={action("onSelect")}
-              />
+              <Radio key={value} value={value} label={<Text>{value}</Text>} />
             )
           }
         )}
@@ -53,17 +48,9 @@ export const WithDefaultValue = () => {
         Toggle default value: {defaultValue}
       </Button>
 
-      <RadioGroup defaultValue={defaultValue}>
-        <Radio
-          value="SHIP"
-          label="Provide shipping address"
-          onSelect={action("onSelect")}
-        />
-        <Radio
-          value="PICKUP"
-          label="Arrange for pickup"
-          onSelect={action("onSelect")}
-        />
+      <RadioGroup defaultValue={defaultValue} onSelect={action("onSelect")}>
+        <Radio value="SHIP" label="Provide shipping address" />
+        <Radio value="PICKUP" label="Arrange for pickup" />
       </RadioGroup>
     </>
   )

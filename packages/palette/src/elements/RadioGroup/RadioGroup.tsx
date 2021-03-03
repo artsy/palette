@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react"
 import { useCursor } from "use-cursor"
+import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Flex, FlexProps } from "../Flex"
 import { RadioProps } from "../Radio"
 import { Text } from "../Text"
@@ -95,7 +96,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     setSelectedOption(defaultValue)
   }, [defaultValue])
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     if (onSelect) {
       onSelect(selectedOption)
     }
