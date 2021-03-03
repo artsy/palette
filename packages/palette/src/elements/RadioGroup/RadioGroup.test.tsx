@@ -3,7 +3,7 @@ import React from "react"
 import { Radio } from "../Radio"
 import { RadioGroup } from "../RadioGroup"
 
-jest.mock("debounce", () => x => x)
+jest.mock("debounce", () => (x) => x)
 
 describe("RadioGroup", () => {
   it("renders a radio group", () => {
@@ -18,10 +18,7 @@ describe("RadioGroup", () => {
     expect(wrapper.text()).toContain("Provide shipping address")
     expect(wrapper.text()).toContain("Arrange for pickup")
 
-    wrapper
-      .find("Radio")
-      .first()
-      .simulate("click")
+    wrapper.find("Radio").first().simulate("click")
 
     expect(spy).toHaveBeenCalled()
   })
@@ -34,18 +31,8 @@ describe("RadioGroup", () => {
       </RadioGroup>
     )
 
-    expect(
-      wrapper
-        .find("Radio")
-        .first()
-        .props().selected
-    ).toBe(false)
-    expect(
-      wrapper
-        .find("Radio")
-        .last()
-        .props().selected
-    ).toBe(true)
+    expect(wrapper.find("Radio").first().props().selected).toBe(false)
+    expect(wrapper.find("Radio").last().props().selected).toBe(true)
   })
 
   it("selects the radio that gets clicked", () => {
@@ -56,23 +43,10 @@ describe("RadioGroup", () => {
       </RadioGroup>
     )
 
-    wrapper
-      .find("Radio")
-      .first()
-      .simulate("click")
+    wrapper.find("Radio").first().simulate("click")
 
-    expect(
-      wrapper
-        .find("Radio")
-        .first()
-        .props().selected
-    ).toBe(true)
-    expect(
-      wrapper
-        .find("Radio")
-        .last()
-        .props().selected
-    ).toBe(false)
+    expect(wrapper.find("Radio").first().props().selected).toBe(true)
+    expect(wrapper.find("Radio").last().props().selected).toBe(false)
   })
 
   it("allows the 'disabled' prop on the Radio component to take the precedence", () => {
@@ -85,18 +59,8 @@ describe("RadioGroup", () => {
       </RadioGroup>
     )
 
-    expect(
-      wrapper
-        .find("Radio")
-        .first()
-        .props().disabled
-    ).toBe(false)
-    expect(
-      wrapper
-        .find("Radio")
-        .last()
-        .props().disabled
-    ).toBe(true)
+    expect(wrapper.find("Radio").first().props().disabled).toBe(false)
+    expect(wrapper.find("Radio").last().props().disabled).toBe(true)
   })
 
   it("displays a specific text when disabled", () => {
@@ -107,7 +71,7 @@ describe("RadioGroup", () => {
       </RadioGroup>
     )
 
-    expect(wrapper.find("Sans").text()).toBe("i am disabled right now mate")
+    expect(wrapper.find("Text").text()).toBe("i am disabled right now mate")
   })
 
   it("allows Radios within the group to be deselectable", () => {
@@ -122,21 +86,11 @@ describe("RadioGroup", () => {
 
     ship.simulate("click")
 
-    expect(
-      wrapper
-        .find("Radio")
-        .first()
-        .props().selected
-    ).toBe(true)
+    expect(wrapper.find("Radio").first().props().selected).toBe(true)
 
     ship.simulate("click")
 
-    expect(
-      wrapper
-        .find("Radio")
-        .first()
-        .props().selected
-    ).toBe(false)
+    expect(wrapper.find("Radio").first().props().selected).toBe(false)
   })
 
   it("ignores the 'selected' prop on the Radio component", () => {
@@ -157,7 +111,7 @@ describe("RadioGroup", () => {
   })
 
   it("allows for updates to defaultValue", () => {
-    const getWrapper = defaultValue =>
+    const getWrapper = (defaultValue) =>
       mount(
         <RadioGroup defaultValue={defaultValue}>
           <Radio value="SHIP" selected>
@@ -169,35 +123,15 @@ describe("RadioGroup", () => {
 
     let wrapper = getWrapper("PICKUP")
 
-    expect(
-      wrapper
-        .find("Radio")
-        .first()
-        .props().selected
-    ).toBe(false)
+    expect(wrapper.find("Radio").first().props().selected).toBe(false)
 
-    expect(
-      wrapper
-        .find("Radio")
-        .last()
-        .props().selected
-    ).toBe(true)
+    expect(wrapper.find("Radio").last().props().selected).toBe(true)
 
     wrapper = getWrapper("SHIP")
 
-    expect(
-      wrapper
-        .find("Radio")
-        .first()
-        .props().selected
-    ).toBe(true)
+    expect(wrapper.find("Radio").first().props().selected).toBe(true)
 
-    expect(
-      wrapper
-        .find("Radio")
-        .last()
-        .props().selected
-    ).toBe(false)
+    expect(wrapper.find("Radio").last().props().selected).toBe(false)
   })
 
   it("allows for using the onSelect callback both on RadioGroup and Radio", () => {
@@ -213,10 +147,7 @@ describe("RadioGroup", () => {
       </RadioGroup>
     )
 
-    wrapper
-      .find("Radio")
-      .first()
-      .simulate("click")
+    wrapper.find("Radio").first().simulate("click")
 
     expect(spyOnRadioGroup).toHaveBeenCalled()
     expect(spyOnRadio).toHaveBeenCalled()
