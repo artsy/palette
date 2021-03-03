@@ -1,4 +1,4 @@
-import React, { SFC } from "react"
+import React from "react"
 import styled from "styled-components"
 import { Color } from "../../Theme"
 import { Avatar } from "../Avatar"
@@ -8,7 +8,7 @@ import { Link } from "../Link"
 import { SpacerProps } from "../Spacer"
 import { Text } from "../Text"
 
-interface EntityHeaderProps extends SpacerProps {
+export interface EntityHeaderProps extends SpacerProps {
   href?: string
   imageUrl?: string
   initials?: string
@@ -27,9 +27,8 @@ interface ContainerComponentProps {
 
 /**
  * Component that is used as entity header that is paired with rich information about the entity.
- * Spec: zpl.io/aNoYM6d
  */
-export const EntityHeader: SFC<EntityHeaderProps> = ({
+export const EntityHeader: React.FC<EntityHeaderProps> = ({
   href,
   imageUrl,
   initials,
@@ -71,7 +70,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
                 }
                 <Box
                   display="inline-block"
-                  onClick={event => {
+                  onClick={(event) => {
                     // Capture click event so that interacting with Follow doesn't
                     // trigger Container's link.
                     event.stopPropagation()
@@ -106,7 +105,7 @@ export const EntityHeader: SFC<EntityHeaderProps> = ({
                 )}
                 <Box
                   display="inline-block"
-                  onClick={event => {
+                  onClick={(event) => {
                     // Capture click event so that interacting with Follow doesn't
                     // trigger Container's link.
                     event.stopPropagation()
