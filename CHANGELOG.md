@@ -1,3 +1,16 @@
+# (Wed Mar 03 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.35.2`
+  - Revert "fix(a11y): makes radio / radio groups accessible" [#866](https://github.com/artsy/palette/pull/866) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Mar 02 2021)
 
 #### 🐛  Bug Fix
