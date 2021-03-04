@@ -49,6 +49,12 @@ export const useTheme = <T extends TTheme>() => {
   return { theme }
 }
 
+/** Returns a config specific to the current theme */
+export const useThemeConfig = <T, U>({ v2, v3 }: { v2: T; v3: U }): U | T => {
+  const { theme = { id: "v2" } } = useTheme()
+  return theme.id === "v2" ? v2 : v3
+}
+
 /** Typeguard for v2 */
 export const isThemeV2 = (theme: TTheme): theme is ThemeV2 => {
   return theme.id === "v2"
