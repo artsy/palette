@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
 import { variant } from "styled-system"
+import { THEME_V3 } from "../../../themes"
 import { boxMixin } from "../../Box"
 import { Spinner } from "../../Spinner"
 import { Text } from "../../Text"
@@ -116,7 +117,7 @@ const Container = styled.button<ContainerProps>`
   ${(props) => {
     // Handle pseudo classes
     return css`
-      @media ${props.theme.mediaQueries.hover} {
+      @media ${THEME_V3.mediaQueries.hover} {
         &:hover {
           ${variant({ variants: BUTTON_VARIANTS.hover })(props)}
         }
