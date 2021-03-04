@@ -1,55 +1,61 @@
-import React, { FC } from "react"
+import React from "react"
 import styled from "styled-components"
-import { color } from "../../helpers"
-import { SansSize } from "../../Theme"
+import { variant } from "styled-system"
+import { useThemeConfig } from "../../Theme"
 import { Flex, FlexProps } from "../Flex"
-import { Sans } from "../Typography"
+import { Text, TextVariant } from "../Text"
 
-/**
- * Spec: zpl.io/2Zg4Rdq
- */
-
-interface MessageProps extends FlexProps {
-  children: React.ReactNode | null
-  /**
-   * Size of text to display in message window
-   */
-  textSize?: SansSize
-  /**
-   * Determines the background color. Variants are "info" (blue) and "warning"
-   * (copper). No value will default to light grey
-   */
-  variant?: "info" | "warning"
+const VARIANTS = {
+  default: {
+    backgroundColor: "black10",
+    color: "black100",
+  },
+  info: {
+    backgroundColor: "blue10",
+    color: "blue100",
+  },
+  warning: {
+    backgroundColor: "copper10",
+    color: "copper100",
+  },
+  error: {
+    backgroundColor: "red10",
+    color: "red100",
+  },
 }
 
-const StyledFlex = styled(Flex)<MessageProps>`
-  background-color: ${({ variant }) => {
-    if (variant === "info") {
-      return color("blue10")
-    } else if (variant === "warning") {
-      return color("copper10")
-    } else {
-      return color("black5")
-    }
-  }};
-  border-radius: 2px;
+export interface MessageProps extends FlexProps {
+  variant?: keyof typeof VARIANTS
+  title?: string
+  children?: React.ReactNode
+}
+
+const Container = styled(Flex)<MessageProps>`
+  ${variant({ variants: VARIANTS })}
+  flex-direction: column;
 `
 
-/**
- * A generic message window for displaying ZerStates, notices, errors, etc.
- *
- * Spec: zpl.io/2Zg4Rdq
- */
-export const Message: FC<MessageProps> = ({
+/** A generic message window for displaying ZerStates, notices, errors, etc. */
+export const Message: React.FC<MessageProps> = ({
   children,
-  textSize = "3t",
-  ...others
+  title,
+  ...rest
 }) => {
+  const size: TextVariant = useThemeConfig({ v2: "text", v3: "sm" })
+
   return (
-    <StyledFlex p={2} {...others}>
-      <Sans size={textSize} color={color("black100")} weight="regular">
+    <Container p={2} {...rest}>
+      <Text variant={size} color="currentColor">
+        {title}
+      </Text>
+
+      <Text variant={size} color="black100">
         {children}
-      </Sans>
-    </StyledFlex>
+      </Text>
+    </Container>
   )
+}
+
+Message.defaultProps = {
+  variant: "default",
 }
