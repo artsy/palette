@@ -1,3 +1,18 @@
+# v13.36.1 (Thu Mar 04 2021)
+
+#### 🐛  Bug Fix
+
+- Avoids failing specs on unthemed components [#870](https://github.com/artsy/palette/pull/870) ([@dzucconi](https://github.com/dzucconi))
+- chore(tests): removes unnecessary mount wrapper ([@dzucconi](https://github.com/dzucconi))
+- fix(tests): prevents unthemed buttons from throwing ([@dzucconi](https://github.com/dzucconi))
+- feat(theme): adds util for switching configs based on theme ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.36.0 (Thu Mar 04 2021)
 
 #### 🚀  Enhancement

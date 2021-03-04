@@ -1,5 +1,18 @@
 # (Thu Mar 04 2021)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@13.36.1`
+  - Avoids failing specs on unthemed components [#870](https://github.com/artsy/palette/pull/870) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Mar 04 2021)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@13.36.0`
