@@ -93,6 +93,8 @@ export const THEME = {
     green10: "#E9F2EC",
     /** Full purple, secondary brand color. Should only used in time/transitions (on hover, active state), for highlighting vital text, and links.   */
     purple100: "#6E1EFF",
+    /** Alias of purple100 */
+    brand: "#6E1EFF",
     /** 30 purple (light purple), avoid usage  */
     purple30: "#D3BBFF",
     /* 5 purple, highlight, accent */

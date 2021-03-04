@@ -57,6 +57,8 @@ export const THEME = {
     black5: "#D8D8D8",
     /** Full Blue. Calls to action, highlights, edits */
     blue100: "#1023D7",
+    /** Alias of blue100 */
+    brand: "#1023D7",
     /** 10% of blue100 on white. Backgrounds */
     blue10: "#E6E7F5",
     /** Full copper. In consideration, transition, temporary */
