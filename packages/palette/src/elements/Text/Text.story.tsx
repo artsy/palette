@@ -1,9 +1,18 @@
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled from "styled-components"
-import { Color } from "../../Theme"
+import { Color, useTheme } from "../../Theme"
 import { Flex } from "../Flex"
-import { Text, TEXT_TREATMENTS, TEXT_VARIANTS } from "./"
+import { Text } from "./Text"
+import { TextVariant } from "./tokens"
+import {
+  TEXT_VARIANT_NAMES as V2_TEXT_VARIANT_NAMES,
+  TEXT_VARIANTS as V2_TEXT_VARIANTS,
+} from "./tokens/v2"
+import {
+  TEXT_VARIANT_NAMES as V3_TEXT_VARIANT_NAMES,
+  TEXT_VARIANTS as V3_TEXT_VARIANTS,
+} from "./tokens/v3"
 
 const Table = styled.table`
   width: 100%;
@@ -24,7 +33,7 @@ const Table = styled.table`
 `
 
 const Specification: React.FC<{
-  size?: "small" | "large"
+  size?: "small" | "large" | "default"
   treatment: any
 }> = ({ size, treatment }) => {
   const textColor =
@@ -57,6 +66,18 @@ const Specification: React.FC<{
 export default { title: "Components/Text" }
 
 export const Variants = () => {
+  const { theme } = useTheme()
+
+  const names: TextVariant[] = {
+    v2: [...V2_TEXT_VARIANT_NAMES],
+    v3: [...V3_TEXT_VARIANT_NAMES],
+  }[theme.id]
+
+  const variants = {
+    v2: V2_TEXT_VARIANTS,
+    v3: V3_TEXT_VARIANTS,
+  }[theme.id]
+
   return (
     <Table>
       <thead>
@@ -64,12 +85,21 @@ export const Variants = () => {
           <th>
             <Text variant="small">Variant</Text>
           </th>
-          <th>
-            <Text variant="small">Large (&gt;&nbsp;767)</Text>
-          </th>
-          <th>
-            <Text variant="small">Small (&lt;&nbsp;767)</Text>
-          </th>
+          {"large" in variants && (
+            <th>
+              <Text variant="small">Large (&gt;&nbsp;767)</Text>
+            </th>
+          )}
+          {"small" in variants && (
+            <th>
+              <Text variant="small">Small (&lt;&nbsp;767)</Text>
+            </th>
+          )}
+          {!("large" in variants && "small" in variants) && (
+            <th>
+              <Text variant="small">Specifications</Text>
+            </th>
+          )}
           <th>
             <Text variant="small">Example</Text>
           </th>
@@ -77,23 +107,26 @@ export const Variants = () => {
       </thead>
 
       <tbody>
-        {TEXT_TREATMENTS.map((key) => (
+        {names.map((key) => (
           <tr key={key}>
             <td>
               <Text variant="small">{key}</Text>
             </td>
-            <td>
-              <Specification
-                size="large"
-                treatment={TEXT_VARIANTS.large[key]}
-              />
-            </td>
-            <td>
-              <Specification
-                size="small"
-                treatment={TEXT_VARIANTS.small[key]}
-              />
-            </td>
+            {"large" in variants && (
+              <td>
+                <Specification size="large" treatment={variants.large[key]} />
+              </td>
+            )}
+            {"small" in variants && (
+              <td>
+                <Specification size="small" treatment={variants.small[key]} />
+              </td>
+            )}
+            {!("large" in variants && "small" in variants) && (
+              <td>
+                <Specification size="default" treatment={variants[key]} />
+              </td>
+            )}
             <td>
               <Text variant={key}>
                 All their equipment and instruments are alive

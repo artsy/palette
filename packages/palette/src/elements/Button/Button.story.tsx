@@ -1,8 +1,11 @@
+import _debounce from "debounce"
 import React, { useState } from "react"
 import { States } from "storybook-states"
+import styled from "styled-components"
 import { Box } from "../Box"
+import { Spacer } from "../Spacer"
 import { ButtonProps } from "./Button"
-import { Button, BUTTON_SIZES, BUTTON_VARIANTS } from "./index"
+import { Button, BUTTON_SIZE_NAMES, BUTTON_VARIANT_NAMES } from "./index"
 
 export default { title: "Components/Button" }
 
@@ -11,11 +14,11 @@ export const _States = () => {
     <States<ButtonProps>
       states={[
         {},
+        { focus: true },
+        { hover: true },
         { loading: true },
         { disabled: true },
         { loading: true, disabled: true },
-        // TODO: { hover: true },
-        // TODO: { focus: true },
       ]}
     >
       <Button>Label</Button>
@@ -29,24 +32,52 @@ _States.story = {
 
 export const Sizes = () => {
   return (
-    <States<ButtonProps>
-      states={(Object.keys(BUTTON_SIZES.block) as Array<
-        keyof typeof BUTTON_SIZES.block
-      >).map((size) => ({ size }))}
-    >
+    <States<ButtonProps> states={BUTTON_SIZE_NAMES.map((size) => ({ size }))}>
       <Button>Label</Button>
     </States>
   )
 }
 
+const _Demo = styled(Box)`
+  display: flex;
+`
+
+_Demo.displayName = "Button"
+
 export const Variants = () => {
   return (
     <States<ButtonProps>
-      states={(Object.keys(BUTTON_VARIANTS) as Array<
-        keyof typeof BUTTON_VARIANTS
-      >).map((variant) => ({ variant }))}
+      states={BUTTON_VARIANT_NAMES.map((variant) => ({ variant }))}
     >
-      <Button>Label</Button>
+      {(props) => (
+        <_Demo>
+          <Button {...props}>Label</Button>
+
+          <Spacer mx={0.5} />
+
+          <Button {...props} focus>
+            Label
+          </Button>
+
+          <Spacer mx={0.5} />
+
+          <Button {...props} hover>
+            Label
+          </Button>
+
+          <Spacer mx={0.5} />
+
+          <Button {...props} loading>
+            Label
+          </Button>
+
+          <Spacer mx={0.5} />
+
+          <Button {...props} disabled>
+            Label
+          </Button>
+        </_Demo>
+      )}
     </States>
   )
 }

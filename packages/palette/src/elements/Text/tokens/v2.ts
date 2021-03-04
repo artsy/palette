@@ -1,14 +1,12 @@
-/**
- * font-families
- */
+import { TextTreatment } from "./types"
+
+/** font-families */
 export const TEXT_FONTS = {
   sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif',
   serif: '"adobe-garamond-pro", "Times New Roman", Times, serif',
 }
 
-/**
- * font-size scale
- */
+/** font-size scale */
 export const TEXT_FONT_SIZES = {
   size12: "62px",
   size11: "55px",
@@ -24,49 +22,21 @@ export const TEXT_FONT_SIZES = {
   size1: "12px",
 }
 
-/**
- * Available font-sizes
- */
-export type TextFontSize = keyof typeof TEXT_FONT_SIZES
-
-/**
- * line-height scale
- */
+/** line-height scale */
 export const TEXT_LINE_HEIGHTS = {
   solid: 1,
   title: 1.25,
   body: 1.5,
 }
 
-/**
- * Available line-heights
- */
-export type TextLineHeight = keyof typeof TEXT_LINE_HEIGHTS
-
-/**
- * letter-spacing scale
- */
+/** letter-spacing scale */
 export const TEXT_LETTER_SPACING = {
   tight: "-0.02em",
   tightest: "-0.03em",
 }
 
-/**
- * Available letter-spacings
- */
-export type TextLetterSpacing = keyof typeof TEXT_LETTER_SPACING
-
-export interface TextTreatment {
-  fontSize: TextFontSize
-  lineHeight: TextLineHeight
-  letterSpacing?: TextLetterSpacing
-  fontWeight?: "normal" | "bold"
-}
-
-/**
- * Names of typographic treatments
- */
-export const TEXT_TREATMENTS = [
+/** Names of typographic treatments */
+export const TEXT_VARIANT_NAMES = [
   "largeTitle",
   "title",
   "subtitle",
@@ -76,17 +46,11 @@ export const TEXT_TREATMENTS = [
   "small",
 ] as const
 
-/**
- * TextTreatments
- */
-export type TextTreatments = {
-  [K in typeof TEXT_TREATMENTS[number]]: TextTreatment
-}
-
-/**
- * Available typographic treatments
- */
-export const TEXT_VARIANTS: { [key: string]: TextTreatments } = {
+/** Available typographic treatments */
+export const TEXT_VARIANTS: Record<
+  string,
+  Record<typeof TEXT_VARIANT_NAMES[number], TextTreatment>
+> = {
   large: {
     largeTitle: {
       fontSize: "size9",
@@ -167,7 +131,5 @@ export const TEXT_VARIANTS: { [key: string]: TextTreatments } = {
   },
 }
 
-/**
- * Name of typographic treatment
- */
-export type TextVariant = keyof TextTreatments
+/** Name of typographic treatment */
+export type TextVariant = typeof TEXT_VARIANT_NAMES[number]
