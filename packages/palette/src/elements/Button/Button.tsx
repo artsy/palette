@@ -1,6 +1,6 @@
 import React from "react"
 import { ResponsiveValue } from "styled-system"
-import { useTheme } from "../../Theme"
+import { useThemeConfig } from "../../Theme"
 import { BoxProps } from "../Box"
 import { ButtonSize, ButtonVariant } from "./types"
 import { ButtonV2 } from "./v2/Button"
@@ -25,9 +25,8 @@ export interface ButtonProps
 
 /** A button with various size and color settings */
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { theme } = useTheme()
-
-  return theme.id === "v2" ? <ButtonV2 {...props} /> : <ButtonV3 {...props} />
+  const Component = useThemeConfig({ v2: ButtonV2, v3: ButtonV3 })
+  return <Component {...props} />
 }
 
 Button.defaultProps = {
