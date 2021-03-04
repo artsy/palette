@@ -1,3 +1,21 @@
+# (Thu Mar 04 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@13.36.0`
+  - V3 Theme [#865](https://github.com/artsy/palette/pull/865) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@13.36.0`
+  - Pulling over stories from radio button [#868](https://github.com/artsy/palette/pull/868) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Mar 03 2021)
 
 #### 🐛  Bug Fix

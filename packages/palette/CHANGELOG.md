@@ -1,3 +1,39 @@
+# v13.36.0 (Thu Mar 04 2021)
+
+#### 🚀  Enhancement
+
+- V3 Theme [#865](https://github.com/artsy/palette/pull/865) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(themes): fleshes out text variants ([@dzucconi](https://github.com/dzucconi))
+- fix(theme): fixes types ([@dzucconi](https://github.com/dzucconi))
+- fix(tests): provides theme for modal specs ([@dzucconi](https://github.com/dzucconi))
+- fix(types): ignores ThemeContext import ([@dzucconi](https://github.com/dzucconi))
+- refactor(button): splits out button into versioned implementations ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): adds button theme story ([@dzucconi](https://github.com/dzucconi))
+- feat(buttons): implements v3 buttons ([@dzucconi](https://github.com/dzucconi))
+- feat(spinner): supports currentColor in spinner ([@dzucconi](https://github.com/dzucconi))
+- refactor(text): cleans up text tokens ([@dzucconi](https://github.com/dzucconi))
+- feat(separator): allows separator color to be altered ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): persist theme selection ([@dzucconi](https://github.com/dzucconi))
+- feat(theme): prunes/updates breakpoints; spacing scale ([@dzucconi](https://github.com/dzucconi))
+- feat(gridcolumns): by default if using 12 col on mobile use smaller gaps ([@dzucconi](https://github.com/dzucconi))
+- feat(themes): set up multiple theme support ([@dzucconi](https://github.com/dzucconi))
+- chore(deps): bumps @types/styled-components ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): pulls over story updates from radio button ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): fleshes out entityheader stories ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- Pulling over stories from radio button [#868](https://github.com/artsy/palette/pull/868) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.35.2 (Wed Mar 03 2021)
 
 #### 🐛  Bug Fix
