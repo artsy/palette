@@ -1,8 +1,8 @@
 import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
+import { States } from "storybook-states"
 import { Box } from "../Box"
-import { Text } from "../Text"
-import { Clickable } from "./Clickable"
+import { Clickable, ClickableProps } from "./Clickable"
 
 export default {
   title: "Components/Clickable",
@@ -10,10 +10,24 @@ export default {
 
 export const Default = () => {
   return (
-    <Clickable onClick={action("onClick")} p={3}>
-      <Text>Click</Text>
-      <Text variant="small">or click</Text>
-    </Clickable>
+    <States<ClickableProps>
+      states={[
+        {},
+        { textDecoration: "underline" },
+        { cursor: "default" },
+        {
+          children: (
+            <>
+              Inherits the page’s
+              <br />
+              text alignment.
+            </>
+          ),
+        },
+      ]}
+    >
+      <Clickable onClick={action("onClick")}>Clickable</Clickable>
+    </States>
   )
 }
 
@@ -31,7 +45,7 @@ export const Submit = () => {
         }, 1000)
       }}
     >
-      <Text>submitted? {isSubmitted ? "yes" : "no"}</Text>
+      <pre>submitted? {isSubmitted ? "yes" : "no"}</pre>
 
       <Box mt={1}>
         <Clickable border="1px solid" p={2} type="button" mr={1}>

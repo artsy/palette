@@ -6,9 +6,7 @@ import { boxMixin, BoxProps } from "../Box"
 const cursor = system({ cursor: true })
 const textDecoration = system({ textDecoration: true })
 
-/**
- * ClickableProps
- */
+/** ClickableProps */
 export type ClickableProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   BoxProps & {
     cursor?: ResponsiveValue<string>
@@ -24,6 +22,10 @@ export const Clickable = styled.button<ClickableProps>`
   padding: 0;
   border: 0;
   background-color: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+
   ${compose(boxMixin, cursor, textDecoration)}
 
   &:disabled {
