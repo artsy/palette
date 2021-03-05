@@ -77,21 +77,19 @@ const Container = styled.button<ContainerProps>`
 
   ${boxMixin};
 
-  ${(props) => {
-    // Handle sizing
-    return variant({ prop: "size", variants: BUTTON_SIZES })(props)
-  }};
+  /* Handle sizing */
+  ${variant({ prop: "size", variants: BUTTON_SIZES })}
 
   ${(props) => {
     // Handle props driven states
     if (props.hover) {
-      return variant({ variants: BUTTON_VARIANTS.hover })(props)
+      return variant({ variants: BUTTON_VARIANTS.hover })
     }
 
     if (props.focus) {
       return css`
         outline: 0;
-        ${variant({ variants: BUTTON_VARIANTS.focus })(props)}
+        ${variant({ variants: BUTTON_VARIANTS.focus })}
       `
     }
 
@@ -100,37 +98,37 @@ const Container = styled.button<ContainerProps>`
         cursor: auto;
         transition: none;
         pointer-events: none;
-        ${variant({ variants: BUTTON_VARIANTS.loading })(props)}
+        ${variant({ variants: BUTTON_VARIANTS.loading })}
       `
     }
 
     if (props.disabled) {
       return css`
         pointer-events: none;
-        ${variant({ variants: BUTTON_VARIANTS.disabled })(props)}
+        ${variant({ variants: BUTTON_VARIANTS.disabled })}
       `
     }
 
-    return variant({ variants: BUTTON_VARIANTS.default })(props)
+    return variant({ variants: BUTTON_VARIANTS.default })
   }}
 
-  ${(props) => {
+  ${() => {
     // Handle pseudo classes
     return css`
       @media ${THEME_V3.mediaQueries.hover} {
         &:hover {
-          ${variant({ variants: BUTTON_VARIANTS.hover })(props)}
+          ${variant({ variants: BUTTON_VARIANTS.hover })}
         }
       }
 
       &:focus {
         outline: 0;
-        ${variant({ variants: BUTTON_VARIANTS.focus })(props)}
+        ${variant({ variants: BUTTON_VARIANTS.focus })}
       }
 
       &:disabled {
         pointer-events: none;
-        ${variant({ variants: BUTTON_VARIANTS.disabled })(props)}
+        ${variant({ variants: BUTTON_VARIANTS.disabled })}
       }
     `
   }};
