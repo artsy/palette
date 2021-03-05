@@ -1,41 +1,35 @@
 import { mount } from "enzyme"
 import "jest-styled-components"
 import React from "react"
+import { Theme } from "../../Theme"
 import { Banner } from "../Banner"
 
 describe("Button", () => {
-  it("pass a custom color to Banner", () => {
-    const message = "There was an error."
+  it("has default black10 background to Banner", () => {
     const wrapper = mount(
-      <Banner message={message} backgroundColor="purple100" />
+      <Theme>
+        <Banner />
+      </Theme>
     )
-    expect(wrapper.debug()).toContain("purple100")
-  })
-
-  it("has default red background to Banner", () => {
-    const message = "There was an error."
-    const wrapper = mount(<Banner message={message} />)
-    expect(wrapper.debug()).toContain("red100")
+    expect(wrapper).toHaveStyleRule("background-color", "#E5E5E5")
   })
 
   it("displays the message", () => {
     const message = "There was an error."
-    const wrapper = mount(<Banner message={message} />)
+    const wrapper = mount(<Banner>There was an error.</Banner>)
     expect(wrapper.text()).toEqual(message)
-    expect(wrapper.find("CloseButton")).toHaveLength(0)
+    expect(wrapper.find("Clickable")).toHaveLength(0)
   })
 
   it("is dismissable", () => {
-    const message = "There was an error."
-    const wrapper = mount(<Banner dismissable message={message} />)
-    expect(wrapper.find("CloseButton")).toHaveLength(1)
+    const wrapper = mount(<Banner dismissable>There was an error.</Banner>)
+    expect(wrapper.find("Clickable")).toHaveLength(1)
   })
 
   it("disappears when dismissed", () => {
-    const message = "There was an error."
-    const wrapper = mount(<Banner dismissable message={message} />)
-    expect(wrapper.find("CloseButton")).toHaveLength(1)
-    wrapper.find("CloseButton").simulate("click")
-    expect(wrapper.find("CloseButton")).toHaveLength(0)
+    const wrapper = mount(<Banner dismissable>There was an error.</Banner>)
+    expect(wrapper.find("Clickable")).toHaveLength(1)
+    wrapper.find("Clickable").simulate("click")
+    expect(wrapper.find("Clickable")).toHaveLength(0)
   })
 })
