@@ -1,3 +1,21 @@
+# v14.0.0 (Fri Mar 05 2021)
+
+#### 💥  Breaking Change
+
+- [v3] Banner/Message [#869](https://github.com/artsy/palette/pull/869) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(message): v3 message ([@dzucconi](https://github.com/dzucconi))
+- feat(banner): v3 banner ([@dzucconi](https://github.com/dzucconi))
+- feat(theme): adds alias for brand color ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v13.36.1 (Thu Mar 04 2021)
 
 #### 🐛  Bug Fix
