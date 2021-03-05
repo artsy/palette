@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
 import { Box } from "../Box"
+import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { ButtonProps } from "./Button"
 import { Button, BUTTON_SIZE_NAMES, BUTTON_VARIANT_NAMES } from "./index"
@@ -38,10 +39,7 @@ export const Sizes = () => {
   )
 }
 
-const _Demo = styled(Box)`
-  display: flex;
-`
-
+const _Demo = styled(Flex)``
 _Demo.displayName = "Button"
 
 export const Variants = () => {

@@ -29,6 +29,7 @@ const Demo = ({
             border="1px solid"
             borderColor="black30"
             p={1}
+            textAlign="center"
           >
             <Text variant="caption">{i + 1}</Text>
           </Clickable>

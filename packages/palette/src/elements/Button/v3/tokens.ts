@@ -1,3 +1,4 @@
+import { DROP_SHADOW } from "../../../helpers/shadow"
 import { TextProps } from "../../Text"
 import { ButtonSize, ButtonState, ButtonVariant } from "../types"
 
@@ -70,19 +71,19 @@ export const BUTTON_VARIANTS: Record<
       backgroundColor: "black100",
       borderColor: "black100",
       color: "white100",
-      boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.1)",
+      boxShadow: DROP_SHADOW,
     },
     primaryWhite: {
       backgroundColor: "white100",
       borderColor: "white100",
       color: "black100",
-      boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.1)",
+      boxShadow: DROP_SHADOW,
     },
     secondaryGray: {
       backgroundColor: "black10",
       borderColor: "black10",
       color: "black100",
-      boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.1)",
+      boxShadow: DROP_SHADOW,
     },
     secondaryOutline: {
       backgroundColor: "transparent",
