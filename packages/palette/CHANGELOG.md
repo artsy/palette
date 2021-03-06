@@ -1,3 +1,27 @@
+# v14.1.0 (Sat Mar 06 2021)
+
+#### 🚀  Enhancement
+
+- [v3] Pill [#872](https://github.com/artsy/palette/pull/872) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(pill): implements pill ([@dzucconi](https://github.com/dzucconi))
+- refactor(button): cleans up ([@dzucconi](https://github.com/dzucconi))
+- refactor: extracts shadows ([@dzucconi](https://github.com/dzucconi))
+- fix(clickable): improves clickable reset ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.2.2 to v4.2.3 [#871](https://github.com/artsy/palette/pull/871) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v14.0.0 (Fri Mar 05 2021)
 
 #### 💥  Breaking Change

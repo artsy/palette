@@ -1,3 +1,22 @@
+# (Sat Mar 06 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.1.0`
+  - [v3] Pill [#872](https://github.com/artsy/palette/pull/872) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@14.1.0`
+  - chore(deps): update dep typescript from 4.2.2 to v4.2.3 [#871](https://github.com/artsy/palette/pull/871) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Fri Mar 05 2021)
 
 #### 💥  Breaking Change
