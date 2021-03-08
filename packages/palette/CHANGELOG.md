@@ -1,3 +1,19 @@
+# v14.2.0 (Mon Mar 08 2021)
+
+#### 🚀  Enhancement
+
+- feat(breadcrumbs): implements breadcrumbs component [#873](https://github.com/artsy/palette/pull/873) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(breadcrumbs): implements breadcrumbs component ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.1.0 (Sat Mar 06 2021)
 
 #### 🚀  Enhancement
