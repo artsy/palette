@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-
 import { space } from "../../helpers/space"
 import { CheckIcon } from "../../svgs/CheckIcon"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
@@ -9,7 +8,7 @@ import { Tab, Tabs, TabsProps } from "../Tabs"
 import { sharedTabsStyles } from "../Tabs"
 import { Sans } from "../Typography"
 
-interface StepperProps extends TabsProps {
+export interface StepperProps extends TabsProps {
   /** The initial step stepper renders */
   initialTabIndex?: number
 
@@ -38,7 +37,7 @@ export const Stepper = (props: StepperProps) => {
 }
 
 /** Step */
-export const Step = props => <Tab {...props} />
+export const Step = (props) => <Tab {...props} />
 
 const DisabledStepButton = ({ children }) => (
   <DisabledStepContainer>

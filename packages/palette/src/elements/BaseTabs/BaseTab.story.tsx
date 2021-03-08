@@ -1,9 +1,11 @@
 import { action } from "@storybook/addon-actions"
 import React from "react"
+import { States } from "storybook-states"
 import { BaseTab, BaseTabs } from "."
 import { ChevronIcon } from "../../svgs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
+import { BaseTabsProps } from "./BaseTabs"
 
 // Fake `RouterLink`
 const RouterLink: React.FC<{ to: string }> = ({ to, children, ...rest }) => {
@@ -18,12 +20,21 @@ export default { title: "Components/BaseTabs" }
 
 export const Default = () => {
   return (
-    <BaseTabs m={3}>
-      <BaseTab>First</BaseTab>
-      <BaseTab>Second</BaseTab>
-      <BaseTab active>Active</BaseTab>
-      <BaseTab>Last</BaseTab>
-    </BaseTabs>
+    <States<Partial<BaseTabsProps>>
+      states={[
+        {},
+        { fill: true },
+        { separator: <ChevronIcon mx={2} fill="black30" width="12px" /> },
+        { justifyContent: "center" },
+      ]}
+    >
+      <BaseTabs>
+        <BaseTab>First</BaseTab>
+        <BaseTab>Second</BaseTab>
+        <BaseTab active>Active</BaseTab>
+        <BaseTab>Last</BaseTab>
+      </BaseTabs>
+    </States>
   )
 }
 
@@ -182,31 +193,6 @@ export const BreakingOutOfContainerMargin = () => {
 
 BreakingOutOfContainerMargin.story = {
   name: "Breaking out of container margin",
-}
-
-export const Centered = () => {
-  return (
-    <BaseTabs m={3} justifyContent="center">
-      <BaseTab active>Alone</BaseTab>
-    </BaseTabs>
-  )
-}
-
-export const WithASeparator = () => {
-  return (
-    <BaseTabs
-      m={3}
-      separator={<ChevronIcon mx={2} fill="black30" width="12px" />}
-    >
-      <BaseTab>Review</BaseTab>
-      <BaseTab>Confirm</BaseTab>
-      <BaseTab active>Pay</BaseTab>
-    </BaseTabs>
-  )
-}
-
-WithASeparator.story = {
-  name: "with a separator",
 }
 
 export const NestedChildren = () => {
