@@ -63,64 +63,6 @@ const ProgressBar = ({ progress = 0 }: { progress: number }) => {
   )
 }
 
-const ProgressBarDemo = () => {
-  const widths = [...new Array(10)].map((_) => 300)
-  const [index, setIndex] = useState(0)
-  const progress = (index * 100) / (widths.length - 1)
-
-  return (
-    <>
-      <Demo widths={widths} onChange={setIndex} />
-      <ProgressBar progress={progress} />
-    </>
-  )
-}
-
-const ProgressDotsDemo = () => {
-  const widths = [...new Array(10)].map((_) => 300)
-  const [index, setIndex] = useState(0)
-
-  return (
-    <>
-      <Demo widths={widths} onChange={setIndex} />
-      <ProgressDots amount={widths.length} activeIndex={index} />
-    </>
-  )
-}
-
-const Dynamic = () => {
-  const [index, setIndex] = useState(0)
-  const [widths, setWidths] = useState([300])
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWidths((prevWidths) => [...prevWidths, 300])
-    }, 500)
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <>
-      <Demo widths={widths} onChange={setIndex} />
-      <ProgressDots amount={widths.length} activeIndex={index} />
-    </>
-  )
-}
-
-const Navigation = () => {
-  const [initialIndex, resetIndex] = useState(0)
-  return (
-    <Box>
-      <Demo initialIndex={initialIndex} onChange={resetIndex} />
-      <Box display="flex" justifyContent="space-around">
-        <Clickable onClick={() => resetIndex(0)}>Navigate to page 1</Clickable>
-        <Clickable onClick={() => resetIndex(1)}>Navigate to page 2</Clickable>
-        <Clickable onClick={() => resetIndex(2)}>Navigate to page 3</Clickable>
-        <Clickable onClick={() => resetIndex(3)}>Navigate to page 4</Clickable>
-      </Box>
-    </Box>
-  )
-}
-
 export default { title: "Components/Swiper" }
 
 export const Simple = () => {
@@ -149,7 +91,16 @@ SimpleWithLeftEdgeSnapping.story = {
 }
 
 export const ProgressBarExample = () => {
-  return <ProgressBarDemo />
+  const widths = [...new Array(10)].map((_) => 300)
+  const [index, setIndex] = useState(0)
+  const progress = (index * 100) / (widths.length - 1)
+
+  return (
+    <>
+      <Demo widths={widths} onChange={setIndex} />
+      <ProgressBar progress={progress} />
+    </>
+  )
 }
 
 ProgressBarExample.story = {
@@ -157,7 +108,15 @@ ProgressBarExample.story = {
 }
 
 export const ProgressDotsExample = () => {
-  return <ProgressDotsDemo />
+  const widths = [...new Array(10)].map((_) => 300)
+  const [index, setIndex] = useState(0)
+
+  return (
+    <>
+      <Demo widths={widths} onChange={setIndex} />
+      <ProgressDots amount={widths.length} activeIndex={index} />
+    </>
+  )
 }
 
 ProgressDotsExample.story = {
@@ -192,12 +151,26 @@ CustomRailAndCells.story = {
 }
 
 export const DynamicItems = () => {
-  return <Dynamic />
+  const [index, setIndex] = useState(0)
+  const [widths, setWidths] = useState([300])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWidths((prevWidths) => [...prevWidths, 300])
+    }, 500)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <>
+      <Demo widths={widths} onChange={setIndex} />
+      <ProgressDots amount={widths.length} activeIndex={index} />
+    </>
+  )
 }
 
 DynamicItems.story = {
   name: "Dynamic items",
-  parameters: { chromatic: { delay: 1000 } },
+  parameters: { chromatic: { delay: 750, diffThreshold: 0.2 } },
 }
 
 export const SwiperWithText = () => {
@@ -241,7 +214,18 @@ InitialIndexOnMount.story = {
 }
 
 export const NavigateViaProps = () => {
-  return <Navigation />
+  const [initialIndex, resetIndex] = useState(0)
+  return (
+    <Box>
+      <Demo initialIndex={initialIndex} onChange={resetIndex} />
+      <Box display="flex" justifyContent="space-around">
+        <Clickable onClick={() => resetIndex(0)}>Navigate to page 1</Clickable>
+        <Clickable onClick={() => resetIndex(1)}>Navigate to page 2</Clickable>
+        <Clickable onClick={() => resetIndex(2)}>Navigate to page 3</Clickable>
+        <Clickable onClick={() => resetIndex(3)}>Navigate to page 4</Clickable>
+      </Box>
+    </Box>
+  )
 }
 
 NavigateViaProps.story = {
