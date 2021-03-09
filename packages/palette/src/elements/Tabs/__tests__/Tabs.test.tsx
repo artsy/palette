@@ -69,36 +69,29 @@ describe("Tabs", () => {
     const wrapper = mount(
       <div>
         <Tabs initialTabIndex={1} onChange={spy}>
-          <Tab name="Overview" />
-          <Tab name="CV" />
+          <Tab name="Overview" data={{ example: 0 }} />
+          <Tab name="CV" data={{ example: 1 }} />
         </Tabs>
       </div>
     )
 
     expect(spy).not.toHaveBeenCalled()
     wrapper.find("button").at(1).simulate("click")
-    expect(spy).not.toHaveBeenCalled()
+    expect(spy).not.toHaveBeenCalled() // Hasn't changed
+
     wrapper.find("button").at(0).simulate("click")
-    expect(spy).toHaveBeenCalled()
-  })
+    expect(spy).toHaveBeenLastCalledWith({
+      data: { example: 0 },
+      name: "Overview",
+      tabIndex: 0,
+    })
 
-  it("supports custom tab button components", () => {
-    const TabWrapper: React.FC = ({ children }) => (
-      <div className="foundTabWrapper" key={Math.random()}>
-        {children}
-      </div>
-    )
-
-    const wrapper = mount(
-      <div>
-        <Tabs initialTabIndex={1} Tab={TabWrapper}>
-          <Tab name="Overview" />
-          <Tab name="CV" />
-        </Tabs>
-      </div>
-    )
-
-    expect(wrapper.html()).toContain("foundTabWrapper")
+    wrapper.find("button").at(1).simulate("click")
+    expect(spy).toHaveBeenLastCalledWith({
+      data: { example: 1 },
+      name: "CV",
+      tabIndex: 1,
+    })
   })
 
   it("allows user to set separator between tabs", () => {

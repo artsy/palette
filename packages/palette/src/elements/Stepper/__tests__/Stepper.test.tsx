@@ -39,4 +39,10 @@ describe("Stepper", () => {
       wrapper.find("button").map((button) => button.prop("disabled"))
     ).toStrictEqual([true, true, true])
   })
+
+  it("can find a Step", () => {
+    const wrapper = getWrapper()
+
+    expect(wrapper.find("Step").first().prop("name")).toEqual("Review")
+  })
 })

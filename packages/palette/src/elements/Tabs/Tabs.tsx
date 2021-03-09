@@ -1,9 +1,11 @@
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
+import styled from "styled-components"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { BaseTabs, BaseTabsProps } from "../BaseTabs"
-import { TabProps } from "./Tab"
-import { TabsTab, TabsTabProps } from "./TabsTab"
+import { BaseTab } from "../BaseTabs"
+import { Clickable } from "../Clickable"
+import { Sans } from "../Typography"
 
 export interface TabLike extends JSX.Element {
   props: TabProps
@@ -12,6 +14,11 @@ export interface TabLike extends JSX.Element {
 export interface TabInfo extends TabProps {
   /** Index of the newly selected Tab */
   tabIndex: number
+  /**
+   * Arbitrary data that can be associated with a Tab.
+   * Will be passed to the parent <Tabs>'s onChange handler.
+   */
+  data: any
 }
 
 export interface TabsProps extends BaseTabsProps {
@@ -22,23 +29,19 @@ export interface TabsProps extends BaseTabsProps {
   initialTabIndex?: number
   /** @deprecated */
   autoScroll?: boolean
-  /** Pass a custom Tab button */
-  Tab?: typeof TabsTab | React.FC<TabsTabProps>
   /** Function that will be called when a new Tab is selected */
   onChange?: (tabInfo?: TabInfo) => void
 }
 
-/** A tab bar navigation component */
-export const Tabs: React.FC<TabsProps> = ({
+/** Tabs functionality */
+export const useTabs = ({
   children,
   initialTabIndex = 0,
-  Tab = TabsTab,
   onChange,
-  ...rest
-}) => {
+}: TabsProps) => {
   const tabs = flattenChildren<TabLike>(children)
 
-  const [activeTabIndex, setActiveTabIndex] = useState(initialTabIndex)
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(initialTabIndex)
   const activeTab = tabs[activeTabIndex]
 
   // If the `initialTabIndex` changes; update the active one
@@ -46,32 +49,58 @@ export const Tabs: React.FC<TabsProps> = ({
     setActiveTabIndex(initialTabIndex)
   }, [initialTabIndex])
 
-  // Call `onChange` when `activeTabIndex` updates
-  useUpdateEffect(() => {
-    if (!onChange) return
+  const handleClick = useCallback(
+    (index: number) => {
+      return () => {
+        if (index === activeTabIndex) return
 
-    onChange({
-      ...activeTab.props,
-      tabIndex: activeTabIndex,
-    })
-  }, [onChange, activeTab, activeTabIndex])
+        setActiveTabIndex(index)
+
+        if (!onChange) return
+
+        onChange({
+          tabIndex: index,
+          name: tabs[index].props.name,
+          data: tabs[index].props.data ?? {},
+        })
+      }
+    },
+    [tabs, onChange, activeTabIndex]
+  )
+
+  return {
+    tabs,
+    activeTab,
+    activeTabIndex,
+    handleClick,
+  }
+}
+
+/** A tab bar navigation component */
+export const Tabs: React.FC<TabsProps> = ({
+  children,
+  initialTabIndex = 0,
+  onChange,
+  ...rest
+}) => {
+  const { tabs, activeTab, activeTabIndex, handleClick } = useTabs({
+    children,
+    initialTabIndex,
+    onChange,
+  })
 
   return (
     <>
       <BaseTabs {...rest}>
         {tabs.map((cell, i) => {
           return (
-            <Tab
+            <Clickable
               key={i}
-              index={i}
-              active={i === activeTabIndex}
               aria-selected={i === activeTabIndex}
-              onClick={() => {
-                setActiveTabIndex(i)
-              }}
+              onClick={handleClick(i)}
             >
-              {cell.props.name}
-            </Tab>
+              <BaseTab active={i === activeTabIndex}>{cell.props.name}</BaseTab>
+            </Clickable>
           )
         })}
       </BaseTabs>
@@ -82,6 +111,35 @@ export const Tabs: React.FC<TabsProps> = ({
 }
 
 Tabs.defaultProps = {
-  justifyContent: "left",
   mb: 2,
 }
+
+export interface TabProps {
+  /** Display name of the Tab */
+  name: string | JSX.Element
+  /**
+   * Arbitrary data that can be associated with a Tab.
+   * Will be passed to the parent <Tabs>'s onChange handler.
+   */
+  data?: any
+}
+
+/**
+ * An individual tab.
+ * Does nothing on its own; props are dealt with inside of Tabs.
+ */
+export const Tab: React.FC<TabProps> = ({ children }) => <>{children}</>
+
+// TODO: Support count directly
+const SupWrapper = styled.sup`
+  margin-left: 2px;
+`
+
+/** Embeddable sup container */
+export const Sup: React.FC = ({ children }) => (
+  <SupWrapper>
+    <Sans size="1" weight="medium" display="inline">
+      {children}
+    </Sans>
+  </SupWrapper>
+)

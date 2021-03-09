@@ -1,10 +1,11 @@
 import React from "react"
 import { CheckIcon } from "../../svgs/CheckIcon"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
+import { BaseTab, BaseTabs } from "../BaseTabs"
 import { Box } from "../Box"
+import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
-import { Tab, Tabs, TabsProps } from "../Tabs"
-import { TabsTab, TabsTabProps } from "../Tabs/TabsTab"
+import { TabProps, TabsProps, useTabs } from "../Tabs"
 
 export interface StepperProps extends TabsProps {
   /** The step user currently is at (e.g. previous steps completed) */
@@ -17,54 +18,57 @@ export interface StepperProps extends TabsProps {
 export const Stepper: React.FC<StepperProps> = ({
   currentStepIndex,
   disableNavigation,
+  initialTabIndex = 0,
+  children,
   ...rest
 }) => {
+  const { tabs, activeTab, activeTabIndex, handleClick } = useTabs({
+    children,
+    initialTabIndex,
+  })
+
   return (
-    <Tabs
-      separator={<ChevronIcon mx={2} fill="black30" width="12px" />}
-      Tab={({ children, ...tab }) => {
-        return (
-          <StepperTab
-            currentStepIndex={currentStepIndex}
-            disableNavigation={disableNavigation}
-            {...tab}
-          >
-            {children}
-          </StepperTab>
-        )
-      }}
-      {...rest}
-    />
+    <>
+      <BaseTabs
+        separator={<ChevronIcon mx={2} fill="black30" width="12px" />}
+        {...rest}
+      >
+        {tabs.map((cell, i) => {
+          return (
+            <Clickable
+              key={i}
+              aria-selected={i === activeTabIndex}
+              disabled={disableNavigation || i > currentStepIndex}
+              onClick={handleClick(i)}
+            >
+              <BaseTab active={i === activeTabIndex}>
+                <Flex>
+                  {currentStepIndex > i && <CheckIcon fill="green100" mr={1} />}
+
+                  <Box color={i > currentStepIndex ? "black30" : undefined}>
+                    {cell.props.name}
+                  </Box>
+                </Flex>
+              </BaseTab>
+            </Clickable>
+          )
+        })}
+      </BaseTabs>
+
+      {activeTab}
+    </>
   )
 }
 
-/** Step */
-export const Step = Tab
+/** StepProps */
+export type StepProps = TabProps
 
-const StepperTab: React.FC<
-  Pick<StepperProps, "currentStepIndex" | "disableNavigation"> & TabsTabProps
-> = ({
-  children,
-  active,
-  currentStepIndex,
-  disableNavigation,
-  index,
-  ...rest
-}) => {
-  return (
-    <TabsTab
-      active={active}
-      disabled={disableNavigation || index > currentStepIndex}
-      index={index}
-      {...rest}
-    >
-      <Flex>
-        {currentStepIndex > index && <CheckIcon fill="green100" mr={1} />}
+/**
+ * An individual step.
+ * Does nothing on its own; props are dealt with inside of Steps.
+ */
+export const Step: React.FC<StepProps> = ({ children }) => <>{children}</>
 
-        <Box color={index > currentStepIndex ? "black30" : undefined}>
-          {children}
-        </Box>
-      </Flex>
-    </TabsTab>
-  )
+Stepper.defaultProps = {
+  mb: 2,
 }
