@@ -4,15 +4,13 @@ import { Step, Stepper } from "../Stepper"
 
 describe("Stepper", () => {
   const getWrapper = (props = {}) => {
-    const _props = {
-      initialTabIndex: 0,
-      currentStepIndex: 0,
-      disableNavigation: false,
-      ...props,
-    }
-
     return mount(
-      <Stepper {..._props}>
+      <Stepper
+        initialTabIndex={0}
+        currentStepIndex={0}
+        disableNavigation={false}
+        {...props}
+      >
         <Step name="Review" />
         <Step name="Confirm" />
         <Step name="Pay" />
@@ -36,6 +34,9 @@ describe("Stepper", () => {
     const wrapper = getWrapper({
       disableNavigation: true,
     })
-    expect(wrapper.find("DisabledStepButton").length).toBe(2)
+
+    expect(
+      wrapper.find("button").map((button) => button.prop("disabled"))
+    ).toStrictEqual([true, true, true])
   })
 })

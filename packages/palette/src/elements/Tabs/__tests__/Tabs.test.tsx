@@ -1,6 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
-import { Sup, Tab, Tabs } from "../Tabs"
+import { Sup, Tab, Tabs } from "../index"
 
 describe("Tabs", () => {
   it("renders tabs by via name prop", () => {
@@ -15,6 +15,7 @@ describe("Tabs", () => {
 
     expect(wrapper.html()).toContain("Overview")
     expect(wrapper.html()).toContain("CV")
+    expect(wrapper.find("button")).toHaveLength(2)
   })
 
   it("sets a specific tab on mount", () => {
@@ -27,7 +28,8 @@ describe("Tabs", () => {
       </div>
     )
 
-    expect(wrapper.find("ActiveTabButton").html()).toContain("CV")
+    expect(wrapper.find("button").at(0).prop("aria-selected")).toBe(false)
+    expect(wrapper.find("button").at(1).prop("aria-selected")).toBe(true)
   })
 
   it("ignores empty tab when selecting default selected tab on mount", () => {
@@ -41,11 +43,12 @@ describe("Tabs", () => {
       </div>
     )
 
-    expect(wrapper.find("ActiveTabButton").html()).toContain("CV")
+    expect(wrapper.find("button")).toHaveLength(1)
+    expect(wrapper.find("button").at(0).prop("aria-selected")).toBe(true)
   })
 
-  it("toggls tab content on click", () => {
-    const getWrapper = tabIndex =>
+  it("toggles tab content on click", () => {
+    const getWrapper = (tabIndex) =>
       mount(
         <div>
           <Tabs initialTabIndex={tabIndex}>
@@ -73,19 +76,22 @@ describe("Tabs", () => {
     )
 
     expect(spy).not.toHaveBeenCalled()
-    wrapper.find("TabButton").simulate("click")
+    wrapper.find("button").at(1).simulate("click")
+    expect(spy).not.toHaveBeenCalled()
+    wrapper.find("button").at(0).simulate("click")
     expect(spy).toHaveBeenCalled()
   })
 
-  it("transforms tabs with custom elements wrappers", () => {
-    const TabWrapper = tab => (
+  it("supports custom tab button components", () => {
+    const TabWrapper: React.FC = ({ children }) => (
       <div className="foundTabWrapper" key={Math.random()}>
-        {tab}
+        {children}
       </div>
     )
+
     const wrapper = mount(
       <div>
-        <Tabs initialTabIndex={1} transformTabBtn={TabWrapper}>
+        <Tabs initialTabIndex={1} Tab={TabWrapper}>
           <Tab name="Overview" />
           <Tab name="CV" />
         </Tabs>

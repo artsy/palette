@@ -3,19 +3,16 @@ import React from "react"
 /**
  * Convert a fragment or nested fragment into an array of elements
  */
-export const flattenChildren = (
+export const flattenChildren = <T extends React.ReactElement>(
   children: React.ReactNode
-): React.ReactElement[] => {
+): T[] => {
   const xs = React.Children.toArray(children).filter(React.isValidElement)
 
-  return xs.reduce(
-    (acc, child: React.ReactElement) => {
-      if (child.type === React.Fragment) {
-        return acc.concat(flattenChildren(child.props.children))
-      }
+  return xs.reduce((acc, child: T) => {
+    if (child.type === React.Fragment) {
+      return acc.concat(flattenChildren(child.props.children))
+    }
 
-      return [...acc, child]
-    },
-    [] as React.ReactElement[]
-  )
+    return [...acc, child]
+  }, [] as T[])
 }

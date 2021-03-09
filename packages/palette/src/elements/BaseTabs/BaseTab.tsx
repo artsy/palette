@@ -8,15 +8,17 @@ import { Text, TextProps } from "../Text"
  */
 export type BaseTabProps = TextProps & {
   active?: boolean
-} & (// FIXME: Should be able to remove this typing once styled-components is updated
-  // Default:
-  | {}
+} & (
+    | // FIXME: Should be able to remove this typing once styled-components is updated
+    // Default:
+    {}
     // When displaying as an anchor tag, accept anchor props:
-    | ({ as: "a" } & (React.AnchorHTMLAttributes<HTMLAnchorElement>))
+    | ({ as: "a" } & React.AnchorHTMLAttributes<HTMLAnchorElement>)
     // Cop-out: if you pass as with a complex component, loosen up the types:
-    | ({ as: React.ReactElement<unknown> } & Record<string, unknown>))
+    | ({ as: React.ReactElement<unknown> } & Record<string, unknown>)
+  )
 
-const BaseTabActiveMixin = css`
+const baseTabActiveMixin = css`
   outline: 0;
   color: ${color("black100")};
   border-bottom-color: ${color("black100")} !important;
@@ -38,10 +40,10 @@ export const BaseTab = styled(Text)<BaseTabProps>`
   z-index: 1;
   color: ${color("black60")};
 
-  ${({ active }) => active && BaseTabActiveMixin}
+  ${({ active }) => active && baseTabActiveMixin}
   &:focus,
   &.active {
-    ${BaseTabActiveMixin}
+    ${baseTabActiveMixin}
   }
 
   &:focus {

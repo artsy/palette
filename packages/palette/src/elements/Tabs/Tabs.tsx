@@ -1,278 +1,87 @@
-import React, { Ref } from "react"
-import styled, { css } from "styled-components"
-import { JustifyContentProps, WidthProps } from "styled-system"
-import { Box } from "../Box"
-import { Flex, FlexProps } from "../Flex"
-import { Join } from "../Join"
-import { Sans } from "../Typography"
-
-import { color, media } from "../../helpers"
-import { Text } from "../Text"
+import React, { useState } from "react"
+import { flattenChildren } from "../../helpers/flattenChildren"
+import { useUpdateEffect } from "../../utils/useUpdateEffect"
+import { BaseTabs, BaseTabsProps } from "../BaseTabs"
+import { TabProps } from "./Tab"
+import { TabsTab, TabsTabProps } from "./TabsTab"
 
 export interface TabLike extends JSX.Element {
   props: TabProps
 }
 
-type TabNameType = string | JSX.Element
-
-export interface TabInfo {
-  /** Display name of the newly selected Tab */
-  name: TabNameType
+export interface TabInfo extends TabProps {
   /** Index of the newly selected Tab */
   tabIndex: number
-  /** Data associated with the newly selected Tab */
-  data: any
 }
 
-// tslint:disable-next-line:ban-types
-type InnerRef<T> = Extract<Ref<T>, Function>
-
-export interface TabsProps extends WidthProps, JustifyContentProps {
-  /** Function that will be called when a new Tab is selected */
-  onChange?: (tabInfo?: TabInfo) => void
+export interface TabsProps extends BaseTabsProps {
+  children: TabLike[]
+  /** Space or visual divider between tabs */
+  separator?: JSX.Element
   /** Index of the Tab that should be pre-selected */
   initialTabIndex?: number
-  /**
-   * To be able to extend or modify the way tab buttons are getting rendered
-   * default value is an identity function
-   */
-  transformTabBtn?: (
-    Button: JSX.Element,
-    tabIndex?: number,
-    props?: any
-  ) => JSX.Element
-  separator?: JSX.Element
-  /**
-   * If the tabs do not fit on screen, should the list automatically scroll
-   * to keep the active tab in view.
-   */
+  /** @deprecated */
   autoScroll?: boolean
-  children: TabLike[]
-}
-
-export interface TabsState {
-  activeTabIndex: number
+  /** Pass a custom Tab button */
+  Tab?: typeof TabsTab | React.FC<TabsTabProps>
+  /** Function that will be called when a new Tab is selected */
+  onChange?: (tabInfo?: TabInfo) => void
 }
 
 /** A tab bar navigation component */
-export class Tabs extends React.Component<TabsProps, TabsState> {
-  public static defaultProps: Partial<TabsProps> = {
-    justifyContent: "left",
-    transformTabBtn: Button => Button,
-    separator: <Box ml={2} />,
-  }
+export const Tabs: React.FC<TabsProps> = ({
+  children,
+  initialTabIndex = 0,
+  Tab = TabsTab,
+  onChange,
+  ...rest
+}) => {
+  const tabs = flattenChildren<TabLike>(children)
 
-  constructor(props) {
-    super(props)
+  const [activeTabIndex, setActiveTabIndex] = useState(initialTabIndex)
+  const activeTab = tabs[activeTabIndex]
 
-    const activeTabIndex =
-      props.initialTabIndex || this.props.children.findIndex(tab => !!tab)
-    this.state = {
-      activeTabIndex,
-    }
-  }
+  // If the `initialTabIndex` changes; update the active one
+  useUpdateEffect(() => {
+    setActiveTabIndex(initialTabIndex)
+  }, [initialTabIndex])
 
-  setActiveTab = activeTabIndex => {
-    this.setState({
-      activeTabIndex,
+  // Call `onChange` when `activeTabIndex` updates
+  useUpdateEffect(() => {
+    if (!onChange) return
+
+    onChange({
+      ...activeTab.props,
+      tabIndex: activeTabIndex,
     })
-    if (this.props.onChange) {
-      this.props.onChange({
-        tabIndex: activeTabIndex,
-        name: this.props.children[activeTabIndex].props.name,
-        data: this.props.children[activeTabIndex].props.data,
-      })
-    }
-  }
+  }, [onChange, activeTab, activeTabIndex])
 
-  containerRef: HTMLDivElement | null = null
-  activeTabRef: HTMLDivElement | null = null
-
-  handleScroll = () => {
-    if (!this.props.autoScroll || !this.containerRef || !this.activeTabRef) {
-      return
-    }
-
-    const contentWidth = this.containerRef.scrollWidth
-    const boxWidth = this.containerRef.offsetWidth
-
-    if (boxWidth >= contentWidth) {
-      return
-    }
-
-    const containerRect = this.containerRef.getBoundingClientRect()
-    const activeTabRect = this.activeTabRef.getBoundingClientRect()
-    const activeTabOffset = activeTabRect.left - containerRect.left
-    const desiredActiveTabOffset =
-      containerRect.width / 2 - activeTabRect.width / 2
-    const offsetDiff = activeTabOffset - desiredActiveTabOffset
-    const currentScroll = this.containerRef.scrollLeft
-    const desiredScroll = currentScroll + offsetDiff
-    this.containerRef.scrollTo({ left: desiredScroll })
-  }
-
-  componentDidMount() {
-    window.addEventListener("resize", this.handleScroll)
-    this.handleScroll()
-  }
-
-  componentDidUpdate() {
-    this.handleScroll()
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleScroll)
-  }
-
-  renderTab = (tab, index) => {
-    if (!tab) {
-      return false
-    }
-    const { name } = tab.props
-    return this.state.activeTabIndex === index
-      ? this.props.transformTabBtn(
-          <ActiveTabButton key={index}>{name}</ActiveTabButton>,
-          index,
-          this.props
-        )
-      : this.props.transformTabBtn(
-          <TabButton key={index} onClick={() => this.setActiveTab(index)}>
-            {name}
-          </TabButton>,
-          index,
-          this.props
-        )
-  }
-
-  render() {
-    const { children = [], separator } = this.props
-    return (
-      <>
-        <TabsContainer
-          scrollRef={ref => (this.containerRef = ref)}
-          justifyContent={this.props.justifyContent}
-        >
-          <Join separator={separator}>{children.map(this.renderTab)}</Join>
-        </TabsContainer>
-        <Box pt={2}>{children[this.state.activeTabIndex]}</Box>
-      </>
-    )
-  }
-}
-
-/** A container for the tab bar */
-export const TabsContainer: React.SFC<
-  FlexProps & { scrollRef?: InnerRef<HTMLDivElement> }
-> = ({ scrollRef, ...props }) => {
   return (
-    <TabsOuterContainer>
-      <TabsScrollContainer
-        mb={0.5}
-        width="100%"
-        {...props}
-        ref={scrollRef as any}
-      >
-        <TabsJustifyContentContainer justifyContent={props.justifyContent}>
-          {props.children}
-        </TabsJustifyContentContainer>
-      </TabsScrollContainer>
-    </TabsOuterContainer>
+    <>
+      <BaseTabs {...rest}>
+        {tabs.map((cell, i) => {
+          return (
+            <Tab
+              key={i}
+              index={i}
+              active={i === activeTabIndex}
+              aria-selected={i === activeTabIndex}
+              onClick={() => {
+                setActiveTabIndex(i)
+              }}
+            >
+              {cell.props.name}
+            </Tab>
+          )
+        })}
+      </BaseTabs>
+
+      {activeTab}
+    </>
   )
 }
 
-interface TabProps {
-  /** Display name of the Tab */
-  name: TabNameType
-  /**
-   * Arbitrary data that can be associated with a Tab.
-   * Will be passed to the parent <Tabs>'s onChange handler.
-   */
-  data?: any
+Tabs.defaultProps = {
+  justifyContent: "left",
+  mb: 2,
 }
-
-/** An individual tab */
-export class Tab extends React.Component<TabProps> {
-  render() {
-    return this.props.children || null
-  }
-}
-
-const TabButton = ({ children, ...props }) => {
-  return (
-    <TabContainer {...props}>
-      <Text variant="mediumText" color="black60">
-        {children}
-      </Text>
-    </TabContainer>
-  )
-}
-
-const ActiveTabButton: React.SFC = ({ children }) => {
-  return (
-    <ActiveTabContainer>
-      <Text variant="mediumText">{children}</Text>
-    </ActiveTabContainer>
-  )
-}
-
-/** Sharable tab styles  */
-export const sharedTabsStyles = {
-  tabContainer: css`
-    cursor: pointer;
-    padding-bottom: 13px;
-    white-space: nowrap;
-  `,
-  activeTabContainer: css`
-    pointer-events: none;
-    padding-bottom: 13px;
-    white-space: nowrap;
-    border-bottom: 2px solid ${color("black100")};
-  `,
-}
-
-const TabsOuterContainer = styled(Flex)`
-  width: 100%;
-  border-bottom: 1px solid ${color("black10")};
-  position: relative;
-  top: -1px;
-
-  > div {
-    position: relative;
-    top: 1px;
-  }
-`
-// TODO: This justifyContent ternary should be removed after we move TabCarousel to Palette
-const TabsJustifyContentContainer = styled(Flex)<JustifyContentProps>`
-  width: ${props => (props.justifyContent ? "auto" : "100%")};
-`
-
-const TabsScrollContainer = styled(Flex)`
-  ${media.xs`
-    overflow-y: hidden;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-  `};
-  margin-bottom: 0;
-`
-
-const TabContainer = styled.div`
-  ${sharedTabsStyles.tabContainer};
-`
-
-/** The active container */
-export const ActiveTabContainer = styled.div`
-  ${sharedTabsStyles.activeTabContainer};
-`
-
-const SupWrapper = styled.sup`
-  margin-left: 2px;
-`
-
-/** Embeddable sup container */
-export const Sup: React.SFC<{}> = ({ children }) => (
-  <SupWrapper>
-    <Sans size="1" weight="medium" display="inline">
-      {children}
-    </Sans>
-  </SupWrapper>
-)
