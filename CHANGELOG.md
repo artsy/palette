@@ -1,5 +1,18 @@
 # (Wed Mar 10 2021)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.3.0`
+  - [v3] Tabs, Stepper [#876](https://github.com/artsy/palette/pull/876) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Mar 10 2021)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@14.2.1`
