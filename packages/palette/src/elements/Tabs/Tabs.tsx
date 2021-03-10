@@ -1,10 +1,12 @@
 import React, { useCallback, useState } from "react"
 import styled from "styled-components"
 import { flattenChildren } from "../../helpers/flattenChildren"
+import { useThemeConfig } from "../../Theme"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { BaseTabs, BaseTabsProps } from "../BaseTabs"
 import { BaseTab } from "../BaseTabs"
 import { Clickable } from "../Clickable"
+import { TextVariant } from "../Text"
 import { Sans } from "../Typography"
 
 export interface TabLike extends JSX.Element {
@@ -83,6 +85,11 @@ export const Tabs: React.FC<TabsProps> = ({
   onChange,
   ...rest
 }) => {
+  const textVariant: TextVariant = useThemeConfig({
+    v2: "mediumText",
+    v3: "sm",
+  })
+
   const { tabs, activeTab, activeTabIndex, handleClick } = useTabs({
     children,
     initialTabIndex,
@@ -94,13 +101,16 @@ export const Tabs: React.FC<TabsProps> = ({
       <BaseTabs {...rest}>
         {tabs.map((cell, i) => {
           return (
-            <Clickable
+            <BaseTab
+              as={Clickable}
               key={i}
               aria-selected={i === activeTabIndex}
               onClick={handleClick(i)}
+              active={i === activeTabIndex}
+              variant={textVariant}
             >
-              <BaseTab active={i === activeTabIndex}>{cell.props.name}</BaseTab>
-            </Clickable>
+              {cell.props.name}
+            </BaseTab>
           )
         })}
       </BaseTabs>

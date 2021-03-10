@@ -9,15 +9,13 @@ import {
 } from "styled-system"
 import { space } from "../../helpers"
 import { flattenChildren } from "../../helpers/flattenChildren"
+import { useThemeConfig } from "../../Theme"
 import { splitProps } from "../../utils/splitProps"
 import { Box, BoxProps } from "../Box"
 import { Join } from "../Join"
 
 const splitRailProps = splitProps<PaddingProps & JustifyContentProps>(
-  compose(
-    padding,
-    justifyContent
-  )
+  compose(padding, justifyContent)
 )
 
 const Overlay = styled(Box)<{ atEnd: boolean }>`
@@ -66,15 +64,18 @@ export type BaseTabsProps = Omit<BoxProps, "children"> & {
   children: JSX.Element | JSX.Element[]
 }
 
-const DEFAULT_SEPARATOR = <Box mx={1} />
-
 /** Extends `Box`, provides configurable gutter */
 export const BaseTabs: React.FC<BaseTabsProps> = ({
   fill,
-  separator = DEFAULT_SEPARATOR,
+  separator: defaultSeparator,
   children,
   ...rest
 }) => {
+  const separator = useThemeConfig({
+    v2: defaultSeparator ?? <Box mx={1} />,
+    v3: defaultSeparator,
+  })
+
   const ref = useRef<HTMLDivElement | null>()
 
   const [paddingProps, boxProps] = splitRailProps(rest)
