@@ -1,3 +1,23 @@
+# v14.2.1 (Wed Mar 10 2021)
+
+#### 🐛  Bug Fix
+
+- refactor(tabs,stepper): refactors to utilize basetabs [#875](https://github.com/artsy/palette/pull/875) ([@dzucconi](https://github.com/dzucconi))
+- refactor(tabs,stepper): simplifies ([@dzucconi](https://github.com/dzucconi))
+- refactor(tabs,stepper): refactors to utilize basetabs ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): cleans up swiper stories ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): adds tabs/stepper stories ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(stories): adds tabs/stepper stories [#874](https://github.com/artsy/palette/pull/874) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.2.0 (Mon Mar 08 2021)
 
 #### 🚀  Enhancement

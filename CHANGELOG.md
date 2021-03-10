@@ -1,3 +1,21 @@
+# (Wed Mar 10 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.2.1`
+  - refactor(tabs,stepper): refactors to utilize basetabs [#875](https://github.com/artsy/palette/pull/875) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@14.2.1`
+  - chore(stories): adds tabs/stepper stories [#874](https://github.com/artsy/palette/pull/874) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Mar 08 2021)
 
 #### 🚀  Enhancement
