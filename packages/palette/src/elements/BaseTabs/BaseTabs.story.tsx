@@ -5,6 +5,7 @@ import { BaseTab, BaseTabs } from "."
 import { ChevronIcon } from "../../svgs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
+import { BaseTabProps } from "./BaseTab"
 import { BaseTabsProps } from "./BaseTabs"
 
 // Fake `RouterLink`
@@ -17,6 +18,16 @@ const RouterLink: React.FC<{ to: string }> = ({ to, children, ...rest }) => {
 }
 
 export default { title: "Components/BaseTabs" }
+
+export const _BaseTab = () => {
+  return (
+    <States<BaseTabProps>
+      states={[{}, { focus: true }, { hover: true }, { active: true }]}
+    >
+      <BaseTab>Example</BaseTab>
+    </States>
+  )
+}
 
 export const Default = () => {
   return (
@@ -40,7 +51,7 @@ export const Default = () => {
 
 export const AsA = () => {
   return (
-    <BaseTabs m={3}>
+    <BaseTabs>
       <BaseTab as="a" href="#overview">
         Overview
       </BaseTab>
@@ -74,7 +85,7 @@ AsA.story = {
 
 export const AsClickable = () => {
   return (
-    <BaseTabs m={3}>
+    <BaseTabs>
       <BaseTab as={Clickable} onClick={action("onClick")}>
         Overview
       </BaseTab>
@@ -108,8 +119,14 @@ AsClickable.story = {
 
 export const AsRouterLink = () => {
   return (
-    <BaseTabs m={3}>
-      <BaseTab as={RouterLink} to="#example" activeClassName="active" garbage>
+    <BaseTabs>
+      <BaseTab
+        as={RouterLink}
+        // @ts-ignore
+        to="#example"
+        activeClassName="active"
+        garbage
+      >
         Example
       </BaseTab>
     </BaseTabs>
@@ -122,7 +139,7 @@ AsRouterLink.story = {
 
 export const Overflowing = () => {
   return (
-    <BaseTabs m={3}>
+    <BaseTabs>
       {[
         "Artworks (580656)",
         "Artists (8)",
@@ -183,9 +200,11 @@ export const Fill = () => {
 
 export const BreakingOutOfContainerMargin = () => {
   return (
-    <Box m={3}>
-      <BaseTabs mx={-3} px={3}>
-        <BaseTab active>Example</BaseTab>
+    <Box m={6} bg="black10">
+      <BaseTabs mx={-6} px={6}>
+        <BaseTab active>
+          Rail border should extend past black10 background
+        </BaseTab>
       </BaseTabs>
     </Box>
   )
@@ -197,7 +216,7 @@ BreakingOutOfContainerMargin.story = {
 
 export const NestedChildren = () => {
   return (
-    <BaseTabs m={3}>
+    <BaseTabs>
       <>
         <BaseTab>First</BaseTab>
         <BaseTab>Second</BaseTab>

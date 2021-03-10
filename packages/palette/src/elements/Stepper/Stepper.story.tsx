@@ -17,6 +17,7 @@ export const Default = () => {
         { initialTabIndex: 1, currentStepIndex: 1 },
         { initialTabIndex: 2, currentStepIndex: 2 },
         { initialTabIndex: 2, currentStepIndex: 2, disableNavigation: true },
+        { initialTabIndex: 2, currentStepIndex: 2, fill: true },
       ]}
     >
       {(props) => {

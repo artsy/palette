@@ -2,6 +2,7 @@ import React from "react"
 import {
   Banner,
   Box,
+  Breadcrumbs,
   Button,
   BUTTON_VARIANT_NAMES,
   Column,
@@ -12,6 +13,10 @@ import {
   PILL_VARIANT_NAMES,
   Separator,
   Spacer,
+  Step,
+  Stepper,
+  Tab,
+  Tabs,
   Text,
   TextVariant,
 } from "../elements"
@@ -478,6 +483,162 @@ export const Helpers = () => {
           )
         })}
       </GridColumns>
+    </>
+  )
+}
+
+export const Controls = () => {
+  return (
+    <>
+      <Text variant="xxl">Controls</Text>
+
+      <Separator color="black30" my={12} />
+
+      <Text variant="xxl" my={6}>
+        Navigational Tabs
+      </Text>
+
+      <Text variant="lg" my={4}>
+        2 Tabs
+      </Text>
+
+      <Tabs fill>
+        <Tab name="Active" />
+        <Tab name="Default" />
+      </Tabs>
+
+      <Text variant="lg" my={4}>
+        3 Tabs
+      </Text>
+
+      <Tabs fill>
+        <Tab name="Active" />
+        <Tab name="Default 02" />
+        <Tab name="Default 03" />
+      </Tabs>
+
+      <Text variant="lg" my={4}>
+        4 Tabs
+      </Text>
+
+      <Tabs fill>
+        <Tab name="Active" />
+        <Tab name="Default 02" />
+        <Tab name="Default 03" />
+        <Tab name="Default 04" />
+      </Tabs>
+
+      <Text variant="lg" my={4}>
+        5 Tabs
+      </Text>
+
+      <Tabs fill>
+        <Tab name="Active" />
+        <Tab name="Default 02" />
+        <Tab name="Default 03" />
+        <Tab name="Default 04" />
+        <Tab name="Default 05" />
+      </Tabs>
+
+      <Separator color="black30" my={12} />
+
+      <Text variant="xxl" my={6}>
+        Content Tabs
+      </Text>
+
+      <Text variant="lg" my={4}>
+        2 Tabs
+      </Text>
+
+      <Tabs>
+        <Tab name="Active" />
+        <Tab name="Default" />
+      </Tabs>
+
+      <Text variant="lg" my={4}>
+        3 Tabs
+      </Text>
+
+      <Tabs>
+        <Tab name="Active" />
+        <Tab name="Default 02" />
+        <Tab name="Default 03" />
+      </Tabs>
+
+      <Text variant="lg" my={4}>
+        4 Tabs
+      </Text>
+
+      <Tabs>
+        <Tab name="Active" />
+        <Tab name="Default 02" />
+        <Tab name="Default 03" />
+        <Tab name="Default 04" />
+      </Tabs>
+
+      <Text variant="lg" my={4}>
+        5 Tabs
+      </Text>
+
+      <Tabs>
+        <Tab name="Active" />
+        <Tab name="Default 02" />
+        <Tab name="Default 03" />
+        <Tab name="Default 04" />
+        <Tab name="Default 05" />
+      </Tabs>
+
+      <Separator color="black30" my={12} />
+
+      <Text variant="xxl" my={6}>
+        Steps
+      </Text>
+
+      <Text variant="lg" my={4}>
+        3 Steps
+      </Text>
+
+      <Stepper currentStepIndex={0}>
+        <Step name="Active" />
+        <Step name="Default 02" />
+        <Step name="Default 03" />
+      </Stepper>
+
+      <Text variant="lg" my={4}>
+        4 Steps
+      </Text>
+
+      <Stepper currentStepIndex={0}>
+        <Step name="Active" />
+        <Step name="Default 02" />
+        <Step name="Default 03" />
+        <Step name="Default 04" />
+      </Stepper>
+
+      <Text variant="lg" my={4}>
+        5 Steps
+      </Text>
+
+      <Stepper currentStepIndex={0}>
+        <Step name="Active" />
+        <Step name="Default 02" />
+        <Step name="Default 03" />
+        <Step name="Default 04" />
+        <Step name="Default 05" />
+      </Stepper>
+
+      <Separator color="black30" my={12} />
+
+      <Text variant="xxl" my={6}>
+        Breadcrumbs
+      </Text>
+
+      <Breadcrumbs>
+        <a href="#example">Level 01</a>
+        <a href="#example">Level 02</a>
+        <a href="#example">Level 03</a>
+        <a href="#example">Level 04 (Active)</a>
+      </Breadcrumbs>
     </>
   )
 }
