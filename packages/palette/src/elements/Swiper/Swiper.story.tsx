@@ -170,7 +170,7 @@ export const DynamicItems = () => {
 
 DynamicItems.story = {
   name: "Dynamic items",
-  parameters: { chromatic: { delay: 750, diffThreshold: 0.2 } },
+  parameters: { chromatic: { disable: true } },
 }
 
 export const SwiperWithText = () => {

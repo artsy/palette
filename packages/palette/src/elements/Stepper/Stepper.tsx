@@ -1,105 +1,74 @@
 import React from "react"
-import styled from "styled-components"
-import { space } from "../../helpers/space"
 import { CheckIcon } from "../../svgs/CheckIcon"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
+import { BaseTab, BaseTabs } from "../BaseTabs"
+import { Box } from "../Box"
+import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
-import { Tab, Tabs, TabsProps } from "../Tabs"
-import { sharedTabsStyles } from "../Tabs"
-import { Sans } from "../Typography"
+import { TabProps, TabsProps, useTabs } from "../Tabs"
 
 export interface StepperProps extends TabsProps {
-  /** The initial step stepper renders */
-  initialTabIndex?: number
-
   /** The step user currently is at (e.g. previous steps completed) */
   currentStepIndex: number
-
+  /** Prevents the tabs from being directly clickable */
   disableNavigation?: boolean
 }
 
 /** Stepper */
-export const Stepper = (props: StepperProps) => {
+export const Stepper: React.FC<StepperProps> = ({
+  currentStepIndex,
+  disableNavigation,
+  initialTabIndex = 0,
+  children,
+  ...rest
+}) => {
+  const { tabs, activeTab, activeTabIndex, handleClick } = useTabs({
+    children,
+    initialTabIndex,
+  })
+
   return (
-    <Tabs
-      // This key is required to ensure the tab state updates with
-      // the currentStepIndex change
-      key={props.currentStepIndex}
-      separator={
-        <ChevronWrapper>
-          <ChevronIcon fill="black30" width="12px" />
-        </ChevronWrapper>
-      }
-      transformTabBtn={transformTabBtn}
-      {...props}
-    />
+    <>
+      <BaseTabs
+        separator={<ChevronIcon mx={2} fill="black30" width="12px" />}
+        {...rest}
+      >
+        {tabs.map((cell, i) => {
+          return (
+            <Clickable
+              key={i}
+              aria-selected={i === activeTabIndex}
+              disabled={disableNavigation || i > currentStepIndex}
+              onClick={handleClick(i)}
+            >
+              <BaseTab active={i === activeTabIndex}>
+                <Flex>
+                  {currentStepIndex > i && <CheckIcon fill="green100" mr={1} />}
+
+                  <Box color={i > currentStepIndex ? "black30" : undefined}>
+                    {cell.props.name}
+                  </Box>
+                </Flex>
+              </BaseTab>
+            </Clickable>
+          )
+        })}
+      </BaseTabs>
+
+      {activeTab}
+    </>
   )
 }
 
-/** Step */
-export const Step = (props) => <Tab {...props} />
+/** StepProps */
+export type StepProps = TabProps
 
-const DisabledStepButton = ({ children }) => (
-  <DisabledStepContainer>
-    <Sans size="3t" color="black30">
-      {children}
-    </Sans>
-  </DisabledStepContainer>
-)
+/**
+ * An individual step.
+ * Does nothing on its own; props are dealt with inside of Steps.
+ */
+export const Step: React.FC<StepProps> = ({ children }) => <>{children}</>
 
-const transformTabBtn = (
-  element: JSX.Element,
-  tabIndex: number,
-  props: any
-): JSX.Element => {
-  const { currentStepIndex, initialTabIndex = 0, disableNavigation } = props
-  const returnDisabledButton = disableNavigation && tabIndex !== initialTabIndex
-
-  const disabledButton = (
-    <DisabledStepButton key={tabIndex}>
-      {element.props.children}
-    </DisabledStepButton>
-  )
-
-  // Don't allow users to jump ahead
-  if (tabIndex > currentStepIndex) {
-    return disabledButton
-
-    // Step done
-  } else if (currentStepIndex && tabIndex < currentStepIndex) {
-    return (
-      <Flex key={tabIndex}>
-        <CheckMarkWrapper>
-          <CheckIcon fill="green100" />
-        </CheckMarkWrapper>
-        {returnDisabledButton && tabIndex !== initialTabIndex
-          ? disabledButton
-          : element}
-        <div /> {/* hack for getting rid of last-child in Tabs.tsx */}
-      </Flex>
-    )
-    // Disabled
-  } else if (returnDisabledButton) {
-    return disabledButton
-
-    // Step
-  } else {
-    return element
-  }
+Stepper.defaultProps = {
+  mb: 2,
 }
-
-const ChevronWrapper = styled.span`
-  margin: 0 ${space(2)}px;
-  line-height: normal;
-`
-
-/** CheckMarkWrapper */
-export const CheckMarkWrapper = styled.span`
-  margin-right: ${space(1)}px;
-  line-height: normal;
-`
-
-const DisabledStepContainer = styled.div`
-  ${sharedTabsStyles.tabContainer};
-  cursor: default;
-`

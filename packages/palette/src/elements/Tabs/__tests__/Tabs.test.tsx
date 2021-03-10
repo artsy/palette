@@ -1,6 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
-import { Sup, Tab, Tabs } from "../Tabs"
+import { Sup, Tab, Tabs } from "../index"
 
 describe("Tabs", () => {
   it("renders tabs by via name prop", () => {
@@ -15,6 +15,7 @@ describe("Tabs", () => {
 
     expect(wrapper.html()).toContain("Overview")
     expect(wrapper.html()).toContain("CV")
+    expect(wrapper.find("button")).toHaveLength(2)
   })
 
   it("sets a specific tab on mount", () => {
@@ -27,7 +28,8 @@ describe("Tabs", () => {
       </div>
     )
 
-    expect(wrapper.find("ActiveTabButton").html()).toContain("CV")
+    expect(wrapper.find("button").at(0).prop("aria-selected")).toBe(false)
+    expect(wrapper.find("button").at(1).prop("aria-selected")).toBe(true)
   })
 
   it("ignores empty tab when selecting default selected tab on mount", () => {
@@ -41,11 +43,12 @@ describe("Tabs", () => {
       </div>
     )
 
-    expect(wrapper.find("ActiveTabButton").html()).toContain("CV")
+    expect(wrapper.find("button")).toHaveLength(1)
+    expect(wrapper.find("button").at(0).prop("aria-selected")).toBe(true)
   })
 
-  it("toggls tab content on click", () => {
-    const getWrapper = tabIndex =>
+  it("toggles tab content on click", () => {
+    const getWrapper = (tabIndex) =>
       mount(
         <div>
           <Tabs initialTabIndex={tabIndex}>
@@ -66,33 +69,29 @@ describe("Tabs", () => {
     const wrapper = mount(
       <div>
         <Tabs initialTabIndex={1} onChange={spy}>
-          <Tab name="Overview" />
-          <Tab name="CV" />
+          <Tab name="Overview" data={{ example: 0 }} />
+          <Tab name="CV" data={{ example: 1 }} />
         </Tabs>
       </div>
     )
 
     expect(spy).not.toHaveBeenCalled()
-    wrapper.find("TabButton").simulate("click")
-    expect(spy).toHaveBeenCalled()
-  })
+    wrapper.find("button").at(1).simulate("click")
+    expect(spy).not.toHaveBeenCalled() // Hasn't changed
 
-  it("transforms tabs with custom elements wrappers", () => {
-    const TabWrapper = tab => (
-      <div className="foundTabWrapper" key={Math.random()}>
-        {tab}
-      </div>
-    )
-    const wrapper = mount(
-      <div>
-        <Tabs initialTabIndex={1} transformTabBtn={TabWrapper}>
-          <Tab name="Overview" />
-          <Tab name="CV" />
-        </Tabs>
-      </div>
-    )
+    wrapper.find("button").at(0).simulate("click")
+    expect(spy).toHaveBeenLastCalledWith({
+      data: { example: 0 },
+      name: "Overview",
+      tabIndex: 0,
+    })
 
-    expect(wrapper.html()).toContain("foundTabWrapper")
+    wrapper.find("button").at(1).simulate("click")
+    expect(spy).toHaveBeenLastCalledWith({
+      data: { example: 1 },
+      name: "CV",
+      tabIndex: 1,
+    })
   })
 
   it("allows user to set separator between tabs", () => {
