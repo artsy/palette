@@ -49,9 +49,18 @@ export const useTheme = <T extends TTheme>() => {
   return { theme }
 }
 
-/** Returns a config specific to the current theme */
+/** Returns a config specific to the current theme. For use in React components */
 export const useThemeConfig = <T, U>({ v2, v3 }: { v2: T; v3: U }): U | T => {
   const { theme = { id: "v2" } } = useTheme()
+  return theme.id === "v2" ? v2 : v3
+}
+
+/** Returns a config specific to the current theme. For use in styled-components */
+export const getThemeConfig = <T, U>(
+  props: Record<string, any>,
+  { v2, v3 }: { v2: T; v3: U }
+): U | T => {
+  const { theme = { id: "v2" } } = props
   return theme.id === "v2" ? v2 : v3
 }
 
