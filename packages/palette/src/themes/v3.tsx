@@ -113,3 +113,10 @@ export const THEME = {
 
   textVariants: TEXT_VARIANTS,
 }
+
+/** All available px spacing maps */
+export type SpacingUnit = keyof typeof THEME["space"]
+/** All available color keys */
+export type Color = keyof typeof THEME["colors"]
+/** All available width breakpoint */
+export type Breakpoint = keyof typeof breakpoints
