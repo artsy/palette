@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react"
-import styled from "styled-components"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useThemeConfig } from "../../Theme"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
@@ -7,7 +6,6 @@ import { BaseTabs, BaseTabsProps } from "../BaseTabs"
 import { BaseTab } from "../BaseTabs"
 import { Clickable } from "../Clickable"
 import { TextVariant } from "../Text"
-import { Sans } from "../Typography"
 
 export interface TabLike extends JSX.Element {
   props: TabProps
@@ -109,7 +107,7 @@ export const Tabs: React.FC<TabsProps> = ({
               active={i === activeTabIndex}
               variant={textVariant}
             >
-              {cell.props.name}
+              <span>{cell.props.name}</span>
             </BaseTab>
           )
         })}
@@ -139,17 +137,3 @@ export interface TabProps {
  * Does nothing on its own; props are dealt with inside of Tabs.
  */
 export const Tab: React.FC<TabProps> = ({ children }) => <>{children}</>
-
-// TODO: Support count directly
-const SupWrapper = styled.sup`
-  margin-left: 2px;
-`
-
-/** Embeddable sup container */
-export const Sup: React.FC = ({ children }) => (
-  <SupWrapper>
-    <Sans size="1" weight="medium" display="inline">
-      {children}
-    </Sans>
-  </SupWrapper>
-)
