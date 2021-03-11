@@ -45,34 +45,6 @@ const Demo = ({
   )
 }
 
-const Dynamic = () => {
-  const [widths, setWidths] = useState([300])
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWidths((prevWidths) => [...prevWidths, 300])
-    }, 500)
-    return () => clearInterval(interval)
-  }, [])
-
-  return <Demo widths={widths} />
-}
-
-const Navigation = () => {
-  const [initialIndex, resetIndex] = useState(0)
-  return (
-    <Box>
-      <Demo initialIndex={initialIndex} onChange={resetIndex} />
-      <Box display="flex" justifyContent="space-around">
-        <Clickable onClick={() => resetIndex(0)}>Navigate to page 1</Clickable>
-        <Clickable onClick={() => resetIndex(1)}>Navigate to page 2</Clickable>
-        <Clickable onClick={() => resetIndex(2)}>Navigate to page 3</Clickable>
-        <Clickable onClick={() => resetIndex(3)}>Navigate to page 4</Clickable>
-        <Clickable onClick={() => resetIndex(4)}>Navigate to page 5</Clickable>
-      </Box>
-    </Box>
-  )
-}
-
 export default { title: "Components/Carousel" }
 
 export const Simple = () => {
@@ -167,7 +139,15 @@ VaryingHeights.story = {
 }
 
 export const DynamicItems = () => {
-  return <Dynamic />
+  const [widths, setWidths] = useState([300])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWidths((prevWidths) => [...prevWidths, 300])
+    }, 500)
+    return () => clearInterval(interval)
+  }, [])
+
+  return <Demo widths={widths} />
 }
 
 DynamicItems.story = {
@@ -281,7 +261,19 @@ InitialIndexOnMount.story = {
 }
 
 export const NavigateViaProps = () => {
-  return <Navigation />
+  const [initialIndex, resetIndex] = useState(0)
+  return (
+    <Box>
+      <Demo initialIndex={initialIndex} onChange={resetIndex} />
+      <Box display="flex" justifyContent="space-around">
+        <Clickable onClick={() => resetIndex(0)}>Navigate to page 1</Clickable>
+        <Clickable onClick={() => resetIndex(1)}>Navigate to page 2</Clickable>
+        <Clickable onClick={() => resetIndex(2)}>Navigate to page 3</Clickable>
+        <Clickable onClick={() => resetIndex(3)}>Navigate to page 4</Clickable>
+        <Clickable onClick={() => resetIndex(4)}>Navigate to page 5</Clickable>
+      </Box>
+    </Box>
+  )
 }
 
 NavigateViaProps.story = {
