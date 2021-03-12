@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.5.0`
+  - [v3] Select [#878](https://github.com/artsy/palette/pull/878) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Mar 12 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@14.4.0`
   - [v3] Sup, ProgressBar, CarouselBar, Progress dashes [#877](https://github.com/artsy/palette/pull/877) ([@dzucconi](https://github.com/dzucconi))
 

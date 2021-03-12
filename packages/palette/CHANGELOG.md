@@ -1,3 +1,23 @@
+# v14.5.0 (Fri Mar 12 2021)
+
+#### 🚀  Enhancement
+
+- [v3] Select [#878](https://github.com/artsy/palette/pull/878) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(stories): disables chromatic for problematic stories ([@dzucconi](https://github.com/dzucconi))
+- feat(select): v3 theme for select ([@dzucconi](https://github.com/dzucconi))
+- chore(grid): deprecates grid ([@dzucconi](https://github.com/dzucconi))
+- refactor(text): cleans up ([@dzucconi](https://github.com/dzucconi))
+- refactor(button): clean up ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.4.0 (Fri Mar 12 2021)
 
 #### 🚀  Enhancement
