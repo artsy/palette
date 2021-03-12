@@ -41,7 +41,7 @@ describe("Select", () => {
         title: "This is the title",
       }
       const wrapper = mount(<LargeSelect {...props} />)
-      expect(wrapper.find("Required").length).toEqual(1)
+      expect(wrapper.text()).toContain("*")
     })
 
     it("passes the name attr down to the raw node", () => {
@@ -65,15 +65,12 @@ describe("Select", () => {
     it("triggers callback on change", () => {
       const spy = jest.fn()
       const wrapper = mount(<SelectSmall options={options} onSelect={spy} />)
-      wrapper
-        .find("option")
-        .at(1)
-        .simulate("change")
+      wrapper.find("option").at(1).simulate("change")
       expect(spy).toHaveBeenCalled()
     })
 
     it("supports title attribute and renders it properly", () => {
-      const wrapper = mount(<SelectSmall options={options} title="Sort" />)
+      const wrapper = mount(<SelectSmall options={options} title="Sort:" />)
 
       expect(wrapper.html()).toContain("Sort:")
     })

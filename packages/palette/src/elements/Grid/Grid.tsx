@@ -22,37 +22,33 @@ import {
   WidthProps,
 } from "styled-system"
 
-/** Outer wrapper when using a grid */
+/**
+ * Outer wrapper when using a grid
+ * @deprecated Use `<GridColumns>`
+ */
 export const Grid = styled(_Container)<
   SpaceProps & MaxWidthProps & BorderProps
 >`
-  max-width: ${props => props.theme.grid.breakpoints.xl}px;
-  ${compose(
-    space,
-    maxWidth,
-    border
-  )};
+  max-width: ${(props) => props.theme.grid.breakpoints.xl}px;
+  ${compose(space, maxWidth, border)};
 `
 
-/** Grid row */
+/**
+ * Grid row
+ * @deprecated
+ */
 export const Row = styled(_Row)<ColorProps & SpaceProps>`
-  ${compose(
-    color,
-    space
-  )};
+  ${compose(color, space)};
 `
 
-/** Grid column */
+/**
+ * Grid column
+ * @deprecated
+ */
 export const Col = styled(_Col)<
   ColorProps & FlexProps & SpaceProps & TextAlignProps & WidthProps
 >`
-  ${compose(
-    color,
-    flex,
-    space,
-    textAlign,
-    width
-  )}
+  ${compose(color, flex, space, textAlign, width)}
 `
 
 Grid.displayName = "Grid"

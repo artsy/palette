@@ -43,3 +43,7 @@ export const Demo = () => {
     </>
   )
 }
+
+Demo.story = {
+  parameters: { chromatic: { disable: true } },
+}

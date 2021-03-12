@@ -1,119 +1,49 @@
 import React from "react"
-import { LargeSelect, SelectSmall } from "./Select"
-
-const options = [
-  {
-    text: "First",
-    value: "firstValue",
-  },
-  {
-    text: "Last",
-    value: "lastValue",
-  },
-]
+import { States } from "storybook-states"
+import { Select, SelectProps } from "./Select"
 
 export default {
   title: "Components/Select",
 }
 
-export const _LargeSelect = () => {
-  return <LargeSelect options={options} selected="lastValue" />
-}
+const OPTIONS = [
+  { text: "First", value: "firstValue" },
+  { text: "Middle", value: "middleValue" },
+  { text: "Last", value: "lastValue" },
+]
 
-_LargeSelect.story = {
-  name: "LargeSelect",
-}
-
-export const SelectOnly = () => {
-  return <LargeSelect options={options} />
-}
-
-SelectOnly.story = {
-  name: "Select only",
-}
-
-export const SelectTitle = () => {
-  return <LargeSelect options={options} title="Pick something" />
-}
-
-SelectTitle.story = {
-  name: "Select + Title",
-}
-
-export const SelectTitleRequired = () => {
-  return <LargeSelect options={options} required title="Pick something" />
-}
-
-SelectTitleRequired.story = {
-  name: "Select + Title + Required",
-}
-
-export const SelectTitleDescription = () => {
+export const Default = () => {
   return (
-    <LargeSelect
-      description="This matters a lot."
-      options={options}
-      title="Pick something"
-    />
-  )
-}
+    <States<Partial<SelectProps>>
+      states={[
+        // variant="default"
+        {},
+        { focus: true },
+        { hover: true },
+        { error: "Something went wrong." },
+        { disabled: true },
 
-SelectTitleDescription.story = {
-  name: "Select + Title + Description",
-}
-
-export const SelectWithError = () => {
-  return <LargeSelect error="Something went wrong." options={options} />
-}
-
-SelectWithError.story = {
-  name: "Select with error",
-}
-
-export const DisabledSelect = () => {
-  return <LargeSelect disabled options={options} />
-}
-
-export const SelectSmallWithTitle = () => {
-  return (
-    <SelectSmall
-      options={[
+        // variant="inline"
+        { variant: "inline" },
+        { variant: "inline", focus: true },
+        { variant: "inline", hover: true },
+        { variant: "inline", error: "Something went wrong." },
+        { variant: "inline", disabled: true },
+        { variant: "inline", title: "Sort:" },
         {
-          text: "Price",
-          value: "price",
+          variant: "inline",
+          title: "Sort:",
+          description: "A description of sorting",
         },
-        {
-          text: "Estimate and some other text",
-          value: "estimate",
-        },
+
+        // variant="default"
+        { selected: "lastValue" },
+        { title: "Pick something" },
+        { title: "Pick something", required: true, id: "pick" },
+        { title: "Pick something", description: "This matters a lot." },
       ]}
-      title="Sort"
-    />
+    >
+      <Select options={OPTIONS} />
+    </States>
   )
-}
-
-SelectSmallWithTitle.story = {
-  name: "SelectSmall with title",
-}
-
-export const SelectSmallWithoutTitle = () => {
-  return (
-    <SelectSmall
-      options={[
-        {
-          text: "First option",
-          value: "firstOption",
-        },
-        {
-          text: "Second option that is really long",
-          value: "SecondOption",
-        },
-      ]}
-      selected="SecondOption"
-    />
-  )
-}
-
-SelectSmallWithoutTitle.story = {
-  name: "SelectSmall without title",
 }

@@ -1,36 +1,14 @@
 import { themeGet } from "@styled-system/theme-get"
-import React, { SFC } from "react"
+import React from "react"
 import styled, { css } from "styled-components"
-import {
-  maxWidth,
-  MaxWidthProps,
-  minWidth,
-  MinWidthProps,
-  PositionProps,
-  space as styledSpace,
-  SpaceProps,
-  width,
-  WidthProps,
-} from "styled-system"
-import { color, space } from "../../helpers"
-import { Box } from "../Box"
-import { computeBorderColor, Required } from "../Input"
-import { Sans, Serif } from "../Typography"
-
-const computeOptionTags = (options: Option[], name?: string): JSX.Element[] => {
-  const optionTags = options.map((option, index) => {
-    const { text, value } = option
-    const key = [name || "", value || index].join("-")
-
-    return (
-      <option value={value} key={key}>
-        {text}
-      </option>
-    )
-  })
-
-  return optionTags
-}
+import { getThemeConfig, useThemeConfig } from "../../Theme"
+import { Box, BoxProps, splitBoxProps } from "../Box"
+import { Flex } from "../Flex"
+import { Spacer } from "../Spacer"
+import { Text, TextVariant } from "../Text"
+import { Variant } from "./tokens/types"
+import { SELECT_VARIANTS as V2_SELECT_VARIANTS } from "./tokens/v2"
+import { SELECT_VARIANTS as V3_SELECT_VARIANTS } from "./tokens/v3"
 
 export interface Option {
   value: string
@@ -38,217 +16,231 @@ export interface Option {
 }
 
 export interface SelectProps
-  extends PositionProps,
-    SpaceProps,
-    WidthProps,
-    MaxWidthProps,
-    MinWidthProps {
+  extends BoxProps,
+    Omit<React.HTMLAttributes<HTMLSelectElement>, "onSelect"> {
   description?: string
   disabled?: boolean
   error?: string
+  focus?: boolean
+  hover?: boolean
   name?: string
-  onSelect?: (value) => void
   options: Option[]
   required?: boolean
   selected?: string
   title?: string
+  variant?: Variant
+  onSelect?: (value: string) => void
 }
 
-/**
- * A large drop-down select menu
- */
-export const LargeSelect: SFC<SelectProps> = props => {
-  const {
-    description,
-    disabled,
-    error,
-    name,
-    onSelect,
-    options,
-    required,
-    selected,
-    title,
-  } = props
-  const optionTags = computeOptionTags(options, name)
+/** A drop-down select menu */
+export const Select: React.FC<SelectProps> = ({
+  description,
+  disabled,
+  error,
+  focus,
+  hover,
+  id,
+  name,
+  options,
+  required,
+  selected,
+  title,
+  variant = "default",
+  onSelect,
+  ...rest
+}) => {
+  const [boxProps, selectProps] = splitBoxProps(rest)
+
+  const tokens = useThemeConfig({
+    v2: {
+      titleVariant: (variant === "default" ? "text" : "small") as TextVariant,
+      titleTextTransform: null,
+      secondaryTextVariant: "small" as TextVariant,
+    },
+    v3: {
+      titleVariant: "xs" as TextVariant,
+      titleTextTransform: "uppercase",
+      secondaryTextVariant: "xs" as TextVariant,
+    },
+  })
 
   return (
-    <Box width="100%">
-      {title && (
-        <Serif mb="0.5" size="3">
-          {title}
-          {required && <Required>*</Required>}
-        </Serif>
-      )}
-      {description && (
-        <Serif color="black60" mb="1" size="2">
-          {description}
-        </Serif>
-      )}
-      <LargeSelectContainer {...props} p={1}>
-        <select
+    <Box width="100%" {...boxProps}>
+      <Flex
+        as="label"
+        {...(variant === "inline"
+          ? {
+              flexDirection: "row",
+              alignItems: "center",
+            }
+          : {
+              flexDirection: "column",
+              alignItems: "flex-start",
+            })}
+        {...(id ? { for: id } : {})}
+      >
+        <div>
+          {title && (
+            <Text
+              variant={tokens.titleVariant}
+              style={{ textTransform: tokens.titleTextTransform }}
+            >
+              {title}
+              {required && (
+                <Box as="span" color="brand">
+                  *
+                </Box>
+              )}
+            </Text>
+          )}
+
+          {description && (
+            <Text variant={tokens.secondaryTextVariant} color="black60">
+              {description}
+            </Text>
+          )}
+        </div>
+
+        {(title || description) && <Spacer m={0.5} />}
+
+        <Container
+          variant={variant}
           disabled={disabled}
-          name={name}
-          onChange={event => onSelect && onSelect(event.target.value)}
-          value={selected}
+          hover={hover}
+          error={error}
+          focus={focus}
         >
-          {optionTags}
-        </select>
-      </LargeSelectContainer>
+          <select
+            id={id}
+            disabled={disabled}
+            name={name}
+            value={selected}
+            onChange={(event) => {
+              onSelect && onSelect(event.target.value)
+            }}
+            {...selectProps}
+          >
+            {options.map(({ value, text }) => {
+              return (
+                <option value={value} key={value}>
+                  {text}
+                </option>
+              )
+            })}
+          </select>
+        </Container>
+      </Flex>
+
       {error && (
-        <Sans color="red100" mt="1" size="2">
+        <Text variant={tokens.secondaryTextVariant} mt={0.5} color="red100">
           {error}
-        </Sans>
+        </Text>
       )}
     </Box>
   )
 }
 
-/**
- * A small version of drop-down select menu
- */
-export const SelectSmall: SFC<SelectProps> = props => {
-  const { disabled, onSelect, options, selected, title } = props
-  const optionTags = computeOptionTags(options)
-
-  return (
-    <SelectSmallContainer {...props}>
-      <label>
-        {props.title && (
-          <Sans size="2" display="inline" mr={0.5}>
-            {title}:
-          </Sans>
-        )}
-        <select
-          disabled={disabled}
-          onChange={event => onSelect && onSelect(event.target.value)}
-          value={selected}
-        >
-          {optionTags}
-        </select>
-      </label>
-    </SelectSmallContainer>
-  )
-}
-
-const hideDefaultSkin = css`
+const resetMixin = css`
+  appearance: none;
   background: none;
   border: none;
-  cursor: pointer;
   outline: 0;
-  -webkit-appearance: none;
-
-  -moz-appearance: none;
   text-indent: 0.01px;
   text-overflow: "";
+  border-radius: 0;
 
   &:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 #000;
+    text-shadow: 0 0 0 black;
   }
 
   option:not(:checked) {
     color: black; /* prevent <option>s from becoming transparent as well */
   }
 `
-const carretSize = 4
-const caretArrow = css<SelectProps>`
-  border-left: ${carretSize}px solid transparent;
-  border-right: ${carretSize}px solid transparent;
-  border-top: ${carretSize}px solid
-    ${props => (props.disabled ? color("black10") : color("black100"))};
-  width: 0;
-  height: 0;
-`
 
-const LargeSelectContainer = styled.div<SelectProps>`
+type ContainerProps = Required<
+  Pick<SelectProps, "variant" | "disabled" | "error" | "hover" | "focus">
+>
+
+const Container = styled.div<ContainerProps>`
   position: relative;
   width: 100%;
 
-  select {
+  > select {
+    ${resetMixin};
     width: 100%;
-    ${maxWidth};
-    ${minWidth};
-    font-family: ${themeGet("fontFamily.serif.regular")};
-    font-size: ${themeGet("typeSizes.serif.3.fontSize")};
-    line-height: ${themeGet("typeSizes.serif.3t.lineHeight")};
-    height: 40px;
-    ${hideDefaultSkin};
-    border: 1px solid
-      ${({ disabled, error }) =>
-        color(computeBorderColor({ disabled, error: !!error }))};
-    border-radius: 0;
-    transition: border-color 0.25s;
-    padding-right: ${space(1)}px;
-    cursor: ${props => (props.disabled ? "default" : "pointer")};
-    ${styledSpace};
-    &:hover {
-      border-color: ${({ disabled, error }) =>
-        color(
-          computeBorderColor({ disabled, error: !!error, pseudo: "hover" })
-        )};
-    }
-
-    &:focus {
-      border-color: ${({ disabled, error }) =>
-        color(
-          computeBorderColor({ disabled, error: !!error, pseudo: "focus" })
-        )};
-    }
-  }
-
-  &::after {
-    content: "";
-    cursor: ${props => (props.disabled ? "default" : "pointer")};
-    pointer-events: none;
-    position: absolute;
-    top: 45%;
-    right: ${space(1)}px;
-
-    ${caretArrow};
-  }
-`
-
-const SelectSmallContainer = styled.div<SelectProps>`
-  position: relative;
-
-  label {
-    ${width};
-    ${maxWidth};
-    ${minWidth};
-    padding: 0;
-    margin: 0;
-  }
-
-  select {
-    ${hideDefaultSkin};
-    background-color: ${color("black10")};
-    border-radius: 2px;
-    ${themeGet("fontFamily.sans.medium")};
-    font-size: ${themeGet("typeSizes.sans.2.fontSize")};
-    line-height: ${themeGet("typeSizes.sans.2.lineHeight")};
-    padding: ${space(0.5)}px ${space(1) + carretSize * 4}px ${space(0.5)}px
-      ${space(1)}px;
-    ${styledSpace};
-    ${width};
-    ${maxWidth};
-    ${minWidth};
-    margin: 0;
-
-    &:hover {
-      background-color: ${color("black30")};
-    }
-    &:focus {
-      border-color: ${color("purple100")};
-    }
-  }
-
-  &::after {
-    ${caretArrow};
-    content: "";
+    padding: 0 ${themeGet("space.1")};
+    font-family: ${themeGet("fonts.sans")};
+    border: 1px solid;
     cursor: pointer;
-    margin-left: -${space(1) + carretSize * 2}px;
-    pointer-events: none;
+    line-height: 1;
+    transition: background-color 0.25s, border-color 0.25s;
+
+    ${(props) => {
+      const variants = getThemeConfig(props, {
+        v2: V2_SELECT_VARIANTS,
+        v3: V3_SELECT_VARIANTS,
+      })
+
+      const states = variants[props.variant]
+
+      return css`
+        ${states.default}
+
+        ${props.hover && states.hover}
+        ${props.focus && states.focus}
+        ${props.disabled && states.disabled}
+        ${props.error && states.error}
+
+        &:hover {
+          ${states.hover}
+        }
+
+        &:focus {
+          ${states.focus}
+        }
+
+        &:disabled {
+          cursor: default;
+          ${states.disabled}
+        }
+      `
+    }};
+  }
+
+  /* Caret */
+  &::after {
+    content: "";
+    cursor: inherit;
+    width: 0;
+    height: 0;
     position: absolute;
-    top: ${5 + space(0.5)}px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: ${themeGet("space.1")};
+    pointer-events: none;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid
+      ${({ disabled }) => {
+        return disabled
+          ? themeGet("colors.black10")
+          : themeGet("colors.black100")
+      }};
   }
 `
+
+/**
+ * Default variant of Select. In v2 contexts this is the larger select.
+ * @deprecated Use` <Select />`
+ */
+export const LargeSelect = styled(Select)``
+LargeSelect.defaultProps = { variant: "default" }
+
+/**
+ * Inline variant of Select. In v2 contexts this is the smaller select.
+ * @deprecated Use `<Select variant="inline">`
+ */
+export const SelectSmall = styled(Select)``
+SelectSmall.defaultProps = { variant: "inline" }
