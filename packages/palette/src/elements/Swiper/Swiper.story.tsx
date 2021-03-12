@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import styled from "styled-components"
 import { Box } from "../Box"
+import { CarouselBar } from "../CarouselBar"
 import { Clickable } from "../Clickable"
 import { ProgressDots } from "../ProgressDots"
 import { Text } from "../Text"
@@ -35,30 +35,6 @@ const Demo = ({
           </Clickable>
         ))}
       </Swiper>
-    </Box>
-  )
-}
-
-const Bar = styled(Box)`
-  transition: transform 200ms;
-`
-
-const ProgressBar = ({ progress = 0 }: { progress: number }) => {
-  return (
-    <Box
-      bg="black10"
-      position="relative"
-      width="50%"
-      height={2}
-      mx="auto"
-      overflow="hidden"
-    >
-      <Bar
-        bg="black100"
-        width="100%"
-        height="100%"
-        style={{ transform: `translateX(-${100 - progress}%)` }}
-      />
     </Box>
   )
 }
@@ -98,7 +74,7 @@ export const ProgressBarExample = () => {
   return (
     <>
       <Demo widths={widths} onChange={setIndex} />
-      <ProgressBar progress={progress} />
+      <CarouselBar percentComplete={progress} />
     </>
   )
 }
@@ -114,7 +90,7 @@ export const ProgressDotsExample = () => {
   return (
     <>
       <Demo widths={widths} onChange={setIndex} />
-      <ProgressDots amount={widths.length} activeIndex={index} />
+      <ProgressDots variant="dash" amount={widths.length} activeIndex={index} />
     </>
   )
 }

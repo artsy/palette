@@ -1,31 +1,36 @@
 import React from "react"
-import styled, { css } from "styled-components"
-import { color, space } from "../../helpers"
+import styled from "styled-components"
+import { variant } from "styled-system"
+import { useThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
 import { VisuallyHidden } from "../VisuallyHidden"
 
-const DOT_COLOR_MS = 250
+const VARIANTS = {
+  dot: {
+    width: "5px",
+    height: "5px",
+    borderRadius: "50%",
+  },
+  dash: {
+    height: "1px",
+    flex: 1,
+  },
+}
 
-const Dot = styled(Box).attrs({ m: 0.5 })<{ active: boolean }>`
-  width: ${space(0.5)}px;
-  height: ${space(0.5)}px;
-  border-radius: 50%;
-  background-color: ${color("black10")};
-  transition: background-color ${DOT_COLOR_MS}ms;
+type Variant = keyof typeof VARIANTS
 
-  ${({ active }) =>
-    active &&
-    css`
-      background-color: ${color("black100")};
-    `}
+const Indicator = styled(Box)<{ variant: Variant }>`
+  ${variant({ variants: VARIANTS })}
+  transition: background-color 250ms;
 `
 
-Dot.displayName = "Dot"
+Indicator.displayName = "Indicator"
 
 /** ProgressDotsProps */
 export interface ProgressDotsProps extends BoxProps {
   activeIndex: number
   amount: number
+  variant?: Variant
 }
 
 /**
@@ -34,8 +39,11 @@ export interface ProgressDotsProps extends BoxProps {
 export const ProgressDots: React.FC<ProgressDotsProps> = ({
   activeIndex,
   amount,
+  variant: indicatorVariant = "dot",
   ...rest
 }) => {
+  const bgColor = useThemeConfig({ v2: "black10", v3: "black30" })
+
   return (
     <>
       <Box
@@ -43,10 +51,16 @@ export const ProgressDots: React.FC<ProgressDotsProps> = ({
         display="flex"
         alignItems="center"
         justifyContent="center"
+        my={0.5}
         {...rest}
       >
         {[...new Array(amount)].map((_, i) => (
-          <Dot key={i} active={i === activeIndex} />
+          <Indicator
+            key={i}
+            variant={indicatorVariant}
+            bg={i === activeIndex ? "black100" : bgColor}
+            mx={0.5}
+          />
         ))}
       </Box>
 

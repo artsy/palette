@@ -1,39 +1,49 @@
 import React from "react"
-import styled from "styled-components"
+import { useThemeConfig } from "../../Theme"
+import { Color } from "../../themes/types"
+import { Box, BoxProps } from "../Box"
 
-import { color, space } from "../../helpers"
-
-const ProgressBarBackground = styled.div<{ showBackground: boolean }>`
-  height: 2px;
-  background-color: ${props =>
-    props.showBackground ? color("black10") : "transparent"};
-
-  margin: ${space(0.5)}px 0 ${space(1)}px;
-  display: flex;
-  justify-content: flex-start;
-`
-
-/** ProgressBar */
-export const ProgressBar: React.SFC<{
+export interface ProgressBarProps extends BoxProps {
   percentComplete: number
-  highlight: Parameters<typeof color>[0]
+  highlight?: Color
   showBackground?: boolean
   transition?: string
-}> = ({
+}
+
+/** ProgressBar */
+export const ProgressBar: React.FC<ProgressBarProps> = ({
   percentComplete,
-  highlight = "purple100",
+  highlight = "brand",
   showBackground = true,
-  transition = "width 1s ease",
+  transition = "transform 1s ease",
+  ...rest
 }) => {
+  const bgColor = useThemeConfig({ v2: "black10", v3: "black30" })
+
   return (
-    <ProgressBarBackground showBackground={showBackground}>
-      <div
+    <Box
+      tabIndex={0}
+      role="progressbar"
+      aria-valuenow={percentComplete}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      height="2px"
+      position="relative"
+      overflow="hidden"
+      mt={0.5}
+      mb={1}
+      bg={showBackground ? bgColor : "transparent"}
+      {...rest}
+    >
+      <Box
+        bg={highlight}
+        width="100%"
+        height="100%"
         style={{
           transition,
-          backgroundColor: color(highlight as any),
-          width: Math.round(percentComplete) + "%",
+          transform: `translateX(-${100 - percentComplete}%)`,
         }}
       />
-    </ProgressBarBackground>
+    </Box>
   )
 }

@@ -2,8 +2,8 @@ import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import { ChevronIcon } from "../../svgs"
-import { Tab, Tabs } from "./"
-import { TabsProps } from "./Tabs"
+import { Sup } from "../Sup"
+import { Tab, Tabs, TabsProps } from "./"
 
 export default {
   title: "Components/Tabs",
@@ -55,5 +55,34 @@ export const WithData = () => {
 
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
+  )
+}
+
+export const Counts = () => {
+  return (
+    <Tabs onChange={action("onChange")}>
+      <Tab
+        name={
+          <>
+            Overview <Sup>123</Sup>
+          </>
+        }
+      />
+      <Tab
+        name={
+          <>
+            Works for sale <Sup>123</Sup>
+          </>
+        }
+      />
+      <Tab name="CV" />
+      <Tab
+        name={
+          <>
+            Auction results <Sup>123</Sup>
+          </>
+        }
+      />
+    </Tabs>
   )
 }

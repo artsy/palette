@@ -1,6 +1,7 @@
 import { mount } from "enzyme"
 import React from "react"
-import { Sup, Tab, Tabs } from "../index"
+import { Sup } from "../../Sup"
+import { Tab, Tabs } from "../index"
 
 describe("Tabs", () => {
   it("renders tabs by via name prop", () => {
