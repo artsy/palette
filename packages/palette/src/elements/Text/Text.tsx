@@ -10,7 +10,7 @@ import {
   TypographyProps,
   variant,
 } from "styled-system"
-import { Color } from "../../Theme"
+import { Color, getThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
 import { TextVariant } from "./tokens/types"
 import { TEXT_VARIANTS as V2_TEXT_VARIANTS } from "./tokens/v2"
@@ -46,22 +46,21 @@ export type TextProps = BaseTextProps &
 /** Text */
 export const Text = styled(Box)<TextProps>`
   ${(props) => {
-    if (props.theme.id === "v2") {
-      return css`
-        ${variant({ variants: V2_TEXT_VARIANTS.small })(props)}
+    return getThemeConfig(props, {
+      v2: css`
+        ${variant({ variants: V2_TEXT_VARIANTS.small })}
         ${textMixin}
 
-      @media (min-width: ${themeGet("breakpoints.0")}) {
+        @media (min-width: ${themeGet("breakpoints.0")}) {
           ${variant({ variants: V2_TEXT_VARIANTS.large })}
           ${textMixin}
         }
-      `
-    }
-
-    return css`
-      ${variant({ variants: V3_TEXT_VARIANTS })(props)}
-      ${textMixin}
-    `
+      `,
+      v3: css`
+        ${variant({ variants: V3_TEXT_VARIANTS })}
+        ${textMixin}
+      `,
+    })
   }}
 
   ${({ overflowEllipsis }) => overflowEllipsis && overflowEllipsisMixin}
