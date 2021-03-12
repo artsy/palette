@@ -1,3 +1,23 @@
+# v14.4.0 (Fri Mar 12 2021)
+
+#### 🚀  Enhancement
+
+- [v3] Sup, ProgressBar, CarouselBar, Progress dashes [#877](https://github.com/artsy/palette/pull/877) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(stories): cleans up ([@dzucconi](https://github.com/dzucconi))
+- feat(progressdots): implements dash variant ([@dzucconi](https://github.com/dzucconi))
+- feat: implements carousel bar ([@dzucconi](https://github.com/dzucconi))
+- feat(progressbar): v3 theme for progress bar ([@dzucconi](https://github.com/dzucconi))
+- feat(sup): improves sup implementation ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.3.0 (Wed Mar 10 2021)
 
 #### 🚀  Enhancement
