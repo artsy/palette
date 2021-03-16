@@ -235,12 +235,14 @@ const Container = styled.div<ContainerProps>`
  * Default variant of Select. In v2 contexts this is the larger select.
  * @deprecated Use` <Select />`
  */
-export const LargeSelect = styled(Select)``
-LargeSelect.defaultProps = { variant: "default" }
+export const LargeSelect: React.FC<Omit<SelectProps, "variant">> = (props) => {
+  return <Select variant="default" {...props} />
+}
 
 /**
  * Inline variant of Select. In v2 contexts this is the smaller select.
  * @deprecated Use `<Select variant="inline">`
  */
-export const SelectSmall = styled(Select)``
-SelectSmall.defaultProps = { variant: "inline" }
+export const SelectSmall: React.FC<Omit<SelectProps, "variant">> = (props) => {
+  return <Select variant="inline" {...props} />
+}
