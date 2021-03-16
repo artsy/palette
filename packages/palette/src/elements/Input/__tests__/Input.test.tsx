@@ -1,7 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
-
-import { computeBorderColor, Input } from "./Input"
+import { computeBorderColor, Input } from "../Input"
 
 describe("Input", () => {
   it("returns a simple input with no options", () => {
