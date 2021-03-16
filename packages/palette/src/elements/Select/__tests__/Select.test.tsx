@@ -1,6 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
-import { LargeSelect, SelectSmall } from "../Select"
+import { LargeSelect, SelectSmall } from ".."
 
 const options = [
   {
