@@ -1,68 +1,31 @@
 import React from "react"
-import { Input } from "./Input"
-
-const defaultProps = {
-  placeholder: "Start typing…",
-}
+import { States } from "storybook-states"
+import { Input, InputProps } from "./Input"
 
 export default {
   title: "Components/Input",
 }
 
-export const _Input = () => {
-  return <Input {...defaultProps} />
-}
-
-export const InputTitle = () => {
-  return <Input {...defaultProps} title="Your offer" />
-}
-
-InputTitle.story = {
-  name: "Input + title",
-}
-
-export const InputTitleRequired = () => {
-  return <Input {...defaultProps} title="Your offer" required />
-}
-
-InputTitleRequired.story = {
-  name: "Input + title + required",
-}
-
-export const InputTitleDesc = () => {
+export const Default = () => {
   return (
-    <Input
-      {...defaultProps}
-      title="Your offer"
-      description="This is my description"
-    />
+    <States<InputProps>
+      states={[
+        {},
+        // TODO:
+        // @ts-ignore
+        { focus: true },
+        // TODO:
+        // @ts-ignore
+        { hover: true },
+        { error: "Something went wrong." },
+        { disabled: true },
+        { title: "Your offer" },
+        { title: "Your offer", required: true },
+        { title: "Your offer", description: "This is my description" },
+        { width: "50%" },
+      ]}
+    >
+      <Input placeholder="Start typing…" />
+    </States>
   )
-}
-
-InputTitleDesc.story = {
-  name: "Input + title + desc",
-}
-
-export const InputError = () => {
-  return <Input {...defaultProps} error="Something went wrong." />
-}
-
-InputError.story = {
-  name: "Input + error",
-}
-
-export const InputDisabled = () => {
-  return <Input {...defaultProps} disabled />
-}
-
-InputDisabled.story = {
-  name: "Input + disabled",
-}
-
-export const InputSpecifiedWidth = () => {
-  return <Input style={{ width: "50%" }} {...defaultProps} />
-}
-
-InputSpecifiedWidth.story = {
-  name: "Input + specified width",
 }
