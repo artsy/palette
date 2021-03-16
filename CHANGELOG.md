@@ -1,3 +1,16 @@
+# (Tue Mar 16 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.5.1`
+  - fix(select): fix type signature for deprecated exports [#879](https://github.com/artsy/palette/pull/879) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Mar 12 2021)
 
 #### 🚀  Enhancement

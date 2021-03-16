@@ -1,3 +1,17 @@
+# v14.5.1 (Tue Mar 16 2021)
+
+#### 🐛  Bug Fix
+
+- fix(select): fix type signature for deprecated exports [#879](https://github.com/artsy/palette/pull/879) ([@dzucconi](https://github.com/dzucconi))
+- fix(select): partially apply variant manually to avoid non-portable type sig warning ([@dzucconi](https://github.com/dzucconi))
+- chore(select): moves test file into tests dir ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.5.0 (Fri Mar 12 2021)
 
 #### 🚀  Enhancement
