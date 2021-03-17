@@ -1,3 +1,26 @@
+# v14.6.0 (Wed Mar 17 2021)
+
+#### 🚀  Enhancement
+
+- [v3] Input [#881](https://github.com/artsy/palette/pull/881) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(stories): inputs theme story ([@dzucconi](https://github.com/dzucconi))
+- feat(select): allows select to also support a boolean error state ([@dzucconi](https://github.com/dzucconi))
+- feat(input): v3 theme for input ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): checks in input stories ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(stories): checks in input stories [#880](https://github.com/artsy/palette/pull/880) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.5.1 (Tue Mar 16 2021)
 
 #### 🐛  Bug Fix

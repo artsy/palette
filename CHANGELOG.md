@@ -1,3 +1,21 @@
+# (Wed Mar 17 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.6.0`
+  - [v3] Input [#881](https://github.com/artsy/palette/pull/881) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@14.6.0`
+  - chore(stories): checks in input stories [#880](https://github.com/artsy/palette/pull/880) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Mar 16 2021)
 
 #### 🐛  Bug Fix
