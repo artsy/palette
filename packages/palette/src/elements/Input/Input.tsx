@@ -1,111 +1,132 @@
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled from "styled-components"
-import { color, space } from "../../helpers"
-import { Color } from "../../Theme"
-import { Box } from "../Box"
-import { Sans } from "../Typography"
+import { css } from "styled-components"
+import { getThemeConfig, useThemeConfig } from "../../Theme"
+import { Box, BoxProps, splitBoxProps } from "../Box"
+import { Spacer } from "../Spacer"
+import { Text, TextVariant } from "../Text"
+import { INPUT_STATES as V2_INPUT_STATES } from "./tokens/v2"
+import { INPUT_STATES as V3_INPUT_STATES } from "./tokens/v3"
 
-export interface InputProps extends React.HTMLProps<HTMLInputElement> {
+export interface InputProps
+  extends BoxProps,
+    React.HTMLAttributes<HTMLInputElement> {
   description?: string
   disabled?: boolean
   error?: string | boolean
+  focus?: boolean
+  hover?: boolean
   required?: boolean
   title?: string
 }
 
-/**
- * Input component
- */
-export const Input: React.ForwardRefExoticComponent<
-  InputProps
-> = React.forwardRef(
-  ({ description, disabled, error, required, title, ...rest }, ref) => {
+/** Input component */
+export const Input: React.ForwardRefExoticComponent<InputProps> = React.forwardRef(
+  (
+    { description, disabled, error, required, focus, hover, title, ...rest },
+    ref
+  ) => {
+    const [boxProps, inputProps] = splitBoxProps(rest)
+
+    const tokens = useThemeConfig({
+      v2: {
+        titleVariant: "text" as TextVariant,
+        titleTextTransform: null,
+        secondaryTextVariant: "small" as TextVariant,
+      },
+      v3: {
+        titleVariant: "xs" as TextVariant,
+        titleTextTransform: "uppercase",
+        secondaryTextVariant: "xs" as TextVariant,
+      },
+    })
+
     return (
-      <Box width="100%">
-        {title && (
-          <Sans mb="0.5" size="3">
-            {title}
-            {required && <Required>*</Required>}
-          </Sans>
-        )}
-        {description && (
-          <Sans color="black60" mb="1" size="2">
-            {description}
-          </Sans>
-        )}
+      <Box width="100%" {...boxProps}>
+        <div>
+          {title && (
+            <Text
+              variant={tokens.titleVariant}
+              style={{ textTransform: tokens.titleTextTransform }}
+            >
+              {title}
+              {required && (
+                <Box as="span" color="brand">
+                  *
+                </Box>
+              )}
+            </Text>
+          )}
+
+          {description && (
+            <Text variant={tokens.secondaryTextVariant} color="black60">
+              {description}
+            </Text>
+          )}
+        </div>
+
+        {(title || description) && <Spacer m={0.5} />}
+
         <StyledInput
-          ref={ref}
+          ref={ref as any}
           disabled={disabled}
+          focus={focus}
+          hover={hover}
           error={!!error}
-          {...rest as any}
+          {...inputProps}
         />
+
         {error && typeof error === "string" && (
-          <Sans color="red100" mt="1" size="2">
+          <Text variant={tokens.secondaryTextVariant} mt={0.5} color="red100">
             {error}
-          </Sans>
+          </Text>
         )}
       </Box>
     )
   }
 )
 
-interface StyledInputProps extends React.HTMLProps<HTMLInputElement> {
-  disabled: boolean
-  error: boolean
-}
-
-interface InputStatus {
-  disabled: boolean
-  error: boolean
-  pseudo?: string
-}
-
-/**
- * func to compute border color
- */
-export const computeBorderColor = (inputStatus: InputStatus): Color => {
-  const { disabled, error, pseudo } = inputStatus
-
-  if (disabled) return "black10"
-  if (error) return "red100"
-  if (pseudo === "hover") return "black60"
-  if (pseudo === "focus") return "purple100"
-  return "black10"
-}
+type StyledInputProps = Pick<
+  InputProps,
+  "disabled" | "error" | "hover" | "focus"
+>
 
 const StyledInput = styled.input<StyledInputProps>`
+  width: 100%;
+  padding: 0 ${themeGet("space.1")};
   appearance: none;
-  font-family: ${themeGet("fontFamily.sans.regular")};
-  font-size: ${themeGet("typeSizes.sans.3.fontSize")};
-  line-height: ${themeGet("typeSizes.sans.3t.lineHeight")};
-  height: 40px;
-  background-color: ${props =>
-    props.disabled ? color("black5") : color("white100")};
-  border: 1px solid
-    ${({ disabled, error }) => color(computeBorderColor({ disabled, error }))};
+  line-height: 1;
+  border: 1px solid;
   border-radius: 0;
   transition: border-color 0.25s;
-  padding: ${space(1)}px;
 
-  width: 100%;
+  ${(props) => {
+    const states = getThemeConfig(props, {
+      v2: V2_INPUT_STATES,
+      v3: V3_INPUT_STATES,
+    })
 
-  &:hover {
-    border-color: ${({ disabled, error }) =>
-      color(computeBorderColor({ disabled, error, pseudo: "hover" }))};
-  }
+    return css`
+      ${states.default}
+      ${props.hover && states.hover}
+      ${props.focus && states.focus}
+      ${props.disabled && states.disabled}
+      ${props.error && states.error}
 
-  &:focus {
-    border-color: ${({ disabled, error }) =>
-      color(computeBorderColor({ disabled, error, pseudo: "focus" }))};
-  }
+      &:hover {
+        ${states.hover}
+      }
+
+      &:focus {
+        outline: none;
+        ${states.focus}
+      }
+
+      &:disabled {
+        cursor: default;
+        ${states.disabled}
+      }
+    `
+  }};
 `
-StyledInput.displayName = "StyledInput"
-
-/**
- * Required
- */
-export const Required = styled.span`
-  color: ${color("purple100")};
-`
-Required.displayName = "Required"

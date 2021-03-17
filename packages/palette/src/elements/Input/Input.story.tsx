@@ -11,11 +11,7 @@ export const Default = () => {
     <States<InputProps>
       states={[
         {},
-        // TODO:
-        // @ts-ignore
         { focus: true },
-        // TODO:
-        // @ts-ignore
         { hover: true },
         { error: "Something went wrong." },
         { disabled: true },
