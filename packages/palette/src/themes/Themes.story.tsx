@@ -7,10 +7,12 @@ import {
   BUTTON_VARIANT_NAMES,
   Column,
   GridColumns,
+  Input,
   Join,
   Message,
   Pill,
   PILL_VARIANT_NAMES,
+  Select,
   Separator,
   Spacer,
   Step,
@@ -639,6 +641,321 @@ export const Controls = () => {
         <a href="#example">Level 03</a>
         <a href="#example">Level 04 (Active)</a>
       </Breadcrumbs>
+    </>
+  )
+}
+
+const OPTIONS = [
+  { text: "First", value: "firstValue" },
+  { text: "Middle", value: "middleValue" },
+  { text: "Last", value: "lastValue" },
+]
+
+export const Inputs = () => {
+  return (
+    <>
+      <Text variant="xxl">Inputs & Selections</Text>
+
+      <Separator color="black30" my={12} />
+
+      <Text variant="xxl" my={6}>
+        Inputs
+      </Text>
+
+      <Text variant="sm" color="black60">
+        <GridColumns>
+          <Column span={2}>Default</Column>
+
+          <Column span={2}>Focus</Column>
+
+          <Column span={2}>Hover</Column>
+
+          <Column span={2}>Active</Column>
+
+          <Column span={2}>Error</Column>
+
+          <Column span={2} wrap>
+            Disabled
+          </Column>
+        </GridColumns>
+      </Text>
+
+      <Separator color="black30" my={6} />
+
+      <Text my={6} variant="lg">
+        No Title
+      </Text>
+
+      <GridColumns>
+        <Column span={2}>
+          <Input placeholder="Default" />
+        </Column>
+
+        <Column span={2}>
+          <Input focus placeholder="Focus" />
+        </Column>
+
+        <Column span={2}>
+          <Input hover placeholder="Hover" />
+        </Column>
+
+        <Column span={2}>
+          <Input focus placeholder="Active" defaultValue="Active" />
+        </Column>
+
+        <Column span={2}>
+          <Input error="Input Value Error Message/Reason" placeholder="Error" />
+        </Column>
+
+        <Column span={2}>
+          <Input disabled placeholder="Disabled" />
+        </Column>
+      </GridColumns>
+
+      <Text my={6} variant="lg">
+        Title
+      </Text>
+
+      <GridColumns>
+        <Column span={2}>
+          <Input title="Title" placeholder="Default" />
+        </Column>
+
+        <Column span={2}>
+          <Input title="Title" focus placeholder="Focus" />
+        </Column>
+
+        <Column span={2}>
+          <Input title="Title" hover placeholder="Hover" />
+        </Column>
+
+        <Column span={2}>
+          <Input
+            title="Title"
+            focus
+            placeholder="Active"
+            defaultValue="Active"
+          />
+        </Column>
+
+        <Column span={2}>
+          <Input
+            title="Title"
+            error="Input Value Error Message/Reason"
+            placeholder="Error"
+          />
+        </Column>
+
+        <Column span={2}>
+          <Input title="Title" disabled placeholder="Disabled" />
+        </Column>
+      </GridColumns>
+
+      <Text my={6} variant="lg">
+        Title & Subtitle
+      </Text>
+
+      <GridColumns>
+        <Column span={2}>
+          <Input title="Title" description="Subtitle" placeholder="Default" />
+        </Column>
+
+        <Column span={2}>
+          <Input
+            title="Title"
+            description="Subtitle"
+            focus
+            placeholder="Focus"
+          />
+        </Column>
+
+        <Column span={2}>
+          <Input
+            title="Title"
+            description="Subtitle"
+            hover
+            placeholder="Hover"
+          />
+        </Column>
+
+        <Column span={2}>
+          <Input
+            title="Title"
+            description="Subtitle"
+            focus
+            placeholder="Active"
+            defaultValue="Active"
+          />
+        </Column>
+
+        <Column span={2}>
+          <Input
+            title="Title"
+            description="Subtitle"
+            error="Input Value Error Message/Reason"
+            placeholder="Error"
+          />
+        </Column>
+
+        <Column span={2}>
+          <Input
+            title="Title"
+            description="Subtitle"
+            disabled
+            placeholder="Disabled"
+          />
+        </Column>
+      </GridColumns>
+
+      <Text variant="xxl" my={6}>
+        Selects
+      </Text>
+
+      <Text variant="sm" color="black60">
+        <GridColumns>
+          <Column span={2}>Default</Column>
+
+          <Column span={2}>Focus</Column>
+
+          <Column span={2}>Hover</Column>
+
+          <Column span={2}>Error</Column>
+
+          <Column span={2} wrap>
+            Disabled
+          </Column>
+        </GridColumns>
+      </Text>
+
+      <Separator color="black30" my={6} />
+
+      <Text my={6} variant="lg">
+        No Title
+      </Text>
+
+      <GridColumns>
+        <Column span={2}>
+          <Select options={OPTIONS} />
+        </Column>
+
+        <Column span={2}>
+          <Select options={OPTIONS} focus />
+        </Column>
+
+        <Column span={2}>
+          <Select options={OPTIONS} hover />
+        </Column>
+
+        <Column span={2}>
+          <Select options={OPTIONS} error="Input Value Error Message/Reason" />
+        </Column>
+
+        <Column span={2} wrap>
+          <Select options={OPTIONS} disabled />
+        </Column>
+      </GridColumns>
+
+      <Text my={6} variant="lg">
+        Title
+      </Text>
+
+      <GridColumns>
+        <Column span={2}>
+          <Select title="Title" options={OPTIONS} />
+        </Column>
+
+        <Column span={2}>
+          <Select title="Title" options={OPTIONS} focus />
+        </Column>
+
+        <Column span={2}>
+          <Select title="Title" options={OPTIONS} hover />
+        </Column>
+
+        <Column span={2}>
+          <Select
+            title="Title"
+            options={OPTIONS}
+            error="Input Value Error Message/Reason"
+          />
+        </Column>
+
+        <Column span={2} wrap>
+          <Select title="Title" options={OPTIONS} disabled />
+        </Column>
+      </GridColumns>
+
+      <Text my={6} variant="lg">
+        Title & Subtitle
+      </Text>
+
+      <GridColumns>
+        <Column span={2}>
+          <Select title="Title" description="Subtitle" options={OPTIONS} />
+        </Column>
+
+        <Column span={2}>
+          <Select
+            title="Title"
+            description="Subtitle"
+            options={OPTIONS}
+            focus
+          />
+        </Column>
+
+        <Column span={2}>
+          <Select
+            title="Title"
+            description="Subtitle"
+            options={OPTIONS}
+            hover
+          />
+        </Column>
+
+        <Column span={2}>
+          <Select
+            title="Title"
+            description="Subtitle"
+            options={OPTIONS}
+            error="Input Value Error Message/Reason"
+          />
+        </Column>
+
+        <Column span={2} wrap>
+          <Select
+            title="Title"
+            description="Subtitle"
+            options={OPTIONS}
+            disabled
+          />
+        </Column>
+      </GridColumns>
+
+      <Text my={6} variant="lg">
+        Sort
+      </Text>
+
+      <GridColumns>
+        <Column span={2}>
+          <Select variant="inline" title="Sort:" options={OPTIONS} />
+        </Column>
+
+        <Column span={2}>
+          <Select variant="inline" title="Sort:" options={OPTIONS} focus />
+        </Column>
+
+        <Column span={2}>
+          <Select variant="inline" title="Sort:" options={OPTIONS} hover />
+        </Column>
+
+        <Column span={2}>
+          <Select variant="inline" title="Sort:" options={OPTIONS} error />
+        </Column>
+
+        <Column span={2} wrap>
+          <Select variant="inline" title="Sort:" options={OPTIONS} disabled />
+        </Column>
+      </GridColumns>
     </>
   )
 }

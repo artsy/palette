@@ -20,7 +20,7 @@ export interface SelectProps
     Omit<React.HTMLAttributes<HTMLSelectElement>, "onSelect"> {
   description?: string
   disabled?: boolean
-  error?: string
+  error?: string | boolean
   focus?: boolean
   hover?: boolean
   name?: string
@@ -131,7 +131,7 @@ export const Select: React.FC<SelectProps> = ({
         </Container>
       </Flex>
 
-      {error && (
+      {error && typeof error === "string" && (
         <Text variant={tokens.secondaryTextVariant} mt={0.5} color="red100">
           {error}
         </Text>
