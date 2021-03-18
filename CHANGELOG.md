@@ -1,3 +1,16 @@
+# (Thu Mar 18 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.6.1`
+  - fix(input): corrects input types [#882](https://github.com/artsy/palette/pull/882) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Mar 17 2021)
 
 #### 🚀  Enhancement
