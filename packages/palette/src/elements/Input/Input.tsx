@@ -11,7 +11,10 @@ import { INPUT_STATES as V3_INPUT_STATES } from "./tokens/v3"
 
 export interface InputProps
   extends BoxProps,
-    React.HTMLAttributes<HTMLInputElement> {
+    Omit<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      "size" | "width" | "height"
+    > {
   description?: string
   disabled?: boolean
   error?: string | boolean
