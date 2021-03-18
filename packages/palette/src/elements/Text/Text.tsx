@@ -6,6 +6,7 @@ import {
   compose,
   ResponsiveValue,
   style,
+  system,
   typography,
   TypographyProps,
   variant,
@@ -29,8 +30,18 @@ const textColor = style({
   key: "colors",
 })
 
+type TextTransform =
+  | "none"
+  | "capitalize"
+  | "uppercase"
+  | "lowercase"
+  | "initial"
+  | "inherit"
+
+const textTransform = system({ textTransform: true })
+
 /** styled functions for Text */
-export const textMixin = compose(typography, color, textColor)
+export const textMixin = compose(typography, color, textColor, textTransform)
 
 /** Adds ellipsis to overflowing text */
 export const overflowEllipsisMixin = css`
@@ -41,7 +52,10 @@ export const overflowEllipsisMixin = css`
 
 /** TextProps */
 export type TextProps = BaseTextProps &
-  BoxProps & { overflowEllipsis?: boolean }
+  BoxProps & {
+    overflowEllipsis?: boolean
+    textTransform?: ResponsiveValue<TextTransform>
+  }
 
 /** Text */
 export const Text = styled(Box)<TextProps>`
