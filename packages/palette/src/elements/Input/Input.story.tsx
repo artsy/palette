@@ -15,7 +15,7 @@ export const Default = () => {
         { hover: true },
         { error: "Something went wrong." },
         { disabled: true },
-        { title: "Your offer" },
+        { title: "Your offer", name: "offer" },
         { title: "Your offer", required: true },
         { title: "Your offer", description: "This is my description" },
         { width: "50%" },
