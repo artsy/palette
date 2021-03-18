@@ -230,6 +230,8 @@ export interface SansProps extends Partial<TextProps> {
  * @example
  *
  * <Sans color="black10" size="3t" weight="medium" italic>Hi</Sans>
+ *
+ * @deprecated Use `<Text />`
  */
 export const Sans = createStyledText<SansProps>("sans", (weight, italic) => {
   return italic && weight === "medium"
@@ -261,6 +263,8 @@ export interface SerifProps extends Partial<TextProps> {
  * @example
  *
  * <Serif color="black10" size="3t" weight="semibold">Hi</Serif>
+ *
+ * @deprecated Use `<Text />`
  */
 export const Serif = createStyledText<SerifProps>("serif", (weight, italic) => {
   if (italic && weight && weight !== "regular") {
