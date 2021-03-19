@@ -103,6 +103,7 @@ const StyledInput = styled.input<StyledInputProps>`
   border: 1px solid;
   border-radius: 0;
   transition: border-color 0.25s;
+  font-family: ${themeGet("fonts.sans")};
 
   ${(props) => {
     const states = getThemeConfig(props, {
