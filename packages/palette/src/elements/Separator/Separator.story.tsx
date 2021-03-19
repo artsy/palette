@@ -16,7 +16,7 @@ export const Default = () => {
         { borderWidth: 5, my: 2 },
       ]}
     >
-      <Separator />
+      <Separator as="hr" />
     </States>
   )
 }
