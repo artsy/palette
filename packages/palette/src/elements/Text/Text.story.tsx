@@ -1,9 +1,10 @@
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
+import { States } from "storybook-states"
 import styled from "styled-components"
 import { Color, useTheme } from "../../Theme"
 import { Flex } from "../Flex"
-import { Text } from "./Text"
+import { Text, TextProps } from "./Text"
 import { TextVariant } from "./tokens"
 import {
   TEXT_VARIANT_NAMES as V2_TEXT_VARIANT_NAMES,
@@ -234,4 +235,18 @@ export const OverflowEllipsis = () => {
 
 OverflowEllipsis.story = {
   name: "overflowEllipsis",
+}
+
+export const Caps = () => {
+  return (
+    <States<TextProps>
+      states={[
+        {},
+        { textTransform: "uppercase" },
+        { textTransform: "capitalize" },
+      ]}
+    >
+      <Text variant="xs">Hello world</Text>
+    </States>
+  )
 }
