@@ -1,3 +1,16 @@
+# (Fri Mar 19 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.7.0`
+  - Deprecates Sans/Serif; mixes in textTransform to Text [#883](https://github.com/artsy/palette/pull/883) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Mar 18 2021)
 
 #### 🐛  Bug Fix

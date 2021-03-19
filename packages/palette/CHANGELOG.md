@@ -1,3 +1,20 @@
+# v14.7.0 (Fri Mar 19 2021)
+
+#### 🚀  Enhancement
+
+- Deprecates Sans/Serif; mixes in textTransform to Text [#883](https://github.com/artsy/palette/pull/883) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(text): mixes in a text transform prop ([@dzucconi](https://github.com/dzucconi))
+- chore(typography): deprecates sans and serif ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.6.1 (Thu Mar 18 2021)
 
 #### 🐛  Bug Fix
