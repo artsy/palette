@@ -1,3 +1,16 @@
+# v14.7.1 (Fri Mar 19 2021)
+
+#### 🐛  Bug Fix
+
+- fix(inputs): sets font-family to sans [#885](https://github.com/artsy/palette/pull/885) ([@dzucconi](https://github.com/dzucconi))
+- fix(inputs): sets font-family to sans ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.7.0 (Fri Mar 19 2021)
 
 #### 🚀  Enhancement
