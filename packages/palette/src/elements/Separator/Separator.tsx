@@ -24,6 +24,9 @@ export const Separator = styled.div<SeparatorProps>`
   border-width: 1px;
   border-style: solid;
   border-bottom-width: 0;
+  background-color: transparent;
+  border-color: currentColor;
+  margin: 0;
   ${compose(space, width, border, color)};
 `
 
