@@ -1,3 +1,16 @@
+# v14.7.2 (Fri Mar 19 2021)
+
+#### 🐛  Bug Fix
+
+- fix(divider): resets default styling when presenting as hr [#886](https://github.com/artsy/palette/pull/886) ([@dzucconi](https://github.com/dzucconi))
+- fix(divider): resets default styling when presenting as hr ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.7.1 (Fri Mar 19 2021)
 
 #### 🐛  Bug Fix

@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@14.7.2`
+  - fix(divider): resets default styling when presenting as hr [#886](https://github.com/artsy/palette/pull/886) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Mar 19 2021)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@14.7.1`
   - fix(inputs): sets font-family to sans [#885](https://github.com/artsy/palette/pull/885) ([@dzucconi](https://github.com/dzucconi))
 
