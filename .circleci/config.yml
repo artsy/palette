@@ -3,6 +3,17 @@ version: 2.1
 orbs:
   yarn: artsy/yarn@5.1.3
   auto: artsy/auto@1.3.2
+  aws-s3: circleci/aws-s3@2.0.0
+
+jobs:
+  upload-docs:
+    docker:
+      - image: "cimg/python:3.9"
+    steps:
+      - aws-s3/sync:
+          arguments: --acl public-read
+          from: packages/palette/storybook-static
+          to: "s3://artsy-static-sites/artsy-palette-storybook"
 
 workflows:
   build_and_verify:
@@ -36,6 +47,8 @@ workflows:
           filters:
             branches:
               only: master
+
+      # PR Builds
       - auto/publish-canary:
           context: npm-deploy
           filters:
@@ -46,6 +59,8 @@ workflows:
             - yarn/lint
             - yarn/type-check
             - yarn/update-cache
+
+      # Releases
       - auto/publish:
           context: npm-deploy
           filters:
@@ -56,12 +71,26 @@ workflows:
             - yarn/lint
             - yarn/type-check
             - yarn/update-cache
+
+      # Docs / Storybooks
       - yarn/run:
-          name: deploy-docs
-          script: deploy-docs
-          context: palette-docs-upload
+          name: build-docs
+          script: "build-storybook"
+          post-steps:
+            - persist_to_workspace:
+                root: .
+                paths:
+                  - packages/palette/storybook-static
+          filters:
+            branches:
+              only: master
+      - upload-docs:
+          context: static-sites-uploader
           requires:
-            - auto/publish
+            - build-docs
+          pre-steps:
+            - attach_workspace:
+                at: .
           filters:
             branches:
               only: master
