@@ -15,5 +15,6 @@ out*
 package-lock.json
 reaction-force.js
 reaction-force.js.map
+storybook-static
 yarn-error.log
 .cache

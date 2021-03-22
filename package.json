@@ -2,6 +2,7 @@
   "name": "palette",
   "private": true,
   "scripts": {
+    "build-storybook": "yarn workspace @artsy/palette build-storybook",
     "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
     "compile-palette": "lerna run compile",
     "deploy-docs": "yarn compile-palette && yarn workspace artsy-palette-docs deploy",
