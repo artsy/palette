@@ -1,3 +1,16 @@
+# (Mon Mar 22 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.7.3`
+  - feat: add optional onClick prop to Toggle [#884](https://github.com/artsy/palette/pull/884) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
 # (Fri Mar 19 2021)
 
 #### 🐛  Bug Fix
