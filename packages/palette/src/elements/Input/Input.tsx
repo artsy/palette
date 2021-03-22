@@ -27,7 +27,17 @@ export interface InputProps
 /** Input component */
 export const Input: React.ForwardRefExoticComponent<InputProps> = React.forwardRef(
   (
-    { description, disabled, error, required, focus, hover, title, ...rest },
+    {
+      className,
+      description,
+      disabled,
+      error,
+      required,
+      focus,
+      hover,
+      title,
+      ...rest
+    },
     ref
   ) => {
     const [boxProps, inputProps] = splitBoxProps(rest)
@@ -46,30 +56,34 @@ export const Input: React.ForwardRefExoticComponent<InputProps> = React.forwardR
     })
 
     return (
-      <Box width="100%" {...boxProps}>
-        <div>
-          {title && (
-            <Text
-              variant={tokens.titleVariant}
-              style={{ textTransform: tokens.titleTextTransform }}
-            >
-              {title}
-              {required && (
-                <Box as="span" color="brand">
-                  *
-                </Box>
+      <Box width="100%" className={className} {...boxProps}>
+        {(title || description) && (
+          <>
+            <div>
+              {title && (
+                <Text
+                  variant={tokens.titleVariant}
+                  style={{ textTransform: tokens.titleTextTransform }}
+                >
+                  {title}
+                  {required && (
+                    <Box as="span" color="brand">
+                      *
+                    </Box>
+                  )}
+                </Text>
               )}
-            </Text>
-          )}
 
-          {description && (
-            <Text variant={tokens.secondaryTextVariant} color="black60">
-              {description}
-            </Text>
-          )}
-        </div>
+              {description && (
+                <Text variant={tokens.secondaryTextVariant} color="black60">
+                  {description}
+                </Text>
+              )}
+            </div>
 
-        {(title || description) && <Spacer m={0.5} />}
+            <Spacer m={0.5} />
+          </>
+        )}
 
         <StyledInput
           ref={ref as any}
