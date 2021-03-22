@@ -19,6 +19,7 @@ export interface ToggleProps extends FlexProps {
   renderSecondaryAction?: (
     toggleProps: Pick<ToggleProps, "disabled" | "expanded" | "textSize">
   ) => JSX.Element
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 export interface ToggleState {
@@ -35,6 +36,7 @@ export const Toggle: React.FC<ToggleProps> = ({
   disabled,
   children,
   renderSecondaryAction,
+  onClick,
   ...rest
 }) => {
   const [expanded, setExpanded] = useState(defaultExpanded)
@@ -48,7 +50,10 @@ export const Toggle: React.FC<ToggleProps> = ({
   return (
     <Flex width="100%" flexDirection="column" pb={2} {...rest}>
       <Header
-        onClick={toggleExpand}
+        onClick={(e) => {
+          toggleExpand()
+          !(onClick === undefined) && onClick(e)
+        }}
         disabled={disabled}
         borderTop="1px solid"
         borderColor="black10"

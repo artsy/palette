@@ -56,4 +56,12 @@ describe("Toggle", () => {
     expect(wrapper.find("Sans")).toHaveLength(1)
     expect(wrapper.find("Sans").text()).toEqual("label")
   })
+
+  it("fires onClick when one is passed", () => {
+    const mockCallback = jest.fn()
+    const wrapper = mount(<Toggle onClick={mockCallback}>tab content</Toggle>)
+    wrapper.find("Header").simulate("click")
+    wrapper.find("Header").simulate("click")
+    expect(mockCallback).toHaveBeenCalledTimes(2)
+  })
 })
