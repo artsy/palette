@@ -1,3 +1,20 @@
+# v14.9.0 (Tue Mar 23 2021)
+
+#### 🚀  Enhancement
+
+- LabeledInput [#887](https://github.com/artsy/palette/pull/887) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat: implements labeled input ([@dzucconi](https://github.com/dzucconi))
+- fix(input): ensures classname is on the outermost div ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.8.0 (Tue Mar 23 2021)
 
 #### 🚀  Enhancement

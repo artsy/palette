@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.9.0`
+  - LabeledInput [#887](https://github.com/artsy/palette/pull/887) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Mar 23 2021)
+
+#### 🚀  Enhancement
+
 - ci: Deploy storybooks via Circle orb [#888](https://github.com/artsy/palette/pull/888) ([@damassi](https://github.com/damassi))
 
 #### 🐛  Bug Fix
