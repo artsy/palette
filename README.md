@@ -4,6 +4,8 @@ Artsy's Design System
 
 ## Meta
 
+- Docs: [https://palette.artsy.net](https://palette.artsy.net)
+- Storybook: [https://palette-storybook.artsy.net](https://palette-storybook.artsy.net)
 - Point People: [@damassi](https://github.com/damassi), [@zephraph](https://github.com/zephraph)
 
 ## What is Palette?
