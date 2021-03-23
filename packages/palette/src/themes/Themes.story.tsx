@@ -339,10 +339,10 @@ export const Buttons = () => {
   )
 }
 
-export const Helpers = () => {
+export const Components = () => {
   return (
     <>
-      <Text variant="xxl">Helpers</Text>
+      <Text variant="xxl">Components</Text>
 
       <Separator color="black30" my={12} />
 
@@ -485,14 +485,6 @@ export const Helpers = () => {
           )
         })}
       </GridColumns>
-    </>
-  )
-}
-
-export const Controls = () => {
-  return (
-    <>
-      <Text variant="xxl">Controls</Text>
 
       <Separator color="black30" my={12} />
 
