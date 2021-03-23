@@ -1,3 +1,25 @@
+# (Tue Mar 23 2021)
+
+#### 🚀  Enhancement
+
+- ci: Deploy storybooks via Circle orb [#888](https://github.com/artsy/palette/pull/888) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.8.0`
+  - storybook: Rename helpers/controls > components [#889](https://github.com/artsy/palette/pull/889) ([@damassi](https://github.com/damassi))
+
+#### ⚠️  Pushed to `master`
+
+- Add damon as point person ([@damassi](https://github.com/damassi))
+- Update README with links to storybooks and docs ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Mon Mar 22 2021)
 
 #### 🐛  Bug Fix

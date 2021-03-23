@@ -1,3 +1,20 @@
+# v14.8.0 (Tue Mar 23 2021)
+
+#### 🚀  Enhancement
+
+- ci: Deploy storybooks via Circle orb [#888](https://github.com/artsy/palette/pull/888) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- storybook: Rename helpers/controls > components [#889](https://github.com/artsy/palette/pull/889) ([@damassi](https://github.com/damassi))
+- storybook: Rename helpers/controls > components ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.7.3 (Mon Mar 22 2021)
 
 #### 🐛  Bug Fix
