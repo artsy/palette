@@ -1,5 +1,6 @@
 export * from "./color"
 export * from "./injectGlobalStyles"
 export * from "./media"
+export * from "./shadow"
 export * from "./space"
 export * from "./typography"
