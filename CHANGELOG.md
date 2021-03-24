@@ -1,5 +1,18 @@
 # (Wed Mar 24 2021)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.11.1`
+  - fix(labeledinput): allows for clickable labels [#892](https://github.com/artsy/palette/pull/892) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Mar 24 2021)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@14.11.0`
