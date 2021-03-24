@@ -25,7 +25,9 @@ export interface InputProps
 }
 
 /** Input component */
-export const Input: React.ForwardRefExoticComponent<InputProps> = React.forwardRef(
+export const Input: React.ForwardRefExoticComponent<
+  InputProps & { ref?: React.Ref<HTMLInputElement> }
+> = React.forwardRef(
   (
     {
       className,

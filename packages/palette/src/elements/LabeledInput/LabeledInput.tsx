@@ -8,10 +8,10 @@ export interface LabeledInputProps extends InputProps {
   label: React.ReactNode
 }
 
-export const LabeledInput: React.FC<LabeledInputProps> = ({
-  label,
-  ...rest
-}) => {
+/** Input with a right-aligned label */
+export const LabeledInput: React.ForwardRefExoticComponent<
+  LabeledInputProps & { ref?: React.Ref<HTMLInputElement> }
+> = React.forwardRef(({ label, ...rest }, forwardedRef) => {
   const labelRef = useRef<HTMLDivElement | null>(null)
   const [offset, setOffset] = useState(0)
 
@@ -49,7 +49,11 @@ export const LabeledInput: React.FC<LabeledInputProps> = ({
         )}
       </Box>
 
-      <Input style={{ paddingRight: `${offset + 10}px` }} {...inputProps} />
+      <Input
+        ref={forwardedRef}
+        style={{ paddingRight: `${offset + 10}px` }}
+        {...inputProps}
+      />
     </Box>
   )
-}
+})
