@@ -1,3 +1,16 @@
+# (Wed Mar 24 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.10.0`
+  - feat: Add CalendarIcon, WatchIcon [#890](https://github.com/artsy/palette/pull/890) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Tue Mar 23 2021)
 
 #### 🚀  Enhancement

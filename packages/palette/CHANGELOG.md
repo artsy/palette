@@ -1,3 +1,19 @@
+# v14.10.0 (Wed Mar 24 2021)
+
+#### 🚀  Enhancement
+
+- feat: Add CalendarIcon, WatchIcon [#890](https://github.com/artsy/palette/pull/890) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat: Add new icons ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.9.0 (Tue Mar 23 2021)
 
 #### 🚀  Enhancement
