@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 /** TopEmergingIcon */
-export const TopEmergingIcon: React.SFC<IconProps> = ({
+export const TopEmergingIcon: React.FC<IconProps> = ({
   title = "Top emerging",
   ...props
 }) => {

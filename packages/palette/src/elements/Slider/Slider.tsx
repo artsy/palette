@@ -50,7 +50,7 @@ export interface SliderProps extends BorderProps, SpaceProps {
   onChange?: (minMax: [number, number]) => void
 }
 
-const Inner: React.SFC<SliderProps> = props => {
+const Inner: React.FC<SliderProps> = (props) => {
   return <Range {...props} prefixCls={props.className} />
 }
 
@@ -72,7 +72,7 @@ export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
     top: 0;
     height: ${space(0.5)}px;
     border-radius: ${space(0.5)}px;
-    background-color: ${props =>
+    background-color: ${(props) =>
       props.disabled ? color("black10") : color("black100")};
     z-index: 1;
     transition: background-color 0.25s;
@@ -88,11 +88,11 @@ export const Slider: StyledComponentClass<SliderProps, any> = styled(Inner)`
     cursor: pointer;
     border-radius: 50%;
     border: solid 2px ${color("white100")};
-    background-color: ${props =>
+    background-color: ${(props) =>
       props.disabled ? color("black10") : color("black100")};
     z-index: 2;
     transition: background-color 0.25s;
-    pointer-events: ${props => (props.disabled ? "none" : "auto")};
+    pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
 
     &:first-child {
       margin-left: ${space(1)}px;

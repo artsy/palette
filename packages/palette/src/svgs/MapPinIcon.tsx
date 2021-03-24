@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** MapPinIcon */
-export const MapPinIcon: React.SFC<IconProps> = ({
+export const MapPinIcon: React.FC<IconProps> = ({
   title = "Location",
   ...props
 }) => {

@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** ReloadIcon */
-export const ReloadIcon: React.SFC<IconProps> = ({
+export const ReloadIcon: React.FC<IconProps> = ({
   title = "Refresh",
   ...props
 }) => {

@@ -37,10 +37,10 @@ export const Dialog: SFC<DialogProps> = ({
     color: ${color("purple100")};
   `
 
-  const ModalButton: React.SFC<{
+  const ModalButton: React.FC<{
     secondary?: boolean
     onClick: () => void
-  }> = props => {
+  }> = (props) => {
     return <StyledSans pl={4} size="3" weight="medium" {...props} />
   }
 

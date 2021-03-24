@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** UserMultiIcon */
-export const UserMultiIcon: React.SFC<IconProps> = ({
+export const UserMultiIcon: React.FC<IconProps> = ({
   title = "Group",
   ...props
 }) => {

@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Circle, Icon, IconProps, Path, Title } from "./Icon"
 
 /** TagIcon */
-export const TagIcon: React.SFC<IconProps> = ({ title = "Page", ...props }) => {
+export const TagIcon: React.FC<IconProps> = ({ title = "Page", ...props }) => {
   return (
     <Icon {...props} viewBox="0 0 18 18">
       <Title>{title}</Title>

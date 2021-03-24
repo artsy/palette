@@ -23,7 +23,7 @@ const getStatus = status => {
   }
 }
 
-export const StatusBadge: React.SFC<Props> = ({ status }) => {
+export const StatusBadge: React.FC<Props> = ({ status }) => {
   const { bg, color } = getStatus(status)
 
   return (
