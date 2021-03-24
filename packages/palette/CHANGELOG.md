@@ -1,3 +1,19 @@
+# v14.12.0 (Wed Mar 24 2021)
+
+#### 🚀  Enhancement
+
+- feat(labeledinput): supports ref [#893](https://github.com/artsy/palette/pull/893) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(labeledinput): supports ref ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.11.1 (Wed Mar 24 2021)
 
 #### 🐛  Bug Fix
