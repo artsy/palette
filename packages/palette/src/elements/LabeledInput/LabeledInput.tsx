@@ -24,16 +24,23 @@ export const LabeledInput: React.FC<LabeledInputProps> = ({
 
   const variant: TextVariant = useThemeConfig({ v2: "small", v3: "xs" })
 
+  const isText = typeof label === "string" || typeof label === "number"
+
   return (
     <Box position="relative" {...boxProps}>
       <Box
         ref={labelRef as any}
         position="absolute"
+        display="flex"
+        alignItems="center"
         right={1}
-        top="50%"
-        style={{ transform: "translateY(-50%)", pointerEvents: "none" }}
+        top={0}
+        bottom={0}
+        style={{
+          pointerEvents: isText ? "none" : undefined,
+        }}
       >
-        {typeof label === "string" || typeof label === "number" ? (
+        {isText ? (
           <Text variant={variant} color="black60" lineHeight={1}>
             {label}
           </Text>

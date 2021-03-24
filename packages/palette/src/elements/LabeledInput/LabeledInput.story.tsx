@@ -1,6 +1,7 @@
+import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
 import { States } from "storybook-states"
-import { Text } from "../Text"
+import { Clickable } from "../Clickable"
 import { LabeledInput, LabeledInputProps } from "./LabeledInput"
 
 export default {
@@ -11,15 +12,18 @@ export const Default = () => {
   return (
     <States<Partial<LabeledInputProps>>
       states={[
-        { label: "$", placeholder: "Min", type: "number" },
+        { label: "$USD", placeholder: "Min", type: "number" },
         {
+          placeholder: "Clickable label",
           label: (
-            <Text color="red100" lineHeight={1} variant="lg">
-              $USD
-            </Text>
+            <Clickable
+              onClick={action("onClick")}
+              bg="black60"
+              width={18}
+              height={18}
+              borderRadius="50%"
+            />
           ),
-          placeholder: "Min",
-          type: "number",
         },
       ]}
     >
