@@ -1,3 +1,19 @@
+# v14.11.0 (Wed Mar 24 2021)
+
+#### 🚀  Enhancement
+
+- feat(helpers): exports shadow constants [#891](https://github.com/artsy/palette/pull/891) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(helpers): exports shadow constants ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.10.0 (Wed Mar 24 2021)
 
 #### 🚀  Enhancement

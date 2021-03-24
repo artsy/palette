@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.11.0`
+  - feat(helpers): exports shadow constants [#891](https://github.com/artsy/palette/pull/891) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Mar 24 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@14.10.0`
   - feat: Add CalendarIcon, WatchIcon [#890](https://github.com/artsy/palette/pull/890) ([@damassi](https://github.com/damassi))
 
