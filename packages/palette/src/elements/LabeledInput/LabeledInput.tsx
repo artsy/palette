@@ -28,6 +28,12 @@ export const LabeledInput: React.ForwardRefExoticComponent<
 
   return (
     <Box position="relative" {...boxProps}>
+      <Input
+        ref={forwardedRef}
+        style={{ paddingRight: `${offset + 10}px` }}
+        {...inputProps}
+      />
+
       <Box
         ref={labelRef as any}
         position="absolute"
@@ -48,12 +54,6 @@ export const LabeledInput: React.ForwardRefExoticComponent<
           label
         )}
       </Box>
-
-      <Input
-        ref={forwardedRef}
-        style={{ paddingRight: `${offset + 10}px` }}
-        {...inputProps}
-      />
     </Box>
   )
 })
