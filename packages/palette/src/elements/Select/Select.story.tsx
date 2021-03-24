@@ -7,9 +7,13 @@ export default {
 }
 
 const OPTIONS = [
-  { text: "First", value: "firstValue" },
-  { text: "Middle", value: "middleValue" },
-  { text: "Last", value: "lastValue" },
+  { text: "Default", value: "-decayed_merch" },
+  { text: "Price (desc.)", value: "-has_price,-prices" },
+  { text: "Price (asc.)", value: "-has_price,prices" },
+  { text: "Recently updated", value: "-partner_updated_at" },
+  { text: "Recently added", value: "-published_at" },
+  { text: "Artwork year (desc.)", value: "-year" },
+  { text: "Artwork year (asc.)", value: "year" },
 ]
 
 export const Default = () => {
@@ -45,5 +49,17 @@ export const Default = () => {
     >
       <Select options={OPTIONS} />
     </States>
+  )
+}
+
+export const Example = () => {
+  return (
+    <Select
+      display="inline-flex"
+      variant="inline"
+      title="Sort:"
+      options={OPTIONS}
+      selected="-year"
+    />
   )
 }
