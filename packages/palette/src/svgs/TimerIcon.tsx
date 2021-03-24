@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** TimerIcon */
-export const TimerIcon: React.SFC<IconProps> = ({
+export const TimerIcon: React.FC<IconProps> = ({
   title = "Time remaining",
   ...props
 }) => {

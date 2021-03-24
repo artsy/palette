@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** ArrowRightIcon */
-export const ArrowRightIcon: React.SFC<IconProps> = ({
+export const ArrowRightIcon: React.FC<IconProps> = ({
   title = "Navigate right",
   ...props
 }) => {

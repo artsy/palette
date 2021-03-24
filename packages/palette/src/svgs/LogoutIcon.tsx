@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 /** LogoutIcon */
-export const LogoutIcon: React.SFC<IconProps> = ({
+export const LogoutIcon: React.FC<IconProps> = ({
   title = "Account logout",
   ...props
 }) => {

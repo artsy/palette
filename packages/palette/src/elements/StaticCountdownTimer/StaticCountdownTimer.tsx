@@ -12,7 +12,7 @@ import { Sans } from "../Typography"
 const FIVE_HOURS_IN_SECONDS = 60 * 60 * 5
 
 /** StaticCountdownTimer */
-export const StaticCountdownTimer: React.SFC<{
+export const StaticCountdownTimer: React.FC<{
   action: string
   note: string
   countdownStart: string
@@ -33,9 +33,7 @@ export const StaticCountdownTimer: React.SFC<{
   }
 
   const time = `${hour}:${minutes}${amPm}`
-  const actionDeadline = `${endDateTime.monthShort} ${
-    endDateTime.day
-    }, ${time} ${endDateTime.offsetNameShort}`
+  const actionDeadline = `${endDateTime.monthShort} ${endDateTime.day}, ${time} ${endDateTime.offsetNameShort}`
 
   const highlight =
     endDateTime.diff(

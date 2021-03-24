@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** GenomeIcon */
-export const GenomeIcon: React.SFC<IconProps> = ({
+export const GenomeIcon: React.FC<IconProps> = ({
   title = "Genome",
   ...props
 }) => {

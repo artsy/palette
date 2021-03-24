@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** EnvelopeIcon */
-export const EnvelopeIcon: React.SFC<IconProps> = ({
+export const EnvelopeIcon: React.FC<IconProps> = ({
   title = "Send email",
   ...props
 }) => {

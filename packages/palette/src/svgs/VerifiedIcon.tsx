@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** VerifiedIcon */
-export const VerifiedIcon: React.SFC<IconProps> = ({
+export const VerifiedIcon: React.FC<IconProps> = ({
   title = "Verified",
   ...props
 }) => {

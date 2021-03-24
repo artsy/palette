@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 /** TriangleDownIcon */
-export const TriangleDownIcon: React.SFC<IconProps> = ({
+export const TriangleDownIcon: React.FC<IconProps> = ({
   title = "Triangle Down",
   ...props
 }) => {

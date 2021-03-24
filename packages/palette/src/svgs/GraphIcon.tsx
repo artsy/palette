@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** GraphIcon */
-export const GraphIcon: React.SFC<IconProps> = ({
+export const GraphIcon: React.FC<IconProps> = ({
   title = "View dashboard",
   ...props
 }) => {

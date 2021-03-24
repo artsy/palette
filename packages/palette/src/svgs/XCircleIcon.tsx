@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** XCircleIcon */
-export const XCircleIcon: React.SFC<IconProps> = ({
+export const XCircleIcon: React.FC<IconProps> = ({
   title = "Clear",
   ...props
 }) => {

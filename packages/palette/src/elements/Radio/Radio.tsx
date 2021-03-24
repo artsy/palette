@@ -44,7 +44,7 @@ export interface RadioToggleProps
  *
  * Spec: zpl.io/bAvnwlB
  */
-export const Radio: React.SFC<RadioProps> = props => {
+export const Radio: React.FC<RadioProps> = (props) => {
   const {
     children,
     disabled,

@@ -7,9 +7,9 @@ template = <<-TSX
   import { Icon, IconProps } from "./Icon"
 
   /** REPLACE */
-  export const REPLACE: React.SFC<IconProps> = ({ 
-    title = "TITLE", 
-    ...props 
+  export const REPLACE: React.FC<IconProps> = ({
+    title = "TITLE",
+    ...props
   }) => {
     return (
       <Icon {...props} viewBox="0 0 18 18">

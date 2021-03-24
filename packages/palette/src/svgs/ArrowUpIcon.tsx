@@ -3,7 +3,7 @@ import { color } from "../helpers"
 import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** ArrowUpIcon */
-export const ArrowUpIcon: React.SFC<IconProps> = ({
+export const ArrowUpIcon: React.FC<IconProps> = ({
   title = "Reveal less",
   ...props
 }) => {

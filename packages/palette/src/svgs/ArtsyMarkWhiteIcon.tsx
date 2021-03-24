@@ -2,7 +2,7 @@ import React from "react"
 import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 /** ArtsyMarkWhiteIcon */
-export const ArtsyMarkWhiteIcon: React.SFC<IconProps> = ({
+export const ArtsyMarkWhiteIcon: React.FC<IconProps> = ({
   title = "Artsy",
   ...props
 }) => {
