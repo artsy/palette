@@ -170,7 +170,8 @@ const Container = styled.div<ContainerProps>`
   > select {
     ${resetMixin};
     width: 100%;
-    padding: 0 ${themeGet("space.1")};
+    /* 24px = space.1 + 4px-wide caret + space.1 */
+    padding: 0 24px 0 ${themeGet("space.1")};
     font-family: ${themeGet("fonts.sans")};
     border: 1px solid;
     cursor: pointer;
