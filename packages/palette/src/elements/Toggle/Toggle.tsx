@@ -27,7 +27,10 @@ export interface ToggleState {
   expanded: boolean
 }
 
-/** A toggle component used to show / hide / expand content  */
+/**
+ * A toggle component used to show / hide / expand content
+ * @deprecated Use `Expandable`
+ */
 export const Toggle: React.FC<ToggleProps> = ({
   label,
   textSize = "2",
