@@ -1,3 +1,18 @@
+# v14.12.1 (Thu Mar 25 2021)
+
+#### 🐛  Bug Fix
+
+- fix(select): adjusts padding to accommodate caret [#895](https://github.com/artsy/palette/pull/895) ([@dzucconi](https://github.com/dzucconi))
+- fix(select): adjusts padding to accommodate caret ([@dzucconi](https://github.com/dzucconi))
+- fix(labeledinput): corrects tabindex [#894](https://github.com/artsy/palette/pull/894) ([@dzucconi](https://github.com/dzucconi))
+- fix(labeledinput): corrects tabindex ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.12.0 (Wed Mar 24 2021)
 
 #### 🚀  Enhancement
