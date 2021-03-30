@@ -6,7 +6,7 @@ describe("Checkbox", () => {
   it("renders correctly", () => {
     const wrapper1 = mount(<Checkbox onSelect={jest.fn()}>a label</Checkbox>)
 
-    expect(wrapper1.find("Container").prop("aria-checked")).toBe(false)
+    expect(wrapper1.find("div").first().prop("aria-checked")).toBe(false)
 
     const wrapper2 = mount(
       <Checkbox onSelect={jest.fn()} selected>
@@ -14,7 +14,7 @@ describe("Checkbox", () => {
       </Checkbox>
     )
 
-    expect(wrapper2.find("Container").prop("aria-checked")).toBe(true)
+    expect(wrapper2.find("div").first().prop("aria-checked")).toBe(true)
   })
 
   it("triggers onSelect on click", () => {

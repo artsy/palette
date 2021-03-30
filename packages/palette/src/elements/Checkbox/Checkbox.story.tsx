@@ -16,16 +16,15 @@ export const Default = () => {
       states={[
         {},
         { selected: true },
+        { hover: true },
+        { hover: true, selected: true },
         { disabled: true },
+        { disabled: true, selected: true },
         { error: true },
-        { selected: true, disabled: true },
-        { error: true, disabled: true },
-        { selected: true, error: true, disabled: true },
+        { error: true, selected: true },
       ]}
     >
-      <Checkbox>
-        <Text>A label</Text>
-      </Checkbox>
+      <Checkbox>A label</Checkbox>
     </States>
   )
 }
@@ -41,9 +40,7 @@ export const Demo = () => {
           action("onClick")(selected)
         }}
       >
-        <Text lineHeight="solid">
-          use a `solid` line-height to ensure vertical centering
-        </Text>
+        Example
       </Checkbox>
     </States>
   )
@@ -55,8 +52,8 @@ export const Extended = () => {
       <Box width={300}>
         <Checkbox width="100%">
           <Flex width="35%" justifyContent="space-between" alignItems="center">
-            <Text lineHeight="solid">Purple</Text>
-            <Box bg="purple100" width={20} height={20} borderRadius="50%" />
+            <Text lineHeight={1}>Green</Text>
+            <Box bg="green" width={20} height={20} borderRadius="50%" />
           </Flex>
         </Checkbox>
       </Box>

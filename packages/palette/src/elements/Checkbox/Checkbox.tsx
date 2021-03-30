@@ -1,9 +1,18 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import { color } from "../../helpers"
+import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
+import { Text, TextVariant } from "../Text"
 import { Check } from "./Check"
+import {
+  CHECK_STATES as V2_CHECK_STATES,
+  CHECKBOX_STATES as V2_CHECKBOX_STATES,
+} from "./tokens/v2"
+import {
+  CHECK_STATES as V3_CHECK_STATES,
+  CHECKBOX_STATES as V3_CHECKBOX_STATES,
+} from "./tokens/v3"
 
 export interface CheckboxProps
   extends BoxProps,
@@ -31,10 +40,16 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   onClick,
   ...rest
 }) => {
-  const labelColor = () => {
-    if (disabled) return "black10"
-    if (error) return "red100"
-  }
+  const tokens = useThemeConfig({
+    v2: {
+      verticalMargin: 0.5,
+      variant: "text" as TextVariant,
+    },
+    v3: {
+      verticalMargin: 0,
+      variant: "md" as TextVariant,
+    },
+  })
 
   const isSelectable = !disabled && onSelect !== undefined
 
@@ -57,56 +72,77 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <Container
-      my={0.5}
+      my={tokens.verticalMargin}
       display="flex"
       alignItems="center"
-      selected={selected}
-      hover={hover}
-      disabled={disabled}
-      error={error}
       onClick={handleClick}
       tabIndex={0}
       onKeyPress={handleKeyPress}
       role="checkbox"
       aria-checked={selected}
+      selected={selected}
+      hover={hover}
+      disabled={disabled}
+      error={error}
       {...rest}
     >
-      <Check selected={selected} error={error} disabled={disabled} />
+      <Check
+        selected={selected}
+        error={error}
+        disabled={disabled}
+        hover={hover}
+      />
 
-      <Flex color={labelColor()} alignItems="center" flex={1}>
-        {children}
+      <Flex alignItems="center" flex={1}>
+        {typeof children === "string" || typeof children === "number" ? (
+          <Text variant={tokens.variant} lineHeight={1}>
+            {children}
+          </Text>
+        ) : (
+          children
+        )}
       </Flex>
     </Container>
   )
 }
 
-const Container = styled(Box)<
-  Pick<CheckboxProps, "selected" | "error" | "hover" | "disabled">
->`
+const Container = styled(Box)<{
+  selected: boolean
+  hover?: boolean
+  disabled?: boolean
+  error?: boolean
+}>`
   user-select: none;
-  transition: color 0.25s;
 
-  ${({ selected, disabled, error, hover }) => {
-    if (selected || disabled || error) return
-
-    const hoverMixin = css`
-      /* Targets just the Check */
-      > div:first-of-type {
-        background-color: ${color("black10")};
-        border-color: ${color("black10")};
-      }
-    `
-
-    if (hover) {
-      return hoverMixin
-    }
+  ${(props) => {
+    const states = getThemeConfig(props, {
+      v2: { checkbox: V2_CHECKBOX_STATES, check: V2_CHECK_STATES },
+      v3: { checkbox: V3_CHECKBOX_STATES, check: V3_CHECK_STATES },
+    })
 
     return css`
+      ${states.checkbox.default}
+      ${props.hover && states.checkbox.hover}
+      ${props.disabled && states.checkbox.disabled}
+      ${props.error && states.checkbox.error}
+
       &:hover {
-        ${hoverMixin}
+        ${!props.error &&
+        css`
+          ${states.checkbox.hover}
+
+          // Check
+          > div:first-of-type {
+            ${props.selected
+              ? states.check.hover.selected
+              : states.check.hover.resting}
+          }
+        `}
+      }
+
+      &:disabled {
+        ${states.checkbox.disabled}
       }
     `
   }}
 `
-
-Container.displayName = "Container"

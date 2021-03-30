@@ -1,52 +1,17 @@
 import React from "react"
-import styled, { css } from "styled-components"
-import { color, space } from "../../helpers"
+import styled from "styled-components"
 import { CheckIcon } from "../../svgs"
+import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box } from "../Box"
-import { CheckboxProps } from "./Checkbox"
+import { CHECK_STATES as V2_STATES } from "./tokens/v2"
+import { CHECK_STATES as V3_STATES } from "./tokens/v3"
 
-const SIZE = 2 // 20px
-const BORDER_WIDTH = 2 // 2px
-
-const Container = styled(Box)<CheckProps>`
-  width: ${space(SIZE)}px;
-  height: ${space(SIZE)}px;
-  transition: background-color 0.25s, border-color 0.25s;
-
-  ${({ disabled, selected, error }) => {
-    switch (true) {
-      case disabled:
-        return css`
-          background-color: ${color("black5")};
-          border-color: ${color("black10")};
-        `
-      case selected:
-        return css`
-          background-color: ${color("black100")};
-          border-color: ${color("black100")};
-        `
-      case error:
-        return css`
-          background-color: ${color("white100")};
-          border-color: ${color("red100")};
-        `
-      default:
-        return css`
-          background-color: ${color("white100")};
-          border-color: ${color("black10")};
-        `
-    }
-  }}
-
-  svg {
-    position: relative;
-    top: -${BORDER_WIDTH}px;
-    left: -${BORDER_WIDTH}px;
-  }
-`
-
-export interface CheckProps
-  extends Pick<CheckboxProps, "disabled" | "selected" | "error"> {}
+export interface CheckProps {
+  disabled?: boolean
+  error?: boolean
+  hover?: boolean
+  selected?: boolean
+}
 
 /** Toggeable check mark */
 export const Check: React.FC<CheckProps> = ({
@@ -54,21 +19,51 @@ export const Check: React.FC<CheckProps> = ({
   selected,
   ...rest
 }) => {
-  const iconColor = () => {
-    if (disabled && selected) return "black30"
-    if (disabled) return "black5"
-    return "white100"
-  }
+  const tokens = useThemeConfig({
+    v2: { border: 1 },
+    v3: { border: "1px solid" },
+  })
 
   return (
     <Container
       mr={1}
-      border={1}
+      border={tokens.border}
       disabled={disabled}
       selected={selected}
       {...rest}
     >
-      <CheckIcon aria-hidden fill={iconColor()} />
+      <CheckIcon aria-hidden fill={"currentColor" as any} />
     </Container>
   )
 }
+
+const Container = styled(Box)<CheckProps>`
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+
+  ${(props) => {
+    const modes = getThemeConfig(props, {
+      v2: V2_STATES,
+      v3: V3_STATES,
+    })
+
+    const mode = (() => {
+      switch (true) {
+        case props.hover:
+          return modes.hover
+        case props.error:
+          return modes.error
+        case props.disabled:
+          return modes.disabled
+        default:
+          return modes.default
+      }
+    })()
+
+    return props.selected ? mode.selected : mode.resting
+  }};
+`
