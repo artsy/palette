@@ -1,3 +1,21 @@
+# v14.13.0 (Tue Mar 30 2021)
+
+#### 🚀  Enhancement
+
+- feat(checkbox): implements v3 styles [#897](https://github.com/artsy/palette/pull/897) ([@dzucconi](https://github.com/dzucconi))
+- feat(expandable): implements expandable [#896](https://github.com/artsy/palette/pull/896) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(checkbox): implements v3 styles ([@dzucconi](https://github.com/dzucconi))
+- feat(expandable): implements expandable ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.12.1 (Thu Mar 25 2021)
 
 #### 🐛  Bug Fix

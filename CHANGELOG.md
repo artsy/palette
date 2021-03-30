@@ -1,3 +1,18 @@
+# (Tue Mar 30 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.13.0`
+  - feat(checkbox): implements v3 styles [#897](https://github.com/artsy/palette/pull/897) ([@dzucconi](https://github.com/dzucconi))
+- `@artsy/palette@14.13.0`
+  - feat(expandable): implements expandable [#896](https://github.com/artsy/palette/pull/896) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Mar 25 2021)
 
 #### 🐛  Bug Fix
