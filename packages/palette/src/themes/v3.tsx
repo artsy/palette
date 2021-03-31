@@ -54,7 +54,7 @@ export const THEME = {
     /** 10 black (grey), borders, divider lines, and grey button only */
     black10: "#E7E7E7",
     /** 5 black (light grey), backgrounds only */
-    black5: "#D8D8D8",
+    black5: "#F7F7F7",
     /** Full Blue. Calls to action, highlights, edits */
     blue100: "#1023D7",
     /** Alias of blue100 */
