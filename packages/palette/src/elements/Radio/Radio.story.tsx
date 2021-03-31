@@ -12,16 +12,17 @@ export const Default = () => {
     <States<RadioProps>
       states={[
         {},
-        { hover: true },
         { selected: true },
+        { hover: true },
+        { hover: true, selected: true },
         { disabled: true },
         { disabled: true, selected: true },
-        { hover: true, selected: true },
-        { disabled: true, hover: true, selected: true },
-        { label: "String Label" },
+        { error: true },
+        { error: true, selected: true },
+        { label: "A label", children: "This is my description" },
         {
           label: (
-            <Text variant="small" color="red100">
+            <Text variant="small" color="blue100">
               Small Custom Label
             </Text>
           ),
@@ -29,7 +30,7 @@ export const Default = () => {
         { label: <Text variant="subtitle">Large Custom Label</Text> },
       ]}
     >
-      <Radio />
+      <Radio>A label</Radio>
     </States>
   )
 }
