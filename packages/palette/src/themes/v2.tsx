@@ -124,10 +124,10 @@ export const THEME = {
   /** Media queries to work with in web  */
   mediaQueries: {
     xl: `(min-width: ${breakpoints.xl})`,
-    lg: `(min-width: ${breakpoints.lg}) and (max-width: ${parseInt(breakpoints.xl, 10) - 1})`,
-    md: `(min-width: ${breakpoints.md}) and (max-width: ${parseInt(breakpoints.lg, 10) - 1})`,
-    sm: `(min-width: ${breakpoints.sm}) and (max-width: ${parseInt(breakpoints.md, 10) - 1})`,
-    xs: `(max-width: ${parseInt(breakpoints.sm, 10) - 1})`,
+    lg: `(min-width: ${breakpoints.lg}) and (max-width: ${parseInt(breakpoints.xl, 10) - 1}px)`,
+    md: `(min-width: ${breakpoints.md}) and (max-width: ${parseInt(breakpoints.lg, 10) - 1}px)`,
+    sm: `(min-width: ${breakpoints.sm}) and (max-width: ${parseInt(breakpoints.md, 10) - 1}px)`,
+    xs: `(max-width: ${parseInt(breakpoints.sm, 10) - 1}px)`,
     /** Determines if the input device has the notion of hover, e.g. mouse. */
     hover: `not all and (pointer: coarse), not all and (-moz-touch-enabled: 1)`,
   },
