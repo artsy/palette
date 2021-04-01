@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { ChevronIcon } from "../../svgs"
 import { useThemeConfig } from "../../Theme"
+import { Box, splitBoxProps } from "../Box"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Flex } from "../Flex"
 import { Text, TextProps } from "../Text"
@@ -37,6 +38,8 @@ export const Expandable: React.FC<ExpandableProps> = ({
 
   const [expanded, setExpanded] = useState(defaultExpanded)
 
+  const [boxProps, clickableProps] = splitBoxProps(rest)
+
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -45,7 +48,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
   }
 
   return (
-    <>
+    <Box {...boxProps}>
       <Clickable
         width="100%"
         display="flex"
@@ -57,7 +60,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
         disabled={disabled}
         aria-expanded={expanded}
         onClick={handleClick}
-        {...rest}
+        {...clickableProps}
       >
         <Flex flex={1} minHeight={40} display="flex" alignItems="center">
           {typeof label === "string" || typeof label === "number" ? (
@@ -79,6 +82,6 @@ export const Expandable: React.FC<ExpandableProps> = ({
       </Clickable>
 
       {expanded && children}
-    </>
+    </Box>
   )
 }

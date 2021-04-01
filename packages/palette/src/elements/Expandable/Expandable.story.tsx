@@ -35,6 +35,8 @@ export const Default = () => {
             </Flex>
           ),
         },
+        { mb: 6 },
+        { expanded: true, mb: 6 },
       ]}
     >
       <Expandable label="Example" maxWidth={350}>
