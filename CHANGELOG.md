@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.15.0`
+  - fix(theme): corrects media queries [#900](https://github.com/artsy/palette/pull/900) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Apr 01 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@14.14.0`
   - feat(radio): implements v3 styles [#898](https://github.com/artsy/palette/pull/898) ([@dzucconi](https://github.com/dzucconi))
 

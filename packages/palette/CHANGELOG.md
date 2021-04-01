@@ -1,3 +1,19 @@
+# v14.15.0 (Thu Apr 01 2021)
+
+#### 🚀  Enhancement
+
+- fix(theme): corrects media queries [#900](https://github.com/artsy/palette/pull/900) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(theme): corrects media queries ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.14.0 (Thu Apr 01 2021)
 
 #### 🚀  Enhancement
