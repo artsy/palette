@@ -1,3 +1,21 @@
+# (Fri Apr 02 2021)
+
+#### 🚀  Enhancement
+
+- Send out palette version [#902](https://github.com/artsy/palette/pull/902) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.16.0`
+  - fix: protects against error on ssr [#901](https://github.com/artsy/palette/pull/901) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Apr 01 2021)
 
 #### 🚀  Enhancement
