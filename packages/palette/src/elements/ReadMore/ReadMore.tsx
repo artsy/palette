@@ -1,5 +1,4 @@
-import React, { useMemo, useState } from "react"
-import { renderToStaticMarkup } from "react-dom/server"
+import React, { useState } from "react"
 import styled from "styled-components"
 import truncate from "trunc-html"
 import { Clickable, ClickableProps } from "../Clickable"
@@ -36,7 +35,7 @@ Container.displayName = "Container"
 const HTML_TAG_REGEX = /(<([^>]+)>)/gi
 
 export interface ReadMoreProps {
-  content: string | JSX.Element
+  content: string
   disabled?: boolean
   isExpanded?: boolean
   maxChars?: number
@@ -45,25 +44,15 @@ export interface ReadMoreProps {
 
 /** ReadMore */
 export const ReadMore: React.FC<ReadMoreProps> = ({
-  content,
+  content: expandedHTML,
   disabled,
   isExpanded,
   maxChars = Infinity,
   onReadMoreClicked,
 }) => {
-  const expandedHTML = useMemo(() => {
-    return typeof content === "string" ? content : renderToStaticMarkup(content)
-  }, [content])
+  const charCount = expandedHTML.replace(HTML_TAG_REGEX, "").length
 
-  const charCount = useMemo(
-    () => expandedHTML.replace(HTML_TAG_REGEX, "").length,
-    [expandedHTML]
-  )
-
-  const truncatedHTML = useMemo(() => truncate(expandedHTML, maxChars).html, [
-    expandedHTML,
-    maxChars,
-  ])
+  const truncatedHTML = truncate(expandedHTML, maxChars).html
 
   const [expanded, setExpanded] = useState(isExpanded || charCount < maxChars)
 
