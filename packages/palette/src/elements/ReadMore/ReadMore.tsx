@@ -50,6 +50,9 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
   maxChars = Infinity,
   onReadMoreClicked,
 }) => {
+  if (typeof expandedHTML !== "string") {
+    return null
+  }
   const charCount = expandedHTML.replace(HTML_TAG_REGEX, "").length
 
   const truncatedHTML = truncate(expandedHTML, maxChars).html
