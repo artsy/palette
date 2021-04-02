@@ -10,8 +10,7 @@ export const WithCharacterCap = () => {
   return (
     <ReadMore
       maxChars={300}
-      content={
-        <div>
+      content={`<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
           for the large-scale outdoor installations and long, spacious interiors
@@ -19,8 +18,7 @@ export const WithCharacterCap = () => {
           significant American artists of the post-war period, is perhaps
           best-known for the large-scale outdoor installations and long,
           spacious interiors he designed in Marfa.
-        </div>
-      }
+        </div>`}
     />
   )
 }
@@ -33,12 +31,10 @@ export const ShortContent = () => {
   return (
     <ReadMore
       maxChars={300}
-      content={
-        <div>
+      content={`<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>.
-        </div>
-      }
+        </div>`}
     />
   )
 }
@@ -64,31 +60,27 @@ export const CharacterCapWithHtml = () => {
   return (
     <ReadMore
       maxChars={300}
-      content={
-        <>
-          <p>
-            Donald Judd, widely regarded as one of the most significant American
-            artists of <a href="#">the post-war period</a>, is perhaps
-            best-known for the large-scale outdoor installations and long,
-            spacious interiors he designed in Marfa. Donald Judd, widely
-            regarded as one of the most significant American artists of the
-            post-war period, is perhaps best-known for the large-scale outdoor
-            installations and long, spacious interiors he designed in Marfa.
-          </p>
-          <hr />
-          <p>
-            <strong>Lorem ipsum dolor</strong> sit amet consectetur adipisicing
-            elit. Ducimus eligendi obcaecati voluptate{" "}
-            <em>molestias vero nobis voluptatum</em>, tenetur dolorum assumenda.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-            eveniet aliquid laborum fugiat quibusdam id suscipit est temporibus
-            labore sint aliquam, laudantium tempore. Tenetur adipisci cumque
-            alias facilis animi. Illum.
-          </p>
-        </>
-      }
+      content={`<p>
+          Donald Judd, widely regarded as one of the most significant American
+          artists of <a href="#">the post-war period</a>, is perhaps
+          best-known for the large-scale outdoor installations and long,
+          spacious interiors he designed in Marfa. Donald Judd, widely
+          regarded as one of the most significant American artists of the
+          post-war period, is perhaps best-known for the large-scale outdoor
+          installations and long, spacious interiors he designed in Marfa.
+        </p>
+        <hr />
+        <p>
+          <strong>Lorem ipsum dolor</strong> sit amet consectetur adipisicing
+          elit. Ducimus eligendi obcaecati voluptate{" "}
+          <em>molestias vero nobis voluptatum</em>, tenetur dolorum assumenda.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+          eveniet aliquid laborum fugiat quibusdam id suscipit est temporibus
+          labore sint aliquam, laudantium tempore. Tenetur adipisci cumque
+          alias facilis animi. Illum.
+        </p>`}
     />
   )
 }
@@ -102,8 +94,7 @@ export const WithCustomizableTypography = () => {
     <HTML>
       <ReadMore
         maxChars={300}
-        content={
-          <>
+        content={`
             <p>
               Donald Judd, widely regarded as one of the most significant
               American artists of <a href="#">the post-war period</a>, is
@@ -125,9 +116,7 @@ export const WithCustomizableTypography = () => {
               eveniet aliquid laborum fugiat quibusdam id suscipit est
               temporibus labore sint aliquam, laudantium tempore. Tenetur
               adipisci cumque alias facilis animi. Illum.
-            </p>
-          </>
-        }
+            </p>`}
       />
     </HTML>
   )
@@ -142,9 +131,7 @@ export const WithCustomizableTypography2 = () => {
     <HTML variant="largeTitle">
       <ReadMore
         maxChars={300}
-        content={
-          <>
-            <p>
+        content={`<p>
               Donald Judd, widely regarded as one of the most significant
               American artists of <a href="#">the post-war period</a>, is
               perhaps best-known for the large-scale outdoor installations and
@@ -165,9 +152,7 @@ export const WithCustomizableTypography2 = () => {
               eveniet aliquid laborum fugiat quibusdam id suscipit est
               temporibus labore sint aliquam, laudantium tempore. Tenetur
               adipisci cumque alias facilis animi. Illum.
-            </p>
-          </>
-        }
+            </p>`}
       />
     </HTML>
   )
@@ -182,8 +167,7 @@ export const CharacterCapWithHtmlDisabled = () => {
     <ReadMore
       disabled
       maxChars={300}
-      content={
-        <div>
+      content={`<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
           for the large-scale outdoor installations and long, spacious interiors
@@ -191,8 +175,7 @@ export const CharacterCapWithHtmlDisabled = () => {
           significant American artists of the post-war period, is perhaps
           best-known for the large-scale outdoor installations and long,
           spacious interiors he designed in Marfa.
-        </div>
-      }
+        </div>`}
     />
   )
 }
