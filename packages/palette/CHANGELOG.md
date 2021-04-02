@@ -1,3 +1,19 @@
+# v14.17.0 (Fri Apr 02 2021)
+
+#### 🚀  Enhancement
+
+- bugfix: Ensure read more only operates on strings [#903](https://github.com/artsy/palette/pull/903) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- Ensure read more only operates on strings ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.16.0 (Fri Apr 02 2021)
 
 #### 🚀  Enhancement

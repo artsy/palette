@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.17.0`
+  - bugfix: Ensure read more only operates on strings [#903](https://github.com/artsy/palette/pull/903) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# (Fri Apr 02 2021)
+
+#### 🚀  Enhancement
+
 - Send out palette version [#902](https://github.com/artsy/palette/pull/902) ([@damassi](https://github.com/damassi))
 
 #### 🐛  Bug Fix
