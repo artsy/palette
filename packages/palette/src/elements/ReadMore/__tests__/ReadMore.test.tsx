@@ -9,15 +9,20 @@ describe("ReadMore", () => {
   const htmlCopy =
     "<p>Donald Judd <a>regarded as one of the most</a> significant American artists</p>"
 
+  it("returns null if no content provided", () => {
+    const wrapper = render(<ReadMore content={null} />)
+    expect(wrapper.html()).toBe(null)
+  })
+
   it("it truncates text", () => {
-    const wrapper = cap => render(<ReadMore maxChars={cap} content={copy} />)
+    const wrapper = (cap) => render(<ReadMore maxChars={cap} content={copy} />)
     expect(wrapper(20).html()).toContain(">Donald Judd …<")
     expect(wrapper(Infinity).html()).toContain(copy)
     expect(wrapper(undefined).html()).toContain(copy)
   })
 
   it("handles html including nested tags", () => {
-    const wrapper = cap =>
+    const wrapper = (cap) =>
       render(<ReadMore maxChars={cap} content={htmlCopy} />)
     expect(wrapper(30).html()).toContain(
       "<p>Donald Judd <a>regarded as one …</a></p>"
