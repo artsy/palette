@@ -1,3 +1,16 @@
+# (Thu Apr 08 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.17.1`
+  - fix(button): updates v3 button styling [#905](https://github.com/artsy/palette/pull/905) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Apr 02 2021)
 
 #### 🚀  Enhancement
