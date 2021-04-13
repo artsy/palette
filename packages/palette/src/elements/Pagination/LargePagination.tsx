@@ -1,8 +1,9 @@
 import React from "react"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
-import { Box } from "../Box"
-import { Flex } from "../Flex"
-import { Link } from "../Link"
+import { useThemeConfig } from "../../Theme"
+import { Box, BoxProps } from "../Box"
+import { Flex, FlexProps } from "../Flex"
+import { Link, LinkProps } from "../Link"
 import { Text } from "../Text"
 
 interface PageCursor {
@@ -12,19 +13,13 @@ interface PageCursor {
 }
 
 export interface PageCursors {
+  around: PageCursor[]
   first: PageCursor
   last: PageCursor
-  around: PageCursor[]
   previous: PageCursor
 }
 
-export interface PageButton {
-  enabled: boolean
-  getHref?: (page: number) => string
-  onClick: (event: React.MouseEvent) => void
-  page?: number
-}
-export interface PaginationProps {
+export interface PaginationProps extends FlexProps {
   getHref?: (page: number) => string
   hasNextPage: boolean
   onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
@@ -33,22 +28,15 @@ export interface PaginationProps {
   scrollTo?: string
 }
 
-interface PageProps {
-  getHref?: (page: number) => string
-  onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
-  pageCursor: PageCursor
-}
-
 /** LargePagination */
-export const LargePagination = (props: PaginationProps) => {
-  const {
-    getHref,
-    hasNextPage,
-    onClick,
-    onNext,
-    pageCursors: { around, first, last, previous },
-  } = props
-
+export const LargePagination: React.FC<PaginationProps> = ({
+  getHref,
+  hasNextPage,
+  onClick,
+  onNext,
+  pageCursors: { around, first, last, previous },
+  ...rest
+}) => {
   const handlePrevClick = (event: React.MouseEvent) => {
     if (previous) {
       onClick(previous.cursor, previous.page, event)
@@ -59,155 +47,209 @@ export const LargePagination = (props: PaginationProps) => {
     onNext(event, nextPage)
   }
 
-  const aroundPages = around.map((pageCursor) => {
-    const { cursor, page } = pageCursor
-    const key = cursor + page
-    return (
-      <Page
-        getHref={getHref}
-        key={key}
-        onClick={onClick}
-        pageCursor={pageCursor}
-      />
-    )
-  })
-
   const nextPage = (previous?.page || 0) + 2
 
-  const DotDotDot = () => {
-    return (
-      <Text color="black30" display="inline" mx={0.5} variant="mediumText">
-        ...
-      </Text>
-    )
-  }
-
-  const FirstPage: React.FC<PageProps> = (p) => {
-    return (
-      <>
-        <Page onClick={onClick} pageCursor={p.pageCursor} getHref={getHref} />
-        <DotDotDot />
-      </>
-    )
-  }
-
-  const LastPage: React.FC<PageProps> = (p) => {
-    return (
-      <>
-        <DotDotDot />
-        <Page onClick={onClick} pageCursor={p.pageCursor} getHref={getHref} />
-      </>
-    )
-  }
+  const tokens = useThemeConfig({
+    v2: {
+      flexProps: {
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        mr: -1,
+      } as FlexProps,
+      order: {
+        pages: 1,
+        prev: 2,
+        next: 3,
+      },
+    },
+    v3: {
+      flexProps: {
+        justifyContent: "space-between",
+      },
+      order: {
+        prev: 1,
+        pages: 2,
+        next: 3,
+      },
+    },
+  })
 
   return (
-    <Flex
-      alignItems="baseline"
-      flexDirection="row"
-      justifyContent="flex-end"
-      mr={-1}
-    >
-      {first && (
-        <FirstPage onClick={onClick} pageCursor={first} getHref={getHref} />
-      )}
-      {aroundPages}
-      {last && (
-        <LastPage onClick={onClick} pageCursor={last} getHref={getHref} />
-      )}
+    <Flex alignItems="center" {...tokens.flexProps} {...rest}>
+      <Flex order={tokens.order.pages}>
+        {first && (
+          <>
+            <Page onClick={onClick} pageCursor={first} getHref={getHref} />
+            <Ellipsis />
+          </>
+        )}
 
-      <Box ml={4}>
-        <PrevButton
-          enabled={!!previous}
-          getHref={getHref}
-          onClick={handlePrevClick}
-          page={previous?.page}
-        />
-        <NextButton
-          enabled={hasNextPage}
-          getHref={getHref}
-          onClick={handleNextClick}
-          page={nextPage}
-        />
-      </Box>
+        {around.map((pageCursor) => {
+          return (
+            <Page
+              getHref={getHref}
+              key={pageCursor.page}
+              onClick={onClick}
+              pageCursor={pageCursor}
+            />
+          )
+        })}
+
+        {last && (
+          <>
+            <Ellipsis />
+            <Page onClick={onClick} pageCursor={last} getHref={getHref} />
+          </>
+        )}
+      </Flex>
+
+      <PrevButton
+        order={tokens.order.prev}
+        enabled={!!previous}
+        getHref={getHref}
+        onClick={handlePrevClick}
+        page={previous?.page}
+      />
+
+      <NextButton
+        order={tokens.order.next}
+        enabled={hasNextPage}
+        getHref={getHref}
+        onClick={handleNextClick}
+        page={nextPage}
+      />
     </Flex>
   )
 }
 
-const Page: React.FC<PageProps> = (props) => {
-  const { getHref, onClick, pageCursor } = props
-  const { cursor, isCurrent, page } = pageCursor
+interface PageProps extends LinkProps {
+  getHref?: (page: number) => string
+  onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
+  pageCursor: PageCursor
+}
 
-  const handleClick = (event) => {
+const Page: React.FC<PageProps> = ({
+  getHref,
+  onClick,
+  pageCursor: { cursor, isCurrent, page },
+  ...rest
+}) => {
+  const handleClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
     onClick(cursor, page, event)
   }
 
-  const highlight = isCurrent ? "black5" : "white100"
-
-  let href = ""
-
-  if (page && typeof getHref !== "undefined") {
-    href = getHref(page)
-  }
+  const href = page && typeof getHref !== "undefined" ? getHref(page) : ""
 
   return (
-    <Box bg={highlight} borderRadius={2}>
-      <Link href={href} onClick={handleClick} underlineBehavior="hover">
-        <Text px={0.5} variant="mediumText">
-          {page}
-        </Text>
-      </Link>
-    </Box>
+    <Link
+      href={href}
+      onClick={handleClick}
+      underlineBehavior="hover"
+      borderRadius={2}
+      px={0.5}
+      display="flex"
+      alignItems="center"
+      bg={isCurrent ? "black5" : "white100"}
+      {...rest}
+    >
+      <Text lineHeight={1} variant="mediumText">
+        {page}
+      </Text>
+    </Link>
   )
 }
 
-const PrevButton: React.FC<PageButton> = (props) => {
-  const { enabled, getHref, onClick, page } = props
-  const opacity = enabled ? 1 : 0.1
-  const pointerEvents = enabled ? "inherit" : "none"
+export interface PageButtonProps extends LinkProps {
+  enabled: boolean
+  getHref?: (page: number) => string
+  onClick: (event: React.MouseEvent) => void
+  page?: number
+}
 
-  let href = ""
-
-  if (enabled && page && typeof getHref !== "undefined") {
-    href = getHref(page)
-  }
+const PrevButton: React.FC<PageButtonProps> = ({
+  enabled,
+  getHref,
+  onClick,
+  page,
+  ...rest
+}) => {
+  const href =
+    enabled && page && typeof getHref !== "undefined" ? getHref(page) : ""
 
   return (
     <Link
       href={href}
       onClick={onClick}
-      style={{ opacity, pointerEvents }}
       underlineBehavior="hover"
+      display="flex"
+      alignItems="center"
+      style={
+        enabled
+          ? {
+              opacity: 1,
+              pointerEvents: "inherit",
+            }
+          : {
+              opacity: 0.1,
+              pointerEvents: "none",
+            }
+      }
+      {...rest}
     >
-      <ChevronIcon direction="left" top={0.5} />
-      <Text display="inline" px={0.5} variant="mediumText">
+      <ChevronIcon direction="left" height={12} />
+
+      <Text lineHeight={1} px={0.5} variant="mediumText">
         Prev
       </Text>
     </Link>
   )
 }
 
-const NextButton: React.FC<PageButton> = (props) => {
-  const { enabled, getHref, onClick, page } = props
-  const opacity = enabled ? 1 : 0.1
-  const pointerEvents = enabled ? "inherit" : "none"
-
-  let href = ""
-
-  if (enabled && page && typeof getHref !== "undefined") {
-    href = getHref(page)
-  }
+const NextButton: React.FC<PageButtonProps> = ({
+  enabled,
+  getHref,
+  onClick,
+  page,
+  ...rest
+}) => {
+  const href =
+    enabled && page && typeof getHref !== "undefined" ? getHref(page) : ""
 
   return (
     <Link
       href={href}
       onClick={onClick}
-      style={{ opacity, pointerEvents }}
       underlineBehavior="hover"
+      display="flex"
+      alignItems="center"
+      style={
+        enabled
+          ? {
+              opacity: 1,
+              pointerEvents: "inherit",
+            }
+          : {
+              opacity: 0.1,
+              pointerEvents: "none",
+            }
+      }
+      {...rest}
     >
-      <Text display="inline" px={0.5} variant="mediumText">
+      <Text lineHeight={1} px={0.5} variant="mediumText">
         Next
       </Text>
-      <ChevronIcon direction="right" top={0.5} />
+
+      <ChevronIcon direction="right" height={12} />
     </Link>
+  )
+}
+
+const Ellipsis: React.FC = () => {
+  return (
+    <Text lineHeight={1} color="black30" mx={0.5} variant="mediumText">
+      …
+    </Text>
   )
 }
