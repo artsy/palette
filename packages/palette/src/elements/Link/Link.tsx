@@ -6,7 +6,6 @@ import { boxMixin, BoxProps } from "../Box"
 type UnderlineBehaviors = "default" | "hover" | "none"
 
 export interface LinkProps extends BoxProps {
-  color?: Color
   hoverColor?: Color
   noUnderline?: boolean
   underlineBehavior?: UnderlineBehaviors

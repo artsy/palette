@@ -1,10 +1,9 @@
 import React from "react"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { useThemeConfig } from "../../Theme"
-import { Box, BoxProps } from "../Box"
 import { Flex, FlexProps } from "../Flex"
 import { Link, LinkProps } from "../Link"
-import { Text } from "../Text"
+import { Text, TextVariant } from "../Text"
 
 interface PageCursor {
   cursor: string
@@ -28,8 +27,8 @@ export interface PaginationProps extends FlexProps {
   scrollTo?: string
 }
 
-/** LargePagination */
-export const LargePagination: React.FC<PaginationProps> = ({
+/** Pagination */
+export const Pagination: React.FC<PaginationProps> = ({
   getHref,
   hasNextPage,
   onClick,
@@ -37,6 +36,27 @@ export const LargePagination: React.FC<PaginationProps> = ({
   pageCursors: { around, first, last, previous },
   ...rest
 }) => {
+  const tokens = useThemeConfig({
+    v2: {
+      order: { pages: 1, prev: 2, next: 3 },
+      textVariant: "mediumText" as TextVariant,
+      containerProps: {
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        mr: -1,
+      } as FlexProps,
+      pagesProps: { pr: 4 },
+      ellipsisProps: { color: "black30" },
+    },
+    v3: {
+      order: { prev: 1, pages: 2, next: 3 },
+      textVariant: "sm" as TextVariant,
+      containerProps: { justifyContent: "space-between" },
+      pagesProps: {},
+      ellipsisProps: { color: "black60" },
+    },
+  })
+
   const handlePrevClick = (event: React.MouseEvent) => {
     if (previous) {
       onClick(previous.cursor, previous.page, event)
@@ -49,38 +69,22 @@ export const LargePagination: React.FC<PaginationProps> = ({
 
   const nextPage = (previous?.page || 0) + 2
 
-  const tokens = useThemeConfig({
-    v2: {
-      flexProps: {
-        flexDirection: "row",
-        justifyContent: "flex-end",
-        mr: -1,
-      } as FlexProps,
-      order: {
-        pages: 1,
-        prev: 2,
-        next: 3,
-      },
-    },
-    v3: {
-      flexProps: {
-        justifyContent: "space-between",
-      },
-      order: {
-        prev: 1,
-        pages: 2,
-        next: 3,
-      },
-    },
-  })
-
   return (
-    <Flex alignItems="center" {...tokens.flexProps} {...rest}>
-      <Flex order={tokens.order.pages}>
+    <Text
+      display="flex"
+      variant={tokens.textVariant}
+      lineHeight={1}
+      alignItems="center"
+      {...tokens.containerProps}
+      {...rest}
+    >
+      <Flex order={tokens.order.pages} {...tokens.pagesProps}>
         {first && (
           <>
             <Page onClick={onClick} pageCursor={first} getHref={getHref} />
-            <Ellipsis />
+            <Flex alignItems="center" p={0.5} {...tokens.ellipsisProps}>
+              …
+            </Flex>
           </>
         )}
 
@@ -97,28 +101,40 @@ export const LargePagination: React.FC<PaginationProps> = ({
 
         {last && (
           <>
-            <Ellipsis />
+            <Flex alignItems="center" p={0.5} {...tokens.ellipsisProps}>
+              …
+            </Flex>
             <Page onClick={onClick} pageCursor={last} getHref={getHref} />
           </>
         )}
       </Flex>
 
-      <PrevButton
+      <NextPrevButton
+        data-testid="prev"
         order={tokens.order.prev}
         enabled={!!previous}
         getHref={getHref}
         onClick={handlePrevClick}
         page={previous?.page}
-      />
+      >
+        <ChevronIcon pr={0.5} direction="left" height={12} />
 
-      <NextButton
+        <span>Previous</span>
+      </NextPrevButton>
+
+      <NextPrevButton
+        data-testid="next"
         order={tokens.order.next}
         enabled={hasNextPage}
         getHref={getHref}
         onClick={handleNextClick}
         page={nextPage}
-      />
-    </Flex>
+      >
+        <span>Next</span>
+
+        <ChevronIcon pl={0.5} direction="right" height={12} />
+      </NextPrevButton>
+    </Text>
   )
 }
 
@@ -134,6 +150,21 @@ const Page: React.FC<PageProps> = ({
   pageCursor: { cursor, isCurrent, page },
   ...rest
 }) => {
+  const tokens = useThemeConfig({
+    v2: {
+      states: {
+        inactive: { bg: "transparent" },
+        active: { bg: "black5" },
+      },
+    },
+    v3: {
+      states: {
+        inactive: { color: "black60" },
+        active: { color: "black100" },
+      },
+    },
+  })
+
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
@@ -148,31 +179,30 @@ const Page: React.FC<PageProps> = ({
       onClick={handleClick}
       underlineBehavior="hover"
       borderRadius={2}
-      px={0.5}
       display="flex"
       alignItems="center"
-      bg={isCurrent ? "black5" : "white100"}
+      p={0.5}
+      {...(isCurrent ? tokens.states.active : tokens.states.inactive)}
       {...rest}
     >
-      <Text lineHeight={1} variant="mediumText">
-        {page}
-      </Text>
+      {page}
     </Link>
   )
 }
 
-export interface PageButtonProps extends LinkProps {
+export interface NextPrevButtonProps extends LinkProps {
   enabled: boolean
   getHref?: (page: number) => string
   onClick: (event: React.MouseEvent) => void
   page?: number
 }
 
-const PrevButton: React.FC<PageButtonProps> = ({
+const NextPrevButton: React.FC<NextPrevButtonProps> = ({
   enabled,
   getHref,
   onClick,
   page,
+  children,
   ...rest
 }) => {
   const href =
@@ -185,6 +215,7 @@ const PrevButton: React.FC<PageButtonProps> = ({
       underlineBehavior="hover"
       display="flex"
       alignItems="center"
+      p={0.5}
       style={
         enabled
           ? {
@@ -198,58 +229,13 @@ const PrevButton: React.FC<PageButtonProps> = ({
       }
       {...rest}
     >
-      <ChevronIcon direction="left" height={12} />
-
-      <Text lineHeight={1} px={0.5} variant="mediumText">
-        Prev
-      </Text>
+      {children}
     </Link>
   )
 }
 
-const NextButton: React.FC<PageButtonProps> = ({
-  enabled,
-  getHref,
-  onClick,
-  page,
-  ...rest
-}) => {
-  const href =
-    enabled && page && typeof getHref !== "undefined" ? getHref(page) : ""
-
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      underlineBehavior="hover"
-      display="flex"
-      alignItems="center"
-      style={
-        enabled
-          ? {
-              opacity: 1,
-              pointerEvents: "inherit",
-            }
-          : {
-              opacity: 0.1,
-              pointerEvents: "none",
-            }
-      }
-      {...rest}
-    >
-      <Text lineHeight={1} px={0.5} variant="mediumText">
-        Next
-      </Text>
-
-      <ChevronIcon direction="right" height={12} />
-    </Link>
-  )
-}
-
-const Ellipsis: React.FC = () => {
-  return (
-    <Text lineHeight={1} color="black30" mx={0.5} variant="mediumText">
-      …
-    </Text>
-  )
-}
+/**
+ * Alias of Pagination
+ * @deprecated Use `Pagination`
+ */
+export const LargePagination = Pagination
