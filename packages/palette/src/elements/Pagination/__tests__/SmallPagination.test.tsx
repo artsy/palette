@@ -1,10 +1,10 @@
 import { mount } from "enzyme"
 import React from "react"
 import { Theme } from "../../../Theme"
-import { PageCursors } from "../LargePagination"
+import { PageCursors } from "../Pagination"
 import { SmallPagination } from "../SmallPagination"
 
-const mockGetHref = page => {
+const mockGetHref = (page) => {
   const baseUrl = "http://www.example.com"
 
   if (page > 1) {

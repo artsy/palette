@@ -4,10 +4,12 @@ import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { BorderBox } from "../BorderBox"
 import { Flex } from "../Flex"
 import { Link } from "../Link"
+import { NextPrevButtonProps, PaginationProps } from "./Pagination"
 
-import { PageButton, PaginationProps } from "./LargePagination"
-
-/** SmallPagination */
+/**
+ * SmallPagination
+ * @deprecated Use Pagination
+ */
 export const SmallPagination: React.FC<PaginationProps> = (props) => {
   const {
     pageCursors: { previous },
@@ -64,7 +66,7 @@ const Wrapper = styled(BorderBox)`
   }
 `
 
-const PrevButton: React.FC<PageButton> = (props) => {
+const PrevButton: React.FC<NextPrevButtonProps> = (props) => {
   const { enabled, getHref, onClick, page } = props
   const opacity = enabled ? 1 : 0.1
   let href = ""
@@ -84,7 +86,7 @@ const PrevButton: React.FC<PageButton> = (props) => {
   )
 }
 
-const NextButton: React.FC<PageButton> = (props) => {
+const NextButton: React.FC<NextPrevButtonProps> = (props) => {
   const { enabled, getHref, onClick, page } = props
   const opacity = enabled ? 1 : 0.1
   let href = ""

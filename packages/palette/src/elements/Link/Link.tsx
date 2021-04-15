@@ -1,20 +1,11 @@
 import styled from "styled-components"
-import {
-  color as styledColor,
-  display,
-  DisplayProps,
-  position,
-  PositionProps,
-  space,
-  SpaceProps,
-} from "styled-system"
 import { color } from "../../helpers"
 import { Color } from "../../Theme"
+import { boxMixin, BoxProps } from "../Box"
 
 type UnderlineBehaviors = "default" | "hover" | "none"
 
-export interface LinkProps extends DisplayProps, PositionProps, SpaceProps {
-  color?: Color
+export interface LinkProps extends BoxProps {
   hoverColor?: Color
   noUnderline?: boolean
   underlineBehavior?: UnderlineBehaviors
@@ -37,21 +28,17 @@ const backwardsCompatCompute = (state: string, props: LinkProps) => {
 
 /**
  * Basic <a> tag styled with additional LinkProps
- * Spec: https://zpl.io/2Gm6D3d
  */
 export const Link = styled.a<LinkProps>`
   color: ${color("black100")};
   transition: color 0.25s;
-  text-decoration: ${props => backwardsCompatCompute("normal", props)};
+  text-decoration: ${(props) => backwardsCompatCompute("normal", props)};
   &:hover {
-    text-decoration: ${props => backwardsCompatCompute("hover", props)};
-    color: ${props =>
+    text-decoration: ${(props) => backwardsCompatCompute("hover", props)};
+    color: ${(props) =>
       props.hoverColor ? color(props.hoverColor) : color("black100")};
   }
-  ${display};
-  ${position};
-  ${space};
-  ${styledColor};
+  ${boxMixin};
 `
 
 Link.displayName = "Link"
