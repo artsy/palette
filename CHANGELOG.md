@@ -1,3 +1,22 @@
+# (Thu Apr 15 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.18.0`
+  - [v3] Pagination [#906](https://github.com/artsy/palette/pull/906) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@14.18.0`
+  - chore(deps): update dep typescript from 4.2.3 to v4.2.4 [#904](https://github.com/artsy/palette/pull/904) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Thu Apr 08 2021)
 
 #### 🐛  Bug Fix

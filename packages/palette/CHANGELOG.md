@@ -1,3 +1,25 @@
+# v14.18.0 (Thu Apr 15 2021)
+
+#### 🚀  Enhancement
+
+- [v3] Pagination [#906](https://github.com/artsy/palette/pull/906) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(pagination): supports v3 ([@dzucconi](https://github.com/dzucconi))
+- checkpoint ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.2.3 to v4.2.4 [#904](https://github.com/artsy/palette/pull/904) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v14.17.1 (Thu Apr 08 2021)
 
 #### 🐛  Bug Fix
