@@ -119,8 +119,14 @@ export const Pagination: React.FC<PaginationProps> = ({
         getHref={getHref}
         onClick={handlePrevClick}
         page={previous?.page}
+        disabled={!first}
       >
-        <ChevronIcon pr={0.5} direction="left" height={12} />
+        <ChevronIcon
+          pr={0.5}
+          direction="left"
+          height={12}
+          fill={"currentColor" as any}
+        />
 
         <span>Prev</span>
       </NextPrevButton>
@@ -132,10 +138,16 @@ export const Pagination: React.FC<PaginationProps> = ({
         getHref={getHref}
         onClick={handleNextClick}
         page={nextPage}
+        disabled={!last}
       >
         <span>Next</span>
 
-        <ChevronIcon pl={0.5} direction="right" height={12} />
+        <ChevronIcon
+          pl={0.5}
+          direction="right"
+          height={12}
+          fill={"currentColor" as any}
+        />
       </NextPrevButton>
     </Text>
   )
@@ -196,6 +208,7 @@ const Page: React.FC<PageProps> = ({
 }
 
 export interface NextPrevButtonProps extends LinkProps {
+  disabled?: boolean
   enabled: boolean
   getHref?: (page: number) => string
   onClick: (event: React.MouseEvent) => void
@@ -203,6 +216,7 @@ export interface NextPrevButtonProps extends LinkProps {
 }
 
 const NextPrevButton: React.FC<NextPrevButtonProps> = ({
+  disabled,
   enabled,
   getHref,
   onClick,
@@ -212,6 +226,20 @@ const NextPrevButton: React.FC<NextPrevButtonProps> = ({
 }) => {
   const href =
     enabled && page && typeof getHref !== "undefined" ? getHref(page) : ""
+
+  if (disabled) {
+    return (
+      <Flex
+        display="flex"
+        alignItems="center"
+        p={0.5}
+        color="black30"
+        {...rest}
+      >
+        {children}
+      </Flex>
+    )
+  }
 
   return (
     <Link
