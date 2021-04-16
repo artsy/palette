@@ -34,13 +34,13 @@ export const SmallPagination: React.FC<PaginationProps> = (props) => {
   return (
     <Flex flexDirection="row" height="40px" width="100%">
       <PrevButton
-        enabled={!!previous}
+        disabled={!previous}
         getHref={getHref}
         onClick={handlePrevClick}
         page={previous?.page}
       />
       <NextButton
-        enabled={hasNextPage}
+        disabled={!hasNextPage}
         getHref={getHref}
         onClick={handleNextClick}
         page={nextPage}
@@ -67,11 +67,11 @@ const Wrapper = styled(BorderBox)`
 `
 
 const PrevButton: React.FC<NextPrevButtonProps> = (props) => {
-  const { enabled, getHref, onClick, page } = props
-  const opacity = enabled ? 1 : 0.1
+  const { disabled, getHref, onClick, page } = props
+  const opacity = !disabled ? 1 : 0.1
   let href = ""
 
-  if (enabled && page && typeof getHref !== "undefined") {
+  if (!disabled && page && typeof getHref !== "undefined") {
     href = getHref(page)
   }
 
@@ -87,11 +87,11 @@ const PrevButton: React.FC<NextPrevButtonProps> = (props) => {
 }
 
 const NextButton: React.FC<NextPrevButtonProps> = (props) => {
-  const { enabled, getHref, onClick, page } = props
-  const opacity = enabled ? 1 : 0.1
+  const { disabled, getHref, onClick, page } = props
+  const opacity = !disabled ? 1 : 0.1
   let href = ""
 
-  if (enabled && page && typeof getHref !== "undefined") {
+  if (!disabled && page && typeof getHref !== "undefined") {
     href = getHref(page)
   }
 

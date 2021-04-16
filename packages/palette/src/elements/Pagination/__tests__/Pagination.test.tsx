@@ -73,10 +73,10 @@ describe("Pagination", () => {
       })
 
       const prevButton = wrapper.find("[data-testid='prev']").first()
-      expect(prevButton.find("Link").prop("href")).toEqual("")
+      expect(prevButton.find("a")).toHaveLength(0)
 
       const nextButton = wrapper.find("[data-testid='next']").first()
-      expect(nextButton.find("Link").prop("href")).toMatch("page=2")
+      expect(nextButton.find("a").prop("href")).toMatch("page=2")
     })
 
     it("on page 2", () => {
@@ -90,12 +90,12 @@ describe("Pagination", () => {
       })
 
       const prevButton = wrapper.find("[data-testid='prev']").first()
-      expect(prevButton.find("Link").prop("href")).toEqual(
+      expect(prevButton.find("a").prop("href")).toEqual(
         "http://www.example.com"
       )
 
       const nextButton = wrapper.find("[data-testid='next']").first()
-      expect(nextButton.find("Link").prop("href")).toMatch("page=3")
+      expect(nextButton.find("a").prop("href")).toMatch("page=3")
     })
 
     it("on page 3", () => {
@@ -109,11 +109,11 @@ describe("Pagination", () => {
       })
 
       const prevButton = wrapper.find("[data-testid='prev']").first()
-      expect(prevButton.find("Link").prop("href")).toMatch("page=2")
+      expect(prevButton.find("a").prop("href")).toMatch("page=2")
 
       const nextButton = wrapper.find("[data-testid='next']").first()
-      expect(nextButton.prop("enabled")).toEqual(false)
-      expect(nextButton.find("Link").prop("href")).toEqual("")
+      expect(nextButton.prop("disabled")).toEqual(true)
+      expect(nextButton.find("a")).toHaveLength(0)
     })
   })
 
@@ -207,10 +207,10 @@ describe("Pagination", () => {
         )
       })
 
-      it("renders the next button as disabled and calls the onNext function when clicked", () => {
+      it("renders the next button as disabled and the onNext function is not called when clicked", () => {
         const wrapper = mountWrapper()
         wrapper.find("[data-testid='next']").first().simulate("click")
-        expect(onNextMock).toHaveBeenCalledWith(expect.anything(), 7)
+        expect(onNextMock).not.toHaveBeenCalled()
       })
     })
 

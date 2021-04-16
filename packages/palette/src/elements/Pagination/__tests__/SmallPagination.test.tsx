@@ -101,7 +101,7 @@ describe("SmallPagination", () => {
       expect(prevButton.find("Link").prop("href")).toMatch("page=2")
 
       const nextButton = wrapper.find("NextButton")
-      expect(nextButton.prop("enabled")).toEqual(false)
+      expect(nextButton.prop("disabled")).toEqual(true)
       expect(nextButton.find("Link").prop("href")).toEqual("")
     })
   })
