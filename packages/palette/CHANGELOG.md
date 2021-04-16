@@ -1,3 +1,16 @@
+# v14.18.2 (Fri Apr 16 2021)
+
+#### 🐛  Bug Fix
+
+- fix(pagination): removes extraneous padding [#909](https://github.com/artsy/palette/pull/909) ([@dzucconi](https://github.com/dzucconi))
+- fix(pagination): removes extraneous padding ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.18.1 (Fri Apr 16 2021)
 
 #### 🐛  Bug Fix

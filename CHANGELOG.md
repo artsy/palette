@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@14.18.2`
+  - fix(pagination): removes extraneous padding [#909](https://github.com/artsy/palette/pull/909) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Apr 16 2021)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@14.18.1`
   - fix(pagination): fixes last page error [#908](https://github.com/artsy/palette/pull/908) ([@dzucconi](https://github.com/dzucconi))
 - `@artsy/palette@14.18.1`
