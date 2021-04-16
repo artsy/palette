@@ -120,6 +120,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         onClick={handlePrevClick}
         page={previous?.page}
         disabled={!first}
+        pr={0.5}
       >
         <ChevronIcon
           pr={0.5}
@@ -139,6 +140,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         onClick={handleNextClick}
         page={nextPage}
         disabled={!last}
+        pl={0.5}
       >
         <span>Next</span>
 
@@ -232,8 +234,8 @@ const NextPrevButton: React.FC<NextPrevButtonProps> = ({
       <Flex
         display="flex"
         alignItems="center"
-        p={0.5}
         color="black30"
+        py={0.5}
         {...rest}
       >
         {children}
@@ -248,7 +250,7 @@ const NextPrevButton: React.FC<NextPrevButtonProps> = ({
       underlineBehavior="hover"
       display="flex"
       alignItems="center"
-      p={0.5}
+      py={0.5}
       style={
         enabled
           ? {
