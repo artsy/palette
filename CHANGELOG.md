@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@14.18.3`
+  - fix(pagination): correctly disables next/prev [#910](https://github.com/artsy/palette/pull/910) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Apr 16 2021)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@14.18.2`
   - fix(pagination): removes extraneous padding [#909](https://github.com/artsy/palette/pull/909) ([@dzucconi](https://github.com/dzucconi))
 

@@ -1,3 +1,16 @@
+# v14.18.3 (Fri Apr 16 2021)
+
+#### 🐛  Bug Fix
+
+- fix(pagination): correctly disables next/prev [#910](https://github.com/artsy/palette/pull/910) ([@dzucconi](https://github.com/dzucconi))
+- fix(pagination): correctly disables next/prev ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.18.2 (Fri Apr 16 2021)
 
 #### 🐛  Bug Fix
