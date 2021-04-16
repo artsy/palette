@@ -1,3 +1,18 @@
+# v14.18.1 (Fri Apr 16 2021)
+
+#### 🐛  Bug Fix
+
+- fix(pagination): fixes last page error [#908](https://github.com/artsy/palette/pull/908) ([@dzucconi](https://github.com/dzucconi))
+- fix(pagination): fixes last page error ([@dzucconi](https://github.com/dzucconi))
+- fix(pagination): updates copy; adjusts aria [#907](https://github.com/artsy/palette/pull/907) ([@dzucconi](https://github.com/dzucconi))
+- fix(pagination): updates copy; adjusts aria ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.18.0 (Thu Apr 15 2021)
 
 #### 🚀  Enhancement
