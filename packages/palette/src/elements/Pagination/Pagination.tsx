@@ -71,6 +71,8 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <Text
+      as="nav"
+      aria-label="Pagination"
       display="flex"
       variant={tokens.textVariant}
       lineHeight={1}
@@ -111,6 +113,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
       <NextPrevButton
         data-testid="prev"
+        aria-label="Previous"
         order={tokens.order.prev}
         enabled={!!previous}
         getHref={getHref}
@@ -119,7 +122,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       >
         <ChevronIcon pr={0.5} direction="left" height={12} />
 
-        <span>Previous</span>
+        <span>Prev</span>
       </NextPrevButton>
 
       <NextPrevButton
@@ -182,7 +185,9 @@ const Page: React.FC<PageProps> = ({
       display="flex"
       alignItems="center"
       p={0.5}
-      {...(isCurrent ? tokens.states.active : tokens.states.inactive)}
+      {...(isCurrent
+        ? { ...tokens.states.active, "aria-current": "page" }
+        : tokens.states.inactive)}
       {...rest}
     >
       {page}
