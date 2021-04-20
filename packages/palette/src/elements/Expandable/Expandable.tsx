@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { isSimpleChildren } from "../../helpers/isSimpleChildren"
+import { isText } from "../../helpers/isText"
 import { ChevronIcon } from "../../svgs"
 import { useThemeConfig } from "../../Theme"
 import { Box, splitBoxProps } from "../Box"
@@ -64,11 +64,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
         {...clickableProps}
       >
         <Flex flex={1} minHeight={40} display="flex" alignItems="center">
-          {isSimpleChildren(label) ? (
-            <Text {...tokens.textProps}>{label}</Text>
-          ) : (
-            label
-          )}
+          {isText(label) ? <Text {...tokens.textProps}>{label}</Text> : label}
         </Flex>
 
         {!disabled && (

@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import { Flex, FlexProps } from "../../elements/Flex"
-import { isSimpleChildren } from "../../helpers/isSimpleChildren"
+import { isText } from "../../helpers/isText"
 import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Text } from "../Text"
 import { TextVariant } from "../Text/tokens/v2"
@@ -100,7 +100,7 @@ export const Radio: React.FC<RadioProps> = ({
 
       <Flex flexDirection="column">
         <Flex alignItems="center" flex={1}>
-          {isSimpleChildren(title) ? (
+          {isText(title) ? (
             <Text
               variant={tokens.titleVariant}
               lineHeight={description ? undefined : 1}
@@ -112,7 +112,7 @@ export const Radio: React.FC<RadioProps> = ({
           )}
         </Flex>
 
-        {isSimpleChildren(description) ? (
+        {isText(description) ? (
           <Text variant={tokens.descriptionVariant} color="black60">
             {description}
           </Text>

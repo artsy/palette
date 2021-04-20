@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import { isSimpleChildren } from "../../helpers/isSimpleChildren"
+import { isText as _isText } from "../../helpers/isText"
 import { useThemeConfig } from "../../Theme"
 import { Box, splitBoxProps } from "../Box"
 import { Input, InputProps } from "../Input"
@@ -25,7 +25,7 @@ export const LabeledInput: React.ForwardRefExoticComponent<
 
   const variant: TextVariant = useThemeConfig({ v2: "small", v3: "xs" })
 
-  const isText = isSimpleChildren(label)
+  const isText = _isText(label)
 
   return (
     <Box position="relative" {...boxProps}>
