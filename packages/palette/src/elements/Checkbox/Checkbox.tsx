@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import { isSimpleChildren } from "../../helpers/isSimpleChildren"
 import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
@@ -94,7 +95,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       />
 
       <Flex alignItems="center" flex={1}>
-        {typeof children === "string" || typeof children === "number" ? (
+        {isSimpleChildren(children) ? (
           <Text variant={tokens.variant} lineHeight={1}>
             {children}
           </Text>

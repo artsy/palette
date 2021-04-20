@@ -22,6 +22,16 @@ export const Default = () => {
         { disabled: true, selected: true },
         { error: true },
         { error: true, selected: true },
+        {
+          children: (
+            <>
+              A label <>({2 + 2})</>
+            </>
+          ),
+        },
+        {
+          children: <div>Unstyled label</div>,
+        },
       ]}
     >
       <Checkbox>A label</Checkbox>
