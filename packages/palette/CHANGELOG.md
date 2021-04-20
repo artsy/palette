@@ -1,3 +1,21 @@
+# v14.19.0 (Tue Apr 20 2021)
+
+#### 🚀  Enhancement
+
+- Fixes unstyled text when using interpolation/fragments [#911](https://github.com/artsy/palette/pull/911) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- refactor: renames isSimpleChildren => isText ([@dzucconi](https://github.com/dzucconi))
+- fix: uses isSimpleChildren helper ([@dzucconi](https://github.com/dzucconi))
+- feat(helpers): adds helper to detect if children are simple ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.18.3 (Fri Apr 16 2021)
 
 #### 🐛  Bug Fix
