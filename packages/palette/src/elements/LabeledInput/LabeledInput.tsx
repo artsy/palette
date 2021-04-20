@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import { isText as _isText } from "../../helpers/isText"
 import { useThemeConfig } from "../../Theme"
 import { Box, splitBoxProps } from "../Box"
 import { Input, InputProps } from "../Input"
@@ -24,7 +25,7 @@ export const LabeledInput: React.ForwardRefExoticComponent<
 
   const variant: TextVariant = useThemeConfig({ v2: "small", v3: "xs" })
 
-  const isText = typeof label === "string" || typeof label === "number"
+  const isText = _isText(label)
 
   return (
     <Box position="relative" {...boxProps}>
