@@ -1,3 +1,16 @@
+# (Fri Apr 23 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.20.0`
+  - feat(theme): allows theme to be easily swapped [#912](https://github.com/artsy/palette/pull/912) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Apr 20 2021)
 
 #### 🚀  Enhancement
