@@ -19,13 +19,23 @@ const GridThemeProvider = ({ children }) => {
   )
 }
 
+const THEMES = {
+  v2: THEME_V2,
+  v3: THEME_V3,
+}
+
 /**
  * A wrapper component for passing down the Artsy theme context
  */
-export const Theme: React.FC<{ theme?: any }> = ({
+export const Theme: React.FC<{ theme?: TTheme | keyof typeof THEMES }> = ({
   children,
-  theme = THEME_V2,
+  theme: themeOrThemeKey = THEME_V2,
 }) => {
+  const theme =
+    themeOrThemeKey === "v2" || themeOrThemeKey === "v3"
+      ? THEMES[themeOrThemeKey]
+      : themeOrThemeKey
+
   return (
     <ThemeProvider theme={theme}>
       <GridThemeProvider>{children}</GridThemeProvider>
