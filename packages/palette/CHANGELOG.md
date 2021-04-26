@@ -1,3 +1,19 @@
+# v14.21.0 (Mon Apr 26 2021)
+
+#### 🚀  Enhancement
+
+- feat(types): exports ColumnSpan/Start type [#913](https://github.com/artsy/palette/pull/913) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(types): exports ColumnSpan/Start type ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.20.0 (Fri Apr 23 2021)
 
 #### 🚀  Enhancement
