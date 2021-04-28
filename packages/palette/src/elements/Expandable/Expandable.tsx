@@ -29,11 +29,13 @@ export const Expandable: React.FC<ExpandableProps> = ({
       borderColor: "black10",
       textProps: { variant: "small", fontWeight: "bold" } as TextProps,
       chevronSize: 12,
+      mr: undefined,
     },
     v3: {
       borderColor: "black60",
       textProps: { variant: "md" } as TextProps,
       chevronSize: 14,
+      mr: 1,
     },
   })
 
@@ -73,6 +75,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
             width={tokens.chevronSize}
             height={tokens.chevronSize}
             ml={1}
+            mr={tokens.mr}
             aria-hidden="true"
           />
         )}
