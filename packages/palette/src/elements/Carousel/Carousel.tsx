@@ -11,10 +11,12 @@ import styled from "styled-components"
 import { ResponsiveValue, system } from "styled-system"
 import { useCursor } from "use-cursor"
 import { ChevronIcon } from "../../svgs"
-import { SpacingUnit } from "../../Theme"
+import { SpacingUnit, useTheme } from "../../Theme"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
+import { FullBleed } from "../FullBleed"
 import { Skip } from "../Skip"
+import { Swiper } from "../Swiper"
 import { VisuallyHidden } from "../VisuallyHidden"
 import {
   CarouselNavigationProps,
@@ -23,57 +25,12 @@ import {
 } from "./CarouselNavigation"
 import { paginateCarousel } from "./paginate"
 
-const RAIL_TRANSITION_MS = 500
-
-const transition = system({ transition: true })
-
-/** CarouselRailProps */
-export type CarouselRailProps = BoxProps & {
-  transition?: ResponsiveValue<string>
-}
-
-/** A `CarouselRail` slides back and forth within the viewport */
-export const CarouselRail = styled(Box)<CarouselRailProps>`
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  white-space: nowrap;
-  ${transition}
-`
-
-CarouselRail.defaultProps = {
-  as: "ul",
-  display: "flex",
-  transition: `transform ${RAIL_TRANSITION_MS}ms`,
-}
-
-/** CarouselCellProps */
-export type CarouselCellProps = BoxProps
-
-/** A `CarouselCell` wraps a single child in the carousel */
-export const CarouselCell = styled(Box)`
-  white-space: normal;
-`
-
-CarouselCell.defaultProps = {
-  as: "li",
-}
-
 /**
  * We share this spacing value with the `Swiper` component
  */
 export const CELL_GAP_PADDING_AMOUNT: SpacingUnit[] = [1, 2]
 
-const Container = styled(Box)`
-  position: relative;
-  width: 100%;
-`
-
-const Viewport = styled(Box)`
-  width: 100%;
-  overflow: hidden;
-`
+const RAIL_TRANSITION_MS = 500
 
 export interface CarouselProps extends BoxProps {
   initialIndex?: number
@@ -105,16 +62,19 @@ export const Carousel: React.FC<CarouselProps> = ({
   onChange,
   ...rest
 }) => {
+  const { theme } = useTheme()
   const containerRef = useRef<HTMLDivElement | null>(null)
   const viewportRef = useRef<HTMLDivElement | null>(null)
   const startRef = useRef<HTMLButtonElement | null>(null)
   const endRef = useRef<HTMLButtonElement | null>(null)
 
+  const Wrapper = theme.id === "v2" ? Box : FullBleed
+
   const cells = useMemo(
     () =>
       Children.toArray(children)
         .filter(isValidElement)
-        .map(child => ({ child, ref: createRef<HTMLDivElement>() })),
+        .map((child) => ({ child, ref: createRef<HTMLDivElement>() })),
     [children]
   )
 
@@ -206,19 +166,27 @@ export const Carousel: React.FC<CarouselProps> = ({
         </Next>
       </nav>
 
-      <Viewport ref={viewportRef as any}>
-        <Rail style={{ transform: `translateX(${offset})` }}>
-          {cells.map(({ child, ref }, i) => {
-            const isLast = i === cells.length - 1
+      <Wrapper>
+        <Viewport ref={viewportRef as any}>
+          <Swiper Rail={Rail}>
+            <Rail style={{ transform: `translateX(${offset})` }}>
+              {cells.map(({ child, ref }, i) => {
+                const isLast = i === cells.length - 1
 
-            return (
-              <Cell key={i} ref={ref} pr={!isLast && CELL_GAP_PADDING_AMOUNT}>
-                {child}
-              </Cell>
-            )
-          })}
-        </Rail>
-      </Viewport>
+                return (
+                  <Cell
+                    key={i}
+                    ref={ref}
+                    pr={!isLast && CELL_GAP_PADDING_AMOUNT}
+                  >
+                    {child}
+                  </Cell>
+                )
+              })}
+            </Rail>
+          </Swiper>
+        </Viewport>
+      </Wrapper>
 
       <Skip ref={endRef} onClick={skipToStart} width="100%" mt={1}>
         Skip to beginning of content
@@ -230,3 +198,50 @@ export const Carousel: React.FC<CarouselProps> = ({
     </Container>
   )
 }
+
+const transition = system({
+  transition: true,
+})
+
+/** CarouselRailProps */
+export type CarouselRailProps = BoxProps & {
+  transition?: ResponsiveValue<string>
+}
+
+/** A `CarouselRail` slides back and forth within the viewport */
+export const CarouselRail = styled(Box)<CarouselRailProps>`
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+  ${transition}
+`
+
+CarouselRail.defaultProps = {
+  as: "ul",
+  display: "flex",
+  transition: `transform ${RAIL_TRANSITION_MS}ms`,
+}
+
+/** CarouselCellProps */
+export type CarouselCellProps = BoxProps
+
+/** A `CarouselCell` wraps a single child in the carousel */
+export const CarouselCell = styled(Box)`
+  white-space: normal;
+`
+
+CarouselCell.defaultProps = {
+  as: "li",
+}
+
+const Container = styled(Box)`
+  position: relative;
+  width: 100%;
+`
+
+const Viewport = styled(Box)`
+  width: 100%;
+  overflow: hidden;
+`

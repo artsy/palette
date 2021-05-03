@@ -1,3 +1,4 @@
+import { themeGet } from "@styled-system/theme-get"
 import styled from "styled-components"
 import { css } from "styled-components"
 import { color, space } from "../../helpers"
@@ -28,6 +29,7 @@ const Arrow = styled(Clickable)`
 
   position: absolute;
   top: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +66,7 @@ Arrow.defaultProps = {
  * Default next button
  */
 export const CarouselNext = styled(Arrow)`
-  right: 0;
+  right: ${(p) => (p.theme.id === "v2" ? 0 : themeGet("space.2"))};
   transform: translateX(100%);
 `
 
@@ -72,6 +74,6 @@ export const CarouselNext = styled(Arrow)`
  * Default previous button
  */
 export const CarouselPrevious = styled(Arrow)`
-  left: 0;
+  left: ${(p) => (p.theme.id === "v2" ? 0 : themeGet("space.2"))};
   transform: translateX(-100%);
 `

@@ -13,54 +13,6 @@ import { CELL_GAP_PADDING_AMOUNT } from "../Carousel"
 import { activeIndex } from "./activeIndex"
 import { percentage } from "./percentage"
 
-const visuallyDisableScrollbar = css`
-  /* IE 10+ */
-  -ms-overflow-style: none;
-  /* Firefox */
-  scrollbar-width: none;
-  /* Safari and Chrome */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`
-
-const Container = styled(Box)`
-  display: flex;
-  height: 100%;
-  padding: 0;
-  list-style: none;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  ${visuallyDisableScrollbar}
-`
-
-/** SwiperRailProps */
-export type SwiperRailProps = BoxProps
-
-/** A `SwiperRail` slides back and forth within the viewport */
-export const SwiperRail = styled(Box)`
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  white-space: nowrap;
-`
-
-SwiperRail.defaultProps = {
-  display: "flex",
-}
-
-/** SwiperCellProps */
-export type SwiperCellProps = BoxProps
-
-/** A `SwiperCell` wraps a single child in the carousel */
-export const SwiperCell = styled(Box)`
-  white-space: normal;
-`
-
 type ScrollSnapAlign = "none" | "start" | "end" | "center"
 
 /** SwiperProps */
@@ -98,7 +50,7 @@ export const Swiper: React.FC<SwiperProps> = ({
     () =>
       Children.toArray(children)
         .filter(isValidElement)
-        .map(child => ({ child, ref: createRef<HTMLDivElement>() })),
+        .map((child) => ({ child, ref: createRef<HTMLDivElement>() })),
     [children]
   )
 
@@ -186,3 +138,51 @@ export const Swiper: React.FC<SwiperProps> = ({
     </Container>
   )
 }
+
+const visuallyDisableScrollbar = css`
+  /* IE 10+ */
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
+  /* Safari and Chrome */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+const Container = styled(Box)`
+  display: flex;
+  height: 100%;
+  padding: 0;
+  list-style: none;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  ${visuallyDisableScrollbar}
+`
+
+/** SwiperRailProps */
+export type SwiperRailProps = BoxProps
+
+/** A `SwiperRail` slides back and forth within the viewport */
+export const SwiperRail = styled(Box)`
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+`
+
+SwiperRail.defaultProps = {
+  display: "flex",
+}
+
+/** SwiperCellProps */
+export type SwiperCellProps = BoxProps
+
+/** A `SwiperCell` wraps a single child in the carousel */
+export const SwiperCell = styled(Box)`
+  white-space: normal;
+`
