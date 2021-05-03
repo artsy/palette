@@ -5,6 +5,8 @@ import {
   Breadcrumbs,
   Button,
   BUTTON_VARIANT_NAMES,
+  Carousel as BaseCarousel,
+  Clickable,
   Column,
   GridColumns,
   Input,
@@ -26,6 +28,33 @@ import { isThemeV2, useTheme } from "../Theme"
 
 export default {
   title: "Theme",
+}
+
+export const Carousel = ({
+  widths = [...new Array(25)].map((_) => 300),
+  heights = [400],
+  ...rest
+}) => {
+  return (
+    <Box mx={[2, 4]} my={2}>
+      <BaseCarousel {...rest}>
+        {widths.map((width, i) => (
+          <Clickable
+            key={i}
+            width={width}
+            height={heights[i % heights.length]}
+            bg="black10"
+            border="1px solid"
+            borderColor="black30"
+            p={1}
+            textAlign="center"
+          >
+            <Text variant="caption">{i + 1}</Text>
+          </Clickable>
+        ))}
+      </BaseCarousel>
+    </Box>
+  )
 }
 
 export const Theme = () => {

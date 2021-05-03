@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { css } from "styled-components"
 import { color, space } from "../../helpers"
 import { SpacingUnit } from "../../Theme"
 import { Clickable, ClickableProps } from "../Clickable"
@@ -10,6 +11,21 @@ const ARROW_TRANSITION_MS = 250
 export type CarouselNavigationProps = ClickableProps
 
 const Arrow = styled(Clickable)`
+  ${(props) => {
+    if (props.theme.id === "v3") {
+      return css`
+        &:before {
+          content: "";
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+        }
+      `
+    }
+  }}
+
   position: absolute;
   top: 0;
   display: flex;
@@ -39,7 +55,7 @@ const Arrow = styled(Clickable)`
  * Set some easily overwriteable props using `defaultProps`
  */
 Arrow.defaultProps = {
-  width: ARROW_WIDTH.map(value => space(value)),
+  width: ARROW_WIDTH.map((value) => space(value)),
   height: "100%",
   color: "black60",
 }
