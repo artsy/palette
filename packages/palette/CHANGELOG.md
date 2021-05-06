@@ -1,3 +1,21 @@
+# v14.22.0 (Thu May 06 2021)
+
+#### 🚀  Enhancement
+
+- Shelf component [#917](https://github.com/artsy/palette/pull/917) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat: implements shelf ([@dzucconi](https://github.com/dzucconi))
+- feat: implements full bleed ([@dzucconi](https://github.com/dzucconi))
+- feat: extracts visually disable scrollbar helper ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.21.1 (Wed Apr 28 2021)
 
 #### 🐛  Bug Fix

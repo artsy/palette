@@ -1,3 +1,16 @@
+# (Thu May 06 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.22.0`
+  - Shelf component [#917](https://github.com/artsy/palette/pull/917) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Apr 28 2021)
 
 #### 🐛  Bug Fix
