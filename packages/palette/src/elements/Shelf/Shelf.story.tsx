@@ -41,3 +41,23 @@ export const Default = () => {
     </Box>
   )
 }
+
+export const CenterAlign = () => {
+  return (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <Demo alignItems="center" />
+      </Box>
+    </Box>
+  )
+}
+
+export const HideProgressBar = () => {
+  return (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <Demo showProgress={false} />
+      </Box>
+    </Box>
+  )
+}
