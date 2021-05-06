@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.23.0`
+  - feat: Add alignItems prop to shelf [#918](https://github.com/artsy/palette/pull/918) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# (Thu May 06 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@14.22.0`
   - Shelf component [#917](https://github.com/artsy/palette/pull/917) ([@dzucconi](https://github.com/dzucconi))
 

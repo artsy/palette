@@ -1,3 +1,19 @@
+# v14.23.0 (Thu May 06 2021)
+
+#### 🚀  Enhancement
+
+- feat: Add alignItems prop to shelf [#918](https://github.com/artsy/palette/pull/918) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat: Add alignItems prop to shelf ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.22.0 (Thu May 06 2021)
 
 #### 🚀  Enhancement
