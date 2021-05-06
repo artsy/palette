@@ -1,3 +1,19 @@
+# v14.24.0 (Thu May 06 2021)
+
+#### 🚀  Enhancement
+
+- feat: Add showProgress prop to Shelf [#919](https://github.com/artsy/palette/pull/919) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat: Add showProgress prp to Shelf ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.23.0 (Thu May 06 2021)
 
 #### 🚀  Enhancement
