@@ -6,23 +6,13 @@ import React, {
   useMemo,
   useRef,
 } from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { useCursor } from "use-cursor"
+import { visuallyDisableScrollbar } from "../../helpers/visuallyDisableScrollbar"
 import { Box, BoxProps } from "../Box"
 import { CELL_GAP_PADDING_AMOUNT } from "../Carousel"
 import { activeIndex } from "./activeIndex"
 import { percentage } from "./percentage"
-
-const visuallyDisableScrollbar = css`
-  /* IE 10+ */
-  -ms-overflow-style: none;
-  /* Firefox */
-  scrollbar-width: none;
-  /* Safari and Chrome */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`
 
 const Container = styled(Box)`
   display: flex;
@@ -98,7 +88,7 @@ export const Swiper: React.FC<SwiperProps> = ({
     () =>
       Children.toArray(children)
         .filter(isValidElement)
-        .map(child => ({ child, ref: createRef<HTMLDivElement>() })),
+        .map((child) => ({ child, ref: createRef<HTMLDivElement>() })),
     [children]
   )
 
