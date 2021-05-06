@@ -23,6 +23,7 @@ import { FullBleed } from "../FullBleed"
 /** ShelfProps */
 export type ShelfProps = BoxProps & {
   alignItems?: FlexProps["alignItems"]
+  showProgress?: boolean
   snap?: "none" | "start" | "end" | "center"
   children: JSX.Element | JSX.Element[]
   onChange?(index: number): void
@@ -33,6 +34,7 @@ export type ShelfProps = BoxProps & {
  */
 export const Shelf: React.FC<ShelfProps> = ({
   alignItems = "flex-end",
+  showProgress = true,
   snap = "none",
   children,
   onChange,
@@ -210,7 +212,7 @@ export const Shelf: React.FC<ShelfProps> = ({
         </Viewport>
       </FullBleed>
 
-      <CarouselBar mt={2} percentComplete={progress} />
+      {showProgress && <CarouselBar mt={2} percentComplete={progress} />}
     </Container>
   )
 }
