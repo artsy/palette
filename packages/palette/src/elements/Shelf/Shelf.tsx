@@ -17,10 +17,12 @@ import { Box, BoxProps } from "../Box"
 import { CELL_GAP_PADDING_AMOUNT, paginateCarousel } from "../Carousel"
 import { CarouselBar } from "../CarouselBar"
 import { Clickable } from "../Clickable"
+import { FlexProps } from "../Flex"
 import { FullBleed } from "../FullBleed"
 
 /** ShelfProps */
 export type ShelfProps = BoxProps & {
+  alignItems?: FlexProps["alignItems"]
   snap?: "none" | "start" | "end" | "center"
   children: JSX.Element | JSX.Element[]
   onChange?(index: number): void
@@ -30,8 +32,9 @@ export type ShelfProps = BoxProps & {
  * A Shelf is a new kind of carousel...
  */
 export const Shelf: React.FC<ShelfProps> = ({
-  children,
+  alignItems = "flex-end",
   snap = "none",
+  children,
   onChange,
   ...rest
 }) => {
@@ -185,7 +188,7 @@ export const Shelf: React.FC<ShelfProps> = ({
         {...(!mounted ? { left: null, right: null, marginLeft: null } : {})}
       >
         <Viewport ref={viewportRef as any}>
-          <Rail as="ul" position="relative">
+          <Rail as="ul" position="relative" alignItems={alignItems}>
             {cells.map(({ child, ref }, i) => {
               const isFirst = i === 0
               const isLast = i === cells.length - 1
@@ -260,7 +263,7 @@ const Rail = styled(Box)`
   padding: 0;
   list-style: none;
   white-space: nowrap;
-  align-items: flex-end;
+  align-items: ${(p) => p.alignItems};
 `
 
 const Cell = styled(Box)`
