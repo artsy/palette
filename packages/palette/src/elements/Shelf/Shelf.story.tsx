@@ -1,4 +1,5 @@
 import React from "react"
+import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Text } from "../Text"
 import { Shelf, ShelfProps } from "./Shelf"
@@ -36,27 +37,11 @@ export const Default = () => {
   return (
     <Box maxWidth={1920} mx="auto">
       <Box mx={[2, 4]}>
-        <Demo />
-      </Box>
-    </Box>
-  )
-}
-
-export const CenterAlign = () => {
-  return (
-    <Box maxWidth={1920} mx="auto">
-      <Box mx={[2, 4]}>
-        <Demo alignItems="center" />
-      </Box>
-    </Box>
-  )
-}
-
-export const HideProgressBar = () => {
-  return (
-    <Box maxWidth={1920} mx="auto">
-      <Box mx={[2, 4]}>
-        <Demo showProgress={false} />
+        <States<Partial<ShelfProps>>
+          states={[{}, { alignItems: "center" }, { showProgress: false }]}
+        >
+          <Demo />
+        </States>
       </Box>
     </Box>
   )
