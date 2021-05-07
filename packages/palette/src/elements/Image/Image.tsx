@@ -8,6 +8,8 @@ import {
   BorderRadiusProps,
   height,
   HeightProps,
+  maxHeight,
+  MaxHeightProps,
   maxWidth,
   MaxWidthProps,
   ResponsiveValue,
@@ -35,7 +37,7 @@ export interface WebImageProps extends ImageProps {
 const ratioPadding = system({
   ratio: {
     property: "paddingBottom",
-    transform: n => n * 100 + "%",
+    transform: (n) => n * 100 + "%",
   },
 })
 
@@ -54,6 +56,7 @@ export interface ImageProps
     SpaceProps,
     WidthProps,
     HeightProps,
+    MaxHeightProps,
     BorderRadiusProps {}
 
 /**
@@ -63,6 +66,7 @@ export const BaseImage = styled(CleanTag.as("img"))<ImageProps>`
   ${space};
   ${width};
   ${height};
+  ${maxHeight};
   ${borderRadius}
 `
 
@@ -78,14 +82,14 @@ export interface ResponsiveImageProps
  * An Image component that responsively resizes within its environment
  */
 export const BaseResponsiveImage = styled(CleanTag)<ResponsiveImageProps>`
-  background: url(${props => props.src});
+  background: url(${(props) => props.src});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   ${space};
   ${width};
   ${maxWidth};
-  ${props =>
+  ${(props) =>
     props.ratio
       ? {
           height: 0,
@@ -109,7 +113,7 @@ export const Image = ({
       preload={!lazyLoad}
       imageComponent={BaseImage}
       {...props}
-      onContextMenu={e => preventRightClick && e.preventDefault()}
+      onContextMenu={(e) => preventRightClick && e.preventDefault()}
     />
   )
 }
