@@ -304,6 +304,10 @@ const Arrow = styled(Clickable)`
     opacity: 0;
     cursor: default;
   }
+
+  @media (hover: none) {
+    display: none;
+  }
 `
 
 const Next = styled(Arrow)`
