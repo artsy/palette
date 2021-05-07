@@ -1,3 +1,21 @@
+# (Fri May 07 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.25.0`
+  - fix: Increase scroll bar space [#921](https://github.com/artsy/palette/pull/921) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@14.25.0`
+  - feat: Fix Shelf stories [#920](https://github.com/artsy/palette/pull/920) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Thu May 06 2021)
 
 #### 🚀  Enhancement
