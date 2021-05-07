@@ -212,7 +212,7 @@ export const Shelf: React.FC<ShelfProps> = ({
         </Viewport>
       </FullBleed>
 
-      {showProgress && <CarouselBar mt={2} percentComplete={progress} />}
+      {showProgress && <CarouselBar mt={6} percentComplete={progress} />}
     </Container>
   )
 }
