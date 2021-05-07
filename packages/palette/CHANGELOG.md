@@ -1,3 +1,19 @@
+# v14.26.0 (Fri May 07 2021)
+
+#### 🚀  Enhancement
+
+- feat: [Image] add maxHeight props [#922](https://github.com/artsy/palette/pull/922) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat: [Image] add maxHeight props ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.25.0 (Fri May 07 2021)
 
 #### 🚀  Enhancement
