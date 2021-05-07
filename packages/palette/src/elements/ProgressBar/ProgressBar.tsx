@@ -42,6 +42,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
         style={{
           transition,
           transform: `translateX(-${100 - percentComplete}%)`,
+          backfaceVisibility: "hidden",
         }}
       />
     </Box>
