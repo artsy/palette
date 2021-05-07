@@ -1,3 +1,19 @@
+# v14.27.0 (Fri May 07 2021)
+
+#### 🚀  Enhancement
+
+- fix: [Shelf] Dont show arrows if on touch device [#923](https://github.com/artsy/palette/pull/923) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix: [Shelf] Dont show arrows if on touch device ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.26.0 (Fri May 07 2021)
 
 #### 🚀  Enhancement

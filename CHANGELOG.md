@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.27.0`
+  - fix: [Shelf] Dont show arrows if on touch device [#923](https://github.com/artsy/palette/pull/923) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# (Fri May 07 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@14.26.0`
   - feat: [Image] add maxHeight props [#922](https://github.com/artsy/palette/pull/922) ([@damassi](https://github.com/damassi))
 
