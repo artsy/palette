@@ -120,7 +120,8 @@ export const Shelf: React.FC<ShelfProps> = ({
 
       // Sets a synthetic value between 0 and 100
       setProgress(
-        Math.ceil((viewport.scrollLeft * 100) / (pages[pages.length - 1] - 1))
+        (viewport.scrollLeft / (viewport.scrollWidth - viewport.clientWidth)) *
+          100
       )
     }
 
@@ -212,7 +213,9 @@ export const Shelf: React.FC<ShelfProps> = ({
         </Viewport>
       </FullBleed>
 
-      {showProgress && <CarouselBar mt={6} percentComplete={progress} />}
+      {showProgress && (
+        <CarouselBar mt={6} transition="none" percentComplete={progress} />
+      )}
     </Container>
   )
 }
