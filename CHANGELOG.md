@@ -1,5 +1,18 @@
 # (Fri May 07 2021)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.27.1`
+  - fix(shelf): smoother progress [#925](https://github.com/artsy/palette/pull/925) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri May 07 2021)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@14.27.0`
