@@ -1,8 +1,8 @@
 import React from "react"
-import { HeightProps, SpaceProps, WidthProps } from "styled-system"
-import { Box } from "../../elements/Box"
+import { Box, BoxProps } from "../../elements/Box"
 
-export interface SpacerProps extends SpaceProps, WidthProps, HeightProps {}
+/** Spacer implements Box */
+export type SpacerProps = BoxProps
 
 /**
  * A component used to inject space where it's needed

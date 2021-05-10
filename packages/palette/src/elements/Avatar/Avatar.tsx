@@ -1,158 +1,62 @@
-import React, { ImgHTMLAttributes, useState } from "react"
-import styled from "styled-components"
-import { borderRadius } from "styled-system"
-import { color } from "../../helpers/color"
-import { SansSize } from "../../Theme"
-import { Flex } from "../Flex"
-import { LazyImage } from "../Image/LazyImage"
-import { Sans } from "../Typography"
+import React from "react"
+import { useThemeConfig } from "../../Theme"
+import { splitBoxProps } from "../Box"
+import { Flex, FlexProps } from "../Flex"
+import { Image, WebImageProps } from "../Image"
+import { Text } from "../Text"
+import { V2_TOKENS, V3_TOKENS } from "./tokens"
 
-export interface SizeProps {
-  [key: string]: {
-    diameter: string
-    typeSize: SansSize
-  }
-}
-
-/** Size */
-export const Size: SizeProps = {
-  xxs: {
-    diameter: "30px",
-    typeSize: "3",
-  },
-  xs: {
-    diameter: "45px",
-    typeSize: "3",
-  },
-  sm: {
-    diameter: "70px",
-    typeSize: "6",
-  },
-  md: {
-    diameter: "100px",
-    typeSize: "8",
-  },
-}
-
-type SizeKey = "xxs" | "xs" | "sm" | "md"
-
-/** sizeValue */
-export const sizeValue = (size: SizeKey) => {
-  switch (size) {
-    case "xxs":
-      return Size.xxs
-    case "xs":
-      return Size.xs
-    case "sm":
-      return Size.sm
-    case "md":
-    default:
-      return Size.md
-  }
-}
-
-/** InitialsHolder */
-export const InitialsHolder = styled(Flex)`
-  background-color: ${color("black10")};
-  text-align: center;
-  overflow: hidden;
-  ${borderRadius}
-`
-
-InitialsHolder.displayName = "InitialsHolder"
-
-interface AvatarWebProps extends AvatarProps {
-  renderFallback?: (props: { diameter: string }) => JSX.Element
-  lazyLoad?: boolean
-}
-
-export interface AvatarProps extends ImgHTMLAttributes<any> {
+export interface AvatarProps extends FlexProps, Partial<WebImageProps> {
   /** If an image is missing, show initials instead */
   initials?: string
   /** The size of the Avatar */
-  size?: SizeKey
-}
-
-interface BaseAvatarProps extends AvatarProps {
-  renderAvatar: () => JSX.Element
+  size?: "xxs" | "xs" | "sm" | "md"
 }
 
 /** An circular Avatar component containing an image or initials */
-export const BaseAvatar = ({
+export const Avatar: React.FC<AvatarProps> = ({
   src,
   initials,
   size = "md",
-  renderAvatar,
-}: BaseAvatarProps): JSX.Element => {
-  const { diameter, typeSize } = sizeValue(size)
-
-  if (src) {
-    return renderAvatar()
-  } else if (initials) {
-    // Left align for overflow
-    const justifyContent = initials.length > 4 ? "left" : "center"
-
-    return (
-      <InitialsHolder
-        width={diameter}
-        height={diameter}
-        justifyContent={justifyContent}
-        alignItems="center"
-        // NOTE: To make a circle in React Native:
-        // you have to use a numeric value and can't use "50%"
-        borderRadius={diameter}
-      >
-        <Sans
-          size={typeSize}
-          color="black60"
-          weight="medium"
-          lineHeight={parseInt(diameter, 10)}
-        >
-          {initials}
-        </Sans>
-      </InitialsHolder>
-    )
-  } else {
-    return null
-  }
-}
-
-/** An circular Avatar component containing an image or initials */
-export const Avatar = ({
-  src,
-  initials,
   lazyLoad = false,
-  size = "md",
-  renderFallback,
-  onError,
-}: AvatarWebProps) => {
-  const { diameter } = sizeValue(size)
-  const [useFallback, setUseFallback] = useState(false)
+  ...rest
+}) => {
+  const [boxProps, imageProps] = splitBoxProps(rest)
+
+  const tokens = useThemeConfig({
+    v2: V2_TOKENS,
+    v3: V3_TOKENS,
+  })
+
+  const { diameter, variant } = tokens[size]
 
   return (
-    <BaseAvatar
-      src={src}
-      initials={initials}
-      size={size}
-      renderAvatar={() =>
-        renderFallback && useFallback ? (
-          renderFallback({ diameter })
-        ) : (
-          <LazyImage
-            onError={e => {
-              if (onError) {
-                onError(e)
-              }
-              setUseFallback(true)
-            }}
-            preload={!lazyLoad}
-            width={diameter}
-            height={diameter}
-            borderRadius={diameter}
-            src={src}
-          />
-        )
-      }
-    />
+    <Flex
+      size={diameter}
+      bg={tokens.bg}
+      border={src ? "transparent" : "1px solid"}
+      borderColor="black10"
+      borderRadius="50%"
+      alignItems="center"
+      justifyContent="center"
+      position="relative"
+      overflow="hidden"
+      {...boxProps}
+    >
+      <Text
+        variant={variant}
+        fontWeight={tokens.fontWeight}
+        color={tokens.color}
+        lineHeight={1}
+      >
+        {initials}
+      </Text>
+
+      {src && (
+        <Flex position="absolute" top={0} left={0}>
+          <Image src={src} width="100%" height="100%" {...imageProps} />
+        </Flex>
+      )}
+    </Flex>
   )
 }

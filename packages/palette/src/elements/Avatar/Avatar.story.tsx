@@ -9,7 +9,13 @@ export default {
 export const Sizes = () => {
   return (
     <States<AvatarProps>
-      states={[{ size: "xxs" }, { size: "xs" }, { size: "sm" }, { size: "md" }]}
+      states={[
+        { size: "xxs" },
+        { size: "xs" },
+        { size: "sm" },
+        { size: "md" },
+        { initials: "LONG" },
+      ]}
     >
       <Avatar size="xs" initials="TK" />
     </States>
@@ -21,7 +27,11 @@ export const WithSrc = () => {
     <States<AvatarProps>
       states={[{ size: "xxs" }, { size: "xs" }, { size: "sm" }, { size: "md" }]}
     >
-      <Avatar size="xs" src="https://randomuser.me/api/portraits/lego/2.jpg" />
+      <Avatar
+        size="xs"
+        src="https://randomuser.me/api/portraits/lego/2.jpg"
+        initials="TK"
+      />
     </States>
   )
 }
