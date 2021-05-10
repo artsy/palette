@@ -1,3 +1,21 @@
+# v14.28.0 (Mon May 10 2021)
+
+#### 🚀  Enhancement
+
+- [v3] Supports EntityHeader, Avatar [#929](https://github.com/artsy/palette/pull/929) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(entityheader): supports v3 ([@dzucconi](https://github.com/dzucconi))
+- feat(avatar): supports v3 ([@dzucconi](https://github.com/dzucconi))
+- fix(spacer): fixes types ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.27.1 (Fri May 07 2021)
 
 #### 🐛  Bug Fix

@@ -1,3 +1,16 @@
+# (Mon May 10 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.28.0`
+  - [v3] Supports EntityHeader, Avatar [#929](https://github.com/artsy/palette/pull/929) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri May 07 2021)
 
 #### 🐛  Bug Fix
