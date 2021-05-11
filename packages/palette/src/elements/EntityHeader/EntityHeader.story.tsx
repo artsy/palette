@@ -67,6 +67,14 @@ export const Default = () => {
           href: "http://www.artsy.net/artist/francesca-dimattio",
           FollowButton: <FollowButton />,
         },
+        {
+          initials: "FLD",
+          name: "Francesca Longer DiMattio",
+          imageUrl: "https://picsum.photos/seed/example/110/110",
+          meta: "American, b. Founded 1979",
+          href: "http://www.artsy.net/artist/francesca-dimattio",
+          FollowButton: <FollowButton />,
+        },
       ]}
     >
       {(props) => <EntityHeader {...props} maxWidth={300} />}

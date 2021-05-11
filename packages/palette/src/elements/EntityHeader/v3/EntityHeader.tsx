@@ -32,7 +32,7 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
           </Flex>
         )}
 
-        <Flex flexDirection="column">
+        <Flex flexDirection="column" mr={1}>
           <Text variant="md">{name}</Text>
 
           {meta && (
