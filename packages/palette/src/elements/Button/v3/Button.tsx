@@ -44,7 +44,7 @@ export const ButtonV3: React.FC<ButtonProps> = ({
       {loading && <Spinner size={size} color="currentColor" />}
 
       <Text
-        pt="1px"
+        lineHeight={1}
         variant={BUTTON_TEXT_SIZES[size]}
         opacity={loading ? 0 : 1}
       >
