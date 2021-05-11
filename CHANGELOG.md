@@ -1,3 +1,16 @@
+# (Tue May 11 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.28.1`
+  - fix(button): improves vertical centering in some situations [#930](https://github.com/artsy/palette/pull/930) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon May 10 2021)
 
 #### 🚀  Enhancement

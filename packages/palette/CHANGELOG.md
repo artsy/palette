@@ -1,3 +1,18 @@
+# v14.28.1 (Tue May 11 2021)
+
+#### 🐛  Bug Fix
+
+- fix(button): improves vertical centering in some situations [#930](https://github.com/artsy/palette/pull/930) ([@dzucconi](https://github.com/dzucconi))
+- fix(entityheader): adds right-hand margin ([@dzucconi](https://github.com/dzucconi))
+- fix(avatar): ensure image sizes correctly ([@dzucconi](https://github.com/dzucconi))
+- fix(button): improves vertical centering in some situations ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.28.0 (Mon May 10 2021)
 
 #### 🚀  Enhancement
