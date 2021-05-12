@@ -1,3 +1,16 @@
+# (Wed May 12 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.28.2`
+  - Loosen tab types to allow null, undefined [#931](https://github.com/artsy/palette/pull/931) ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # (Tue May 11 2021)
 
 #### 🐛  Bug Fix
