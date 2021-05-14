@@ -1,5 +1,18 @@
 # (Fri May 14 2021)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.29.0`
+  - fix(shelf): improves first page previous button navigation [#933](https://github.com/artsy/palette/pull/933) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri May 14 2021)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@14.28.3`
