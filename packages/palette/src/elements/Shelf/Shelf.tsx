@@ -137,11 +137,15 @@ export const Shelf: React.FC<ShelfProps> = ({
   }, [onChange, pageIndex])
 
   // Scroll to a specific page-stop
-  const scrollTo = (index: number) => {
+  const scrollToPage = (index: number) => {
+    const xPosition = pages[index]
+    scrollTo(xPosition)
+  }
+
+  const scrollTo = (xPosition: number) => {
     if (viewportRef.current === null) return
 
     const { current: viewport } = viewportRef
-    const xPosition = pages[index]
 
     if (viewport.scrollTo) {
       viewport.scrollTo({ left: xPosition, behavior: "smooth" })
@@ -156,11 +160,16 @@ export const Shelf: React.FC<ShelfProps> = ({
   // you've arrived. We may want to reconsider this approach; though this is the
   // simplest way to keep these values in sync with one another.
   const handleNext = () => {
-    scrollTo(pageIndex + 1)
+    scrollToPage(pageIndex + 1)
   }
 
   const handlePrev = () => {
-    scrollTo(pageIndex - 1)
+    if (pageIndex === 0) {
+      scrollTo(0)
+      return
+    }
+
+    scrollToPage(pageIndex - 1)
   }
 
   return (
@@ -168,7 +177,7 @@ export const Shelf: React.FC<ShelfProps> = ({
       <Nav as="nav">
         <Previous
           onClick={handlePrev}
-          disabled={pageIndex === 0}
+          disabled={(viewportRef.current?.scrollLeft ?? 0) === 0}
           aria-label="Previous page"
         >
           <ChevronIcon direction="left" width={15} height={15} />
