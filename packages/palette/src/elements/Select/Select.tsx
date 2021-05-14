@@ -83,6 +83,11 @@ export const Select: React.FC<SelectProps> = ({
           {title && (
             <Text
               variant={tokens.titleVariant}
+              lineHeight={
+                variant === "inline" && description === undefined
+                  ? 1
+                  : undefined
+              }
               style={{ textTransform: tokens.titleTextTransform }}
             >
               {title}
