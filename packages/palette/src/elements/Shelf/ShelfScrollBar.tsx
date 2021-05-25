@@ -3,21 +3,22 @@ import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
+import { useClickScroll } from "./useClickScroll"
+import { useDragScroll } from "./useDragScroll"
 
 interface ShelfScrollBarProps extends BoxProps {
   viewport?: HTMLDivElement | null
 }
 
+/**
+ * A synthetic scrollbar
+ */
 export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
   ({ viewport, ...rest }) => {
     const [
       { scrollLeft, scrollWidth, clientWidth },
       setScrollState,
-    ] = useState<{
-      scrollLeft: number
-      scrollWidth: number
-      clientWidth: number
-    }>({
+    ] = useState<ScrollState>({
       scrollLeft: viewport?.scrollLeft ?? 0,
       scrollWidth: viewport?.scrollWidth ?? 1,
       clientWidth: viewport?.clientWidth ?? 1,
@@ -26,21 +27,14 @@ export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
     const trackRef = useRef<HTMLDivElement | null>(null)
     const thumbRef = useRef<HTMLButtonElement | null>(null)
 
-    const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100
-
-    // Set up a scrollbar for viewport
-    const percentageVisible = clientWidth / scrollWidth
-    const thumbWidth = percentageVisible * clientWidth
-    const percentageOffset = scrollLeft / (scrollWidth - clientWidth)
-
-    // Transform it down to whatever our actual track width is as
-    // it's always smaller than the target viewport.
     const trackWidth = trackRef.current?.clientWidth ?? 1
-    const normalizedThumbWidth = (thumbWidth * trackWidth) / clientWidth
-    const normalizedThumbOffset =
-      percentageOffset * (trackWidth - normalizedThumbWidth)
 
-    const requiresScrolling = percentageVisible < 1
+    const {
+      progress,
+      requiresScrolling,
+      thumbOffset,
+      thumbWidth,
+    } = buildScrollBar({ trackWidth, scrollLeft, scrollWidth, clientWidth })
 
     // Update scrollState on scroll and resize
     useEffect(() => {
@@ -65,112 +59,62 @@ export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
       }
     }, [viewport])
 
-    // Handle drag scrolling
-    const isDown = useRef(false)
-    const startX = useRef(0)
-    const offsetX = useRef(0)
+    useDragScroll({
+      viewport,
+      thumbRef,
+      clientWidth,
+      scrollWidth,
+      scrollLeft,
+      trackWidth,
+    })
 
-    useEffect(() => {
-      if (!viewport || !thumbRef.current) return
-
-      const { current: thumb } = thumbRef
-
-      const handleMouseDown = (event: MouseEvent) => {
-        event.stopPropagation()
-        isDown.current = true
-        startX.current = event.pageX
-        offsetX.current = viewport.scrollLeft
-      }
-
-      const handleMouseUp = () => {
-        isDown.current = false
-        startX.current = 0
-      }
-
-      const handleMouseMove = (event: MouseEvent) => {
-        if (!isDown.current) return
-
-        const delta =
-          ((event.pageX - startX.current) * scrollWidth) / trackWidth
-
-        viewport.scrollLeft = offsetX.current + delta
-      }
-
-      thumb.addEventListener("mousedown", handleMouseDown)
-      document.addEventListener("mousemove", handleMouseMove)
-      document.addEventListener("mouseup", handleMouseUp)
-
-      return () => {
-        thumb.removeEventListener("mousedown", handleMouseDown)
-        document.removeEventListener("mousemove", handleMouseMove)
-        document.removeEventListener("mouseup", handleMouseUp)
-      }
-    }, [viewport, clientWidth, scrollWidth, scrollLeft, trackWidth])
-
-    // Handle click on track scrolling
-    useEffect(() => {
-      if (!trackRef.current) return
-
-      const { current: track } = trackRef
-      const { current: thumb } = thumbRef
-
-      const handleMouseDown = (event: MouseEvent) => {
-        const x =
-          event.pageX -
-          track.getBoundingClientRect().left -
-          thumb.clientWidth / 2
-
-        const delta = (x * scrollWidth) / trackWidth
-
-        viewport.scrollLeft = delta
-      }
-
-      track.addEventListener("mousedown", handleMouseDown)
-      return () => {
-        track.removeEventListener("mousedown", handleMouseDown)
-      }
-    }, [viewport, scrollWidth, trackWidth])
+    useClickScroll({
+      viewport,
+      thumbRef,
+      trackRef,
+      scrollWidth,
+      trackWidth,
+    })
 
     return (
-      <>
-        {/* Track */}
-        <Box
-          ref={trackRef as any}
-          position="relative"
-          height={3}
-          bg="black15"
-          width="100%"
-          role="scrollbar"
-          aria-orientation="vertical"
-          aria-valuemax={100}
-          aria-valuemin={0}
-          aria-valuenow={progress}
-          {...rest}
-        >
-          {/* Pad out hit area. Click events will propagate to underlying trackRef */}
-          <TrackHitArea />
+      <Track
+        ref={trackRef as any}
+        bg="black15"
+        role="scrollbar"
+        aria-orientation="vertical"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={progress}
+        {...rest}
+      >
+        {/* Pads out hit area. Click events will propagate to underlying trackRef */}
+        <TrackHitArea />
 
-          {/* Thumb */}
-          {requiresScrolling && (
-            <Box
-              position="relative"
-              bg="black60"
-              height="100%"
-              borderRadius={3}
-              width={normalizedThumbWidth}
-              style={{
-                transform: `translateX(${normalizedThumbOffset}px)`,
-                backfaceVisibility: "hidden",
-              }}
-            >
-              <HitArea ref={thumbRef as any} tabIndex={-1} />
-            </Box>
-          )}
-        </Box>
-      </>
+        {requiresScrolling && (
+          <Thumb
+            position="relative"
+            bg="black60"
+            height="100%"
+            borderRadius={3}
+            width={thumbWidth}
+            style={{
+              transform: `translateX(${thumbOffset}px)`,
+              backfaceVisibility: "hidden",
+            }}
+          >
+            <HitArea ref={thumbRef as any} tabIndex={-1} />
+          </Thumb>
+        )}
+      </Track>
     )
   }
 )
+
+const Track = styled(Box)`
+  position: relative;
+  height: 3px;
+  width: 100%;
+`
 
 const TrackHitArea = styled(Box)`
   position: absolute;
@@ -180,6 +124,8 @@ const TrackHitArea = styled(Box)`
   left: 0;
   width: 100%;
 `
+
+const Thumb = styled(Box)``
 
 const HitArea = styled(Clickable)`
   position: absolute;
@@ -210,3 +156,46 @@ const HitArea = styled(Clickable)`
     height: 3px;
   }
 `
+
+interface ScrollState {
+  /** Left most scroll edge */
+  scrollLeft: number
+  /** Width of the underlying rail */
+  scrollWidth: number
+  /** Width of the viewport */
+  clientWidth: number
+}
+
+export const buildScrollBar = ({
+  trackWidth,
+  scrollLeft,
+  scrollWidth,
+  clientWidth,
+}: ScrollState & {
+  /** Width of the scrollbar track */
+  trackWidth: number
+}) => {
+  const progress = (scrollLeft / (scrollWidth - clientWidth || 1)) * 100
+
+  // Sets up a scrollbar for viewport
+  const percentageVisible = clientWidth / scrollWidth
+  const thumbWidth = percentageVisible * clientWidth
+  const percentageOffset = scrollLeft / (scrollWidth - clientWidth || 1)
+
+  // Transform it down to whatever our actual track width is as
+  // it's always smaller than the target viewport.
+  const normalizedThumbWidth = (thumbWidth * trackWidth) / clientWidth
+  const normalizedThumbOffset =
+    percentageOffset * (trackWidth - normalizedThumbWidth)
+
+  const requiresScrolling = percentageVisible < 1
+
+  return {
+    requiresScrolling,
+    progress,
+    percentageVisible,
+    percentageOffset,
+    thumbWidth: normalizedThumbWidth,
+    thumbOffset: normalizedThumbOffset,
+  }
+}

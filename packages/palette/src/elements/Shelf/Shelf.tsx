@@ -195,7 +195,7 @@ export const Shelf: React.FC<ShelfProps> = ({
         {...(!mounted ? { left: null, right: null, marginLeft: null } : {})}
       >
         <Viewport ref={viewportRef as any}>
-          <Rail as="ul" position="relative" alignItems={alignItems} mb={6}>
+          <Rail as="ul" position="relative" alignItems={alignItems} mb={[2, 6]}>
             {cells.map(({ child, ref }, i) => {
               const isFirst = i === 0
               const isLast = i === cells.length - 1
