@@ -1,3 +1,20 @@
+# v14.30.0 (Wed May 26 2021)
+
+#### 🚀  Enhancement
+
+- feat(shelf): implements custom scrollbar [#935](https://github.com/artsy/palette/pull/935) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- refactor(shelf): cleans up and adds specs ([@dzucconi](https://github.com/dzucconi))
+- feat(shelf): implements custom scrollbar ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.29.0 (Fri May 14 2021)
 
 #### 🚀  Enhancement
