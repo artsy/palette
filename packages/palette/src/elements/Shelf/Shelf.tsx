@@ -15,10 +15,10 @@ import { visuallyDisableScrollbar } from "../../helpers/visuallyDisableScrollbar
 import { ChevronIcon } from "../../svgs"
 import { Box, BoxProps } from "../Box"
 import { CELL_GAP_PADDING_AMOUNT, paginateCarousel } from "../Carousel"
-import { CarouselBar } from "../CarouselBar"
 import { Clickable } from "../Clickable"
 import { FlexProps } from "../Flex"
 import { FullBleed } from "../FullBleed"
+import { ShelfScrollBar } from "./ShelfScrollBar"
 
 /** ShelfProps */
 export type ShelfProps = BoxProps & {
@@ -53,8 +53,8 @@ export const Shelf: React.FC<ShelfProps> = ({
 
   const [mounted, setMounted] = useState(false)
   const [pages, setPages] = useState([0])
-  const [progress, setProgress] = useState(0)
   const [offset, setOffset] = useState(0)
+  const [atStart, setAtStart] = useState(true)
 
   const init = useCallback(() => {
     if (containerRef.current === null) return
@@ -117,12 +117,7 @@ export const Shelf: React.FC<ShelfProps> = ({
       })
 
       setCursor(pages.indexOf(nearestPage))
-
-      // Sets a synthetic value between 0 and 100
-      setProgress(
-        (viewport.scrollLeft / (viewport.scrollWidth - viewport.clientWidth)) *
-          100
-      )
+      setAtStart(viewport.scrollLeft === 0)
     }
 
     viewport.addEventListener("scroll", handler, { passive: true })
@@ -177,7 +172,7 @@ export const Shelf: React.FC<ShelfProps> = ({
       <Nav as="nav">
         <Previous
           onClick={handlePrev}
-          disabled={(viewportRef.current?.scrollLeft ?? 0) === 0}
+          disabled={atStart}
           aria-label="Previous page"
         >
           <ChevronIcon direction="left" width={15} height={15} />
@@ -200,7 +195,7 @@ export const Shelf: React.FC<ShelfProps> = ({
         {...(!mounted ? { left: null, right: null, marginLeft: null } : {})}
       >
         <Viewport ref={viewportRef as any}>
-          <Rail as="ul" position="relative" alignItems={alignItems}>
+          <Rail as="ul" position="relative" alignItems={alignItems} mb={[2, 6]}>
             {cells.map(({ child, ref }, i) => {
               const isFirst = i === 0
               const isLast = i === cells.length - 1
@@ -222,9 +217,7 @@ export const Shelf: React.FC<ShelfProps> = ({
         </Viewport>
       </FullBleed>
 
-      {showProgress && (
-        <CarouselBar mt={6} transition="none" percentComplete={progress} />
-      )}
+      {showProgress && <ShelfScrollBar viewport={viewportRef.current} />}
     </Container>
   )
 }
@@ -273,11 +266,12 @@ const Rail = styled(Box)`
   display: flex;
   width: 100%;
   height: 100%;
-  margin: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
   padding: 0;
   list-style: none;
   white-space: nowrap;
-  align-items: ${(p) => p.alignItems};
 `
 
 const Cell = styled(Box)`

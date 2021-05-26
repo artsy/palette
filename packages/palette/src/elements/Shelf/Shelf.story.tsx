@@ -8,10 +8,13 @@ export default {
   title: "Components/Shelf",
 }
 
-const Demo = (props: Partial<ShelfProps>) => {
+const Demo = ({
+  amount = 25,
+  ...rest
+}: Partial<ShelfProps> & { amount?: number }) => {
   return (
-    <Shelf {...props}>
-      {[...new Array(25)]
+    <Shelf {...rest}>
+      {[...new Array(amount)]
         .map((_, i) => [300, 250, 200, 333, 400][i % 5])
         .map((height, j) => (
           <Box
@@ -39,6 +42,25 @@ export const Default = () => {
       <Box mx={[2, 4]}>
         <States<Partial<ShelfProps>>
           states={[{}, { alignItems: "center" }, { showProgress: false }]}
+        >
+          <Demo />
+        </States>
+      </Box>
+    </Box>
+  )
+}
+
+export const DifferingAmounts = () => {
+  return (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <States<Partial<ShelfProps> & { amount: number }>
+          states={[
+            { amount: 1 },
+            { amount: 3 },
+            { amount: 20 },
+            { amount: 10 },
+          ]}
         >
           <Demo />
         </States>
