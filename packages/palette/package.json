@@ -124,7 +124,7 @@
     "styled-bootstrap-grid": "3.1.0",
     "styled-system": "^5.1.5",
     "trunc-html": "^1.1.2",
-    "use-cursor": "^1.2.2"
+    "use-cursor": "^1.2.3"
   },
   "husky": {
     "hooks": {
