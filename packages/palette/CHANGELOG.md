@@ -1,3 +1,17 @@
+# v14.30.1 (Thu May 27 2021)
+
+#### 🐛  Bug Fix
+
+- fix(shelf): vertically centers arrows relative to rail [#937](https://github.com/artsy/palette/pull/937) ([@dzucconi](https://github.com/dzucconi))
+- fix(shelf): corrects vertical centering of arrows relative to rail ([@dzucconi](https://github.com/dzucconi))
+- chore(deps): bumps use-cursor ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.30.0 (Wed May 26 2021)
 
 #### 🚀  Enhancement
