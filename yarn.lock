@@ -22523,10 +22523,10 @@ use-composed-ref@^1.0.0:
   dependencies:
     ts-essentials "^2.0.3"
 
-use-cursor@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/use-cursor/-/use-cursor-1.2.2.tgz#9f9fe356cff043fc7b3b59835245782c40526ed3"
-  integrity sha512-x6UBGPjqsjs3zIrCQFRP93hD60uzY8njRUnsBIKXB53uwZwCbHZHMQnAw8Gw9VeD0jhWxqyPicdpKSFyK21Q5w==
+use-cursor@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/use-cursor/-/use-cursor-1.2.3.tgz#df169f6d160fc4f6a00ff787aafa1d4ace0eccdc"
+  integrity sha512-xSm2bDLnRpdupZTfWPmUHU1ZipxVh/p0fPsrF9wkH59MslWdYUK4xq4gAxL3nmVSEyfly3q65FcHYdyqTK0iIg==
   dependencies:
     map-cursor-to-max "^1.0.0"
 

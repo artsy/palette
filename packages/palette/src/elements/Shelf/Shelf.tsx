@@ -169,7 +169,12 @@ export const Shelf: React.FC<ShelfProps> = ({
 
   return (
     <Container ref={containerRef as any} {...rest}>
-      <Nav as="nav">
+      <Nav
+        as="nav"
+        // We can't position relative to the FullBleed rail —
+        // so offset the bottom by the bottom margin + the height of the scrollbar.
+        bottom={[23, 63]}
+      >
         <Previous
           onClick={handlePrev}
           disabled={atStart}
@@ -246,8 +251,6 @@ const Nav = styled(Box)`
   top: 0;
   right: 0;
   left: 0;
-  /* Offset for CarouselBar margin-top */
-  bottom: ${themeGet("space.2")};
 `
 
 const Viewport = styled(Box)`
