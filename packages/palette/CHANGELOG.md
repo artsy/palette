@@ -1,3 +1,19 @@
+# v14.31.0 (Wed Jun 02 2021)
+
+#### 🚀  Enhancement
+
+- feat(tooltip): supports v3; supports keyboard focus [#939](https://github.com/artsy/palette/pull/939) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tooltip): supports v3; supports keyboard focus ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.30.1 (Thu May 27 2021)
 
 #### 🐛  Bug Fix
