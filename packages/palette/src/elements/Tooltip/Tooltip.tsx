@@ -1,162 +1,147 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
+import { DROP_SHADOW } from "../../helpers"
+import { useThemeConfig } from "../../Theme"
+import { Box, BoxProps } from "../Box"
+import { Text, TextVariant } from "../Text"
 
-import { BorderBox } from "../BorderBox"
-import { Sans } from "../Typography"
-
-const Wrapper = styled.div`
-  position: relative;
-  display: inline-block;
-`
-
-interface TipPosition {
-  left?: number
-  right?: number
-  center: boolean
-}
-
-interface TipProps {
-  tipPosition: TipPosition
-  width: number
-  className?: string
-}
-
-const Tip = styled(BorderBox)<TipProps>`
-  background: white;
-  border: none;
-  bottom: 100%;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-  left: ${(p: TipProps) =>
-    p.tipPosition.left === null ? "auto" : `${p.tipPosition.left}px`};
-  right: ${(p: TipProps) =>
-    p.tipPosition.right === null ? "auto" : `${p.tipPosition.right}px`};
-  margin-bottom: 5px;
-  opacity: 0;
-  position: absolute;
-  text-align: left;
-  transform: ${(p: TipProps) =>
-    p.tipPosition.center ? "translate(-50%)" : "none"};
-  transition: opacity 250ms ease-out;
-  width: ${(p: TipProps) => p.width}px;
-  pointer-events: none;
-
-  &:hover {
-    cursor: default;
-  }
-
-  &.active {
-    opacity: 1;
-
-    &:hover {
-      opacity: 0;
-    }
-  }
-`
-
-export interface TooltipProps {
+export interface TooltipProps
+  extends BoxProps,
+    React.HTMLAttributes<HTMLDivElement> {
   content: React.ReactNode
-  size: "sm" | "lg"
-  width: number
+  placement?: "top" | "bottom"
+  size?: "sm" | "lg"
+  width?: number
+  visible?: boolean
 }
 
 /**
  * A tooltip
  */
-export class Tooltip extends React.Component<TooltipProps> {
-  static defaultProps = {
-    size: "lg",
-    width: 230,
-  }
+export const Tooltip: React.FC<TooltipProps> = ({
+  children,
+  content: _content,
+  size = "lg",
+  width = 230,
+  placement = "top",
+  visible,
+  ...rest
+}) => {
+  const innerWrapper = useRef<HTMLDivElement | null>(null)
 
-  state = {
-    active: false,
-    tipPosition: { left: 0, center: false, right: null },
-  }
+  const [active, setActive] = useState(false)
+  const [position, setPosition] = useState({
+    left: 0,
+    right: null,
+    centered: true,
+  })
 
-  private innerWrapper = React.createRef<HTMLDivElement>()
+  const computeTipPosition = () => {
+    if (!innerWrapper.current) return
 
-  computeTipPosition = () => {
     let left = 0
     let right = null
-    let center = false
+    let centered = false
 
-    const current = this.innerWrapper.current
+    const inner = innerWrapper.current.getBoundingClientRect()
 
-    if (current) {
-      const clientRect = current.getBoundingClientRect()
-      const innerWrapperLeft = clientRect.left
-      const innerWrapperRight = clientRect.right
-      const innerWrapperWidth = clientRect.width
+    left = inner.width / 2
+    centered = true
+    const spillOver = width / 2 - left
 
-      left = innerWrapperWidth / 2
-      center = true
-      const spillOver = this.props.width / 2 - left
+    if (spillOver > inner.left) {
+      centered = false
+      left = 0
+      right = null
+    }
 
-      if (spillOver > innerWrapperLeft) {
-        center = false
-        left = 0
-        right = null
-      }
-
-      if (spillOver > window.innerWidth - innerWrapperRight) {
-        center = false
-        left = null
-        right = 0
-      }
+    if (spillOver > window.innerWidth - inner.right) {
+      centered = false
+      left = null
+      right = 0
     }
 
     return {
-      center,
+      centered,
       left,
       right,
     }
   }
 
-  componentDidMount() {
-    const tipPosition = this.computeTipPosition()
-    this.setState({ tipPosition })
+  useEffect(() => {
+    const handler = () => setPosition(computeTipPosition())
+
+    handler()
+    window.addEventListener("resize", handler)
+
+    return () => {
+      window.removeEventListener("resize", handler)
+    }
+  }, [])
+
+  const handleClick = () => {
+    setActive((prevActive) => !prevActive)
   }
 
-  handleClick = () => {
-    this.setState({ active: !this.state.active })
+  const activate = () => {
+    setActive(true)
   }
 
-  handleMouseOver = () => {
-    this.setState({ active: true })
+  const deactivate = () => {
+    setActive(false)
   }
 
-  handleMouseOut = () => {
-    this.setState({ active: false })
-  }
+  const content = typeof _content === "string" ? truncate(_content) : _content
 
-  render() {
-    const content =
-      typeof this.props.content === "string"
-        ? formattedTip(this.props.content)
-        : this.props.content
-    return (
-      <Wrapper
-        onClick={this.handleClick}
-        onMouseOut={this.handleMouseOut}
-        onMouseOver={this.handleMouseOver}
+  const tokens = useThemeConfig({
+    v2: { variant: "small" as TextVariant },
+    v3: { variant: "xs" as TextVariant },
+  })
+
+  return (
+    <Box
+      tabIndex={1}
+      onClick={handleClick}
+      onMouseOver={activate}
+      onMouseOut={deactivate}
+      onFocus={activate}
+      onBlur={deactivate}
+      position="relative"
+      // TODO: Should avoid making assumptions about display
+      display="inline-block"
+      {...rest}
+    >
+      <Tip
+        p={size === "sm" ? 0.5 : 2}
+        width={width}
+        bg="white100"
+        {...(visible
+          ? // If there's a visible prop being passed; use that
+            { opacity: visible ? 1 : 0 }
+          : // Otherwise use the active state
+            { opacity: active ? 1 : 0 })}
+        // Positioning
+        {...{
+          bottom: { top: "100%", mt: 0.5 },
+          top: { bottom: "100%", mb: 0.5 },
+        }[placement]}
+        left={position.left ?? "auto"}
+        right={position.right ?? "auto"}
+        style={{
+          transform: position.centered ? "translateX(-50%)" : "none",
+        }}
       >
-        <Tip
-          className={this.state.active && "active"}
-          p={this.props.size === "sm" ? 0.5 : 2}
-          tipPosition={this.state.tipPosition}
-          width={this.props.width}
-        >
-          <Sans size={"2"} color="black60">
-            {content}
-          </Sans>
-        </Tip>
-        <div ref={this.innerWrapper}>{this.props.children}</div>
-      </Wrapper>
-    )
-  }
+        <Text variant={tokens.variant} color="black60">
+          {content}
+        </Text>
+      </Tip>
+
+      <Box ref={innerWrapper as any}>{children}</Box>
+    </Box>
+  )
 }
 
-const formattedTip = (tip: string): string => {
+const truncate = (tip: string): string => {
   let substring = tip.substring(0, 300)
 
   if (substring !== tip) {
@@ -165,3 +150,13 @@ const formattedTip = (tip: string): string => {
 
   return substring
 }
+
+const Tip = styled(Box)`
+  position: absolute;
+  z-index: 1;
+  transition: opacity 250ms ease-out;
+  text-align: left;
+  box-shadow: ${DROP_SHADOW};
+  pointer-events: none;
+  cursor: default;
+`
