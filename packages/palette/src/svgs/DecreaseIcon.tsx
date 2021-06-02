@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import { color } from "../helpers"
-import { Icon, IconProps, Path, Title, G } from "./Icon"
+import { G, Icon, IconProps, Path, Title } from "./Icon"
 
 export const DecreaseIcon: FC<IconProps> = ({
   title = "Decrease",
