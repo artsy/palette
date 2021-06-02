@@ -1,3 +1,22 @@
+# v14.32.0 (Wed Jun 02 2021)
+
+#### 🚀  Enhancement
+
+- add increase/decrease icons [#940](https://github.com/artsy/palette/pull/940) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- lint ([@pvinis](https://github.com/pvinis))
+- ugh ([@pvinis](https://github.com/pvinis))
+- add new icons ([@pvinis](https://github.com/pvinis))
+- sort ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # v14.31.0 (Wed Jun 02 2021)
 
 #### 🚀  Enhancement

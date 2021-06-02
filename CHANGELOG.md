@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.32.0`
+  - add increase/decrease icons [#940](https://github.com/artsy/palette/pull/940) ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
+# (Wed Jun 02 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@14.31.0`
   - feat(tooltip): supports v3; supports keyboard focus [#939](https://github.com/artsy/palette/pull/939) ([@dzucconi](https://github.com/dzucconi))
 
