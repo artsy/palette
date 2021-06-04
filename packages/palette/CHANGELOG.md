@@ -1,3 +1,16 @@
+# v14.33.1 (Fri Jun 04 2021)
+
+#### 🐛  Bug Fix
+
+- fix(radio): allows for custom labels to occupy immediate container [#944](https://github.com/artsy/palette/pull/944) ([@dzucconi](https://github.com/dzucconi))
+- fix(radio): allows for custom labels to occupy immediate container ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.33.0 (Fri Jun 04 2021)
 
 #### 🚀  Enhancement
