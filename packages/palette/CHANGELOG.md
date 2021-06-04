@@ -1,3 +1,15 @@
+# v14.33.0 (Fri Jun 04 2021)
+
+#### 🚀  Enhancement
+
+- fix: images width [#943](https://github.com/artsy/palette/pull/943) (nastassia@wsa-231-72b.local)
+
+#### Authors: 1
+
+- nastassia (nastassia@wsa-231-72b.local)
+
+---
+
 # v14.32.0 (Wed Jun 02 2021)
 
 #### 🚀  Enhancement
