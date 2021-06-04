@@ -1,5 +1,6 @@
 import React from "react"
 import { States } from "storybook-states"
+import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Radio, RadioProps } from "./Radio"
 
@@ -27,10 +28,24 @@ export const Default = () => {
             </Text>
           ),
         },
-        { label: <Text variant="subtitle">Large Custom Label</Text> },
+        { label: <Text variant="lg">Large Custom Label</Text> },
       ]}
     >
       <Radio>A label</Radio>
     </States>
+  )
+}
+
+export const SplitLabel = () => {
+  return (
+    <Radio>
+      <Flex justifyContent="space-between" flex={1}>
+        <Text variant="lg">Label</Text>
+
+        <Text variant="xs" color="black60">
+          Subtitle
+        </Text>
+      </Flex>
+    </Radio>
   )
 }

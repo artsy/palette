@@ -98,7 +98,7 @@ export const Radio: React.FC<RadioProps> = ({
         mr={1}
       />
 
-      <Flex flexDirection="column">
+      <Flex flexDirection="column" flex={1}>
         <Flex alignItems="center" flex={1}>
           {isText(title) ? (
             <Text
