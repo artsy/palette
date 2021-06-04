@@ -16,7 +16,7 @@ export interface SmallCardProps extends BoxProps {
 }
 
 const isArrayOfStrings = (images: Images): images is string[] =>
-  [...images].every(src => typeof src === "string")
+  [...images].every((src) => typeof src === "string")
 
 /**
  * `SmallCard` is a card with a layout one square image on the left,
@@ -31,7 +31,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
   ...rest
 }) => {
   const imageAttributes: WebImageProps[] = isArrayOfStrings(images)
-    ? images.map(src => ({ src }))
+    ? images.map((src) => ({ src }))
     : images
 
   return (
@@ -50,7 +50,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
             <Image
               alt={title}
               height="100%"
-              width="auto"
+              width="100%"
               {...imageAttributes[0]}
             />
           </Box>
@@ -76,7 +76,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
                 <Image
                   alt={title}
                   height="100%"
-                  width="auto"
+                  width={!!images[2] ? "100%" : "auto"}
                   {...imageAttributes[1]}
                 />
               </Box>
@@ -93,7 +93,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
                 <Image
                   alt={title}
                   height="100%"
-                  width="auto"
+                  width="100%"
                   {...imageAttributes[2]}
                 />
               </Box>
