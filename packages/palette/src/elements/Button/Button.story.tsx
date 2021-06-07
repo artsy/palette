@@ -144,3 +144,14 @@ export const Loading = () => {
     </States>
   )
 }
+
+export const As = () => {
+  return (
+    <States states={[{}, { as: "div", children: "This is a div" }]}>
+      {/* @ts-ignore */}
+      <Button as="a" href="#example">
+        This is an anchor tag with an href
+      </Button>
+    </States>
+  )
+}

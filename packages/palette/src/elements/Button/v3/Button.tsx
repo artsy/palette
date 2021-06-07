@@ -65,12 +65,14 @@ type ContainerProps = Pick<
 >
 
 const Container = styled.button<ContainerProps>`
-  display: inline-block;
+  display: inline-flex;
   cursor: pointer;
   position: relative;
   white-space: nowrap;
   text-decoration: none;
   align-items: center;
+  text-align: center;
+  justify-content: center;
   border: 1px solid;
   transition: color 0.25s ease, border-color 0.25s ease,
     background-color 0.25s ease, box-shadow 0.25s ease;
