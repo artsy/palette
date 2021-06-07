@@ -1,3 +1,63 @@
+# v14.33.1 (Fri Jun 04 2021)
+
+#### 🐛  Bug Fix
+
+- fix(radio): allows for custom labels to occupy immediate container [#944](https://github.com/artsy/palette/pull/944) ([@dzucconi](https://github.com/dzucconi))
+- fix(radio): allows for custom labels to occupy immediate container ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v14.33.0 (Fri Jun 04 2021)
+
+#### 🚀  Enhancement
+
+- fix: images width [#943](https://github.com/artsy/palette/pull/943) (nastassia@wsa-231-72b.local)
+
+#### Authors: 1
+
+- nastassia (nastassia@wsa-231-72b.local)
+
+---
+
+# v14.32.0 (Wed Jun 02 2021)
+
+#### 🚀  Enhancement
+
+- add increase/decrease icons [#940](https://github.com/artsy/palette/pull/940) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- lint ([@pvinis](https://github.com/pvinis))
+- ugh ([@pvinis](https://github.com/pvinis))
+- add new icons ([@pvinis](https://github.com/pvinis))
+- sort ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
+# v14.31.0 (Wed Jun 02 2021)
+
+#### 🚀  Enhancement
+
+- feat(tooltip): supports v3; supports keyboard focus [#939](https://github.com/artsy/palette/pull/939) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tooltip): supports v3; supports keyboard focus ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.30.1 (Thu May 27 2021)
 
 #### 🐛  Bug Fix
