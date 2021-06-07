@@ -1,3 +1,16 @@
+# (Mon Jun 07 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.34.0`
+  - feat(button): supports `as` prop [#946](https://github.com/artsy/palette/pull/946) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Jun 04 2021)
 
 #### 🐛  Bug Fix
