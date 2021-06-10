@@ -3,17 +3,16 @@ import styled from "styled-components"
 import { DROP_SHADOW } from "../../helpers"
 import { useThemeConfig } from "../../Theme"
 import { Position, usePosition } from "../../utils/usePosition"
-import { Box, BoxProps } from "../Box"
+import { Box } from "../Box"
 import { Text, TextVariant } from "../Text"
 
-export interface TooltipProps
-  extends BoxProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface TooltipProps {
   content: React.ReactNode
   placement?: Position
   size?: "sm" | "lg"
   width?: number
   visible?: boolean
+  children: React.ReactElement<any, string | React.JSXElementConstructor<any>>
 }
 
 /**
@@ -26,7 +25,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   width = 230,
   placement = "bottom-end",
   visible,
-  ...rest
 }) => {
   const tooltipRef = useRef<HTMLDivElement | null>(null)
   const anchorRef = useRef<HTMLDivElement | null>(null)
@@ -61,16 +59,17 @@ export const Tooltip: React.FC<TooltipProps> = ({
   })
 
   return (
-    <Box
-      tabIndex={1}
-      onClick={handleClick}
-      onMouseOver={activate}
-      onMouseOut={deactivate}
-      onFocus={activate}
-      onBlur={deactivate}
-      display="inline-block"
-      {...rest}
-    >
+    <>
+      {React.cloneElement(children, {
+        ref: anchorRef,
+        tabIndex: 1,
+        onClick: handleClick,
+        onMouseOver: activate,
+        onMouseOut: deactivate,
+        onFocus: activate,
+        onBlur: deactivate,
+      })}
+
       <Tip
         p={size === "sm" ? 0.5 : 2}
         width={width}
@@ -87,9 +86,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           {content}
         </Text>
       </Tip>
-
-      <Box ref={anchorRef as any}>{children}</Box>
-    </Box>
+    </>
   )
 }
 

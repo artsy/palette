@@ -2,6 +2,7 @@ import React from "react"
 import { States } from "storybook-states"
 import { HelpIcon } from "../../svgs"
 import { Position, POSITION } from "../../utils/usePosition"
+import { Box } from "../Box"
 import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
 
@@ -21,7 +22,7 @@ export const Default = () => {
         { placement: "bottom", visible: true },
       ]}
     >
-      <Tooltip content={CONTENT} display="block">
+      <Tooltip content={CONTENT}>
         <Text
           variant="xs"
           textAlign="center"
@@ -45,18 +46,13 @@ export const Placement = () => {
     >
       {(props) => {
         return (
-          <Tooltip
-            content={JSON.stringify(props)}
-            visible
-            display="block"
-            maxWidth="50%"
-            mx="auto"
-            {...props}
-          >
+          <Tooltip content={JSON.stringify(props)} visible {...props}>
             <Text
               variant="xs"
               textAlign="center"
               p={1}
+              maxWidth="50%"
+              mx="auto"
               bg="black100"
               color="white100"
             >
@@ -73,15 +69,11 @@ export const IconExample = () => {
   return (
     <Text variant="xs" display="flex" alignItems="center" lineHeight={1}>
       Hover (or focus) the icon to display the tooltip.{" "}
-      <Tooltip
-        content={CONTENT}
-        placement="bottom"
-        ml={0.5}
-        // In our case, if we want true vertical centering we need
-        // to zero-out the `lineHeight`
-        style={{ lineHeight: 0 }}
-      >
-        <HelpIcon />
+      <Tooltip content={CONTENT} placement="bottom">
+        {/* Icons don't forwardRefs so we have to wrap in a span */}
+        <Box as="span" style={{ lineHeight: 0 }}>
+          <HelpIcon ml={0.5} />
+        </Box>
       </Tooltip>
     </Text>
   )
