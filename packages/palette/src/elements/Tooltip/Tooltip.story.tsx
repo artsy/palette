@@ -1,6 +1,7 @@
 import React from "react"
 import { States } from "storybook-states"
 import { HelpIcon } from "../../svgs"
+import { Position, POSITION } from "../../utils/usePosition"
 import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
 
@@ -15,17 +16,55 @@ export const Default = () => {
   return (
     <States<Partial<TooltipProps>>
       states={[
-        { placement: "top" },
-        { placement: "bottom" },
-        { placement: "top", width: 600 },
+        { placement: "top-start" },
+        { placement: "bottom", width: 600 },
         { placement: "bottom", visible: true },
       ]}
     >
       <Tooltip content={CONTENT} display="block">
-        <Text variant="xs" textAlign="center">
+        <Text
+          variant="xs"
+          textAlign="center"
+          p={1}
+          bg="black100"
+          color="white100"
+        >
           This text has a tooltip
         </Text>
       </Tooltip>
+    </States>
+  )
+}
+
+export const Placement = () => {
+  return (
+    <States<Partial<TooltipProps>>
+      states={Object.keys(POSITION).map((placement) => ({
+        placement: placement as Position,
+      }))}
+    >
+      {(props) => {
+        return (
+          <Tooltip
+            content={JSON.stringify(props)}
+            visible
+            display="block"
+            maxWidth="50%"
+            mx="auto"
+            {...props}
+          >
+            <Text
+              variant="xs"
+              textAlign="center"
+              p={1}
+              bg="black100"
+              color="white100"
+            >
+              {JSON.stringify(props)}
+            </Text>
+          </Tooltip>
+        )
+      }}
     </States>
   )
 }

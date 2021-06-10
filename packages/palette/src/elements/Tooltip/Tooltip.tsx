@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import { DROP_SHADOW } from "../../helpers"
 import { useThemeConfig } from "../../Theme"
+import { Position, usePosition } from "../../utils/usePosition"
 import { Box, BoxProps } from "../Box"
 import { Text, TextVariant } from "../Text"
 
@@ -9,7 +10,7 @@ export interface TooltipProps
   extends BoxProps,
     React.HTMLAttributes<HTMLDivElement> {
   content: React.ReactNode
-  placement?: "top" | "bottom"
+  placement?: Position
   size?: "sm" | "lg"
   width?: number
   visible?: boolean
@@ -23,61 +24,14 @@ export const Tooltip: React.FC<TooltipProps> = ({
   content: _content,
   size = "lg",
   width = 230,
-  placement = "top",
+  placement = "bottom-end",
   visible,
   ...rest
 }) => {
-  const innerWrapper = useRef<HTMLDivElement | null>(null)
+  const tooltipRef = useRef<HTMLDivElement | null>(null)
+  const anchorRef = useRef<HTMLDivElement | null>(null)
 
   const [active, setActive] = useState(false)
-  const [position, setPosition] = useState({
-    left: 0,
-    right: null,
-    centered: true,
-  })
-
-  const computeTipPosition = () => {
-    if (!innerWrapper.current) return
-
-    let left = 0
-    let right = null
-    let centered = false
-
-    const inner = innerWrapper.current.getBoundingClientRect()
-
-    left = inner.width / 2
-    centered = true
-    const spillOver = width / 2 - left
-
-    if (spillOver > inner.left) {
-      centered = false
-      left = 0
-      right = null
-    }
-
-    if (spillOver > window.innerWidth - inner.right) {
-      centered = false
-      left = null
-      right = 0
-    }
-
-    return {
-      centered,
-      left,
-      right,
-    }
-  }
-
-  useEffect(() => {
-    const handler = () => setPosition(computeTipPosition())
-
-    handler()
-    window.addEventListener("resize", handler)
-
-    return () => {
-      window.removeEventListener("resize", handler)
-    }
-  }, [])
 
   const handleClick = () => {
     setActive((prevActive) => !prevActive)
@@ -98,6 +52,14 @@ export const Tooltip: React.FC<TooltipProps> = ({
     v3: { variant: "xs" as TextVariant },
   })
 
+  usePosition({
+    anchorRef,
+    tooltipRef,
+    position: placement,
+    offset: 10,
+    active: visible ?? active,
+  })
+
   return (
     <Box
       tabIndex={1}
@@ -106,8 +68,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
       onMouseOut={deactivate}
       onFocus={activate}
       onBlur={deactivate}
-      position="relative"
-      // TODO: Should avoid making assumptions about display
       display="inline-block"
       {...rest}
     >
@@ -115,28 +75,20 @@ export const Tooltip: React.FC<TooltipProps> = ({
         p={size === "sm" ? 0.5 : 2}
         width={width}
         bg="white100"
+        ref={tooltipRef as any}
+        zIndex={1}
         {...(visible
           ? // If there's a visible prop being passed; use that
             { opacity: visible ? 1 : 0 }
           : // Otherwise use the active state
             { opacity: active ? 1 : 0 })}
-        // Positioning
-        {...{
-          bottom: { top: "100%", mt: 0.5 },
-          top: { bottom: "100%", mb: 0.5 },
-        }[placement]}
-        left={position.left ?? "auto"}
-        right={position.right ?? "auto"}
-        style={{
-          transform: position.centered ? "translateX(-50%)" : "none",
-        }}
       >
         <Text variant={tokens.variant} color="black60">
           {content}
         </Text>
       </Tip>
 
-      <Box ref={innerWrapper as any}>{children}</Box>
+      <Box ref={anchorRef as any}>{children}</Box>
     </Box>
   )
 }
@@ -157,6 +109,6 @@ const Tip = styled(Box)`
   transition: opacity 250ms ease-out;
   text-align: left;
   box-shadow: ${DROP_SHADOW};
-  pointer-events: none;
   cursor: default;
+  pointer-events: none;
 `
