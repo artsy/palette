@@ -1,11 +1,5 @@
 import styled from "styled-components"
-import {
-  border,
-  BorderProps,
-  space as styledSpace,
-  SpaceProps,
-} from "styled-system"
-import { color, space } from "../../helpers"
+import { BorderProps, SpaceProps } from "styled-system"
 import { Flex, FlexProps } from "../Flex"
 
 export interface BorderBoxProps extends FlexProps, BorderProps, SpaceProps {
@@ -13,13 +7,15 @@ export interface BorderBoxProps extends FlexProps, BorderProps, SpaceProps {
 }
 
 /**
- * A `View` or `div` (depending on the platform) that has a common border
- * and padding set by default
+ * A `div` that has a common border and padding set by default
  */
 export const BorderBoxBase = styled(Flex)<BorderBoxProps>`
-  border: 1px solid ${color("black10")};
+  border-width: 1px;
+  border-style: solid;
   border-radius: 2px;
-  padding: ${space(2)}px;
-  ${border}
-  ${styledSpace}
 `
+
+BorderBoxBase.defaultProps = {
+  borderColor: "black10",
+  p: 2,
+}
