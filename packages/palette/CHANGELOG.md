@@ -1,3 +1,16 @@
+# v14.35.1 (Fri Jun 11 2021)
+
+#### 🐛  Bug Fix
+
+- fix(popover): skips focus management on initial mount [#948](https://github.com/artsy/palette/pull/948) ([@dzucconi](https://github.com/dzucconi))
+- fix(popover): skips focus management on initial mount ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.35.0 (Fri Jun 11 2021)
 
 #### 🚀  Enhancement
