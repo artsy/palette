@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@14.35.2`
+  - fix(tooltip): avoids blowing away child props [#949](https://github.com/artsy/palette/pull/949) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Jun 11 2021)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@14.35.1`
   - fix(popover): skips focus management on initial mount [#948](https://github.com/artsy/palette/pull/948) ([@dzucconi](https://github.com/dzucconi))
 
