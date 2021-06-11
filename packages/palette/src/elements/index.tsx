@@ -1,3 +1,4 @@
+export * from "./Popover"
 export * from "./Avatar"
 export * from "./Banner"
 export * from "./BarChart"

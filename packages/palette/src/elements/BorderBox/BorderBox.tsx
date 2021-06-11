@@ -1,5 +1,5 @@
+import { themeGet } from "@styled-system/theme-get"
 import styled, { css } from "styled-components"
-import { color } from "../../helpers"
 import { BorderBoxBase, BorderBoxProps } from "./BorderBoxBase"
 
 /**
@@ -11,7 +11,7 @@ export const BorderBox = styled(BorderBoxBase)<BorderBoxProps>`
     hover &&
     css`
       :hover {
-        border-color: ${color("black60")};
+        border-color: ${themeGet("colors.black60")};
       }
     `};
 `

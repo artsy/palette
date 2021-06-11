@@ -1,3 +1,4 @@
+import composeRefs from "@seznam/compose-react-refs"
 import React, { useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
 import { variant } from "styled-system"
@@ -8,52 +9,49 @@ import { Sans } from "../../Typography"
 import { ButtonProps } from "../Button"
 import { BUTTON_SIZES, BUTTON_TEXT_SIZES, BUTTON_VARIANTS } from "./tokens"
 
-export const ButtonV2: React.FC<ButtonProps> = ({
-  children,
-  loading,
-  color,
-  size,
-  onClick,
-  ...rest
-}) => {
-  const ref = useRef<HTMLButtonElement | null>(null)
+export const ButtonV2: React.ForwardRefExoticComponent<
+  ButtonProps & { ref?: React.Ref<HTMLElement> }
+> = React.forwardRef(
+  ({ children, loading, color, size, onClick, ...rest }, forwardedRef) => {
+    const ref = useRef<HTMLButtonElement | null>(null)
 
-  const handleClick = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    if (!loading && onClick) {
-      onClick(event)
+    const handleClick = (
+      event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
+      if (!loading && onClick) {
+        onClick(event)
+      }
     }
-  }
 
-  useEffect(() => {
-    if (loading && ref.current !== null) {
-      ref.current.blur()
-    }
-  }, [loading])
+    useEffect(() => {
+      if (loading && ref.current !== null) {
+        ref.current.blur()
+      }
+    }, [loading])
 
-  return (
-    <Container
-      ref={ref as any}
-      onClick={handleClick}
-      size={size}
-      loading={loading}
-      tabIndex={loading ? -1 : 0}
-      {...rest}
-    >
-      {loading && <Spinner size={size} color="currentColor" />}
-
-      <Sans
-        pt="1px"
-        weight="medium"
-        size={BUTTON_TEXT_SIZES[size]}
-        opacity={loading ? 0 : 1}
+    return (
+      <Container
+        ref={composeRefs(ref, forwardedRef) as any}
+        onClick={handleClick}
+        size={size}
+        loading={loading}
+        tabIndex={loading ? -1 : 0}
+        {...rest}
       >
-        {children}
-      </Sans>
-    </Container>
-  )
-}
+        {loading && <Spinner size={size} color="currentColor" />}
+
+        <Sans
+          pt="1px"
+          weight="medium"
+          size={BUTTON_TEXT_SIZES[size]}
+          opacity={loading ? 0 : 1}
+        >
+          {children}
+        </Sans>
+      </Container>
+    )
+  }
+)
 
 ButtonV2.defaultProps = {
   size: "medium",
