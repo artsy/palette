@@ -1,8 +1,10 @@
+import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
 import { HelpIcon } from "../../svgs"
 import { Position, POSITION } from "../../utils/usePosition"
 import { Box } from "../Box"
+import { Clickable } from "../Clickable"
 import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
 
@@ -32,6 +34,26 @@ export const Default = () => {
         >
           This text has a tooltip
         </Text>
+      </Tooltip>
+    </States>
+  )
+}
+
+export const _Clickable = () => {
+  return (
+    <States<Partial<TooltipProps>> states={[{}]}>
+      <Tooltip content={CONTENT}>
+        <Clickable onClick={action("onClick")}>
+          <Text
+            variant="xs"
+            textAlign="center"
+            p={1}
+            bg="black100"
+            color="white100"
+          >
+            This text has a tooltip and is clickable
+          </Text>
+        </Clickable>
       </Tooltip>
     </States>
   )

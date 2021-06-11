@@ -52,11 +52,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
       {React.cloneElement(children, {
         ref: anchorRef,
         tabIndex: 0,
-        onClick: handleClick,
-        onMouseOver: activate,
-        onMouseOut: deactivate,
-        onFocus: activate,
-        onBlur: deactivate,
+        onClick: compose(handleClick, children.props?.onClick),
+        onMouseOver: compose(activate, children.props?.onMouseOver),
+        onMouseOut: compose(deactivate, children.props?.onMouseOut),
+        onFocus: compose(activate, children.props?.onFocus),
+        onBlur: compose(deactivate, children.props?.onBlur),
       })}
 
       <Tip
@@ -77,6 +77,16 @@ export const Tooltip: React.FC<TooltipProps> = ({
   )
 }
 
+const Tip = styled(Box)`
+  position: absolute;
+  z-index: 1;
+  transition: opacity 250ms ease-out;
+  text-align: left;
+  box-shadow: ${DROP_SHADOW};
+  cursor: default;
+  pointer-events: none;
+`
+
 const truncate = (tip: string): string => {
   let substring = tip.substring(0, 300)
 
@@ -87,12 +97,9 @@ const truncate = (tip: string): string => {
   return substring
 }
 
-const Tip = styled(Box)`
-  position: absolute;
-  z-index: 1;
-  transition: opacity 250ms ease-out;
-  text-align: left;
-  box-shadow: ${DROP_SHADOW};
-  cursor: default;
-  pointer-events: none;
-`
+const compose = (a?: (...args: any) => any, b?: (...args: any) => any) => {
+  return (...args) => {
+    a?.(...args)
+    b?.(...args)
+  }
+}
