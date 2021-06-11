@@ -22,7 +22,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   content: _content,
   size = "lg",
   width = 230,
-  placement = "bottom-end",
+  placement = "top",
   visible,
 }) => {
   const [active, setActive] = useState(false)
