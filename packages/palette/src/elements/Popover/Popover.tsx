@@ -4,6 +4,7 @@ import { DROP_SHADOW } from "../../helpers"
 import { isText } from "../../helpers/isText"
 import { CloseIcon } from "../../svgs"
 import { Position, useClickOutside, usePosition } from "../../utils"
+import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
@@ -47,7 +48,7 @@ export const Popover: React.FC<PopoverProps> = ({
   }, [_visible])
 
   // Yields focus back and forth between popover and anchor
-  useEffect(() => {
+  useUpdateEffect(() => {
     if (visible && tooltipRef.current) {
       tooltipRef.current.focus()
       return
