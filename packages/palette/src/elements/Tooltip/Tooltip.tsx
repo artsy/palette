@@ -9,7 +9,7 @@ export interface TooltipProps {
   content: React.ReactNode
   placement?: Position
   size?: "sm" | "lg"
-  width?: number
+  width?: number | null
   visible?: boolean
   children: React.ReactElement<any, string | React.JSXElementConstructor<any>>
 }
