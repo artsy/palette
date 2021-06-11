@@ -31,6 +31,8 @@ export const Button: React.ForwardRefExoticComponent<
   return <Component ref={forwardedRef} {...props} />
 })
 
+Button.displayName = "Button"
+
 Button.defaultProps = {
   size: "medium",
   variant: "primaryBlack",
