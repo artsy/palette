@@ -41,8 +41,8 @@ export const usePosition = ({
   /** Optionally disable for performance (default: `true`) */
   active?: boolean
 }) => {
-  const tooltipRef = useRef<HTMLDivElement | null>(null)
-  const anchorRef = useRef<HTMLDivElement | null>(null)
+  const tooltipRef = useRef<HTMLElement | null>(null)
+  const anchorRef = useRef<HTMLElement | null>(null)
 
   useLayoutEffect(() => {
     if (!tooltipRef.current || !anchorRef.current) return

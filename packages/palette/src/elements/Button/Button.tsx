@@ -24,10 +24,12 @@ export interface ButtonProps
 }
 
 /** A button with various size and color settings */
-export const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.ForwardRefExoticComponent<
+  ButtonProps & { ref?: React.Ref<HTMLElement> }
+> = React.forwardRef((props, forwardedRef) => {
   const Component = useThemeConfig({ v2: ButtonV2, v3: ButtonV3 })
-  return <Component {...props} />
-}
+  return <Component ref={forwardedRef} {...props} />
+})
 
 Button.defaultProps = {
   size: "medium",
