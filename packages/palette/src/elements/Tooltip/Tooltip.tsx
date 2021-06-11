@@ -51,7 +51,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     <>
       {React.cloneElement(children, {
         ref: anchorRef,
-        tabIndex: 1,
+        tabIndex: 0,
         onClick: handleClick,
         onMouseOver: activate,
         onMouseOut: deactivate,

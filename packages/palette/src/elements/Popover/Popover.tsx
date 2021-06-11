@@ -92,7 +92,7 @@ export const Popover: React.FC<PopoverProps> = ({
 
       {visible && (
         <Tip
-          tabIndex={1}
+          tabIndex={0}
           ref={tooltipRef as any}
           zIndex={1}
           display="inline-block"
