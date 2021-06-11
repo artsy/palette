@@ -1,10 +1,9 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { DROP_SHADOW } from "../../helpers"
-import { useThemeConfig } from "../../Theme"
 import { Position, usePosition } from "../../utils/usePosition"
 import { Box } from "../Box"
-import { Text, TextVariant } from "../Text"
+import { Text } from "../Text"
 
 export interface TooltipProps {
   content: React.ReactNode
@@ -26,9 +25,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   placement = "bottom-end",
   visible,
 }) => {
-  const tooltipRef = useRef<HTMLDivElement | null>(null)
-  const anchorRef = useRef<HTMLDivElement | null>(null)
-
   const [active, setActive] = useState(false)
 
   const handleClick = () => {
@@ -45,14 +41,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   const content = typeof _content === "string" ? truncate(_content) : _content
 
-  const tokens = useThemeConfig({
-    v2: { variant: "small" as TextVariant },
-    v3: { variant: "xs" as TextVariant },
-  })
-
-  usePosition({
-    anchorRef,
-    tooltipRef,
+  const { anchorRef, tooltipRef } = usePosition({
     position: placement,
     offset: 10,
     active: visible ?? active,
@@ -82,9 +71,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           : // Otherwise use the active state
             { opacity: active ? 1 : 0 })}
       >
-        <Text variant={tokens.variant} color="black60">
-          {content}
-        </Text>
+        <Text variant="xs">{content}</Text>
       </Tip>
     </>
   )

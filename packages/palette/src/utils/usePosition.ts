@@ -1,8 +1,7 @@
 /**
  * Adapted from https://codesandbox.io/s/positioning-tooltip-rhplo
  */
-
-import React, { useEffect } from "react"
+import { useEffect, useLayoutEffect, useRef } from "react"
 
 export const POSITION = {
   "top-start": "top-start",
@@ -32,23 +31,20 @@ interface TargetPosition {
  * partially offscreen and will move correctly when the parent is scrolled.
  */
 export const usePosition = ({
-  anchorRef,
-  tooltipRef,
   position,
   offset = 0,
   active = true,
 }: {
-  /** Element that floating element is anchored to  */
-  anchorRef: React.MutableRefObject<HTMLElement>
-  /** Element you want to position relative to the anchor */
-  tooltipRef: React.MutableRefObject<HTMLElement>
   position: Position
   /** Distance from anchor (default: `0`) */
   offset?: number
   /** Optionally disable for performance (default: `true`) */
   active?: boolean
 }) => {
-  useEffect(() => {
+  const tooltipRef = useRef<HTMLDivElement | null>(null)
+  const anchorRef = useRef<HTMLDivElement | null>(null)
+
+  useLayoutEffect(() => {
     if (!tooltipRef.current || !anchorRef.current) return
 
     const { current: tooltip } = tooltipRef
@@ -59,8 +55,6 @@ export const usePosition = ({
     tooltip.style.left = "0"
 
     const scrollableParents = getScrollableParents(anchor)
-
-    placeTooltip(anchor, tooltip, position, scrollableParents, offset)
 
     const handlers = scrollableParents.map((scrollableParent) => {
       return {
@@ -85,6 +79,8 @@ export const usePosition = ({
 
     window.addEventListener("resize", handleResize, { passive: true })
 
+    placeTooltip(anchor, tooltip, position, scrollableParents, offset)
+
     return () => {
       handlers.forEach(({ scrollableParent, handlerScroll }) => {
         scrollableParent.removeEventListener("scroll", handlerScroll)
@@ -92,14 +88,25 @@ export const usePosition = ({
 
       window.removeEventListener("resize", handleResize)
     }
-  }, [active])
+  }, [active, tooltipRef, anchorRef])
+
+  return {
+    // Element that floating element is anchored to
+    tooltipRef,
+    // Element you want to position relative to the anchor
+    anchorRef,
+  }
+}
+
+const isDocument = (element: HTMLElement | Document): element is Document => {
+  return element.ownerDocument === null
 }
 
 const placeTooltip = (
   anchor: HTMLElement,
   tooltip: HTMLElement,
   position: Position,
-  scrollableParents: HTMLElement[],
+  scrollableParents: Array<HTMLElement | Document>,
   offset = 0
 ) => {
   const elementRect = anchor.getBoundingClientRect()
@@ -109,11 +116,9 @@ const placeTooltip = (
 
   // Flip to avoid edges
   for (const scrollableParent of scrollableParents) {
-    const boundaryRect =
-      // @ts-ignore
-      scrollableParent === document
-        ? getDocumentBoundingRect()
-        : scrollableParent.getBoundingClientRect()
+    const boundaryRect = isDocument(scrollableParent)
+      ? getDocumentBoundingRect()
+      : scrollableParent.getBoundingClientRect()
     if (shouldFlip(targetPosition, position, boundaryRect, tooltipRect)) {
       position = getOppositePosition(position)
       targetPosition = getPosition(elementRect, tooltipRect, position)
@@ -122,11 +127,9 @@ const placeTooltip = (
 
   // Clamp position within boundary
   for (const scrollableParent of scrollableParents) {
-    const boundaryRect =
-      // @ts-ignore
-      scrollableParent === document
-        ? getDocumentBoundingRect()
-        : scrollableParent.getBoundingClientRect()
+    const boundaryRect = isDocument(scrollableParent)
+      ? getDocumentBoundingRect()
+      : scrollableParent.getBoundingClientRect()
     targetPosition.x = Math.max(boundaryRect.left, targetPosition.x)
     targetPosition.x = Math.min(
       boundaryRect.right - tooltipRect.width,
@@ -142,11 +145,9 @@ const placeTooltip = (
   let shouldHide = false
 
   for (const scrollableParent of scrollableParents) {
-    const boundaryRect =
-      // @ts-ignore
-      scrollableParent === document
-        ? getDocumentBoundingRect()
-        : scrollableParent.getBoundingClientRect()
+    const boundaryRect = isDocument(scrollableParent)
+      ? getDocumentBoundingRect()
+      : scrollableParent.getBoundingClientRect()
     if (!isWithin(elementRect, boundaryRect)) {
       shouldHide = true
       break
@@ -154,6 +155,7 @@ const placeTooltip = (
   }
 
   tooltip.style.display = shouldHide ? "none" : "block"
+
   tooltip.style.transform = translateWithOffset(
     targetPosition,
     position,
@@ -230,7 +232,7 @@ const getPosition = (
 
 const getScrollableParents = (element: HTMLElement) => {
   let parent = element.parentElement
-  const scrollableParents = []
+  const scrollableParents: Array<HTMLElement | Document> = []
 
   while (parent) {
     const computedStyle = getComputedStyle(parent)
