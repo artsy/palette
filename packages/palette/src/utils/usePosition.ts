@@ -1,7 +1,7 @@
 /**
  * Adapted from https://codesandbox.io/s/positioning-tooltip-rhplo
  */
-import { useEffect, useLayoutEffect, useRef } from "react"
+import { useLayoutEffect, useRef } from "react"
 
 export const POSITION = {
   "top-start": "top-start",
