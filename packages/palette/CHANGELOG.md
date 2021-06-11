@@ -1,3 +1,31 @@
+# v14.35.0 (Fri Jun 11 2021)
+
+#### 🚀  Enhancement
+
+- Tooltip/Popover positioning [#947](https://github.com/artsy/palette/pull/947) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(popover): implements popovers ([@dzucconi](https://github.com/dzucconi))
+- fix(tooltip,popover): fixes tab order ([@dzucconi](https://github.com/dzucconi))
+- fix(tooltip): updates default ([@dzucconi](https://github.com/dzucconi))
+- fix(tooltip): support null widths for implict widths ([@dzucconi](https://github.com/dzucconi))
+- fix(button): fixes display name ([@dzucconi](https://github.com/dzucconi))
+- fix: removes unused import ([@dzucconi](https://github.com/dzucconi))
+- fix(popover): sets default placement ([@dzucconi](https://github.com/dzucconi))
+- refactor(borderbox): cleans up border box ([@dzucconi](https://github.com/dzucconi))
+- fix: updates tooltips to v3 ([@dzucconi](https://github.com/dzucconi))
+- feat(hooks): adds click outside hook ([@dzucconi](https://github.com/dzucconi))
+- fix(tooltip): removes wrapper divs ([@dzucconi](https://github.com/dzucconi))
+- refactor(tooltip): updates tooltip to use positioning engine hook ([@dzucconi](https://github.com/dzucconi))
+- feat: adds usePosition hook ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.34.0 (Mon Jun 07 2021)
 
 #### 🚀  Enhancement

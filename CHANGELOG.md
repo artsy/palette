@@ -1,3 +1,16 @@
+# (Fri Jun 11 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.35.0`
+  - Tooltip/Popover positioning [#947](https://github.com/artsy/palette/pull/947) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Jun 07 2021)
 
 #### 🚀  Enhancement
