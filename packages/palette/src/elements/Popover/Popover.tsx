@@ -34,7 +34,7 @@ export interface PopoverProps {
  */
 export const Popover: React.FC<PopoverProps> = ({
   title,
-  placement,
+  placement = "top",
   visible: _visible = false,
   children,
   popover,
