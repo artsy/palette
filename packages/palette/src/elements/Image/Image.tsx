@@ -6,6 +6,7 @@ import { LazyImage } from "./LazyImage"
 import {
   borderRadius,
   BorderRadiusProps,
+  compose,
   height,
   HeightProps,
   maxHeight,
@@ -24,6 +25,8 @@ import {
 export interface WebImageProps extends ImageProps {
   /** Flag for if image should be lazy loaded */
   lazyLoad?: boolean
+  /** Enable loading animation */
+  enableAnimation?: boolean
   /** Alternate text for image */
   alt?: string
   /** A11y text label */
@@ -63,11 +66,7 @@ export interface ImageProps
  * Image component with space, width and height properties
  */
 export const BaseImage = styled(CleanTag.as("img"))<ImageProps>`
-  ${space};
-  ${width};
-  ${height};
-  ${maxHeight};
-  ${borderRadius}
+  ${compose(space, width, height, maxHeight, borderRadius)}
 `
 
 export interface ResponsiveImageProps
@@ -86,9 +85,7 @@ export const BaseResponsiveImage = styled(CleanTag)<ResponsiveImageProps>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  ${space};
-  ${width};
-  ${maxWidth};
+  ${compose(space, width, maxWidth)};
   ${(props) =>
     props.ratio
       ? {

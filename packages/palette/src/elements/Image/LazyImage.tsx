@@ -1,20 +1,19 @@
 import React, { CSSProperties, useState } from "react"
 import { LazyLoadImage } from "react-lazy-load-image-component"
-import styled, { css, keyframes } from "styled-components"
+import styled from "styled-components"
 import {
   borderRadius as borderRadiusStyle,
   BorderRadiusProps,
   HeightProps,
   WidthProps,
 } from "styled-system"
-import { color } from "../../helpers/color"
-import { Box, BoxProps } from "../Box"
 import { CleanTag, omitProps } from "../CleanTag"
+import { SkeletonBox } from "../Skeleton"
 import { WebImageProps } from "./Image"
 import { BaseImage as Image } from "./Image"
 
 const imagePropsToOmit = omitProps.filter(
-  prop => prop !== "width" && prop !== "height"
+  (prop) => prop !== "width" && prop !== "height"
 )
 
 const InnerLazyImage = styled(CleanTag.as(LazyLoadImage))<
@@ -30,28 +29,6 @@ const InnerLazyImage = styled(CleanTag.as(LazyLoadImage))<
 `
 InnerLazyImage.displayName = "InnerLazyImage"
 
-/**
- * The animation that's used for the background of an image while it's loading
- * in.
- */
-const pulse = keyframes`
-  0% { background-color: ${color("black10")}; }
-  50% { background-color: ${color("black5")}; }
-  100% { background-color: ${color("black10")}; }
-`
-
-// TODO: Move animation out to a shared place
-const pulseAnimation = () =>
-  css`
-    ${pulse} 2s ease-in-out infinite;
-  `
-
-const Placeholder = styled(Box)<BoxProps & BorderRadiusProps>`
-  background-color: ${color("black10")};
-  animation: ${pulseAnimation};
-  ${borderRadiusStyle}
-`
-
 interface LazyImageProps
   extends WebImageProps,
     WidthProps,
@@ -63,6 +40,8 @@ interface LazyImageProps
   // TODO: Resolve type issues
   /** The image component to render when preload is true */
   imageComponent?: any // FunctionComponent<ImageProps>
+  /** Should placeholder pulse while loading */
+  enableAnimation?: boolean
   onContextMenu?: (e: any) => void
   onError?: (event: React.SyntheticEvent<any, Event>) => void
 }
@@ -71,9 +50,11 @@ interface LazyImageProps
 export const LazyImage: React.FC<LazyImageProps> = ({
   preload = false,
   imageComponent: ImageComponent = Image,
+  enableAnimation = false,
   ...props
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false)
+
   const {
     src,
     srcSet,
@@ -87,13 +68,19 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     onError,
     ...containerProps
   } = props
-  return preload ? (
-    <ImageComponent {...props} />
-  ) : (
-    <Placeholder
+
+  if (preload) {
+    return <ImageComponent {...props} />
+  }
+
+  const handleLoad = () => setImageLoaded(true)
+
+  return (
+    <SkeletonBox
       width={width}
       height={height}
       borderRadius={borderRadius}
+      done={!enableAnimation || isImageLoaded}
       {...containerProps}
     >
       <InnerLazyImage
@@ -111,11 +98,11 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           ...style,
           opacity: isImageLoaded ? "1" : "0",
         }}
-        onLoad={() => setImageLoaded(true)}
+        onLoad={handleLoad}
       />
       <noscript>
         <ImageComponent {...props} />
       </noscript>
-    </Placeholder>
+    </SkeletonBox>
   )
 }
