@@ -1,3 +1,16 @@
+# v14.36.1 (Thu Jun 17 2021)
+
+#### 🐛  Bug Fix
+
+- fix(image,skeleton): optimizes skeleton animations [#950](https://github.com/artsy/palette/pull/950) ([@dzucconi](https://github.com/dzucconi))
+- fix(image,skeleton): optimizes skeleton animations ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.36.0 (Thu Jun 17 2021)
 
 #### 🚀  Enhancement
