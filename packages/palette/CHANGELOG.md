@@ -1,3 +1,20 @@
+# v14.36.0 (Thu Jun 17 2021)
+
+#### 🚀  Enhancement
+
+- Some small cleanup [#942](https://github.com/artsy/palette/pull/942) ([@pvinis](https://github.com/pvinis))
+
+#### 🐛  Bug Fix
+
+- Merge branch 'master' into pavlos/cleanup ([@pvinis](https://github.com/pvinis))
+- remove PageViewsIcon ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # v14.35.2 (Fri Jun 11 2021)
 
 #### 🐛  Bug Fix

@@ -1,3 +1,16 @@
+# (Thu Jun 17 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.36.0`
+  - Some small cleanup [#942](https://github.com/artsy/palette/pull/942) ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # (Fri Jun 11 2021)
 
 #### 🐛  Bug Fix
