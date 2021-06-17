@@ -12,10 +12,15 @@ for the masterlist.
 
 <Flex flexWrap="wrap">
   {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
-    const blacklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
+    const blocklist = [
+      // We show these further down.
+      "ChevronIcon", "CreditCardIcon", "Icon",
+      // Skip these since they are not actual icons, just svg tags.
+      "G", "Title", "Circle", "Path", "Rect",
+    ]
     if (
       !_.isFunction(IconComponent) ||
-      blacklist.some(icon => icon === iconName)
+      blocklist.some(icon => icon === iconName)
     ) {
       return null
     }
@@ -41,7 +46,7 @@ left, right, up, down direction. By default it uses right:
   <ChevronIcon direction="up" height="40px" width="40px" />
   <ChevronIcon direction="down" height="40px" width="40px" />
   <ChevronIcon direction="left" height="40px" width="40px" />
-  <ChevronIcon direction="right" height="40px" width="40px" />   
+  <ChevronIcon direction="right" height="40px" width="40px" />
 </BorderBox>
 
 <Spacer mb={3} />
