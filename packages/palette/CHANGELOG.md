@@ -1,3 +1,21 @@
+# v14.37.0 (Mon Jun 21 2021)
+
+#### 🚀  Enhancement
+
+- feat(placeholder): implements placeholder [#951](https://github.com/artsy/palette/pull/951) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(skeleton): removes placeholder; updates skeleton [#953](https://github.com/artsy/palette/pull/953) ([@dzucconi](https://github.com/dzucconi))
+- fix(skeleton): removes placeholder; updates skeleton ([@dzucconi](https://github.com/dzucconi))
+- feat(placeholder): implements placeholder ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.36.1 (Thu Jun 17 2021)
 
 #### 🐛  Bug Fix
