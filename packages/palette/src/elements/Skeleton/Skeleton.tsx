@@ -6,42 +6,17 @@ import { splitProps } from "../../utils/splitProps"
 import { Box, BoxProps } from "../Box"
 import { Text, TextProps } from "../Text"
 
-interface DoneProps {
-  done?: boolean
-}
-
 /** SkeletonProps */
-export type SkeletonBoxProps = BoxProps & DoneProps
+export type SkeletonBoxProps = BoxProps
 
-/** Skeleton */
-export const SkeletonBox: React.FC<SkeletonBoxProps> = ({
-  done,
-  children,
-  ...rest
-}) => {
-  return (
-    <Box bg="black10" position="relative" overflow="hidden" {...rest}>
-      {!done && (
-        <SkeletonFade
-          position="absolute"
-          top={0}
-          right={0}
-          bottom={0}
-          left={0}
-        />
-      )}
-
-      {children}
-    </Box>
-  )
-}
+/** A black10 Box */
+export const SkeletonBox = styled(Box)``
+SkeletonBox.defaultProps = { bg: "black10" }
 
 const splitBorderProps = splitProps<BorderProps>(border)
 
 /** SkeletonTextProps */
-export type SkeletonTextProps = TextProps & {
-  done?: boolean
-}
+export type SkeletonTextProps = TextProps
 
 const SkeletonTextOverlay = styled(SkeletonBox)`
   position: absolute;
@@ -52,10 +27,11 @@ const SkeletonTextOverlay = styled(SkeletonBox)`
   transform: translateY(-50%);
 `
 
-/** SkeletonText */
+/**
+ * Allows you to create boxes the exact dimensions of a given piece of text
+ */
 export const SkeletonText: React.FC<SkeletonTextProps> = ({
   children,
-  done,
   ...rest
 }) => {
   const [borderProps, textProps] = splitBorderProps(rest)
@@ -65,19 +41,34 @@ export const SkeletonText: React.FC<SkeletonTextProps> = ({
       <Box as="span" display="inline-flex" position="relative" aria-hidden>
         {children}
 
-        <SkeletonTextOverlay done={done} {...borderProps} />
+        <SkeletonTextOverlay {...borderProps} />
       </Box>
     </Text>
   )
 }
 
-const FADE = keyframes`
-  0% { opacity: 1; }
+const FADE_ANIMATION = keyframes`
+  0% { opacity: 0.5; }
   50% { opacity: 0; }
-  100% { opacity: 1; }
+  100% { opacity: 0.5; }
 `
 
-const SkeletonFade = styled(Box)<DoneProps>`
-  background-color: ${themeGet("colors.black5")};
-  animation: ${FADE} 2s ease-in-out infinite;
+const SkeletonFade = styled(Box)`
+  background-color: ${themeGet("colors.white100")};
+  animation: ${FADE_ANIMATION} 2s ease-in-out infinite;
 `
+
+export type SkeletonProps = BoxProps
+
+/**
+ * Animated wrapper for Skeletons
+ */
+export const Skeleton: React.FC<SkeletonProps> = ({ children, ...rest }) => {
+  return (
+    <Box position="relative" {...rest}>
+      {children}
+
+      <SkeletonFade position="absolute" top={0} right={0} bottom={0} left={0} />
+    </Box>
+  )
+}
