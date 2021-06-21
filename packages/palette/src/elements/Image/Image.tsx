@@ -25,8 +25,6 @@ import {
 export interface WebImageProps extends ImageProps {
   /** Flag for if image should be lazy loaded */
   lazyLoad?: boolean
-  /** Enable loading animation */
-  enableAnimation?: boolean
   /** Alternate text for image */
   alt?: string
   /** A11y text label */

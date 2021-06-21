@@ -40,8 +40,6 @@ interface LazyImageProps
   // TODO: Resolve type issues
   /** The image component to render when preload is true */
   imageComponent?: any // FunctionComponent<ImageProps>
-  /** Should placeholder pulse while loading */
-  enableAnimation?: boolean
   onContextMenu?: (e: any) => void
   onError?: (event: React.SyntheticEvent<any, Event>) => void
 }
@@ -50,7 +48,6 @@ interface LazyImageProps
 export const LazyImage: React.FC<LazyImageProps> = ({
   preload = false,
   imageComponent: ImageComponent = Image,
-  enableAnimation = false,
   ...props
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false)
@@ -80,7 +77,6 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       width={width}
       height={height}
       borderRadius={borderRadius}
-      done={!enableAnimation || isImageLoaded}
       {...containerProps}
     >
       <InnerLazyImage

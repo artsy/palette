@@ -1,6 +1,15 @@
 import React from "react"
-import { Box } from "../Box"
-import { SkeletonBox, SkeletonText } from "./Skeleton"
+import { States } from "storybook-states"
+import { Join } from "../Join"
+import { Shelf } from "../Shelf"
+import { Spacer } from "../Spacer"
+import {
+  Skeleton,
+  SkeletonBox,
+  SkeletonBoxProps,
+  SkeletonText,
+  SkeletonTextProps,
+} from "./Skeleton"
 
 export default {
   title: "Components/Skeleton",
@@ -8,78 +17,78 @@ export default {
 
 export const _SkeletonBox = () => {
   return (
-    <>
-      <SkeletonBox m={2} width={400} height={300} />
-      <SkeletonBox m={2} width={400} height={300} done />
-      <SkeletonBox m={2} width={400} height={300} borderRadius="1em" />
-    </>
+    <States<SkeletonBoxProps> states={[{}, { borderRadius: "1em" }]}>
+      <SkeletonBox width={400} height={300} />
+    </States>
   )
-}
-
-_SkeletonBox.story = {
-  name: "SkeletonBox",
 }
 
 export const _SkeletonText = () => {
   return (
-    <Box m={1}>
-      <SkeletonText variant="text" borderRadius={4}>
-        loading
-      </SkeletonText>
-
-      <SkeletonText variant="mediumText" borderRadius={4}>
-        still waiting...
-      </SkeletonText>
-
-      <SkeletonText variant="title" borderRadius={4}>
-        please wait
-      </SkeletonText>
-
-      <SkeletonText variant="largeTitle" borderRadius={4}>
-        hold
-      </SkeletonText>
-
-      <SkeletonText variant="text" borderRadius={4} done>
-        done
-      </SkeletonText>
-
-      <SkeletonText my={2} maxWidth={300}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione
-        impedit commodi quo, dolorem id animi ipsa voluptas eius cum suscipit
-        distinctio qui quae aliquam consequuntur officiis numquam iste deleniti.
-      </SkeletonText>
-
-      <SkeletonText variant="largeTitle" my={2} maxWidth={300}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione
-        impedit commodi quo, dolorem id animi ipsa voluptas eius cum suscipit
-        distinctio qui quae aliquam consequuntur officiis numquam iste deleniti.
-      </SkeletonText>
-    </Box>
+    <States<SkeletonTextProps>
+      states={[
+        { variant: "xs" },
+        { variant: "sm" },
+        { variant: "md" },
+        { variant: "lg" },
+        { variant: "xl" },
+        { variant: "xxl" },
+        {
+          variant: "md",
+          maxWidth: 300,
+          // @ts-ignore
+          children:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione impedit commodi quo, dolorem id animi ipsa voluptas eius cum suscipit distinctio qui quae aliquam consequuntur officiis numquam iste deleniti.",
+        },
+        {
+          variant: "xl",
+          maxWidth: 300,
+          // @ts-ignore
+          children:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione impedit commodi quo, dolorem id animi ipsa voluptas eius cum suscipit distinctio qui quae aliquam consequuntur officiis numquam iste deleniti.",
+        },
+      ]}
+    >
+      <SkeletonText variant="md">loading</SkeletonText>
+    </States>
   )
 }
 
-_SkeletonText.story = {
-  name: "SkeletonText",
-}
-
-export const ExamplePlaceholder = () => {
+const ExampleArtworkSkeleton: React.FC<{ i: number }> = ({ i }) => {
   return (
-    <Box display="flex" alignItems="center" px={2} py={1}>
-      <SkeletonBox width={40} height={40} mr={1} />
-
-      <Box>
-        <SkeletonText variant="small" borderRadius={2}>
-          Pending Artwork Title
-        </SkeletonText>
-
-        <SkeletonText variant="small" borderRadius={2}>
-          Pending Artist
-        </SkeletonText>
-      </Box>
-    </Box>
+    <>
+      <SkeletonBox width={200} height={[200, 300, 250, 275][i % 4]} />
+      <Spacer mt={1} />
+      <SkeletonText variant="md">Artist Name</SkeletonText>
+      <SkeletonText variant="md">Artwork Title</SkeletonText>
+      <SkeletonText variant="xs">Partner</SkeletonText>
+      <SkeletonText variant="xs">Price</SkeletonText>
+    </>
   )
 }
 
-ExamplePlaceholder.story = {
-  name: "Example placeholder",
+export const _ExampleArtworkSkeleton = () => {
+  return (
+    <Skeleton>
+      <ExampleArtworkSkeleton i={0} />
+    </Skeleton>
+  )
+}
+
+export const StressTest = () => {
+  return (
+    <Join separator={<Spacer mt={6} />}>
+      {[...new Array(12)].map((_, i) => {
+        return (
+          <Skeleton key={`a-${i}`} overflow="hidden">
+            <Shelf>
+              {[...new Array(12)].map((__, j) => {
+                return <ExampleArtworkSkeleton key={`b-${j}`} i={j} />
+              })}
+            </Shelf>
+          </Skeleton>
+        )
+      })}
+    </Join>
+  )
 }
