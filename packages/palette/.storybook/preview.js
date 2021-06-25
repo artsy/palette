@@ -1,10 +1,13 @@
 import React, { useState } from "react"
+import { DocsContainer } from "@storybook/addon-docs"
 import { Theme } from "../src/Theme"
 import { THEMES } from "../src/themes"
 import { injectGlobalStyles } from "../src/helpers/injectGlobalStyles"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { breakpoints } from "../src/Theme"
 import { Tabs, Tab } from "../src/elements/Tabs"
+import prettier from "prettier/standalone"
+import prettierBabel from "prettier/parser-babel"
 
 const { GlobalStyles } = injectGlobalStyles()
 
@@ -56,6 +59,20 @@ const viewports = Object.entries(breakpoints).reduce((memo, [key, width]) => {
 }, {})
 
 export const parameters = {
+  docs: {
+    container: ({ children, context }) => (
+      <DocsContainer context={context}>
+        <Theme theme={THEMES.v3}>{children}</Theme>
+      </DocsContainer>
+    ),
+    transformSource: (input) => {
+      console.log(input)
+      return prettier.format(input, {
+        parser: "babel",
+        plugins: [prettierBabel],
+      })
+    },
+  },
   options: {
     inline: true,
     showPanel: false,

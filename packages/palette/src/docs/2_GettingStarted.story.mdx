@@ -1,0 +1,93 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs"
+
+<Meta title="Design System/2. Getting Started" />
+
+# Getting Started
+
+## Adding Palette
+
+To bring Palette into your app, install it as a package:
+
+```sh
+$ yarn add @artsy/palette
+```
+
+And at the root of your component tree instantiate `<GlobalStyles />` and add
+the `<Theme>` provider:
+
+```js
+import { ThemeV3, injectGlobalStyles } from "@artsy/palette"
+
+const { GlobalStyles } = injectGlobalStyles(`
+  // CSS overrides and additions
+`)
+
+export const App = (props) => {
+  return (
+    <ThemeV3>
+      <>
+        <GlobalStyles />
+        ...
+      </>
+    </ThemeV3>
+  )
+}
+```
+
+From there you should be able to access the values from Palette's
+[Theme.tsx](https://github.com/artsy/palette/blob/master/packages/palette/src/Theme.tsx)
+file:
+
+```js
+import { BorderBox, Flex, Text } from '@artsy/palette
+
+const Artworks = props => {
+  return (
+    <Flex>
+      <BorderBox p={2}>
+        <Text variant='lg'>
+          Image
+        </Sans>
+      </BorderBox>
+
+      <BorderBox ml={2}>
+        <Text variant='sm'>
+          Details
+        </Serif>
+      </BorderBox>
+    </Flex>
+  )
+}
+```
+
+In order to use Artsy's fonts, you'll also want to add our webfont file to the
+CSS in the header of your app. Here are a few examples:
+
+## Using [react-head](https://github.com/tizmagik/react-head) (see [here](https://github.com/tizmagik/react-head/tree/master/example) for more examples)
+
+```js
+import { HeadProvider, Link } from "react-head"
+
+const App = () => (
+  <HeadProvider>
+    <Link
+      href="https://webfonts.artsy.net/all-webfonts.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </HeadProvider>
+)
+```
+
+## Using [React Helmet](https://github.com/nfl/react-helmet)
+
+```js
+import { Helmet } from "react-helmet"
+;<Helmet>
+  <link
+    href="https://webfonts.artsy.net/all-webfonts.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+</Helmet>
+```

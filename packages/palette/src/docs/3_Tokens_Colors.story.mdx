@@ -1,0 +1,41 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs"
+import { Text, GridColumns, Column, Separator, Box } from "../elements"
+import { THEME } from "../themes/v3"
+
+<Meta title="Design System/Atoms/Colors" />
+
+# Colors
+
+The Artsy color palette has been updated to improve the accessibility.
+Each color has been adjusted to ensure sufficient contrast and has
+specific roles as to which colors can be used in conjunction with each
+other.
+
+<Text variant="sm" color="black60">
+	<GridColumns>
+		<Column span={6}>Color Value</Column>
+		<Column span={6}>Hex Value</Column>
+	</GridColumns>
+</Text>
+<Separator color="black30" my={6} />
+
+<Box>
+	{Object.entries(THEME.colors).map(([name, value]) => {
+		return (
+			<GridColumns key={name} justifyContent="space-between" my={4}>
+				<Column span={6} display="flex" alignItems="center">
+					<Box width={60} height={60} bg={name} borderRadius="50%" />
+					<Text variant="xl" ml={2}>
+						{name}
+					</Text>
+				</Column>
+				<Column span={6} display="flex" alignItems="center">
+					<Text variant="sm" color="black60">
+						color:&nbsp;
+					</Text>
+					<Text variant="sm">{value}</Text>
+				</Column>
+			</GridColumns>
+		)
+	})}
+</Box>

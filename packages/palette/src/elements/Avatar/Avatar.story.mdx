@@ -1,0 +1,20 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs"
+import { Avatar } from "./Avatar"
+
+<Meta title="Design System/Checkbox" component={Avatar} />
+
+# Checkbox
+
+With `MDX` we can define a story for `Checkbox` right in the middle of our
+markdown documentation.
+
+<Canvas>
+  <Story name="all checkboxes" showCode>
+    <Avatar size="xs" initials="TK" />
+    <Avatar
+      size="xs"
+      src="https://randomuser.me/api/portraits/lego/2.jpg"
+      initials="TK"
+    />
+  </Story>
+</Canvas>

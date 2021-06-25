@@ -2,9 +2,9 @@ import React from "react"
 import { States } from "storybook-states"
 import { Avatar, AvatarProps } from "./Avatar"
 
-export default {
-  title: "Components/Avatar",
-}
+// export default {
+//   title: "Components/Avatar",
+// }
 
 export const Sizes = () => {
   return (
