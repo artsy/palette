@@ -5,7 +5,6 @@ import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
 import { coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
-import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
 import { Flex } from "../Flex"
 import { Sans } from "../Typography"
@@ -29,8 +28,6 @@ export const LineChart: React.FC<LineChartProps> = ({
   const [hoverIndex, setHoverIndex] = useState(-1)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
-
-  const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
 
   const width = useWrapperWidth(wrapperRef)
 
@@ -57,9 +54,8 @@ export const LineChart: React.FC<LineChartProps> = ({
               margin={margin}
               points={points}
               hoverIndex={hoverIndex}
-              hasEnteredViewport={hasEnteredViewport}
             />
-            {points.filter(bar => bar.axisLabelX).length > 0 && (
+            {points.filter((bar) => bar.axisLabelX).length > 0 && (
               <Flex px="2" width={width}>
                 {points.map(({ axisLabelX }, i) => (
                   <BarAxisLabelContainer

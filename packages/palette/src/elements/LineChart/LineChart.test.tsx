@@ -1,4 +1,4 @@
-import { mount, ReactWrapper } from "enzyme"
+import { mount } from "enzyme"
 import "jest-styled-components"
 import createMockRaf from "mock-raf"
 
@@ -58,32 +58,10 @@ describe("LineChart", () => {
 
   it("shows hover labels when you hover over the bar", () => {
     const chart = getWrapper()
-    const hoverArea = chart
-      .find(PointHoverArea)
-      .last()
-      .find("div")
-      .first()
+    const hoverArea = chart.find(PointHoverArea).last().find("div").first()
     hoverArea.simulate("mouseenter")
     expect(chart.text()).toContain("423 views")
     hoverArea.simulate("mouseleave")
     expect(chart.text()).not.toContain("423 views")
-  })
-
-  it("animates", () => {
-    const circleYSum = cs =>
-      cs.reduce(
-        (acc: number, c: ReactWrapper) => acc + parseInt(c.prop("cy"), 10),
-        0
-      )
-    const chart = getWrapper()
-    let circles = chart.find("circle")
-    const circleYBeforeAnimate = circleYSum(circles)
-    // step requestAnimationFrame 3000 times
-    mockRaf.step({ count: 3000 })
-    chart.update()
-    circles = chart.find("circle")
-    const circleYAfterAnimate = circleYSum(circles)
-    // points will have lower Y after animation because the Y axis is upside-down
-    expect(circleYBeforeAnimate).toBeGreaterThan(circleYAfterAnimate)
   })
 })
