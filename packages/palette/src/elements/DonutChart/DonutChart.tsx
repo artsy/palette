@@ -1,7 +1,6 @@
 import { interpolate } from "d3-interpolate"
 import { arc as d3_arc, pie as d3_pie } from "d3-shape"
 import React, { useRef, useState } from "react"
-import { Spring } from "react-spring/renderprops.cjs"
 import styled from "styled-components"
 import { color, space } from "../../helpers"
 import { Color } from "../../Theme"
@@ -13,7 +12,6 @@ import {
 } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
-import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
 import { Sans } from "../Typography"
 
@@ -33,11 +31,9 @@ export const DonutChart: React.FC<DonutChartProps> = ({
   margin = space(3),
 }) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
-  const [labelFadeIn, setLabelFadeIn] = useState(false)
+  const [labelFadeIn] = useState(false)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
-
-  const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
 
   const width = Math.max(useWrapperWidth(wrapperRef), MIN_CHART_SIZE)
 
@@ -53,7 +49,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
   const centerX = width / 2 + margin
   const centerY = width / 2 + margin
 
-  const values = points.map(d => d.value)
+  const values = points.map((d) => d.value)
   const angelInterpolator = interpolate(0, 2 * Math.PI)
 
   const arc = d3_arc()
@@ -97,7 +93,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({
     )
   })
 
-  const zeroStateArc = pie([{ value: 1 }] as any).map(zeroState => (
+  const zeroStateArc = pie([{ value: 1 }] as any).map((zeroState) => (
     <path
       key="zero-state"
       stroke="none"
@@ -106,50 +102,31 @@ export const DonutChart: React.FC<DonutChartProps> = ({
     />
   ))
 
-  const animateProps = e => ({
-    num: e ? 0 : 1,
+  const angle = angelInterpolator(1)
+  pie.endAngle(angle)
+  const slices = pie(points as any).map((datum: any, index) => {
+    // d3 by default sorts slices by values. for color assignment we
+    // need sorted index but for hover we need original order in points
+    // to match with correct tooltip
+    const sortedIndex = datum.index
+    let arcColor: string = color(colors[sortedIndex % colors.length])
+    // avoid the first and last arc ending up the same color
+    if (
+      sortedIndex === values.length - 1 &&
+      sortedIndex % colors.length === 0
+    ) {
+      arcColor = color(colors[1])
+    }
+    return (
+      <path
+        key={index}
+        fill={arcColor}
+        d={arc(datum)}
+        onMouseEnter={() => setHoverIndex(index)}
+        onMouseLeave={() => setHoverIndex(-1)}
+      />
+    )
   })
-
-  const svg = (
-    <svg key={"svg"} width={width + margin} height={width + margin}>
-      <g transform={`translate(${centerX}, ${centerY})`}>
-        {zeroStateArc}
-        <Spring from={{ num: -0.1 }} to={animateProps(!hasEnteredViewport)}>
-          {({ num }) => {
-            if (!labelFadeIn && num > 0.7) {
-              setLabelFadeIn(true)
-            }
-            const angle = angelInterpolator(num)
-            pie.endAngle(angle)
-            const slices = pie(points as any).map((datum: any, index) => {
-              // d3 by default sorts slices by values. for color assignment we
-              // need sorted index but for hover we need original order in points
-              // to match with correct tooltip
-              const sortedIndex = datum.index
-              let arcColor: string = color(colors[sortedIndex % colors.length])
-              // avoid the first and last arc ending up the same color
-              if (
-                sortedIndex === values.length - 1 &&
-                sortedIndex % colors.length === 0
-              ) {
-                arcColor = color(colors[1])
-              }
-              return (
-                <path
-                  key={index}
-                  fill={arcColor}
-                  d={arc(datum)}
-                  onMouseEnter={() => setHoverIndex(index)}
-                  onMouseLeave={() => setHoverIndex(-1)}
-                />
-              )
-            })
-            return <g>{slices}</g>
-          }}
-        </Spring>
-      </g>
-    </svg>
-  )
 
   return (
     <ProvideMousePosition>
@@ -157,7 +134,12 @@ export const DonutChart: React.FC<DonutChartProps> = ({
         <>
           {tooltip}
           {width !== MIN_CHART_SIZE && labels}
-          {svg}
+          <svg key={"svg"} width={width + margin} height={width + margin}>
+            <g transform={`translate(${centerX}, ${centerY})`}>
+              {zeroStateArc}
+              <g>{slices}</g>
+            </g>
+          </svg>
         </>
       </Box>
     </ProvideMousePosition>

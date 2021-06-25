@@ -64,16 +64,4 @@ describe("DonutChart", () => {
     hoverArea.simulate("mouseleave")
     expect(chart.text()).not.toContain("423 views")
   })
-  it("animates", () => {
-    const chart = getWrapper()
-    let aSlice = chart.find("path").last()
-    const pathBeforeAnimation = aSlice.prop("d")
-
-    mockRaf.step({ count: 3000 })
-    chart.update()
-    aSlice = chart.find("path").last()
-    const pathAfterAnimation = aSlice.prop("d")
-
-    expect(pathBeforeAnimation).not.toEqual(pathAfterAnimation)
-  })
 })
