@@ -1,3 +1,19 @@
+# (Fri Jun 25 2021)
+
+#### 🚀  Enhancement
+
+- Remove me from renovate.json [#955](https://github.com/artsy/palette/pull/955) ([@zephraph](https://github.com/zephraph))
+- Remove me as point person [#954](https://github.com/artsy/palette/pull/954) ([@zephraph](https://github.com/zephraph))
+- `@artsy/palette@14.38.0`
+  - fix: Remove react-spring [#956](https://github.com/artsy/palette/pull/956) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # (Mon Jun 21 2021)
 
 #### 🚀  Enhancement

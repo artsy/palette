@@ -1,3 +1,19 @@
+# v14.38.0 (Fri Jun 25 2021)
+
+#### 🚀  Enhancement
+
+- fix: Remove react-spring [#956](https://github.com/artsy/palette/pull/956) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix: Remove react-spring ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.37.0 (Mon Jun 21 2021)
 
 #### 🚀  Enhancement
