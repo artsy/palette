@@ -9,12 +9,14 @@ const BlankFunction = () => {
 }
 
 const NonBlankFunction = () => {
-  return <div>Non blank Function</div>
+  return <Text variant="md">Non-blank Function</Text>
 }
 
-const BlankSFC: React.SFC = () => null
+const BlankFC: React.FC = () => null
 
-const NonBlankSFC: React.SFC = () => <div>Non blanks stateless component</div>
+const NonBlankFC: React.FC = () => (
+  <Text variant="md">Non-blank Functional component</Text>
+)
 
 class BlankComponent extends Component {
   render() {
@@ -24,7 +26,7 @@ class BlankComponent extends Component {
 
 class NonBlankComponent extends Component {
   render() {
-    return <Box>Non Blank Component</Box>
+    return <Text variant="md">Non-Blank Class Component</Text>
   }
 }
 
@@ -32,9 +34,9 @@ export default { title: "Components/Join" }
 
 export const WithMultipleComponents = () => {
   return (
-    <Join separator={<Separator m={1} />}>
-      <Box>First in the list</Box>
-      <Box>Second in the list</Box>
+    <Join separator={<Separator my={1} />}>
+      <Text variant="md">First in the list</Text>
+      <Text variant="md">Second in the list</Text>
     </Join>
   )
 }
@@ -45,8 +47,8 @@ WithMultipleComponents.story = {
 
 export const WithOneComponent = () => {
   return (
-    <Join separator={<Separator m={1} />}>
-      <Box>Only one component here</Box>
+    <Join separator={<Separator my={1} />}>
+      <Text variant="md">Only one component here</Text>
     </Join>
   )
 }
@@ -57,18 +59,20 @@ WithOneComponent.story = {
 
 export const WithSomeOfTheChildrenEmpty = () => {
   return (
-    <Join separator={<Separator m={1} />}>
-      <Box>First in the list</Box>
+    <Join separator={<Separator my={1} />}>
+      <Text variant="md">First in the list</Text>
       <BlankFunction />
       <NonBlankFunction />
-      <BlankSFC />
-      <NonBlankSFC />
+      <BlankFC />
+      <NonBlankFC />
       <BlankComponent />
       <NonBlankComponent />
       <Box m="2" />
-      <div>Some div with the content</div>
+      <div>
+        <Text variant="md">Some div with the content</Text>
+      </div>
       <div />
-      <Box>Another box with content</Box>
+      <Text variant="md">Another box with content</Text>
       <div />
     </Join>
   )
