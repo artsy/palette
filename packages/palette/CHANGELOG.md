@@ -1,3 +1,17 @@
+# v14.38.1 (Tue Jun 29 2021)
+
+#### 🐛  Bug Fix
+
+- fix(join): supports nested children [#959](https://github.com/artsy/palette/pull/959) ([@dzucconi](https://github.com/dzucconi))
+- chore(stories): cleans up stories ([@dzucconi](https://github.com/dzucconi))
+- fix(join): supports nested children ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.38.0 (Fri Jun 25 2021)
 
 #### 🚀  Enhancement
