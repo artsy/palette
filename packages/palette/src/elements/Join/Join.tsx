@@ -1,4 +1,5 @@
-import React, { SFC } from "react"
+import React from "react"
+import { flattenChildren } from "../../helpers/flattenChildren"
 
 interface JoinProps {
   separator: React.ReactElement<any>
@@ -24,27 +25,29 @@ interface JoinProps {
  * <SomeComponent/>
  * <child3/>
  */
-export const Join: SFC<JoinProps> = ({ separator, children }) => {
-  const childArray = React.Children.toArray(children) as any
+export const Join: React.FC<JoinProps> = ({ separator, children }) => {
+  const elements = flattenChildren(children)
 
-  return childArray
-    .filter((child) => child)
-    .reduce((acc, curr, currentIndex) => {
-      acc.push(
-        React.cloneElement(curr as React.ReactElement<any>, {
-          key: `join-${currentIndex}`,
-        })
-      )
-
-      if (currentIndex !== childArray.length - 1) {
+  return (
+    <>
+      {elements.reduce((acc, element, currentIndex) => {
         acc.push(
-          separator &&
-            React.cloneElement(separator, {
-              key: `join-sep-${currentIndex}`,
-            })
+          React.cloneElement(element, {
+            key: `join-${currentIndex}`,
+          })
         )
-      }
 
-      return acc
-    }, []) as any
+        if (currentIndex !== elements.length - 1) {
+          acc.push(
+            separator &&
+              React.cloneElement(separator, {
+                key: `join-sep-${currentIndex}`,
+              })
+          )
+        }
+
+        return acc
+      }, [])}
+    </>
+  )
 }

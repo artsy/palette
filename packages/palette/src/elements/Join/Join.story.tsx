@@ -1,6 +1,7 @@
 import React, { Component } from "react"
-import { Box } from "../Box/Box"
-import { Separator } from "../Separator/Separator"
+import { Box } from "../Box"
+import { Separator } from "../Separator"
+import { Text } from "../Text"
 import { Join } from "./Join"
 
 const BlankFunction = () => {
@@ -32,7 +33,7 @@ export default { title: "Components/Join" }
 export const WithMultipleComponents = () => {
   return (
     <Join separator={<Separator m={1} />}>
-      <Box>Fist in the list</Box>
+      <Box>First in the list</Box>
       <Box>Second in the list</Box>
     </Join>
   )
@@ -57,7 +58,7 @@ WithOneComponent.story = {
 export const WithSomeOfTheChildrenEmpty = () => {
   return (
     <Join separator={<Separator m={1} />}>
-      <Box>Fist in the list</Box>
+      <Box>First in the list</Box>
       <BlankFunction />
       <NonBlankFunction />
       <BlankSFC />
@@ -75,4 +76,27 @@ export const WithSomeOfTheChildrenEmpty = () => {
 
 WithSomeOfTheChildrenEmpty.story = {
   name: "with some of the children empty",
+}
+
+export const WithNestedChildren = () => {
+  return (
+    <Join separator={<Separator my={1} />}>
+      <Text variant="md">First in the list</Text>
+      <>
+        <Text variant="md">Second in the list</Text>
+        <Text variant="md">Third in the list</Text>
+        <>
+          <Text variant="md">Fourth in the list</Text>
+          <Text variant="md">Fifth in the list</Text>
+        </>
+
+        <Box>
+          <Text variant="md">These two lines</Text>
+          <Text variant="md">Are grouped</Text>
+        </Box>
+
+        <Text>End of list</Text>
+      </>
+    </Join>
+  )
 }
