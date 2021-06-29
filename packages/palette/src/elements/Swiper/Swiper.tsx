@@ -57,7 +57,7 @@ type ScrollSnapAlign = "none" | "start" | "end" | "center"
 export type SwiperProps = BoxProps & {
   initialIndex?: number
   snap?: ScrollSnapAlign
-  children: JSX.Element | JSX.Element[]
+  children: JSX.Element | Array<JSX.Element | boolean>
   Rail?: typeof SwiperRail | React.FC<SwiperRailProps>
   /**
    * If providing a custom `Cell` you must forward a ref so
