@@ -215,3 +215,39 @@ export const OverwritingDefaultMargins = () => {
 OverwritingDefaultMargins.story = {
   name: "Overwriting default margins",
 }
+
+export const ConditionalChildren = () => {
+  return (
+    <Box mx={[2, 4]} my={2}>
+      <Swiper>
+        <Box bg="black10" width={300} height={300} p={2}>
+          <Text variant="xs">1</Text>
+        </Box>
+
+        <Box bg="black10" width={300} height={300} p={2}>
+          <Text variant="xs">2</Text>
+        </Box>
+
+        {false && (
+          <Box bg="black10" width={300} height={300} p={2}>
+            <Text variant="xs">3</Text>
+          </Box>
+        )}
+
+        {true && (
+          <Box bg="black10" width={300} height={300} p={2}>
+            <Text variant="xs">4</Text>
+          </Box>
+        )}
+
+        <Box bg="black10" width={300} height={300} p={2}>
+          <Text variant="xs">5</Text>
+        </Box>
+
+        <Box bg="black10" width={300} height={300} p={2}>
+          <Text variant="xs">6</Text>
+        </Box>
+      </Swiper>
+    </Box>
+  )
+}

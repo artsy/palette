@@ -77,7 +77,7 @@ const Viewport = styled(Box)`
 
 export interface CarouselProps extends BoxProps {
   initialIndex?: number
-  children: JSX.Element | JSX.Element[]
+  children: JSX.Element | Array<JSX.Element | boolean>
   Next?: typeof CarouselNext | React.FC<CarouselNavigationProps>
   Previous?: typeof CarouselPrevious | React.FC<CarouselNavigationProps>
   Rail?: typeof CarouselRail | React.FC<CarouselRailProps>
@@ -114,7 +114,7 @@ export const Carousel: React.FC<CarouselProps> = ({
     () =>
       Children.toArray(children)
         .filter(isValidElement)
-        .map(child => ({ child, ref: createRef<HTMLDivElement>() })),
+        .map((child) => ({ child, ref: createRef<HTMLDivElement>() })),
     [children]
   )
 
