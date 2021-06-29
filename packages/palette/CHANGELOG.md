@@ -1,3 +1,16 @@
+# v14.38.2 (Tue Jun 29 2021)
+
+#### 🐛  Bug Fix
+
+- fix(carousel,swiper): supports conditional children [#960](https://github.com/artsy/palette/pull/960) ([@dzucconi](https://github.com/dzucconi))
+- fix(carousel,swiper): supports conditional children ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.38.1 (Tue Jun 29 2021)
 
 #### 🐛  Bug Fix

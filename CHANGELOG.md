@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@14.38.2`
+  - fix(carousel,swiper): supports conditional children [#960](https://github.com/artsy/palette/pull/960) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Jun 29 2021)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@14.38.1`
   - fix(join): supports nested children [#959](https://github.com/artsy/palette/pull/959) ([@dzucconi](https://github.com/dzucconi))
 
