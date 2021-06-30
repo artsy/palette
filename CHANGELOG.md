@@ -1,5 +1,18 @@
 # (Wed Jun 30 2021)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.41.1`
+  - fix(swiper,carousel): loosens children type [#964](https://github.com/artsy/palette/pull/964) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Jun 30 2021)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@14.41.0`

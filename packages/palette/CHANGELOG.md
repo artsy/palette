@@ -1,3 +1,16 @@
+# v14.41.1 (Wed Jun 30 2021)
+
+#### 🐛  Bug Fix
+
+- fix(swiper,carousel): loosens children type [#964](https://github.com/artsy/palette/pull/964) ([@dzucconi](https://github.com/dzucconi))
+- fix(swiper,carousel): loosens children type ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.41.0 (Wed Jun 30 2021)
 
 #### 🚀  Enhancement
