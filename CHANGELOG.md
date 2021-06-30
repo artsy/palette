@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.40.0`
+  - feat(shelf): exports shelf nav buttons; improves feedback [#962](https://github.com/artsy/palette/pull/962) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Jun 30 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@14.39.0`
   - fix(progressdots): supports click [#961](https://github.com/artsy/palette/pull/961) ([@dzucconi](https://github.com/dzucconi))
 

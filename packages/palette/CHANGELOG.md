@@ -1,3 +1,19 @@
+# v14.40.0 (Wed Jun 30 2021)
+
+#### 🚀  Enhancement
+
+- feat(shelf): exports shelf nav buttons; improves feedback [#962](https://github.com/artsy/palette/pull/962) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(shelf): exports shelf nav buttons; improves feedback ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.39.0 (Wed Jun 30 2021)
 
 #### 🚀  Enhancement
