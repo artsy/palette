@@ -1,3 +1,19 @@
+# v14.41.0 (Wed Jun 30 2021)
+
+#### 🚀  Enhancement
+
+- feat(text): adds line-clamp [#963](https://github.com/artsy/palette/pull/963) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(text): adds line-clamp ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.40.0 (Wed Jun 30 2021)
 
 #### 🚀  Enhancement

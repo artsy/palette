@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.41.0`
+  - feat(text): adds line-clamp [#963](https://github.com/artsy/palette/pull/963) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Jun 30 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@14.40.0`
   - feat(shelf): exports shelf nav buttons; improves feedback [#962](https://github.com/artsy/palette/pull/962) ([@dzucconi](https://github.com/dzucconi))
 
