@@ -22,6 +22,11 @@ export type BaseTextProps = TypographyProps &
   Omit<ColorProps, "color"> & {
     variant?: ResponsiveValue<TextVariant>
     textColor?: ResponsiveValue<Color>
+    /**
+     * Max number of lines before truncating the content with an ellipsis at the end of the last line.
+     * Overwriting display is required for this.
+     */
+    lineClamp?: number
   }
 
 const textColor = style({
@@ -55,6 +60,7 @@ export type TextProps = BaseTextProps &
   BoxProps & {
     overflowEllipsis?: boolean
     textTransform?: ResponsiveValue<TextTransform>
+    lineClamp?: ResponsiveValue<number>
   }
 
 /** Text */
@@ -77,7 +83,19 @@ export const Text = styled(Box)<TextProps>`
     })
   }}
 
-  ${({ overflowEllipsis }) => overflowEllipsis && overflowEllipsisMixin}
+  ${(props) => {
+    return css`
+      ${props.overflowEllipsis && overflowEllipsisMixin}
+      ${props.lineClamp &&
+      css`
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: ${props.lineClamp};
+        line-clamp: ${props.lineClamp};
+        overflow: hidden;
+      `}
+    `
+  }}
 `
 
 Text.displayName = "Text"

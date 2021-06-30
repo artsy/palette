@@ -220,21 +220,19 @@ export const CustomTypography = () => {
   )
 }
 
-export const OverflowEllipsis = () => {
+export const Truncation = () => {
   return (
-    <Text variant="text" overflowEllipsis>
-      All their equipment and instruments are alive. All their equipment and
-      instruments are alive. All their equipment and instruments are alive. All
-      their equipment and instruments are alive. All their equipment and
-      instruments are alive. All their equipment and instruments are alive. All
-      their equipment and instruments are alive. All their equipment and
-      instruments are alive. All their equipment and instruments are alive.
-    </Text>
+    <States<TextProps> states={[{ overflowEllipsis: true }, { lineClamp: 2 }]}>
+      <Text variant="text">
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+        All their equipment and instruments are alive. All their equipment and
+        instruments are alive. All their equipment and instruments are alive.
+      </Text>
+    </States>
   )
-}
-
-OverflowEllipsis.story = {
-  name: "overflowEllipsis",
 }
 
 export const Caps = () => {
