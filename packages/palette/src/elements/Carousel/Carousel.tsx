@@ -77,7 +77,7 @@ const Viewport = styled(Box)`
 
 export interface CarouselProps extends BoxProps {
   initialIndex?: number
-  children: JSX.Element | Array<JSX.Element | boolean>
+  children: React.ReactNode
   Next?: typeof CarouselNext | React.FC<CarouselNavigationProps>
   Previous?: typeof CarouselPrevious | React.FC<CarouselNavigationProps>
   Rail?: typeof CarouselRail | React.FC<CarouselRailProps>
