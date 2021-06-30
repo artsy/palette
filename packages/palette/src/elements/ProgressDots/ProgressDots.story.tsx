@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import { action } from "@storybook/addon-actions"
+import React, { useState } from "react"
 import { States } from "storybook-states"
-import { useCursor } from "use-cursor"
 import { ProgressDots, ProgressDotsProps } from "./ProgressDots"
 
 export default {
@@ -19,6 +19,12 @@ export const Default = () => {
         { variant: "dash", activeIndex: 2, amount: 5 },
         { variant: "dash", activeIndex: 4, amount: 5 },
         { variant: "dash", activeIndex: 0, amount: 25 },
+        {
+          variant: "dash",
+          activeIndex: 0,
+          amount: 5,
+          onClick: action("onClick"),
+        },
       ]}
     >
       <ProgressDots activeIndex={0} amount={5} />
@@ -27,19 +33,19 @@ export const Default = () => {
 }
 
 export const Demo = () => {
-  const { index, handleNext } = useCursor({ max: 5 })
-
-  useEffect(() => {
-    const interval = setInterval(handleNext, 1000)
-    return () => {
-      clearInterval(interval)
-    }
-  }, [handleNext])
+  const [index, setIndex] = useState(0)
 
   return (
     <>
-      <ProgressDots activeIndex={index} amount={5} my={2} />
-      <ProgressDots variant="dash" activeIndex={index} amount={5} my={2} />
+      <ProgressDots activeIndex={index} amount={5} my={2} onClick={setIndex} />
+
+      <ProgressDots
+        variant="dash"
+        activeIndex={index}
+        amount={5}
+        my={2}
+        onClick={setIndex}
+      />
     </>
   )
 }
