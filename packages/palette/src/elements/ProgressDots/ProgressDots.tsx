@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { variant } from "styled-system"
 import { useThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
+import { Clickable } from "../Clickable"
 import { VisuallyHidden } from "../VisuallyHidden"
 
 const VARIANTS = {
@@ -19,18 +20,12 @@ const VARIANTS = {
 
 type Variant = keyof typeof VARIANTS
 
-const Indicator = styled(Box)<{ variant: Variant }>`
-  ${variant({ variants: VARIANTS })}
-  transition: background-color 250ms;
-`
-
-Indicator.displayName = "Indicator"
-
 /** ProgressDotsProps */
 export interface ProgressDotsProps extends BoxProps {
   activeIndex: number
   amount: number
   variant?: Variant
+  onClick?: (index: number) => void
 }
 
 /**
@@ -40,6 +35,7 @@ export const ProgressDots: React.FC<ProgressDotsProps> = ({
   activeIndex,
   amount,
   variant: indicatorVariant = "dot",
+  onClick,
   ...rest
 }) => {
   const bgColor = useThemeConfig({ v2: "black10", v3: "black30" })
@@ -54,14 +50,43 @@ export const ProgressDots: React.FC<ProgressDotsProps> = ({
         my={0.5}
         {...rest}
       >
-        {[...new Array(amount)].map((_, i) => (
-          <Indicator
-            key={i}
-            variant={indicatorVariant}
-            bg={i === activeIndex ? "black100" : bgColor}
-            mx={0.5}
-          />
-        ))}
+        {[...new Array(amount)].map((_, i) => {
+          const indicator = (
+            <Indicator
+              key={i}
+              variant={indicatorVariant}
+              bg={i === activeIndex ? "black100" : bgColor}
+              mx={0.5}
+            />
+          )
+
+          const handleClick = () => onClick(i)
+
+          if (onClick) {
+            return (
+              <Clickable
+                key={i}
+                display="block"
+                position="relative"
+                width={indicatorVariant === "dash" ? "100%" : "auto"}
+                onClick={handleClick}
+              >
+                {/* Pads out hit area. */}
+                <Box
+                  position="absolute"
+                  top={-10}
+                  bottom={-10}
+                  left={0}
+                  width="100%"
+                />
+
+                {indicator}
+              </Clickable>
+            )
+          }
+
+          return indicator
+        })}
       </Box>
 
       <VisuallyHidden aria-live="polite" aria-atomic="true">
@@ -70,3 +95,13 @@ export const ProgressDots: React.FC<ProgressDotsProps> = ({
     </>
   )
 }
+
+const Indicator = styled(Box)<{
+  variant: Variant
+  onClick?: (index: number) => void
+}>`
+  ${variant({ variants: VARIANTS })}
+  transition: background-color 250ms;
+`
+
+Indicator.displayName = "Indicator"

@@ -19,4 +19,22 @@ describe("ProgressDots", () => {
     // Announces the page
     expect(wrapper.html()).toContain("Page 4 of 10")
   })
+
+  it("passes the index when clicked", async () => {
+    const handleClick = jest.fn()
+
+    const wrapper = mount(
+      <div>
+        <ProgressDots activeIndex={3} amount={10} onClick={handleClick} />
+      </div>
+    )
+
+    wrapper.find("button").at(6).simulate("click")
+
+    expect(handleClick).toHaveBeenLastCalledWith(6)
+
+    wrapper.find("button").at(1).simulate("click")
+
+    expect(handleClick).toHaveBeenLastCalledWith(1)
+  })
 })
