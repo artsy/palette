@@ -1,4 +1,3 @@
-import { themeGet } from "@styled-system/theme-get"
 import React, {
   Children,
   createRef,
@@ -12,12 +11,11 @@ import React, {
 import styled from "styled-components"
 import { useCursor } from "use-cursor"
 import { visuallyDisableScrollbar } from "../../helpers/visuallyDisableScrollbar"
-import { ChevronIcon } from "../../svgs"
 import { Box, BoxProps } from "../Box"
 import { CELL_GAP_PADDING_AMOUNT, paginateCarousel } from "../Carousel"
-import { Clickable } from "../Clickable"
 import { FlexProps } from "../Flex"
 import { FullBleed } from "../FullBleed"
+import { ShelfNext, ShelfPrevious } from "./ShelfNavigation"
 import { ShelfScrollBar } from "./ShelfScrollBar"
 
 /** ShelfProps */
@@ -179,17 +177,13 @@ export const Shelf: React.FC<ShelfProps> = ({
           onClick={handlePrev}
           disabled={atStart}
           aria-label="Previous page"
-        >
-          <ChevronIcon direction="left" width={15} height={15} />
-        </Previous>
+        />
 
         <Next
           onClick={handleNext}
           disabled={pageIndex === pages.length - 1}
           aria-label="Next page"
-        >
-          <ChevronIcon direction="right" width={15} height={15} />
-        </Next>
+        />
       </Nav>
 
       <FullBleed
@@ -281,48 +275,24 @@ const Cell = styled(Box)`
   white-space: normal;
 `
 
-const Arrow = styled(Clickable)`
+const Next = styled(ShelfNext)`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: 50px;
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  transition: opacity 250ms, color 250ms;
-  color: ${themeGet("colors.black60")};
-  background-color: ${themeGet("colors.white100")};
-  border: 1px solid ${themeGet("colors.black5")};
-  border-radius: 50%;
-  pointer-events: auto;
-
-  > svg {
-    fill: currentColor;
-  }
-
-  &:hover,
-  &:focus {
-    outline: 0;
-    color: ${themeGet("colors.black100")};
-  }
-
-  &:disabled {
-    opacity: 0;
-    cursor: default;
-  }
+  right: 0;
 
   @media (hover: none) {
     display: none;
   }
 `
 
-const Next = styled(Arrow)`
-  right: ${themeGet("space.2")};
-`
+const Previous = styled(ShelfPrevious)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
 
-const Previous = styled(Arrow)`
-  left: ${themeGet("space.2")};
+  @media (hover: none) {
+    display: none;
+  }
 `

@@ -3,6 +3,7 @@ import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Text } from "../Text"
 import { Shelf, ShelfProps } from "./Shelf"
+import { ShelfNavigationProps, ShelfNext } from "./ShelfNavigation"
 
 export default {
   title: "Components/Shelf",
@@ -66,5 +67,21 @@ export const DifferingAmounts = () => {
         </States>
       </Box>
     </Box>
+  )
+}
+
+export const NavigationButtons = () => {
+  return (
+    <States<ShelfNavigationProps>
+      states={[
+        {},
+        { hover: true },
+        { focus: true },
+        { disabled: true },
+        { hover: true, focus: true },
+      ]}
+    >
+      <ShelfNext />
+    </States>
   )
 }
