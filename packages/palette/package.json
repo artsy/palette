@@ -25,7 +25,7 @@
     "watch": "concurrently --raw --kill-others 'yarn compile -w' 'yarn type-declarations -w'",
     "storybook": "start-storybook -p 6006 --quiet",
     "build-storybook": "build-storybook",
-    "visual-test": "chromatic test --exit-zero-on-changes --app-code n02zjqmdqq"
+    "visual-test": "chromatic test --exit-zero-on-changes --project-token n02zjqmdqq"
   },
   "repository": {
     "type": "git",
@@ -82,7 +82,7 @@
     "babel-plugin-module-resolver": "4.1.0",
     "babel-plugin-styled-components": "1.12.0",
     "cache-loader": "3.0.0",
-    "chromatic": "^5.6.2",
+    "chromatic": "^5.9.2",
     "concurrently": "3.6.1",
     "enzyme": "3.9.0",
     "enzyme-to-json": "3.3.5",
