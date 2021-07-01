@@ -1,3 +1,16 @@
+# (Thu Jul 01 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.41.2`
+  - fix(tabs): attempts to fix unstyled tabs in force [#965](https://github.com/artsy/palette/pull/965) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Jun 30 2021)
 
 #### 🐛  Bug Fix
