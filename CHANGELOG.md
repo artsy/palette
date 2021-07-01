@@ -1,5 +1,25 @@
 # (Thu Jul 01 2021)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.42.0`
+  - chore(chromatic): updates chromatic [#968](https://github.com/artsy/palette/pull/968) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.42.0`
+  - chore(storybook): changes default theme to v3 [#966](https://github.com/artsy/palette/pull/966) ([@dzucconi](https://github.com/dzucconi))
+- `@artsy/palette@14.42.0`
+  - fix(tabs): fixes styling [#967](https://github.com/artsy/palette/pull/967) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Jul 01 2021)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@14.41.2`
