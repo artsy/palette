@@ -99,16 +99,15 @@ export const Tabs: React.FC<TabsProps> = ({
       <BaseTabs {...rest}>
         {tabs.map((cell, i) => {
           return (
-            <BaseTab
-              as={Clickable}
+            <Clickable
               key={i}
               aria-selected={i === activeTabIndex}
               onClick={handleClick(i)}
-              active={i === activeTabIndex}
-              variant={textVariant}
             >
-              <span>{cell.props.name}</span>
-            </BaseTab>
+              <BaseTab active={i === activeTabIndex} variant={textVariant}>
+                <span>{cell.props.name}</span>
+              </BaseTab>
+            </Clickable>
           )
         })}
       </BaseTabs>
