@@ -103,6 +103,7 @@ export const Tabs: React.FC<TabsProps> = ({
               key={i}
               aria-selected={i === activeTabIndex}
               onClick={handleClick(i)}
+              flex={1}
             >
               <BaseTab active={i === activeTabIndex} variant={textVariant}>
                 <span>{cell.props.name}</span>
