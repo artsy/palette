@@ -4309,6 +4309,13 @@ agent-base@4, agent-base@^4.2.0, agent-base@^4.3.0:
   dependencies:
     es6-promisify "^5.0.0"
 
+agent-base@6:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-6.0.2.tgz#49fff58577cfee3f37176feab4c22e00f86d7f77"
+  integrity sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==
+  dependencies:
+    debug "4"
+
 agent-base@~4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-4.2.1.tgz#d89e5999f797875674c07d87f260fc41e83e8ca9"
@@ -6470,10 +6477,10 @@ chownr@^2.0.0:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
-chromatic@^5.6.2:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-5.6.2.tgz#21ed613c498572b34cb7d27145b807699f1450f7"
-  integrity sha512-MJJcMugIjHXZ0Khm/xD3lQJ/clbIL6EGoX/TsVL7Q6WyVd+kvnD1YAABH0CwCSRlSAYj+JTjAIGFFodkBKAlIw==
+chromatic@^5.9.2:
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-5.9.2.tgz#2a9ad2c2f2e5f98be9cf3e4707d43808cbc450df"
+  integrity sha512-h7+LPo5j2yHUaQIpaJzM7SXfkdEE9I7/rI6TWSeURwCrUggptVjj/+T4X2rmuqD5TfCp9HyHvtRObRl4PVWfNw==
   dependencies:
     "@actions/core" "^1.2.4"
     "@actions/github" "^4.0.0"
@@ -6489,10 +6496,11 @@ chromatic@^5.6.2:
     execa "^5.0.0"
     fake-tag "^2.0.0"
     fs-extra "^9.1.0"
+    https-proxy-agent "^5.0.0"
     jsonfile "^6.0.1"
     junit-report-builder "2.1.0"
     listr "0.14.3"
-    meow "^9.0.0"
+    meow "^8.0.0"
     node-ask "^1.0.1"
     node-fetch "^2.6.0"
     node-loggly-bulk "^2.2.4"
@@ -6503,6 +6511,7 @@ chromatic@^5.6.2:
     progress-stream "^2.0.0"
     semver "^7.3.4"
     slash "^3.0.0"
+    string-argv "^0.3.1"
     strip-ansi "6.0.0"
     tmp-promise "3.0.2"
     tree-kill "^1.2.2"
@@ -12189,6 +12198,14 @@ https-proxy-agent@^3.0.0:
     agent-base "^4.3.0"
     debug "^3.1.0"
 
+https-proxy-agent@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
+  integrity sha512-EkYm5BcKUGiduxzSt3Eppko+PiNWNEpa4ySk9vTC6wDsQJW9rHSa+UhGNJoRYp7bz6Ht1eaRIa6QaJqO5rCFbA==
+  dependencies:
+    agent-base "6"
+    debug "4"
+
 human-signals@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
@@ -15292,24 +15309,6 @@ meow@^8.0.0:
   dependencies:
     "@types/minimist" "^1.2.0"
     camelcase-keys "^6.2.2"
-    decamelize-keys "^1.1.0"
-    hard-rejection "^2.1.0"
-    minimist-options "4.1.0"
-    normalize-package-data "^3.0.0"
-    read-pkg-up "^7.0.1"
-    redent "^3.0.0"
-    trim-newlines "^3.0.0"
-    type-fest "^0.18.0"
-    yargs-parser "^20.2.3"
-
-meow@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/meow/-/meow-9.0.0.tgz#cd9510bc5cac9dee7d03c73ee1f9ad959f4ea364"
-  integrity sha512-+obSblOQmRhcyBt62furQqRAQpNyWXo8BuQ5bN7dG8wmwQ+vwHKp/rCFD4CrTP8CsDQD1sjoZ94K417XEUk8IQ==
-  dependencies:
-    "@types/minimist" "^1.2.0"
-    camelcase-keys "^6.2.2"
-    decamelize "^1.2.0"
     decamelize-keys "^1.1.0"
     hard-rejection "^2.1.0"
     minimist-options "4.1.0"
@@ -20759,6 +20758,11 @@ string-argv@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.0.2.tgz#dac30408690c21f3c3630a3ff3a05877bdcbd736"
   integrity sha1-2sMECGkMIfPDYwo/86BYd73L1zY=
+
+string-argv@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.3.1.tgz#95e2fbec0427ae19184935f816d74aaa4c5c19da"
+  integrity sha512-a1uQGz7IyVy9YwhqjZIZu1c8JO8dNIe20xBmSS6qu9kv++k3JGzCVmprbNN5Kn+BgzD5E7YYwg1CcjuJMRNsvg==
 
 string-length@^4.0.1:
   version "4.0.1"
