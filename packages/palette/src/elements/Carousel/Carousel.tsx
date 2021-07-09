@@ -182,7 +182,7 @@ export const Carousel: React.FC<CarouselProps> = ({
     onChange && onChange(index)
   }, [onChange, index])
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     onPageCountChange && onPageCountChange(pages.length)
   }, [onPageCountChange, pages.length])
 
