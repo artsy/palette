@@ -1,3 +1,21 @@
+# v14.43.0 (Fri Jul 09 2021)
+
+#### 🚀  Enhancement
+
+- fix(PX-4310): get page count information from Swiper and Carousel [#969](https://github.com/artsy/palette/pull/969) (kiry.zubarau@artsymail.com [@kiryl-zubarau](https://github.com/kiryl-zubarau))
+
+#### 🐛  Bug Fix
+
+- Use useUpdateEffect to prevent call onPageCountChange on initial mount (kiry.zubarau@artsymail.com)
+- Add onPageCountChange event (kiry.zubarau@artsymail.com)
+
+#### Authors: 2
+
+- [@kiryl-zubarau](https://github.com/kiryl-zubarau)
+- Kirill Zuborev (kiry.zubarau@artsymail.com)
+
+---
+
 # v14.42.0 (Thu Jul 01 2021)
 
 #### 🚀  Enhancement

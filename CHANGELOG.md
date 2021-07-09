@@ -1,3 +1,17 @@
+# (Fri Jul 09 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.43.0`
+  - fix(PX-4310): get page count information from Swiper and Carousel [#969](https://github.com/artsy/palette/pull/969) (kiry.zubarau@artsymail.com [@kiryl-zubarau](https://github.com/kiryl-zubarau))
+
+#### Authors: 2
+
+- [@kiryl-zubarau](https://github.com/kiryl-zubarau)
+- Kirill Zuborev (kiry.zubarau@artsymail.com)
+
+---
+
 # (Thu Jul 01 2021)
 
 #### 🚀  Enhancement
