@@ -87,6 +87,7 @@ export interface CarouselProps extends BoxProps {
    */
   Cell?: React.ForwardRefExoticComponent<CarouselCellProps>
   onChange?(index: number): void
+  onPageCountChange?(count: number): void
 }
 
 /**
@@ -103,6 +104,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   Rail = CarouselRail,
   Cell = CarouselCell,
   onChange,
+  onPageCountChange,
   ...rest
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -179,6 +181,10 @@ export const Carousel: React.FC<CarouselProps> = ({
   useUpdateEffect(() => {
     onChange && onChange(index)
   }, [onChange, index])
+
+  useEffect(() => {
+    onPageCountChange && onPageCountChange(pages.length)
+  }, [onPageCountChange, pages.length])
 
   const offset = `-${pages[index]}px`
 

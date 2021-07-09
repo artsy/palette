@@ -7,7 +7,7 @@ jest.mock("../paginate", () => ({
   paginateCarousel: () => [0, 100],
 }))
 
-const tick = () => new Promise(resolve => setTimeout(resolve, 0))
+const tick = () => new Promise((resolve) => setTimeout(resolve, 0))
 
 describe("Carousel", () => {
   it("renders correctly", () => {
@@ -41,9 +41,10 @@ describe("Carousel", () => {
 
   it("updates correctly", async () => {
     const onChange = jest.fn()
+    const onPageCountChange = jest.fn()
 
     const wrapper = mount(
-      <Carousel onChange={onChange}>
+      <Carousel onChange={onChange} onPageCountChange={onPageCountChange}>
         <Box>1</Box>
         <Box>2</Box>
         <Box>3</Box>
@@ -52,6 +53,9 @@ describe("Carousel", () => {
 
     // Does not call `onChange` on initial mount
     expect(onChange).not.toBeCalled()
+
+    // Calls onPageCountChange with the correct page count
+    expect(onPageCountChange).lastCalledWith(2)
 
     // Click next
     const next = wrapper.find("button").at(2)
