@@ -5,8 +5,10 @@ import { Swiper } from "../Swiper"
 
 describe("Swiper", () => {
   it("renders correctly", () => {
+    const onPageCountChange = jest.fn()
+
     const wrapper = mount(
-      <Swiper snap="center">
+      <Swiper onPageCountChange={onPageCountChange} snap="center">
         <Box>1</Box>
         <Box>2</Box>
         <Box>3</Box>
@@ -16,6 +18,7 @@ describe("Swiper", () => {
     // Renders all cells
     expect(wrapper.find(Box).length).toBe(3)
     expect(wrapper.html()).toContain("scroll-snap-align: center")
+    expect(onPageCountChange).lastCalledWith(3)
   })
 
   it("accepts a customizable Rail", () => {

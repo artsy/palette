@@ -65,6 +65,7 @@ export type SwiperProps = BoxProps & {
    */
   Cell?: React.ForwardRefExoticComponent<SwiperCellProps>
   onChange?(index: number): void
+  onPageCountChange?(count: number): void
 }
 
 /**
@@ -80,6 +81,7 @@ export const Swiper: React.FC<SwiperProps> = ({
   Rail = SwiperRail,
   Cell = SwiperCell,
   onChange,
+  onPageCountChange,
   ...rest
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -153,6 +155,10 @@ export const Swiper: React.FC<SwiperProps> = ({
   useEffect(() => {
     onChange && onChange(index)
   }, [onChange, index])
+
+  useEffect(() => {
+    onPageCountChange && onPageCountChange(cells.length)
+  }, [onPageCountChange, cells.length])
 
   return (
     <Container ref={containerRef as any} mx={0} my={0} {...rest}>
