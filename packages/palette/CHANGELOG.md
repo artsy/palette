@@ -1,3 +1,16 @@
+# v14.43.1 (Tue Jul 13 2021)
+
+#### 🐛  Bug Fix
+
+- fix(useposition): silences uselayouteffect ssr warning [#970](https://github.com/artsy/palette/pull/970) ([@dzucconi](https://github.com/dzucconi))
+- fix(useposition): silences uselayouteffect ssr warning ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.43.0 (Fri Jul 09 2021)
 
 #### 🚀  Enhancement
