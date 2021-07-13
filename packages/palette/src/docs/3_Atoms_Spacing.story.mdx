@@ -1,0 +1,132 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs"
+import {
+  Text,
+  GridColumns,
+  Column,
+  Separator,
+  Box,
+  Join,
+  Spacer,
+  Flex,
+} from "../elements"
+import { THEME } from "../themes/v3"
+
+<Meta title="Design System/Atoms/Spacing" />
+
+# Spacing
+
+The Artsy spacing system employs a base-10px shorthand for working with margins
+and padding, meaning `1 = 10px`, `2 = 20px`, `.5 = 5px`, and so on.
+
+We utilize [styled-system's `space` API](https://styled-system.com/api/#space) throughout all of Palette.
+
+<Spacer mt={2} />
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        <Text>Value</Text>
+      </th>
+      <th>
+        <Text>Specifications</Text>
+      </th>
+      <th>
+        <Text>Example</Text>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <Text>0.5</Text>
+      </td>
+      <td>
+        <Flex>
+          <Text>5px</Text>
+        </Flex>
+      </td>
+      <td>
+        <Box width={5} height={1} bg="black60" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Text>1</Text>
+      </td>
+      <td>
+        <Flex>
+          <Text>10px</Text>
+        </Flex>
+      </td>
+      <td>
+        <Box width={10} height={1} bg="black60" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Text>2</Text>
+      </td>
+      <td>
+        <Flex>
+          <Text>20px</Text>
+        </Flex>
+      </td>
+      <td>
+        <Box width={20} height={1} bg="black60" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Text>4</Text>
+      </td>
+      <td>
+        <Flex>
+          <Text>40px</Text>
+        </Flex>
+      </td>
+      <td>
+        <Box width={40} height={1} bg="black60" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Text>6</Text>
+      </td>
+      <td>
+        <Flex>
+          <Text>60px</Text>
+        </Flex>
+      </td>
+      <td>
+        <Box width={60} height={1} bg="black60" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Text>12</Text>
+      </td>
+      <td>
+        <Flex>
+          <Text>120px</Text>
+        </Flex>
+      </td>
+      <td>
+        <Box width={120} height={1} bg="black60" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<Spacer my={4} />
+
+### Example
+
+```tsx
+<BorderBox p={2}>
+  <Text>This container has 20px padding around it</Text>
+</BorderBox>
+<BorderBox p={4}>
+  <Text>This container has 40px padding around it</Text>
+</BorderBox>
+```

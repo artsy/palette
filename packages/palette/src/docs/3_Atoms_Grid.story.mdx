@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs"
+import { Text, GridColumns, Column, Separator, Spacer, Box } from "../elements"
+import { THEME } from "../themes/v3"
+
+<Meta title="Design System/Atoms/Grid" />
+
+# Grid
+
+Using a responsive 12-column grid for all surfaces. Looking to the breakpoints, we build a fluid system between (Desktop) 1920px — 769px and (Tablet / Mobile) 768px — 375px. The 12 columns are always consistent as they are a construct of the code, though for Tablet / Mobile screens, we keep content to 6-column containers as shown below.
+
+<GridColumns
+  width="100%"
+  height="50%"
+>
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+  <Column span={1} bg="rgba(255, 0, 0, 0.1)" height="100%" />
+</GridColumns>
+
+<Spacer mt={4} />
+
+### Example
+
+```tsx
+<GridColumns>
+  <Column span={1}>
+    Hi
+  </Column>
+</GridColumns>
+```
