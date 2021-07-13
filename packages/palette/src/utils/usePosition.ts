@@ -1,7 +1,8 @@
 /**
  * Adapted from https://codesandbox.io/s/positioning-tooltip-rhplo
  */
-import { useLayoutEffect, useRef } from "react"
+import { useRef } from "react"
+import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
 
 export const POSITION = {
   "top-start": "top-start",
@@ -44,7 +45,7 @@ export const usePosition = ({
   const tooltipRef = useRef<HTMLElement | null>(null)
   const anchorRef = useRef<HTMLElement | null>(null)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!tooltipRef.current || !anchorRef.current) return
 
     const { current: tooltip } = tooltipRef
