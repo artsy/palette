@@ -1,10 +1,15 @@
-import { TextTreatment } from "./types"
+export interface TextTreatment {
+  fontSize: string;
+  lineHeight: string;
+  letterSpacing?: string;
+  fontWeight?: "normal" | "bold";
+}
 
 /** font-families */
 export const TEXT_FONTS = {
   sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif',
   serif: '"adobe-garamond-pro", "Times New Roman", Times, serif',
-}
+};
 
 /** font-size scale */
 export const TEXT_FONT_SIZES = {
@@ -20,20 +25,20 @@ export const TEXT_FONT_SIZES = {
   size3: "14px",
   size2: "13px",
   size1: "12px",
-}
+};
 
 /** line-height scale */
 export const TEXT_LINE_HEIGHTS = {
   solid: 1,
   title: 1.25,
   body: 1.5,
-}
+};
 
 /** letter-spacing scale */
 export const TEXT_LETTER_SPACING = {
   tight: "-0.02em",
   tightest: "-0.03em",
-}
+};
 
 /** Names of typographic treatments */
 export const TEXT_VARIANT_NAMES = [
@@ -44,7 +49,7 @@ export const TEXT_VARIANT_NAMES = [
   "mediumText",
   "caption",
   "small",
-] as const
+] as const;
 
 /** Available typographic treatments */
 export const TEXT_VARIANTS: Record<
@@ -129,7 +134,84 @@ export const TEXT_VARIANTS: Record<
       fontWeight: "normal",
     },
   },
-}
+};
 
 /** Name of typographic treatment */
-export type TextVariant = typeof TEXT_VARIANT_NAMES[number]
+export type TextVariant = typeof TEXT_VARIANT_NAMES[number];
+
+/**
+ * Type definition for font objects
+ */
+export interface FontDefinition {
+  fontFamily: string;
+  fontWeight?: string | number;
+  fontStyle?: string;
+}
+
+/**
+ * Type definition for font value properties which can either
+ * be an object for complex definitions or a string for single entries.
+ */
+export type FontValue = string | FontDefinition;
+
+/**
+ * Defines the shape of the font family
+ */
+export interface FontFamily {
+  sans: {
+    regular: FontValue;
+    italic: FontValue;
+    medium: FontValue;
+    mediumItalic: FontValue;
+  };
+  serif: {
+    regular: FontValue;
+    italic: FontValue;
+    semibold: FontValue;
+  };
+  display: {
+    regular: FontValue;
+  };
+}
+
+const sansFallback = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+
+/**
+ * A map of the font families and their settings
+ */
+export const fontFamily: FontFamily = {
+  sans: {
+    regular: `Unica77LLWebRegular, ${sansFallback}`,
+    italic: {
+      fontFamily: `Unica77LLWebItalic, ${sansFallback}`,
+      fontStyle: "italic",
+    },
+    medium: {
+      fontFamily: `Unica77LLWebMedium, ${sansFallback}`,
+      fontWeight: 500,
+    },
+    mediumItalic: {
+      fontFamily: `Unica77LLWebMediumItalic, ${sansFallback}`,
+      fontWeight: 500,
+      fontStyle: "italic",
+    },
+  },
+  serif: {
+    regular:
+      "'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', Times, serif",
+    italic: {
+      fontFamily:
+        "'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', Times, serif",
+      fontStyle: "italic",
+    },
+    semibold: {
+      fontFamily:
+        "'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', Times, serif",
+      fontWeight: 600,
+    },
+  },
+  display: {
+    regular:
+      "'ITC Avant Garde Gothic W04','AvantGardeGothicITCW01D 731075', AvantGardeGothicITCW01Dm, Helvetica, sans-serif",
+  },
+};

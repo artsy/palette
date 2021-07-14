@@ -1,4 +1,4 @@
-import { TextVariant } from "../Text"
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 
 export const V2_TOKENS = {
   fontWeight: "bold",

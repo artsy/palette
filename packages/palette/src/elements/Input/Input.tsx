@@ -1,3 +1,4 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled from "styled-components"
@@ -5,7 +6,7 @@ import { css } from "styled-components"
 import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Spacer } from "../Spacer"
-import { Text, TextVariant } from "../Text"
+import { Text } from "../Text"
 import { INPUT_STATES as V2_INPUT_STATES } from "./tokens/v2"
 import { INPUT_STATES as V3_INPUT_STATES } from "./tokens/v3"
 

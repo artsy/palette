@@ -1,9 +1,10 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { useThemeConfig } from "../../Theme"
 import { Flex, FlexProps } from "../Flex"
 import { Link, LinkProps } from "../Link"
-import { Text, TextVariant } from "../Text"
+import { Text } from "../Text"
 
 interface PageCursor {
   cursor: string

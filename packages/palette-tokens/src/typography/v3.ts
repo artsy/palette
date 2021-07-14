@@ -1,10 +1,24 @@
-import { TextTreatment } from "./types"
+export interface TextTreatment {
+  fontSize: string;
+  lineHeight: string;
+  letterSpacing?: string;
+  fontWeight?: "normal" | "bold";
+}
 
 /** Available fonts */
-export const TEXT_FONTS = { sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif', }
+export const TEXT_FONTS = {
+  sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif',
+};
 
 /** Available text variant names */
-export const TEXT_VARIANT_NAMES = ["xxl", "xl", "lg", "md", "sm", "xs"] as const
+export const TEXT_VARIANT_NAMES = [
+  "xxl",
+  "xl",
+  "lg",
+  "md",
+  "sm",
+  "xs",
+] as const;
 
 /** Available text variants */
 export const TEXT_VARIANTS: Record<
@@ -38,7 +52,7 @@ export const TEXT_VARIANTS: Record<
     fontSize: "13px",
     lineHeight: "18px",
   },
-}
+};
 
 /** Name of typographic treatment */
-export type TextVariant = keyof typeof TEXT_VARIANTS
+export type TextVariant = keyof typeof TEXT_VARIANTS;

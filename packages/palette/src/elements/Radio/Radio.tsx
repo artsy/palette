@@ -1,10 +1,10 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import styled, { css } from "styled-components"
 import { Flex, FlexProps } from "../../elements/Flex"
 import { isText } from "../../helpers/isText"
 import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Text } from "../Text"
-import { TextVariant } from "../Text/tokens/v2"
 import { RadioDot } from "./RadioDot"
 import {
   RADIO_DOT_STATES as V2_RADIO_DOT_STATES,

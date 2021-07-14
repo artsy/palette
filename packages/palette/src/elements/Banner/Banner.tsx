@@ -1,3 +1,4 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React, { useState } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
@@ -5,7 +6,7 @@ import { CloseIcon } from "../../svgs/CloseIcon"
 import { useThemeConfig } from "../../Theme"
 import { Clickable } from "../Clickable"
 import { Flex, FlexProps } from "../Flex"
-import { Text, TextVariant } from "../Text"
+import { Text } from "../Text"
 
 const VARIANTS = {
   defaultLight: {

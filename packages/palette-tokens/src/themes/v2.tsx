@@ -4,8 +4,8 @@ import {
   TEXT_LETTER_SPACING,
   TEXT_LINE_HEIGHTS,
   TEXT_VARIANTS,
-} from "../elements/Text/tokens/v2"
-import { fontFamily } from "../platform/fonts"
+  fontFamily,
+} from "../typography/v2";
 
 /**
  * A list of breakpoints accessible by key/value
@@ -21,7 +21,7 @@ export const breakpoints = {
   sm: "768px",
   /** Below 767 */
   xs: "767px",
-}
+};
 
 /**
  * Copy of `breakpoints` as integers
@@ -37,7 +37,7 @@ export const unitlessBreakpoints = {
   sm: parseInt(breakpoints.sm, 10),
   /** Below 767 */
   xs: parseInt(breakpoints.xs, 10),
-}
+};
 
 /**
  * We alias breakpoints onto the scale so that styled-system has access
@@ -46,7 +46,7 @@ export const unitlessBreakpoints = {
 const BREAKPOINTS_SCALE = Object.assign(
   [breakpoints.sm, breakpoints.md, breakpoints.lg, breakpoints.xl],
   breakpoints
-)
+);
 
 /**
  * All of the config for the Artsy theming system, based on the
@@ -365,27 +365,29 @@ export const THEME = {
   },
 
   textVariants: TEXT_VARIANTS,
-}
+};
 
 /** All available px spacing maps */
-export type SpacingUnit = keyof typeof THEME["space"]
+export type SpacingUnit = keyof typeof THEME["space"];
 /** All available color keys */
-export type Color = keyof typeof THEME["colors"]
+export type Color = keyof typeof THEME["colors"];
+/** All available color values */
+export type ColorValue = typeof THEME["colors"][Color];
 /** All available width breakpoint */
-export type Breakpoint = keyof typeof breakpoints
+export type Breakpoint = keyof typeof breakpoints;
 
 /** All available type sizes */
-export type TypeSizes = typeof THEME.typeSizes
+export type TypeSizes = typeof THEME.typeSizes;
 /** All available sizes for our sans font */
-export type SansSize = keyof TypeSizes["sans"] | Array<keyof TypeSizes["sans"]>
+export type SansSize = keyof TypeSizes["sans"] | Array<keyof TypeSizes["sans"]>;
 /** All available sizes for our serif font */
 export type SerifSize =
   | keyof TypeSizes["serif"]
-  | Array<keyof TypeSizes["serif"]>
+  | Array<keyof TypeSizes["serif"]>;
 /** All available sizes for our display font */
 export type DisplaySize =
   | keyof TypeSizes["display"]
-  | Array<keyof TypeSizes["display"]>
+  | Array<keyof TypeSizes["display"]>;
 
 /** Alias for backwards-compatibility */
-export const themeProps = THEME
+export const themeProps = THEME;
