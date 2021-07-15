@@ -95,7 +95,7 @@
     "gatsby-transformer-sharp": "^2.5.15",
     "hast-util-to-string": "^1.0.1",
     "lodash": "^4.17.11",
-    "marked": "^0.6.0",
+    "marked": "^0.7.0",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^17.0.1",
