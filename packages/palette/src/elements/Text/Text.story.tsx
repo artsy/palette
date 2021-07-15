@@ -1,3 +1,12 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
+import {
+  TEXT_VARIANT_NAMES as V2_TEXT_VARIANT_NAMES,
+  TEXT_VARIANTS as V2_TEXT_VARIANTS,
+} from "@artsy/palette-tokens/dist/typography/v2"
+import {
+  TEXT_VARIANT_NAMES as V3_TEXT_VARIANT_NAMES,
+  TEXT_VARIANTS as V3_TEXT_VARIANTS,
+} from "@artsy/palette-tokens/dist/typography/v3"
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import { States } from "storybook-states"
@@ -5,15 +14,6 @@ import styled from "styled-components"
 import { Color, useTheme } from "../../Theme"
 import { Flex } from "../Flex"
 import { Text, TextProps } from "./Text"
-import { TextVariant } from "./tokens"
-import {
-  TEXT_VARIANT_NAMES as V2_TEXT_VARIANT_NAMES,
-  TEXT_VARIANTS as V2_TEXT_VARIANTS,
-} from "./tokens/v2"
-import {
-  TEXT_VARIANT_NAMES as V3_TEXT_VARIANT_NAMES,
-  TEXT_VARIANTS as V3_TEXT_VARIANTS,
-} from "./tokens/v3"
 
 const Table = styled.table`
   width: 100%;

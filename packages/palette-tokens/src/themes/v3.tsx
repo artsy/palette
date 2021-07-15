@@ -1,4 +1,4 @@
-import { TEXT_FONTS, TEXT_VARIANTS } from "../elements/Text/tokens/v3"
+import { TEXT_FONTS, TEXT_VARIANTS } from "../typography/v3";
 
 /** A list of breakpoints accessible by key/value. */
 export const breakpoints = {
@@ -9,8 +9,8 @@ export const breakpoints = {
   /** Between 768 and  1279 */
   sm: "768px",
   /** Below 767 */
-  xs: "767px",
-}
+  xs: "767px"
+};
 
 /** Copy of `breakpoints` as integers */
 export const unitlessBreakpoints = {
@@ -21,8 +21,8 @@ export const unitlessBreakpoints = {
   /** Between 768 and  1279 */
   sm: parseInt(breakpoints.sm, 10),
   /** Below 767 */
-  xs: parseInt(breakpoints.xs, 10),
-}
+  xs: parseInt(breakpoints.xs, 10)
+};
 
 /**
  * We alias breakpoints onto the scale so that styled-system has access
@@ -31,7 +31,7 @@ export const unitlessBreakpoints = {
 const BREAKPOINTS_SCALE = Object.assign(
   [breakpoints.sm, breakpoints.md, breakpoints.lg],
   breakpoints
-)
+);
 
 /**
  * All of the config for the Artsy theming system, based on the
@@ -74,7 +74,7 @@ export const THEME = {
     /** 10% of red100 on white. Backgrounds */
     red10: "#F4E4E3",
     /** Full white */
-    white100: "#FFFFFF",
+    white100: "#FFFFFF"
   },
 
   fonts: TEXT_FONTS,
@@ -92,7 +92,7 @@ export const THEME = {
 
   // Empty grid object to prevent `Grid` component from throwing
   grid: {
-    breakpoints: {},
+    breakpoints: {}
   },
 
   space: {
@@ -108,15 +108,15 @@ export const THEME = {
     /** Equivalent to 60px  */
     6: "60px",
     /** Equivalent to 120px  */
-    12: "120px",
+    12: "120px"
   },
 
-  textVariants: TEXT_VARIANTS,
-}
+  textVariants: TEXT_VARIANTS
+};
 
 /** All available px spacing maps */
-export type SpacingUnit = keyof typeof THEME["space"]
+export type SpacingUnit = keyof typeof THEME["space"];
 /** All available color keys */
-export type Color = keyof typeof THEME["colors"]
+export type Color = keyof typeof THEME["colors"];
 /** All available width breakpoint */
-export type Breakpoint = keyof typeof breakpoints
+export type Breakpoint = keyof typeof breakpoints;

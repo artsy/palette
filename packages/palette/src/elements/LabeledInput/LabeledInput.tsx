@@ -1,9 +1,10 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React, { useEffect, useRef, useState } from "react"
 import { isText as _isText } from "../../helpers/isText"
 import { useThemeConfig } from "../../Theme"
 import { Box, splitBoxProps } from "../Box"
 import { Input, InputProps } from "../Input"
-import { Text, TextVariant } from "../Text"
+import { Text } from "../Text"
 
 export interface LabeledInputProps extends InputProps {
   label: React.ReactNode

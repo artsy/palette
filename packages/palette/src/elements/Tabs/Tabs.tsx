@@ -1,3 +1,4 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React, { useCallback, useState } from "react"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useThemeConfig } from "../../Theme"
@@ -5,7 +6,6 @@ import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { BaseTabs, BaseTabsProps } from "../BaseTabs"
 import { BaseTab } from "../BaseTabs"
 import { Clickable } from "../Clickable"
-import { TextVariant } from "../Text"
 
 export interface TabLike extends JSX.Element {
   props: TabProps

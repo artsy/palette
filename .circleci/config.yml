@@ -19,9 +19,9 @@ workflows:
   build_and_verify:
     jobs:
       - yarn/workflow-queue
-      - yarn/update-cache:
-          requires:
-            - yarn/workflow-queue
+      # - yarn/update-cache:
+      #     requires:
+      #       - yarn/workflow-queue
       - yarn/lint:
           requires:
             - yarn/workflow-queue
@@ -58,7 +58,7 @@ workflows:
             - yarn/test
             - yarn/lint
             - yarn/type-check
-            - yarn/update-cache
+            # - yarn/update-cache
 
       # Releases
       - auto/publish:
@@ -70,7 +70,7 @@ workflows:
             - yarn/test
             - yarn/lint
             - yarn/type-check
-            - yarn/update-cache
+            # - yarn/update-cache
 
       # Docs / Storybooks
       - yarn/run:

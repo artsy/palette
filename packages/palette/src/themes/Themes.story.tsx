@@ -20,9 +20,10 @@ import {
   Tab,
   Tabs,
   Text,
-  TextVariant,
 } from "../elements"
 import { isThemeV2, useTheme } from "../Theme"
+
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 
 export default {
   title: "Theme",

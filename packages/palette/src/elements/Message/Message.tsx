@@ -1,9 +1,10 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
 import { useThemeConfig } from "../../Theme"
 import { Flex, FlexProps } from "../Flex"
-import { Text, TextVariant } from "../Text"
+import { Text } from "../Text"
 
 const VARIANTS = {
   default: {

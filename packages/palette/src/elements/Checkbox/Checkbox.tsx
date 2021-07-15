@@ -1,10 +1,11 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import styled, { css } from "styled-components"
 import { isText } from "../../helpers/isText"
 import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
-import { Text, TextVariant } from "../Text"
+import { Text } from "../Text"
 import { Check } from "./Check"
 import {
   CHECK_STATES as V2_CHECK_STATES,

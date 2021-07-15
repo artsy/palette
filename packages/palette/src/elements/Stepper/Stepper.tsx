@@ -1,3 +1,4 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import { CheckIcon } from "../../svgs/CheckIcon"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
@@ -7,7 +8,6 @@ import { Box } from "../Box"
 import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { TabProps, TabsProps, useTabs } from "../Tabs"
-import { TextVariant } from "../Text"
 
 export interface StepperProps extends TabsProps {
   /** The step user currently is at (e.g. previous steps completed) */
