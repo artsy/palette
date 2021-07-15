@@ -7,7 +7,7 @@ export interface TextTreatment {
 
 /** Available fonts */
 export const TEXT_FONTS = {
-  sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif'
 };
 
 /** Available text variant names */
@@ -17,7 +17,7 @@ export const TEXT_VARIANT_NAMES = [
   "lg",
   "md",
   "sm",
-  "xs",
+  "xs"
 ] as const;
 
 /** Available text variants */
@@ -28,30 +28,30 @@ export const TEXT_VARIANTS: Record<
   xxl: {
     fontSize: "50px",
     lineHeight: "54px",
-    letterSpacing: "-0.02em",
+    letterSpacing: "-0.02em"
   },
   xl: {
     fontSize: "34px",
     lineHeight: "38px",
-    letterSpacing: "-0.02em",
+    letterSpacing: "-0.02em"
   },
   lg: {
     fontSize: "24px",
     lineHeight: "28px",
-    letterSpacing: "-0.02em",
+    letterSpacing: "-0.02em"
   },
   md: {
     fontSize: "16px",
-    lineHeight: "20px",
+    lineHeight: "20px"
   },
   sm: {
     fontSize: "16px",
-    lineHeight: "24px",
+    lineHeight: "24px"
   },
   xs: {
     fontSize: "13px",
-    lineHeight: "18px",
-  },
+    lineHeight: "18px"
+  }
 };
 
 /** Name of typographic treatment */
