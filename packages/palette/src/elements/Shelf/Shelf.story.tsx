@@ -15,7 +15,7 @@ const Demo = ({
 }: Partial<ShelfProps> & { amount?: number }) => {
   return (
     <Shelf {...rest}>
-      {[...new Array(amount)]
+      {Array.from(Array(amount))
         .map((_, i) => [300, 250, 200, 333, 400][i % 5])
         .map((height, j) => (
           <Box

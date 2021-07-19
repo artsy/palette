@@ -76,14 +76,14 @@ export const Scrolling = () => {
     <Example
       bodyChildren={
         <>
-          {[...new Array(100)].map((_, i) => (
+          {Array.from(Array(100)).map((_, i) => (
             <div key={i}>content should not scroll when modal is open</div>
           ))}
         </>
       }
       dialogChildren={
         <>
-          {[...new Array(100)].map((_, i) => (
+          {Array.from(Array(100)).map((_, i) => (
             <div key={i}>content should be scrollable</div>
           ))}
         </>

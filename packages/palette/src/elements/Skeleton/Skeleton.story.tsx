@@ -78,11 +78,11 @@ export const _ExampleArtworkSkeleton = () => {
 export const StressTest = () => {
   return (
     <Join separator={<Spacer mt={6} />}>
-      {[...new Array(12)].map((_, i) => {
+      {Array.from(Array(12)).map((_, i) => {
         return (
           <Skeleton key={`a-${i}`} overflow="hidden">
             <Shelf>
-              {[...new Array(12)].map((__, j) => {
+              {Array.from(Array(12)).map((__, j) => {
                 return <ExampleArtworkSkeleton key={`b-${j}`} i={j} />
               })}
             </Shelf>

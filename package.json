@@ -9,10 +9,10 @@
     "lint": "lerna run lint",
     "start": "concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' 'yarn workspace artsy-palette-docs start'",
     "storybook": "yarn workspace @artsy/palette storybook",
-    "test": "lerna run test",
+    "test": "yarn compile-palette && lerna run test",
     "pretype-check": "yarn compile-palette && lerna run type-declarations",
     "type-check": "lerna run type-check",
-    "visual-test": "yarn workspace @artsy/palette visual-test"
+    "visual-test": "yarn compile-palette && yarn workspace @artsy/palette visual-test"
   },
   "repository": {
     "type": "git",

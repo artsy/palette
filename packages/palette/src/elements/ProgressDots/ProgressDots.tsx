@@ -50,7 +50,7 @@ export const ProgressDots: React.FC<ProgressDotsProps> = ({
         my={0.5}
         {...rest}
       >
-        {[...new Array(amount)].map((_, i) => {
+        {Array.from(Array(amount)).map((_, i) => {
           const indicator = (
             <Indicator
               key={i}

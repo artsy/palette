@@ -15,7 +15,7 @@ const GridColumnsDebug = () => (
     height="100%"
     style={{ pointerEvents: "none" }}
   >
-    {[...new Array(12)].map((_, i) => (
+    {Array.from(Array(12)).map((_, i) => (
       <Column key={i} span={[1]} bg="rgba(255, 0, 0, 0.05)" height="100%" />
     ))}
   </GridColumns>

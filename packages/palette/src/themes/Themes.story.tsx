@@ -140,7 +140,7 @@ export const Grid = () => {
       <Separator color="black30" my={12} />
 
       <GridColumns my={12} width="100%" height={800}>
-        {[...new Array(12)].map((_, i) => (
+        {Array.from(Array(12)).map((_, i) => (
           <Column key={i} span={[1]} bg="black10" height="100%" />
         ))}
       </GridColumns>
@@ -150,7 +150,7 @@ export const Grid = () => {
       <Text variant="xxl">Tablet</Text>
 
       <GridColumns my={12} width={theme.breakpoints.sm} height={800} mx="auto">
-        {[...new Array(12)].map((_, i) => (
+        {Array.from(Array(12)).map((_, i) => (
           <Column key={i} span={[1]} bg="black10" height="100%" />
         ))}
       </GridColumns>
@@ -160,7 +160,7 @@ export const Grid = () => {
       <Text variant="xxl">Mobile</Text>
 
       <GridColumns my={12} width={480} gridColumnGap={1} height={800} mx="auto">
-        {[...new Array(12)].map((_, i) => (
+        {Array.from(Array(12)).map((_, i) => (
           <Column key={i} span={[1]} bg="black10" height="100%" />
         ))}
       </GridColumns>
