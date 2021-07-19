@@ -1,3 +1,21 @@
+# v2.1.0 (Mon Jul 19 2021)
+
+#### 🚀  Enhancement
+
+- feat: Migrate Palette to @artsy/palette-tokens package [#971](https://github.com/artsy/palette/pull/971) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- prettier ([@damassi](https://github.com/damassi))
+- v2.0.0 ([@damassi](https://github.com/damassi))
+- feat: Update palette to support palette-tokens; use v3 ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v1.5.0 (Fri Feb 05 2021)
 
 #### 🚀  Enhancement

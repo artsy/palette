@@ -1,3 +1,23 @@
+# v14.44.0 (Mon Jul 19 2021)
+
+#### 🚀  Enhancement
+
+- fix: Fix CI deploys [#974](https://github.com/artsy/palette/pull/974) ([@damassi](https://github.com/damassi))
+- feat: Migrate Palette to @artsy/palette-tokens package [#971](https://github.com/artsy/palette/pull/971) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- refactor: Swap ...new Array syntax with Array.from ([@damassi](https://github.com/damassi))
+- prettier ([@damassi](https://github.com/damassi))
+- lib: bump palette-tokens ([@damassi](https://github.com/damassi))
+- feat: Update palette to support palette-tokens; use v3 ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.43.1 (Tue Jul 13 2021)
 
 #### 🐛  Bug Fix

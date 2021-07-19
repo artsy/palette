@@ -1,3 +1,18 @@
+# (Mon Jul 19 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.44.0`
+  - fix: Fix CI deploys [#974](https://github.com/artsy/palette/pull/974) ([@damassi](https://github.com/damassi))
+- `@artsy/palette-tokens@2.1.0`, `@artsy/palette@14.44.0`
+  - feat: Migrate Palette to @artsy/palette-tokens package [#971](https://github.com/artsy/palette/pull/971) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Tue Jul 13 2021)
 
 #### 🐛  Bug Fix
