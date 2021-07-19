@@ -33,7 +33,7 @@ ImageWSrcSet.story = {
 export const LazyImage = () => {
   return (
     <>
-      {[...new Array(100)].map((_, i) => (
+      {Array.from(Array(100)).map((_, i) => (
         <Image
           key={i}
           lazyLoad
@@ -53,7 +53,7 @@ LazyImage.story = {
 export const LazyImageWSrcSet = () => {
   return (
     <>
-      {[...new Array(100)].map((_, i) => (
+      {Array.from(Array(100)).map((_, i) => (
         <Image
           key={i}
           lazyLoad

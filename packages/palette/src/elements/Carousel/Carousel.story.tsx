@@ -16,7 +16,7 @@ const LOREM =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, adipisci. Voluptate voluptatum porro facere atque dolores est neque ipsam quaerat necessitatibus? Deleniti tempora assumenda accusantium, quia quo ad rem expedita!"
 
 const Demo = ({
-  widths = [...new Array(25)].map((_) => 300),
+  widths = Array.from(Array(10)).map((_) => 300),
   heights = [400],
   ...rest
 }: {
@@ -26,20 +26,22 @@ const Demo = ({
   return (
     <Box mx={[2, 4]} my={2}>
       <Carousel onChange={action("onChange")} {...rest}>
-        {widths.map((width, i) => (
-          <Clickable
-            key={i}
-            width={width}
-            height={heights[i % heights.length]}
-            bg="black10"
-            border="1px solid"
-            borderColor="black30"
-            p={1}
-            textAlign="center"
-          >
-            <Text variant="caption">{i + 1}</Text>
-          </Clickable>
-        ))}
+        {widths.map((width, i) => {
+          return (
+            <Clickable
+              key={i}
+              width={width}
+              height={heights[i % heights.length]}
+              bg="black10"
+              border="1px solid"
+              borderColor="black30"
+              p={1}
+              textAlign="center"
+            >
+              <Text variant="caption">{i + 1}</Text>
+            </Clickable>
+          )
+        })}
       </Carousel>
     </Box>
   )
@@ -89,7 +91,7 @@ MultipleOverflowingItems.story = {
 }
 
 export const TwoishPages = () => {
-  const widths = [...new Array(5)].map((_) => 250)
+  const widths = Array.from(Array(5)).map((_) => 250)
   return <Demo widths={widths} />
 }
 
@@ -98,7 +100,7 @@ TwoishPages.story = {
 }
 
 export const ManyPages = () => {
-  const widths = [...new Array(100)].map((_) => 250)
+  const widths = Array.from(Array(100)).map((_) => 250)
   return <Demo widths={widths} />
 }
 
@@ -107,7 +109,7 @@ ManyPages.story = {
 }
 
 export const VaryingWidths = () => {
-  const widths = [...new Array(25)].map((_, i) => {
+  const widths = Array.from(Array(25)).map((_, i) => {
     if (i % 15 === 0) return 400
     if (i % 5 === 0) return 300
     if (i % 3 === 0) return 333
@@ -123,7 +125,7 @@ VaryingWidths.story = {
 }
 
 export const VaryingHeights = () => {
-  const widths = [...new Array(25)].map((_, i) => {
+  const widths = Array.from(Array(25)).map((_, i) => {
     if (i % 15 === 0) return 400
     if (i % 5 === 0) return 300
     if (i % 3 === 0) return 333

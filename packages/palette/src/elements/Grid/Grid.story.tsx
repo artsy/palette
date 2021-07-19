@@ -19,7 +19,7 @@ export const Basic = () => {
       }}
     >
       <Row>
-        {[...new Array(12)].map((_, i) => {
+        {Array.from(Array(12)).map((_, i) => {
           return (
             <Col sm={1} key={i}>
               <BorderBox>{i + 1}</BorderBox>

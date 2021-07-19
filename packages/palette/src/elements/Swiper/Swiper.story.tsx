@@ -10,7 +10,7 @@ const LOREM =
   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis dicta sunt nihil perspiciatis aperiam asperiores, earum facere repellendus in veniam, mollitia, ducimus delectus perferendis beatae facilis molestiae et ad quaerat!"
 
 const Demo = ({
-  widths = [...new Array(25)].map((_) => 300),
+  widths = Array.from(Array(25)).map((_) => 300),
   heights = [400],
   ...rest
 }: {
@@ -67,7 +67,7 @@ SimpleWithLeftEdgeSnapping.story = {
 }
 
 export const ProgressBarExample = () => {
-  const widths = [...new Array(10)].map((_) => 300)
+  const widths = Array.from(Array(10)).map((_) => 300)
   const [index, setIndex] = useState(0)
   const progress = (index * 100) / (widths.length - 1)
 
@@ -84,7 +84,7 @@ ProgressBarExample.story = {
 }
 
 export const ProgressDotsExample = () => {
-  const widths = [...new Array(10)].map((_) => 300)
+  const widths = Array.from(Array(10)).map((_) => 300)
   const [index, setIndex] = useState(0)
 
   return (
