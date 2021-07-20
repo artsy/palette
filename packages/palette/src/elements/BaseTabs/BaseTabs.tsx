@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react"
+import React, { useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import {
   compose,
@@ -78,13 +78,21 @@ export const BaseTabs: React.FC<BaseTabsProps> = ({
 
   const ref = useRef<HTMLDivElement | null>()
 
+  useEffect(() => {
+    updateAtEnd()
+    window.addEventListener("resize", updateAtEnd)
+    return () => {
+      window.removeEventListener("resize", updateAtEnd)
+    }
+  }, [])
+
   const [paddingProps, boxProps] = splitRailProps(rest)
 
   const [atEnd, setAtEnd] = useState(false)
 
   const cells = useMemo(() => flattenChildren(children), [children])
 
-  const handleScroll = () => {
+  const updateAtEnd = () => {
     if (!ref.current) return
 
     const {
@@ -101,7 +109,7 @@ export const BaseTabs: React.FC<BaseTabsProps> = ({
 
   return (
     <Overlay atEnd={atEnd} {...boxProps}>
-      <Viewport ref={ref as any} onScroll={handleScroll}>
+      <Viewport ref={ref as any} onScroll={updateAtEnd}>
         <Rail
           display="inline-flex"
           borderBottom="1px solid"
