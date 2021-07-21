@@ -1,3 +1,20 @@
+# v14.44.1 (Wed Jul 21 2021)
+
+#### 🐛  Bug Fix
+
+- fix(image): supports native img props [#978](https://github.com/artsy/palette/pull/978) ([@dzucconi](https://github.com/dzucconi))
+- fix(image): supports native img props ([@dzucconi](https://github.com/dzucconi))
+- fix(PX-3894): fix end shadow for BaseTabs component [#976](https://github.com/artsy/palette/pull/976) (kiry.zubarau@artsymail.com [@kiryl-zubarau](https://github.com/kiryl-zubarau))
+- Fix end shadow for BaseTabs component (kiry.zubarau@artsymail.com)
+
+#### Authors: 3
+
+- [@kiryl-zubarau](https://github.com/kiryl-zubarau)
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Kirill Zuborev (kiry.zubarau@artsymail.com)
+
+---
+
 # v14.44.0 (Mon Jul 19 2021)
 
 #### 🚀  Enhancement

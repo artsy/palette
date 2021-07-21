@@ -1,3 +1,15 @@
+# v2.1.1 (Wed Jul 21 2021)
+
+#### 🐛  Bug Fix
+
+- fix(image): supports native img props [#978](https://github.com/artsy/palette/pull/978) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v2.1.0 (Mon Jul 19 2021)
 
 #### 🚀  Enhancement
