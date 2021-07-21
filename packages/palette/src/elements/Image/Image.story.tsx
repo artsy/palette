@@ -8,6 +8,8 @@ export default {
 export const _Image = () => {
   return (
     <Image
+      id="example"
+      className="example"
       width="300px"
       height="200px"
       src="https://picsum.photos/seed/example/300/200"

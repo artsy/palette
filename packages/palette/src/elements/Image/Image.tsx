@@ -1,8 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { CleanTag } from "../CleanTag"
-import { LazyImage } from "./LazyImage"
-
 import {
   borderRadius,
   BorderRadiusProps,
@@ -20,17 +17,13 @@ import {
   width,
   WidthProps,
 } from "styled-system"
+import { CleanTag } from "../CleanTag"
+import { LazyImage } from "./LazyImage"
 
 /** Props for a web-only Image component. */
 export interface WebImageProps extends ImageProps {
   /** Flag for if image should be lazy loaded */
   lazyLoad?: boolean
-  /** Alternate text for image */
-  alt?: string
-  /** A11y text label */
-  ["aria-label"]?: string
-  /** The title of the image */
-  title?: string
   /** Flag indicating that right clicks should be prevented */
   preventRightClick?: boolean
 }
@@ -42,15 +35,8 @@ const ratioPadding = system({
   },
 })
 
-/** Props for web & iOS images */
-export interface BaseImageProps {
-  /** The URL for the image */
-  src: string
-  /** The URLs for the image */
-  srcSet?: string
-  /** Apply additional styles to component */
-  style?: object
-}
+export interface BaseImageProps
+  extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, "height" | "width"> {}
 
 export interface ImageProps
   extends BaseImageProps,
