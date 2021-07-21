@@ -7,6 +7,7 @@ import { ThemeContext, ThemeProvider } from "styled-components"
 import { Theme as TTheme, THEME_V2, THEME_V3, ThemeV2, ThemeV3 } from "./themes"
 
 export * from "@artsy/palette-tokens/dist/themes/v2"
+export { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 
 /**
  * Creates a new Grid context for web. This glues the v2 grid theme into any other theme.
