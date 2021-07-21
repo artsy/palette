@@ -1,3 +1,25 @@
+# v14.45.0 (Wed Jul 21 2021)
+
+#### 🚀  Enhancement
+
+- fix: Make sure to compile monorepo packages before publish [#982](https://github.com/artsy/palette/pull/982) ([@damassi](https://github.com/damassi))
+- fix: storybook compile [#981](https://github.com/artsy/palette/pull/981) ([@damassi](https://github.com/damassi))
+- feat(hooks): exports hooks [#979](https://github.com/artsy/palette/pull/979) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix: Make sure to compile monorepo packages before publish ([@damassi](https://github.com/damassi))
+- fix: Fix missing TextVariant export [#980](https://github.com/artsy/palette/pull/980) ([@damassi](https://github.com/damassi))
+- fix types ([@damassi](https://github.com/damassi))
+- feat(hooks): exports hooks ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.44.1 (Wed Jul 21 2021)
 
 #### 🐛  Bug Fix

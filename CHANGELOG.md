@@ -1,5 +1,27 @@
 # (Wed Jul 21 2021)
 
+#### 🚀  Enhancement
+
+- fix: storybook compile [#981](https://github.com/artsy/palette/pull/981) ([@damassi](https://github.com/damassi))
+- `@artsy/palette@14.45.0`
+  - fix: Make sure to compile monorepo packages before publish [#982](https://github.com/artsy/palette/pull/982) ([@damassi](https://github.com/damassi))
+- `@artsy/palette@14.45.0`
+  - feat(hooks): exports hooks [#979](https://github.com/artsy/palette/pull/979) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.45.0`
+  - fix: Fix missing TextVariant export [#980](https://github.com/artsy/palette/pull/980) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Jul 21 2021)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@14.44.1`
