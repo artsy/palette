@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette",
-  "version": "14.44.1",
+  "version": "14.45.0",
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
