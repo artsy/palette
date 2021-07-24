@@ -1,13 +1,10 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { color, media, space } from "../../helpers"
-import { breakpoints } from "../../Theme"
-import { Box } from "../Box"
+import { color, media, space, breakpoints, Box, Flex } from "@artsy/palette"
 import {
   BaseTooltipPositioner,
   ChartHoverTooltip,
 } from "../DataVis/ChartHoverTooltip"
-import { Flex } from "../Flex"
 
 const MAX_BAR_HEIGHT = 80
 const MIN_BAR_HEIGHT = 10

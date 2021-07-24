@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Flex, FlexProps } from "../Flex"
-import { Sans } from "../Typography"
+import { Flex, FlexProps, Sans } from "@artsy/palette"
 
 const ChartTooltipWrapper = styled(Flex)`
   text-align: center;

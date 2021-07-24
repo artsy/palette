@@ -1,13 +1,11 @@
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
-import { media, space } from "../../helpers"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
 import { coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
-import { Flex } from "../Flex"
-import { Sans } from "../Typography"
+import { media, space, Flex, Sans } from "@artsy/palette"
 import { LineChartSVG } from "./LineChartSVG"
 
 const margin = space(2)

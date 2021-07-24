@@ -1,5 +1,6 @@
 {
   "name": "palette",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "build-storybook": "yarn compile-palette && yarn workspace @artsy/palette build-storybook",

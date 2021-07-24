@@ -1,5 +1,5 @@
 import React from "react"
-import { color } from "../../helpers"
+import { color } from "@artsy/palette"
 
 /**
  * Point is the component responsible for rendering a data point

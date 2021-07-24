@@ -1,10 +1,8 @@
 import { mount } from "enzyme"
 import "jest-styled-components"
 import React from "react"
-import { Theme } from "../../Theme"
 import { BarChart, BarChartProps } from "../BarChart"
-import { Flex } from "../Flex"
-import { Sans } from "../Typography"
+import { Flex, Theme, Sans } from "@artsy/palette"
 import { Bar } from "./Bar"
 
 const mockBars = [
