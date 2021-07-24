@@ -1,5 +1,5 @@
+import { color } from "@artsy/palette"
 import React from "react"
-import { color } from "../../helpers"
 
 /**
  * Line is the component responsible for rendering a line that goes through all of the data points

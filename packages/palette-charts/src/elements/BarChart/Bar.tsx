@@ -1,13 +1,10 @@
+import { Box, breakpoints, color, Flex, media, space } from "@artsy/palette"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { color, media, space } from "../../helpers"
-import { breakpoints } from "../../Theme"
-import { Box } from "../Box"
 import {
   BaseTooltipPositioner,
   ChartHoverTooltip,
 } from "../DataVis/ChartHoverTooltip"
-import { Flex } from "../Flex"
 
 const MAX_BAR_HEIGHT = 80
 const MIN_BAR_HEIGHT = 10
@@ -29,7 +26,7 @@ const BarBox = styled(Box)`
     margin-right: 0;
   }
   flex: 1;
-  cursor: ${props => (props.onClick ? "pointer" : "default")};
+  cursor: ${props => ((props as any).onClick ? "pointer" : "default")};
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
   @media (min-width: ${breakpoints.sm}) {

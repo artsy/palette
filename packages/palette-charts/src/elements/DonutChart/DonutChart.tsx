@@ -1,10 +1,8 @@
+import { Box, color, Color, Sans, space } from "@artsy/palette"
 import { interpolate } from "d3-interpolate"
 import { arc as d3_arc, pie as d3_pie } from "d3-shape"
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
-import { color, space } from "../../helpers"
-import { Color } from "../../Theme"
-import { Box } from "../Box"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
 import {
   coerceTooltip,
@@ -13,7 +11,6 @@ import {
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
-import { Sans } from "../Typography"
 
 const colors: Color[] = ["black10", "black30", "black60"]
 const MIN_CHART_SIZE = 30

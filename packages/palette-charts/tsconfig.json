@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": ["dom", "es2015", "es2016", "es2017"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ],
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "target": "es2015"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules/*", "dist/*", "www/*"]
+}

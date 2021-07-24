@@ -2,6 +2,17 @@
 
 #### 💥  Breaking Change
 
+- `@artsy/palette@16.0.0`
+  - feature: Palette Chart Lib [#1018](https://github.com/artsy/palette/pull/1016) ([@icirellik](https://github.com/icirellik))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+# (Thu Aug 12 2021)
+
+#### 💥  Breaking Change
+
 - `@artsy/palette@15.0.0`
   - chore: removes slider and related components [#1018](https://github.com/artsy/palette/pull/1018) ([@dzucconi](https://github.com/dzucconi))
 

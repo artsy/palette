@@ -2,11 +2,9 @@ import { mount } from "enzyme"
 import "jest-styled-components"
 import createMockRaf from "mock-raf"
 
+import { Flex, Sans, Theme } from "@artsy/palette"
 import React from "react"
-import { Theme } from "../../Theme"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
-import { Flex } from "../Flex"
-import { Sans } from "../Typography"
 import { LineChart, PointHoverArea } from "./LineChart"
 import { Point } from "./Point"
 
