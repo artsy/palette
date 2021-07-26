@@ -1,3 +1,30 @@
+# v14.45.1 (Mon Jul 26 2021)
+
+#### 🐛  Bug Fix
+
+- fix(PX-4059): prevent link click if there is no next or prev page [#984](https://github.com/artsy/palette/pull/984) (kiry.zubarau@artsymail.com [@kiryl-zubarau](https://github.com/kiryl-zubarau))
+- Prevent link click if there is no next or prev page (kiry.zubarau@artsymail.com)
+- chore(deps): update dep typescript from 4.2.4 to v4.3.5 ([@renovate-bot](https://github.com/renovate-bot))
+- chore(deps): pin dependencies ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 🏠  Internal
+
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 [#928](https://github.com/artsy/palette/pull/928) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump ws from 6.2.1 to 6.2.2 [#945](https://github.com/artsy/palette/pull/945) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 [#915](https://github.com/artsy/palette/pull/915) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): pin dependencies [#632](https://github.com/artsy/palette/pull/632) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- chore(deps): update dep typescript from 4.2.4 to v4.3.5 [#936](https://github.com/artsy/palette/pull/936) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 5
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- [@kiryl-zubarau](https://github.com/kiryl-zubarau)
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Kirill Zuborev (kiry.zubarau@artsymail.com)
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v14.45.0 (Wed Jul 21 2021)
 
 #### 🚀  Enhancement

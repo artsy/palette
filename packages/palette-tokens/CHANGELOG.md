@@ -1,3 +1,17 @@
+# v2.1.2 (Mon Jul 26 2021)
+
+#### 🏠  Internal
+
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 [#928](https://github.com/artsy/palette/pull/928) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump ws from 6.2.1 to 6.2.2 [#945](https://github.com/artsy/palette/pull/945) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 [#915](https://github.com/artsy/palette/pull/915) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v2.1.1 (Wed Jul 21 2021)
 
 #### 🐛  Bug Fix
