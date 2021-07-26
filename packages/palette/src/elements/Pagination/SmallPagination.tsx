@@ -22,11 +22,17 @@ export const SmallPagination: React.FC<PaginationProps> = (props) => {
   const handlePrevClick = (event: React.MouseEvent) => {
     if (previous) {
       onClick(previous.cursor, previous.page, event)
+    } else {
+      event.preventDefault()
     }
   }
 
   const handleNextClick = (event: React.MouseEvent) => {
-    onNext(event, nextPage)
+    if (hasNextPage) {
+      onNext(event, nextPage)
+    } else {
+      event.preventDefault()
+    }
   }
 
   const nextPage = (previous?.page || 0) + 2

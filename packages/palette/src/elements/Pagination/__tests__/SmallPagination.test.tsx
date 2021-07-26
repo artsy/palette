@@ -118,10 +118,10 @@ describe("SmallPagination", () => {
       expect(onClickMock).toHaveBeenCalledWith("ABC123==", 1, expect.anything())
     })
 
-    it("renders the next button as disabled and calls the onNext function when clicked", () => {
+    it("renders the next button as disabled and does not call the onNext function when clicked", () => {
       const wrapper = mountWrapper()
       wrapper.find("NextButton Link").simulate("click")
-      expect(onNextMock).toHaveBeenCalledWith(expect.anything(), 3)
+      expect(onNextMock).not.toHaveBeenCalled()
     })
   })
 
