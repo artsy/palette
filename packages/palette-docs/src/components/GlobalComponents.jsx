@@ -5,13 +5,7 @@ import * as Palette from "@artsy/palette"
 import { CodeEditor } from "../components/Playground"
 import { ColorComponent } from "../components/ColorComponent"
 
-import {
-  Box,
-  Text,
-  injectGlobalStyles,
-  color,
-  space,
-} from "@artsy/palette"
+import { Box, Text, injectGlobalStyles, color, space } from "@artsy/palette"
 
 /**
  * FIXME:
@@ -100,40 +94,28 @@ export const MarkdownComponents = {
   },
   h1: (props) => (
     <Box mb={5}>
-      <Text as="h1" variant='xl' color="black100" className="DocSearch-lvl1">
+      <Text as="h1" variant="xxl" color="black100" className="DocSearch-lvl1">
         {props.children}
       </Text>
     </Box>
   ),
   h2: (props) => (
     <Box mb={1} mt={4}>
-      <Text
-        as="h2"
-        variant='lg'
-        weight="medium"
-        color="black100"
-        className="DocSearch-lvl2"
-      >
+      <Text as="h2" variant="xl" color="black100" className="DocSearch-lvl2">
         {props.children}
       </Text>
     </Box>
   ),
   h3: (props) => (
     <Box mb={1}>
-      <Text
-        as="h3"
-        variant='md'
-        weight="medium"
-        color="black100"
-        className="DocSearch-lvl3"
-      >
+      <Text as="h3" variant="lg" color="black100" className="DocSearch-lvl3">
         {props.children}
       </Text>
     </Box>
   ),
   h4: (props) => (
     <Box mb={1}>
-      <Text as="h4" variant='sm' color="black100" className="DocSearch-lvl4">
+      <Text as="h4" variant="sm" color="black100" className="DocSearch-lvl4">
         {props.children}
       </Text>
     </Box>
@@ -142,13 +124,13 @@ export const MarkdownComponents = {
   ol: (props) => {
     return (
       <ol>
-        <Text variant='md'>{props.children}</Text>
+        <Text variant="md">{props.children}</Text>
       </ol>
     )
   },
 
   p: (props) => (
-    <Text as="p" variant='md' color="black100" className="contentDiv">
+    <Text as="p" variant="md" color="black100" className="contentDiv">
       {props.children}
     </Text>
   ),
