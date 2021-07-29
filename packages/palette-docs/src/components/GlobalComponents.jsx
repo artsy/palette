@@ -106,7 +106,7 @@ export const MarkdownComponents = {
     </Box>
   ),
   h2: (props) => (
-    <Box mb={1}>
+    <Box mb={1} mt={4}>
       <Text
         as="h2"
         variant='lg'

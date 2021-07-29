@@ -75,6 +75,7 @@
     "@mdx-js/mdx": "^0.20.0",
     "@mdx-js/tag": "^0.20.0",
     "@reach/router": "^1.2.1",
+    "@styled-system/theme-get": "^5.1.2",
     "d3-ease": "^1.0.5",
     "docz-utils": "^0.13.6",
     "gatsby": "2.3.34",

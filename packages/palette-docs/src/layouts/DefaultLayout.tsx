@@ -22,8 +22,9 @@ export default function DocsLayout(props) {
 
   const Contents = () => {
     const { theme } = useTheme()
+
     return (
-      <Flex maxWidth={theme.breakpoints.lg} style={{ margin: "0 auto" }}>
+      <Flex maxWidth={theme.breakpoints.md} style={{ margin: "0 auto" }}>
         <Helmet defaultTitle="Palette" titleTemplate="Palette | %s">
           <title>{name}</title>
           <link
@@ -34,28 +35,37 @@ export default function DocsLayout(props) {
           <meta name="docsearch:language" content="en" />
           <meta name="docsearch:version" content="1.0.0" />
         </Helmet>
-        <Sidebar />
-        <ContentArea
-          className="DocSearch-content"
-          flexDirection="column"
-          pt={4}
-          px={6}
-        >
-          {type !== "page" && (
-            <Box mb={0.5}>
-              <Text
-                as="h1"
-                variant="xl"
-                color="black100"
-                mb={2}
-                className="DocSearch-lvl1"
-              >
-                {name} {status && <StatusBadge status={status} />}
-              </Text>
-            </Box>
-          )}
-          <MDXRenderer>{code.body}</MDXRenderer>
-        </ContentArea>
+
+        <Flex width="100%" style={{ margin: "auto" }}>
+          <Box width="20%" pr={2}>
+            <Sidebar />
+          </Box>
+
+          <Box width="80%">
+            <ContentArea
+              className="DocSearch-content"
+              flexDirection="column"
+              pt={4}
+              px={6}
+            >
+              {type !== "page" && (
+                <Box mb={0.5}>
+                  <Text
+                    as="h1"
+                    variant="xl"
+                    color="black100"
+                    mb={2}
+                    className="DocSearch-lvl1"
+                  >
+                    {name} {status && <StatusBadge status={status} />}
+                  </Text>
+                </Box>
+              )}
+
+              <MDXRenderer>{code.body}</MDXRenderer>
+            </ContentArea>
+          </Box>
+        </Flex>
       </Flex>
     )
   }
@@ -84,9 +94,6 @@ export default function DocsLayout(props) {
 }
 
 export const ContentArea = styled(Flex)`
-  /* width: 80%; */
-  /* max-width: 980px; */
-  margin: 0 auto;
   overflow-x: scroll;
   border-left: 1px solid ${color("black10")};
 `

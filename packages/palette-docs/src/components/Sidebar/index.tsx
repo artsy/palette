@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
 import React from "react"
-import styled from "styled-components"
 import { NavTree } from "./NavTree"
 
 import { ArtsyMarkBlackIcon, Box, Flex, Text } from "@artsy/palette"
@@ -8,7 +7,7 @@ import { SearchBox } from "./SearchBox"
 
 export const Sidebar = (_props) => {
   return (
-    <Container pl={2} pt={4}>
+    <Box pl={2} pt={4}>
       <Link to="/" className="noUnderline">
         <Flex alignItems="center">
           <Box mr={1}>
@@ -36,11 +35,6 @@ export const Sidebar = (_props) => {
           2020 Artsy
         </Text>
       </Box>
-    </Container>
+    </Box>
   )
 }
-
-const Container = styled(Box)`
-  flex: 0 0 200px;
-  height: 100vh;
-`

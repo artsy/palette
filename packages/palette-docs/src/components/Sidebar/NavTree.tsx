@@ -1,4 +1,5 @@
 import { Box, ChevronIcon, Spacer, Text } from "@artsy/palette"
+import { themeGet } from "@styled-system/theme-get"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { includes, reject, sortBy } from "lodash"
@@ -217,6 +218,7 @@ const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
     text-decoration: none;
   }
   &&.isActive {
+    color: ${themeGet("colors.brand")};
     &:before {
       content: " \u2014 ";
     }
