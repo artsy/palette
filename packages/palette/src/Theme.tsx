@@ -6,7 +6,9 @@ import { GridThemeProvider as StyledGridThemeProvider } from "styled-bootstrap-g
 import { ThemeContext, ThemeProvider } from "styled-components"
 import { Theme as TTheme, THEME_V2, THEME_V3, ThemeV2, ThemeV3 } from "./themes"
 
+export { THEME_V2, THEME_V3 } from "./themes"
 export * from "@artsy/palette-tokens/dist/themes/v2"
+
 export { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 
 /**
