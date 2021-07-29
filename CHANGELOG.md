@@ -1,3 +1,16 @@
+# (Thu Jul 29 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.46.0`
+  - feat: Export v2/v3 theme constants [#987](https://github.com/artsy/palette/pull/987) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Mon Jul 26 2021)
 
 #### 🐛  Bug Fix

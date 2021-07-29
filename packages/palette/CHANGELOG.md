@@ -1,3 +1,19 @@
+# v14.46.0 (Thu Jul 29 2021)
+
+#### 🚀  Enhancement
+
+- feat: Export v2/v3 theme constants [#987](https://github.com/artsy/palette/pull/987) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat: Export v2/v3 theme constants ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v14.45.1 (Mon Jul 26 2021)
 
 #### 🐛  Bug Fix
