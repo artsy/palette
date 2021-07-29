@@ -3,6 +3,32 @@ name: Spacing
 subNavOrder: 1
 ---
 
+When building layouts and components, palette hooks into a handful of reusable spacing units
+[Theme file](https://github.com/artsy/palette/blob/master/packages/palette/src/Theme.tsx#L116). This allows us to constrain the possibilities available to
+a component to only what's defined in our spacing system and thus reduce drift.
+
+This means that in practice one should rarely use concrete pixel values:
+
+### Avoid this spacing pattern
+
+<Playground layout="horizontal">
+  <BorderBox mt="10px" p="20px">
+    <Button>View more</Button>
+  </BorderBox>
+</Playground>
+
+### Apply this spacing pattern
+
+<Playground layout="horizontal">
+  <BorderBox mt={1} p={2}>
+    <Button variant="secondaryOutline">View more</Button>
+  </BorderBox>
+</Playground>
+
+Since units use ten pixels as the base, `1` equals `10px`, `2` equals `20px`,
+`.5` equals `5px` (and so on).
+
+
 ## Theme
 
 https://github.com/artsy/palette/blob/master/packages/palette/src/Theme.tsx#L116
@@ -25,43 +51,3 @@ We employ a base-10px grid for consistent vertical rhythm.
 
 Spacing units are set in multiples of 10px.
 
-<Flex>
-  <Box>
-
-## Example
-
-When building layouts and components, palette hooks into a
-[Theme file](https://github.com/artsy/palette/blob/master/packages/palette/src/Theme.tsx#L116)
-for returning values. This allows us to constrain the possibilities available to
-a component to only what's defined in our spacing system and thus reduce drift.
-
-This means that in practice one should rarely use concrete pixel values:
-
-  </Box>
-  <Box pl={4}>
-    <img
-      width="100%"
-      style={{ float: "right" }}
-      src="/assets/spacing-size-units.png"
-    />
-  </Box>
-</Flex>
-
-### Avoid this spacing pattern
-
-<Playground layout="horizontal">
-  <BorderBox mt="10px" p="20px">
-    <Button>View more</Button>
-  </BorderBox>
-</Playground>
-
-### Apply this spacing pattern
-
-<Playground layout="horizontal">
-  <BorderBox mt={1} p={2}>
-    <Button variant="secondaryOutline">View more</Button>
-  </BorderBox>
-</Playground>
-
-Since units use ten pixels as the base, `1` equals `10px`, `2` equals `20px`,
-`.5` equals `5px` (and so on).

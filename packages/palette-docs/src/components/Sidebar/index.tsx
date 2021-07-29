@@ -8,7 +8,7 @@ import { SearchBox } from "./SearchBox"
 export const Sidebar = (_props) => {
   return (
     <Box pl={2} pt={4}>
-      <Link to="/" className="noUnderline">
+      <Link to="/" className="noUnderline" style={{ textDecoration: "none" }}>
         <Flex alignItems="center">
           <Box mr={1}>
             <ArtsyMarkBlackIcon width="40px" height="40px" />
