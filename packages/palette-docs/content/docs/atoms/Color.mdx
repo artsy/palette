@@ -2,98 +2,16 @@
 name: Color
 ---
 
-## Primary colors
-
-<ColorComponent color="black100" />
-
-This is our primary brand color. It is used as the default text color on light
-backgrounds and as the primary color of our logo.
+The Artsy color palette has been updated to improve the accessibility. Each color has been adjusted to ensure sufficient contrast and has specific roles as to which colors can be used in conjunction with each other.
 
 <Spacer m={4} />
 
-<ColorComponent color="black60" />
-
-This is only used as the color for secondary text or captions.
-
-<Spacer m={4} />
-
-<ColorComponent color="black30" />
-
-This gray is only just for placeholder text in input fields.
-
-<Spacer m={4} />
-
-<ColorComponent color="black10" />
-
-This light grey is used as the color for all borders and divider lines, and for
-some backgrounds (such as in our gray buttons).
-
-<Spacer m={4} />
-
-<ColorComponent color="black5" />
-
-This color used used only for specific backgrounds.
-
-<Spacer m={4} />
-
-<ColorComponent color="white100" />
-
-Used as the primary background color of the site and for text on dark
-backgrounds.
-
-<Spacer m={4} />
-
-<ColorComponent color="blue100" />
-
-Blue: Calls to action, highlights, edits.
-
-<Spacer m={4} />
-
-<ColorComponent color="blue10" />
-
-Light blue is used for backgrounds.
-
-<Spacer m={4} />
-
-<ColorComponent color="copper100" />
-
-Copper: In consideration, transition, temporary.
-
-<Spacer m={4} />
-
-<ColorComponent color="copper10" />
-
-Light copper is used for backgrounds.
-
-<Spacer m={4} />
-
-<ColorComponent color="green100" />
-
-Green: Success, approval, go.
-
-<Spacer m={4} />
-
-<ColorComponent color="green10" />
-
-Light green is used for backgrounds.
-
-<Spacer m={4} />
-
-<ColorComponent color="purple100" />
-
-Our secondary brand color. Used selectively in loading or hover states.
-Occasionally for the logo.
-
-<Spacer m={4} />
-
-<ColorComponent color="red100" />
-
-Red: Notification, error, stop.
-
-<Spacer m={4} />
-
-<ColorComponent color="red10" />
-
-Light red is used for backgrounds.
-
-<Spacer m={4} />
+<Flex flexWrap='wrap'>
+	{Object.entries(THEME_V3.colors).map(([key, value]) => {
+		return (
+			<Box pr={2} pb={2}>
+				<ColorComponent color={key} />
+			</Box>
+		)
+	})}
+</Flex>

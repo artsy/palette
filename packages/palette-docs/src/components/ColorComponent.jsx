@@ -1,18 +1,20 @@
 import React from "react"
-import { Box, Sans, themeProps } from "@artsy/palette"
+import { Flex, Box, Text, themeProps, useTheme } from "@artsy/palette"
 
-export const ColorComponent = props => {
+export const ColorComponent = (props) => {
+  const { theme } = useTheme()
+
   return (
-    <Box mb={3}>
-      <Sans size="3" weight="medium">
-        {props.color}
-      </Sans>
-      <Sans size="3">
-        {themeProps.colors.hasOwnProperty(`${props.color}`)
-          ? themeProps.colors[`${props.color}`]
-          : ""}
-      </Sans>
-      <Box width="100%" height={5} bg={props.color} />
-    </Box>
+    <Flex mb={3}>
+      <Box width={50} height={50} bg={props.color} mr={1} borderRadius="50%" />
+      <Box>
+        <Text variant="sm">{props.color}</Text>
+        <Text variant="md">
+          {theme.colors.hasOwnProperty(`${props.color}`)
+            ? theme.colors[`${props.color}`]
+            : ""}
+        </Text>
+      </Box>
+    </Flex>
   )
 }

@@ -130,7 +130,13 @@ export const MarkdownComponents = {
   },
 
   p: (props) => (
-    <Text as="p" variant="md" color="black100" className="contentDiv">
+    <Text
+      as="p"
+      variant="md"
+      color="black100"
+      className="contentDiv"
+      lineHeight="24px"
+    >
       {props.children}
     </Text>
   ),

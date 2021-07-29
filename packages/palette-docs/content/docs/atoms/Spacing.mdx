@@ -27,24 +27,10 @@ This means that in practice one should rarely use concrete pixel values. For exa
   </BorderBox>
 </Playground>
 
-### All spacing values
+### All spacing values:
 
 <Box as="pre" mb={4}>
-  {JSON.stringify({
-    // unit: px value
-    /** Equivalent to 5px  */
-    0.5: "5px",
-    /** Equivalent to 10px  */
-    1: "10px",
-    /** Equivalent to 20px  */
-    2: "20px",
-    /** Equivalent to 40px  */
-    4: "40px",
-    /** Equivalent to 60px  */
-    6: "60px",
-    /** Equivalent to 120px  */
-    12: "120px"
-  }, null, 2)}
+  {JSON.stringify(THEME_V3.space, null, 2)}
 </Box>
 
 ### API
