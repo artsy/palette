@@ -13,7 +13,7 @@ export const Boot = ({ element }) => {
         return (
           <StateProvider inject={[new NavState(location.pathname)]}>
             <MDXProvider components={MarkdownComponents}>
-              <Theme>
+              <Theme theme='v3'>
                 <Box>
                   <GlobalStyles />
                   {element}

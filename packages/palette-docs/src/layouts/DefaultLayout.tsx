@@ -1,4 +1,4 @@
-import { Box, color, Flex, Sans, Serif } from "@artsy/palette"
+import { Box, color, Flex, Text, useTheme } from "@artsy/palette"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
@@ -14,15 +14,16 @@ export default function DocsLayout(props) {
     data: {
       mdx: {
         code,
-        frontmatter: { name, status, type, lastPointOfContact },
+        frontmatter: { name, status, type },
       },
     },
     location: { pathname },
   } = props
 
   const Contents = () => {
+    const { theme } = useTheme()
     return (
-      <Flex maxWidth="1200px" style={{ margin: "0 auto" }}>
+      <Flex maxWidth={theme.breakpoints.lg} style={{ margin: "0 auto" }}>
         <Helmet defaultTitle="Palette" titleTemplate="Palette | %s">
           <title>{name}</title>
           <link
@@ -42,25 +43,18 @@ export default function DocsLayout(props) {
         >
           {type !== "page" && (
             <Box mb={0.5}>
-              <Serif
-                element="h1"
-                size="8"
+              <Text
+                as="h1"
+                variant="xl"
                 color="black100"
                 mb={2}
                 className="DocSearch-lvl1"
               >
                 {name} {status && <StatusBadge status={status} />}
-              </Serif>
+              </Text>
             </Box>
           )}
           <MDXRenderer>{code.body}</MDXRenderer>
-          {lastPointOfContact && (
-            <Box mt={3}>
-              <Sans color="black60" size="2">
-                Last points of contact: {lastPointOfContact}
-              </Sans>
-            </Box>
-          )}
         </ContentArea>
       </Flex>
     )
@@ -90,8 +84,8 @@ export default function DocsLayout(props) {
 }
 
 export const ContentArea = styled(Flex)`
-  width: 80%;
-  max-width: 980px;
+  /* width: 80%; */
+  /* max-width: 980px; */
   margin: 0 auto;
   overflow-x: scroll;
   border-left: 1px solid ${color("black10")};

@@ -7,8 +7,7 @@ import { ColorComponent } from "../components/ColorComponent"
 
 import {
   Box,
-  Sans,
-  Serif,
+  Text,
   injectGlobalStyles,
   color,
   space,
@@ -101,58 +100,57 @@ export const MarkdownComponents = {
   },
   h1: (props) => (
     <Box mb={5}>
-      <Serif element="h1" size="8" color="black100" className="DocSearch-lvl1">
+      <Text as="h1" variant='xl' color="black100" className="DocSearch-lvl1">
         {props.children}
-      </Serif>
+      </Text>
     </Box>
   ),
   h2: (props) => (
     <Box mb={1}>
-      <Sans
-        element="h2"
-        size="5"
+      <Text
+        as="h2"
+        variant='lg'
         weight="medium"
         color="black100"
         className="DocSearch-lvl2"
       >
         {props.children}
-      </Sans>
+      </Text>
     </Box>
   ),
   h3: (props) => (
     <Box mb={1}>
-      <Sans
-        element="h3"
-        size="4"
+      <Text
+        as="h3"
+        variant='md'
         weight="medium"
         color="black100"
         className="DocSearch-lvl3"
       >
         {props.children}
-      </Sans>
+      </Text>
     </Box>
   ),
   h4: (props) => (
     <Box mb={1}>
-      <Serif element="h4" size="4" color="black100" className="DocSearch-lvl4">
+      <Text as="h4" variant='sm' color="black100" className="DocSearch-lvl4">
         {props.children}
-      </Serif>
+      </Text>
     </Box>
   ),
 
   ol: (props) => {
     return (
       <ol>
-        <Sans size="3">{props.children}</Sans>
+        <Text variant='md'>{props.children}</Text>
       </ol>
     )
   },
 
   p: (props) => (
-    // @ts-ignore
-    <Sans element="p" size="3" color="black100" className="contentDiv">
+    <Text as="p" variant='md' color="black100" className="contentDiv">
       {props.children}
-    </Sans>
+    </Text>
   ),
 }
 
