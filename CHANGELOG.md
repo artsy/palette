@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@14.47.2`
+  - Input/TextArea refinements [#990](https://github.com/artsy/palette/pull/990) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Jul 30 2021)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@14.47.1`
   - fix(textarea): passes default value [#989](https://github.com/artsy/palette/pull/989) ([@dzucconi](https://github.com/dzucconi))
 

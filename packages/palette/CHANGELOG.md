@@ -1,3 +1,18 @@
+# v14.47.2 (Fri Jul 30 2021)
+
+#### 🐛  Bug Fix
+
+- Input/TextArea refinements [#990](https://github.com/artsy/palette/pull/990) ([@dzucconi](https://github.com/dzucconi))
+- fix(input/textarea): threads through required prop ([@dzucconi](https://github.com/dzucconi))
+- fix(textarea): removes small space when not needed ([@dzucconi](https://github.com/dzucconi))
+- fix(textarea): improves line-height ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.47.1 (Fri Jul 30 2021)
 
 #### 🐛  Bug Fix
