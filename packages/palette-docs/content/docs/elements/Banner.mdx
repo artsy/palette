@@ -1,3 +1,46 @@
 ---
 name: Banner
 ---
+
+Banners are used to convey time bound messages, statuses and specfic actions to
+our users. Depending on the timespan and importance of the message, they can
+either be a permanent part of the page, or can be dismissable.
+
+We primarily use banners that are either dark gray on light gray, or white on
+black.
+
+### Variants
+
+<Playground>
+  <Join separator={<Spacer my={1} />}>
+    <Banner variant="defaultLight">defaultLight</Banner>
+    <Banner variant="defaultDark">defaultDark</Banner>
+    <Banner variant="success">success</Banner>
+    <Banner variant="error">error</Banner>
+    <Banner variant="brand">brand</Banner>
+  </Join>
+</Playground>
+
+### Dismissable Banner
+
+You can specify the `dismissable` prop when the banner should be dismissable.
+
+<Playground>
+  <Banner dismissable variant='defaultLight'>
+    Please verify your email address
+    <Button ml={2} variant="primaryWhite" size="small">
+      Resend Email
+    </Button>
+  </Banner>
+</Playground>
+
+### With Icons
+
+When communicating a status, we use colored icons in along with text.
+
+<Playground>
+  <Banner variant='defaultDark'>
+    <TimerIcon top="4px" mr={0.5} fill="white100" /> Registration pending
+  </Banner>
+</Playground>
+

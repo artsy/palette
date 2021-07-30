@@ -1,3 +1,17 @@
 ---
 name: BorderedRadio
 ---
+
+<Playground>
+	<RadioGroup onSelect={(value) => console.log(value)}>
+		{["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
+			(value) => {
+				return (
+					<BorderedRadio key={value} value={value}>
+						{value}
+					</BorderedRadio>
+				)
+			}
+		)}
+	</RadioGroup>
+</Playground>

@@ -67,6 +67,13 @@ export const { GlobalStyles } = injectGlobalStyles(`
  * in markdown. Still need to fill this out a bit!
  */
 export const MarkdownComponents = {
+  blockquote: (props) => {
+    return (
+      <Box p={1} backgroundColor="black10">
+        <Text variant="xxl">{props.children}</Text>
+      </Box>
+    )
+  },
   /**
    * Use color to render a color bar and relevant information about it.
    *
@@ -100,14 +107,14 @@ export const MarkdownComponents = {
     </Box>
   ),
   h2: (props) => (
-    <Box mb={1} mt={4}>
+    <Box mb={2} mt={4}>
       <Text as="h2" variant="xl" color="black100" className="DocSearch-lvl2">
         {props.children}
       </Text>
     </Box>
   ),
   h3: (props) => (
-    <Box mb={1}>
+    <Box mb={2} mt={4}>
       <Text as="h3" variant="lg" color="black100" className="DocSearch-lvl3">
         {props.children}
       </Text>

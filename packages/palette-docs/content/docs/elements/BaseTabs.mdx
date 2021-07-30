@@ -1,3 +1,93 @@
 ---
 name: BaseTabs
 ---
+
+The `BaseTabs` component can be used to build other tab-like components.
+
+<Playground>
+  <BaseTabs>
+    <BaseTab>First</BaseTab>
+    <BaseTab>Second</BaseTab>
+    <BaseTab active>Active</BaseTab>
+    <BaseTab>Last</BaseTab>
+  </BaseTabs>
+</Playground>
+
+### As links
+
+<Playground>
+  <BaseTabs>
+    <BaseTab as="a" href="#overview">
+      Overview
+    </BaseTab>
+    <BaseTab as="a" href="#cv">
+      CV
+    </BaseTab>
+    <BaseTab as="a" href="#shows" active>
+      Shows
+    </BaseTab>
+    <BaseTab as="a" href="#auction-results">
+      Auction Results
+    </BaseTab>
+    <BaseTab as="a" href="#articles">
+      Articles
+    </BaseTab>
+    <BaseTab as="a" href="#related-artists">
+      Related Artists
+    </BaseTab>
+  </BaseTabs>
+</Playground>
+
+### As Other Components
+
+<Playground>
+  <BaseTabs>
+    <BaseTab as={Clickable} onClick={() => alert('Clicking!')}>
+      Overview
+    </BaseTab>
+    <BaseTab as={Clickable}>
+      CV
+    </BaseTab>
+  </BaseTabs>
+</Playground>
+
+### Overflowing
+
+<Playground>
+  <BaseTabs>
+    {[
+      "Artworks (58)",
+      "Artists (8)",
+      "Collections (7)",
+      "Artist Series (13)",
+      "Galleries (4)",
+      "Shows (3667)",
+      "Categories (21)",
+      "Articles (656)",
+      "Auctions (23)",
+      "More (46)",
+    ].map((label, i) => {
+      return (
+        <BaseTab key={label} active={i === 1}>
+          {label}
+        </BaseTab>
+      )
+    })}
+  </BaseTabs>
+</Playground>
+
+### Fill
+
+<Playground>
+  <BaseTabs fill mb={4}>
+    <BaseTab as="a" href="#">
+      One
+    </BaseTab>
+    <BaseTab as="a" href="#" active>
+      Two
+    </BaseTab>
+    <BaseTab as="a" href="#">
+      Three
+    </BaseTab>
+  </BaseTabs>
+</Playground>

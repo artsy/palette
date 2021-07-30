@@ -1,3 +1,41 @@
 ---
 name: Avatar
 ---
+
+All entities use a circular avatar.
+
+### Sizes
+
+<Playground>
+	<Avatar size="md" src="https://picsum.photos/110/110/?random" />
+</Playground>
+
+<Playground>
+	<Avatar size="sm" src="https://picsum.photos/110/110/?random" />
+</Playground>
+
+<Playground>
+	<Avatar size="xs" src="https://picsum.photos/110/110/?random" />
+</Playground>
+
+<Playground>
+	<Avatar size="xxs" src="https://picsum.photos/110/110/?random" />
+</Playground>
+
+### With lazy loading
+
+<Playground>
+	<Avatar lazy size="md" src="https://picsum.photos/110/110/?random" />
+</Playground>
+
+### Rendering a fallback
+
+<Playground>
+  <Avatar
+    size="md"
+    renderFallback={({ diameter }) => (
+			<Box bgColor='brand' width={diameter} height={diameter} />
+    )}
+    src="https://www.artsy.net/does-not-exist"
+  />
+</Playground>
