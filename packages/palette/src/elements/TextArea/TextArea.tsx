@@ -1,48 +1,31 @@
 import { themeGet } from "@styled-system/theme-get"
-import React, { useCallback, useState } from "react"
+import React, { useState } from "react"
 import styled, { css } from "styled-components"
+import { TextVariant } from "../../../../palette-tokens/dist/typography/types"
+import { getThemeConfig, useThemeConfig } from "../../Theme"
+import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
-import { Sans } from "../Typography/Typography"
+import { Text } from "../Text/Text"
+import { TEXTAREA_STATES as V2_TEXTAREA_STATES } from "./tokens/v2"
+import { TEXTAREA_STATES as V3_TEXTAREA_STATES } from "./tokens/v3"
 
-const StyledTextArea = styled.textarea`
-  transition: border-color 0.25s ease;
-  padding: ${themeGet("space.1")};
-  min-height: ${themeGet("space.9")};
-  font-family: ${themeGet("fontFamily.sans.regular")};
-  font-size: ${themeGet("typeSizes.sans.3.fontSize")};
-  line-height: ${themeGet("typeSizes.sans.3.lineHeight")};
-  outline: none;
-  ${({ hasError }: { hasError?: boolean }) => css`
-    border: 1px solid ${themeGet(hasError ? "colors.red100" : "colors.black10")};
-    :active,
-    :focus {
-      border-color: ${themeGet(
-        hasError ? "colors.red100" : "colors.purple100"
-      )};
-    }
-  `};
-  resize: vertical;
-`
-
-const Required = styled.span`
-  color: ${themeGet("colors.purple100")};
-`
-
-export interface TextAreaProps {
-  error?: string
-  required?: boolean
+export interface TextAreaProps
+  extends BoxProps,
+    Omit<
+      React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+      "onChange" | "title"
+    > {
   characterLimit?: number
-  title?: React.ReactNode
-  description?: React.ReactNode
-  onChange?(result: TextAreaChange): void
-
-  // forwarded to the styled.input
-  className?: string
   defaultValue?: string
-  innerRef?: React.RefObject<HTMLTextAreaElement>
-  name?: string
-  placeholder?: string
+  description?: React.ReactNode
+  required?: boolean
+  title?: React.ReactNode
+  disabled?: boolean
+  error?: string | boolean
+  focus?: boolean
+  hover?: boolean
+  onChange?(result: TextAreaChange): void
 }
 
 export interface TextAreaChange {
@@ -51,72 +34,164 @@ export interface TextAreaChange {
 }
 
 /** TextArea */
-export const TextArea: React.FC<TextAreaProps> = ({
-  error,
-  characterLimit,
-  title,
-  description,
-  defaultValue = "",
-  required,
-  onChange,
-  ...rest
-}) => {
-  const [value, setValue] = useState(defaultValue)
+export const TextArea: React.ForwardRefExoticComponent<
+  TextAreaProps & { ref?: React.Ref<HTMLTextAreaElement> }
+> = React.forwardRef(
+  (
+    {
+      error,
+      disabled,
+      focus,
+      hover,
+      characterLimit,
+      title,
+      description,
+      defaultValue = "",
+      required,
+      onChange,
+      ...rest
+    },
+    ref
+  ) => {
+    const [boxProps, inputProps] = splitBoxProps(rest)
 
-  const characterLimitExceeded = () => {
-    return Boolean(characterLimit && value.length > characterLimit)
-  }
+    const [value, setValue] = useState(defaultValue)
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const nextValue = event.currentTarget.value
-    setValue(nextValue)
-    onChange?.({
-      value: nextValue,
-      exceedsCharacterLimit: characterLimitExceeded(),
+    const characterLimitExceeded = (text: string) => {
+      return Boolean(characterLimit && text.length > characterLimit)
+    }
+
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const nextValue = event.currentTarget.value
+      setValue(nextValue)
+      onChange?.({
+        value: nextValue,
+        exceedsCharacterLimit: characterLimitExceeded(nextValue),
+      })
+    }
+
+    const hasError = Boolean(error || characterLimitExceeded(value))
+
+    const tokens = useThemeConfig({
+      v2: {
+        titleVariant: "text" as TextVariant,
+        titleTextTransform: null,
+        secondaryTextVariant: "small" as TextVariant,
+      },
+      v3: {
+        titleVariant: "xs" as TextVariant,
+        titleTextTransform: "uppercase",
+        secondaryTextVariant: "xs" as TextVariant,
+      },
     })
-  }
 
-  const hasError = Boolean(error || characterLimitExceeded())
+    return (
+      <Box width="100%" {...boxProps}>
+        {(title || description) && (
+          <>
+            <div>
+              {title && (
+                <Text
+                  variant={tokens.titleVariant}
+                  textTransform={tokens.titleTextTransform}
+                >
+                  {title}
+                  {required && (
+                    <Box as="span" color="brand">
+                      *
+                    </Box>
+                  )}
+                </Text>
+              )}
 
-  return (
-    <Flex flexDirection="column">
-      {title && (
-        <>
-          <Sans size="3t">
-            {title}
-            {required && <Required>*</Required>}
-          </Sans>
-        </>
-      )}
+              {description && (
+                <Text variant={tokens.secondaryTextVariant} color="black60">
+                  {description}
+                </Text>
+              )}
+            </div>
 
-      {description && (
-        <>
-          <Sans size="2" color="black60">
-            {description}
-          </Sans>
-        </>
-      )}
-
-      {(title || description) && <Spacer mb={1} />}
-
-      <StyledTextArea {...rest} onChange={handleChange} hasError={hasError} />
-
-      <Spacer mb={1} />
-
-      <Flex justifyContent="space-between">
-        <Sans color="red100" size="2">
-          {error}
-        </Sans>
-
-        {typeof characterLimit !== "undefined" && (
-          <Sans
-            size="2"
-            color={characterLimitExceeded() ? "red100" : "black60"}
-          >
-            {value.length} / {characterLimit} max
-          </Sans>
+            <Spacer m={0.5} />
+          </>
         )}
-      </Flex>
-    </Flex>
-  )
-}
+
+        <StyledTextArea
+          ref={ref as any}
+          disabled={disabled}
+          focus={focus}
+          hover={hover}
+          error={hasError}
+          onChange={handleChange}
+          {...inputProps}
+        />
+
+        <Spacer mt={0.5} />
+
+        <Flex justifyContent="space-between">
+          {error && typeof error === "string" ? (
+            <Text variant={tokens.secondaryTextVariant} color="red100">
+              {error}
+            </Text>
+          ) : (
+            <div />
+          )}
+
+          {typeof characterLimit !== "undefined" && (
+            <Text
+              variant={tokens.secondaryTextVariant}
+              color={characterLimitExceeded(value) ? "red100" : "black60"}
+            >
+              {value.length} / {characterLimit} max
+            </Text>
+          )}
+        </Flex>
+      </Box>
+    )
+  }
+)
+
+type StyledTextAreaProps = Pick<
+  TextAreaProps,
+  "disabled" | "error" | "hover" | "focus"
+>
+
+const StyledTextArea = styled.textarea<StyledTextAreaProps>`
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: ${themeGet("space.1")};
+  resize: vertical;
+  transition: border-color 0.25s ease;
+  outline: none;
+  border: 1px solid;
+  font-family: ${themeGet("fonts.sans")};
+
+  ${(props) => {
+    const states = getThemeConfig(props, {
+      v2: V2_TEXTAREA_STATES,
+      v3: V3_TEXTAREA_STATES,
+    })
+
+    return css`
+      ${states.default}
+      ${props.hover && states.hover}
+      ${props.focus && states.focus}
+      ${props.disabled && states.disabled}
+      ${props.error && states.error}
+
+      &:hover {
+        ${states.hover}
+      }
+
+      &:focus {
+        outline: none;
+        ${states.focus}
+      }
+
+      &:disabled {
+        cursor: default;
+        ${states.disabled}
+      }
+    `
+  }}
+`

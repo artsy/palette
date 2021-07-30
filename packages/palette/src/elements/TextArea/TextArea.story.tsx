@@ -11,9 +11,12 @@ export const Default = () => {
     <States<TextAreaProps>
       states={[
         {},
+        { focus: true },
+        { hover: true },
+        { error: "Something went wrong." },
+        { disabled: true },
         { title: "Note" },
         { title: "Note", required: true },
-        { error: "Something went wrong" },
         { characterLimit: 10 },
         { name: "my-text-area" },
         {
