@@ -123,6 +123,7 @@ export const TextArea: React.ForwardRefExoticComponent<
           error={hasError}
           onChange={handleChange}
           defaultValue={defaultValue}
+          required={required}
           {...inputProps}
         />
 
