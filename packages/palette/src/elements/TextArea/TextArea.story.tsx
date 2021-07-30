@@ -25,7 +25,10 @@ export const Default = () => {
           title: "Note",
           description: "This is my description",
         },
-        { defaultValue: "A default value" },
+        {
+          defaultValue:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nam iste beatae reiciendis ea harum, aspernatur, eius, omnis eveniet corporis consequatur minima assumenda ipsum dolor dolorum perferendis animi distinctio eligendi?",
+        },
       ]}
     >
       <TextArea placeholder="Start typing..." onChange={action("onChange")} />

@@ -6,6 +6,7 @@ export const TEXTAREA_STATES: Record<State, any> = {
   default: css`
     min-height: ${themeGet("space.12")};
     font-size: ${themeGet("textVariants.sm.fontSize")};
+    line-height: ${themeGet("textVariants.sm.lineHeight")};
     color: ${themeGet("colors.black100")};
     border-color: ${themeGet("colors.black30")};
   `,
