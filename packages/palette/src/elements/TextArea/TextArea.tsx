@@ -123,29 +123,35 @@ export const TextArea: React.ForwardRefExoticComponent<
           error={hasError}
           onChange={handleChange}
           defaultValue={defaultValue}
+          required={required}
           {...inputProps}
         />
 
-        <Spacer mt={0.5} />
+        {(typeof characterLimit !== "undefined" ||
+          (error && typeof error === "string")) && (
+          <>
+            <Spacer mt={0.5} />
 
-        <Flex justifyContent="space-between">
-          {error && typeof error === "string" ? (
-            <Text variant={tokens.secondaryTextVariant} color="red100">
-              {error}
-            </Text>
-          ) : (
-            <div />
-          )}
+            <Flex justifyContent="space-between">
+              {error && typeof error === "string" ? (
+                <Text variant={tokens.secondaryTextVariant} color="red100">
+                  {error}
+                </Text>
+              ) : (
+                <div />
+              )}
 
-          {typeof characterLimit !== "undefined" && (
-            <Text
-              variant={tokens.secondaryTextVariant}
-              color={characterLimitExceeded(value) ? "red100" : "black60"}
-            >
-              {value.length} / {characterLimit} max
-            </Text>
-          )}
-        </Flex>
+              {typeof characterLimit !== "undefined" && (
+                <Text
+                  variant={tokens.secondaryTextVariant}
+                  color={characterLimitExceeded(value) ? "red100" : "black60"}
+                >
+                  {value.length} / {characterLimit} max
+                </Text>
+              )}
+            </Flex>
+          </>
+        )}
       </Box>
     )
   }

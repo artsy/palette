@@ -94,6 +94,7 @@ export const Input: React.ForwardRefExoticComponent<
           focus={focus}
           hover={hover}
           error={!!error}
+          required={required}
           {...inputProps}
         />
 

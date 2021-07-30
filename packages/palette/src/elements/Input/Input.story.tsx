@@ -1,6 +1,7 @@
 import React from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
+import { Button } from "../Button"
 import { Input, InputProps } from "./Input"
 
 export default {
@@ -37,4 +38,26 @@ const StyledInput = styled(Input)`
 
 export const Styled = () => {
   return <StyledInput placeholder="style should target container div" />
+}
+
+export const Required = () => {
+  return (
+    <form>
+      <Input
+        title="Example"
+        required
+        placeholder="Submission should be blocked unless this has a value"
+      />
+
+      <Input
+        mt={1}
+        title="Email"
+        required
+        placeholder="Requires a valid email"
+        type="email"
+      />
+
+      <Button mt={1}>Submit</Button>
+    </form>
+  )
 }

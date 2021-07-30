@@ -1,6 +1,7 @@
 import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
+import { Button } from "../Button"
 import { TextArea, TextAreaProps } from "./TextArea"
 
 export default {
@@ -25,10 +26,28 @@ export const Default = () => {
           title: "Note",
           description: "This is my description",
         },
-        { defaultValue: "A default value" },
+        {
+          defaultValue:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nam iste beatae reiciendis ea harum, aspernatur, eius, omnis eveniet corporis consequatur minima assumenda ipsum dolor dolorum perferendis animi distinctio eligendi?",
+        },
       ]}
     >
       <TextArea placeholder="Start typing..." onChange={action("onChange")} />
     </States>
+  )
+}
+
+export const Required = () => {
+  return (
+    <form>
+      <TextArea
+        mt={1}
+        title="Example"
+        required
+        placeholder="Submission should be blocked unless this has a value"
+      />
+
+      <Button mt={1}>Submit</Button>
+    </form>
   )
 }
