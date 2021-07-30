@@ -87,14 +87,6 @@ describe("TextArea", () => {
     })
   })
 
-  it("takes a default value", () => {
-    getWrapper({ defaultValue: "This is the default value" })
-    expect(onChange).toHaveBeenCalledWith({
-      value: "This is the default value",
-      exceedsCharacterLimit: false,
-    })
-  })
-
   it("doesn't show a character limit label if you don't specify one", () => {
     const wrapper = getWrapper()
     expect(wrapper.text()).not.toContain("max")
@@ -135,32 +127,32 @@ describe("TextArea", () => {
     expect(wrapper.text()).toContain("0 / 20 max")
 
     simulateTyping(wrapper, "hello")
-    expect(onChange).toHaveBeenCalledWith({
+    expect(onChange).toHaveBeenLastCalledWith({
       value: "hello",
       exceedsCharacterLimit: false,
     })
 
     simulateTyping(wrapper, "hello there")
-    expect(onChange).toHaveBeenCalledWith({
+    expect(onChange).toHaveBeenLastCalledWith({
       value: "hello there",
       exceedsCharacterLimit: false,
     })
 
     simulateTyping(wrapper, "hello there chris")
-    expect(onChange).toHaveBeenCalledWith({
+    expect(onChange).toHaveBeenLastCalledWith({
       value: "hello there chris",
       exceedsCharacterLimit: false,
     })
 
     simulateTyping(wrapper, "hello there christopher")
-    expect(onChange).toHaveBeenCalledWith({
+    expect(onChange).toHaveBeenLastCalledWith({
       value: "hello there christopher",
       exceedsCharacterLimit: true,
     })
 
     // exactly at the limit
     simulateTyping(wrapper, "hello there christop")
-    expect(onChange).toHaveBeenCalledWith({
+    expect(onChange).toHaveBeenLastCalledWith({
       value: "hello there christop",
       exceedsCharacterLimit: false,
     })

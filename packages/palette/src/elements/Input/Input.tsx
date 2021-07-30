@@ -66,7 +66,7 @@ export const Input: React.ForwardRefExoticComponent<
               {title && (
                 <Text
                   variant={tokens.titleVariant}
-                  style={{ textTransform: tokens.titleTextTransform }}
+                  textTransform={tokens.titleTextTransform}
                 >
                   {title}
                   {required && (
