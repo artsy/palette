@@ -1,3 +1,21 @@
+# v14.47.0 (Fri Jul 30 2021)
+
+#### 🚀  Enhancement
+
+- feat(textarea): supports v3 [#988](https://github.com/artsy/palette/pull/988) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(textarea): supports v3 ([@dzucconi](https://github.com/dzucconi))
+- refactor(textarea): converts to a functional component ([@dzucconi](https://github.com/dzucconi))
+- chore(textarea): converts stories to states ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.46.0 (Thu Jul 29 2021)
 
 #### 🚀  Enhancement

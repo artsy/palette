@@ -1,3 +1,16 @@
+# (Fri Jul 30 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@14.47.0`
+  - feat(textarea): supports v3 [#988](https://github.com/artsy/palette/pull/988) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Jul 29 2021)
 
 #### 🚀  Enhancement
