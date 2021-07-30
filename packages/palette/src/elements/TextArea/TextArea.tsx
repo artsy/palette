@@ -122,6 +122,7 @@ export const TextArea: React.ForwardRefExoticComponent<
           hover={hover}
           error={hasError}
           onChange={handleChange}
+          defaultValue={defaultValue}
           {...inputProps}
         />
 

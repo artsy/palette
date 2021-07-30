@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
 import { TextArea, TextAreaProps } from "./TextArea"
@@ -24,9 +25,10 @@ export const Default = () => {
           title: "Note",
           description: "This is my description",
         },
+        { defaultValue: "A default value" },
       ]}
     >
-      <TextArea placeholder="Start typing..." />
+      <TextArea placeholder="Start typing..." onChange={action("onChange")} />
     </States>
   )
 }
