@@ -1,3 +1,16 @@
+# v14.47.1 (Fri Jul 30 2021)
+
+#### 🐛  Bug Fix
+
+- fix(textarea): passes default value [#989](https://github.com/artsy/palette/pull/989) ([@dzucconi](https://github.com/dzucconi))
+- fix(textarea): passes default value ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.47.0 (Fri Jul 30 2021)
 
 #### 🚀  Enhancement
