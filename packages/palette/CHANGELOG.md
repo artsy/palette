@@ -1,3 +1,19 @@
+# v14.48.0 (Mon Aug 02 2021)
+
+#### 🚀  Enhancement
+
+- chore(space,color): deprecates space & color functions [#992](https://github.com/artsy/palette/pull/992) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(space,color): deprecates space & color functions ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.47.2 (Fri Jul 30 2021)
 
 #### 🐛  Bug Fix
