@@ -10,10 +10,7 @@ export const EarnMoreIcon: React.FC<IconProps> = ({
   return (
     <Icon
       {...props}
-      // viewBox="0 0 18 18"
       xmlns="http://www.w3.org/2000/svg"
-      // width="56"
-      // height="75"
       fill={color(props.fill)}
       viewBox="0 0 56 75"
     >
