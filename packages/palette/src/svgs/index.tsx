@@ -94,4 +94,4 @@ export * from "./VerifiedIcon"
 export * from "./WatchingIcon"
 export * from "./WeChatIcon"
 export * from "./XCircleIcon"
-//Export new icons here
+// Export new icons here
