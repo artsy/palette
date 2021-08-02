@@ -1,13 +1,12 @@
+import { ArtsyMarkBlackIcon, Box, Flex, Text } from "@artsy/palette"
 import { Link } from "gatsby"
 import React from "react"
 import { NavTree } from "./NavTree"
-
-import { ArtsyMarkBlackIcon, Box, Flex, Text } from "@artsy/palette"
 import { SearchBox } from "./SearchBox"
 
 export const Sidebar = (_props) => {
   return (
-    <Box pl={2} pt={4}>
+    <Box pl={2} pt={4} height="100vh" width="100%" overflowY="scroll">
       <Link to="/" className="noUnderline" style={{ textDecoration: "none" }}>
         <Flex alignItems="center">
           <Box mr={1}>
@@ -25,15 +24,6 @@ export const Sidebar = (_props) => {
 
       <Box mt={2} mb={4}>
         <NavTree />
-      </Box>
-
-      <Box>
-        <Box mr={2}>
-          <ArtsyMarkBlackIcon width="30px" height="30px" />
-        </Box>
-        <Text variant="xs" color="black60">
-          2020 Artsy
-        </Text>
       </Box>
     </Box>
   )

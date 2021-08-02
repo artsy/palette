@@ -1,3 +1,28 @@
 ---
 name: Carousel
 ---
+
+export const LOREM =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, adipisci. Voluptate voluptatum porro facere atque dolores est neque ipsam quaerat necessitatibus? Deleniti tempora assumenda accusantium, quia quo ad rem expedita!"
+
+<Playground>
+	<Flex p={4}>
+		<Carousel onChange={changed => console.log(changed)}>
+			{Array.from(Array(10)).map((_) => 200).map((width, i) => {
+				return (
+					<Clickable
+						key={i}
+						width={width}
+						height={400}
+						bg="black10"
+						border="1px solid"
+						borderColor="black30"
+						textAlign="center"
+					>
+						<Text variant="caption">{i + 1}</Text>
+					</Clickable>
+				)
+			})}
+		</Carousel>
+	</Flex>
+</Playground>

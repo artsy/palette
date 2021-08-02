@@ -24,7 +24,7 @@ export default function DocsLayout(props) {
     const { theme } = useTheme()
 
     return (
-      <Flex maxWidth={theme.breakpoints.md} style={{ margin: "0 auto" }}>
+      <Flex maxWidth={theme.breakpoints.md} margin="0 auto" position="relative">
         <Helmet defaultTitle="Palette" titleTemplate="Palette | %s">
           <title>{name}</title>
           <link
@@ -36,12 +36,17 @@ export default function DocsLayout(props) {
           <meta name="docsearch:version" content="1.0.0" />
         </Helmet>
 
-        <Flex width="100%" style={{ margin: "auto" }}>
-          <Box width="20%" pr={2}>
+        <Flex width="100%" margin="auto">
+          <Box
+            width="25%"
+            pr={2}
+            borderRight="1px solid"
+            borderRightColor="black10"
+          >
             <Sidebar />
           </Box>
 
-          <Box width="80%">
+          <Box width="75%" height="100vh" overflowY="scroll">
             <ContentArea
               className="DocSearch-content"
               flexDirection="column"
@@ -95,7 +100,7 @@ export default function DocsLayout(props) {
 
 export const ContentArea = styled(Flex)`
   overflow-x: scroll;
-  border-left: 1px solid ${color("black10")};
+  min-height: "100%";
 `
 
 /**

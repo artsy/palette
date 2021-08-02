@@ -1,3 +1,14 @@
 ---
 name: Clickable
 ---
+
+Clickable is a utility component useful for wrapping things like `div`s without
+having to deal with the requirements to make the `div` accessible. It is the
+web-equivalent of `TouchableWithoutFeedback`. It supports the same system props
+as `<Box />`
+
+<Playground>
+  <Clickable onClick={() => alert("Clicked")}>
+    <Text variant='lg'>Click</Text>
+  </Clickable>
+</Playground>
