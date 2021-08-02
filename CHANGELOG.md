@@ -2,6 +2,20 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.49.0`
+  - [GRO-462] Add EarnMoreIcon to icon list [#991](https://github.com/artsy/palette/pull/991) (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com [@TMcMeans](https://github.com/TMcMeans))
+
+#### Authors: 2
+
+- Tanjie McMeans (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+- TanjieM ([@TMcMeans](https://github.com/TMcMeans))
+
+---
+
+# (Mon Aug 02 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette-tokens@2.2.0`, `@artsy/palette@14.48.0`
   - chore(space,color): deprecates space & color functions [#992](https://github.com/artsy/palette/pull/992) ([@dzucconi](https://github.com/dzucconi))
 

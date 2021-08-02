@@ -1,3 +1,25 @@
+# v14.49.0 (Mon Aug 02 2021)
+
+#### 🚀  Enhancement
+
+- [GRO-462] Add EarnMoreIcon to icon list [#991](https://github.com/artsy/palette/pull/991) (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com [@TMcMeans](https://github.com/TMcMeans))
+
+#### 🐛  Bug Fix
+
+- Remove old comment (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+- Fix linter issues (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+- Remove color function from Icon component (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+- Alphabetize location of new icon export (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+- Remove comment noise from EarnMoreIcon (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+- Add EarnMoreIcon to icon list (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+
+#### Authors: 2
+
+- Tanjie McMeans (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+- TanjieM ([@TMcMeans](https://github.com/TMcMeans))
+
+---
+
 # v14.48.0 (Mon Aug 02 2021)
 
 #### 🚀  Enhancement

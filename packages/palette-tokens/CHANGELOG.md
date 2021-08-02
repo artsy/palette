@@ -1,3 +1,16 @@
+# v2.3.0 (Mon Aug 02 2021)
+
+#### 🚀  Enhancement
+
+- [GRO-462] Add EarnMoreIcon to icon list [#991](https://github.com/artsy/palette/pull/991) (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com [@TMcMeans](https://github.com/TMcMeans))
+
+#### Authors: 2
+
+- Tanjie McMeans (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com)
+- TanjieM ([@TMcMeans](https://github.com/TMcMeans))
+
+---
+
 # v2.2.0 (Mon Aug 02 2021)
 
 #### 🚀  Enhancement
