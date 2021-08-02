@@ -8,12 +8,7 @@ export const EarnMoreIcon: React.FC<IconProps> = ({
   ...props
 }) => {
   return (
-    <Icon
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      fill={color(props.fill)}
-      viewBox="0 0 56 75"
-    >
+    <Icon {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 75">
       <Title>{title}</Title>
       <mask
         id="path-1-outside-1"
