@@ -57,7 +57,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-      `).then(result => {
+      `).then((result) => {
         if (result.errors) {
           console.error(result.errors)
           reject(result.errors)
@@ -79,15 +79,6 @@ exports.createPages = ({ graphql, actions }) => {
       })
     )
   })
-}
-
-/**
- * Add the file-system as an api proxy:
- * https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
- */
-exports.onCreateDevServer = ({ app }) => {
-  const fsMiddlewareAPI = require("netlify-cms-backend-fs/dist/fs")
-  fsMiddlewareAPI(app)
 }
 
 /**
