@@ -1,0 +1,48 @@
+---
+name: Menu
+---
+
+### Basic menu
+
+<Playground>
+  <Menu title="More">
+    <MenuItem href="/artists">Artists</MenuItem>
+    <MenuItem href="/shows">Shows</MenuItem>
+    <MenuItem href="/mediums">Mediums</MenuItem>
+    <MenuItem href="/for-galleries">Artsy for Galleries</MenuItem>
+  </Menu>
+</Playground>
+
+### With icons
+
+<Playground>
+  <Menu>
+    <MenuItem href="/saves">
+      <HeartIcon mr={1} /> Saves & Follows
+    </MenuItem>
+    <MenuItem href="/profile">
+      <SoloIcon mr={1} /> Collector Profile
+    </MenuItem>
+    <MenuItem href="/settings">
+      <SettingsIcon mr={1} /> Settings
+    </MenuItem>
+    <MenuItem href="/log-out">
+      <PowerIcon mr={1} /> Log out
+    </MenuItem>
+  </Menu>
+</Playground>
+
+### Custom click actions
+
+<Playground>
+  <Menu>
+    <MenuItem
+      onClick={event => {
+        event.preventDefault()
+        console.warn("hi!")
+      }}
+    >
+      <HeartIcon mr={1} /> Log hello to the console
+    </MenuItem>
+  </Menu>
+</Playground>

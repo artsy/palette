@@ -1,0 +1,56 @@
+---
+name: Select
+---
+
+<Playground>
+	<Select
+		options={[{ text: "Most Recent", value: "mostRecent" }]}
+	/>
+</Playground>
+
+## Select + Title
+
+<Playground>
+	<Select
+		options={[{ text: "Most Recent", value: "mostRecent" }]}
+		title="Pick something"
+	/>
+</Playground>
+
+## Select + Title + Required
+
+<Playground>
+	<Select
+		options={[{ text: "Most Recent", value: "mostRecent" }]}
+		required
+		title="Pick something"
+	/>
+</Playground>
+
+## Select + Title + Description
+
+<Playground>
+	<Select
+		description="This matters a lot."
+		options={[{ text: "Most Recent", value: "mostRecent" }]}
+		title="Pick something"
+	/>
+</Playground>
+
+## Select with error
+
+<Playground>
+	<Select
+		error="Something went wrong."
+		options={[{ text: "Most Recent", value: "mostRecent" }]}
+	/>
+</Playground>
+
+## Disabled Select
+
+<Playground>
+	<Select
+		disabled
+		options={[{ text: "Most Recent", value: "mostRecent" }]}
+	/>
+</Playground>

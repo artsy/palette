@@ -1,0 +1,168 @@
+---
+name: Button
+---
+
+Primary buttons should be used for the primary desired user action. Do not use
+two primary buttons in the same screen. If there are multiple primary options,
+use secondary-gray.
+
+<Playground>
+  <Button>Purchase</Button>
+</Playground>
+
+Our secondary-outline is our default secondary button style. Avoid using this in
+the presence of inputs, as to not confuse it’s use.
+
+<Playground>
+  <Flex>
+    <Button mr={1}>Purchase</Button>
+    <Button variant="secondaryOutline">
+      Make offer
+    </Button>
+  </Flex>
+</Playground>
+
+When needing to provide the ability to show more content, we always use the
+secondary-outline style.
+
+<Box>
+  <Button variant="secondaryOutline" width="33%">
+    Show more
+  </Button>
+</Box>
+
+### Loading states
+
+The loading state is used when there may be a delay in response time, ie,
+bidding, or following an artist.
+
+<Playground>
+	<Button loading>
+		Show more
+	</Button>
+</Playground>
+
+In the presence of inputs, use secondary-gray for the secondary button style.
+
+<Playground>
+	<Flex flexDirection="column" width="50%">
+		<Input type='text' placeholder='Username' />
+		<Button variant="secondaryGray" mt={1}>Add another</Button>
+	</Flex>
+</Playground>
+
+### Disabled
+
+Like other form elements, buttons can be disabled.
+
+<Playground>
+  <Button disabled>Submit</Button>
+</Playground>
+
+### Focused
+
+<Playground>
+  <Button focused>Submit</Button>
+</Playground>
+
+### Hover
+
+<Playground>
+  <Button hover>Submit</Button>
+</Playground>
+
+### Block
+
+Use `block` to style a button to be 100% width of its container.
+
+<Playground>
+	<Button block width="100%" size="medium" m={0.5}>
+		Reset
+	</Button>
+</Playground>
+
+### Inline
+
+Use `inline` to remove height and padding from the button, can be used in
+combination of `noOutline` to create an inline button.
+
+<Playground>
+	<Button inline variant="noOutline" size="small" m={0.5}>
+		Reset
+	</Button>
+</Playground>
+
+## In the context of a form
+
+A button defaults to type submit, so when used in the context of a form, a click
+will submit the form. This means that if you have more than one Button in a form, you'll probably want
+to override the type of one of the buttons:
+
+<Playground>
+  <form>
+    <Button type="button" block>
+      Submit
+    </Button>
+    <Button variant='secondaryGray' block>
+      Cancel
+    </Button>
+  </form>
+</Playground>
+
+
+### All Variants
+
+<Playground title="primaryBlack" showToggle={true}>
+  <>
+    <Button variant="primaryBlack" size="small" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="primaryBlack" size="medium" m={0.5}>
+      Follow
+    </Button>
+  </>
+</Playground>
+
+<Playground title="secondaryGray" showToggle={true}>
+  <>
+    <Button variant="secondaryGray" size="small" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="secondaryGray" size="medium" m={0.5}>
+      Follow
+    </Button>
+  </>
+</Playground>
+
+<Playground title="secondaryOutline" showToggle={true}>
+  <>
+    <Button variant="secondaryOutline" size="small" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="secondaryOutline" size="medium" m={0.5}>
+      Follow
+    </Button>
+  </>
+</Playground>
+
+<Playground title="primaryWhite" showToggle={true}>
+  <Box bg="black" p={1} m={0.5}>
+    <Button variant="primaryWhite" size="small" m={0.5}>
+      Follow
+    </Button>
+    <Button variant="primaryWhite" size="medium" m={0.5}>
+      Follow
+    </Button>
+  </Box>
+</Playground>
+
+<Playground title="noOutline" showToggle={true}>
+  <>
+    <Button variant="noOutline" size="small" m={0.5}>
+      Reset
+    </Button>
+    <Button variant="noOutline" size="medium" m={0.5}>
+      Reset
+    </Button>
+  </>
+</Playground>

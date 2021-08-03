@@ -1,4 +1,5 @@
-import { Box, ChevronIcon, Sans, SansSize, Spacer } from "@artsy/palette"
+import { Box, ChevronIcon, Spacer, Text } from "@artsy/palette"
+import { themeGet } from "@styled-system/theme-get"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { includes, reject, sortBy } from "lodash"
@@ -8,7 +9,7 @@ import { Subscribe } from "unstated"
 import { pathListToTree, TreeNode } from "utils/pathListToTree"
 import { NavState } from "./NavState"
 
-export const NavTree = _props => {
+export const NavTree = (_props) => {
   const data = useStaticQuery(
     graphql`
       query NavTreeQuery2 {
@@ -44,19 +45,20 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
     if (treeDepth > 0) {
       return {
         ml: 2,
-        py: 0.3,
-        size: "2" as SansSize,
+        py: 0.5,
+        variant: "md",
       }
     } else {
       return {
         ml: 0,
-        py: 0.2,
-        size: "3" as SansSize,
+        py: "10px",
+        variant: "lg",
+        color: "black60",
       }
     }
   }
 
-  const { ml, py, size } = getTreeLayout()
+  const { ml, py, variant } = getTreeLayout()
 
   return (
     <Subscribe to={[NavState]}>
@@ -73,7 +75,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                 // Top level sorting is by `order`; subnav ordering is by `subNavOrder`
                 const orderedChildren = sortBy(
                   children,
-                  child => child.data.subNavOrder
+                  (child) => child.data.subNavOrder
                 ) as TreeNode[]
 
                 const expanded =
@@ -82,7 +84,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
 
                 return (
                   <Fragment key={path}>
-                    <Sans size={size} py={py} {...navSpacer}>
+                    <Text variant={variant} py={py} {...navSpacer}>
                       {/*
                         Don't navigate, just toggle subnav open and closed
                       */}
@@ -100,20 +102,20 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                         {name}
 
                         {!expandSubNav && (
-                          <ChevronIcon
-                            width="10px"
-                            height="10px"
-                            direction={expanded ? "up" : "down"}
-                            fill="black30"
-                            top={-2}
-                            mr={1}
-                            style={{
-                              float: "right",
-                            }}
-                          />
+                          <Box position="relative" top="-15px" mr={1}>
+                            <ChevronIcon
+                              width="10px"
+                              height="10px"
+                              direction={expanded ? "up" : "down"}
+                              fill="black60"
+                              style={{
+                                float: "right",
+                              }}
+                            />
+                          </Box>
                         )}
                       </NavLink>
-                    </Sans>
+                    </Text>
                     {expanded && (
                       <>
                         {renderNavTree(orderedChildren, treeDepth)}
@@ -126,11 +128,11 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
               case false: {
                 return (
                   <Fragment key={path}>
-                    <Sans size={size} py={py} {...navSpacer}>
+                    <Text variant={variant} py={py} {...navSpacer}>
                       <NavLink to={path}>
                         {name} {status && <StatusBadge status={status} />}
                       </NavLink>
-                    </Sans>
+                    </Text>
                   </Fragment>
                 )
               }
@@ -160,10 +162,10 @@ function buildNavTree(data) {
   }, [])
 
   // Perform various operations depending on frontmatter
-  const sorted = sortBy(routes, route => route.path)
-  const ordered = sortBy(sorted, route => route.data.order)
-  const visible = reject(ordered, route => route.data.hideInNav)
-  const navTree = pathListToTree(visible).map(path => path.children)[0]
+  const sorted = sortBy(routes, (route) => route.path)
+  const ordered = sortBy(sorted, (route) => route.data.order)
+  const visible = reject(ordered, (route) => route.data.hideInNav)
+  const navTree = pathListToTree(visible).map((path) => path.children)[0]
   return navTree
 }
 
@@ -195,6 +197,7 @@ const NavLinkWrapper = ({
         to={to + "/"} // FIXME: Resolve issue with trailing slashes -- make consistent
         activeClassName="isActive"
         className={className + " noUnderline"}
+        style={{ textDecoration: "none" }}
         {...props}
       >
         {children}
@@ -214,8 +217,8 @@ const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
   &:hover {
     text-decoration: none;
   }
-
   &&.isActive {
+    color: ${themeGet("colors.brand")};
     &:before {
       content: " \u2014 ";
     }

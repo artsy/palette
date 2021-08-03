@@ -1,0 +1,134 @@
+---
+name: Tabs
+---
+
+Used to navigate tabs of different pages of content that have no sequential or
+interdependent relationship process. If needed, ‘counter’ indicates quantity of
+something in a tab.
+
+### Default
+
+<Playground>
+  <Tabs>
+    <Tab name="Overview" />
+    <Tab name="CV" />
+    <Tab name="Shows" />
+    <Tab name="Auction Results" />
+    <Tab name="Articles" />
+    <Tab name="Related Artists" />
+  </Tabs>
+</Playground>
+
+### Rendering content
+
+<Playground>
+  <Tabs
+    initialTabIndex={1}
+    onChange={activeTab => {
+      console.log(activeTab)
+    }}
+  >
+    <Tab name="Hello">Hello</Tab>
+    <Tab name="How">How</Tab>
+    <Tab name="Are">Are</Tab>
+    <Tab name="You?">You?</Tab>
+  </Tabs>
+</Playground>
+
+### With arbitrary data and onChange handler
+
+<Playground>
+  <Tabs
+    onChange={activeTab => {
+      console.log(activeTab.data)
+    }}
+  >
+    <Tab data={{ target: "#about" }} name="About" />
+    <Tab data={{ target: "#pricing" }} name="Pricing" />
+    <Tab data={{ target: "#condition" }} name="Condition" />
+  </Tabs>
+</Playground>
+
+### With custom justification
+
+<Playground>
+  <Tabs justifyContent="center">
+    <Tab name="About" />
+    <Tab name="Pricing" />
+    <Tab name="Condition" />
+  </Tabs>
+</Playground>
+
+### With separator
+
+<Playground>
+  <Tabs justifyContent="center" separator={<Box mx={1}>♞</Box>}>
+    <Tab name="About" />
+    <Tab name="Pricing" />
+    <Tab name="Condition" />
+  </Tabs>
+</Playground>
+
+### With superscript
+
+<Playground>
+  <Tabs justifyContent="center">
+    <Tab
+      name={
+        <>
+          Open<Sup>100</Sup>
+        </>
+      }
+    />
+    <Tab
+      name={
+        <>
+          Ready to ship<Sup>4</Sup>
+        </>
+      }
+    />
+    <Tab
+      name={
+        <>
+          Complete
+          <Sup />
+          {/* empty sup to get vertical alignment right */}
+        </>
+      }
+    />
+  </Tabs>
+</Playground>
+
+### Can auto scroll to center active tabs
+
+<Playground>
+  <Tabs autoScroll>
+    <Tab name="Pricing" />
+    <Tab name="Rainbows" />
+    <Tab name="Unicorns" />
+    <Tab name="Falafel" />
+    <Tab name="Delorean" />
+    <Tab name="Po-ta-toes" />
+    <Tab name="Jesuits" />
+    <Tab name="Mastadon" />
+    <Tab name="Funicular" />
+    <Tab name="DiCaprio" />
+    <Tab name="Fathomable" />
+    <Tab name="Shiny" />
+    <Tab name="Cyprus" />
+    <Tab name="UMass" />
+    <Tab name="Skiing" />
+    <Tab name="Liver" />
+    <Tab name="Magazine" />
+  </Tabs>
+</Playground>
+
+### Supports empty(null) tabs by ignoring them
+
+<Playground>
+  <Tabs>
+    {null}
+    {false}
+    <Tab name="Pricing" />
+  </Tabs>
+</Playground>

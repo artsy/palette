@@ -135,6 +135,10 @@ const EditorContainer = styled(Box)`
   overflow-x: scroll;
   color: #989898;
 
+  pre {
+    outline: none;
+  }
+
   .prism-code {
     /* Edits */
   }

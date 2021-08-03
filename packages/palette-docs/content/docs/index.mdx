@@ -5,7 +5,7 @@ type: page
 hideInNav: true
 ---
 
-<Box mt={"47px"} />
+<ArtsyMarkBlackIcon width="80px" height="80px" />
 
 Palette is Artsy's design system. This is a collection of primitive,
 product-agnostic elements that help ensure consistency and quality across
@@ -15,6 +15,105 @@ used across all Artsy's product ecosystem.
 
 Have questions? Join us in #design-system on slack, we're always happy to help.
 
-<Spacer my={3} />
+<Spacer my={4} />
 
-<ArtsyMarkBlackIcon width="80px" height="80px" />
+## Getting Started
+
+To add Palette into your app, install it as a package:
+
+```sh
+$ yarn add @artsy/palette
+```
+
+And at the root of your component tree instantiate `<GlobalStyles />` and add
+the `<Theme>` provider:
+
+```js
+import { Theme, injectGlobalStyles } from "@artsy/palette"
+
+const { GlobalStyles } = injectGlobalStyles(`
+  // overrides and additions
+`)
+
+export const App = (props) => {
+  return (
+    <Theme theme='v3'>
+      <>
+        <GlobalStyles />
+        ...
+      </>
+    </Theme>
+  )
+}
+```
+
+From there you should be able to access the values from Palette's
+[Theme.tsx](https://github.com/artsy/palette/blob/master/packages/palette/src/Theme.tsx)
+file:
+
+```js
+import { BorderBox, Flex, Text } from '@artsy/palette
+
+const Artworks = props => {
+  return (
+    <Flex>
+      <BorderBox p={2}>
+        <Text variant='md'>
+          About the work
+        </Text>
+      </BorderBox>
+
+      <BorderBox ml={2}>
+        <Text variant='sm'>
+          Details
+        </Text>
+      </BorderBox>
+    </Flex>
+  )
+}
+```
+
+In order to use Artsy's fonts, you'll also want to add our webfont file to the
+CSS in the header of your app. Here are a few examples:
+
+## Using [react-head](https://github.com/tizmagik/react-head) (see [here](https://github.com/tizmagik/react-head/tree/master/example) for more examples)
+
+```
+import { HeadProvider, Link } from 'react-head';
+
+const App = () => (
+  <HeadProvider>
+    <Link
+      href="https://webfonts.artsy.net/all-webfonts.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </HeadProvider>
+);
+```
+
+## Using [React Helmet](https://github.com/nfl/react-helmet)
+
+```
+import {Helmet} from "react-helmet";
+
+<Helmet>
+  <link
+    href="https://webfonts.artsy.net/all-webfonts.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+</Helmet>
+```
+
+## Using [Styled Components](https://www.styled-components.com/docs/api#createglobalstyle)
+
+```
+import { createGlobalStyle } from "styled-components"
+
+const GlobalStyles = createGlobalStyle`
+  @import url("https://webfonts.artsy.net/all-webfonts.css");
+`
+```
+
+

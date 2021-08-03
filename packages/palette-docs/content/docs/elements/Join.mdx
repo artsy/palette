@@ -1,0 +1,17 @@
+---
+name: Join
+---
+
+The `<Join>` component is useful for applying a separating component between a
+series of components. It's often useful for DRYing up layouts that have
+consistent spacing between then, but for which a `<Spacer>` or `space` props are
+added to each element.
+
+### Example
+
+<Playground>
+  <Join separator={<Spacer my={1} border='1px solid black' />}>
+    <Text variant="md">A component for joining together</Text>
+    <Text variant="md">children via a custom separator</Text>
+  </Join>
+</Playground>

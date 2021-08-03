@@ -1,0 +1,68 @@
+---
+name: Icons
+---
+
+import { AllIcons } from "@artsy/palette"
+import _ from "lodash"
+
+<Flex flexWrap="wrap">
+  {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
+    const blocklist = [
+      // We show these further down.
+      "Icon",
+      // Skip these since they are not actual icons, just svg tags.
+      "G",
+      "Title",
+      "Circle",
+      "Path",
+      "Rect",
+    ]
+    if (
+      !_.isFunction(IconComponent) ||
+      blocklist.some((icon) => icon === iconName)
+    ) {
+      return null
+    }
+    const size = "40px"
+    return (
+      <Box pr={4} pb={2} mb={4} key={index} width="20%">
+        <IconComponent width={size} height={size} />
+        <Separator my={1} />
+        <Sans size="3" weight="medium">
+          {iconName}
+        </Sans>
+      </Box>
+    )
+  })}
+</Flex>
+
+## ChevronIcon
+
+This is a meta component that wraps the four directional arrows and accepts a
+left, right, up, down direction. By default it uses right:
+
+<Playground>
+  <Flex justifyContent="space-evenly" width="100%">
+    <ChevronIcon direction="up" height="40px" width="40px" />
+    <ChevronIcon direction="down" height="40px" width="40px" />
+    <ChevronIcon direction="left" height="40px" width="40px" />
+    <ChevronIcon direction="right" height="40px" width="40px" />
+  </Flex>
+</Playground>
+
+<Spacer mb={3} />
+
+## CreditCardIcon
+
+This is a meta component that wraps the four designed credit card types and
+provides a fallback when the type is unknown:
+
+<Playground>
+  <Flex justifyContent="space-evenly" width="100%">
+    <CreditCardIcon type="American Express" height="40px" width="40px" />
+    <CreditCardIcon type="Discover" height="40px" width="40px" />
+    <CreditCardIcon type="MasterCard" height="40px" width="40px" />
+    <CreditCardIcon type="Unknown" height="40px" width="40px" />
+    <CreditCardIcon type="Visa" height="40px" width="40px" />
+  </Flex>
+</Playground>

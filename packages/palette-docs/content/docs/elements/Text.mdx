@@ -1,0 +1,30 @@
+---
+name: Text
+---
+
+The type scale includes a range of contrasting type-sizes that support the needs
+of our product and content. Aiming to simplify and unify our product surfaces,
+we have one consistent type scale that is optimized to provide the best
+legibility across all screen sizes. The type scale follows t-shirt sizing for a
+clear and applicable naming structure that does not limit or confuse
+application.
+
+A single variant is shorthand for a set of typography-specific tokens. The
+text-treatments vary slightly depending on screen size.
+
+<Playground layout="horizontal">
+  <Join separator={<Spacer my={0.5} />}>
+    <Text variant="xxl">Text XXL</Text>
+    <Text variant="xl">Text XL</Text>
+    <Text variant="lg">Text LG</Text>
+    <Text variant="md">Text MD</Text>
+    <Text variant="sm">Text SM</Text>
+    <Text variant="xs">Text XS</Text>
+  </Join>
+</Playground>
+
+### All variants:
+
+<Box as="pre" mb={4}>
+  {JSON.stringify(THEME_V3.textVariants, null, 2)}
+</Box>

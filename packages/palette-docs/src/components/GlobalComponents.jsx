@@ -1,18 +1,10 @@
-// @ts-check
-
 import React from "react"
 import * as Palette from "@artsy/palette"
 import { CodeEditor } from "../components/Playground"
+
 import { ColorComponent } from "../components/ColorComponent"
 
-import {
-  Box,
-  Sans,
-  Serif,
-  injectGlobalStyles,
-  color,
-  space,
-} from "@artsy/palette"
+import { Box, Text, injectGlobalStyles, color, space } from "@artsy/palette"
 
 /**
  * FIXME:
@@ -74,18 +66,14 @@ export const { GlobalStyles } = injectGlobalStyles(`
  * in markdown. Still need to fill this out a bit!
  */
 export const MarkdownComponents = {
-  /**
-   * Use color to render a color bar and relevant information about it.
-   *
-   * Color is the color from Palette's theme, e.g. purple100
-   */
-  ColorComponent: (props) => {
-    return <ColorComponent color={props.color} />
+  blockquote: (props) => {
+    return (
+      <Box p={1} backgroundColor="black10">
+        <Text variant="xxl">{props.children}</Text>
+      </Box>
+    )
   },
-  /**
-   * Use the code editor for displaying code blocks. Doesn't need a scope because
-   * it's not interactive.
-   */
+
   code: ({ children, className: language }) => {
     return (
       <CodeEditor
@@ -96,63 +84,65 @@ export const MarkdownComponents = {
       />
     )
   },
+
+  ColorComponent: (props) => {
+    return <ColorComponent color={props.color} />
+  },
+
   div: (props) => {
     return <div className="contentDiv">{props.children}</div>
   },
+
   h1: (props) => (
     <Box mb={5}>
-      <Serif element="h1" size="8" color="black100" className="DocSearch-lvl1">
+      <Text as="h1" variant="xxl" color="black100" className="DocSearch-lvl1">
         {props.children}
-      </Serif>
+      </Text>
     </Box>
   ),
+
   h2: (props) => (
-    <Box mb={1}>
-      <Sans
-        element="h2"
-        size="5"
-        weight="medium"
-        color="black100"
-        className="DocSearch-lvl2"
-      >
+    <Box mb={2} mt={4}>
+      <Text as="h2" variant="xl" color="black100" className="DocSearch-lvl2">
         {props.children}
-      </Sans>
+      </Text>
     </Box>
   ),
+
   h3: (props) => (
-    <Box mb={1}>
-      <Sans
-        element="h3"
-        size="4"
-        weight="medium"
-        color="black100"
-        className="DocSearch-lvl3"
-      >
+    <Box mb={2} mt={4}>
+      <Text as="h3" variant="lg" color="black100" className="DocSearch-lvl3">
         {props.children}
-      </Sans>
+      </Text>
     </Box>
   ),
+
   h4: (props) => (
     <Box mb={1}>
-      <Serif element="h4" size="4" color="black100" className="DocSearch-lvl4">
+      <Text as="h4" variant="sm" color="black100" className="DocSearch-lvl4">
         {props.children}
-      </Serif>
+      </Text>
     </Box>
   ),
 
   ol: (props) => {
     return (
       <ol>
-        <Sans size="3">{props.children}</Sans>
+        <Text variant="md">{props.children}</Text>
       </ol>
     )
   },
 
   p: (props) => (
-    // @ts-ignore
-    <Sans element="p" size="3" color="black100" className="contentDiv">
+    <Text
+      as="p"
+      variant="md"
+      color="black100"
+      className="contentDiv"
+      lineHeight="24px"
+    >
       {props.children}
-    </Sans>
+    </Text>
   ),
 }
 

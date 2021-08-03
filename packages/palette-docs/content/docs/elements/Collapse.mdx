@@ -1,0 +1,54 @@
+---
+name: Collapse
+---
+
+<Playground title="Toggle">
+  <Toggler>
+    {({ on, toggle }) => (
+      <>
+        <Button onClick={toggle}>{on ? "Close" : "Open"}</Button>
+        <Collapse open={on}>
+          <BorderBox my={2}>
+						<Text variant='md'>A Collapse component with toggle button</Text>
+					</BorderBox>
+        </Collapse>
+      </>
+    )}
+  </Toggler>
+</Playground>
+
+## Nested collapses
+
+<Playground>
+  <Toggler initial={true}>
+    {({ on, toggle }) => (
+      <Toggler initial={true}>
+        {({ on: on2, toggle: toggle2 }) => (
+          <BorderBox position="relative" flexDirection="column">
+            <Flex justifyContent="space-between">
+              <Text variant='md'>Outer</Text>
+              <Button size="small" onClick={() => toggle()}>
+                {on ? "close" : "open"}
+              </Button>
+            </Flex>
+            <Collapse open={on}>
+              <BorderBox position="relative" flexDirection="column" mt={2}>
+                <Flex justifyContent="space-between">
+                  <Text variant='md'>Inner</Text>
+                  <Button size="small" onClick={() => toggle2()}>
+                    {on2 ? "close" : "open"}
+                  </Button>
+                </Flex>
+                <Collapse open={on2}>
+                  <BorderBox mt={2}>
+                    <Text variant='sm'>hello world!</Text>
+                  </BorderBox>
+                </Collapse>
+              </BorderBox>
+            </Collapse>
+          </BorderBox>
+        )}
+      </Toggler>
+    )}
+  </Toggler>
+</Playground>

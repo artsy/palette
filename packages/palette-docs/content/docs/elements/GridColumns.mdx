@@ -1,0 +1,109 @@
+---
+name: GridColumns
+---
+
+`GridColumns` implements `Box` and the common grid properties. It has a layout of 12, fluid-width columns and a default column and row gap of `space(2)` (which is configurable).
+
+`Column` is a `Box` that sits inside of this 12-column grid layout, respecting the gutters. It accepts a `span` which will determine the width of the column. One can also optionally specify a `start` to offset where that column begins on the grid.
+
+### Simple grid
+
+<Playground>
+	<BorderBox>
+		<GridColumns>
+			<Column span={6}>
+				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+			</Column>
+			<Column  span={6}>
+				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+			</Column>
+		</GridColumns>
+	</BorderBox>
+</Playground>
+
+### Responsive grid
+
+The columns by default collapse to a `span` of 12 on small breakpoints, but this is configurable via styled-system's responsive props syntax:
+
+<Playground>
+	<BorderBox>
+		<GridColumns>
+			<Column span={[12, 4]}>
+				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+			</Column>
+			<Column  span={[12, 4]}>
+				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+			</Column>
+			<Column  span={[12, 4]}>
+				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+			</Column>
+		</GridColumns>
+	</BorderBox>
+</Playground>
+
+### Kitchen sink
+
+<Playground>
+  <GridColumns position="relative">
+    <Column span={4}>
+      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    </Column>
+    <Column  span={4}>
+      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    </Column>
+    <Column  span={4}>
+      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    </Column>
+    <Column border="1px solid red" span={4} wrap>
+      <Text>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.
+      </Text>
+    </Column>
+    <Column bg="black100" span={[6]}>
+      <Text color="white100">This remains 2-columns at all breakpoints</Text>
+    </Column>
+    <Column bg="black100" span={[6]}>
+      <Text color="white100">This remains 2-columns at all breakpoints</Text>
+    </Column>
+    <Column bg="black100" span={6}>
+      <Text color="white100">
+        These are 2-columns at large breakpoints, and 1 at mobile
+      </Text>
+    </Column>
+    <Column bg="black100" span={6}>
+      <Text color="white100">
+        These are 2-columns at large breakpoints, and 1 at mobile
+      </Text>
+    </Column>
+    <Column
+      start={[2, 3, 4]}
+      span={[9, 6, 3]}
+      height={300}
+      bg="black10"
+      borderRadius={4}
+    />
+    <Column height={200} bg="purple100" span={[12, 6]} start={[1, 4]} wrap />
+    <Column bg="black100" start={4}>
+      <Text color="white100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    </Column>
+    <Column border="1px solid red" span={4} start={1}>
+      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    </Column>
+    <Column border="1px solid red" span={4} start={6}>
+      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    </Column>
+    <Column border="1px solid red" span={2} start={11}>
+      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    </Column>
+    <Column bg="red" span={1} start={1} height={100} wrap />
+    <Column bg="red" span={1} start={2} height={100} wrap />
+    <Column bg="red" span={1} start={3} height={100} wrap />
+    <Column bg="red" span={1} start={4} height={100} wrap />
+    <Column bg="red" span={1} start={5} height={100} wrap />
+    <Column bg="red" span={1} start={6} height={100} wrap />
+    <Column bg="red" span={1} start={7} height={100} wrap />
+    <Column gridColumn="3 / 9" bg="purple100">
+      <Text color="white100">A custom grid-column value</Text>
+    </Column>
+  </GridColumns>
+</Playground>
