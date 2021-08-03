@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import { Provider as StateProvider } from "unstated"
 
-export default function DocsLayout(props) {
+export default function MainLayout(props) {
   const {
     data: {
       mdx: {

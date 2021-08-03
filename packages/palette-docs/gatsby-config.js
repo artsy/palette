@@ -23,7 +23,7 @@ module.exports = {
         // Default layouts are meta wrappers around .mdx pages. Can be useful to
         // share queries across different types of pages.
         defaultLayouts: {
-          default: require.resolve("./src/layouts/DefaultLayout.tsx"),
+          default: require.resolve("./src/layouts/MainLayout.tsx"),
         },
 
         // MDX AST transformers
@@ -45,7 +45,7 @@ module.exports = {
             Toggler,
             State,
             Table,
-            ...Elements
+            ...Elements,
           }
         `,
       },

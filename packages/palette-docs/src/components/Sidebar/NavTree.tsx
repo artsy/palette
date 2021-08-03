@@ -4,6 +4,8 @@ import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { includes, reject, sortBy } from "lodash"
 import React, { Fragment } from "react"
+import { useLayoutEffect } from "react"
+import scrollIntoView from "scroll-into-view-if-needed"
 import styled from "styled-components"
 import { Subscribe } from "unstated"
 import { pathListToTree, TreeNode } from "utils/pathListToTree"
@@ -12,7 +14,7 @@ import { NavState } from "./NavState"
 export const NavTree = (_props) => {
   const data = useStaticQuery(
     graphql`
-      query NavTreeQuery2 {
+      query NavTreeQuery {
         allMdx {
           edges {
             node {
@@ -36,6 +38,19 @@ export const NavTree = (_props) => {
       }
     `
   )
+
+  useLayoutEffect(() => {
+    const activeNavLinkRef = document.querySelector(".isActive")
+    if (!activeNavLinkRef) {
+      return
+    }
+
+    scrollIntoView(activeNavLinkRef, {
+      scrollMode: "if-needed",
+      block: "center",
+      inline: "nearest",
+    })
+  }, [])
 
   return renderNavTree(buildNavTree(data))
 }
