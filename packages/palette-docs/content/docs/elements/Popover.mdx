@@ -1,3 +1,67 @@
 ---
 name: Popover
 ---
+
+### Default
+
+<Playground>
+  <Popover
+    placement="bottom"
+    popover={
+      <Text variant="xs" width={300}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eius autem
+        aliquid cumque, mollitia incidunt totam. Id ut quae hic in quisquam,
+        cupiditate iure nobis, provident minus voluptatem tenetur consequatur.
+      </Text>
+    }
+  >
+    {({ onVisible, anchorRef }) => {
+      return (
+        <Box textAlign="center">
+          <Button
+            ref={anchorRef}
+            variant="secondaryOutline"
+            size="small"
+            onClick={onVisible}
+          >
+            Click to display popover
+          </Button>
+        </Box>
+      )
+    }}
+  </Popover>
+</Playground>
+
+### With Placement
+
+import {POSITION} from '@artsy/palette'
+
+<Box as="pre" mb={4}>
+  {JSON.stringify(POSITION, null, 2)}
+</Box>
+
+
+<Playground>
+	<Popover
+		popover={<Text variant="xs">Position me</Text>}
+		placement='bottom-start'
+		visible
+	>
+		{({ anchorRef }) => {
+			return (
+				<Text
+					ref={anchorRef}
+					variant="xs"
+					textAlign="center"
+					p={1}
+					maxWidth="50%"
+					mx="auto"
+					bg="black100"
+					color="white100"
+				>
+					Popover content
+				</Text>
+			)
+		}}
+	</Popover>
+</Playground>

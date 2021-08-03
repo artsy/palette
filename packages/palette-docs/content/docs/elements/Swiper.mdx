@@ -1,3 +1,24 @@
 ---
 name: Swiper
 ---
+
+Swiper is used for mobile swiping.
+
+<Playground>
+	<Swiper snap="start">
+		{Array.from(Array(25)).map((_) => 300).map((width, i) => (
+			<Clickable
+				key={i}
+				width={width}
+				height={400}
+				bg="black10"
+				border="1px solid"
+				borderColor="black30"
+				p={1}
+				textAlign="center"
+			>
+				<Text variant="caption">{i + 1}</Text>
+			</Clickable>
+		))}
+	</Swiper>
+</Playground>
