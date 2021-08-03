@@ -3,6 +3,7 @@ import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
+import { height as systemHeight } from "styled-system"
 import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Spacer } from "../Spacer"
@@ -39,6 +40,7 @@ export const Input: React.ForwardRefExoticComponent<
       focus,
       hover,
       title,
+      height,
       ...rest
     },
     ref
@@ -47,11 +49,13 @@ export const Input: React.ForwardRefExoticComponent<
 
     const tokens = useThemeConfig({
       v2: {
+        height: height ?? 40,
         titleVariant: "text" as TextVariant,
         titleTextTransform: null,
         secondaryTextVariant: "small" as TextVariant,
       },
       v3: {
+        height: height ?? 50,
         titleVariant: "xs" as TextVariant,
         titleTextTransform: "uppercase",
         secondaryTextVariant: "xs" as TextVariant,
@@ -95,6 +99,7 @@ export const Input: React.ForwardRefExoticComponent<
           hover={hover}
           error={!!error}
           required={required}
+          height={tokens.height as any}
           {...inputProps}
         />
 
@@ -122,6 +127,7 @@ const StyledInput = styled.input<StyledInputProps>`
   border-radius: 0;
   transition: border-color 0.25s;
   font-family: ${themeGet("fonts.sans")};
+  ${systemHeight};
 
   ${(props) => {
     const states = getThemeConfig(props, {
