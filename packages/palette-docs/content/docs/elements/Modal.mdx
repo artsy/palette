@@ -1,3 +1,96 @@
 ---
 name: Modal
 ---
+
+### Default
+
+<Playground>
+  <State initial={{ show: false }}>
+    {({ state, setState }) => (
+      <>
+        <Button onClick={() => setState({ show: true })}>Show</Button>
+        <Modal show={state.show} onClose={() => setState({ show: false })}>
+          <Text variant='md'>Some example content</Text>
+        </Modal>
+      </>
+    )}
+  </State>
+</Playground>
+
+### With title
+
+<Playground>
+  <State initial={{ show: false }}>
+    {({ state, setState }) => (
+      <>
+        <Button onClick={() => setState({ show: true })}>Show</Button>
+        <Modal
+          title="Modal Title"
+          show={state.show}
+          onClose={() => setState({ show: false })}
+        >
+          <Text variant='md'>Some example content</Text>
+        </Modal>
+      </>
+    )}
+  </State>
+</Playground>
+
+### With logo
+
+<Playground>
+  <State initial={{ show: false }}>
+    {({ state, setState }) => (
+      <>
+        <Button onClick={() => setState({ show: true })}>Show</Button>
+        <Modal
+          title="Modal Title"
+          hasLogo
+          show={state.show}
+          onClose={() => setState({ show: false })}
+        >
+          <Text variant='md'>Some example content</Text>
+        </Modal>
+      </>
+    )}
+  </State>
+</Playground>
+
+### With fixed button
+
+<Playground>
+  <State initial={{ show: false }}>
+    {({ state, setState }) => (
+      <>
+        <Button onClick={() => setState({ show: true })}>Show</Button>
+        <Modal
+          title="Modal Title"
+          show={state.show}
+          onClose={() => setState({ show: false })}
+					FixedButton={<Button width="100%">Click me</Button>}
+        >
+          <Text variant='md'>Some example content</Text>
+        </Modal>
+      </>
+    )}
+  </State>
+</Playground>
+
+### Wide
+
+<Playground>
+  <State initial={{ show: false }}>
+    {({ state, setState }) => (
+      <>
+        <Button onClick={() => setState({ show: true })}>Show</Button>
+        <Modal
+					isWide
+          show={state.show}
+          onClose={() => setState({ show: false })}
+        >
+          <Text variant='md'>Some example content</Text>
+        </Modal>
+      </>
+    )}
+  </State>
+</Playground>
