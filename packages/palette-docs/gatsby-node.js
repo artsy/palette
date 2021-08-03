@@ -7,7 +7,6 @@
 
 const path = require("path")
 const WebpackNotifierPlugin = require("webpack-notifier")
-const WebpackShellPlugin = require("webpack-shell-plugin")
 const { createFilePath } = require("gatsby-source-filesystem")
 const { toLower } = require("lodash")
 
@@ -57,7 +56,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-      `).then(result => {
+      `).then((result) => {
         if (result.errors) {
           console.error(result.errors)
           reject(result.errors)
@@ -68,7 +67,7 @@ exports.createPages = ({ graphql, actions }) => {
             // Encode the route
             path: node.fields.route,
             // Layout for the page
-            component: path.resolve("./src/layouts/DefaultLayout.tsx"),
+            component: path.resolve("./src/layouts/MainLayout.tsx"),
             // Values defined here are injected into the page as props and can
             // be passed to a GraphQL query as arguments
             context: {
@@ -82,15 +81,6 @@ exports.createPages = ({ graphql, actions }) => {
 }
 
 /**
- * Add the file-system as an api proxy:
- * https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
- */
-exports.onCreateDevServer = ({ app }) => {
-  const fsMiddlewareAPI = require("netlify-cms-backend-fs/dist/fs")
-  fsMiddlewareAPI(app)
-}
-
-/**
  * Update default Webpack configuration
  */
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -99,11 +89,6 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       new WebpackNotifierPlugin({
         skipFirstNotification: true,
       }),
-
-      // FIXME: Investigate Apollo error
-      // new WebpackShellPlugin({
-      //   onBuildEnd: ["yarn emit-graphql-types"],
-      // }),
     ],
     resolve: {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
