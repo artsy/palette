@@ -61,3 +61,7 @@ export const Required = () => {
     </form>
   )
 }
+
+export const CustomHeight = () => {
+  return <Input height={40} placeholder="Input is 40px in height" />
+}
