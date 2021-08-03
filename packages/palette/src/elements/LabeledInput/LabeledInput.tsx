@@ -13,7 +13,7 @@ export interface LabeledInputProps extends InputProps {
 /** Input with a right-aligned label */
 export const LabeledInput: React.ForwardRefExoticComponent<
   LabeledInputProps & { ref?: React.Ref<HTMLInputElement> }
-> = React.forwardRef(({ label, ...rest }, forwardedRef) => {
+> = React.forwardRef(({ label, height, ...rest }, forwardedRef) => {
   const labelRef = useRef<HTMLDivElement | null>(null)
   const [offset, setOffset] = useState(0)
 
@@ -32,6 +32,7 @@ export const LabeledInput: React.ForwardRefExoticComponent<
     <Box position="relative" {...boxProps}>
       <Input
         ref={forwardedRef}
+        height={height}
         style={{ paddingRight: `${offset + 10}px` }}
         {...inputProps}
       />

@@ -43,3 +43,13 @@ export const CharacterCountExample = () => {
     />
   )
 }
+
+export const CustomHeight = () => {
+  return (
+    <LabeledInput
+      label="🔎"
+      height={40}
+      placeholder="Input is 40px in height"
+    />
+  )
+}
