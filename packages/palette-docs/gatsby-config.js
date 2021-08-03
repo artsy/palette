@@ -36,7 +36,6 @@ module.exports = {
           import * as Elements from "@artsy/palette"
           import { ColorComponent } from "components/ColorComponent"
           import { Table } from "components/Table"
-          import { TextSpecification } from "components/TextSpecification"
           import { CodeEditor, Playground  } from "components/Playground"
           import { Toggle as Toggler, State } from 'react-powerplug'
           export default {
@@ -46,7 +45,6 @@ module.exports = {
             Toggler,
             State,
             Table,
-            TextSpecification,
             ...Elements
           }
         `,
