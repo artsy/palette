@@ -1,8 +1,7 @@
-// @ts-check
-
 import React from "react"
 import * as Palette from "@artsy/palette"
 import { CodeEditor } from "../components/Playground"
+
 import { ColorComponent } from "../components/ColorComponent"
 
 import { Box, Text, injectGlobalStyles, color, space } from "@artsy/palette"
@@ -74,18 +73,7 @@ export const MarkdownComponents = {
       </Box>
     )
   },
-  /**
-   * Use color to render a color bar and relevant information about it.
-   *
-   * Color is the color from Palette's theme, e.g. purple100
-   */
-  ColorComponent: (props) => {
-    return <ColorComponent color={props.color} />
-  },
-  /**
-   * Use the code editor for displaying code blocks. Doesn't need a scope because
-   * it's not interactive.
-   */
+
   code: ({ children, className: language }) => {
     return (
       <CodeEditor
@@ -96,9 +84,15 @@ export const MarkdownComponents = {
       />
     )
   },
+
+  ColorComponent: (props) => {
+    return <ColorComponent color={props.color} />
+  },
+
   div: (props) => {
     return <div className="contentDiv">{props.children}</div>
   },
+
   h1: (props) => (
     <Box mb={5}>
       <Text as="h1" variant="xxl" color="black100" className="DocSearch-lvl1">
@@ -106,6 +100,7 @@ export const MarkdownComponents = {
       </Text>
     </Box>
   ),
+
   h2: (props) => (
     <Box mb={2} mt={4}>
       <Text as="h2" variant="xl" color="black100" className="DocSearch-lvl2">
@@ -113,6 +108,7 @@ export const MarkdownComponents = {
       </Text>
     </Box>
   ),
+
   h3: (props) => (
     <Box mb={2} mt={4}>
       <Text as="h3" variant="lg" color="black100" className="DocSearch-lvl3">
@@ -120,6 +116,7 @@ export const MarkdownComponents = {
       </Text>
     </Box>
   ),
+
   h4: (props) => (
     <Box mb={1}>
       <Text as="h4" variant="sm" color="black100" className="DocSearch-lvl4">

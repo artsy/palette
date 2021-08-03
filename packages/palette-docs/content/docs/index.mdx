@@ -52,21 +52,21 @@ From there you should be able to access the values from Palette's
 file:
 
 ```js
-import { BorderBox, Flex, Sans, Serif } from '@artsy/palette
+import { BorderBox, Flex, Text } from '@artsy/palette
 
 const Artworks = props => {
   return (
     <Flex>
       <BorderBox p={2}>
-        <Sans size='3t'>
-          Image
-        </Sans>
+        <Text variant='md'>
+          About the work
+        </Text>
       </BorderBox>
 
       <BorderBox ml={2}>
-        <Serif size='4'>
+        <Text variant='sm'>
           Details
-        </Serif>
+        </Text>
       </BorderBox>
     </Flex>
   )

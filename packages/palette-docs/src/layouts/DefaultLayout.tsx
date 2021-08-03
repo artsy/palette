@@ -1,4 +1,4 @@
-import { Box, color, Flex, Text, useTheme } from "@artsy/palette"
+import { Box, Flex, Text, useTheme } from "@artsy/palette"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
