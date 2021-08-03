@@ -47,6 +47,14 @@ workflows:
           filters:
             branches:
               only: master
+      - yarn/run:
+          name: deploy-docs
+          script: deploy-docs
+          requires:
+            - yarn/workflow-queue
+          filters:
+            branches:
+              only: master
 
       # PR Builds
       - auto/publish-canary:

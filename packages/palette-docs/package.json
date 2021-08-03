@@ -8,7 +8,7 @@
     "clean": "rm -rf .cache && yarn start",
     "develop": "nodemon --exec \"gatsby develop\"",
     "debug": "nodemon --exec \"node --inspect-brk --no-lazy node_modules/.bin/gatsby develop\" ",
-    "deploy": "yarn build && gatsby-plugin-s3 -y deploy",
+    "deploy": "yarn build && yarn gatsby-plugin-s3 deploy -y",
     "lint": "tslint -c tslint.json --project tsconfig.json --fix",
     "prettier-write": "prettier --write \"src/**/*.js\"",
     "start": "yarn develop",
