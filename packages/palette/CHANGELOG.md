@@ -1,3 +1,21 @@
+# v14.50.0 (Tue Aug 03 2021)
+
+#### 🚀  Enhancement
+
+- feat(input): supports inputs with custom heights [#994](https://github.com/artsy/palette/pull/994) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(labeledinput): correctly threads custom heights [#995](https://github.com/artsy/palette/pull/995) ([@dzucconi](https://github.com/dzucconi))
+- fix(labeledinput): correctly threads custom heights ([@dzucconi](https://github.com/dzucconi))
+- feat(input): supports inputs with custom heights ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.49.0 (Mon Aug 02 2021)
 
 #### 🚀  Enhancement

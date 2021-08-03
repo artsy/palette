@@ -1,3 +1,23 @@
+# (Tue Aug 03 2021)
+
+#### 🚀  Enhancement
+
+- Migrate docs to Palette v3 [#993](https://github.com/artsy/palette/pull/993) ([@damassi](https://github.com/damassi))
+- `@artsy/palette@14.50.0`
+  - feat(input): supports inputs with custom heights [#994](https://github.com/artsy/palette/pull/994) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.50.0`
+  - fix(labeledinput): correctly threads custom heights [#995](https://github.com/artsy/palette/pull/995) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Aug 02 2021)
 
 #### 🚀  Enhancement
