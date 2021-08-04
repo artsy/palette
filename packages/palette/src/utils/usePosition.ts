@@ -103,7 +103,7 @@ const isDocument = (element: HTMLElement | Document): element is Document => {
   return element.ownerDocument === null
 }
 
-const placeTooltip = (
+export const placeTooltip = (
   anchor: HTMLElement,
   tooltip: HTMLElement,
   position: Position,
@@ -149,6 +149,7 @@ const placeTooltip = (
     const boundaryRect = isDocument(scrollableParent)
       ? getDocumentBoundingRect()
       : scrollableParent.getBoundingClientRect()
+
     if (!isWithin(elementRect, boundaryRect)) {
       shouldHide = true
       break
@@ -164,9 +165,12 @@ const placeTooltip = (
   )
 }
 
-const getPosition = (
-  elementRect: DOMRect,
-  tooltipRect: DOMRect,
+export const getPosition = (
+  elementRect: Pick<
+    DOMRect,
+    "width" | "height" | "top" | "right" | "bottom" | "left"
+  >,
+  tooltipRect: Pick<DOMRect, "width" | "height">,
   position: Position
 ): TargetPosition => {
   let x: number
@@ -261,7 +265,7 @@ const isOverflowSet = (overflowValue: string) => {
   )
 }
 
-const translateWithOffset = (
+export const translateWithOffset = (
   targetPosition: TargetPosition,
   position: Position,
   offset: number
@@ -340,11 +344,11 @@ const getDocumentBoundingRect = () => {
   } as DOMRect
 }
 
-const shouldFlip = (
+export const shouldFlip = (
   targetPosition: TargetPosition,
   position: Position,
-  boundaryRect: DOMRect,
-  tooltipRect: DOMRect
+  boundaryRect: Pick<DOMRect, "top" | "right" | "bottom" | "left">,
+  tooltipRect: Pick<DOMRect, "width" | "height">
 ) => {
   switch (position) {
     case "top-start":

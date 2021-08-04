@@ -30,7 +30,7 @@ export interface PopoverProps {
 }
 
 /**
- * A `Popover` is a small model-type element which is anchored, and can be
+ * A `Popover` is a small modal-type element which is anchored, and can be
  * positioned relative to, another element.
  */
 export const Popover: React.FC<PopoverProps> = ({
