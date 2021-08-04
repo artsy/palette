@@ -46,6 +46,7 @@ export const globalCSS = `
   }
 
   ol {
+    list-style-type: auto;
     padding-left: ${space(3)}px;
   }
 

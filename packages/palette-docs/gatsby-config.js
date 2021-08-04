@@ -7,6 +7,9 @@ const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
 // copyChangelog()
 
 module.exports = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+  },
   siteMetadata: {
     title: "Palette",
     description: "Artsy's design system",

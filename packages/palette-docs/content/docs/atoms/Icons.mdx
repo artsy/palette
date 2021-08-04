@@ -2,7 +2,31 @@
 name: Icons
 ---
 
-<Flex flexWrap="wrap">
+All Artsy icons can be found below. To use, simply import them from the main
+package and invoke them as a React component:
+
+```jsx
+import { CheckIcon } from "@artsy/palette"
+
+const IsHighestBidder = () => {
+  return (
+    <Box>
+      <CheckIcon />
+    </Box>
+  )
+}
+```
+
+### Adding New Icons
+
+Upload your .svg to [SVGtoJSX](https://svg2jsx.com/), copy the output, and then
+follow the patterns outlined in
+[this example PR](https://github.com/artsy/palette/pull/802).
+
+
+### Icon List
+
+<Flex flexWrap="wrap" pt={4}>
   {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
     const blocklist = [
       // We show these further down.
@@ -16,7 +40,7 @@ name: Icons
     ]
     try {
       if (
-        typeof IconComponent !== 'function' ||
+        typeof IconComponent !== "function" ||
         blocklist.some((icon) => icon === iconName)
       ) {
         return null

@@ -2,6 +2,7 @@
 .algolia-autocomplete .ds-dropdown-menu {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   position: relative;
+  font-family: "ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* Category links */
