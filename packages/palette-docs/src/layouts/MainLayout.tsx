@@ -1,19 +1,22 @@
-import { Box, Flex, Text, useTheme } from "@artsy/palette"
+import { Box, EditIcon, Flex, Text, useTheme } from "@artsy/palette"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 import React from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import { Provider as StateProvider } from "unstated"
+import { getEditUrl } from "utils/getEditUrl"
 
 export default function MainLayout(props) {
   const {
     data: {
       mdx: {
         code,
+        fileAbsolutePath,
+        // headings,
         frontmatter: { name, status, type },
       },
     },
@@ -22,10 +25,11 @@ export default function MainLayout(props) {
 
   const Contents = () => {
     const { theme } = useTheme()
+    const editUrl = getEditUrl(fileAbsolutePath)
 
     return (
       <Flex maxWidth={theme.breakpoints.md} margin="0 auto" position="relative">
-        <Helmet defaultTitle="Palette" titleTemplate="Palette | %s">
+        <Helmet defaultTitle="Palette" titleTemplate="%s | Palette">
           <title>{name}</title>
           <link
             href="https://webfonts.artsy.net/all-webfonts.css"
@@ -54,22 +58,42 @@ export default function MainLayout(props) {
               px={6}
             >
               {type !== "page" && (
-                <Box mb={0.5}>
+                <Flex mb={2} justifyContent="space-between" alignItems="center">
                   <Text
                     as="h1"
                     variant="xl"
                     color="black100"
-                    mb={2}
                     className="DocSearch-lvl1"
                   >
                     {name} {status && <StatusBadge status={status} />}
                   </Text>
-                </Box>
+                  <Flex alignItems="center" position="relative">
+                    <Link
+                      to={editUrl}
+                      style={{ display: "flex", textDecoration: "none" }}
+                      target="_blank"
+                    >
+                      <EditIcon top="-1px" />
+                      <Text variant="xs" ml={0.5}>
+                        Edit
+                      </Text>
+                    </Link>
+                  </Flex>
+                </Flex>
               )}
 
               <MDXRenderer>{code.body}</MDXRenderer>
             </ContentArea>
           </Box>
+          {/* <Box width="25%">
+            {headings.map(({ value }, idx) => {
+              return (
+                <Box key={idx}>
+                  <Text variant="lg">{value}</Text>
+                </Box>
+              )
+            })}
+          </Box> */}
         </Flex>
       </Flex>
     )
@@ -111,6 +135,10 @@ export const pageQuery = graphql`
   query DocsLayoutQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
+      fileAbsolutePath
+      headings {
+        value
+      }
       frontmatter {
         name
         status
