@@ -1,3 +1,18 @@
+# v2.4.0 (Wed Aug 04 2021)
+
+#### 🏠  Internal
+
+- chore(deps): bump prismjs from 1.23.0 to 1.24.0 [#958](https://github.com/artsy/palette/pull/958) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump handlebars from 4.7.6 to 4.7.7 [#924](https://github.com/artsy/palette/pull/924) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump url-parse from 1.4.7 to 1.5.1 [#927](https://github.com/artsy/palette/pull/927) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump dns-packet from 1.3.1 to 1.3.4 [#938](https://github.com/artsy/palette/pull/938) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v2.3.0 (Mon Aug 02 2021)
 
 #### 🚀  Enhancement
