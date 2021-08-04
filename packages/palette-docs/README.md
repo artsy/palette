@@ -50,3 +50,12 @@ Merges to master are automatically deployed to https://palette.artsy.net.
     server-side rendering.
 
 </details>
+
+### Docs Search
+
+Search within the Palette docs is implemented with [Algolia DocSearch](https://docsearch.algolia.com/). How? 
+
+1. The Palette docs are decorated with markers for Algolia's crawler. (See [here](https://github.com/artsy/palette/blob/5928d6ef3baeb9cfab4cdecb5fa496a5393b1d35/packages/palette-docs/src/layouts/MainLayout.tsx#L35-L36), [here](https://github.com/artsy/palette/blob/5928d6ef3baeb9cfab4cdecb5fa496a5393b1d35/packages/palette-docs/src/layouts/MainLayout.tsx#L51), and [here](https://github.com/artsy/palette/blob/5928d6ef3baeb9cfab4cdecb5fa496a5393b1d35/packages/palette-docs/src/layouts/MainLayout.tsx#L63).)
+2. The Palette docs site is configured to be crawled by Algolia in [their `algolia/docsearch-configs` project](https://github.com/algolia/docsearch-configs/blob/master/configs/artsy_palette.json).
+3. The [search box](https://github.com/artsy/palette/blob/5928d6ef3baeb9cfab4cdecb5fa496a5393b1d35/packages/palette-docs/src/components/Sidebar/SearchBox.tsx#L13) on the docs site sends search text through Algolia's JavaScript, to hit the index built by crawling the Palette docs. See [this implementation PR](https://github.com/artsy/palette/pull/642).
+4. The search results are styled by [overriding Algolia's default styles](https://github.com/artsy/palette/blob/5928d6ef3baeb9cfab4cdecb5fa496a5393b1d35/packages/palette-docs/src/components/Sidebar/algolia.css#L15). 
