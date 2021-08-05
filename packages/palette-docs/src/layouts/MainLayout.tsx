@@ -1,22 +1,14 @@
-import {
-  Box,
-  EditIcon,
-  Flex,
-  Text,
-  useTheme,
-  useUpdateEffect,
-} from "@artsy/palette"
+import { Box, EditIcon, Flex, Text, useTheme } from "@artsy/palette"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useRef } from "react"
-import { useEffect } from "react"
 import { Helmet } from "react-helmet"
-import styled from "styled-components"
 import { Provider as StateProvider } from "unstated"
 import { getEditUrl } from "utils/getEditUrl"
+import { useScrollToHash } from "utils/useScrollToSection"
 
 export default function MainLayout(props) {
   const {
@@ -60,22 +52,10 @@ const Contents = (props) => {
     location: { hash },
   } = props
 
+  useScrollToHash({ contentRef, hash })
+
   const { theme } = useTheme()
   const editUrl = getEditUrl(fileAbsolutePath)
-
-  // FIXME: Get this working on first render
-  // Scroll anchors into view
-  useUpdateEffect(() => {
-    if (!hash) return
-    const anchor = document.querySelectorAll(`[href="${hash}"]`)[0]
-    const offset =
-      anchor.getBoundingClientRect().top + contentRef.current.scrollTop
-
-    contentRef.current.scroll({
-      behavior: "smooth",
-      top: offset - 50,
-    })
-  }, [hash])
 
   return (
     <Flex maxWidth={theme.breakpoints.md} margin="0 auto" position="relative">
@@ -106,9 +86,11 @@ const Contents = (props) => {
           overflowY="scroll"
           ref={contentRef as any}
         >
-          <ContentArea
+          <Flex
             className="DocSearch-content"
             flexDirection="column"
+            overflowX="scroll"
+            minHeight="100%"
             pt={4}
             px={6}
           >
@@ -138,7 +120,7 @@ const Contents = (props) => {
             )}
 
             <MDXRenderer>{body}</MDXRenderer>
-          </ContentArea>
+          </Flex>
         </Box>
         {/* <Box width="25%">
           {headings.map(({ value }, idx) => {
@@ -153,11 +135,6 @@ const Contents = (props) => {
     </Flex>
   )
 }
-
-export const ContentArea = styled(Flex)`
-  overflow-x: scroll;
-  min-height: "100%";
-`
 
 /**
  * Query for data for the page. Note that $id is injected in via context from
