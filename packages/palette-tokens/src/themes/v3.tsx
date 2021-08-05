@@ -9,7 +9,7 @@ export const breakpoints = {
   /** Between 768 and  1279 */
   sm: "768px",
   /** Below 767 */
-  xs: "767px"
+  xs: "767px",
 };
 
 /** Copy of `breakpoints` as integers */
@@ -21,7 +21,7 @@ export const unitlessBreakpoints = {
   /** Between 768 and  1279 */
   sm: parseInt(breakpoints.sm, 10),
   /** Below 767 */
-  xs: parseInt(breakpoints.xs, 10)
+  xs: parseInt(breakpoints.xs, 10),
 };
 
 /**
@@ -74,7 +74,7 @@ export const THEME = {
     /** 10% of red100 on white. Backgrounds */
     red10: "#F4E4E3",
     /** Full white */
-    white100: "#FFFFFF"
+    white100: "#FFFFFF",
   },
 
   fonts: TEXT_FONTS,
@@ -92,7 +92,7 @@ export const THEME = {
 
   // Empty grid object to prevent `Grid` component from throwing
   grid: {
-    breakpoints: {}
+    breakpoints: {},
   },
 
   space: {
@@ -108,10 +108,10 @@ export const THEME = {
     /** Equivalent to 60px  */
     6: "60px",
     /** Equivalent to 120px  */
-    12: "120px"
+    12: "120px",
   },
 
-  textVariants: TEXT_VARIANTS
+  textVariants: TEXT_VARIANTS,
 };
 
 /** All available px spacing maps */

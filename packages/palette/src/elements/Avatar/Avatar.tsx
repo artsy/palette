@@ -28,7 +28,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     v3: V3_TOKENS,
   })
 
-  const { diameter, variant } = tokens[size]
+  const { diameter, variant } = tokens[size] ?? V3_TOKENS.sm
 
   return (
     <Flex

@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const ArtsyCodeTheme = styled.div`
+export const ArtsyCodeTheme = styled.div<{ editable: boolean }>`
   ${({ editable }) => {
     if (!editable) {
       return `
