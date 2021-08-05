@@ -1,14 +1,23 @@
-import * as _PaletteComponents from "@artsy/palette"
+import * as paletteComponents from "@artsy/palette"
 import { Box, Text } from "@artsy/palette"
 import React from "react"
+import { State, Toggle as Toggler } from "react-powerplug"
 import { ColorComponent } from "../components/ColorComponent"
-import { CodeEditor } from "../components/Playground"
+import { CodeEditor, Playground } from "../components/Playground"
+import { Table } from "../components/Table"
 
 /**
- * Components in this list represent all the various elements that can be rendered
- * in markdown. Still need to fill this out a bit!
+ * All components defined here are globally accessible in .mdx
  */
 export const MDXComponents = {
+  ...paletteComponents,
+
+  CodeEditor,
+  ColorComponent,
+  Playground,
+  State,
+  Toggler,
+
   blockquote: (props) => {
     return (
       <Box p={1} backgroundColor="black10">
@@ -53,7 +62,22 @@ export const MDXComponents = {
   ),
 
   h3: (props) => (
-    <Box mb={2} mt={4}>
+    <Box
+      mb={2}
+      mt={4}
+      // onClick={(event) => {
+      //   // event.preventDefault()
+      //   // window.location.hash = event.target.hash
+      //   const anchor = event.currentTarget
+
+      //   const offset = anchor.getBoundingClientRect().top + window.scrollY
+      //   window.scroll({ top: offset, left: 0 })
+      //   // anchor.scrollIntoView({
+      //   //   behavior: "smooth",
+      //   //   inline: "center",
+      //   // })
+      // }}
+    >
       <Text as="h3" variant="lg" color="black100" className="DocSearch-lvl3">
         {props.children}
       </Text>
@@ -89,4 +113,4 @@ export const MDXComponents = {
   ),
 }
 
-export const PaletteComponents = _PaletteComponents
+export const PaletteComponents = paletteComponents
