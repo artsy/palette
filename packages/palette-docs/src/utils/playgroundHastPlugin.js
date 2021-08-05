@@ -27,10 +27,11 @@ const tagRegex = new RegExp(`<[\/]{0,1}(${COMPONENT_NAME})[^><]*>`, "g")
 const attributesRegex = /([\w\-.:]+)\s*=\s*("[^"]*"|{[^]*}|'[^']*')/g
 
 module.exports = () => {
-  return tree => {
-    const jsxNodes = tree.children.filter(child => child.type === "jsx")
+  return (tree) => {
+    const jsxNodes = tree.children.filter((child) => child.type === "jsx")
 
-    jsxNodes.forEach(node => {
+    debugger
+    jsxNodes.forEach((node) => {
       // Iterate over JSX children looking for `<Playground>` node
       const isPlayground = node.value.includes(`<${COMPONENT_NAME}`)
       if (!isPlayground) {
@@ -57,7 +58,7 @@ module.exports = () => {
 
 const packagePath = path.resolve(__dirname, "../", "package.json")
 const prettierOptions = prettier.resolveConfig.sync(packagePath)
-const prettifyCode = code => {
+const prettifyCode = (code) => {
   return prettier.format(code, {
     parser: "babel",
     ...prettierOptions,

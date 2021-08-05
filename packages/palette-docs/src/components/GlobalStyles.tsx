@@ -2,16 +2,16 @@ import { injectGlobalStyles } from "@artsy/palette"
 import { themeGet } from "@styled-system/theme-get"
 
 export const { GlobalStyles } = injectGlobalStyles(`
-	h1,h2,h3,h4 {
-		position: relative;
+  h1,h2,h3,h4 {
+    position: relative;
 
-		&:hover {
-			.header-link-icon {
-				visibility: visible;
-			}
-		}
+    &:hover {
+      .header-link-icon {
+        visibility: visible;
+      }
+    }
 
-	}
+  }
 
   a {
     &:hover {
@@ -48,11 +48,11 @@ export const { GlobalStyles } = injectGlobalStyles(`
     padding-left: ${themeGet("space.2")}px;
   }
 
-	.header-link-icon {
-		position: absolute;
-		top: 0;
-		left: -25px;
-		visibility: hidden;
-		width: 100%;
-	}
+  .header-link-icon {
+    position: absolute;
+    top: 0;
+    left: -25px;
+    visibility: hidden;
+    width: 100%;
+  }
 `)

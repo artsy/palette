@@ -29,7 +29,7 @@ module.exports = {
         ],
 
         // MDX AST transformers
-        hastPlugins: [playgroundHastPlugin],
+        rehypePlugins: [playgroundHastPlugin],
 
         // Imports here are available globally to .mdx files, with the exception
         // of automatically created pages located in /pages. This is a bug in

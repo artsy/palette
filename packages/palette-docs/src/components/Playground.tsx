@@ -103,7 +103,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
     <LiveProvider
       code={code}
       scope={scope}
-      // mountStylesheet={false}
+      mountStylesheet={false}
       style={{
         overflowX: "hidden",
       }}
