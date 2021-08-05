@@ -1,3 +1,24 @@
+# (Thu Aug 05 2021)
+
+#### 🚀  Enhancement
+
+- chore: docs for algolia docsearch [#1001](https://github.com/artsy/palette/pull/1001) ([@pepopowitz](https://github.com/pepopowitz))
+- Light cleanup [#1002](https://github.com/artsy/palette/pull/1002) ([@damassi](https://github.com/damassi))
+- `@artsy/palette-tokens@2.5.0`, `@artsy/palette@14.52.0`
+  - [palette-docs] Upgrade Palette to latest version of Gatsby; some light cleanup [#1004](https://github.com/artsy/palette/pull/1004) ([@damassi](https://github.com/damassi))
+
+#### ⚠️  Pushed to `master`
+
+- Update Input.mdx ([@damassi](https://github.com/damassi))
+- Update Radio.mdx ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # (Wed Aug 04 2021)
 
 #### 🚀  Enhancement

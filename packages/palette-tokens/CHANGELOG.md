@@ -1,3 +1,16 @@
+# v2.5.0 (Thu Aug 05 2021)
+
+#### 🚀  Enhancement
+
+- [palette-docs] Upgrade Palette to latest version of Gatsby; some light cleanup [#1004](https://github.com/artsy/palette/pull/1004) ([@damassi](https://github.com/damassi))
+- Light cleanup [#1002](https://github.com/artsy/palette/pull/1002) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v2.4.0 (Wed Aug 04 2021)
 
 #### 🏠  Internal
