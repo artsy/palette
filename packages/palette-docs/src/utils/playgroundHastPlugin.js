@@ -30,7 +30,6 @@ module.exports = () => {
   return (tree) => {
     const jsxNodes = tree.children.filter((child) => child.type === "jsx")
 
-    debugger
     jsxNodes.forEach((node) => {
       // Iterate over JSX children looking for `<Playground>` node
       const isPlayground = node.value.includes(`<${COMPONENT_NAME}`)

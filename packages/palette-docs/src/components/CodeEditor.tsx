@@ -59,7 +59,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
             {showEditor && (
               <EditorContainer px={2}>
                 <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor {...{ language }} />
+                  <LiveEditor {...({ language } as any)} />
                 </ArtsyCodeTheme>
               </EditorContainer>
             )}
@@ -89,7 +89,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
             {showEditor && (
               <EditorContainer width="50%" pl={2}>
                 <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor {...{ language }} />
+                  <LiveEditor {...({ language } as any)} />
                 </ArtsyCodeTheme>
               </EditorContainer>
             )}

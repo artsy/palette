@@ -1,9 +1,6 @@
 const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
 
 module.exports = {
-  flags: {
-    PRESERVE_WEBPACK_CACHE: true,
-  },
   siteMetadata: {
     title: "Palette",
     description: "Artsy's design system",
@@ -31,14 +28,28 @@ module.exports = {
         // MDX AST transformers
         rehypePlugins: [playgroundHastPlugin],
 
-        // Imports here are available globally to .mdx files, with the exception
-        // of automatically created pages located in /pages. This is a bug in
-        // gatsby-mdx. See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
+        /**
+         * NOTE:
+         *
+         * The below `globalScope` prop has been deprecated in
+         * `gatsby-plugin-mdx` but is still required, seemingly. Otherwise we get
+         * --- ReferenceError: <SomeComponentName> not found.
+         * in the playground code area. For now, adding gatsby-plugin-mdx to
+         * package.json resolutions.
+         *
+         * See: https://github.com/ChristopherBiscardi/gatsby-mdx/issues/239
+         *
+         * Imports here are available globally to .mdx files, with the exception
+         * of automatically created pages located in /pages. This is a bug in
+         * gatsby-mdx.
+         *
+         * See https://github.com/ChristopherBiscardi/gatsby-mdx/issues/243
+         */
         globalScope: `
           import * as Elements from "@artsy/palette"
           import { ColorComponent } from "components/ColorComponent"
           import { Table } from "components/Table"
-          import { CodeEditor, Playground  } from "components/Playground"
+          import { CodeEditor, Playground  } from "components/CodeEditor"
           import { Toggle as Toggler, State } from 'react-powerplug'
           export default {
             CodeEditor,

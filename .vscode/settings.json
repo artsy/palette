@@ -19,6 +19,7 @@
   "[mdx]": {
     "editor.formatOnSave": false
   },
+  "spellchecker.ignoreWordsList": ["json"],
   "tslint.autoFixOnSave": true,
   "typescript.tsdk": "./node_modules/typescript/lib",
   "debug.node.autoAttach": "off"
