@@ -3,7 +3,7 @@ import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
 import { graphql, Link } from "gatsby"
-import MDXRenderer from "gatsby-mdx/mdx-renderer"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
@@ -14,7 +14,7 @@ export default function MainLayout(props) {
   const {
     data: {
       mdx: {
-        code,
+        body,
         fileAbsolutePath,
         // headings,
         frontmatter: { name, status, type },
@@ -82,7 +82,7 @@ export default function MainLayout(props) {
                 </Flex>
               )}
 
-              <MDXRenderer>{code.body}</MDXRenderer>
+              <MDXRenderer>{body}</MDXRenderer>
             </ContentArea>
           </Box>
           {/* <Box width="25%">
@@ -145,9 +145,7 @@ export const pageQuery = graphql`
         type
         lastPointOfContact
       }
-      code {
-        body
-      }
+      body
     }
   }
 `

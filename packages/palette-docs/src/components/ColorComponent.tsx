@@ -1,5 +1,5 @@
+import { Box, Flex, Text, useTheme } from "@artsy/palette"
 import React from "react"
-import { Flex, Box, Text, themeProps, useTheme } from "@artsy/palette"
 
 export const ColorComponent = (props) => {
   const { theme } = useTheme()

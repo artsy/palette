@@ -1,10 +1,4 @@
-// @ts-check
-
 const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
-
-// FIXME: Figure out a better way to do this
-// const copyChangelog = require("./src/utils/copyChangelog")
-// copyChangelog()
 
 module.exports = {
   flags: {
@@ -19,7 +13,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-mdx",
+      resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [".mdx", ".md"],
 
@@ -62,7 +56,7 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "design-system",
+        name: "docs",
         path: `${__dirname}/content/docs/`,
       },
     },

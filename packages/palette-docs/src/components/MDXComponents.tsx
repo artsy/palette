@@ -1,72 +1,14 @@
+import * as _PaletteComponents from "@artsy/palette"
+import { Box, Text } from "@artsy/palette"
 import React from "react"
-import * as Palette from "@artsy/palette"
-import { CodeEditor } from "../components/Playground"
-
 import { ColorComponent } from "../components/ColorComponent"
-
-import { Box, Text, injectGlobalStyles, color, space } from "@artsy/palette"
-
-/**
- * FIXME:
- * Components that intersect this dependency path *must* be .jsx, not .tsx due
- * to an issue with NetlifyCMS and typescript compilation.
- *
- * Components defined here style overall markdown look and feel as well as CMS preview
- */
-
-export const globalCSS = `
-  a {
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  code {
-    font-size: 14px;
-    background: #f3f3f3;
-    padding: 2px;
-    padding-left: ${space(0.5)}px;
-    padding-right: ${space(0.5)}px;
-    color: ${color("black60")};
-    border-radius: ${space(0.3)}px;
-  }
-
-  div {
-    &.contentDiv {
-      a {
-        text-decoration: underline;
-
-        &:hover {
-          color: ${color("purple100")};
-        }
-      }
-
-      margin-bottom: ${space(2)}px;
-    }
-  }
-
-  ol {
-    list-style-type: auto;
-    padding-left: ${space(3)}px;
-  }
-
-  /* NetlifyCMS root */
-
-  #nc-root {
-    font-family: Unica77LLWebRegular, "Helvetica Neue", Helvetica, Arial,
-      sans-serif;
-  }
-`
-
-export const { GlobalStyles } = injectGlobalStyles(`
-  ${globalCSS};
-`)
+import { CodeEditor } from "../components/Playground"
 
 /**
  * Components in this list represent all the various elements that can be rendered
  * in markdown. Still need to fill this out a bit!
  */
-export const MarkdownComponents = {
+export const MDXComponents = {
   blockquote: (props) => {
     return (
       <Box p={1} backgroundColor="black10">
@@ -147,4 +89,4 @@ export const MarkdownComponents = {
   ),
 }
 
-export const PaletteComponents = Palette
+export const PaletteComponents = _PaletteComponents
