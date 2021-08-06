@@ -65,37 +65,39 @@ export type TextProps = BaseTextProps &
 
 /** Text */
 export const Text = styled(Box)<TextProps>`
-  ${(props) => {
-    return getThemeConfig(props, {
-      v2: css`
-        ${variant({ variants: V2_TEXT_VARIANTS.small })}
-        ${textMixin}
+  && {
+    ${(props) => {
+      return getThemeConfig(props, {
+        v2: css`
+          ${variant({ variants: V2_TEXT_VARIANTS.small })}
+          ${textMixin}
 
         @media (min-width: ${themeGet("breakpoints.0")}) {
-          ${variant({ variants: V2_TEXT_VARIANTS.large })}
+            ${variant({ variants: V2_TEXT_VARIANTS.large })}
+            ${textMixin}
+          }
+        `,
+        v3: css`
+          ${variant({ variants: V3_TEXT_VARIANTS })}
           ${textMixin}
-        }
-      `,
-      v3: css`
-        ${variant({ variants: V3_TEXT_VARIANTS })}
-        ${textMixin}
-      `,
-    })
-  }}
+        `,
+      })
+    }}
 
-  ${(props) => {
-    return css`
-      ${props.overflowEllipsis && overflowEllipsisMixin}
-      ${props.lineClamp &&
-      css`
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: ${props.lineClamp};
-        line-clamp: ${props.lineClamp};
-        overflow: hidden;
-      `}
-    `
-  }}
+    ${(props) => {
+      return css`
+        ${props.overflowEllipsis && overflowEllipsisMixin}
+        ${props.lineClamp &&
+        css`
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: ${props.lineClamp};
+          line-clamp: ${props.lineClamp};
+          overflow: hidden;
+        `}
+      `
+    }}
+  }
 `
 
 Text.displayName = "Text"
