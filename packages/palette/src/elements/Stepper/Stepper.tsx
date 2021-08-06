@@ -56,44 +56,48 @@ export const Stepper: React.FC<StepperProps> = ({
       <BaseTabs separator={tokens.joinSeparator} fill={tokens.fill} {...rest}>
         {tabs.map((cell, i) => {
           return (
-            <BaseTab
+            <Clickable
               key={i}
-              as={Clickable}
               aria-selected={i === activeTabIndex}
               disabled={disableNavigation || i > currentStepIndex}
               onClick={handleClick(i)}
-              active={i === activeTabIndex}
-              variant={tokens.textVariant}
-              justifyContent={tokens.horizontalAlignment}
+              flex={1}
             >
-              <Flex
-                alignItems={tokens.verticalAlignment}
-                justifyContent="space-between"
-                flex={1}
+              <BaseTab
+                active={i === activeTabIndex}
+                variant={tokens.textVariant}
+                justifyContent={tokens.horizontalAlignment}
               >
-                <Flex alignItems={tokens.verticalAlignment}>
-                  {currentStepIndex > i && tokens.checkAlignment === "left" && (
-                    <CheckIcon fill="green100" mr={1} />
-                  )}
+                <Flex
+                  alignItems={tokens.verticalAlignment}
+                  justifyContent="space-between"
+                  flex={1}
+                >
+                  <Flex alignItems={tokens.verticalAlignment}>
+                    {currentStepIndex > i &&
+                      tokens.checkAlignment === "left" && (
+                        <CheckIcon fill="green100" mr={1} />
+                      )}
 
-                  <Box color={i > currentStepIndex ? "black30" : undefined}>
-                    {cell.props.name}
-                  </Box>
+                    <Box color={i > currentStepIndex ? "black30" : undefined}>
+                      {cell.props.name}
+                    </Box>
 
-                  {currentStepIndex > i &&
-                    tokens.checkAlignment === "right" && (
-                      <CheckIcon
-                        width={16}
-                        height={16}
-                        fill="green100"
-                        ml={1}
-                      />
-                    )}
+                    {currentStepIndex > i &&
+                      tokens.checkAlignment === "right" && (
+                        <CheckIcon
+                          width={16}
+                          height={16}
+                          fill="green100"
+                          ml={1}
+                        />
+                      )}
+                  </Flex>
+
+                  {tokens.inlineSeparator}
                 </Flex>
-
-                {tokens.inlineSeparator}
-              </Flex>
-            </BaseTab>
+              </BaseTab>
+            </Clickable>
           )
         })}
       </BaseTabs>
