@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@14.54.0`
+  - fix(text): exports text-transform type [#1008](https://github.com/artsy/palette/pull/1008) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Aug 06 2021)
+
+#### 🚀  Enhancement
+
 - feat: [palette-docs] Add table of contents to sidebar [#1005](https://github.com/artsy/palette/pull/1005) ([@damassi](https://github.com/damassi))
 
 #### 🐛  Bug Fix

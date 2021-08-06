@@ -1,3 +1,19 @@
+# v14.54.0 (Fri Aug 06 2021)
+
+#### 🚀  Enhancement
+
+- fix(text): exports text-transform type [#1008](https://github.com/artsy/palette/pull/1008) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(text): exports text-transform type ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.53.0 (Fri Aug 06 2021)
 
 #### 🐛  Bug Fix
