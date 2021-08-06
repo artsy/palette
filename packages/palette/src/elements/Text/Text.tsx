@@ -35,7 +35,7 @@ const textColor = style({
   key: "colors",
 })
 
-type TextTransform =
+export type TextTransform =
   | "none"
   | "capitalize"
   | "uppercase"
