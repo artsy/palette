@@ -3,7 +3,7 @@ import { words } from "lodash"
 import React from "react"
 import { useScrollSpy } from "utils/useScrollSpy"
 
-export const TOC = ({ headings }) => {
+export const TableOfContents = ({ headings }) => {
   if (!headings.length) {
     return null
   }
@@ -22,17 +22,22 @@ export const TOC = ({ headings }) => {
 
   return (
     <>
-      <Text variant="xs" textTransform="uppercase" color="black60">
+      <Text variant="xs" textTransform="uppercase" color="black100" mb={1}>
         On this page
       </Text>
       {headings.map(({ value }, idx) => {
         const slug = `#${slugs[idx]}`
-        const color = slug === activeSlug ? "brand" : "black100"
+        const isActive = slug === activeSlug
+        const color = isActive ? "brand" : "black60"
 
         return (
           <Box key={idx}>
             <a href={slug} style={{ textDecoration: "none" }}>
-              <Text variant="md" color={color}>
+              <Text
+                variant="md"
+                color={color}
+                // fontWeight={isActive ? "bold" : null}
+              >
                 {value}
               </Text>
             </a>

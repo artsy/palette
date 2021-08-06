@@ -29,14 +29,7 @@ export const MDXComponents = {
   },
 
   code: ({ children, className: language }) => {
-    return (
-      <CodeEditor
-        code={children}
-        language={language}
-        editable={false}
-        scope={{}}
-      />
-    )
+    return <CodeEditor code={children} language={language} editable={false} />
   },
 
   div: (props) => {

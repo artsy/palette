@@ -2,7 +2,7 @@ import { Box, EditIcon, Flex, Text, useTheme } from "@artsy/palette"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
-import { TOC } from "components/TOC"
+import { TableOfContents } from "components/TableOfContents"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useRef } from "react"
@@ -17,6 +17,8 @@ export default function MainLayout(props) {
   } = props
 
   /**
+   * NOTE:
+   *
    * In order to render an expanded nav when deep-linking into a url during
    * the SSR pass we need to initialize it with the current url path.
    *
@@ -29,17 +31,17 @@ export default function MainLayout(props) {
   if (typeof window === "undefined") {
     return (
       <StateProvider inject={[new NavState(pathname)]}>
-        <Contents {...props} />
+        <Content {...props} />
       </StateProvider>
     )
 
     // Once mounted on the client defer to StateProvider mounted within Boot.
   } else {
-    return <Contents {...props} />
+    return <Content {...props} />
   }
 }
 
-const Contents = (props) => {
+const Content = (props) => {
   const contentRef = useRef<HTMLDivElement>()
   const {
     data: {
@@ -126,7 +128,7 @@ const Contents = (props) => {
             <MDXRenderer>{body}</MDXRenderer>
 
             <Box width="25%" pt={12} pl={2} position="fixed" right={-100}>
-              <TOC headings={headings} />
+              <TableOfContents headings={headings} />
             </Box>
           </Flex>
         </Box>

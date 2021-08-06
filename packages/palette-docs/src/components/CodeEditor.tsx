@@ -1,10 +1,10 @@
-import { Box, Flex, Spacer, Toggle } from "@artsy/palette"
+import { Box, Flex, Spacer } from "@artsy/palette"
 import { themeGet } from "@styled-system/theme-get"
 import { useMDXScope } from "gatsby-plugin-mdx/context"
 import React from "react"
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
 import styled from "styled-components"
-import { ArtsyCodeTheme } from "./ArtsyCodeTheme"
+import { CodeTheme } from "./CodeTheme"
 
 interface CodeEditorProps {
   code: string
@@ -12,92 +12,18 @@ interface CodeEditorProps {
   expanded?: boolean
   language?: any
   layout?: "vertical" | "horizontal"
-  scope: object
   showEditor?: boolean
   showPreview?: boolean
-  showToggle?: boolean
   title?: string
 }
 
 export const CodeEditor: React.FC<CodeEditorProps> = ({
   code,
-  editable = true,
   expanded = true,
-  language = "html",
-  layout = "vertical",
-  showEditor = true,
-  showPreview = true,
-  showToggle = false,
   title,
+  ...rest
 }) => {
   const scope = useMDXScope()
-
-  const getLayout = () => {
-    if (/language-(sh|bash)/.test(language)) {
-      showPreview = false
-    }
-
-    if (/language-(js|ts)x?/.test(language)) {
-      language = "jsx"
-    } else {
-      language = "html"
-    }
-
-    switch (layout) {
-      case "vertical": {
-        return (
-          <Box>
-            {showPreview && (
-              <>
-                <PreviewContainer>
-                  <LivePreview />
-                </PreviewContainer>
-                <Spacer mb={2} />
-              </>
-            )}
-
-            {showEditor && (
-              <EditorContainer px={2}>
-                <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor {...({ language } as any)} />
-                </ArtsyCodeTheme>
-              </EditorContainer>
-            )}
-
-            {editable && (
-              <ErrorContainer>
-                <LiveError />
-              </ErrorContainer>
-            )}
-          </Box>
-        )
-      }
-      case "horizontal": {
-        return (
-          <Flex justifyContent="space-between">
-            {showPreview && (
-              <PreviewContainer width="50%" mr={2}>
-                <LivePreview />
-                {editable && (
-                  <ErrorContainer>
-                    <LiveError />
-                  </ErrorContainer>
-                )}
-              </PreviewContainer>
-            )}
-
-            {showEditor && (
-              <EditorContainer width="50%" pl={2}>
-                <ArtsyCodeTheme editable={editable}>
-                  <LiveEditor {...({ language } as any)} />
-                </ArtsyCodeTheme>
-              </EditorContainer>
-            )}
-          </Flex>
-        )
-      }
-    }
-  }
 
   return (
     <LiveProvider
@@ -109,16 +35,83 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
       }}
     >
       <Box mb={4}>
-        {showToggle ? (
-          <Toggle label={title} textSize="4" expanded={expanded}>
-            {getLayout()}
-          </Toggle>
-        ) : (
-          getLayout()
-        )}
+        <EditorWindow {...rest} />
       </Box>
     </LiveProvider>
   )
+}
+
+const EditorWindow: React.FC<Omit<CodeEditorProps, "code">> = ({
+  editable = true,
+  language = "html",
+  layout = "vertical",
+  showEditor = true,
+  showPreview = true,
+}) => {
+  if (/language-(sh|bash)/.test(language)) {
+    showPreview = false
+  }
+  if (/language-(js|ts)x?/.test(language)) {
+    language = "jsx"
+  } else {
+    language = "html"
+  }
+
+  switch (layout) {
+    case "vertical": {
+      return (
+        <Box>
+          {showPreview && (
+            <>
+              <PreviewContainer>
+                <LivePreview />
+              </PreviewContainer>
+              <Spacer mb={2} />
+            </>
+          )}
+
+          {showEditor && (
+            <EditorContainer px={2}>
+              <CodeTheme editable={editable}>
+                <LiveEditor {...({ language } as any)} />
+              </CodeTheme>
+            </EditorContainer>
+          )}
+
+          {editable && (
+            <ErrorContainer>
+              <LiveError />
+            </ErrorContainer>
+          )}
+        </Box>
+      )
+    }
+    case "horizontal": {
+      return (
+        <Flex justifyContent="space-between">
+          {showPreview && (
+            <PreviewContainer width="50%" mr={2}>
+              <LivePreview />
+
+              {editable && (
+                <ErrorContainer>
+                  <LiveError />
+                </ErrorContainer>
+              )}
+            </PreviewContainer>
+          )}
+
+          {showEditor && (
+            <EditorContainer width="50%" pl={2}>
+              <CodeTheme editable={editable}>
+                <LiveEditor {...({ language } as any)} />
+              </CodeTheme>
+            </EditorContainer>
+          )}
+        </Flex>
+      )
+    }
+  }
 }
 
 const PreviewContainer = styled(Box)`
