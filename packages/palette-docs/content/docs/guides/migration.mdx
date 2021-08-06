@@ -1,0 +1,139 @@
+---
+name: Migrating from v2 to v3
+hideInNav: false
+---
+
+In an attempt to make our brand more consistent and easier to design for, in
+2021 we began the process of simplifying Palette to reduce the amount of visual
+information in the system. Less Typography choices, less spacing options, less
+colors. While this has largely gone smoothly, there are some things to be aware
+of.
+
+**For reference, check out the difference between our v2 and v3 themes below:**
+
+**v2**:
+[palette-tokens/v2](https://github.com/artsy/palette/blob/master/packages/palette-tokens/src/themes/v2.tsx)
+
+**v3**:
+[palette-tokens/v3](https://github.com/artsy/palette/blob/master/packages/palette-tokens/src/themes/v3.tsx)
+
+### How to Migrate
+
+While most migration work will be happening in
+[Force](https://github.com/artsy/force), we use Palette all across Artsy,
+including a lighter React Native version in
+[Eigen](https://github.com/artsy/eigen). Each app will likely have its own
+patterns for toggling between v2 and v3, but in short migrating is as simple as
+importing the `<ThemeProviderV3>` context and placing it at the top of the
+component tree that you'd like to migrate:
+
+```tsx
+import { ThemeProviderV3 } from "@artsy/palette"
+
+const MyApp = () => {
+  return (
+    <ThemeProviderV3>
+      <App />
+    </ThemeProviderV3>
+  )
+}
+```
+
+Alternatively, you can set the theme version using the main `<Theme>` component:
+
+```tsx
+import { Theme } from "@artsy/palette"
+
+const MyApp = () => {
+  return (
+    <Theme theme="v3">
+      <App />
+    </Theme>
+  )
+}
+```
+
+This is useful if you're programmatically setting things, as we do in Force
+[via our route config](https://github.com/artsy/force/blob/master/src/v2/Apps/Artwork/artworkRoutes.tsx#L14).
+
+Once the component tree is wrapped in the correct provider you should be able to
+access our
+[v3 theme](https://github.com/artsy/palette/blob/master/packages/palette-tokens/src/themes/v3.tsx).
+
+### Using the `useThemeConfig` hook
+
+The `useThemeConfig` hook can be used within components that are _shared_
+between v2 and v3 apps, and thus can't be converted wholesale to v3. (A good
+example of this is the Artwork Filter, which is a complex component used in a
+couple different places.)
+
+```jsx
+import { useThemeConfig, Box, Text, TextVariant } from "@artsy/palette"
+
+const MyComponent = props => {
+  const tokens = useThemeConfig({
+    v2: {
+      px: 5,
+      variant: "title" as TextVariant,
+    },
+    v3: {
+      px: 2,
+      variant: "lg" as TextVariant,
+    },
+  })
+
+  return (
+    <Box px={tokens.px}>
+      <Text variant={tokens.variant}>Hi</Text>
+    </Box>
+  )
+}
+```
+
+(See
+[here](https://github.com/artsy/force/blob/master/src/v2/Components/Footer/Footer.tsx#L219-L226)
+for a real-world example.)
+
+### Typography
+
+We've simplified our typography choices down to six choices, as can be
+[seen here](/atoms/typography).
+
+Variants are now generic size values (`sm`, `md`, `lg`, and so on) rather than
+context-specific names (`title`, `subTitle`, etc.)
+
+If migrating from pre-v1 `<Sans>` or `<Serif>` components, note that we no
+longer use serif fonts and areas where those components are used should be
+replaced with `<Text>`.
+
+**Some migration examples:**
+
+```tsx
+<Playground>
+  <BorderBox display="block">
+    <Serif size={4}>We no longer use Serif</Serif>
+    <Text variant="subTitle">We no longer use context variants</Text>
+  </BorderBox>
+</Playground>
+```
+
+**Do this instead:**
+
+```tsx
+<Playground>
+  <BorderBox>
+    <Text variant="lg">Now we use the text component across the board</Text>
+  </BorderBox>
+</Playground>
+```
+
+### Spacing Scale
+
+See our [docs on Spacing](/atoms/spacing/#all-spacing-values) for the full list,
+but in particular the often-used `3 = 30px` is no longer available.
+
+If migrating a page, v2 values that no longer exist in v3 will collapse to zero.
+
+### Colors
+
+See our [docs on Colors](/atoms/colors) for the full list.

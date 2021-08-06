@@ -7,6 +7,7 @@ import { TableOfContents } from "components/TableOfContents"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useRef } from "react"
+import { FaGithub } from "react-icons/fa"
 import { Provider as StateProvider } from "unstated"
 import { getEditUrl } from "utils/getEditUrl"
 import { useScrollToHash } from "utils/useScrollToSection"
@@ -49,7 +50,7 @@ const Layout = (props) => {
         body,
         fileAbsolutePath,
         headings,
-        frontmatter: { name, status, type },
+        frontmatter: { name, source, status, type },
       },
     },
     location: { hash },
@@ -70,7 +71,7 @@ const Layout = (props) => {
       <MetaTags title={name} />
 
       <Flex maxWidth={theme.breakpoints.md} margin="0 auto">
-        <SidebarArea />
+        <SidebarArea pl={2} pt={4} width={[0, "21%"]} />
 
         <Box
           className="DocSearch-content"
@@ -80,19 +81,25 @@ const Layout = (props) => {
           mb={4}
         >
           {showTitle && (
-            <TitleArea name={name} status={status} editUrl={editUrl} />
+            <TitleArea
+              name={name}
+              source={source}
+              status={status}
+              editUrl={editUrl}
+              mb={4}
+            />
           )}
 
           <MDXRenderer>{body}</MDXRenderer>
         </Box>
 
-        <TableOfContentsArea headings={headings} />
+        <TableOfContentsArea headings={headings} width="20%" />
       </Flex>
     </Box>
   )
 }
 
-const SidebarArea = () => {
+const SidebarArea = (props) => {
   return (
     <Box
       position="sticky"
@@ -104,19 +111,20 @@ const SidebarArea = () => {
       borderRight={`1px solid lightgray`}
       width={[0, "21%"]}
       display={["none", "block"]}
+      {...props}
     >
       <Sidebar />
     </Box>
   )
 }
 
-const TitleArea = ({ name, status, editUrl, ...rest }) => {
+const TitleArea = ({ name, source, status, editUrl, ...rest }) => {
   return (
     <Flex
       justifyContent="space-between"
       alignItems="center"
       width="100%"
-      mb={4}
+      {...rest}
     >
       <Text
         as="h1"
@@ -124,43 +132,63 @@ const TitleArea = ({ name, status, editUrl, ...rest }) => {
         color="black100"
         className="DocSearch-lvl1"
         width="100%"
-        {...rest}
       >
         {name} {status && <StatusBadge status={status} />}
       </Text>
-      <EditButton editUrl={editUrl} mt={1} />
+      <Flex alignItems="center" position="relative" mt={1}>
+        {source && <ViewSourceButton source={source} />}
+        <EditButton editUrl={editUrl} />
+      </Flex>
     </Flex>
   )
 }
 
-const EditButton = ({ editUrl, ...rest }) => {
+const EditButton = ({ editUrl }) => {
   return (
-    <Flex alignItems="center" position="relative" {...rest}>
-      <a
-        href={editUrl}
-        style={{ display: "flex", textDecoration: "none" }}
-        target="_blank"
-      >
-        <EditIcon top="-1px" />
-        <Text variant="xs" ml={0.5}>
-          Edit
-        </Text>
-      </a>
-    </Flex>
+    <a
+      href={editUrl}
+      style={{ display: "flex", textDecoration: "none" }}
+      target="_blank"
+    >
+      <EditIcon top="-1px" />
+      <Text variant="xs" ml={0.5}>
+        Edit
+      </Text>
+    </a>
   )
 }
 
-const TableOfContentsArea = ({ headings }) => {
+export const ViewSourceButton = ({ source }) => {
+  const BASE_URL =
+    "https://github.com/artsy/palette/tree/master/packages/palette/src"
+
+  return (
+    <a
+      href={`${BASE_URL}/${source}`}
+      target="_blank"
+      style={{ textDecoration: "none" }}
+    >
+      <Flex position="relative" top="3px" pr={1}>
+        <Box pr={0.5}>
+          <FaGithub />
+        </Box>
+        <Text variant="xs">Source</Text>
+      </Flex>
+    </a>
+  )
+}
+
+const TableOfContentsArea = ({ headings, ...rest }) => {
   return (
     <Box
       display={["none", "none", "block"]}
-      width="20%"
       mt={0.5}
       pt={12}
       px={2}
-      position="fixed"
       right={100}
+      position="fixed"
       top="-1px"
+      {...rest}
     >
       <TableOfContents headings={headings} />
     </Box>
@@ -181,6 +209,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         name
+        source
         status
         type
         lastPointOfContact

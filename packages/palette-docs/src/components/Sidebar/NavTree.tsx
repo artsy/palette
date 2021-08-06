@@ -144,11 +144,11 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
               case false: {
                 return (
                   <Fragment key={path}>
-                    <Text variant={variant} py={py} {...navSpacer}>
-                      <NavLink to={path}>
+                    <NavLink to={path}>
+                      <Text variant={variant} py={py} {...navSpacer}>
                         {name} {status && <StatusBadge status={status} />}
-                      </NavLink>
-                    </Text>
+                      </Text>
+                    </NavLink>
                   </Fragment>
                 )
               }
@@ -223,6 +223,7 @@ const NavLinkWrapper = ({
 }
 
 const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
+  display: flex;
   ${({ expandSubNav }) => {
     const cursor = expandSubNav ? "initial" : "pointer"
     return `
@@ -236,6 +237,9 @@ const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
     color: ${themeGet("colors.brand")};
     &:before {
       content: " \u2014 ";
+      position: relative;
+      top: 3px;
+      padding-right: 4px;
     }
   }
 `

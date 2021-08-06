@@ -1,5 +1,6 @@
 import { Box, Text } from "@artsy/palette"
-import { words } from "lodash"
+import Slugger from "github-slugger"
+import { deburr } from "lodash"
 import React from "react"
 import { useScrollSpy } from "utils/useScrollSpy"
 
@@ -8,9 +9,12 @@ export const TableOfContents = ({ headings }) => {
     return null
   }
 
-  const slugs = headings.map(({ value }) =>
-    words(value).join("-").toLowerCase()
-  )
+  const slugs = headings.map(({ value }) => {
+    const makeSlug = new Slugger()
+    const slug = makeSlug.slug(value)
+    const id = deburr(slug)
+    return id
+  })
 
   const activeSlug = useScrollSpy(
     slugs.map((slug) => `[href="#${slug}"]`),
@@ -32,12 +36,8 @@ export const TableOfContents = ({ headings }) => {
         return (
           <Box key={idx} mb={1}>
             <a href={slug} style={{ textDecoration: "none" }}>
-              <Text
-                variant="md"
-                color={color}
-                // fontWeight={isActive ? "bold" : null}
-              >
-                {isActive && "\u2014"} {value}
+              <Text variant="md" color={color}>
+                {value}
               </Text>
             </a>
           </Box>
