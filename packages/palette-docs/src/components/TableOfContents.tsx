@@ -32,12 +32,8 @@ export const TableOfContents = ({ headings }) => {
         return (
           <Box key={idx} mb={1}>
             <a href={slug} style={{ textDecoration: "none" }}>
-              <Text
-                variant="md"
-                color={color}
-                // fontWeight={isActive ? "bold" : null}
-              >
-                {isActive && "\u2014"} {value}
+              <Text variant="md" color={color}>
+                {value}
               </Text>
             </a>
           </Box>
