@@ -167,7 +167,7 @@ export const ViewSourceButton = ({ source }) => {
       target="_blank"
       style={{ textDecoration: "none" }}
     >
-      <Flex mt={0.5} position="relative" top="1px" pr={1}>
+      <Flex position="relative" top="3px" pr={1}>
         <Box pr={0.5}>
           <FaGithub />
         </Box>

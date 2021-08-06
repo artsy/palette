@@ -1,4 +1,4 @@
-const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
+const playgroundRehypePlugin = require("./src/utils/playgroundRehypePlugin")
 
 module.exports = {
   siteMetadata: {
@@ -21,12 +21,13 @@ module.exports = {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
               className: `header-link-icon`,
+              removeAccents: true,
             },
           },
         ],
 
         // MDX AST transformers
-        rehypePlugins: [playgroundHastPlugin],
+        rehypePlugins: [playgroundRehypePlugin],
 
         /**
          * NOTE:
