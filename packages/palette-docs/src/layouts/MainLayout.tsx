@@ -1,4 +1,4 @@
-import { Box, Clickable, EditIcon, Flex, Text, useTheme } from "@artsy/palette"
+import { Box, EditIcon, Flex, Text, useTheme } from "@artsy/palette"
 import { MetaTags } from "components/MetaTags"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
@@ -71,7 +71,7 @@ const Layout = (props) => {
       <MetaTags title={name} />
 
       <Flex maxWidth={theme.breakpoints.md} margin="0 auto">
-        <SidebarArea />
+        <SidebarArea pl={2} pt={4} width={[0, "21%"]} />
 
         <Box
           className="DocSearch-content"
@@ -86,19 +86,20 @@ const Layout = (props) => {
               source={source}
               status={status}
               editUrl={editUrl}
+              mb={4}
             />
           )}
 
           <MDXRenderer>{body}</MDXRenderer>
         </Box>
 
-        <TableOfContentsArea headings={headings} />
+        <TableOfContentsArea headings={headings} width="20%" />
       </Flex>
     </Box>
   )
 }
 
-const SidebarArea = () => {
+const SidebarArea = (props) => {
   return (
     <Box
       position="sticky"
@@ -110,6 +111,7 @@ const SidebarArea = () => {
       borderRight={`1px solid lightgray`}
       width={[0, "21%"]}
       display={["none", "block"]}
+      {...props}
     >
       <Sidebar />
     </Box>
@@ -122,7 +124,7 @@ const TitleArea = ({ name, source, status, editUrl, ...rest }) => {
       justifyContent="space-between"
       alignItems="center"
       width="100%"
-      mb={4}
+      {...rest}
     >
       <Text
         as="h1"
@@ -130,7 +132,6 @@ const TitleArea = ({ name, source, status, editUrl, ...rest }) => {
         color="black100"
         className="DocSearch-lvl1"
         width="100%"
-        {...rest}
       >
         {name} {status && <StatusBadge status={status} />}
       </Text>
@@ -177,17 +178,17 @@ export const ViewSourceButton = ({ source }) => {
   )
 }
 
-const TableOfContentsArea = ({ headings }) => {
+const TableOfContentsArea = ({ headings, ...rest }) => {
   return (
     <Box
       display={["none", "none", "block"]}
-      width="20%"
       mt={0.5}
       pt={12}
       px={2}
-      position="fixed"
       right={100}
+      position="fixed"
       top="-1px"
+      {...rest}
     >
       <TableOfContents headings={headings} />
     </Box>

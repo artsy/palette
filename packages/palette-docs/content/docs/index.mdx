@@ -19,14 +19,14 @@ Have questions? Join us in #design-system on slack, we're always happy to help.
 
 To add Palette into your app, install it as a package:
 
-```sh
+```bash
 $ yarn add @artsy/palette
 ```
 
 And at the root of your component tree instantiate `<GlobalStyles />` and add
 the `<Theme>` provider:
 
-```js
+```tsx
 import { Theme, injectGlobalStyles } from "@artsy/palette"
 
 const { GlobalStyles } = injectGlobalStyles(`
@@ -35,7 +35,7 @@ const { GlobalStyles } = injectGlobalStyles(`
 
 export const App = (props) => {
   return (
-    <Theme theme='v3'>
+    <Theme theme="v3">
       <>
         <GlobalStyles />
         ...
@@ -49,7 +49,7 @@ From there you should be able to access the values from Palette's
 [Theme.tsx](https://github.com/artsy/palette/blob/master/packages/palette/src/Theme.tsx)
 file:
 
-```js
+```tsx
 import { BorderBox, Flex, Text } from '@artsy/palette
 
 const Artworks = props => {
@@ -71,13 +71,27 @@ const Artworks = props => {
 }
 ```
 
+### Adding Fonts
+
 In order to use Artsy's fonts, you'll also want to add our webfont file to the
-CSS in the header of your app. Here are a few examples:
+CSS in the header of your app. Here are a few common examples:
 
-### Using [react-head](https://github.com/tizmagik/react-head)
+Add to the `head` of your document:
 
+```html
+<head>
+  <link
+    href="https://webfonts.artsy.net/all-webfonts.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+</head>
 ```
-import { HeadProvider, Link } from 'react-head';
+
+Using [react-head](https://github.com/tizmagik/react-head):
+
+```tsx
+import { HeadProvider, Link } from "react-head"
 
 const App = () => (
   <HeadProvider>
@@ -87,31 +101,24 @@ const App = () => (
       type="text/css"
     />
   </HeadProvider>
-);
+)
 ```
 
-### Using [React Helmet](https://github.com/nfl/react-helmet)
+Using [React Helmet](https://github.com/nfl/react-helmet):
 
-```
-import {Helmet} from "react-helmet";
+```tsx
+import { Helmet } from "react-helmet"
 
-<Helmet>
-  <link
-    href="https://webfonts.artsy.net/all-webfonts.css"
-    rel="stylesheet"
-    type="text/css"
-  />
-</Helmet>
-```
-
-### Using [Styled Components](https://www.styled-components.com/docs/api#createglobalstyle)
-
-```
-import { createGlobalStyle } from "styled-components"
-
-const GlobalStyles = createGlobalStyle`
-  @import url("https://webfonts.artsy.net/all-webfonts.css");
-`
+const App = () => (
+  <Helmet>
+    <link
+      href="https://webfonts.artsy.net/all-webfonts.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </Helmet>
+)
 ```
 
-
+If you're using Next.js, Gatsby or any other framework the patterns should be
+similar.

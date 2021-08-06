@@ -17,7 +17,7 @@
     "editor.formatOnSave": false
   },
   "[mdx]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "spellchecker.ignoreWordsList": ["json"],
   "tslint.autoFixOnSave": true,

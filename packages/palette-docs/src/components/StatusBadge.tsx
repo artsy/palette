@@ -6,7 +6,7 @@ interface Props {
   status: "wip" | "tk"
 }
 
-const getStatus = status => {
+const getStatus = (status) => {
   switch (status) {
     case "wip": {
       return {
@@ -27,7 +27,7 @@ export const StatusBadge: React.FC<Props> = ({ status }) => {
   const { bg, color } = getStatus(status)
 
   return (
-    <RoundedBorder px={0.3} display="inline-block" bg={bg}>
+    <RoundedBorder px={0.5} display="inline-block" bg={bg}>
       <Sans size="1" color={color}>
         {status.toUpperCase()}
       </Sans>
