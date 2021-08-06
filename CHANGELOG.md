@@ -1,3 +1,21 @@
+# (Fri Aug 06 2021)
+
+#### 🚀  Enhancement
+
+- feat: [palette-docs] Add table of contents to sidebar [#1005](https://github.com/artsy/palette/pull/1005) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@14.53.0`
+  - fix(text): increases text styles specificity [#1007](https://github.com/artsy/palette/pull/1007) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Aug 05 2021)
 
 #### 🚀  Enhancement

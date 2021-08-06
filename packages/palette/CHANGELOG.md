@@ -1,3 +1,16 @@
+# v14.53.0 (Fri Aug 06 2021)
+
+#### 🐛  Bug Fix
+
+- fix(text): increases text styles specificity [#1007](https://github.com/artsy/palette/pull/1007) ([@dzucconi](https://github.com/dzucconi))
+- fix(text): increases text styles specificity ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.52.0 (Thu Aug 05 2021)
 
 #### 🚀  Enhancement
