@@ -2,6 +2,7 @@ import { Box, EditIcon, Flex, Text, useTheme } from "@artsy/palette"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
+import { TOC } from "components/TOC"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useRef } from "react"
@@ -45,14 +46,17 @@ const Contents = (props) => {
       mdx: {
         body,
         fileAbsolutePath,
-        // headings,
+        headings,
         frontmatter: { name, status, type },
       },
     },
     location: { hash },
   } = props
 
-  useScrollToHash({ contentRef, hash })
+  useScrollToHash({
+    contentRef,
+    hash,
+  })
 
   const { theme } = useTheme()
   const editUrl = getEditUrl(fileAbsolutePath)
@@ -120,17 +124,12 @@ const Contents = (props) => {
             )}
 
             <MDXRenderer>{body}</MDXRenderer>
+
+            <Box width="25%" pt={12} pl={2} position="fixed" right={-100}>
+              <TOC headings={headings} />
+            </Box>
           </Flex>
         </Box>
-        {/* <Box width="25%">
-          {headings.map(({ value }, idx) => {
-            return (
-              <Box key={idx}>
-                <Text variant="lg">{value}</Text>
-              </Box>
-            )
-          })}
-        </Box> */}
       </Flex>
     </Flex>
   )
