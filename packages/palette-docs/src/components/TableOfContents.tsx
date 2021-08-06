@@ -35,11 +35,11 @@ export const TableOfContents = ({ headings }) => {
 
         return (
           <Box key={idx} mb={1}>
-            <a href={slug} style={{ textDecoration: "none" }}>
-              <Text variant="md" color={color}>
-                {value}
-              </Text>
-            </a>
+            {/* <a href={slug} style={{ textDecoration: "none" }}> */}
+            <Text variant="md" color={color}>
+              {value}
+            </Text>
+            {/* </a> */}
           </Box>
         )
       })}
