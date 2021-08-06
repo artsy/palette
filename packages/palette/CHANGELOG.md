@@ -1,3 +1,16 @@
+# v14.54.1 (Fri Aug 06 2021)
+
+#### 🐛  Bug Fix
+
+- fix: changes default font to unica; cleans up [#1009](https://github.com/artsy/palette/pull/1009) ([@dzucconi](https://github.com/dzucconi))
+- fix: changes default font to unica; cleans up ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.54.0 (Fri Aug 06 2021)
 
 #### 🚀  Enhancement
