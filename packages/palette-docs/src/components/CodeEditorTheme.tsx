@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const ArtsyCodeTheme = styled.div<{ editable: boolean }>`
+export const CodeEditorTheme = styled.div<{ editable: boolean }>`
   ${({ editable }) => {
     if (!editable) {
       return `
@@ -183,5 +183,3 @@ export const ArtsyCodeTheme = styled.div<{ editable: boolean }>`
     ) !important;
   }
 `
-
-ArtsyCodeTheme.displayName = "ArtsyCodeTheme"

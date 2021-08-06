@@ -2,17 +2,29 @@
 name: Color
 ---
 
+The Artsy color palette has been updated to improve the accessibility. Each
+color has been adjusted to ensure sufficient contrast and has specific roles as
+to which colors can be used in conjunction with each other.
 
-The Artsy color palette has been updated to improve the accessibility. Each color has been adjusted to ensure sufficient contrast and has specific roles as to which colors can be used in conjunction with each other.
+<Spacer my={4} />
 
-<Spacer m={2} />
-
-<Flex flexWrap='wrap'>
-	{Object.entries(THEME_V3.colors).map(([key, value]) => {
-		return (
-			<Box pr={2} pb={2}>
-				<ColorComponent color={key} />
-			</Box>
-		)
-	})}
+<Flex flexWrap="wrap">
+  {Object.entries(THEME_V3.colors).map(([key, value]) => {
+    return (
+      <Box pr={2} pb={2}>
+        <ColorComponent color={key} />
+      </Box>
+    )
+  })}
 </Flex>
+
+### How to Use
+
+Assuming the component tree has been wrapped in a `<Theme>` context provider,
+all color values should be available for use within Palette components. For example:
+
+<Playground>
+	<BorderBox backgroundColor='black5'>
+		<Text color='brand'>Banksy</Text>
+	</BorderBox>
+</Playground>
