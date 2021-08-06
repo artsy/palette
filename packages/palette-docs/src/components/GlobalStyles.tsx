@@ -2,6 +2,10 @@ import { injectGlobalStyles } from "@artsy/palette"
 import { themeGet } from "@styled-system/theme-get"
 
 export const { GlobalStyles } = injectGlobalStyles(`
+  body: {
+    margin: 0;
+  }
+
   h1,h2,h3,h4 {
     position: relative;
 
@@ -41,11 +45,6 @@ export const { GlobalStyles } = injectGlobalStyles(`
 
       margin-bottom: ${themeGet("space.2")}px;
     }
-  }
-
-  ol {
-    list-style-type: auto;
-    padding-left: ${themeGet("space.2")}px;
   }
 
   .header-link-icon {

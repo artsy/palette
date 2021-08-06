@@ -52,7 +52,8 @@ export const NavTree = (_props) => {
     })
   }, [])
 
-  return renderNavTree(buildNavTree(data))
+  const navTree = renderNavTree(buildNavTree(data))
+  return navTree
 }
 
 function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
@@ -228,7 +229,6 @@ const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
       cursor: ${cursor};
     `
   }}
-
   &:hover {
     text-decoration: none;
   }

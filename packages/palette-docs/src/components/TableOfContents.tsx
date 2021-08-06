@@ -15,14 +15,13 @@ export const TableOfContents = ({ headings }) => {
   const activeSlug = useScrollSpy(
     slugs.map((slug) => `[href="#${slug}"]`),
     {
-      // rootMargin: "0% 0% -80% 0%",
-      // threshold: 0.1,
+      rootMargin: "0% 0% -10% 0%",
     }
   )
 
   return (
     <>
-      <Text variant="xs" textTransform="uppercase" color="black100" mb={1}>
+      <Text variant="xs" textTransform="uppercase" color="black80" mb={1}>
         On this page
       </Text>
       {headings.map(({ value }, idx) => {
@@ -31,14 +30,14 @@ export const TableOfContents = ({ headings }) => {
         const color = isActive ? "brand" : "black60"
 
         return (
-          <Box key={idx}>
+          <Box key={idx} mb={1}>
             <a href={slug} style={{ textDecoration: "none" }}>
               <Text
                 variant="md"
                 color={color}
                 // fontWeight={isActive ? "bold" : null}
               >
-                {value}
+                {isActive && "\u2014"} {value}
               </Text>
             </a>
           </Box>

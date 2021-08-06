@@ -10,6 +10,7 @@ export function useScrollToHash({ hash, contentRef }) {
     }
 
     const anchor = document.querySelectorAll(`[href="${hash}"]`)[0]
+
     if (!anchor) {
       return
     }
@@ -17,7 +18,7 @@ export function useScrollToHash({ hash, contentRef }) {
     const offset =
       anchor.getBoundingClientRect().top + contentRef.current.scrollTop
 
-    contentRef.current.scroll({
+    window.scroll({
       behavior: "smooth",
       top: offset - 50,
     })

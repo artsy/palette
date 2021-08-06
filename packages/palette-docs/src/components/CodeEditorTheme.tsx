@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const CodeTheme = styled.div<{ editable: boolean }>`
+export const CodeEditorTheme = styled.div<{ editable: boolean }>`
   ${({ editable }) => {
     if (!editable) {
       return `

@@ -6,7 +6,7 @@ import { SearchBox } from "./SearchBox"
 
 export const Sidebar = (_props) => {
   return (
-    <Box pl={2} pt={4} height="100vh" width="100%" overflowY="scroll">
+    <Box>
       <Link to="/" className="noUnderline" style={{ textDecoration: "none" }}>
         <Flex alignItems="center">
           <Box mr={1}>

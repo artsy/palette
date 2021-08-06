@@ -1,4 +1,5 @@
 import { Box, EditIcon, Flex, Text, useTheme } from "@artsy/palette"
+import { MetaTags } from "components/MetaTags"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
 import { StatusBadge } from "components/StatusBadge"
@@ -6,7 +7,6 @@ import { TableOfContents } from "components/TableOfContents"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useRef } from "react"
-import { Helmet } from "react-helmet"
 import { Provider as StateProvider } from "unstated"
 import { getEditUrl } from "utils/getEditUrl"
 import { useScrollToHash } from "utils/useScrollToSection"
@@ -31,17 +31,17 @@ export default function MainLayout(props) {
   if (typeof window === "undefined") {
     return (
       <StateProvider inject={[new NavState(pathname)]}>
-        <Content {...props} />
+        <Layout {...props} />
       </StateProvider>
     )
 
     // Once mounted on the client defer to StateProvider mounted within Boot.
   } else {
-    return <Content {...props} />
+    return <Layout {...props} />
   }
 }
 
-const Content = (props) => {
+const Layout = (props) => {
   const contentRef = useRef<HTMLDivElement>()
   const {
     data: {
@@ -55,6 +55,7 @@ const Content = (props) => {
     location: { hash },
   } = props
 
+  // Listen for url bar updates and if a hash is seen, scroll to it
   useScrollToHash({
     contentRef,
     hash,
@@ -62,78 +63,107 @@ const Content = (props) => {
 
   const { theme } = useTheme()
   const editUrl = getEditUrl(fileAbsolutePath)
+  const showTitle = type !== "page"
 
   return (
-    <Flex maxWidth={theme.breakpoints.md} margin="0 auto" position="relative">
-      <Helmet defaultTitle="Palette" titleTemplate="%s | Palette">
-        <title>{name}</title>
-        <link
-          href="https://webfonts.artsy.net/all-webfonts.css"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <meta name="docsearch:language" content="en" />
-        <meta name="docsearch:version" content="1.0.0" />
-      </Helmet>
+    <Box ref={contentRef as any}>
+      <MetaTags title={name} />
 
-      <Flex width="100%" margin="auto">
-        <Box
-          width="25%"
-          pr={2}
-          borderRight="1px solid"
-          borderRightColor="black10"
-        >
-          <Sidebar />
-        </Box>
+      <Flex maxWidth={theme.breakpoints.md} margin="0 auto">
+        <SidebarArea />
 
         <Box
-          width="75%"
-          height="100vh"
-          overflowY="scroll"
-          ref={contentRef as any}
+          className="DocSearch-content"
+          width={["100%", "80%", "60%"]}
+          px={6}
+          pt={4}
+          mb={4}
         >
-          <Flex
-            className="DocSearch-content"
-            flexDirection="column"
-            overflowX="scroll"
-            minHeight="100%"
-            pt={4}
-            px={6}
-          >
-            {type !== "page" && (
-              <Flex mb={2} justifyContent="space-between" alignItems="center">
-                <Text
-                  as="h1"
-                  variant="xl"
-                  color="black100"
-                  className="DocSearch-lvl1"
-                >
-                  {name} {status && <StatusBadge status={status} />}
-                </Text>
-                <Flex alignItems="center" position="relative">
-                  <a
-                    href={editUrl}
-                    style={{ display: "flex", textDecoration: "none" }}
-                    target="_blank"
-                  >
-                    <EditIcon top="-1px" />
-                    <Text variant="xs" ml={0.5}>
-                      Edit
-                    </Text>
-                  </a>
-                </Flex>
-              </Flex>
-            )}
+          {showTitle && (
+            <TitleArea name={name} status={status} editUrl={editUrl} />
+          )}
 
-            <MDXRenderer>{body}</MDXRenderer>
-
-            <Box width="25%" pt={12} pl={2} position="fixed" right={-100}>
-              <TableOfContents headings={headings} />
-            </Box>
-          </Flex>
+          <MDXRenderer>{body}</MDXRenderer>
         </Box>
+
+        <TableOfContentsArea headings={headings} />
       </Flex>
+    </Box>
+  )
+}
+
+const SidebarArea = () => {
+  return (
+    <Box
+      position="sticky"
+      top={0}
+      height="100vh"
+      overflowY="auto"
+      pl={2}
+      pt={4}
+      borderRight={`1px solid lightgray`}
+      width={[0, "21%"]}
+      display={["none", "block"]}
+    >
+      <Sidebar />
+    </Box>
+  )
+}
+
+const TitleArea = ({ name, status, editUrl, ...rest }) => {
+  return (
+    <Flex
+      justifyContent="space-between"
+      alignItems="center"
+      width="100%"
+      mb={4}
+    >
+      <Text
+        as="h1"
+        variant="xl"
+        color="black100"
+        className="DocSearch-lvl1"
+        width="100%"
+        {...rest}
+      >
+        {name} {status && <StatusBadge status={status} />}
+      </Text>
+      <EditButton editUrl={editUrl} mt={1} />
     </Flex>
+  )
+}
+
+const EditButton = ({ editUrl, ...rest }) => {
+  return (
+    <Flex alignItems="center" position="relative" {...rest}>
+      <a
+        href={editUrl}
+        style={{ display: "flex", textDecoration: "none" }}
+        target="_blank"
+      >
+        <EditIcon top="-1px" />
+        <Text variant="xs" ml={0.5}>
+          Edit
+        </Text>
+      </a>
+    </Flex>
+  )
+}
+
+const TableOfContentsArea = ({ headings }) => {
+  return (
+    <Box
+      display={["none", "none", "block"]}
+      width="20%"
+      mt={0.5}
+      pt={12}
+      px={2}
+      position="fixed"
+      right={100}
+      top="-1px"
+    >
+      <TableOfContents headings={headings} />
+    </Box>
   )
 }
 

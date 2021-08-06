@@ -1,10 +1,11 @@
-import { Box, Flex, Spacer } from "@artsy/palette"
+import { Box, Clickable, Flex, Spacer, Text } from "@artsy/palette"
 import { themeGet } from "@styled-system/theme-get"
 import { useMDXScope } from "gatsby-plugin-mdx/context"
 import React from "react"
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
 import styled from "styled-components"
-import { CodeTheme } from "./CodeTheme"
+import { copyStringToClipboard } from "utils/copyStringToClipboard"
+import { CodeEditorTheme } from "./CodeEditorTheme"
 
 interface CodeEditorProps {
   code: string
@@ -35,13 +36,14 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
       }}
     >
       <Box mb={4}>
-        <EditorWindow {...rest} />
+        <EditorWindow code={code} {...rest} />
       </Box>
     </LiveProvider>
   )
 }
 
-const EditorWindow: React.FC<Omit<CodeEditorProps, "code">> = ({
+const EditorWindow: React.FC<CodeEditorProps> = ({
+  code,
   editable = true,
   language = "html",
   layout = "vertical",
@@ -71,10 +73,25 @@ const EditorWindow: React.FC<Omit<CodeEditorProps, "code">> = ({
           )}
 
           {showEditor && (
-            <EditorContainer px={2}>
-              <CodeTheme editable={editable}>
+            <EditorContainer px={2} position="relative">
+              <CodeEditorTheme editable={editable}>
                 <LiveEditor {...({ language } as any)} />
-              </CodeTheme>
+
+                <CopyButton
+                  onClick={() => copyStringToClipboard(code)}
+                  position="absolute"
+                  top={10}
+                  right={10}
+                >
+                  <Text
+                    variant="xs"
+                    textTransform="uppercase"
+                    backgroundColor="white"
+                  >
+                    Copy
+                  </Text>
+                </CopyButton>
+              </CodeEditorTheme>
             </EditorContainer>
           )}
 
@@ -103,9 +120,9 @@ const EditorWindow: React.FC<Omit<CodeEditorProps, "code">> = ({
 
           {showEditor && (
             <EditorContainer width="50%" pl={2}>
-              <CodeTheme editable={editable}>
+              <CodeEditorTheme editable={editable}>
                 <LiveEditor {...({ language } as any)} />
-              </CodeTheme>
+              </CodeEditorTheme>
             </EditorContainer>
           )}
         </Flex>
@@ -113,6 +130,10 @@ const EditorWindow: React.FC<Omit<CodeEditorProps, "code">> = ({
     }
   }
 }
+
+const CopyButton = styled(Clickable)`
+  opacity: 0;
+`
 
 const PreviewContainer = styled(Box)`
   overflow-x: scroll;
@@ -124,6 +145,16 @@ const EditorContainer = styled(Box)`
   border: 1px solid ${themeGet("colors.black10")};
   overflow-x: scroll;
   color: #989898;
+
+  &:hover {
+    ${CopyButton} {
+      opacity: 1;
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
 
   pre {
     outline: none;
