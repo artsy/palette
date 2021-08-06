@@ -1,6 +1,5 @@
+import { themeGet } from "@styled-system/theme-get"
 import { createGlobalStyle, css } from "styled-components"
-import { Display, Sans, Serif } from "../elements/Typography"
-import { color } from "./color"
 
 /**
  * Injects globally relevant styles, including helper classes for our Typography.
@@ -11,16 +10,13 @@ export function injectGlobalStyles<P>(
 ) {
   const GlobalStyles = createGlobalStyle<P>`
     html {
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      -ms-overflow-style: scrollbar;
+      box-sizing: border-box;
     }
 
     *,
     *::before,
     *::after {
-      -webkit-box-sizing: inherit;
-              box-sizing: inherit;
+      box-sizing: inherit;
     }
 
     html,
@@ -36,14 +32,13 @@ export function injectGlobalStyles<P>(
     }
 
     html, body {
-      font-family: 'AGaramondPro-Regular';
-      font-size: 16px;
-      line-height: 24px;
+      font-family: ${themeGet("fonts.sans")};
+      font-size: ${themeGet("textVariants.sm.fontSize")};
+      line-height: ${themeGet("textVariants.sm.lineHeight")};
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
-
-    /* Default links */
 
     a {
       cursor: pointer;
@@ -52,79 +47,20 @@ export function injectGlobalStyles<P>(
       text-decoration: underline;
 
       &:hover {
-        color: ${color("black100")};
+        color: ${themeGet("colors.black100")};
       }
 
       &:active {
-        color: ${color("black100")};
-      }
-
-      /* ts-styled-plugin erroniously parses this; see: */
-      /* https://github.com/Microsoft/typescript-styled-plugin/issues/54 */
-      &.noUnderline {
-        ${noUnderline};
-      }
-
-      &.colorLink {
-        ${noUnderline};
-        ${colorLink};
+        color: ${themeGet("colors.black100")};
       }
     }
 
-    /* <Sans /> links */
-
-    ${Sans} {
-      a {
-        color: inherit;
-        &:hover {
-          color: ${color("black100")};
-        }
-        &:active {
-          color: ${color("black100")};
-        }
-        &.noUnderline {
-          ${noUnderline};
-        }
-        &.colorLink {
-          ${noUnderline};
-          ${colorLink};
-        }
-      }
-    }
-
-    /* <Serif /> links */
-
-    ${Serif} {
-      a {
-        color: inherit;
-        &:hover {
-          color: ${color("black100")};
-        }
-        &:active {
-          color: ${color("black100")};
-        }
-        &.noUnderline {
-          ${noUnderline};
-        }
-        &.colorLink {
-          ${noUnderline};
-          ${colorLink};
-        }
-      }
-    }
-
-    /* <Display /> links */
-
-    ${Display} {
-      a {
-        color: ${color("black100")};
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-style: inherit;
       font-family: inherit;
       font-weight: inherit;
@@ -138,7 +74,8 @@ export function injectGlobalStyles<P>(
       margin: 0;
     }
 
-    ol, ul {
+    ol,
+    ul {
       list-style: none;
       margin: 0;
       padding: 0;
@@ -153,15 +90,3 @@ export function injectGlobalStyles<P>(
     GlobalStyles,
   }
 }
-
-// Mixins
-const noUnderline = css`
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`
-
-const colorLink = css`
-  color: ${color("purple100")};
-`
