@@ -56,9 +56,11 @@ that then read in the theme and allow the develper quick ways to access the
 values. One of those props is `p` (shorthand for `padding`), and by passing in
 `2` we're saying "look at `theme.space`, find the key for 'p={2}' and return the
 value" - which equals `20px`. And with TypeScript, we get really nice
-intellisense as well as type-checking of the values passed into the prop. At
-scale and across a big dev team, this works well after the basics are
-understood.
+intellisense as well as type-checking of the values passed into the prop. 
+
+At scale and across a big dev team, this works well after the basics are
+understood. Our UI becomes like lego blocks, where the theme ("constraints")
+defines the shape of the pieces that are available. Design drift no more. 
 
 A fuller example of `Box` from the Palette codebase:
 
