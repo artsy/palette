@@ -54,8 +54,8 @@ mixes-in a `space` function from `styled-system`. This function then "decorates"
 the component with a [handful of props](https://styled-system.com/api#space)
 that then read in the theme and allow the develper quick ways to access the
 values. One of those props is `p` (shorthand for `padding`), and by passing in
-`2` we're saying "look at `theme.space`, find the key for "2" and return the
-value - which equals `20px`. And with TypeScript, we get really nice
+`2` we're saying "look at `theme.space`, find the key for 'p={2}' and return the
+value" - which equals `20px`. And with TypeScript, we get really nice
 intellisense as well as type-checking of the values passed into the prop. At
 scale and across a big dev team, this works well after the basics are
 understood.
