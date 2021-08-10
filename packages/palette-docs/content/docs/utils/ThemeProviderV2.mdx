@@ -3,8 +3,21 @@ name: ThemeProviderV2
 source: Theme.tsx
 ---
 
+The `<ThemeProviderV2>` is our V2 theme context. Deprecated, but useful when
+needing to use a Palette v2 component in a v3 setting.
+
 ### Usage
 
 ```tsx
-import { ThemeProviderV2 } from "@artsy/palette"
+import { Theme, ThemeProviderV2 } from "@artsy/palette"
+
+export const App = (props) => {
+  return (
+    <Theme theme="v3">
+      <ThemeProviderV2 theme="v3">
+        This content uses v2 theme values
+      </ThemeProviderV2>
+    </Theme>
+  )
+}
 ```

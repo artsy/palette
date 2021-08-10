@@ -3,8 +3,27 @@ name: usePosition
 source: utils/usePosition
 ---
 
+The `usePosition` hook allows one to position an element relative to another
+element.
+
+See the [`<Popover>` component](/elements/popover/) for a real-world example.
+
 ### Usage
 
 ```tsx
 import { usePosition } from "@artsy/palette"
+
+const ToolTip = (props) => {
+  const { anchorRef, tooltipRef } = usePosition({
+    position: "top-start",
+    offset: 10,
+    active: true,
+  })
+
+  return (
+    <Box ref={anchorRef}>
+      <Box ref={tooltipRef}>Positioned</Box>
+    </Box>
+  )
+}
 ```

@@ -7,4 +7,18 @@ source: Theme.tsx
 
 ```tsx
 import { ThemeProviderV3 } from "@artsy/palette"
+
+export const App = (props) => {
+  return (
+    <Theme theme="v2">
+      <ThemeProviderV3 theme="v3">
+        This content uses v3 theme values
+      </ThemeProviderV3>
+    </Theme>
+  )
+}
+```
+
+```
+
 ```
