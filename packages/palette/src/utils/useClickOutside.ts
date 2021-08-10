@@ -7,6 +7,10 @@ export interface UseClickOutside {
   onClickOutside: (event: Event) => void
 }
 
+/**
+ * Use click outside is a hook that will listen for clicks outside of a ref,
+ * and when true, execute a callback.
+ */
 export const useClickOutside = ({
   ref,
   type = "click",

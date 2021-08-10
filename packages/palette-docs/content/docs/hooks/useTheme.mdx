@@ -3,8 +3,15 @@ name: useTheme
 source: Theme.tsx
 ---
 
+The `useTheme` hook returns the currently active theme config object.
+
 ### Usage
 
 ```tsx
 import { useTheme } from "@artsy/palette"
+
+const App = (props) => {
+  const { theme } = useTheme()
+  return <Box>The current theme version is {theme.id}</Box>
+}
 ```

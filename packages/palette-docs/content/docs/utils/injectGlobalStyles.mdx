@@ -3,8 +3,28 @@ name: injectGlobalStyles
 source: helpers/injectGlobalStyles.tsx
 ---
 
+The `injectGlobalStyles` function piggy-backs on the
+[createGlobalStyle](https://styled-components.com/docs/api#createglobalstyle)
+`styled-components` API, and allows us to add and override default styles. Comes
+with a style reset built in.
+
 ### Usage
 
 ```tsx
-import { injectGlobalStyles } from "@artsy/palette"
+import { Theme, injectGlobalStyles } from "@artsy/palette"
+
+const { GlobalStyles } = injectGlobalStyles(`
+  // overrides and additions
+`)
+
+export const App = (props) => {
+  return (
+    <Theme theme="v3">
+      <>
+        <GlobalStyles />
+        ...
+      </>
+    </Theme>
+  )
+}
 ```
