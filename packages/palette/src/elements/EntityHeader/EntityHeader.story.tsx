@@ -30,6 +30,13 @@ const FollowButton = () => {
   })
 }
 
+const imageProps = {
+  src: "https://picsum.photos/seed/example/110/110",
+  srcSet:
+    "https://picsum.photos/seed/example/110/110 1x, https://picsum.photos/seed/example/220/220 2x",
+  lazyLoad: true,
+}
+
 export const Default = () => {
   return (
     <States<EntityHeaderProps>
@@ -40,29 +47,29 @@ export const Default = () => {
         {
           smallVariant: true,
           name: "Francesca DiMattio",
-          imageUrl: "https://picsum.photos/seed/example/110/110",
+          image: imageProps,
         },
         {
           name: "Francesca DiMattio",
-          imageUrl: "https://picsum.photos/seed/example/110/110",
+          image: imageProps,
         },
         {
           initials: "FD",
           name: "Francesca DiMattio",
-          imageUrl: "https://picsum.photos/seed/example/110/110",
+          image: imageProps,
           meta: "American, b. 1979",
           href: "http://www.artsy.net/artist/francesca-dimattio",
         },
         {
           smallVariant: true,
           name: "Francesca DiMattio",
-          imageUrl: "https://picsum.photos/seed/example/110/110",
+          image: imageProps,
           FollowButton: <FollowButton />,
         },
         {
           initials: "FD",
           name: "Francesca DiMattio",
-          imageUrl: "https://picsum.photos/seed/example/110/110",
+          image: imageProps,
           meta: "American, b. 1979",
           href: "http://www.artsy.net/artist/francesca-dimattio",
           FollowButton: <FollowButton />,
@@ -70,7 +77,7 @@ export const Default = () => {
         {
           initials: "FLD",
           name: "Francesca Longer DiMattio",
-          imageUrl: "https://picsum.photos/seed/example/110/110",
+          image: imageProps,
           meta: "American, b. Founded 1979",
           href: "http://www.artsy.net/artist/francesca-dimattio",
           FollowButton: <FollowButton />,

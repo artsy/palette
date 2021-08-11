@@ -22,20 +22,18 @@ export const Sizes = () => {
   )
 }
 
-export const WithSrc = () => {
+export const WithImage = () => {
   return (
     <States<AvatarProps>
       states={[{ size: "xxs" }, { size: "xs" }, { size: "sm" }, { size: "md" }]}
     >
       <Avatar
         size="xs"
-        src="https://randomuser.me/api/portraits/lego/2.jpg"
+        src="https://picsum.photos/seed/example/110/110"
+        srcSet="https://picsum.photos/seed/example/110/110 1x, https://picsum.photos/seed/example/220/220 2x"
+        lazyLoad
         initials="TK"
       />
     </States>
   )
-}
-
-WithSrc.story = {
-  name: "With `src`",
 }

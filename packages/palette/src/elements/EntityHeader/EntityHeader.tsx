@@ -1,12 +1,16 @@
 import React from "react"
 import { useThemeConfig } from "../../Theme"
 import { FlexProps } from "../Flex"
+import { WebImageProps } from "../Image"
 import { EntityHeader as EntityHeaderV2 } from "./v2/EntityHeader"
 import { EntityHeader as EntityHeaderV3 } from "./v3/EntityHeader"
 
 export interface EntityHeaderProps extends FlexProps {
   href?: string
+  /** @deprecated: use `image` instead */
   imageUrl?: string
+  /** Pass props to the underlying `Image` in `Avatar` */
+  image?: Partial<WebImageProps>
   initials?: string
   meta?: string
   name: string
