@@ -1,3 +1,16 @@
+# v2.6.0 (Wed Aug 11 2021)
+
+#### 🏠  Internal
+
+- chore(deps): update yarn orb from 5.1.3 to v6 [#1003](https://github.com/artsy/palette/pull/1003) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v2.5.0 (Thu Aug 05 2021)
 
 #### 🚀  Enhancement

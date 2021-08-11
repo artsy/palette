@@ -1,3 +1,28 @@
+# v14.55.0 (Wed Aug 11 2021)
+
+#### 🚀  Enhancement
+
+- fix(avatar,entityheader): supports detailed image props [#1015](https://github.com/artsy/palette/pull/1015) ([@dzucconi](https://github.com/dzucconi))
+- docs: More docs [#1013](https://github.com/artsy/palette/pull/1013) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix(avatar,entityheader): supports detailed image props ([@dzucconi](https://github.com/dzucconi))
+- docs: More docs ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- chore(deps): update yarn orb from 5.1.3 to v6 [#1003](https://github.com/artsy/palette/pull/1003) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 4
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v14.54.1 (Fri Aug 06 2021)
 
 #### 🐛  Bug Fix

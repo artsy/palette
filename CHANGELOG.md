@@ -1,3 +1,42 @@
+# (Wed Aug 11 2021)
+
+#### 🚀  Enhancement
+
+- docs: Add a how palette works section [#1011](https://github.com/artsy/palette/pull/1011) ([@damassi](https://github.com/damassi))
+- docs: More updates [#1010](https://github.com/artsy/palette/pull/1010) ([@damassi](https://github.com/damassi))
+- `@artsy/palette@14.55.0`
+  - fix(avatar,entityheader): supports detailed image props [#1015](https://github.com/artsy/palette/pull/1015) ([@dzucconi](https://github.com/dzucconi))
+- `@artsy/palette@14.55.0`
+  - docs: More docs [#1013](https://github.com/artsy/palette/pull/1013) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- chore: checks in lockfile [#1017](https://github.com/artsy/palette/pull/1017) ([@dzucconi](https://github.com/dzucconi))
+- Update ThemeProviderV3.mdx ([@damassi](https://github.com/damassi))
+
+#### ⚠️  Pushed to `master`
+
+- Update ThemeProviderV2.mdx ([@damassi](https://github.com/damassi))
+- Update Icons.mdx ([@damassi](https://github.com/damassi))
+- Update how-palette-works.mdx ([@damassi](https://github.com/damassi))
+- Update migration.mdx ([@damassi](https://github.com/damassi))
+- Update responsive.mdx ([@damassi](https://github.com/damassi))
+- Update Spacing.mdx ([@damassi](https://github.com/damassi))
+- comment out toc links for now ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- chore(deps): update yarn orb from 5.1.3 to v6 [#1003](https://github.com/artsy/palette/pull/1003) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 4
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Fri Aug 06 2021)
 
 #### 🐛  Bug Fix
