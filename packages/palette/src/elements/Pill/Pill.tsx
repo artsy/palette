@@ -66,6 +66,8 @@ export type PillProps = ClickableProps & {
   focus?: boolean
   /** Forces hover state */
   hover?: boolean
+  /** Swich off focus, hover  */
+  disabled?: boolean
 } & (
     | {
         variant?: Extract<PillVariant, "textRound" | "textSquare" | "filter">
@@ -97,17 +99,17 @@ const Container = styled(Clickable)<PillProps>`
 
   ${(props) => {
     return css`
-      ${props.hover && STATES.hover}
-      ${props.focus && STATES.focus}
+      ${!props.disabled && props.hover && STATES.hover}
+      ${!props.disabled && props.focus && STATES.focus}
       ${"active" in props && props.active && STATES.active}
 
       &:hover {
-        ${STATES.hover}
+        ${!props.disabled && STATES.hover}
       }
 
       &:focus {
         outline: 0;
-        ${STATES.focus}
+        ${!props.disabled && STATES.focus}
       }
     `
   }}
