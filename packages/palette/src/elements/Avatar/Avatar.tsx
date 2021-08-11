@@ -54,7 +54,14 @@ export const Avatar: React.FC<AvatarProps> = ({
 
       {src && (
         <Flex position="absolute" top={0} left={0} width="100%" height="100%">
-          <Image src={src} width="100%" height="100%" {...imageProps} />
+          <Image
+            src={src}
+            width="100%"
+            height="100%"
+            lazyLoad={lazyLoad}
+            alt={initials ?? ""}
+            {...imageProps}
+          />
         </Flex>
       )}
     </Flex>

@@ -10,6 +10,7 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
   meta,
   initials,
   imageUrl,
+  image,
   smallVariant,
   FollowButton,
   ...rest
@@ -22,12 +23,13 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
           ? { as: "a", href, style: { textDecoration: "none" } }
           : {})}
       >
-        {(imageUrl || initials) && (
+        {(imageUrl || image || initials) && (
           <Flex mr={1}>
             <Avatar
               size={smallVariant ? "xxs" : "xs"}
               src={imageUrl}
               initials={initials}
+              {...image}
             />
           </Flex>
         )}
