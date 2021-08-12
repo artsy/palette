@@ -1,3 +1,19 @@
+# v15.0.0 (Thu Aug 12 2021)
+
+#### 💥  Breaking Change
+
+- chore: removes slider and related components [#1018](https://github.com/artsy/palette/pull/1018) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore: removes slider and related components ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v14.55.0 (Wed Aug 11 2021)
 
 #### 🚀  Enhancement
