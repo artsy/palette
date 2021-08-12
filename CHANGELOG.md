@@ -2,6 +2,19 @@
 
 #### 💥  Breaking Change
 
+- `@artsy/palette-charts@15.0.0`, `@artsy/palette@16.0.0`
+  - feature: Palette Chart Lib [#1016](https://github.com/artsy/palette/pull/1016) ([@icirellik](https://github.com/icirellik))
+
+#### Authors: 1
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+
+---
+
+# (Thu Aug 12 2021)
+
+#### 💥  Breaking Change
+
 - `@artsy/palette@16.0.0`
   - feature: Palette Chart Lib [#1018](https://github.com/artsy/palette/pull/1016) ([@icirellik](https://github.com/icirellik))
 

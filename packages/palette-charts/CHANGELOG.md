@@ -1,3 +1,19 @@
+# v15.0.0 (Thu Aug 12 2021)
+
+#### 💥  Breaking Change
+
+- feature: Palette Chart Lib [#1016](https://github.com/artsy/palette/pull/1016) ([@icirellik](https://github.com/icirellik))
+
+#### 🐛  Bug Fix
+
+- feature: Palette Chart Lib ([@icirellik](https://github.com/icirellik))
+
+#### Authors: 1
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+
+---
+
 # v14.39.0 (Wed Jun 30 2021)
 
 #### 🚀  Enhancement
