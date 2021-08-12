@@ -1,11 +1,9 @@
+import { Flex, Sans, Theme } from "@artsy/palette"
 import { mount } from "enzyme"
 import "jest-styled-components"
 import createMockRaf from "mock-raf"
 import React from "react"
-import { Theme } from "../../Theme"
 import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
-import { Flex } from "../Flex"
-import { Sans } from "../Typography"
 import { DonutChart, DonutChartProps } from "./DonutChart"
 
 jest.useFakeTimers()

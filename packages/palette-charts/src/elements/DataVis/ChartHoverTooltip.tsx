@@ -1,8 +1,6 @@
+import { color, Flex, media } from "@artsy/palette"
 import React, { useContext, useRef } from "react"
 import styled from "styled-components"
-import { color } from "../../helpers/color"
-import { media } from "../../helpers/media"
-import { Flex } from "../Flex"
 import { MousePositionContext } from "./MousePositionContext"
 
 const LABEL_OFFSET = 10

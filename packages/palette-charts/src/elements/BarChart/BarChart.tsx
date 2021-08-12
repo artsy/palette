@@ -1,11 +1,9 @@
+import { color, Flex, Sans, space } from "@artsy/palette"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { color, space } from "../../helpers"
 import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
-import { Flex } from "../Flex"
-import { Sans } from "../Typography"
 import { Bar } from "./Bar"
 
 const ChartContainer = styled(Flex)`
