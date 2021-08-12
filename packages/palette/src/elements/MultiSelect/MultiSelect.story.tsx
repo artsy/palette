@@ -17,9 +17,24 @@ const OPTIONS = [
 
 export const Default = () => {
   return (
-    <States<Partial<MultiSelectProps>> states={[{}]}>
+    <States<Partial<MultiSelectProps>>
+      states={[
+        {},
+        { focus: true },
+        { hover: true },
+        { error: "Something went wrong." },
+        { disabled: true },
+        { title: "Medium", name: "Select" },
+        { title: "Medium", name: "Select", required: true },
+        {
+          title: "Medium",
+          name: "Select",
+          description: "Materials or support",
+        },
+      ]}
+    >
       <MultiSelect
-        title="Medium"
+        name="Medium"
         options={OPTIONS}
         onSelect={action("onSelect")}
       />
@@ -39,7 +54,7 @@ export const Example = () => {
 
       <MultiSelect
         options={OPTIONS}
-        title="Size"
+        name="Size"
         onSelect={(sizes) => {
           setFilter({ sizes: sizes.map((size) => size.value) })
         }}

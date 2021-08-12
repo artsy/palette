@@ -205,7 +205,7 @@ const Container = styled.div<ContainerProps>`
     border: 1px solid;
     cursor: pointer;
     line-height: 1;
-    transition: background-color 0.25s, border-color 0.25s;
+    transition: color 0.25s, background-color 0.25s, border-color 0.25s;
 
     ${(props) => {
       const variants = getThemeConfig(props, {
