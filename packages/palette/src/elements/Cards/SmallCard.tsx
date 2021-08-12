@@ -1,12 +1,12 @@
 import React from "react"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
-import { Image, WebImageProps } from "../Image"
+import { Image, ImageProps } from "../Image"
 import { Text } from "../Text"
 import { CardTag } from "./CardTag"
 import { CardTagProps } from "./CardTag"
 
-type Images = string[] | WebImageProps[]
+type Images = string[] | ImageProps[]
 
 export interface SmallCardProps extends BoxProps {
   images: Images
@@ -30,7 +30,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
   tag,
   ...rest
 }) => {
-  const imageAttributes: WebImageProps[] = isArrayOfStrings(images)
+  const imageAttributes: ImageProps[] = isArrayOfStrings(images)
     ? images.map((src) => ({ src }))
     : images
 

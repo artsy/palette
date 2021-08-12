@@ -9,7 +9,7 @@ import {
 } from "styled-system"
 import { CleanTag, omitProps } from "../CleanTag"
 import { SkeletonBox } from "../Skeleton"
-import { WebImageProps } from "./Image"
+import { ImageProps } from "./Image"
 import { BaseImage as Image } from "./Image"
 
 const imagePropsToOmit = omitProps.filter(
@@ -17,7 +17,7 @@ const imagePropsToOmit = omitProps.filter(
 )
 
 const InnerLazyImage = styled(CleanTag.as(LazyLoadImage))<
-  WebImageProps & {
+  ImageProps & {
     onLoad: () => void
     onError?: (event: React.SyntheticEvent<any, Event>) => void
   }
@@ -30,7 +30,7 @@ const InnerLazyImage = styled(CleanTag.as(LazyLoadImage))<
 InnerLazyImage.displayName = "InnerLazyImage"
 
 interface LazyImageProps
-  extends WebImageProps,
+  extends ImageProps,
     WidthProps,
     HeightProps,
     BorderRadiusProps {

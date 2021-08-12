@@ -1,13 +1,13 @@
 import React from "react"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
-import { Image, WebImageProps } from "../Image"
+import { Image, ImageProps } from "../Image"
 import { Text } from "../Text"
 import { CardTag } from "./CardTag"
 import { CardTagProps } from "./CardTag"
 
 export interface MediumCardProps extends BoxProps {
-  image: string | WebImageProps
+  image: string | ImageProps
   title: string
   subtitle?: string
   tag?: CardTagProps

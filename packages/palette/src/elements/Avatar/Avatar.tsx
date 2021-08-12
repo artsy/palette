@@ -2,11 +2,11 @@ import React from "react"
 import { useThemeConfig } from "../../Theme"
 import { splitBoxProps } from "../Box"
 import { Flex, FlexProps } from "../Flex"
-import { Image, WebImageProps } from "../Image"
+import { Image, ImageProps } from "../Image"
 import { Text } from "../Text"
 import { V2_TOKENS, V3_TOKENS } from "./tokens"
 
-export interface AvatarProps extends FlexProps, Partial<WebImageProps> {
+export interface AvatarProps extends FlexProps, Partial<ImageProps> {
   /** If an image is missing, show initials instead */
   initials?: string
   /** The size of the Avatar */
