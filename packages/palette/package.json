@@ -119,7 +119,6 @@
     "debounce": "^1.2.0",
     "luxon": "^1.15",
     "proportional-scale": "^4.0.0",
-    "rc-slider": "^8.6.2",
     "react-lazy-load-image-component": "1.5.0",
     "react-remove-scroll": "^2.3.0",
     "styled-bootstrap-grid": "3.1.0",
