@@ -5,7 +5,7 @@ export default {
   title: "Components/Image",
 }
 
-export const _Image = () => {
+export const Default = () => {
   return (
     <Image
       id="example"
@@ -15,6 +15,10 @@ export const _Image = () => {
       src="https://picsum.photos/seed/example/300/200"
     />
   )
+}
+
+Default.story = {
+  name: "Image",
 }
 
 export const ImageWSrcSet = () => {
@@ -29,10 +33,10 @@ export const ImageWSrcSet = () => {
 }
 
 ImageWSrcSet.story = {
-  name: "Image w/srcSet",
+  name: "Image + srcSet",
 }
 
-export const LazyImage = () => {
+export const ImageLazyLoad = () => {
   return (
     <>
       {Array.from(Array(100)).map((_, i) => (
@@ -48,11 +52,11 @@ export const LazyImage = () => {
   )
 }
 
-LazyImage.story = {
-  name: "LazyImage",
+ImageLazyLoad.story = {
+  name: "Image + lazyLoad",
 }
 
-export const LazyImageWSrcSet = () => {
+export const ImageLazyLoadSrcSet = () => {
   return (
     <>
       {Array.from(Array(100)).map((_, i) => (
@@ -69,6 +73,6 @@ export const LazyImageWSrcSet = () => {
   )
 }
 
-LazyImageWSrcSet.story = {
-  name: "LazyImage w/srcSet",
+ImageLazyLoadSrcSet.story = {
+  name: "Image + lazyLoad + srcSet",
 }
