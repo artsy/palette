@@ -97,3 +97,11 @@ export const LinkExample = () => {
     </Pill>
   )
 }
+
+export const LongExample = () => {
+  return (
+    <Pill maxWidth={300}>
+      Studio Museum in Harlem Artist-in-Residence (AIR) Program
+    </Pill>
+  )
+}
