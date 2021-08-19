@@ -40,7 +40,7 @@ export const Default = () => {
       ]}
     >
       <Expandable label="Example" maxWidth={350}>
-        <Text>Expanded content</Text>
+        <Text variant="sm">Expanded content</Text>
       </Expandable>
     </States>
   )

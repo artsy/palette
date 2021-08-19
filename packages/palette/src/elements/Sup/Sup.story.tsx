@@ -18,7 +18,7 @@ export const Default = () => {
         { variant: "sm" },
       ]}
     >
-      <Text>
+      <Text variant="sm">
         Lorem Ipsum <Sup color="blue100">123</Sup>
       </Text>
     </States>

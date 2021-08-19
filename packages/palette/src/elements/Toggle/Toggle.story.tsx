@@ -42,7 +42,7 @@ export const Default = () => {
       ]}
     >
       <Toggle label="Example" maxWidth={350}>
-        <Text>Expanded content</Text>
+        <Text variant="sm">Expanded content</Text>
       </Toggle>
     </States>
   )

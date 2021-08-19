@@ -3,43 +3,74 @@ name: GridColumns
 source: elements/GridColumns
 ---
 
-`GridColumns` implements `Box` and the common grid properties. It has a layout of 12, fluid-width columns and a default column and row gap of `space(2)` (which is configurable).
+`GridColumns` implements `Box` and the common grid properties. It has a layout
+of 12, fluid-width columns and a default column and row gap of `space(2)` (which
+is configurable).
 
-`Column` is a `Box` that sits inside of this 12-column grid layout, respecting the gutters. It accepts a `span` which will determine the width of the column. One can also optionally specify a `start` to offset where that column begins on the grid.
+`Column` is a `Box` that sits inside of this 12-column grid layout, respecting
+the gutters. It accepts a `span` which will determine the width of the column.
+One can also optionally specify a `start` to offset where that column begins on
+the grid.
 
 ### Simple grid
 
 <Playground>
-	<BorderBox>
-		<GridColumns>
-			<Column span={6}>
-				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
-			</Column>
-			<Column  span={6}>
-				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
-			</Column>
-		</GridColumns>
-	</BorderBox>
+  <BorderBox>
+    <GridColumns>
+      <Column span={6}>
+        <Text variant="sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+          deleniti recusandae ullam laudantium ut reiciendis, doloribus qui
+          sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat
+          eius saepe.
+        </Text>
+      </Column>
+      <Column span={6}>
+        <Text variant="sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+          deleniti recusandae ullam laudantium ut reiciendis, doloribus qui
+          sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat
+          eius saepe.
+        </Text>
+      </Column>
+    </GridColumns>
+  </BorderBox>
 </Playground>
 
 ### Responsive grid
 
-The columns by default collapse to a `span` of 12 on small breakpoints, but this is configurable via styled-system's responsive props syntax:
+The columns by default collapse to a `span` of 12 on small breakpoints, but this
+is configurable via styled-system's responsive props syntax:
 
 <Playground>
-	<BorderBox>
-		<GridColumns>
-			<Column span={[12, 4]}>
-				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
-			</Column>
-			<Column  span={[12, 4]}>
-				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
-			</Column>
-			<Column  span={[12, 4]}>
-				<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
-			</Column>
-		</GridColumns>
-	</BorderBox>
+  <BorderBox>
+    <GridColumns>
+      <Column span={[12, 4]}>
+        <Text variant="sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+          deleniti recusandae ullam laudantium ut reiciendis, doloribus qui
+          sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat
+          eius saepe.
+        </Text>
+      </Column>
+      <Column span={[12, 4]}>
+        <Text variant="sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+          deleniti recusandae ullam laudantium ut reiciendis, doloribus qui
+          sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat
+          eius saepe.
+        </Text>
+      </Column>
+      <Column span={[12, 4]}>
+        <Text variant="sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+          deleniti recusandae ullam laudantium ut reiciendis, doloribus qui
+          sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat
+          eius saepe.
+        </Text>
+      </Column>
+    </GridColumns>
+  </BorderBox>
 </Playground>
 
 ### Kitchen sink
@@ -47,17 +78,38 @@ The columns by default collapse to a `span` of 12 on small breakpoints, but this
 <Playground>
   <GridColumns position="relative">
     <Column span={4}>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+      <Text variant="sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi
+        id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius
+        saepe.
+      </Text>
     </Column>
-    <Column  span={4}>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    <Column span={4}>
+      <Text variant="sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi
+        id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius
+        saepe.
+      </Text>
     </Column>
-    <Column  span={4}>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+    <Column span={4}>
+      <Text variant="sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi
+        id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius
+        saepe.
+      </Text>
     </Column>
     <Column border="1px solid red" span={4} wrap>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.
+      <Text variant="sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi
+        id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius
+        saepe. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus
+        qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt,
+        quaerat eius saepe.
       </Text>
     </Column>
     <Column bg="black100" span={[6]}>
@@ -85,16 +137,36 @@ The columns by default collapse to a `span` of 12 on small breakpoints, but this
     />
     <Column height={200} bg="purple100" span={[12, 6]} start={[1, 4]} wrap />
     <Column bg="black100" start={4}>
-      <Text color="white100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+      <Text color="white100">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi
+        id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius
+        saepe.
+      </Text>
     </Column>
     <Column border="1px solid red" span={4} start={1}>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+      <Text variant="sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi
+        id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius
+        saepe.
+      </Text>
     </Column>
     <Column border="1px solid red" span={4} start={6}>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+      <Text variant="sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi
+        id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius
+        saepe.
+      </Text>
     </Column>
     <Column border="1px solid red" span={2} start={11}>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius saepe.</Text>
+      <Text variant="sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        deleniti recusandae ullam laudantium ut reiciendis, doloribus qui sequi
+        id ea, ad suscipit eos placeat magnam consequatur sunt, quaerat eius
+        saepe.
+      </Text>
     </Column>
     <Column bg="red" span={1} start={1} height={100} wrap />
     <Column bg="red" span={1} start={2} height={100} wrap />

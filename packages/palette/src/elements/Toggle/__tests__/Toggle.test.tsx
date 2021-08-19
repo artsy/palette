@@ -46,7 +46,7 @@ describe("Toggle", () => {
   })
 
   it("renders proper component when passed component as label", () => {
-    const component = <Text>Hello</Text>
+    const component = <Text variant="sm">Hello</Text>
     const wrapper = mount(<Toggle label={component}>tab content</Toggle>)
     expect(wrapper.find("Text")).toHaveLength(1)
   })

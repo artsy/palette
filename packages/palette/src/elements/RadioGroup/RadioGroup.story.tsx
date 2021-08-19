@@ -25,7 +25,11 @@ export const Default = () => {
         {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
           (value) => {
             return (
-              <Radio key={value} value={value} label={<Text>{value}</Text>} />
+              <Radio
+                key={value}
+                value={value}
+                label={<Text variant="sm">{value}</Text>}
+              />
             )
           }
         )}

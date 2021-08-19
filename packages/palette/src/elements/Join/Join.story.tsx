@@ -99,7 +99,7 @@ export const WithNestedChildren = () => {
           <Text variant="md">Are grouped</Text>
         </Box>
 
-        <Text>End of list</Text>
+        <Text variant="sm">End of list</Text>
       </>
     </Join>
   )

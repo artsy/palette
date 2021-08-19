@@ -90,18 +90,19 @@ const MyComponent = props => {
 }
 ```
 
-What we're doing in the above is defining an object with two keys -- `v2` and `v3` -- and the
-`useThemeConfig` hook will then match against the keys depending on which theme context is 
-currently being used and return the correct values. So you can see that 
+What we're doing in the above is defining an object with two keys -- `v2` and
+`v3` -- and the `useThemeConfig` hook will then match against the keys depending
+on which theme context is currently being used and return the correct values. So
+you can see that
 
 ```tsx
 <Box px={tokens.px}>
   <Text variant={tokens.variant}>Hi</Text>
 </Box>
-``` 
+```
 
-Will return dynamic values for `tokens.px` -- either `px={5}` if `v2`, or `px={2}` if `v3`.  
-
+Will return dynamic values for `tokens.px` -- either `px={5}` if `v2`, or
+`px={2}` if `v3`.
 
 (See
 [here](https://github.com/artsy/force/blob/master/src/v2/Components/Footer/Footer.tsx#L219-L226)
@@ -117,7 +118,7 @@ context-specific names (`title`, `subTitle`, etc.)
 
 If migrating from pre-v1 `<Sans>` or `<Serif>` components, note that we no
 longer use serif fonts and areas where those components are used should be
-replaced with `<Text>`.
+replaced with `<Text variant="sm">`.
 
 **Some migration examples:**
 

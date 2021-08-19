@@ -48,7 +48,7 @@ export const Simple = () => {
 export const WithHorizontalMargins = () => {
   return (
     <>
-      <Text>Should be flush with horizontal edges</Text>
+      <Text variant="sm">Should be flush with horizontal edges</Text>
       <Demo mx={[-2, -4]} />
     </>
   )

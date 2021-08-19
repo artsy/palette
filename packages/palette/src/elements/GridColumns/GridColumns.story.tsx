@@ -41,7 +41,7 @@ export const RealWorldExample = () => {
           Page subtitle
         </Text>
 
-        <Text>{IPSUM}</Text>
+        <Text variant="sm">{IPSUM}</Text>
       </Column>
 
       <Column span={5} start={8}>
@@ -65,19 +65,19 @@ export const KitchenSink = () => {
       <GridColumnsDebug />
 
       <Column border="1px solid red" span={4}>
-        <Text>{IPSUM}</Text>
+        <Text variant="sm">{IPSUM}</Text>
       </Column>
 
       <Column border="1px solid red" span={4}>
-        <Text>{IPSUM}</Text>
+        <Text variant="sm">{IPSUM}</Text>
       </Column>
 
       <Column border="1px solid green" span={4}>
-        <Text>{IPSUM}</Text>
+        <Text variant="sm">{IPSUM}</Text>
       </Column>
 
       <Column border="1px solid red" span={4} wrap>
-        <Text>
+        <Text variant="sm">
           {IPSUM} {IPSUM}
         </Text>
       </Column>
@@ -117,15 +117,15 @@ export const KitchenSink = () => {
       </Column>
 
       <Column border="1px solid red" span={4} start={1}>
-        <Text>{IPSUM}</Text>
+        <Text variant="sm">{IPSUM}</Text>
       </Column>
 
       <Column border="1px solid red" span={4} start={6}>
-        <Text>{IPSUM}</Text>
+        <Text variant="sm">{IPSUM}</Text>
       </Column>
 
       <Column border="1px solid red" span={2} start={11}>
-        <Text>{IPSUM}</Text>
+        <Text variant="sm">{IPSUM}</Text>
       </Column>
 
       <Column bg="red" span={1} start={1} height={100} wrap />
