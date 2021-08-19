@@ -149,7 +149,7 @@ export const Pill: React.FC<PillProps> = ({ children, ...rest }) => {
         </>
       )}
 
-      <Text variant="xs" lineHeight={1}>
+      <Text variant="xs" lineHeight={1} overflowEllipsis>
         {children}
       </Text>
     </Container>
