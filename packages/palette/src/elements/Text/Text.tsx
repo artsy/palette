@@ -20,7 +20,7 @@ import { Box, BoxProps } from "../Box"
 /** BaseTextProps */
 export type BaseTextProps = TypographyProps &
   Omit<ColorProps, "color"> & {
-    variant?: ResponsiveValue<TextVariant>
+    variant: ResponsiveValue<TextVariant>
     textColor?: ResponsiveValue<Color>
     /**
      * Max number of lines before truncating the content with an ellipsis at the end of the last line.
@@ -104,5 +104,4 @@ Text.displayName = "Text"
 
 Text.defaultProps = {
   fontFamily: "sans",
-  variant: "text",
 }
