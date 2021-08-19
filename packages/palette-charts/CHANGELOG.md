@@ -1,3 +1,15 @@
+# v16.0.0 (Thu Aug 19 2021)
+
+#### 💥  Breaking Change
+
+- chore(image): removes responsive image; cleans up types [#1019](https://github.com/artsy/palette/pull/1019) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v15.0.0 (Thu Aug 12 2021)
 
 #### 💥  Breaking Change
