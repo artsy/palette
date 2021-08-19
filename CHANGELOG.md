@@ -1,3 +1,16 @@
+# (Thu Aug 19 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@16.0.1`
+  - fix(pill): fixes multi-line pills [#1020](https://github.com/artsy/palette/pull/1020) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Aug 12 2021)
 
 #### 💥  Breaking Change
