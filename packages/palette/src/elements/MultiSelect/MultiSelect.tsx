@@ -112,26 +112,28 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
 
   return (
     <>
-      <div>
-        {title && (
-          <Text variant="xs" textTransform="uppercase">
-            {title}
-            {required && (
-              <Box as="span" color="brand">
-                *
-              </Box>
-            )}
-          </Text>
-        )}
+      {(title || description) && (
+        <>
+          {title && (
+            <Text variant="xs" textTransform="uppercase">
+              {title}
+              {required && (
+                <Box as="span" color="brand">
+                  *
+                </Box>
+              )}
+            </Text>
+          )}
 
-        {description && (
-          <Text variant="xs" color="black60">
-            {description}
-          </Text>
-        )}
-      </div>
+          {description && (
+            <Text variant="xs" color="black60">
+              {description}
+            </Text>
+          )}
 
-      {(title || description) && <Spacer m={0.5} />}
+          <Spacer m={0.5} />
+        </>
+      )}
 
       <Container
         ref={anchorRef as any}
