@@ -165,6 +165,29 @@ const resetMixin = css`
   }
 `
 
+/** Creates a small caret */
+export const caretMixin = css`
+  &::after {
+    content: "";
+    cursor: inherit;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: ${themeGet("space.1")};
+    pointer-events: none;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid
+      ${({ disabled }) => {
+        return disabled
+          ? themeGet("colors.black10")
+          : themeGet("colors.black100")
+      }};
+  }
+`
+
 type ContainerProps = Required<
   Pick<SelectProps, "variant" | "disabled" | "error" | "hover" | "focus">
 >
@@ -182,7 +205,7 @@ const Container = styled.div<ContainerProps>`
     border: 1px solid;
     cursor: pointer;
     line-height: 1;
-    transition: background-color 0.25s, border-color 0.25s;
+    transition: color 0.25s, background-color 0.25s, border-color 0.25s;
 
     ${(props) => {
       const variants = getThemeConfig(props, {
@@ -216,26 +239,7 @@ const Container = styled.div<ContainerProps>`
     }};
   }
 
-  /* Caret */
-  &::after {
-    content: "";
-    cursor: inherit;
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: ${themeGet("space.1")};
-    pointer-events: none;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid
-      ${({ disabled }) => {
-        return disabled
-          ? themeGet("colors.black10")
-          : themeGet("colors.black100")
-      }};
-  }
+  ${caretMixin}
 `
 
 /**
