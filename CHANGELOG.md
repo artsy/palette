@@ -1,3 +1,16 @@
+# (Fri Aug 20 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@17.1.0`
+  - feat(multiselect): implements multi-select [#1012](https://github.com/artsy/palette/pull/1012) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Aug 19 2021)
 
 #### 💥  Breaking Change

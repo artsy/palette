@@ -1,3 +1,21 @@
+# v17.1.0 (Fri Aug 20 2021)
+
+#### 🚀  Enhancement
+
+- feat(multiselect): implements multi-select [#1012](https://github.com/artsy/palette/pull/1012) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(multiselect): adds specs ([@dzucconi](https://github.com/dzucconi))
+- feat(multiselect): brings multi-select and select into correspondence ([@dzucconi](https://github.com/dzucconi))
+- feat(multiselect): implements multi-select ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.0.0 (Thu Aug 19 2021)
 
 #### 💥  Breaking Change
