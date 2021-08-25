@@ -56,7 +56,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   const isSelectable = !disabled && onSelect !== undefined
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (isSelectable) {
+    if (isSelectable && onSelect) {
       onSelect(!selected)
     }
 
@@ -66,7 +66,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   }
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === " " && isSelectable) {
+    if (event.key === " " && isSelectable && onSelect) {
       event.preventDefault()
       onSelect(!selected)
     }

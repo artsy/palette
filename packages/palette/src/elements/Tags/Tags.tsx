@@ -29,7 +29,7 @@ export const Tags: React.FC<TagsProps> = ({
   const animatingBox = useRef<HTMLDivElement>(null)
   // after animating AnimatingBox height set back height to auto (to handle screen resize etc.)
   useEffect(() => {
-    animatingBox.current.addEventListener("transitionend", e => {
+    animatingBox.current!.addEventListener("transitionend", (e) => {
       const isAnimatingBoxTransition = e.target === animatingBox.current
       if (isAnimatingBoxTransition) {
         setBoxHeight("auto")
@@ -49,14 +49,14 @@ export const Tags: React.FC<TagsProps> = ({
    */
   const toggleMore = () => {
     const BORDER_OFFSET = 2
-    const oldHeight = flexContainer.current.offsetHeight - BORDER_OFFSET
+    const oldHeight = flexContainer.current!.offsetHeight - BORDER_OFFSET
     setBoxHeight(oldHeight + "px")
 
     setExpanded(!expanded)
 
     // wait for a tick
     setTimeout(() => {
-      const newHeight = flexContainer.current.offsetHeight - BORDER_OFFSET
+      const newHeight = flexContainer.current!.offsetHeight - BORDER_OFFSET
       setBoxHeight(`${newHeight}px`)
     }, 10)
   }

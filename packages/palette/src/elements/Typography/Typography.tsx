@@ -10,7 +10,7 @@ import {
   TypeSizes,
 } from "../../Theme"
 
-// @ts-ignore
+// @ts-expect-error  MIGRATE_STRICT_MODE
 import { StyledComponentClass } from "styled-components"
 
 import {

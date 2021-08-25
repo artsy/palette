@@ -12,7 +12,7 @@ export const ArrowRightIcon: React.FC<IconProps> = ({
       <Title>{title}</Title>
       <Path
         d="M5.94 15.94l-.88-.88L11.12 9 5.06 2.94l.88-.88L12.88 9z"
-        fill={color(props.fill)}
+        fill={color(props.fill!)}
         fillRule="evenodd"
       />
     </Icon>

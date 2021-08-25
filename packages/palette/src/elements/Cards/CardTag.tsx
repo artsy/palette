@@ -28,7 +28,7 @@ export const CardTag: React.FC<CardTagProps> = ({
     <BorderBox
       borderRadius={2}
       backgroundColor={color(bgColor) || bgColor}
-      borderColor={color(borderColor) || borderColor}
+      borderColor={color(borderColor!) || borderColor}
       m={0}
       p={0}
       position={position}

@@ -15,7 +15,7 @@ export const TriangleDownIcon: React.FC<IconProps> = ({
           fillRule="evenodd"
           clipRule="evenodd"
           d="M5.5 6L0 0L11 0L5.5 6Z"
-          fill={color(props.fill)}
+          fill={color(props.fill!)}
         />
       </G>
     </Icon>

@@ -43,7 +43,7 @@ describe("Swiper", () => {
       </Swiper>
     )
 
-    const html = wrapper.html()
+    const html: any = wrapper.html()
 
     expect(html).toContain("I have 3 beautiful children")
     expect(html.match(/\<li\s/g).length).toBe(3)

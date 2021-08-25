@@ -24,7 +24,7 @@ export const Default = () => {
     <States<Partial<PaginationProps>>
       states={[
         {},
-        { pageCursors: { ...EXAMPLE_PAGE_CURSORS, previous: null } },
+        { pageCursors: { ...EXAMPLE_PAGE_CURSORS, previous: null as any } },
         { pageCursors: { ...EXAMPLE_PAGE_CURSORS }, hasNextPage: false },
       ]}
     >

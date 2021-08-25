@@ -23,7 +23,7 @@ const computeUnderline = (
 
 const backwardsCompatCompute = (state: string, props: LinkProps) => {
   const behavior = props.noUnderline ? "hover" : props.underlineBehavior
-  return computeUnderline(state, behavior)
+  return computeUnderline(state, behavior!)
 }
 
 /**

@@ -205,7 +205,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <>
       {children({
-        anchorRef,
+        anchorRef: anchorRef as any,
         anchorProps,
         onVisible,
         onHide,

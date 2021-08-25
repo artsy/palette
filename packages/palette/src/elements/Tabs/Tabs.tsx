@@ -22,7 +22,6 @@ export interface TabInfo extends TabProps {
 }
 
 export interface TabsProps extends BaseTabsProps {
-  children: Array<TabLike | null | undefined>
   /** Space or visual divider between tabs */
   separator?: JSX.Element
   /** Index of the Tab that should be pre-selected */

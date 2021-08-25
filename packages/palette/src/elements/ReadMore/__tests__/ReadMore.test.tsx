@@ -10,7 +10,7 @@ describe("ReadMore", () => {
     "<p>Donald Judd <a>regarded as one of the most</a> significant American artists</p>"
 
   it("returns null if no content provided", () => {
-    const wrapper = render(<ReadMore content={null} />)
+    const wrapper = render(<ReadMore content={null as any} />)
     expect(wrapper.html()).toBe(null)
   })
 

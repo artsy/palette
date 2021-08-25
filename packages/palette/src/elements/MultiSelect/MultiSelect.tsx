@@ -74,7 +74,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
     if (!anchorRef.current) return
 
     const handleResize = () => {
-      setWidth(anchorRef.current.offsetWidth)
+      setWidth(anchorRef.current!.offsetWidth)
     }
 
     handleResize()
@@ -138,10 +138,10 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
       <Container
         ref={anchorRef as any}
         onClick={onVisible}
-        disabled={disabled}
-        error={error}
+        disabled={disabled!}
+        error={error!}
         focus={focus || visible}
-        hover={hover}
+        hover={hover!}
         {...rest}
       >
         <Text variant="sm" lineHeight={1}>

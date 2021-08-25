@@ -3,6 +3,7 @@
  * @param xs list of values to compound
  */
 export const compound = (xs: number[]): number[] => {
+  // @ts-expect-error  MIGRATE_STRICT_MODE
   return xs.reduce((p, n) => p.concat((+p.slice(-1) || 0) + n), [])
 }
 

@@ -105,6 +105,7 @@ describe("Carousel", () => {
     const html = wrapper.html()
 
     expect(html).toContain("I have 3 beautiful children")
+    // @ts-expect-error  MIGRATE_STRICT_MODE
     expect(html.match(/\<li\s/g).length).toBe(3)
   })
 

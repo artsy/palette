@@ -89,7 +89,7 @@ export const Popover: React.FC<PopoverProps> = ({
 
   return (
     <>
-      {children({ anchorRef, onVisible, onHide })}
+      {children({ anchorRef: anchorRef as any, onVisible, onHide })}
 
       {visible && (
         <Tip

@@ -121,8 +121,8 @@ export const AsRouterLink = () => {
   return (
     <BaseTabs>
       <BaseTab
+        // @ts-expect-error  MIGRATE_STRICT_MODE
         as={RouterLink}
-        // @ts-ignore
         to="#example"
         activeClassName="active"
         garbage

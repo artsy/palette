@@ -129,8 +129,8 @@ export const Carousel: React.FC<CarouselProps> = ({
 
   const init = () => {
     const { current: viewport } = viewportRef
-    const values = cells.map(({ ref }) => ref.current.clientWidth)
-    setPages(paginateCarousel({ viewport: viewport.clientWidth, values }))
+    const values = cells.map(({ ref }) => ref.current!.clientWidth)
+    setPages(paginateCarousel({ viewport: viewport!.clientWidth, values }))
   }
 
   useEffect(() => {
@@ -218,7 +218,11 @@ export const Carousel: React.FC<CarouselProps> = ({
             const isLast = i === cells.length - 1
 
             return (
-              <Cell key={i} ref={ref} pr={!isLast && CELL_GAP_PADDING_AMOUNT}>
+              <Cell
+                key={i}
+                ref={ref}
+                pr={!isLast && (CELL_GAP_PADDING_AMOUNT as any)}
+              >
                 {child}
               </Cell>
             )

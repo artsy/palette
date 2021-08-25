@@ -127,7 +127,7 @@ describe("SmallPagination", () => {
 
   describe("when there is only a next page", () => {
     beforeAll(() => {
-      pageCursors.previous = null
+      pageCursors.previous = null as any
       props.hasNextPage = true
     })
 

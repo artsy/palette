@@ -89,7 +89,7 @@ export const Select: React.FC<SelectProps> = ({
                   ? 1
                   : undefined
               }
-              style={{ textTransform: tokens.titleTextTransform }}
+              style={{ textTransform: tokens.titleTextTransform as any }}
             >
               {title}
               {required && (
@@ -111,10 +111,10 @@ export const Select: React.FC<SelectProps> = ({
 
         <Container
           variant={variant}
-          disabled={disabled}
-          hover={hover}
-          error={error}
-          focus={focus}
+          disabled={disabled!}
+          hover={hover!}
+          error={error!}
+          focus={focus!}
         >
           <select
             id={id}

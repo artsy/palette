@@ -8,6 +8,7 @@ export const flattenChildren = <T extends React.ReactElement>(
 ): T[] => {
   const xs = React.Children.toArray(children).filter(React.isValidElement)
 
+  // @ts-expect-error  MIGRATE_STRICT_MODE
   return xs.reduce((acc, child: T) => {
     if (child.type === React.Fragment) {
       return acc.concat(flattenChildren(child.props.children))

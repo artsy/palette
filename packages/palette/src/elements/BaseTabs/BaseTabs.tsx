@@ -117,7 +117,7 @@ export const BaseTabs: React.FC<BaseTabsProps> = ({
           verticalAlign="top"
           {...paddingProps}
         >
-          <Join separator={separator}>
+          <Join separator={separator!}>
             {cells.map((child, i) => {
               return (
                 <Box

@@ -120,8 +120,8 @@ describe("Pagination", () => {
   describe("page numbers", () => {
     describe("with some around pages", () => {
       beforeAll(() => {
-        props.pageCursors.first = null
-        props.pageCursors.last = null
+        props.pageCursors.first = null as any
+        props.pageCursors.last = null as any
         props.pageCursors.around = around
       })
 
@@ -139,7 +139,7 @@ describe("Pagination", () => {
 
     describe("when there is no first page", () => {
       beforeAll(() => {
-        props.pageCursors.first = null
+        props.pageCursors.first = null as any
         props.pageCursors.last = last
         props.pageCursors.around = around
       })
@@ -157,7 +157,7 @@ describe("Pagination", () => {
     describe("when there is no last page", () => {
       beforeAll(() => {
         props.pageCursors.first = first
-        props.pageCursors.last = null
+        props.pageCursors.last = null as any
         props.pageCursors.around = around
       })
 
@@ -216,7 +216,7 @@ describe("Pagination", () => {
 
     describe("when there is only a next page", () => {
       beforeAll(() => {
-        pageCursors.previous = null
+        pageCursors.previous = null as any
         props.hasNextPage = true
       })
 

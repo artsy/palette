@@ -6,7 +6,7 @@ describe("CleanTag", () => {
   it("omits props", () => {
     const wrap = shallow(
       React.createElement(CleanTag, {
-        // @ts-ignore
+        // @ts-expect-error  MIGRATE_STRICT_MODE
         id: "hello",
         theme: {},
         m: 2,
@@ -22,6 +22,7 @@ describe("CleanTag", () => {
   })
 
   it("allows the type of element to be specified", () => {
+    // @ts-expect-error  MIGRATE_STRICT_MODE
     const wrap = shallow(React.createElement(CleanTag.as("span")))
     expect(wrap.type()).toBe("span")
   })
@@ -39,7 +40,7 @@ describe("CleanTag", () => {
     const wrap = shallow(
       React.createElement(CleanTag, {
         omitFromProps: ["foo"],
-        // @ts-ignore
+        // @ts-expect-error  MIGRATE_STRICT_MODE
         foo: "bar",
         theme: [],
       })

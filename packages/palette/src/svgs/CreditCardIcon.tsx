@@ -10,7 +10,7 @@ export type CreditCardType =
   | "Visa"
 
 interface CreditCardIconProps extends IconProps {
-  type?: CreditCardType | string
+  type: CreditCardType | string
 }
 
 /** CreditCardIcon */

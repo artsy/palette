@@ -101,13 +101,13 @@ export const Modal: SFC<ModalProps> = ({
 
   return (
     <>
-      <ModalOuterWrapper show={show} className={fadeIn ? "fadeIn" : null}>
+      <ModalOuterWrapper show={show} className={fadeIn ? "fadeIn" : ""}>
         <ModalWrapper ref={wrapperRef} onClick={handleWrapperClick}>
           <ModalElement
             modalWidth={modalWidth}
             isWide={isWide}
             show={show}
-            className={fadeIn ? "fadeIn" : null}
+            className={fadeIn ? "fadeIn" : ""}
           >
             <ModalFlexContent>
               {!hideCloseButton && (
@@ -186,7 +186,7 @@ const ModalWrapper = styled(Flex)`
 const ModalElement = styled(Box)<TransitionElementProps>`
   position: absolute;
   border-radius: 5px;
-  height: ${(props) => (props.height ? props.height : "auto")};
+  height: ${(props) => (props.height ? props.height : "auto") as any};
   max-height: calc(100vh - 80px);
   min-height: 58px;
   overflow: hidden;

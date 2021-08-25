@@ -46,38 +46,38 @@ describe("ModalBase", () => {
       const wrapper = mount(<Example />)
       const input = wrapper.find("#foo")
       expect(input.getElement().props.id).toEqual("foo")
-      expect(document.activeElement.id).toEqual("foo")
+      expect(document.activeElement!.id).toEqual("foo")
     })
 
     it("manages the focus", async () => {
       mount(<Example />)
 
       // Tabbing through
-      expect(document.activeElement.id).toEqual("foo")
+      expect(document.activeElement!.id).toEqual("foo")
       await keydown("Tab", false)
-      expect(document.activeElement.id).toEqual("bar")
+      expect(document.activeElement!.id).toEqual("bar")
       await keydown("Tab", false)
-      expect(document.activeElement.id).toEqual("baz")
+      expect(document.activeElement!.id).toEqual("baz")
       // Wraps around
       await keydown("Tab", false)
-      expect(document.activeElement.id).toEqual("foo")
+      expect(document.activeElement!.id).toEqual("foo")
       // Shift+tab backwards
       await keydown("Tab", true)
-      expect(document.activeElement.id).toEqual("baz")
+      expect(document.activeElement!.id).toEqual("baz")
       await keydown("Tab", true)
-      expect(document.activeElement.id).toEqual("bar")
+      expect(document.activeElement!.id).toEqual("bar")
       await keydown("Tab", true)
-      expect(document.activeElement.id).toEqual("foo")
+      expect(document.activeElement!.id).toEqual("foo")
       await keydown("Tab", true)
       // Wraps around
-      expect(document.activeElement.id).toEqual("baz")
+      expect(document.activeElement!.id).toEqual("baz")
     })
 
     it("returns focus to the previous element when closed", () => {
       const wrapper = mount(<Example />, { attachTo: document.body })
-      expect(document.activeElement.id).toEqual("foo")
+      expect(document.activeElement!.id).toEqual("foo")
       wrapper.find("#open").simulate("click")
-      expect(document.activeElement.id).toEqual("qux")
+      expect(document.activeElement!.id).toEqual("qux")
     })
   })
 })
