@@ -43,7 +43,7 @@ $ yarn test
 $ yarn type-check
 ```
 
-For more info, check out our [development guide in the docs](https://palette.artsy.net/guides/development/)
+For more info, check out our [development guide in the docs](https://palette.artsy.net/guides/development/).
 
 ## Deployment process
 
