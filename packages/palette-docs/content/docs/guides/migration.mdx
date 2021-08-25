@@ -90,18 +90,19 @@ const MyComponent = props => {
 }
 ```
 
-What we're doing in the above is defining an object with two keys -- `v2` and `v3` -- and the
-`useThemeConfig` hook will then match against the keys depending on which theme context is 
-currently being used and return the correct values. So you can see that 
+What we're doing in the above is defining an object with two keys -- `v2` and
+`v3` -- and the `useThemeConfig` hook will then match against the keys depending
+on which theme context is currently being used and return the correct values. So
+you can see that
 
 ```tsx
 <Box px={tokens.px}>
   <Text variant={tokens.variant}>Hi</Text>
 </Box>
-``` 
+```
 
-Will return dynamic values for `tokens.px` -- either `px={5}` if `v2`, or `px={2}` if `v3`.  
-
+Will return dynamic values for `tokens.px` -- either `px={5}` if `v2`, or
+`px={2}` if `v3`.
 
 (See
 [here](https://github.com/artsy/force/blob/master/src/v2/Components/Footer/Footer.tsx#L219-L226)
@@ -114,6 +115,34 @@ We've simplified our typography choices down to six choices, as can be
 
 Variants are now generic size values (`sm`, `md`, `lg`, and so on) rather than
 context-specific names (`title`, `subTitle`, etc.)
+
+<Box my={4}>
+  <GridColumns>
+    <Column span={6}>
+      <b>Palette v3</b>
+    </Column>
+    <Column span={6}>
+      <b>Palette v2</b>
+    </Column>
+  </GridColumns>
+  <Separator my={1} />
+  <GridColumns>
+    <Column span={6}>xxl</Column>
+    <Column span={6}>N/A</Column>
+    <Column span={6}>xl</Column>
+    <Column span={6}>largeTitle</Column>
+    <Column span={6}>lg</Column>
+    <Column span={6}>title</Column>
+    <Column span={6}>m</Column>
+    <Column span={6}>N/A</Column>
+    <Column span={6}>sm</Column>
+    <Column span={6}>text</Column>
+    <Column span={6}>xs</Column>
+    <Column span={6}>caption</Column>
+    <Column span={6}>N/A</Column>
+    <Column span={6}>small</Column>
+  </GridColumns>
+</Box>
 
 If migrating from pre-v1 `<Sans>` or `<Serif>` components, note that we no
 longer use serif fonts and areas where those components are used should be

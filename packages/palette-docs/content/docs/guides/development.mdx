@@ -1,0 +1,94 @@
+---
+name: Developing for Palette
+---
+
+When working with Palette there are a number of things to be aware of, be it
+adding new components, modifying the theme or updating docs. Read on to learn
+how it's done.
+
+### TLDR
+
+\- During development most of your time will be spent in
+[`packages/palette`](https://github.com/artsy/palette/tree/master/packages/palette),
+the main Palette library. Here you'll write new components inside of the
+`elements` folder, add tests, and define
+[storybook stories](https://github.com/artsy/palette/blob/master/packages/palette/src/elements/Avatar/Avatar.story.tsx)
+for each.
+
+\- If adding or changing a component, make sure to update the docs in
+[`packages/palette-docs`](https://github.com/artsy/palette/tree/master/packages/palette-docs).
+
+\- If needing to modify the theme, see
+[`packages/palette-tokens`](https://github.com/artsy/palette/tree/master/packages/palette-docs).
+
+\- New package versions are published by attaching appropriate semver github
+labels to PRs; by default, all PRs have `minor` automatically assigned. When a
+PR is merged, a new version goes out.
+
+\- If only updating docs, remove the default `minor` label and attach a `docs`
+label. This will skip the `npm publish` step.
+
+\- To publish a canary version to NPM to test in other apps, add the `canary`
+label. Once CircleCI is done running, view the
+[`auto/publishing-canary`](https://app.circleci.com/pipelines/github/artsy/palette/4138/workflows/ffc56588-35bf-41ed-a0a8-a806fc807678/jobs/20148)
+job output to see the npm version number and then update the consuming app
+accordingly.
+
+\- Alternatively, you can use `yarn link` to test your changes in Force, or any
+other app. Run
+
+```sh
+cd packages/palette
+yarn link
+yarn watch
+```
+
+And then back in your app, run
+
+```sh
+yarn link @artsy/palette
+yarn start
+```
+
+**Note:** When `yarn link`'ing Palette, there are some issues with type-checking
+that can be confusing and lead to false-positives. Also, when done, be sure to
+run `yarn unlink @artsy/palette && yarn --check-files` to re-install the latest
+version of Palette from NPM; many a dev has fallen down the rabbit hole of
+trying to fix type errors that aren't actually errors due to forgetting that
+Palette is currently `yarn link`'d.
+
+### Monorepo Structure
+
+Palette is a [monorepo](https://lerna.js.org/) that is composed of a number of
+sub-packages:
+
+- `palette-tokens`
+- `palette`
+- `palette-docs`
+- `palette-charts`
+
+### palette-tokens
+
+Starting at `palette-tokens`, we can see the
+[theme](https://github.com/artsy/palette/blob/master/packages/palette-tokens/src/themes/v3.tsx)
+that powers all of Palette. This is a simple object with keys such as
+`breakpoints`, `space` and `color`, and is read in by the main `palette` lib as
+well as [Eigen](https://github.com/artsy/eigen), our React Native mobile app.
+
+### palette
+
+The `palette` package is where all of our components are defined. See the
+[elements](https://github.com/artsy/palette/tree/master/packages/palette/src/elements)
+folder for the complete list.
+
+### palette-docs
+
+This is a where our docs are created, built on top of
+[Gatsby](https://www.gatsbyjs.com/). Docs are written in `.mdx` (Markdown React)
+which allows us to create live, interactive code examples using real Palette
+components.
+
+### palette-charts
+
+This is where our charting components live, built on top of
+[D3.js](https://d3js.org/).
