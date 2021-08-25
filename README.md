@@ -55,11 +55,14 @@ Palette uses [auto-release](https://github.com/intuit/auto-release#readme) to au
 - Version: Patch
 - Version: Minor
 - Version: Major
+- Canary
 
 Major, minor, and patch will cause a new release to be generated. Use major for breaking changes, minor for new non-breaking features,
 and patch for bug fixes. Trivial will not cause a release and should be used when updating documentation or non-project code.
 
 If you don't want to release on a particular PR but the changes aren't trivial then use the `Skip Release` tag along side the appropriate version tag.
+
+`Canary` tags will publish a canary version to NPM which can be used to test work in progress. See [the CircleCI job](https://app.circleci.com/pipelines/github/artsy/palette/4138/workflows/ffc56588-35bf-41ed-a0a8-a806fc807678/jobs/20148) for the exact version published and update your consuming app accordingly. 
 
 ## Repos consuming Palette
 
