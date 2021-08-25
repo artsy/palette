@@ -6,7 +6,7 @@ Artsy's Design System
 
 - Docs: [https://palette.artsy.net](https://palette.artsy.net)
 - Storybook: [https://palette-storybook.artsy.net](https://palette-storybook.artsy.net)
-- Point People:  [@dzucconi](https://github.com/dzucconi), [@damassi](https://github.com/damassi)
+- Point People: [@dzucconi](https://github.com/dzucconi), [@damassi](https://github.com/damassi)
 
 ## What is Palette?
 
@@ -29,28 +29,21 @@ to peek at the proposal and provide feedback before moving forward.
 
 In the project root run the following:
 
+```sh
+$ yarn storybook
 ```
-$ yarn start
-$ open http://localhost:8000/
+
+This will compile Palette and boot Storybooks, our default development environment.
+
+Other relevant commands are:
+
+```sh
+$ yarn docs
+$ yarn test
+$ yarn type-check
 ```
 
-## Linking and Unlinking with Reaction
-
-To _link_ your local palette with your local reaction, run:
-
-```
-$ yarn workspace @artsy/palette link && yarn workspace @artsy/palette watch
-(wait until you see a message that X files have been successfully compiled before moving on)
-
-$ cd ../reaction && yarn link @artsy/palette && yarn start
-
-To _unlink_ your local palette from your local reaction, run (in **Reaction**):
-
-$ yarn unlink @artsy/palette
-$ yarn add @artsy/palette
-$ yarn start
-
-```
+For more info, check out our [development guide in the docs](https://palette.artsy.net/guides/development/)
 
 ## Deployment process
 
@@ -68,14 +61,9 @@ and patch for bug fixes. Trivial will not cause a release and should be used whe
 
 If you don't want to release on a particular PR but the changes aren't trivial then use the `Skip Release` tag along side the appropriate version tag.
 
-## Zeplin Plugin
-
-Artsy uses [Zeplin](https://app.zeplin.io/) and we have developed [a plugin](https://github.com/artsy/palette-zeplin-extension) that you can install to get Palette component JSX copied directly from Zeplin mocks.
-
 ## Repos consuming Palette
 
 - [Force](https://github.com/artsy/force)
-- [Reaction](https://github.com/artsy/reaction)
 - [Volt](https://github.com/artsy/volt)
 - [Prediction](https://github.com/artsy/prediction)
 - [Positron](https://github.com/artsy/positron)

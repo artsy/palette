@@ -6,7 +6,7 @@ When working with Palette there are a number of things to be aware of, be it
 adding new components, modifying the theme or updating docs. Read on to learn
 how it's done.
 
-### TLDR
+### Overview
 
 \- During development most of your time will be spent in
 [`packages/palette`](https://github.com/artsy/palette/tree/master/packages/palette),
@@ -56,6 +56,17 @@ run `yarn unlink @artsy/palette && yarn --check-files` to re-install the latest
 version of Palette from NPM; many a dev has fallen down the rabbit hole of
 trying to fix type errors that aren't actually errors due to forgetting that
 Palette is currently `yarn link`'d.
+
+### Relevant Commands
+
+```sh
+yarn storybook
+yarn docs
+yarn test
+yarn type-check
+```
+
+See `packages/<package-name>/package.json` for complete list.
 
 ### Monorepo Structure
 
