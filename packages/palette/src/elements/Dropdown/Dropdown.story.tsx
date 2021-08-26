@@ -73,6 +73,10 @@ export const Default = () => {
   )
 }
 
+Default.story = {
+  parameters: { chromatic: { delay: 500 } },
+}
+
 export const KeepInDOM = () => {
   return (
     <Dropdown
