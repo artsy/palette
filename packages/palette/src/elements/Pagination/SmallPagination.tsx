@@ -20,7 +20,7 @@ export const SmallPagination: React.FC<PaginationProps> = (props) => {
   } = props
 
   const handlePrevClick = (event: React.MouseEvent) => {
-    if (previous) {
+    if (previous && onClick) {
       onClick(previous.cursor, previous.page, event)
     } else {
       event.preventDefault()
@@ -28,7 +28,7 @@ export const SmallPagination: React.FC<PaginationProps> = (props) => {
   }
 
   const handleNextClick = (event: React.MouseEvent) => {
-    if (hasNextPage) {
+    if (hasNextPage && onNext) {
       onNext(event, nextPage)
     } else {
       event.preventDefault()

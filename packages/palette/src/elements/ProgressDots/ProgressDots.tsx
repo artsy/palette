@@ -60,7 +60,7 @@ export const ProgressDots: React.FC<ProgressDotsProps> = ({
             />
           )
 
-          const handleClick = () => onClick(i)
+          const handleClick = () => onClick && onClick(i)
 
           if (onClick) {
             return (

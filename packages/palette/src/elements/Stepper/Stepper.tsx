@@ -53,7 +53,7 @@ export const Stepper: React.FC<StepperProps> = ({
 
   return (
     <>
-      <BaseTabs separator={tokens.joinSeparator} fill={tokens.fill} {...rest}>
+      <BaseTabs separator={tokens.joinSeparator!} fill={tokens.fill} {...rest}>
         {tabs.map((cell, i) => {
           return (
             <BaseTab

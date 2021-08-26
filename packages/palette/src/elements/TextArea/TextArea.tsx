@@ -93,7 +93,7 @@ export const TextArea: React.ForwardRefExoticComponent<
               {title && (
                 <Text
                   variant={tokens.titleVariant}
-                  textTransform={tokens.titleTextTransform}
+                  textTransform={tokens.titleTextTransform as any}
                 >
                   {title}
                   {required && (

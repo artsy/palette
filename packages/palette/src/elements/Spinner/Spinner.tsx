@@ -1,4 +1,3 @@
-// @ts-ignore
 import React, { useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import { color } from "../../helpers"
@@ -84,7 +83,7 @@ const SpinnerBar = styled.div<SpinnerProps>`
 
     return `
       background-color: ${
-        props.color === "currentColor" ? "currentColor" : color(props.color)
+        props.color === "currentColor" ? "currentColor" : color(props.color!)
       };
       width: ${width}px;
       height: ${height}px;

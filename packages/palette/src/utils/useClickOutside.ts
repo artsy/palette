@@ -20,7 +20,7 @@ export const useClickOutside = ({
   const savedHandler = useRef(onClickOutside)
 
   const handleClick = useCallback((e: Event) => {
-    if (ref && ref.current && !ref.current.contains(e.target as Element)) {
+    if (ref && ref.current && !ref.current!.contains(e.target as Element)) {
       savedHandler.current(e)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

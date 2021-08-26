@@ -60,12 +60,12 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   const handlePrevClick = (event: React.MouseEvent) => {
     if (previous) {
-      onClick(previous.cursor, previous.page, event)
+      onClick && onClick(previous.cursor, previous.page, event)
     }
   }
 
   const handleNextClick = (event: React.MouseEvent) => {
-    onNext(event, nextPage)
+    onNext && onNext(event, nextPage)
   }
 
   const nextPage = (previous?.page || 0) + 2
@@ -184,7 +184,7 @@ const Page: React.FC<PageProps> = ({
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
-    onClick(cursor, page, event)
+    onClick && onClick(cursor, page, event)
   }
 
   const href = page && typeof getHref !== "undefined" ? getHref(page) : ""

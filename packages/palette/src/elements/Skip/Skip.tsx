@@ -19,10 +19,10 @@ const Container = styled(Clickable)`
  */
 export type SkipProps =
   | ClickableProps
-  | ClickableProps & {
+  | (ClickableProps & {
       as: "a"
       href: string
-    }
+    })
 
 /**
  * Skip link or button.
@@ -31,10 +31,7 @@ export type SkipProps =
  * Is visually hidden until focused, which reveals it.
  */
 export const Skip = React.forwardRef(
-  (
-    { children, ...rest }: SkipProps,
-    forwardedRef: React.MutableRefObject<HTMLButtonElement>
-  ) => {
+  ({ children, ...rest }: SkipProps, forwardedRef) => {
     return (
       <Container
         ref={forwardedRef as any}

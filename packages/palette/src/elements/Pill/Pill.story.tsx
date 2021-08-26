@@ -72,7 +72,7 @@ export const Variants = () => {
               <>
                 <Spacer mx={0.5} />
 
-                <Pill {...props} active>
+                <Pill {...(props as any)} active>
                   Pill
                 </Pill>
               </>
@@ -90,7 +90,7 @@ export const LinkExample = () => {
       variant="artist"
       as="a"
       // TODO: Need a decent way of typing the threaded polymorphic `as` prop
-      // @ts-ignore
+      // @ts-expect-error  MIGRATE_STRICT_MODE
       href="#example"
     >
       Artist Name

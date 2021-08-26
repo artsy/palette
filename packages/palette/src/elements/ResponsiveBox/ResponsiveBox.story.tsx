@@ -16,8 +16,8 @@ const Measure: React.FC<ResponsiveBoxProps> = (props) => {
   const check = () => {
     if (!ref.current) return
     setDimensions({
-      width: ref.current.offsetWidth,
-      height: ref.current.offsetHeight,
+      width: ref.current!.offsetWidth,
+      height: ref.current!.offsetHeight,
     })
   }
 

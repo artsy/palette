@@ -32,6 +32,7 @@ export const Join: React.FC<JoinProps> = ({ separator, children }) => {
     <>
       {elements.reduce((acc, element, currentIndex) => {
         acc.push(
+          // @ts-expect-error  MIGRATE_STRICT_MODE
           React.cloneElement(element, {
             key: `join-${currentIndex}`,
           })
@@ -39,6 +40,7 @@ export const Join: React.FC<JoinProps> = ({ separator, children }) => {
 
         if (currentIndex !== elements.length - 1) {
           acc.push(
+            // @ts-expect-error  MIGRATE_STRICT_MODE
             separator &&
               React.cloneElement(separator, {
                 key: `join-sep-${currentIndex}`,

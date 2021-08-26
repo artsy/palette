@@ -41,7 +41,7 @@ const Specification: React.FC<{
     {
       small: ["purple100", "black60"] as Color[],
       large: ["black60", "purple100"] as Color[],
-    }[size] || "black60"
+    }[size || "small"] || "black60"
 
   return (
     <>
@@ -54,7 +54,7 @@ const Specification: React.FC<{
               </Text>
 
               <Text variant="small" textColor={textColor}>
-                {value}
+                {value as any}
               </Text>
             </Flex>
           )
@@ -72,12 +72,12 @@ export const Variants = () => {
   const names: TextVariant[] = {
     v2: [...V2_TEXT_VARIANT_NAMES],
     v3: [...V3_TEXT_VARIANT_NAMES],
-  }[theme.id]
+  }[theme.id]!
 
   const variants = {
     v2: V2_TEXT_VARIANTS,
     v3: V3_TEXT_VARIANTS,
-  }[theme.id]
+  }[theme.id]!
 
   return (
     <Table>

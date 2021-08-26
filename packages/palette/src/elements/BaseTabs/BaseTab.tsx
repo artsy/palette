@@ -72,5 +72,5 @@ BaseTab.displayName = "BaseTab"
  * So this is interesting: We can trick styled-components into correcting the CSS specificity (Text > Clickable)
  * by simply including a Clickable here.
  */
-// @ts-ignore
+// @ts-expect-error  MIGRATE_STRICT_MODE
 const __Ignore__ = Clickable

@@ -25,7 +25,7 @@ export const ButtonV3: React.ForwardRefExoticComponent<
 
     useEffect(() => {
       if (loading && ref.current !== null) {
-        ref.current.blur()
+        ref.current!.blur()
       }
     }, [loading])
 
@@ -42,7 +42,7 @@ export const ButtonV3: React.ForwardRefExoticComponent<
 
         <Text
           lineHeight={1}
-          variant={BUTTON_TEXT_SIZES[size]}
+          variant={BUTTON_TEXT_SIZES[size!]}
           opacity={loading ? 0 : 1}
         >
           {children}

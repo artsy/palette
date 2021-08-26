@@ -36,14 +36,14 @@ export const _SkeletonText = () => {
         {
           variant: "md",
           maxWidth: 300,
-          // @ts-ignore
+          // @ts-expect-error  MIGRATE_STRICT_MODE
           children:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione impedit commodi quo, dolorem id animi ipsa voluptas eius cum suscipit distinctio qui quae aliquam consequuntur officiis numquam iste deleniti.",
         },
         {
           variant: "xl",
           maxWidth: 300,
-          // @ts-ignore
+          // @ts-expect-error  MIGRATE_STRICT_MODE
           children:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione impedit commodi quo, dolorem id animi ipsa voluptas eius cum suscipit distinctio qui quae aliquam consequuntur officiis numquam iste deleniti.",
         },

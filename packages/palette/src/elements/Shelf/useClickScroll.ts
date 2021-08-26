@@ -16,7 +16,7 @@ export const useClickScroll = ({
   trackWidth,
 }: UseClickScroll) => {
   useEffect(() => {
-    if (!trackRef.current || !thumbRef.current) return
+    if (!trackRef?.current || !thumbRef?.current) return
 
     const { current: thumb } = thumbRef
     const { current: track } = trackRef
@@ -30,7 +30,7 @@ export const useClickScroll = ({
         // Then center the thumb
         thumb.clientWidth / 2
 
-      viewport.scrollLeft = (x * scrollWidth) / trackWidth
+      viewport!.scrollLeft = (x * scrollWidth) / trackWidth
     }
 
     track.addEventListener("mousedown", handleMouseDown)

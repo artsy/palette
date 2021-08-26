@@ -64,10 +64,10 @@ export const Shelf: React.FC<ShelfProps> = ({
       // If we have an offset we actually want to subtract it from
       // the first and last elements.
       if (offset !== 0 && (i === 0 || i === cells.length - 1)) {
-        return Math.ceil(ref.current.clientWidth - offset)
+        return Math.ceil(ref.current!.clientWidth - offset)
       }
 
-      return ref.current.clientWidth
+      return ref.current!.clientWidth
     })
 
     setPages(
@@ -114,7 +114,7 @@ export const Shelf: React.FC<ShelfProps> = ({
         )
       })
 
-      setCursor(pages.indexOf(nearestPage))
+      setCursor(pages.indexOf(nearestPage!))
       setAtStart(viewport.scrollLeft === 0)
     }
 

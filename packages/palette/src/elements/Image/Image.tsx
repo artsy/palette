@@ -29,6 +29,7 @@ export interface ImageProps
   preventRightClick?: boolean
 }
 
+// @ts-expect-error  MIGRATE_STRICT_MODE
 export const BaseImage = styled(CleanTag.as("img"))<ImageProps>`
   ${compose(space, width, height, maxHeight, borderRadius)}
 `

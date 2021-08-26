@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { GridThemeProvider as StyledGridThemeProvider } from "styled-bootstrap-grid"
 // FIXME: Upgrading styled-components types to get `ThemeContext` breaks many other typings.
 // Notably: `Icon` and `Sans|Serif`
-// @ts-ignore
+// @ts-expect-error  MIGRATE_STRICT_MODE
 import { ThemeContext, ThemeProvider } from "styled-components"
 import { Theme as TTheme, THEME_V2, THEME_V3, ThemeV2, ThemeV3 } from "./themes"
 

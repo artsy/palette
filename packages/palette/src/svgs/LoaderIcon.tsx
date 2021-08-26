@@ -10,7 +10,7 @@ export const LoaderIcon: React.FC<IconProps> = ({
   return (
     <Icon {...props} viewBox="0 0 18 18">
       <Title>{title}</Title>
-      <Path fill={color(props.fill)} d="M2 9.55v-1h14v1z" fillRule="nonzero" />
+      <Path fill={color(props.fill!)} d="M2 9.55v-1h14v1z" fillRule="nonzero" />
     </Icon>
   )
 }

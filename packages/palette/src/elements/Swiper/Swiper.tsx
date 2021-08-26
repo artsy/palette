@@ -109,7 +109,7 @@ export const Swiper: React.FC<SwiperProps> = ({
     if (initialIndex === 0) return
     const cell = cells[initialIndex]
     if (!cell) return
-    cell.ref.current.scrollIntoView({ inline: "start", block: "nearest" })
+    cell.ref.current!.scrollIntoView({ inline: "start", block: "nearest" })
   }, [])
 
   useEffect(() => {
@@ -121,7 +121,7 @@ export const Swiper: React.FC<SwiperProps> = ({
     if (initialIndex !== cursor) {
       const cell = cells[initialIndex]
       if (!cell) return
-      cell.ref.current.scrollIntoView({ inline: "start", block: "nearest" })
+      cell.ref.current!.scrollIntoView({ inline: "start", block: "nearest" })
     }
   }, [initialIndex])
 

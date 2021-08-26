@@ -26,7 +26,7 @@ export const Default = () => {
               as="a"
               display="block"
               variant="sm"
-              // @ts-ignore
+              // @ts-expect-error  MIGRATE_STRICT_MODE
               href="#"
             >
               One
@@ -36,7 +36,7 @@ export const Default = () => {
               as="a"
               display="block"
               variant="sm"
-              // @ts-ignore
+              // @ts-expect-error  MIGRATE_STRICT_MODE
               href="#"
             >
               Two
@@ -46,7 +46,7 @@ export const Default = () => {
               as="a"
               display="block"
               variant="sm"
-              // @ts-ignore
+              // @ts-expect-error  MIGRATE_STRICT_MODE
               href="#"
             >
               Three

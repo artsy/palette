@@ -16,6 +16,7 @@ const imagePropsToOmit = omitProps.filter(
   (prop) => prop !== "width" && prop !== "height"
 )
 
+// @ts-expect-error  MIGRATE_STRICT_MODE
 const InnerLazyImage = styled(CleanTag.as(LazyLoadImage))<
   ImageProps & {
     onLoad: () => void

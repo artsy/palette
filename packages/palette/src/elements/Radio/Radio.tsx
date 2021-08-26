@@ -61,13 +61,13 @@ export const Radio: React.FC<RadioProps> = ({
   })
 
   const handleClick = () => {
-    onSelect && onSelect({ selected: !selected, value })
+    onSelect && onSelect({ selected: !selected, value: value! })
   }
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === " ") {
       event.preventDefault()
-      onSelect({ selected: !selected, value })
+      onSelect && onSelect({ selected: !selected, value: value! })
     }
   }
 

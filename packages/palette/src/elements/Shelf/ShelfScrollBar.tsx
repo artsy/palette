@@ -59,8 +59,12 @@ export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
       }
     }, [viewport])
 
+    // FIXME: Fix these ts-ignores. Added for strict type checking migration
+
     useDragScroll({
+      // @ts-expect-error  MIGRATE_STRICT_MODE
       viewport,
+      // @ts-expect-error  MIGRATE_STRICT_MODE
       thumbRef,
       clientWidth,
       scrollWidth,
@@ -69,8 +73,11 @@ export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
     })
 
     useClickScroll({
+      // @ts-expect-error  MIGRATE_STRICT_MODE
       viewport,
+      // @ts-expect-error  MIGRATE_STRICT_MODE
       thumbRef,
+      // @ts-expect-error  MIGRATE_STRICT_MODE
       trackRef,
       scrollWidth,
       trackWidth,

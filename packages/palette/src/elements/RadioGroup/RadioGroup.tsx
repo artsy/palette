@@ -42,7 +42,7 @@ export class RadioGroup extends React.Component<
   componentDidUpdate(prevProps) {
     if (prevProps.defaultValue !== this.props.defaultValue) {
       this.setState({
-        selectedOption: this.props.defaultValue,
+        selectedOption: this.props.defaultValue!,
       })
     }
   }
@@ -51,7 +51,7 @@ export class RadioGroup extends React.Component<
     // After state update, call back up the tree with the latest state
     const update = () => {
       if (this.props.onSelect) {
-        this.props.onSelect(this.state.selectedOption)
+        this.props.onSelect(this.state.selectedOption!)
       }
     }
 
@@ -80,9 +80,9 @@ export class RadioGroup extends React.Component<
               ? child.props.disabled
               : this.props.disabled,
           onSelect: child.props.onSelect
-            ? selected => {
+            ? (selected) => {
                 this.onSelect(selected)
-                child.props.onSelect(selected)
+                child.props.onSelect?.(selected)
               }
             : this.onSelect,
           // FIXME: Throw an error `child.props.selected' is set once we enable the dev code elimination.

@@ -33,7 +33,7 @@ export const WithData = () => {
   const [data, setData] = useState({})
   return (
     <>
-      <Tabs onChange={setData}>
+      <Tabs onChange={setData as any}>
         <Tab name="Overview" data={{ name: "Overview" }}>
           Overview panel
         </Tab>

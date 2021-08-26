@@ -126,7 +126,7 @@ export const ModalBase: React.FC<ModalBaseProps> = ({
 
     // Gets the focusable elements
     const _focusableEls = Array.from(
-      containerEl.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      containerEl.current!.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
     )
     setFocusableEls(_focusableEls)
 

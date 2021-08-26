@@ -22,7 +22,7 @@ export const useDragScroll = ({
   const offsetX = useRef(0)
 
   useEffect(() => {
-    if (!viewport || !thumbRef.current) return
+    if (!viewport || !thumbRef?.current) return
 
     const { current: thumb } = thumbRef
 

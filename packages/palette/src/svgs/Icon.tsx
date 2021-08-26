@@ -17,10 +17,7 @@ export interface IconProps
   title?: string
 }
 
-const iconMixin = compose(
-  space,
-  position
-)
+const iconMixin = compose(space, position)
 
 /** Wrapper for icons to include space */
 export const Icon = styled.svg<IconProps>`

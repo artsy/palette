@@ -13,7 +13,7 @@ describe("TextArea", () => {
 
   const simulateTyping = (wrapper: ReactWrapper, text: string) => {
     const textArea = wrapper.find("textarea")
-    // @ts-ignore
+    // @ts-expect-error  MIGRATE_STRICT_MODE
     textArea.getDOMNode().value = text
     textArea.simulate("change")
   }
