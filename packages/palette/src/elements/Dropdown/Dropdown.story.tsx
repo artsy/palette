@@ -74,7 +74,7 @@ export const Default = () => {
 }
 
 Default.story = {
-  parameters: { chromatic: { delay: 500, diffThreshold: 0.9 } },
+  parameters: { chromatic: { disable: true } },
 }
 
 export const KeepInDOM = () => {
