@@ -103,3 +103,7 @@ export const KeepInDOM = () => {
     </Dropdown>
   )
 }
+
+KeepInDOM.story = {
+  parameters: { chromatic: { disable: true } },
+}
