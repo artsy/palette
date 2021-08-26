@@ -72,7 +72,9 @@ export const Variants = () => {
               <>
                 <Spacer mx={0.5} />
 
-                <Pill {...props}>Pill</Pill>
+                <Pill {...(props as any)} active>
+                  Pill
+                </Pill>
               </>
             )}
           </_Demo>
