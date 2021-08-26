@@ -46,7 +46,7 @@ export const Default = () => {
 }
 
 Default.story = {
-  parameters: { chromatic: { delay: 500 } },
+  parameters: { chromatic: { delay: 500, diffThreshold: 0.9 } },
 }
 
 export const Placement = () => {
