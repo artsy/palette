@@ -73,6 +73,10 @@ export const Default = () => {
   )
 }
 
+Default.story = {
+  parameters: { chromatic: { disable: true } },
+}
+
 export const KeepInDOM = () => {
   return (
     <Dropdown
@@ -98,4 +102,8 @@ export const KeepInDOM = () => {
       }}
     </Dropdown>
   )
+}
+
+KeepInDOM.story = {
+  parameters: { chromatic: { disable: true } },
 }

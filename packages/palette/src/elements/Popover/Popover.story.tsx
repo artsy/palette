@@ -45,6 +45,10 @@ export const Default = () => {
   )
 }
 
+Default.story = {
+  parameters: { chromatic: { disable: true } },
+}
+
 export const Placement = () => {
   return (
     <States<Partial<PopoverProps>>
