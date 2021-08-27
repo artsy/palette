@@ -66,6 +66,8 @@ Object.entries(themeProps.colors).forEach(([name, value]) => {
 })
 
 Object.keys(themeProps.fontFamily).forEach(
+  // FIXME:
+  // @ts-ignore
   (family: keyof typeof themeProps.fontFamily) => {
     Object.entries(themeProps.fontFamily[family]).forEach(
       ([type, properties]) => {
