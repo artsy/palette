@@ -25161,6 +25161,13 @@ use-isomorphic-layout-effect@^1.0.0:
   resolved "https://registry.yarnpkg.com/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.1.1.tgz#7bb6589170cd2987a152042f9084f9effb75c225"
   integrity sha512-L7Evj8FGcwo/wpbv/qvSfrkHFtOpCzvM5yl2KVyDJoylVuSvzphiiasmjgQPttIGBAy2WKiBNR98q8w7PiNgKQ==
 
+use-keyboard-list-navigation@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/use-keyboard-list-navigation/-/use-keyboard-list-navigation-2.4.1.tgz#e6d2ee6188da005deebf443356f1dfbb20d86030"
+  integrity sha512-ghycnT+Hp86CUS780pp+ZcPhffYMUQvcofMq3US7kzNZCZ5eAL+vs+vR6BaTBcbSPJklIcEKvwJUcajeny/YkQ==
+  dependencies:
+    map-cursor-to-max "^1.0.0"
+
 use-latest@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/use-latest/-/use-latest-1.2.0.tgz#a44f6572b8288e0972ec411bdd0840ada366f232"

@@ -54,6 +54,7 @@
     "@babel/preset-env": "7.12.16",
     "@babel/preset-react": "7.12.13",
     "@babel/preset-typescript": "7.12.16",
+    "@seznam/compose-react-refs": "1.0.6",
     "@storybook/addon-actions": "6.3.4",
     "@storybook/addon-links": "6.3.4",
     "@storybook/addon-viewport": "6.3.4",
@@ -120,7 +121,8 @@
     "styled-bootstrap-grid": "3.1.0",
     "styled-system": "^5.1.5",
     "trunc-html": "^1.1.2",
-    "use-cursor": "^1.2.3"
+    "use-cursor": "^1.2.3",
+    "use-keyboard-list-navigation": "2.4.1"
   },
   "husky": {
     "hooks": {

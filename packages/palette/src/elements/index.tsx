@@ -1,3 +1,4 @@
+export * from "./AutocompleteInput"
 export * from "./Avatar"
 export * from "./Banner"
 export * from "./BaseTabs"
