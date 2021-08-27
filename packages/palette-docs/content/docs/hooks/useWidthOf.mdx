@@ -1,0 +1,30 @@
+---
+name: useWidthOf
+source: utils/useWidthOf.ts
+---
+
+The `useWidthOf` hook will return the width of the given ref. Useful in
+conjunction with `usePosition`.
+
+### Usage
+
+```tsx
+import React, { useRef, useState } from "react"
+import { useWidthOf, Box } from "@artsy/palette"
+
+const Example = () => {
+  const anchorRef = useRef()
+
+const { width } = useWidthOf({ ref: anchorRef })
+
+  return (
+    <Box ref={anchorRef} width="100%">
+      ...
+    </Box>
+
+    <Box position="fixed" width={width}>
+      ...
+    </Box>
+  )
+}
+```
