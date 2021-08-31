@@ -85,3 +85,7 @@ export const Placement = () => {
     </States>
   )
 }
+
+Placement.story = {
+  parameters: { chromatic: { disable: true } },
+}

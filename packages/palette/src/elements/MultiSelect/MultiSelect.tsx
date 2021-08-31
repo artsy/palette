@@ -5,6 +5,7 @@ import { css } from "styled-components"
 import { DROP_SHADOW } from "../../helpers"
 import { useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
+import { useWidthOf } from "../../utils/useWidthOf"
 import { Box, BoxProps } from "../Box"
 import { Checkbox } from "../Checkbox"
 import { Clickable } from "../Clickable"
@@ -41,7 +42,6 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
 }) => {
   const [visible, setVisible] = useState(false)
   const [selection, setSelection] = useState<Option[]>([])
-  const [width, setWidth] = useState(0)
 
   // Yields focus back and forth between popover and anchor
   useUpdateEffect(() => {
@@ -70,26 +70,13 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
     }
   }, [])
 
-  useEffect(() => {
-    if (!anchorRef.current) return
-
-    const handleResize = () => {
-      setWidth(anchorRef.current!.offsetWidth)
-    }
-
-    handleResize()
-
-    window.addEventListener("resize", handleResize)
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
-
   const { anchorRef, tooltipRef } = usePosition({
     position: "bottom",
     offset: 10,
     active: visible,
   })
+
+  const { width } = useWidthOf({ ref: anchorRef })
 
   useClickOutside({
     ref: tooltipRef,
