@@ -1,3 +1,34 @@
+# v17.2.0 (Tue Aug 31 2021)
+
+#### 🚀  Enhancement
+
+- feat(autocomplete): implements autocomplete [#1027](https://github.com/artsy/palette/pull/1027) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(autocomplete): implements autocomplete input ([@dzucconi](https://github.com/dzucconi))
+- refactor: extracts hook to mirror the width of a node ([@dzucconi](https://github.com/dzucconi))
+- chore(chromatic): disables popover story ([@dzucconi](https://github.com/dzucconi))
+- chore: ignores type error ([@dzucconi](https://github.com/dzucconi))
+- chore(chromatic): disables stories ([@dzucconi](https://github.com/dzucconi))
+- chore(chromatic): tweaks diff threshold ([@dzucconi](https://github.com/dzucconi))
+- chore(chromatic): disables story ([@dzucconi](https://github.com/dzucconi))
+- chore(chromatic): adds delay ([@dzucconi](https://github.com/dzucconi))
+- fix(story): fixes pill active story ([@dzucconi](https://github.com/dzucconi))
+- chore: Enable TypeScript strict mode ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- chore(chromatic): adds delay [#1025](https://github.com/artsy/palette/pull/1025) ([@dzucconi](https://github.com/dzucconi))
+- chore: Enable TypeScript strict mode [#1024](https://github.com/artsy/palette/pull/1024) ([@damassi](https://github.com/damassi) [@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.1.0 (Fri Aug 20 2021)
 
 #### 🚀  Enhancement

@@ -1,3 +1,35 @@
+# (Tue Aug 31 2021)
+
+#### 🚀  Enhancement
+
+- docs: Update main README [#1023](https://github.com/artsy/palette/pull/1023) ([@damassi](https://github.com/damassi))
+- `@artsy/palette@17.2.0`
+  - feat(autocomplete): implements autocomplete [#1027](https://github.com/artsy/palette/pull/1027) ([@dzucconi](https://github.com/dzucconi))
+
+#### ⚠️  Pushed to `master`
+
+- Update a11y.mdx ([@damassi](https://github.com/damassi))
+- Update a11y.mdx ([@dzucconi](https://github.com/dzucconi))
+- Update README.md ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@17.2.0`
+  - chore(chromatic): adds delay [#1025](https://github.com/artsy/palette/pull/1025) ([@dzucconi](https://github.com/dzucconi))
+- `@artsy/palette@17.2.0`
+  - chore: Enable TypeScript strict mode [#1024](https://github.com/artsy/palette/pull/1024) ([@damassi](https://github.com/damassi) [@dzucconi](https://github.com/dzucconi))
+
+#### 📝  Documentation
+
+- docs: Add development guide [#1022](https://github.com/artsy/palette/pull/1022) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Aug 20 2021)
 
 #### 🚀  Enhancement
