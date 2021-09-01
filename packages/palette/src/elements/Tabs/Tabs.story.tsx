@@ -86,3 +86,13 @@ export const Counts = () => {
     </Tabs>
   )
 }
+
+export const ConditionalTabs = () => {
+  return (
+    <Tabs onChange={action("onChange")}>
+      <Tab name="First">First</Tab>
+      {false && <Tab name="Second">Second</Tab>}
+      <Tab name="Third">Third</Tab>
+    </Tabs>
+  )
+}
