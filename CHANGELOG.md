@@ -1,3 +1,22 @@
+# (Wed Sep 01 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@17.2.1`
+  - fix(tabs): loosens up tab types so as to support conditional children [#1029](https://github.com/artsy/palette/pull/1029) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@16.2.1`, `@artsy/palette@17.2.1`
+  - chore(deps): update dep typescript to v4.4.2 [#1026](https://github.com/artsy/palette/pull/1026) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Tue Aug 31 2021)
 
 #### 🚀  Enhancement
