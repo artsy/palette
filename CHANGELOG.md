@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@17.2.2`
+  - change modal close to onMouseDown [#1030](https://github.com/artsy/palette/pull/1030) ([@laurabeth](https://github.com/laurabeth))
+
+#### Authors: 1
+
+- Laura Bhayani ([@laurabeth](https://github.com/laurabeth))
+
+---
+
+# (Wed Sep 01 2021)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@17.2.1`
   - fix(tabs): loosens up tab types so as to support conditional children [#1029](https://github.com/artsy/palette/pull/1029) ([@dzucconi](https://github.com/dzucconi))
 

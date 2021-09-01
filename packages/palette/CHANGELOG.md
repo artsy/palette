@@ -1,3 +1,16 @@
+# v17.2.2 (Wed Sep 01 2021)
+
+#### 🐛  Bug Fix
+
+- change modal close to onMouseDown [#1030](https://github.com/artsy/palette/pull/1030) ([@laurabeth](https://github.com/laurabeth))
+- handle scrollIsolation element to handleMouseDown ([@laurabeth](https://github.com/laurabeth))
+
+#### Authors: 1
+
+- Laura Bhayani ([@laurabeth](https://github.com/laurabeth))
+
+---
+
 # v17.2.1 (Wed Sep 01 2021)
 
 #### 🐛  Bug Fix
