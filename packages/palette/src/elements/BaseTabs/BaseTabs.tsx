@@ -1,3 +1,4 @@
+import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import {
@@ -7,7 +8,6 @@ import {
   padding,
   PaddingProps,
 } from "styled-system"
-import { space } from "../../helpers"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useThemeConfig } from "../../Theme"
 import { splitProps } from "../../utils/splitProps"
@@ -29,7 +29,7 @@ const Overlay = styled(Box)<{ atEnd: boolean }>`
     top: 0;
     right: 0;
     bottom: 2px;
-    width: ${space(6)}px;
+    width: ${themeGet("space.6")};
     z-index: 1;
     pointer-events: none;
     background: linear-gradient(
@@ -54,14 +54,14 @@ const Rail = styled(Box)`
 `
 
 /** Extends `Box` */
-export type BaseTabsProps = Omit<BoxProps, "children"> & {
+export type BaseTabsProps = BoxProps & {
   /**
    * Enable if tabs should fill the width of the container
    * (as opposed to left-align)
    */
   fill?: boolean
   separator?: JSX.Element
-  children: JSX.Element | JSX.Element[]
+  children: React.ReactNode
 }
 
 /** Extends `Box`, provides configurable gutter */
