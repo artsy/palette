@@ -87,7 +87,9 @@ export const ModalBase: React.FC<ModalBaseProps> = ({
     focusableEls[focusableIndex].focus()
   }, [focusableEls, focusableIndex])
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleMouseDown = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
     if (event.target === scrollIsolationEl.current) {
       onClose()
     }
@@ -148,7 +150,10 @@ export const ModalBase: React.FC<ModalBaseProps> = ({
 
   return createPortal(
     <Container ref={containerEl as any} zIndex={zIndex} {...rest}>
-      <ScrollIsolation ref={scrollIsolationEl as any} onClick={handleClick}>
+      <ScrollIsolation
+        ref={scrollIsolationEl as any}
+        onMouseDown={handleMouseDown}
+      >
         <Dialog
           maxHeight={
             // Sets to `innerHeight` so as to simulate `100vh` on iOS
