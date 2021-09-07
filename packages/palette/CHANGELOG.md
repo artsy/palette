@@ -1,3 +1,19 @@
+# v17.3.0 (Tue Sep 07 2021)
+
+#### 🚀  Enhancement
+
+- feat(autocompleteinput): adds loading indicator [#1032](https://github.com/artsy/palette/pull/1032) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(autocompleteinput): adds loading indicator ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.2.2 (Wed Sep 01 2021)
 
 #### 🐛  Bug Fix
