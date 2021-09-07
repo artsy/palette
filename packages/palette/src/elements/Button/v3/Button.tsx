@@ -121,7 +121,7 @@ const Container = styled.button<ContainerProps>`
         }
       }
 
-      &:focus {
+      &:active {
         outline: 0;
         ${variant({ variants: BUTTON_VARIANTS.focus })}
       }
