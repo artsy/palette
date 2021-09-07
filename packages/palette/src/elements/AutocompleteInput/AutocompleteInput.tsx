@@ -2,6 +2,7 @@ import composeRefs from "@seznam/compose-react-refs"
 import React, { createRef, useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
+import { Spinner } from ".."
 import { DROP_SHADOW } from "../../helpers"
 import { CloseIcon, MagnifyingGlassIcon } from "../../svgs"
 import { useClickOutside, usePosition } from "../../utils"
@@ -23,6 +24,7 @@ export interface AutoCompleteInputOption {
 export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
   extends Omit<InputProps, "onSelect" | "onSubmit"> {
   defaultValue?: string
+  loading?: boolean
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
@@ -38,6 +40,7 @@ export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
 export const AutocompleteInput = <T extends AutoCompleteInputOption>({
   defaultValue = "",
   id,
+  loading,
   onSubmit,
   onSelect,
   onChange,
@@ -198,7 +201,11 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
         aria-autocomplete="list"
         {...(!!id ? { id, "aria-describedby": `${id}__assistiveHint` } : {})}
         label={
-          query ? (
+          loading ? (
+            <Box width={18}>
+              <Spinner size="small" />
+            </Box>
+          ) : query ? (
             <Clickable
               onClick={handleClearOrSubmit}
               height="100%"
