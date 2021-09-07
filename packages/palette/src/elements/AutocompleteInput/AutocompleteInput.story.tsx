@@ -34,6 +34,7 @@ export const Default = () => {
     <States<Partial<AutocompleteInputProps<typeof OPTIONS[number]>>>
       states={[
         {},
+        { loading: true },
         { options: [], height: 40 },
         {
           options: [
