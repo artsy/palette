@@ -1,3 +1,24 @@
+# v17.4.0 (Wed Sep 15 2021)
+
+#### 🚀  Enhancement
+
+- feat: extracts horizontal overflow component from base tabs [#1034](https://github.com/artsy/palette/pull/1034) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat: extracts horizontal overflow component from base tabs ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.4.2 to v4.4.3 [#1033](https://github.com/artsy/palette/pull/1033) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v17.3.0 (Tue Sep 07 2021)
 
 #### 🚀  Enhancement

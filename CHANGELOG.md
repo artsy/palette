@@ -1,3 +1,22 @@
+# (Wed Sep 15 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@17.4.0`
+  - feat: extracts horizontal overflow component from base tabs [#1034](https://github.com/artsy/palette/pull/1034) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@16.4.0`, `@artsy/palette@17.4.0`
+  - chore(deps): update dep typescript from 4.4.2 to v4.4.3 [#1033](https://github.com/artsy/palette/pull/1033) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Tue Sep 07 2021)
 
 #### 🚀  Enhancement
