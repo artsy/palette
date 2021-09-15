@@ -2,12 +2,10 @@ import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
-import { variant } from "styled-system"
-import { DROP_SHADOW, INNER_SHADOW } from "../../helpers/shadow"
 import { CheckIcon } from "../../svgs"
-import { BoxProps } from "../Box"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Text } from "../Text"
+import { PILL_VARIANTS } from "./tokens"
 
 export const PILL_VARIANT_NAMES = [
   "textRound",
@@ -16,48 +14,8 @@ export const PILL_VARIANT_NAMES = [
   "artist",
 ] as const
 
-type PillVariant = typeof PILL_VARIANT_NAMES[number]
-type PillState = "focus" | "hover" | "active"
-
-const STATES: Record<PillState, any> = {
-  hover: css`
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: ${DROP_SHADOW};
-  `,
-  focus: css`
-    background-color: ${themeGet("colors.black10")};
-    border-color: transparent;
-    box-shadow: ${INNER_SHADOW};
-  `,
-  active: css`
-    background-color: transparent;
-    border-color: ${themeGet("colors.black60")};
-  `,
-}
-
-const PILL_VARIANTS: Record<PillVariant, BoxProps> = {
-  textRound: {
-    borderRadius: "15px",
-    height: "30px",
-    px: 1,
-  },
-  textSquare: {
-    height: "30px",
-    px: 1,
-  },
-  filter: {
-    borderRadius: "20px",
-    height: "40px",
-    px: 2,
-  },
-  artist: {
-    borderRadius: "25px",
-    height: "50px",
-    pr: 2,
-    pl: 1,
-  },
-}
+export type PillVariant = typeof PILL_VARIANT_NAMES[number]
+export type PillState = "default" | "focus" | "hover" | "active"
 
 /** PillProps */
 export type PillProps = ClickableProps & {
@@ -93,21 +51,23 @@ const Container = styled(Clickable)<PillProps>`
   transition: color 0.25s ease, border-color 0.25s ease,
     background-color 0.25s ease, box-shadow 0.25s ease;
 
-  ${variant({ variants: PILL_VARIANTS })}
-
   ${(props) => {
+    const states = PILL_VARIANTS[props.variant ?? "textRound"]
+
     return css`
-      ${props.hover && STATES.hover}
-      ${props.focus && STATES.focus}
-      ${"active" in props && props.active && STATES.active}
+      ${states.default}
+      ${props.hover && states.hover}
+      ${props.focus && states.focus}
+      ${"active" in props && props.active && states.active}
 
       &:hover {
-        ${STATES.hover}
+        ${states.hover}
       }
 
       &:focus {
         outline: 0;
-        ${STATES.focus}
+        ${states.focus}
+        ${"active" in props && props.active && states.active}
       }
     `
   }}
@@ -135,18 +95,16 @@ export const Pill: React.FC<PillProps> = ({ children, ...rest }) => {
       )}
 
       {rest.variant === "artist" && (
-        <>
-          <Thumbnail
-            {...(rest.src
-              ? { src: typeof rest.src === "string" ? rest.src : rest.src[0] }
-              : {})}
-            {...(rest.src && typeof rest.src !== "string" && rest.src[1]
-              ? { srcSet: `${rest.src[0]} 1x, ${rest.src[1]} 2x` }
-              : {})}
-            // Intentionally empty string
-            alt=""
-          />
-        </>
+        <Thumbnail
+          {...(rest.src
+            ? { src: typeof rest.src === "string" ? rest.src : rest.src[0] }
+            : {})}
+          {...(rest.src && typeof rest.src !== "string" && rest.src[1]
+            ? { srcSet: `${rest.src[0]} 1x, ${rest.src[1]} 2x` }
+            : {})}
+          // Intentionally empty string
+          alt=""
+        />
       )}
 
       <Text variant="xs" lineHeight={1} overflowEllipsis>
