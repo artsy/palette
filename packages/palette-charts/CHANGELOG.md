@@ -1,3 +1,15 @@
+# v16.5.0 (Wed Sep 15 2021)
+
+#### 🚀  Enhancement
+
+- feat(pill): updates pill variants to match current specs [#1035](https://github.com/artsy/palette/pull/1035) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v16.4.0 (Wed Sep 15 2021)
 
 #### 🏠  Internal

@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@17.5.0`
+  - feat(pill): updates pill variants to match current specs [#1035](https://github.com/artsy/palette/pull/1035) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Sep 15 2021)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@17.4.0`
   - feat: extracts horizontal overflow component from base tabs [#1034](https://github.com/artsy/palette/pull/1034) ([@dzucconi](https://github.com/dzucconi))
 
