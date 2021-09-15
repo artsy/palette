@@ -1,57 +1,9 @@
-import { themeGet } from "@styled-system/theme-get"
-import React, { useEffect, useMemo, useRef, useState } from "react"
-import styled from "styled-components"
-import {
-  compose,
-  justifyContent,
-  JustifyContentProps,
-  padding,
-  PaddingProps,
-} from "styled-system"
+import React, { useMemo } from "react"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useThemeConfig } from "../../Theme"
-import { splitProps } from "../../utils/splitProps"
 import { Box, BoxProps } from "../Box"
+import { HorizontalOverflow } from "../HorizontalOverflow/HorizontalOverflow"
 import { Join } from "../Join"
-
-const splitRailProps = splitProps<PaddingProps & JustifyContentProps>(
-  compose(padding, justifyContent)
-)
-
-const Overlay = styled(Box)<{ atEnd: boolean }>`
-  position: relative;
-
-  /* Fade-out gradient */
-  &::after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 2px;
-    width: ${themeGet("space.6")};
-    z-index: 1;
-    pointer-events: none;
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 1) 100%
-    );
-
-    /* Hide when scrolled all the way over */
-    transition: opacity 250ms;
-    opacity: ${({ atEnd }) => (atEnd ? 0 : 1)};
-  }
-`
-
-const Viewport = styled(Box)`
-  overflow-x: auto;
-`
-
-const Rail = styled(Box)`
-  white-space: nowrap;
-  min-width: 100%;
-`
 
 /** Extends `Box` */
 export type BaseTabsProps = BoxProps & {
@@ -76,63 +28,28 @@ export const BaseTabs: React.FC<BaseTabsProps> = ({
     v3: defaultSeparator,
   })
 
-  const ref = useRef<HTMLDivElement | null>()
-
-  useEffect(() => {
-    updateAtEnd()
-    window.addEventListener("resize", updateAtEnd)
-    return () => {
-      window.removeEventListener("resize", updateAtEnd)
-    }
-  }, [])
-
-  const [paddingProps, boxProps] = splitRailProps(rest)
-
-  const [atEnd, setAtEnd] = useState(false)
-
   const cells = useMemo(() => flattenChildren(children), [children])
 
-  const updateAtEnd = () => {
-    if (!ref.current) return
-
-    const {
-      current: { scrollLeft, scrollWidth, clientWidth },
-    } = ref
-
-    if (scrollLeft + clientWidth === scrollWidth) {
-      setAtEnd(true)
-      return
-    }
-
-    setAtEnd(false)
-  }
-
   return (
-    <Overlay atEnd={atEnd} {...boxProps}>
-      <Viewport ref={ref as any} onScroll={updateAtEnd}>
-        <Rail
-          display="inline-flex"
-          borderBottom="1px solid"
-          borderColor="black10"
-          verticalAlign="top"
-          {...paddingProps}
-        >
-          <Join separator={separator!}>
-            {cells.map((child, i) => {
-              return (
-                <Box
-                  key={i}
-                  display="inline-flex"
-                  textAlign="center"
-                  flex={fill ? 1 : undefined}
-                >
-                  {child}
-                </Box>
-              )
-            })}
-          </Join>
-        </Rail>
-      </Viewport>
-    </Overlay>
+    <HorizontalOverflow
+      borderBottom="1px solid"
+      borderBottomColor="black10"
+      {...rest}
+    >
+      <Join separator={separator!}>
+        {cells.map((child, i) => {
+          return (
+            <Box
+              key={i}
+              display="inline-flex"
+              textAlign="center"
+              flex={fill ? 1 : undefined}
+            >
+              {child}
+            </Box>
+          )
+        })}
+      </Join>
+    </HorizontalOverflow>
   )
 }
