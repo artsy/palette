@@ -4,7 +4,10 @@ import truncate from "trunc-html"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Text } from "../Text"
 
-const ReadMoreLink: React.FC<ClickableProps> = ({ children, ...rest }) => {
+const ReadMoreOrLessLink: React.FC<ClickableProps> = ({
+  children,
+  ...rest
+}) => {
   return (
     <>
       {" "}
@@ -20,13 +23,17 @@ const ReadMoreLink: React.FC<ClickableProps> = ({ children, ...rest }) => {
   )
 }
 
-ReadMoreLink.displayName = "ReadMoreLink"
+ReadMoreOrLessLink.displayName = "ReadMoreOrLessLink"
 
 const Container = styled.div<{ isExpanded: boolean }>`
-  cursor: ${({ isExpanded }) => (isExpanded ? "auto" : "pointer")};
+  cursor: pointer;
+
+  > span {
+    display: ${({ isExpanded }) => (isExpanded ? "block" : "inline")};
+  }
 
   > span > *:last-child {
-    display: inline;
+    display: inherit;
   }
 `
 
@@ -39,6 +46,7 @@ export interface ReadMoreProps {
   disabled?: boolean
   isExpanded?: boolean
   maxChars?: number
+  onReadLessClicked?: () => void
   onReadMoreClicked?: () => void
 }
 
@@ -48,6 +56,7 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
   disabled,
   isExpanded,
   maxChars = Infinity,
+  onReadLessClicked,
   onReadMoreClicked,
 }) => {
   if (typeof expandedHTML !== "string") {
@@ -57,12 +66,26 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
 
   const truncatedHTML = truncate(expandedHTML, maxChars).html
 
-  const [expanded, setExpanded] = useState(isExpanded || charCount < maxChars)
+  const visible = charCount > maxChars
+  const [expanded, setExpanded] = useState(!!isExpanded)
 
   const handleClick = () => {
     if (disabled) return
-    setExpanded(true)
-    onReadMoreClicked && onReadMoreClicked()
+    setExpanded((expandedState) => !expandedState)
+
+    expanded
+      ? onReadLessClicked && onReadLessClicked()
+      : onReadMoreClicked && onReadMoreClicked()
+  }
+
+  if (!visible) {
+    return (
+      <span
+        dangerouslySetInnerHTML={{
+          __html: expandedHTML,
+        }}
+      />
+    )
   }
 
   return (
@@ -73,7 +96,9 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
         }}
       />
 
-      {!expanded && <ReadMoreLink>Read more</ReadMoreLink>}
+      <ReadMoreOrLessLink>
+        {expanded ? "Read less" : "Read more"}
+      </ReadMoreOrLessLink>
     </Container>
   )
 }
