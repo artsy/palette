@@ -1,3 +1,16 @@
+# (Thu Sep 16 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@17.6.0`
+  - feat(ReadMore): Added Read less functionality [#1036](https://github.com/artsy/palette/pull/1036) ([@anastasiapyzhik](https://github.com/anastasiapyzhik))
+
+#### Authors: 1
+
+- Anastasia ([@anastasiapyzhik](https://github.com/anastasiapyzhik))
+
+---
+
 # (Wed Sep 15 2021)
 
 #### 🚀  Enhancement

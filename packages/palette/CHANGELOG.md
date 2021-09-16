@@ -1,3 +1,20 @@
+# v17.6.0 (Thu Sep 16 2021)
+
+#### 🚀  Enhancement
+
+- feat(ReadMore): Added Read less functionality [#1036](https://github.com/artsy/palette/pull/1036) ([@anastasiapyzhik](https://github.com/anastasiapyzhik))
+
+#### 🐛  Bug Fix
+
+- FX-3315 Updated tests ([@anastasiapyzhik](https://github.com/anastasiapyzhik))
+- FX-3315 Added Read less functionality to ReadMore component ([@anastasiapyzhik](https://github.com/anastasiapyzhik))
+
+#### Authors: 1
+
+- Anastasia ([@anastasiapyzhik](https://github.com/anastasiapyzhik))
+
+---
+
 # v17.5.0 (Wed Sep 15 2021)
 
 #### 🚀  Enhancement
