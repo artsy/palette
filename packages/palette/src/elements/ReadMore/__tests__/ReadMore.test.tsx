@@ -33,7 +33,7 @@ describe("ReadMore", () => {
 
   it("Auto expands text that is less than max char count", () => {
     const wrapper = mount(<ReadMore maxChars={100} content={htmlCopy} />)
-    expect(wrapper.find("ReadMoreLink").length).toEqual(0)
+    expect(wrapper.find("ReadMoreOrLessLink").length).toEqual(0)
   })
 
   it("expands text on click", () => {
@@ -45,9 +45,9 @@ describe("ReadMore", () => {
 
   it("does not expand if disabled", () => {
     const wrapper = mount(<ReadMore maxChars={20} content={copy} disabled />)
-    expect(wrapper.find("ReadMoreLink").length).toBe(1)
+    expect(wrapper.find("ReadMoreOrLessLink").length).toBe(1)
     wrapper.simulate("click")
-    expect(wrapper.find("ReadMoreLink").length).toBe(1)
+    expect(wrapper.find("ReadMoreOrLessLink").length).toBe(1)
   })
 
   it("calls the click callback when clicked", () => {
