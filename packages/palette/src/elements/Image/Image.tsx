@@ -11,8 +11,16 @@ import {
 } from "styled-system"
 import { LazyImage } from "./LazyImage"
 
+type NativeImgProps = Omit<
+  React.ImgHTMLAttributes<HTMLImageElement>,
+  "width" | "height"
+> & {
+  width?: string | number | null
+  height?: string | number | null
+}
+
 export interface ImageProps
-  extends React.ImgHTMLAttributes<HTMLImageElement>,
+  extends NativeImgProps,
     SpaceProps,
     MaxHeightProps,
     BorderRadiusProps {

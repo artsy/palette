@@ -1,4 +1,5 @@
 import React from "react"
+import { States } from "storybook-states"
 import { Image } from "../Image"
 
 export default {
@@ -7,13 +8,15 @@ export default {
 
 export const Default = () => {
   return (
-    <Image
-      id="example"
-      className="example"
-      width="300px"
-      height="200px"
-      src="https://picsum.photos/seed/example/300/200"
-    />
+    <States states={[{}, { width: null, height: null }]}>
+      <Image
+        id="example"
+        className="example"
+        width="300px"
+        height="200px"
+        src="https://picsum.photos/seed/example/300/200"
+      />
+    </States>
   )
 }
 

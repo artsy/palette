@@ -64,7 +64,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   return (
     <SkeletonBox
       borderRadius={borderRadius}
-      style={{ width, height }}
+      style={{ width: width ?? undefined, height: height ?? undefined }}
       {...containerProps}
     >
       <InnerLazyImage
