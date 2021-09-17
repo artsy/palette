@@ -6,7 +6,9 @@ import { Image, ImageProps } from "../Image"
 import { Text } from "../Text"
 import { V2_TOKENS, V3_TOKENS } from "./tokens"
 
-export interface AvatarProps extends FlexProps, Partial<ImageProps> {
+export interface AvatarProps
+  extends FlexProps,
+    Omit<Partial<ImageProps>, "width" | "height"> {
   /** If an image is missing, show initials instead */
   initials?: string
   /** The size of the Avatar */

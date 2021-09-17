@@ -21,7 +21,7 @@ export const CssGridWithResponsiveProps = () => {
         return (
           <Image
             src="https://picsum.photos/id/1025/140/100/"
-            width={[100, 120, 140]}
+            width="100%"
             key={i}
           />
         )

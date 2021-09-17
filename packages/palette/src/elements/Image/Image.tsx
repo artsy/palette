@@ -4,23 +4,16 @@ import {
   borderRadius,
   BorderRadiusProps,
   compose,
-  height,
-  HeightProps,
   maxHeight,
   MaxHeightProps,
   space,
   SpaceProps,
-  width,
-  WidthProps,
 } from "styled-system"
-import { CleanTag } from "../CleanTag"
 import { LazyImage } from "./LazyImage"
 
 export interface ImageProps
-  extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, "width" | "height">,
+  extends React.ImgHTMLAttributes<HTMLImageElement>,
     SpaceProps,
-    WidthProps,
-    HeightProps,
     MaxHeightProps,
     BorderRadiusProps {
   /** Flag for if image should be lazy loaded */
@@ -29,9 +22,8 @@ export interface ImageProps
   preventRightClick?: boolean
 }
 
-// @ts-expect-error  MIGRATE_STRICT_MODE
-export const BaseImage = styled(CleanTag.as("img"))<ImageProps>`
-  ${compose(space, width, height, maxHeight, borderRadius)}
+export const BaseImage = styled.img<ImageProps>`
+  ${compose(space, maxHeight, borderRadius)}
 `
 
 /** A web-only Image component. */
