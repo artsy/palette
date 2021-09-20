@@ -14,7 +14,7 @@
     "prepack": "yarn generate-tokens && yarn generate-styles",
     "generate-tokens": "ts-node scripts/generate-tokens.ts",
     "generate-styles": "ts-node scripts/generate-styles.ts",
-    "lint": "tslint --project tsconfig.json 'src/*/**'",
+    "lint": "eslint --cache --cache-location '.cache/eslint/' --ext ts,tsx  --ignore-pattern 'dist'",
     "prepublishOnly": "yarn clean && yarn compile && cd ../palette-tokens && yarn compile && cd ../palette && yarn type-declarations",
     "prettier-project": "yarn prettier --write 'src/**/*.{ts,tsx}'",
     "release": "auto shipit && node scripts/clean-up-after-auto.js",
@@ -73,6 +73,8 @@
     "@types/styled-components": "4.0.3",
     "@types/styled-system": "5.1.9",
     "@types/styled-system__theme-get": "5.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
     "@wojtekmaj/enzyme-adapter-react-17": "0.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "26.6.3",
@@ -85,6 +87,10 @@
     "concurrently": "3.6.1",
     "enzyme": "3.9.0",
     "enzyme-to-json": "3.3.5",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.25.3",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "fork-ts-checker-notifier-webpack-plugin": "1.0.0",
     "fork-ts-checker-webpack-plugin": "1.2.0",
     "husky": "2.1.0",
@@ -132,7 +138,7 @@
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "yarn ts-lint --project tsconfig.json --fix",
+      "yarn lint --fix",
       "yarn prettier --write",
       "git add"
     ]
