@@ -1,5 +1,7 @@
 export * from "./useClickOutside"
+export * from "./useFocusLock"
 export * from "./useIsomorphicLayoutEffect"
+export * from "./useMutationObserver"
 export * from "./usePosition"
 export * from "./useUpdateEffect"
 export * from "./useWidthOf"
