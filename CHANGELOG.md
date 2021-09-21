@@ -1,3 +1,16 @@
+# (Tue Sep 21 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@17.7.0`
+  - feat(pill): filter pill hover state [#1041](https://github.com/artsy/palette/pull/1041) ([@tr-ann](https://github.com/tr-ann))
+
+#### Authors: 1
+
+- Hanna Trapachka ([@tr-ann](https://github.com/tr-ann))
+
+---
+
 # (Thu Sep 16 2021)
 
 #### 🚀  Enhancement
