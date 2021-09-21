@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import { RemoveScroll } from "react-remove-scroll"
 import styled from "styled-components"
 import { zIndex as systemZIndex, ZIndexProps } from "styled-system"
-import { useCursor } from "use-cursor"
+import { useFocusLock } from "../../utils/useFocusLock"
 import { Flex, FlexProps } from "../Flex"
 
 // TODO: Update TypeScript definitions for this library
@@ -36,9 +36,7 @@ const Dialog = styled(Flex).attrs({ role: "dialog" })`
   }
 `
 
-/**
- * BaseModal
- */
+/** BaseModal */
 export type ModalBaseProps = FlexProps &
   ZIndexProps & {
     children?: React.ReactNode
@@ -50,16 +48,6 @@ export type ModalBaseProps = FlexProps &
  * It seems we've landed on this value as the 'top'
  */
 export const DEFAULT_MODAL_Z_INDEX = 9999
-
-const FOCUSABLE_SELECTOR = [
-  "a[href]",
-  "area[href]",
-  "input:not([disabled])",
-  "select:not([disabled])",
-  "textarea:not([disabled])",
-  "button:not([disabled])",
-  '[tabindex="0"]',
-].join(", ")
 
 /**
  * BaseModal
@@ -77,16 +65,6 @@ export const ModalBase: React.FC<ModalBaseProps> = ({
   const containerEl = useRef<HTMLDivElement | null>(null)
   const scrollIsolationEl = useRef<HTMLDivElement | null>(null)
 
-  const [focusableEls, setFocusableEls] = useState<HTMLElement[]>([])
-  const { index: focusableIndex, handlePrev, handleNext } = useCursor({
-    max: focusableEls.length,
-  })
-
-  useEffect(() => {
-    if (!focusableEls.length) return
-    focusableEls[focusableIndex].focus()
-  }, [focusableEls, focusableIndex])
-
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -95,58 +73,35 @@ export const ModalBase: React.FC<ModalBaseProps> = ({
     }
   }
 
-  const handleKeydown = (event: KeyboardEvent) => {
-    switch (event.key) {
-      case "Escape":
-        // Prevent <esc> from interfering with the returned focus
-        event.preventDefault()
-        event.stopPropagation()
-
-        // Handle close
-        return onClose()
-
-      case "Tab":
-        // Lock focus within modal
-        event.preventDefault()
-        event.stopPropagation()
-
-        // Move focus up or down
-        event.shiftKey ? handlePrev() : handleNext()
-        break
-      default:
-        break
-    }
-  }
+  useFocusLock(containerEl)
 
   useEffect(() => {
-    const { current } = appendEl
-
-    const focusedElBeforeOpen = document.activeElement as HTMLElement
+    if (appendEl.current === null) return
 
     // Append the dialog
-    document.body.appendChild(current)
+    document.body.appendChild(appendEl.current)
+  }, [])
 
-    // Gets the focusable elements
-    const _focusableEls = Array.from(
-      containerEl.current!.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
-    )
-    setFocusableEls(_focusableEls)
+  useEffect(() => {
+    const handleKeydown = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case "Escape":
+          // Prevent <esc> from interfering with the returned focus
+          event.preventDefault()
+          event.stopPropagation()
 
-    // Switches focus to the first focusable element
-    _focusableEls.length && _focusableEls[0].focus()
+          // Handle close
+          return onClose()
+        default:
+          break
+      }
+    }
 
     document.addEventListener("keydown", handleKeydown)
-
     return () => {
-      // Remove the dialog
-      document.body.removeChild(current)
-
-      // Return the focus
-      focusedElBeforeOpen.focus()
-
       document.removeEventListener("keydown", handleKeydown)
     }
-  }, [])
+  }, [onClose])
 
   return createPortal(
     <Container ref={containerEl as any} zIndex={zIndex} {...rest}>

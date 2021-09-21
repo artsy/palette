@@ -1,0 +1,34 @@
+---
+name: useFocusLock
+source: utils/useFocusLock
+---
+
+The `useFocusLock` hook traps focus within the given element such that when a
+user Tab or Shift+Tabs, focus is only cycled through nodes contained within that
+element.
+
+This is of particular relevance when constructing modals.
+
+### Usage
+
+```tsx
+import { useFocusLock } from "@artsy/palette"
+
+const Example = (props) => {
+  const containerEl = useRef<HTMLDivElement | null>(null)
+
+  useFocusLock(containerEl)
+
+  return (
+    <>
+      <input placeholder="Cannot tab into" />
+
+      <Box ref={containerEl}>
+        <input placeholder="First tabstop" />
+        <input placeholder="Second tabstop" />
+        <button>Third tabstop</button>
+      </Box>
+    </>
+  )
+}
+```

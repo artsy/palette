@@ -1,13 +1,13 @@
 import { mount } from "enzyme"
 import React, { useState } from "react"
-import { act } from "react-test-renderer"
+import { act } from "react-dom/test-utils"
 import { ModalBase } from "../ModalBase"
 
 const tick = () => new Promise((resolve) => setTimeout(resolve, 0))
 
 describe("ModalBase", () => {
   it("renders the children", () => {
-    const wrapper = mount(<ModalBase>content</ModalBase>)
+    const wrapper = mount(<ModalBase onClose={jest.fn()}>content</ModalBase>)
     expect(wrapper.html()).toContain("content")
   })
 
@@ -23,7 +23,7 @@ describe("ModalBase", () => {
           </button>
 
           {open && (
-            <ModalBase>
+            <ModalBase onClose={jest.fn()}>
               <input id="foo" />
               <input id="bar" />
               <input id="baz" />

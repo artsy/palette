@@ -1,18 +1,47 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import { Text } from ".."
 import { Box } from "../Box"
 import { Button } from "../Button"
 import { Input } from "../Input"
 import { Join } from "../Join"
 import { Spacer } from "../Spacer"
-import { Sans } from "../Typography"
 import { ModalBase, ModalBaseProps } from "./ModalBase"
 
 const Example: React.FC<
-  ModalBaseProps & { dialogChildren?: JSX.Element; bodyChildren?: JSX.Element }
-> = ({ bodyChildren, dialogChildren, ...rest } = {}) => {
+  ModalBaseProps & {
+    dialogChildren?: JSX.Element
+    bodyChildren?: JSX.Element
+    /** Simulates an input being added after render */
+    defer?: boolean
+    /** Simulates an input being mutated by an external entity */
+    focusVisible?: boolean
+  }
+> = ({ bodyChildren, dialogChildren, defer, focusVisible, ...rest } = {}) => {
   const [open, setOpen] = useState(false)
   const label = open ? "opened" : "open"
   const handleClose = () => setOpen(false)
+
+  const [deferred, setDeferred] = useState(false)
+
+  useEffect(() => {
+    if (defer && open) {
+      setTimeout(() => {
+        setDeferred(true)
+      }, 1000)
+    }
+  }, [defer, open])
+
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (!focusVisible) return
+
+    const el = event.currentTarget
+
+    document.querySelectorAll("input").forEach((input) => {
+      input.classList.remove("focus-visible")
+    })
+
+    el.classList.add("focus-visible")
+  }
 
   return (
     <>
@@ -32,17 +61,26 @@ const Example: React.FC<
             style={{ border: "2px solid red" }}
           >
             <Box textAlign="center">
-              <Sans size="6" color="white100">
+              <Text variant="md" color="white100">
                 <Join separator={<Spacer my={1} />}>
                   <>Some example content. Click outside to close.</>
                   <Button variant="primaryWhite" onClick={handleClose}>
                     Or click here to close.
                   </Button>
-                  <Input placeholder="Just an example for focusing" />
-                  <Input placeholder="Just an example for focusing" />
+                  <Input
+                    placeholder="Just an example for focusing"
+                    onFocus={handleFocus}
+                  />
+                  <Input
+                    placeholder="Just an example for focusing"
+                    onFocus={handleFocus}
+                  />
                   {dialogChildren}
+                  {deferred && (
+                    <Input placeholder="Deferred input" onFocus={handleFocus} />
+                  )}
                 </Join>
-              </Sans>
+              </Text>
             </Box>
           </Box>
         </ModalBase>
@@ -55,6 +93,14 @@ export default { title: "Components/ModalBase" }
 
 export const Default = () => {
   return <Example />
+}
+
+export const DeferredFocusables = () => {
+  return <Example defer />
+}
+
+export const SimulateFocusVisible = () => {
+  return <Example focusVisible />
 }
 
 export const Fullscreen = () => {

@@ -1,0 +1,30 @@
+---
+name: useMutationObserver
+source: utils/useMutationObserver
+---
+
+The `useMutationObserver` accepts a ref of an element to observe and calls the
+`onMutate` callback when mutations are observed within it.
+
+### Usage
+
+```tsx
+import { useMutationObserver } from "@artsy/palette"
+
+const Example = (props) => {
+  const containerEl = useRef<HTMLDivElement | null>(null)
+
+  useMutationObserver({
+    ref,
+    onMutate: (mutations) => {
+      // Do something...
+    },
+  })
+
+  return (
+    <Box ref={containerEl}>
+      <SomeComponentThatChangesTheDom />
+    </Box>
+  )
+}
+```
