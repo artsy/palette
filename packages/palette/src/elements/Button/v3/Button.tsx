@@ -67,6 +67,7 @@ const Container = styled.button<ContainerProps>`
   cursor: pointer;
   position: relative;
   white-space: nowrap;
+  font-weight: normal;
   text-decoration: none;
   align-items: center;
   text-align: center;
