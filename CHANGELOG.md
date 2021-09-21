@@ -2,6 +2,21 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@17.7.2`
+  - fix(modalbase): keeps maxheight in sync [#1044](https://github.com/artsy/palette/pull/1044) ([@dzucconi](https://github.com/dzucconi))
+- `@artsy/palette@17.7.2`
+  - fix(modal): fixes stale focusable inputs [#1038](https://github.com/artsy/palette/pull/1038) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Sep 21 2021)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@17.7.1`
   - fix(button): ensures submit buttons are same font-weight [#1042](https://github.com/artsy/palette/pull/1042) ([@dzucconi](https://github.com/dzucconi))
 

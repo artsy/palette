@@ -1,3 +1,18 @@
+# v17.7.2 (Tue Sep 21 2021)
+
+#### 🐛  Bug Fix
+
+- fix(modalbase): keeps maxheight in sync [#1044](https://github.com/artsy/palette/pull/1044) ([@dzucconi](https://github.com/dzucconi))
+- fix(modalbase): keeps maxheight in sync ([@dzucconi](https://github.com/dzucconi))
+- fix(modal): fixes stale focusable inputs [#1038](https://github.com/artsy/palette/pull/1038) ([@dzucconi](https://github.com/dzucconi))
+- fix(modal): fixes stale focusable inputs ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.7.1 (Tue Sep 21 2021)
 
 #### 🐛  Bug Fix
