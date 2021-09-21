@@ -55,6 +55,7 @@ export const PILL_VARIANTS: Record<PillVariant, Record<PillState, any>> = {
       background-color: transparent;
       border-color: transparent;
       box-shadow: ${DROP_SHADOW};
+      color: ${themeGet("colors.brand")};
     `,
     focus: css`
       background-color: ${themeGet("colors.black5")};
