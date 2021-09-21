@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import { RemoveScroll } from "react-remove-scroll"
 import styled from "styled-components"
@@ -103,19 +103,28 @@ export const ModalBase: React.FC<ModalBaseProps> = ({
     }
   }, [onClose])
 
+  // Sets to `innerHeight` so as to simulate `100vh` on iOS
+  const [maxHeight, setMaxHeight] = useState(window.innerHeight)
+
+  // Keeps `maxHeight` in sync
+  useEffect(() => {
+    const updateMaxHeight = () => {
+      setMaxHeight(window.innerHeight)
+    }
+
+    window.addEventListener("resize", updateMaxHeight, { passive: true })
+    return () => {
+      window.removeEventListener("resize", updateMaxHeight)
+    }
+  }, [])
+
   return createPortal(
     <Container ref={containerEl as any} zIndex={zIndex} {...rest}>
       <ScrollIsolation
         ref={scrollIsolationEl as any}
         onMouseDown={handleMouseDown}
       >
-        <Dialog
-          maxHeight={
-            // Sets to `innerHeight` so as to simulate `100vh` on iOS
-            window.innerHeight
-          }
-          {...dialogProps}
-        >
+        <Dialog maxHeight={maxHeight} {...dialogProps}>
           {children}
         </Dialog>
       </ScrollIsolation>
