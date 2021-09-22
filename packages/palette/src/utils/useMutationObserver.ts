@@ -21,6 +21,10 @@ export const useMutationObserver = ({
   ref,
 }: UseMutationObserver) => {
   useEffect(() => {
+    if (typeof MutationObserver === "undefined") {
+      return
+    }
+
     if (ref.current) {
       const observer = new MutationObserver(onMutate)
 
