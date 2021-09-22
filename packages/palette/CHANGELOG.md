@@ -1,3 +1,17 @@
+# v17.7.3 (Wed Sep 22 2021)
+
+#### 🐛  Bug Fix
+
+- fix(hooks): improves focus lock and mutation observer hooks [#1045](https://github.com/artsy/palette/pull/1045) ([@dzucconi](https://github.com/dzucconi))
+- fix(usefocuslock): handles clicks ([@dzucconi](https://github.com/dzucconi))
+- fix(usemutationobserver): simply return if undefined ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.7.2 (Tue Sep 21 2021)
 
 #### 🐛  Bug Fix
