@@ -29,8 +29,10 @@ export const useFocusLock = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Set initial focusable elements on mount
   useEffect(updateFocusableEls, [updateFocusableEls])
 
+  // Detects when DOM changes and updates focusable elements
   useMutationObserver({
     ref,
     onMutate: (mutations) => {
@@ -47,17 +49,22 @@ export const useFocusLock = (
     },
   })
 
-  const { index: focusableIndex, handlePrev, handleNext } = useCursor({
+  const {
+    index: focusableIndex,
+    handlePrev,
+    handleNext,
+    setCursor,
+  } = useCursor({
     max: focusableEls.length,
   })
 
+  // Moves focus when index changes
   useEffect(() => {
     if (!focusableEls.length) return
-
-    // Moves focus when index changes
     focusableEls[focusableIndex].focus()
   }, [focusableEls, focusableIndex])
 
+  // Handle keyboard navigation
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
       switch (event.key) {
@@ -85,4 +92,35 @@ export const useFocusLock = (
       document.removeEventListener("keydown", handleKeydown)
     }
   }, [handleNext, handlePrev])
+
+  useEffect(() => {
+    // Update the index when any focusable is clicked
+    const handleClick = (event: MouseEvent) => {
+      if (event.target !== document.activeElement) return
+
+      const index = focusableEls.findIndex((node) => node === event.target)
+
+      if (index === -1) return
+
+      setCursor(index)
+    }
+
+    // If focus escapes the trap, pull it back in
+    const handleFocusIn = (event: FocusEvent) => {
+      const index = focusableEls.findIndex((node) => node === event.target)
+
+      if (index === -1) {
+        event.stopImmediatePropagation()
+        focusableEls[focusableIndex].focus()
+        return
+      }
+    }
+
+    document.addEventListener("click", handleClick)
+    document.addEventListener("focusin", handleFocusIn)
+    return () => {
+      document.removeEventListener("click", handleClick)
+      document.removeEventListener("focusin", handleFocusIn)
+    }
+  }, [focusableEls, focusableIndex, setCursor])
 }
