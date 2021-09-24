@@ -1,3 +1,16 @@
+# (Fri Sep 24 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@17.7.4`
+  - Deprecate <Link> [#1047](https://github.com/artsy/palette/pull/1047) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Wed Sep 22 2021)
 
 #### 🐛  Bug Fix
