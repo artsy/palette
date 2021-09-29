@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Text } from "../Text"
@@ -84,4 +84,28 @@ export const NavigationButtons = () => {
       <ShelfNext />
     </States>
   )
+}
+
+export const ClientSideUpdates = () => {
+  const [amount, setAmount] = useState(1)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAmount(Math.floor(Math.random() * Math.floor(15)) + 1)
+    }, 1000)
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
+
+  return (
+    <>
+      <pre>Amount: {amount}</pre>
+      <Demo amount={amount} />
+    </>
+  )
+}
+
+ClientSideUpdates.story = {
+  parameters: { chromatic: { disable: true } },
 }

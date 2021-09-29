@@ -1,11 +1,13 @@
 import type { MutableRefObject } from "react"
 import { useEffect } from "react"
 
-interface UseMutationObserver {
+type UseMutationObserver = {
   onMutate: MutationCallback
   options?: MutationObserverInit
-  ref: MutableRefObject<HTMLElement | null>
-}
+} & (
+  | { ref: MutableRefObject<HTMLElement | null> }
+  | { element?: HTMLElement | null }
+)
 
 /**
  * Accepts a ref and calls the `onMutate` callback when mutations are observed.
@@ -18,18 +20,20 @@ export const useMutationObserver = ({
     childList: true,
     subtree: true,
   },
-  ref,
+  ...rest
 }: UseMutationObserver) => {
   useEffect(() => {
     if (typeof MutationObserver === "undefined") {
       return
     }
 
-    if (ref.current) {
+    const el = "ref" in rest ? rest.ref.current : rest.element
+
+    if (el) {
       const observer = new MutationObserver(onMutate)
 
       // Start observing the target node for configured mutations
-      observer.observe(ref.current, options)
+      observer.observe(el, options)
 
       return () => {
         observer.disconnect()

@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 
 interface UseClickScroll {
-  trackRef?: React.MutableRefObject<HTMLElement>
-  thumbRef?: React.MutableRefObject<HTMLElement>
-  viewport?: HTMLElement
+  trackRef?: React.MutableRefObject<HTMLElement | null>
+  thumbRef?: React.MutableRefObject<HTMLElement | null>
+  viewport?: HTMLElement | null
   scrollWidth: number
   trackWidth: number
 }
@@ -16,7 +16,7 @@ export const useClickScroll = ({
   trackWidth,
 }: UseClickScroll) => {
   useEffect(() => {
-    if (!trackRef?.current || !thumbRef?.current) return
+    if (!viewport || !trackRef?.current || !thumbRef?.current) return
 
     const { current: thumb } = thumbRef
     const { current: track } = trackRef
@@ -30,7 +30,7 @@ export const useClickScroll = ({
         // Then center the thumb
         thumb.clientWidth / 2
 
-      viewport!.scrollLeft = (x * scrollWidth) / trackWidth
+      viewport.scrollLeft = (x * scrollWidth) / trackWidth
     }
 
     track.addEventListener("mousedown", handleMouseDown)
@@ -38,5 +38,5 @@ export const useClickScroll = ({
     return () => {
       track.removeEventListener("mousedown", handleMouseDown)
     }
-  }, [viewport, scrollWidth, trackWidth])
+  }, [scrollWidth, thumbRef, trackRef, trackWidth, viewport])
 }

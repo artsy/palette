@@ -1,6 +1,7 @@
 import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
+import { useMutationObserver } from "../.."
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
 import { useClickScroll } from "./useClickScroll"
@@ -59,12 +60,29 @@ export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
       }
     }, [viewport])
 
-    // FIXME: Fix these ts-ignores. Added for strict type checking migration
+    useMutationObserver({
+      element: viewport,
+      onMutate: (mutations) => {
+        // Check to see if any of the mutations has either added or removed nodes
+        const hasMeaningfullyMutated = mutations.some((mutation) => {
+          return (
+            mutation.addedNodes.length > 0 || mutation.removedNodes.length > 0
+          )
+        })
+
+        // Only update scroll state if something was added or removed
+        if (!hasMeaningfullyMutated) return
+
+        setScrollState({
+          scrollLeft: viewport?.scrollLeft ?? 0,
+          scrollWidth: viewport?.scrollWidth ?? 1,
+          clientWidth: viewport?.clientWidth ?? 1,
+        })
+      },
+    })
 
     useDragScroll({
-      // @ts-expect-error  MIGRATE_STRICT_MODE
       viewport,
-      // @ts-expect-error  MIGRATE_STRICT_MODE
       thumbRef,
       clientWidth,
       scrollWidth,
@@ -73,11 +91,8 @@ export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
     })
 
     useClickScroll({
-      // @ts-expect-error  MIGRATE_STRICT_MODE
       viewport,
-      // @ts-expect-error  MIGRATE_STRICT_MODE
       thumbRef,
-      // @ts-expect-error  MIGRATE_STRICT_MODE
       trackRef,
       scrollWidth,
       trackWidth,

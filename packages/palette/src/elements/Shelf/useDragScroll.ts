@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react"
 
 interface UseDragScroll {
-  viewport?: HTMLElement
-  thumbRef?: React.MutableRefObject<HTMLElement>
+  viewport?: HTMLElement | null
+  thumbRef?: React.MutableRefObject<HTMLElement | null>
   scrollWidth: number
   trackWidth: number
   scrollLeft: number
@@ -53,5 +53,5 @@ export const useDragScroll = ({
       document.removeEventListener("mousemove", handleMouseMove)
       document.removeEventListener("mouseup", handleMouseUp)
     }
-  }, [viewport, clientWidth, scrollWidth, scrollLeft, trackWidth])
+  }, [viewport, clientWidth, scrollWidth, scrollLeft, trackWidth, thumbRef])
 }

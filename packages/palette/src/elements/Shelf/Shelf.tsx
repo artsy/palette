@@ -122,7 +122,7 @@ export const Shelf: React.FC<ShelfProps> = ({
     return () => {
       viewport.removeEventListener("scroll", handler)
     }
-  }, [pages])
+  }, [pages, setCursor])
 
   // Announce page changes
   useEffect(() => {
