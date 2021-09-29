@@ -1,3 +1,21 @@
+# (Wed Sep 29 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@17.7.5`
+  - fix(shelf): when shelf contents change; keep the scrollbar in sync [#1048](https://github.com/artsy/palette/pull/1048) ([@dzucconi](https://github.com/dzucconi))
+
+#### ⚠️  Pushed to `master`
+
+- Update how-palette-works.mdx ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Sep 24 2021)
 
 #### 🐛  Bug Fix

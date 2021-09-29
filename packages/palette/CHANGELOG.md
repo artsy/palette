@@ -1,3 +1,16 @@
+# v17.7.5 (Wed Sep 29 2021)
+
+#### 🐛  Bug Fix
+
+- fix(shelf): when shelf contents change; keep the scrollbar in sync [#1048](https://github.com/artsy/palette/pull/1048) ([@dzucconi](https://github.com/dzucconi))
+- fix(shelf): when shelf contents change; keep the scrollbar in sync ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.7.4 (Fri Sep 24 2021)
 
 #### 🐛  Bug Fix
