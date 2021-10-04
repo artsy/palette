@@ -44,6 +44,7 @@ const Overlay = styled(Box)<{ atEnd: boolean }>`
 `
 
 const Viewport = styled(Box)`
+  height: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   ${visuallyDisableScrollbar}
@@ -52,6 +53,7 @@ const Viewport = styled(Box)`
 const Rail = styled(Box)`
   white-space: nowrap;
   min-width: 100%;
+  height: 100%;
 `
 
 export type HorizontalOverflowProps = BoxProps & { children: React.ReactNode }
