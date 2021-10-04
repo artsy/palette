@@ -45,6 +45,7 @@ const Overlay = styled(Box)<{ atEnd: boolean }>`
 
 const Viewport = styled(Box)`
   height: 100%;
+  overflow-y: hidden;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   ${visuallyDisableScrollbar}
