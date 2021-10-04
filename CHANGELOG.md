@@ -1,3 +1,20 @@
+# (Mon Oct 04 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@17.7.6`
+  - fix(horizontaloverflow): ensures internal heights match external [#1049](https://github.com/artsy/palette/pull/1049) ([@dzucconi](https://github.com/dzucconi))
+
+#### ⚠️  Pushed to `master`
+
+- Update Typography.mdx ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Sep 29 2021)
 
 #### 🐛  Bug Fix
