@@ -1,5 +1,5 @@
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
-import React, { useCallback, useState } from "react"
+import React, { createRef, useCallback, useState } from "react"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useThemeConfig } from "../../Theme"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
@@ -38,7 +38,10 @@ export const useTabs = ({
   initialTabIndex = 0,
   onChange,
 }: TabsProps) => {
-  const tabs = flattenChildren<TabLike>(children)
+  const tabs = flattenChildren<TabLike>(children).map((child) => ({
+    child,
+    ref: createRef<HTMLButtonElement | null>(),
+  }))
 
   const [activeTabIndex, setActiveTabIndex] = useState<number>(initialTabIndex)
   const activeTab = tabs[activeTabIndex]
@@ -55,12 +58,18 @@ export const useTabs = ({
 
         setActiveTabIndex(index)
 
+        tabs[index].ref.current?.scrollIntoView?.({
+          inline: "center",
+          block: "nearest",
+          behavior: "smooth",
+        })
+
         if (!onChange) return
 
         onChange({
           tabIndex: index,
-          name: tabs[index].props.name,
-          data: tabs[index].props.data ?? {},
+          name: tabs[index].child.props.name,
+          data: tabs[index].child.props.data ?? {},
         })
       }
     },
@@ -96,23 +105,24 @@ export const Tabs: React.FC<TabsProps> = ({
   return (
     <>
       <BaseTabs {...rest}>
-        {tabs.map((cell, i) => {
+        {tabs.map((tab, i) => {
           return (
             <Clickable
               key={i}
+              ref={tab.ref as any}
               aria-selected={i === activeTabIndex}
               onClick={handleClick(i)}
               flex={1}
             >
               <BaseTab active={i === activeTabIndex} variant={textVariant}>
-                <span>{cell.props.name}</span>
+                <span>{tab.child.props.name}</span>
               </BaseTab>
             </Clickable>
           )
         })}
       </BaseTabs>
 
-      {activeTab}
+      {activeTab.child}
     </>
   )
 }
