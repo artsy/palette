@@ -96,3 +96,25 @@ export const ConditionalTabs = () => {
     </Tabs>
   )
 }
+
+export const AutoScrolling = () => {
+  return (
+    <Tabs onChange={action("onChange")}>
+      <Tab name="First">First</Tab>
+      <Tab name="Second">Second</Tab>
+      <Tab name="Third">Third</Tab>
+      <Tab name="Fourth">Fourth</Tab>
+      <Tab name="Fifth">Fifth</Tab>
+      <Tab name="Sixth">Sixth</Tab>
+      <Tab name="Seventh">Seventh</Tab>
+      <Tab name="Eighth">Eighth</Tab>
+      <Tab name="Nineth">Nineth</Tab>
+      <Tab name="Tenth">Tenth</Tab>
+      <Tab name="Eleventh">Eleventh</Tab>
+      <Tab name="Twelveth">Twelveth</Tab>
+      <Tab name="Thirteenth">Thirteenth</Tab>
+      <Tab name="Fourteenth">Fourteenth</Tab>
+      <Tab name="Fifteenth">Fifteenth</Tab>
+    </Tabs>
+  )
+}

@@ -54,11 +54,12 @@ export const Stepper: React.FC<StepperProps> = ({
   return (
     <>
       <BaseTabs separator={tokens.joinSeparator!} fill={tokens.fill} {...rest}>
-        {tabs.map((cell, i) => {
+        {tabs.map((tab, i) => {
           return (
             <BaseTab
               key={i}
               as={Clickable}
+              ref={tab.ref as any}
               aria-selected={i === activeTabIndex}
               disabled={disableNavigation || i > currentStepIndex}
               onClick={handleClick(i)}
@@ -77,7 +78,7 @@ export const Stepper: React.FC<StepperProps> = ({
                   )}
 
                   <Box color={i > currentStepIndex ? "black30" : undefined}>
-                    {cell.props.name}
+                    {tab.child.props.name}
                   </Box>
 
                   {currentStepIndex > i &&
@@ -98,7 +99,7 @@ export const Stepper: React.FC<StepperProps> = ({
         })}
       </BaseTabs>
 
-      {activeTab}
+      {activeTab.child}
     </>
   )
 }

@@ -73,4 +73,5 @@ BaseTab.displayName = "BaseTab"
  * by simply including a Clickable here.
  */
 // @ts-expect-error  MIGRATE_STRICT_MODE
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const __Ignore__ = Clickable
