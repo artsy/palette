@@ -1,22 +1,10 @@
 import React from "react"
-import { Box, BoxProps } from "../Box"
-import { Flex } from "../Flex"
-import { Image, ImageProps } from "../Image"
-import { Text } from "../Text"
-import { CardTag } from "./CardTag"
-import { CardTagProps } from "./CardTag"
-
-type Images = string[] | ImageProps[]
-
-export interface SmallCardProps extends BoxProps {
-  images: Images
-  title: string
-  subtitle?: string
-  tag?: CardTagProps
-}
-
-const isArrayOfStrings = (images: Images): images is string[] =>
-  [...images].every((src) => typeof src === "string")
+import { Box } from "../../Box"
+import { Flex } from "../../Flex"
+import { Image, ImageProps } from "../../Image"
+import { Text } from "../../Text"
+import { CardTag } from "../CardTag"
+import { SmallCardProps, isArrayOfStrings } from "./SmallCard"
 
 /**
  * `SmallCard` is a card with a layout one square image on the left,
@@ -27,7 +15,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
   images,
   title,
   subtitle,
-  tag,
+  status,
   ...rest
 }) => {
   const imageAttributes: ImageProps[] = isArrayOfStrings(images)
@@ -65,24 +53,24 @@ export const SmallCard: React.FC<SmallCardProps> = ({
               />
             )}
 
-            {!!images[1] && (
+            {images[1] && (
               <Box
                 backgroundColor="black10"
-                height={!!images[2] ? "50%" : "100%"}
+                height={images[2] ? "50%" : "100%"}
                 overflow="hidden"
                 ml="1px"
-                mb={!!images[2] ? "1px" : "0"}
+                mb={images[2] ? "1px" : "0"}
               >
                 <Image
                   alt={title}
                   height="100%"
-                  width={!!images[2] ? "100%" : "auto"}
+                  width={images[2] ? "100%" : "auto"}
                   {...imageAttributes[1]}
                 />
               </Box>
             )}
 
-            {!!images[2] && (
+            {images[2] && (
               <Box
                 backgroundColor="black10"
                 height="50%"
@@ -106,13 +94,17 @@ export const SmallCard: React.FC<SmallCardProps> = ({
         {title}
       </Text>
 
-      {!!subtitle && (
+      {subtitle && (
         <Text variant="text" color="black60">
           {subtitle}
         </Text>
       )}
 
-      {!!tag && <CardTag {...tag} position="absolute" top={1} left={1} />}
+      {status && (
+        <CardTag position="absolute" top={1} left={1}>
+          {status}
+        </CardTag>
+      )}
     </Box>
   )
 }

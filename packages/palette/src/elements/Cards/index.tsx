@@ -1,3 +1,3 @@
-export * from "./SmallCard"
-export * from "./MediumCard"
+export * from "./SmallCard/SmallCard"
+export * from "./MediumCard/MediumCard"
 export * from "./CardTag"
