@@ -4,14 +4,9 @@ import { Flex } from "../../Flex"
 import { Image, ImageProps } from "../../Image"
 import { Text } from "../../Text"
 import { CardTag } from "../CardTag"
-import { SmallCardProps, isArrayOfStrings } from "./SmallCard"
+import { TriptychCardProps, isArrayOfStrings } from "./TriptychCard"
 
-/**
- * `SmallCard` is a card with a layout one square image on the left,
- * one tall or two square images on the right, and text for title and subtitle
- * at the bottom.
- */
-export const SmallCard: React.FC<SmallCardProps> = ({
+export const TriptychCard: React.FC<TriptychCardProps> = ({
   images,
   title,
   subtitle,

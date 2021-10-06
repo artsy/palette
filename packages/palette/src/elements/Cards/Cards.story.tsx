@@ -1,10 +1,40 @@
 import React from "react"
 import { States } from "storybook-states"
-import { MediumCard, MediumCardProps } from "./MediumCard/MediumCard"
-import { SmallCard, SmallCardProps } from "./SmallCard/SmallCard"
+import { Card, CardProps } from "./Card/Card"
+import { TriptychCard, TriptychCardProps } from "./TriptychCard/TriptychCard"
 
 export default {
   title: "Components/Cards",
+}
+
+export const Single = () => {
+  return (
+    <States<Partial<CardProps>>
+      states={[
+        {},
+        { title: "A Much Longer Exhibition Title With Possible Line Break" },
+        { maxWidth: 400 },
+        { image: undefined },
+        { title: undefined, subtitle: undefined, status: undefined },
+      ]}
+    >
+      <Card
+        title="Example Exhibition Title"
+        subtitle="Partner Gallery"
+        status="4 days left"
+        image={{
+          lazyLoad: true,
+          src: "https://picsum.photos/seed/example/400/300",
+          srcSet:
+            "https://picsum.photos/seed/example/400/300 1x, https://picsum.photos/seed/example/800/600 2x",
+        }}
+      />
+    </States>
+  )
+}
+
+Single.story = {
+  parameters: { chromatic: { diffThreshold: 0.2 } },
 }
 
 const LARGE_SQUARE_IMG = {
@@ -21,9 +51,9 @@ const SMALL_SQUARE_IMG = {
     "https://picsum.photos/seed/example/200/200 1x, https://picsum.photos/seed/example/400/400 2x",
 }
 
-export const Small = () => {
+export const Triptych = () => {
   return (
-    <States<Partial<SmallCardProps>>
+    <States<Partial<TriptychCardProps>>
       states={[
         {},
         { images: [LARGE_SQUARE_IMG, SMALL_SQUARE_IMG] },
@@ -32,7 +62,7 @@ export const Small = () => {
         { title: undefined, subtitle: undefined, status: undefined },
       ]}
     >
-      <SmallCard
+      <TriptychCard
         maxWidth={600}
         images={[LARGE_SQUARE_IMG, SMALL_SQUARE_IMG, SMALL_SQUARE_IMG]}
         title="Example Exhibition Title"
@@ -43,36 +73,6 @@ export const Small = () => {
   )
 }
 
-Small.story = {
-  parameters: { chromatic: { diffThreshold: 0.2 } },
-}
-
-export const Medium = () => {
-  return (
-    <States<Partial<MediumCardProps>>
-      states={[
-        {},
-        { title: "A Much Longer Exhibition Title With Possible Line Break" },
-        { maxWidth: 400 },
-        { image: undefined },
-        { title: undefined, subtitle: undefined, status: undefined },
-      ]}
-    >
-      <MediumCard
-        title="Example Exhibition Title"
-        subtitle="Partner Gallery"
-        status="4 days left"
-        image={{
-          lazyLoad: true,
-          src: "https://picsum.photos/seed/example/400/300",
-          srcSet:
-            "https://picsum.photos/seed/example/400/300 1x, https://picsum.photos/seed/example/800/600 2x",
-        }}
-      />
-    </States>
-  )
-}
-
-Medium.story = {
+Triptych.story = {
   parameters: { chromatic: { diffThreshold: 0.2 } },
 }

@@ -1,15 +1,15 @@
 import React from "react"
-import { MediumCardProps } from "./MediumCard"
+import { CardProps } from "./Card"
 import { Box } from "../../Box"
 import { Flex } from "../../Flex"
 import { Image } from "../../Image"
 import { Text } from "../../Text"
 import { CardTag } from "../CardTag"
 /**
- * `MediumCard` is a card with one image one tall image, and text for title and subtitle
+ * `Card` is a card with one image one tall image, and text for title and subtitle
  * at the bottom.
  */
-export const MediumCard: React.FC<MediumCardProps> = ({
+export const Card: React.FC<CardProps> = ({
   image,
   title,
   subtitle,
