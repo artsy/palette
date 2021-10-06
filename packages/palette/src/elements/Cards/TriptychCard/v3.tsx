@@ -13,16 +13,17 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
   status,
   ...rest
 }) => {
-  const imageAttributes: ImageProps[] = isArrayOfStrings(images)
+  const imgs: ImageProps[] = (isArrayOfStrings(images)
     ? images.map((src) => ({ src }))
     : images
+  ).slice(0, 3)
 
   return (
     <Box {...rest}>
       <ResponsiveBox aspectWidth={3} aspectHeight={2} maxWidth="100%" mb={1}>
         <Flex flexDirection="row" width="100%" height="100%">
           {(() => {
-            switch (images.length) {
+            switch (imgs.length) {
               case 1:
                 return (
                   <ResponsiveBox
@@ -38,7 +39,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
                       height="100%"
                       width="100%"
                       style={{ objectFit: "cover" }}
-                      {...imageAttributes[0]}
+                      {...imgs[0]}
                     />
                   </ResponsiveBox>
                 )
@@ -59,7 +60,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
                         height="100%"
                         width="100%"
                         style={{ objectFit: "cover" }}
-                        {...imageAttributes[0]}
+                        {...imgs[0]}
                       />
                     </ResponsiveBox>
 
@@ -77,7 +78,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
                           height="100%"
                           width="100%"
                           style={{ objectFit: "cover" }}
-                          {...imageAttributes[1]}
+                          {...imgs[1]}
                         />
                       </ResponsiveBox>
                     </Flex>
@@ -99,7 +100,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
                         height="100%"
                         width="100%"
                         style={{ objectFit: "cover" }}
-                        {...imageAttributes[0]}
+                        {...imgs[0]}
                       />
                     </ResponsiveBox>
 
@@ -118,7 +119,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
                           height="100%"
                           width="100%"
                           style={{ objectFit: "cover" }}
-                          {...imageAttributes[1]}
+                          {...imgs[1]}
                         />
                       </ResponsiveBox>
 
@@ -136,7 +137,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
                           height="100%"
                           width="100%"
                           style={{ objectFit: "cover" }}
-                          {...imageAttributes[2]}
+                          {...imgs[2]}
                         />
                       </ResponsiveBox>
                     </Flex>

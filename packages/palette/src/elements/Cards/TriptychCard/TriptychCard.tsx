@@ -5,12 +5,7 @@ import { TriptychCard as TriptychCardV2 } from "./v2"
 import { TriptychCard as TriptychCardV3 } from "./v3"
 import { BoxProps } from "../../Box"
 
-type ImageAttributes =
-  | [ImageProps]
-  | [ImageProps, ImageProps]
-  | [ImageProps, ImageProps, ImageProps]
-type ImageStrings = [string] | [string, string] | [string, string, string]
-type Images = ImageAttributes | ImageStrings
+type Images = ImageProps[] | string[]
 
 export interface TriptychCardProps extends BoxProps {
   /** 1, 2, or 3 images */
@@ -20,7 +15,7 @@ export interface TriptychCardProps extends BoxProps {
   status?: string | null
 }
 
-export const isArrayOfStrings = (images: Images): images is ImageStrings =>
+export const isArrayOfStrings = (images: Images): images is string[] =>
   [...images].every((src) => typeof src === "string")
 
 /**
