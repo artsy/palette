@@ -7,9 +7,9 @@ import { BoxProps } from "../../Box"
 
 export interface CardProps extends BoxProps {
   image: string | ImageProps
-  title?: string
-  subtitle?: string
-  status?: string
+  title?: string | null
+  subtitle?: string | null
+  status?: string | null
 }
 
 /**

@@ -30,12 +30,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
           overflow="hidden"
         >
           <Box backgroundColor="black10" width="67%" overflow="hidden" mr="1px">
-            <Image
-              alt={title}
-              height="100%"
-              width="100%"
-              {...imageAttributes[0]}
-            />
+            <Image alt="" height="100%" width="100%" {...imageAttributes[0]} />
           </Box>
 
           <Flex width="33%" flexDirection="column">
@@ -57,7 +52,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
                 mb={images[2] ? "1px" : "0"}
               >
                 <Image
-                  alt={title}
+                  alt=""
                   height="100%"
                   width={images[2] ? "100%" : "auto"}
                   {...imageAttributes[1]}
@@ -74,7 +69,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
                 mt="1px"
               >
                 <Image
-                  alt={title}
+                  alt=""
                   height="100%"
                   width="100%"
                   {...imageAttributes[2]}

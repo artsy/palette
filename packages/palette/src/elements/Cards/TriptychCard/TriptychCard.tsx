@@ -15,9 +15,9 @@ type Images = ImageAttributes | ImageStrings
 export interface TriptychCardProps extends BoxProps {
   /** 1, 2, or 3 images */
   images: Images
-  title?: string
-  subtitle?: string
-  status?: string
+  title?: string | null
+  subtitle?: string | null
+  status?: string | null
 }
 
 export const isArrayOfStrings = (images: Images): images is ImageStrings =>
