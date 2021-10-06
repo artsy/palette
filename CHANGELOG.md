@@ -1,3 +1,21 @@
+# (Wed Oct 06 2021)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette@18.0.0`
+  - [breaking change] feat(cards): migrates to v3 [#1053](https://github.com/artsy/palette/pull/1053) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🚀  Enhancement
+
+- chore(deps): update cimg/python docker tag to v3.10 [#1052](https://github.com/artsy/palette/pull/1052) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Tue Oct 05 2021)
 
 #### 🚀  Enhancement

@@ -1,3 +1,22 @@
+# v18.0.0 (Wed Oct 06 2021)
+
+#### 💥  Breaking Change
+
+- [breaking change] feat(cards): migrates to v3 [#1053](https://github.com/artsy/palette/pull/1053) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(cards): loosens up typing ([@dzucconi](https://github.com/dzucconi))
+- fix(cards): allows nulls ([@dzucconi](https://github.com/dzucconi))
+- fix(cards): renames cards to make more sense ([@dzucconi](https://github.com/dzucconi))
+- feat(cards): migrates to v3 ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.8.0 (Tue Oct 05 2021)
 
 #### 🚀  Enhancement
