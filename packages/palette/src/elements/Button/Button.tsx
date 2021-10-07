@@ -9,7 +9,16 @@ import { ButtonV3 } from "./v3/Button"
 export interface ButtonProps
   extends BoxProps,
     React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** The theme of the button */
+  /**
+   * @description
+   * The theme of the button. It's possible to pass an array that
+   * behaves accordingly to the media breakpoints ["sm", "md", "lg", "xl"]
+   * @example
+   * "primaryBlack"
+   * "primaryWhite"
+   * ["secondaryGray", "secondaryOutline"]
+   * @see {@link ButtonVariant}
+   */
   variant?: ResponsiveValue<ButtonVariant>
   /** Size of the button */
   size?: ButtonSize
