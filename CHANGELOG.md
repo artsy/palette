@@ -1,3 +1,16 @@
+# (Thu Oct 07 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.1.0`
+  - docs(types): Improve DX on Button/Text variants [#1055](https://github.com/artsy/palette/pull/1055) ([@araujobarret](https://github.com/araujobarret))
+
+#### Authors: 1
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+
+---
+
 # (Wed Oct 06 2021)
 
 #### 💥  Breaking Change
