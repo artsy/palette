@@ -20,6 +20,16 @@ import { Box, BoxProps } from "../Box"
 /** BaseTextProps */
 export type BaseTextProps = TypographyProps &
   Omit<ColorProps, "color"> & {
+    /**
+     * @description
+     * Variants of the text. Possible to pass an array that
+     * behaves accordingly to the media breakpoints ["sm", "md", "lg", "xl"]
+     * @example
+     * "sm"
+     * "md"
+     * ["md", "sm"]
+     * @see {@link TextVariant}
+     */
     variant?: ResponsiveValue<TextVariant>
     textColor?: ResponsiveValue<Color>
     /**
