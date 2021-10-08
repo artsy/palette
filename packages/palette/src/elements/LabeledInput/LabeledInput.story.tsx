@@ -25,6 +25,8 @@ export const Default = () => {
             />
           ),
         },
+        { title: "Amount" },
+        { title: "Amount", description: "Currency: USD" },
       ]}
     >
       <LabeledInput label="$" />

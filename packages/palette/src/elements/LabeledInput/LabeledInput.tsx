@@ -35,28 +35,28 @@ export const LabeledInput: React.ForwardRefExoticComponent<
         height={height}
         style={{ paddingRight: `${offset + 10}px` }}
         {...inputProps}
-      />
-
-      <Box
-        ref={labelRef as any}
-        position="absolute"
-        display="flex"
-        alignItems="center"
-        right={1}
-        top={0}
-        bottom={0}
-        style={{
-          pointerEvents: isText ? "none" : undefined,
-        }}
       >
-        {isText ? (
-          <Text variant={variant} color="black60" lineHeight={1}>
-            {label}
-          </Text>
-        ) : (
-          label
-        )}
-      </Box>
+        <Box
+          ref={labelRef as any}
+          position="absolute"
+          display="flex"
+          alignItems="center"
+          right={1}
+          top={0}
+          bottom={0}
+          style={{
+            pointerEvents: isText ? "none" : undefined,
+          }}
+        >
+          {isText ? (
+            <Text variant={variant} color="black60" lineHeight={1}>
+              {label}
+            </Text>
+          ) : (
+            label
+          )}
+        </Box>
+      </Input>
     </Box>
   )
 })
