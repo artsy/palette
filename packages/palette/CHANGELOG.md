@@ -1,3 +1,16 @@
+# v18.1.1 (Fri Oct 08 2021)
+
+#### 🐛  Bug Fix
+
+- fix(labeledinput): fixes height when title/description are present [#1057](https://github.com/artsy/palette/pull/1057) ([@dzucconi](https://github.com/dzucconi))
+- fix(labeledinput): fixes height when title/description are present ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.1.0 (Thu Oct 07 2021)
 
 #### 🚀  Enhancement
