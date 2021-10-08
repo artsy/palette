@@ -32,6 +32,7 @@ export const Input: React.ForwardRefExoticComponent<
 > = React.forwardRef(
   (
     {
+      children,
       className,
       description,
       disabled,
@@ -92,16 +93,19 @@ export const Input: React.ForwardRefExoticComponent<
           </>
         )}
 
-        <StyledInput
-          ref={ref as any}
-          disabled={disabled}
-          focus={focus}
-          hover={hover}
-          error={!!error}
-          required={required}
-          height={tokens.height as any}
-          {...inputProps}
-        />
+        <Box position="relative">
+          <StyledInput
+            ref={ref as any}
+            disabled={disabled}
+            focus={focus}
+            hover={hover}
+            error={!!error}
+            required={required}
+            height={tokens.height as any}
+            {...inputProps}
+          />
+          {children}
+        </Box>
 
         {error && typeof error === "string" && (
           <Text variant={tokens.secondaryTextVariant} mt={0.5} color="red100">
