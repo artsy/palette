@@ -1,3 +1,20 @@
+# v17.2.0 (Wed Oct 13 2021)
+
+#### 🐛  Bug Fix
+
+- chore(deps): update dep @artsy/auto-config from 1.0.2 to v1.1.0 ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 🏠  Internal
+
+- chore(deps): update dep @artsy/auto-config from 1.0.2 to v1.1.0 [#1046](https://github.com/artsy/palette/pull/1046) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v16.5.0 (Wed Sep 15 2021)
 
 #### 🚀  Enhancement

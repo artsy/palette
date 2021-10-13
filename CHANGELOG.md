@@ -1,3 +1,24 @@
+# (Wed Oct 13 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.2.0`
+  - feat(icons): adds pinterest, tumblr icons [#1059](https://github.com/artsy/palette/pull/1059) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update auto orb from 1.4.0 to v2 [#1056](https://github.com/artsy/palette/pull/1056) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette-charts@17.2.0`, `@artsy/palette@18.2.0`
+  - chore(deps): update dep @artsy/auto-config from 1.0.2 to v1.1.0 [#1046](https://github.com/artsy/palette/pull/1046) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Fri Oct 08 2021)
 
 #### 🐛  Bug Fix
