@@ -1,3 +1,27 @@
+# (Mon Oct 18 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.3.0`
+  - feat: implements toasts [#1060](https://github.com/artsy/palette/pull/1060) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@17.3.0`, `@artsy/palette@18.3.0`
+  - chore(deps): update dep typescript from 4.4.3 to v4.4.4 [#1058](https://github.com/artsy/palette/pull/1058) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump tmpl from 1.0.4 to 1.0.5 [#1040](https://github.com/artsy/palette/pull/1040) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 3
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Wed Oct 13 2021)
 
 #### 🚀  Enhancement

@@ -1,3 +1,20 @@
+# v17.3.0 (Mon Oct 18 2021)
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.4.3 to v4.4.4 [#1058](https://github.com/artsy/palette/pull/1058) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump tmpl from 1.0.4 to 1.0.5 [#1040](https://github.com/artsy/palette/pull/1040) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v17.2.0 (Wed Oct 13 2021)
 
 #### 🐛  Bug Fix
