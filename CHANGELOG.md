@@ -1,3 +1,16 @@
+# (Wed Oct 20 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.4.0`
+  - feat: implements password input [#1061](https://github.com/artsy/palette/pull/1061) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Oct 18 2021)
 
 #### 🚀  Enhancement

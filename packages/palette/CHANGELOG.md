@@ -1,3 +1,19 @@
+# v18.4.0 (Wed Oct 20 2021)
+
+#### 🚀  Enhancement
+
+- feat: implements password input [#1061](https://github.com/artsy/palette/pull/1061) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat: implements password input ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.3.0 (Mon Oct 18 2021)
 
 #### 🚀  Enhancement
