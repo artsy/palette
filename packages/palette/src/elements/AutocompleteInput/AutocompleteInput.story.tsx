@@ -76,29 +76,35 @@ export const Demo = () => {
   return (
     <AutocompleteInput
       placeholder="Begin typing..."
-      options={[{ text: query, value: query }, ...OPTIONS]}
+      options={[...(query ? [{ text: query, value: query }] : []), ...OPTIONS]}
       onChange={handleChange}
       onSelect={action("onSelect")}
       onSubmit={action("onSubmit")}
-      renderOption={(option, i) => (
-        <Box
-          px={2}
-          py={1}
-          {...(i === 0
-            ? { borderBottom: "1px solid", borderColor: "black10" }
-            : {})}
-        >
-          <Text variant="md">
-            {i === 0 ? `See full results for “${option.text}”` : option.text}
-          </Text>
+      renderOption={(option, i) => {
+        const displayQuery = i === 0 && query !== ""
 
-          {"subtitle" in option && (
-            <Text variant="xs" color="black60">
-              {option.subtitle}
+        return (
+          <Box
+            px={2}
+            py={1}
+            {...(displayQuery
+              ? { borderBottom: "1px solid", borderColor: "black10" }
+              : {})}
+          >
+            <Text variant="md">
+              {displayQuery
+                ? `See full results for “${option.text}”`
+                : option.text}
             </Text>
-          )}
-        </Box>
-      )}
+
+            {"subtitle" in option && (
+              <Text variant="xs" color="black60">
+                {option.subtitle}
+              </Text>
+            )}
+          </Box>
+        )
+      }}
     />
   )
 }

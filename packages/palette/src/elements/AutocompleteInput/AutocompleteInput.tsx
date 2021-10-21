@@ -83,9 +83,10 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
     },
   })
 
-  const isDropdownVisible = open && query !== "" && options.length > 0
+  const isDropdownVisible = open && options.length > 0
 
   // Reset keyboard navigation when options change
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(reset, [options])
 
   // Reset keyboard navigation when query is empty
@@ -93,6 +94,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
     if (query === "") {
       reset()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query])
 
   const { anchorRef, tooltipRef } = usePosition({
@@ -199,7 +201,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
         role="combobox"
         aria-expanded={isDropdownVisible}
         aria-autocomplete="list"
-        {...(!!id ? { id, "aria-describedby": `${id}__assistiveHint` } : {})}
+        {...(id ? { id, "aria-describedby": `${id}__assistiveHint` } : {})}
         label={
           loading ? (
             <Box width={18}>
@@ -256,7 +258,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
         </>
       )}
 
-      <VisuallyHidden {...(!!id ? { id: `${id}__assistiveHint` } : {})}>
+      <VisuallyHidden {...(id ? { id: `${id}__assistiveHint` } : {})}>
         When autocomplete results are available use up and down arrows to review
         and enter to select. Touch device users, explore by touch or with swipe
         gestures.
