@@ -1,3 +1,16 @@
+# (Thu Oct 21 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.4.1`
+  - fix(autocomplete): display options if they are present regardless of query [#1062](https://github.com/artsy/palette/pull/1062) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Oct 20 2021)
 
 #### 🚀  Enhancement
