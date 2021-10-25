@@ -6,7 +6,7 @@ const DEFAULT_SELECT_VARIANT = {
   default: css`
     height: 50px;
     font-size: ${themeGet("textVariants.sm.fontSize")};
-    color: ${themeGet("colors.black60")};
+    color: ${themeGet("colors.black100")};
     border-color: ${themeGet("colors.black30")};
   `,
   focus: css`
