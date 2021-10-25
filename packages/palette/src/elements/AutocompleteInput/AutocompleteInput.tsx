@@ -16,12 +16,12 @@ import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 
 /** Base option type — can be expanded */
-export interface AutoCompleteInputOption {
+export interface AutocompleteInputOptionType {
   text: string
   value: string
 }
 
-export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
+export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   extends Omit<InputProps, "onSelect" | "onSubmit"> {
   defaultValue?: string
   loading?: boolean
@@ -29,7 +29,7 @@ export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
   onSelect?(option: T, index: number): void
-  /** on <click> of the "x" button */
+  /** on <click> of the 'x' (clear) button */
   onClear?(): void
   renderOption?(
     option: T,
@@ -39,7 +39,7 @@ export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
 }
 
 /** AutocompleteInput */
-export const AutocompleteInput = <T extends AutoCompleteInputOption>({
+export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   defaultValue = "",
   id,
   loading,
