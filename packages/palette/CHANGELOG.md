@@ -1,3 +1,24 @@
+# v18.4.2 (Mon Oct 25 2021)
+
+#### 🐛  Bug Fix
+
+- fix(autocompleteinput): improves select ux [#1063](https://github.com/artsy/palette/pull/1063) ([@dzucconi](https://github.com/dzucconi))
+- refactor(autocompleteinput): moves state into reducer ([@dzucconi](https://github.com/dzucconi))
+- fix(autocompleteinput): prevents default for escape ([@dzucconi](https://github.com/dzucconi))
+- fix(usefocuslock): prevents redundant focus when used in conjunction with autocomplete ([@dzucconi](https://github.com/dzucconi))
+- fix(select): changes default state color [#1064](https://github.com/artsy/palette/pull/1064) ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): improves ignore list ([@dzucconi](https://github.com/dzucconi))
+- fix(select): changes default state color ([@dzucconi](https://github.com/dzucconi))
+- fix(autocompleteinput): fixes casing ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): includes on clear callback ([@dzucconi](https://github.com/dzucconi))
+- fix(autocompleteinput): improves select ux ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.4.1 (Thu Oct 21 2021)
 
 #### 🐛  Bug Fix

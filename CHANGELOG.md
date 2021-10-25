@@ -1,3 +1,17 @@
+# (Mon Oct 25 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.4.2`
+  - fix(autocompleteinput): improves select ux [#1063](https://github.com/artsy/palette/pull/1063) ([@dzucconi](https://github.com/dzucconi))
+  - fix(select): changes default state color [#1064](https://github.com/artsy/palette/pull/1064) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Oct 21 2021)
 
 #### 🐛  Bug Fix
