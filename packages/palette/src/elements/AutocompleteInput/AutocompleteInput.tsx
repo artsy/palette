@@ -190,9 +190,15 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     event: React.KeyboardEvent<HTMLDivElement>
   ) => {
     switch (event.key) {
+      case "Alt":
       case "ArrowDown":
       case "ArrowUp":
+      case "Control":
       case "Enter":
+      case "Meta":
+      case "Shift":
+      case "Tab":
+        // Ignore
         return
 
       case "Escape":
