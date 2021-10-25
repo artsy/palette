@@ -1,5 +1,5 @@
 import composeRefs from "@seznam/compose-react-refs"
-import React, { createRef, useEffect, useMemo, useRef, useState } from "react"
+import React, { createRef, useEffect, useMemo, useReducer, useRef } from "react"
 import styled from "styled-components"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { Spinner } from ".."
@@ -16,12 +16,39 @@ import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 
 /** Base option type — can be expanded */
-export interface AutoCompleteInputOption {
+export interface AutocompleteInputOptionType {
   text: string
   value: string
 }
 
-export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
+interface State {
+  open: boolean
+  query: string
+}
+
+type Action =
+  | { type: "OPEN" }
+  | { type: "CLOSE" }
+  | { type: "CLEAR" }
+  | { type: "CHANGE"; payload: { query: string } }
+  | { type: "SELECT"; payload: { query: string } }
+
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "OPEN":
+      return { ...state, open: true }
+    case "CLOSE":
+      return { ...state, open: false }
+    case "CLEAR":
+      return { ...state, query: "" }
+    case "CHANGE":
+      return { ...state, query: action.payload.query, open: true }
+    case "SELECT":
+      return { ...state, query: action.payload.query, open: false }
+  }
+}
+
+export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   extends Omit<InputProps, "onSelect" | "onSubmit"> {
   defaultValue?: string
   loading?: boolean
@@ -29,6 +56,8 @@ export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
   onSelect?(option: T, index: number): void
+  /** on <click> of the 'x' (clear) button */
+  onClear?(): void
   renderOption?(
     option: T,
     i: number
@@ -37,13 +66,14 @@ export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
 }
 
 /** AutocompleteInput */
-export const AutocompleteInput = <T extends AutoCompleteInputOption>({
+export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   defaultValue = "",
   id,
   loading,
   onSubmit,
   onSelect,
   onChange,
+  onClear,
   onKeyDown,
   height,
   renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
@@ -55,8 +85,10 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
 
   const [boxProps, inputProps] = splitBoxProps(rest)
 
-  const [open, setOpen] = useState(false)
-  const [query, setQuery] = useState(defaultValue)
+  const [state, dispatch] = useReducer(reducer, {
+    open: false,
+    query: defaultValue,
+  })
 
   const optionsWithRefs = useMemo(() => {
     return options.map((option) => ({
@@ -69,8 +101,14 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
     setTimeout(() => {
       inputRef.current?.focus()
       reset()
-      setOpen(false)
+      dispatch({ type: "CLOSE" })
     }, 100)
+  }
+
+  const handleSelect = (option: T, index: number) => {
+    dispatch({ type: "SELECT", payload: { query: option.text } })
+    inputRef.current?.focus()
+    onSelect?.(option, index)
   }
 
   const { index, reset, set } = useKeyboardListNavigation({
@@ -78,12 +116,12 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
     list: options,
     waitForInteractive: true,
     onEnter: ({ element: option, index: i }) => {
-      onSelect?.(option, i)
+      handleSelect(option, i)
       resetUI()
     },
   })
 
-  const isDropdownVisible = open && options.length > 0
+  const isDropdownVisible = state.open && options.length > 0
 
   // Reset keyboard navigation when options change
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,11 +129,11 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
 
   // Reset keyboard navigation when query is empty
   useEffect(() => {
-    if (query === "") {
+    if (state.query === "") {
       reset()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query])
+  }, [state.query])
 
   const { anchorRef, tooltipRef } = usePosition({
     position: "bottom",
@@ -107,11 +145,11 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
 
   const handleFocus = () => {
     reset()
-    setOpen(true)
+    dispatch({ type: "OPEN" })
   }
 
   const handleMouseDown = (option: T, i: number) => () => {
-    onSelect?.(option, i)
+    handleSelect(option, i)
     resetUI()
   }
 
@@ -124,48 +162,54 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
       currentTarget: { value },
     } = event
 
-    setOpen(true)
-    setQuery(value)
+    dispatch({ type: "CHANGE", payload: { query: value } })
     onChange?.(event)
   }
 
   const handleClearOrSubmit = () => {
-    if (query === "") {
-      onSubmit?.(query)
+    if (state.query === "") {
+      onSubmit?.(state.query)
       return
     }
 
-    setQuery("")
+    dispatch({ type: "CLEAR" })
     inputRef.current?.focus()
+    onClear?.()
   }
 
   // Moves focus to different options when keyboard navigating using up/down
   useEffect(() => {
     const option = optionsWithRefs[index]
     option?.ref?.current?.focus()
-  }, [index])
+  }, [index, optionsWithRefs])
 
   // Handle closing the dropdown
   useClickOutside({
     ref: containerRef,
     when: isDropdownVisible,
-    onClickOutside: () => setOpen(false),
+    onClickOutside: () => {
+      dispatch({ type: "CLOSE" })
+    },
   })
 
   const handleInputKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     switch (event.key) {
       // Handle <Enter> when nothing is selected
       case "Enter":
-        if (query !== "" && index === -1) {
-          onSubmit?.(query)
+        if (state.query !== "" && index === -1) {
+          onSubmit?.(state.query)
           resetUI()
         }
         return
 
       // <Esc> to close dropdown
       case "Escape":
+        event.preventDefault()
+        event.stopPropagation()
+
+        dispatch({ type: "CLOSE" })
         inputRef.current?.blur()
-        setOpen(false)
+
         return
 
       default:
@@ -180,15 +224,34 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
     event: React.KeyboardEvent<HTMLDivElement>
   ) => {
     switch (event.key) {
+      case "Alt":
       case "ArrowDown":
       case "ArrowUp":
+      case "Control":
       case "Enter":
+      case "Meta":
+      case "Shift":
+      case "Tab":
+        // Ignore
+        return
+
+      case "Escape":
+        event.preventDefault()
+        event.stopPropagation()
+
+        dispatch({ type: "CLOSE" })
+        inputRef.current?.blur()
+        reset()
+
         return
 
       default:
         inputRef.current?.focus()
     }
   }
+
+  // Option that is being hovered or keyed into
+  const staged = options[index]
 
   return (
     <Box
@@ -207,7 +270,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
             <Box width={18}>
               <Spinner size="small" />
             </Box>
-          ) : query ? (
+          ) : state.query ? (
             <Clickable
               onClick={handleClearOrSubmit}
               height="100%"
@@ -221,7 +284,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
             <MagnifyingGlassIcon fill="black60" aria-hidden />
           )
         }
-        value={query}
+        value={staged?.text ?? state.query}
         onChange={handleChange}
         onFocus={handleFocus}
         onKeyDown={handleInputKeydown}

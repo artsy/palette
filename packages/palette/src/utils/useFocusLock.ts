@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import { useCursor } from "use-cursor"
 import { useMutationObserver } from "./useMutationObserver"
 
@@ -32,6 +32,8 @@ export const useFocusLock = (
   // Set initial focusable elements on mount
   useEffect(updateFocusableEls, [updateFocusableEls])
 
+  const skipUpdateFocusRef = useRef(false)
+
   // Detects when DOM changes and updates focusable elements
   useMutationObserver({
     ref,
@@ -44,6 +46,7 @@ export const useFocusLock = (
       })
 
       if (hasMeaningfullyMutated) {
+        skipUpdateFocusRef.current = true
         updateFocusableEls()
       }
     },
@@ -54,13 +57,19 @@ export const useFocusLock = (
     handlePrev,
     handleNext,
     setCursor,
-  } = useCursor({
-    max: focusableEls.length,
-  })
+  } = useCursor({ max: focusableEls.length })
 
   // Moves focus when index changes
   useEffect(() => {
     if (!focusableEls.length) return
+
+    // In order to avoid a loop when a focus might be the cause of a mutation,
+    // we skip focusing the el.
+    if (skipUpdateFocusRef.current) {
+      skipUpdateFocusRef.current = false
+      return
+    }
+
     focusableEls[focusableIndex].focus()
   }, [focusableEls, focusableIndex])
 
