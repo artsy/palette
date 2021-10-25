@@ -73,12 +73,18 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
     }, 100)
   }
 
+  const handleSelect = (option: T, index: number) => {
+    setQuery(option.text)
+    inputRef.current?.focus()
+    onSelect?.(option, index)
+  }
+
   const { index, reset, set } = useKeyboardListNavigation({
     ref: containerRef,
     list: options,
     waitForInteractive: true,
     onEnter: ({ element: option, index: i }) => {
-      onSelect?.(option, i)
+      handleSelect(option, i)
       resetUI()
     },
   })
@@ -111,7 +117,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
   }
 
   const handleMouseDown = (option: T, i: number) => () => {
-    onSelect?.(option, i)
+    handleSelect(option, i)
     resetUI()
   }
 
@@ -143,7 +149,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
   useEffect(() => {
     const option = optionsWithRefs[index]
     option?.ref?.current?.focus()
-  }, [index])
+  }, [index, optionsWithRefs])
 
   // Handle closing the dropdown
   useClickOutside({
@@ -164,8 +170,8 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
 
       // <Esc> to close dropdown
       case "Escape":
-        inputRef.current?.blur()
         setOpen(false)
+        inputRef.current?.blur()
         return
 
       default:
@@ -185,10 +191,19 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
       case "Enter":
         return
 
+      case "Escape":
+        setOpen(false)
+        inputRef.current?.blur()
+        reset()
+        return
+
       default:
         inputRef.current?.focus()
     }
   }
+
+  // Option that is being hovered or keyed into
+  const staged = options[index]
 
   return (
     <Box
@@ -221,7 +236,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
             <MagnifyingGlassIcon fill="black60" aria-hidden />
           )
         }
-        value={query}
+        value={staged?.text ?? query}
         onChange={handleChange}
         onFocus={handleFocus}
         onKeyDown={handleInputKeydown}

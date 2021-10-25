@@ -37,6 +37,8 @@ export const AutocompleteInputOption: React.ForwardRefExoticComponent<
   )
 })
 
+AutocompleteInputOption.displayName = "AutocompleteInputOption"
+
 const Container = styled(Clickable)`
   display: block;
   width: 100%;
