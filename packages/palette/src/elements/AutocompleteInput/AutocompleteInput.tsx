@@ -29,6 +29,8 @@ export interface AutocompleteInputProps<T extends AutoCompleteInputOption>
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
   onSelect?(option: T, index: number): void
+  /** on <click> of the "x" button */
+  onClear?(): void
   renderOption?(
     option: T,
     i: number
@@ -44,6 +46,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
   onSubmit,
   onSelect,
   onChange,
+  onClear,
   onKeyDown,
   height,
   renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
@@ -143,6 +146,7 @@ export const AutocompleteInput = <T extends AutoCompleteInputOption>({
 
     setQuery("")
     inputRef.current?.focus()
+    onClear?.()
   }
 
   // Moves focus to different options when keyboard navigating using up/down
