@@ -174,6 +174,8 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
       // <Esc> to close dropdown
       case "Escape":
+        event.preventDefault()
+        event.stopPropagation()
         setOpen(false)
         inputRef.current?.blur()
         return
@@ -202,6 +204,8 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
         return
 
       case "Escape":
+        event.preventDefault()
+        event.stopPropagation()
         setOpen(false)
         inputRef.current?.blur()
         reset()
