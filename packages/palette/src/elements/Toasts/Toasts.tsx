@@ -17,8 +17,8 @@ export const Toasts: React.FC<ToastsProps> = ({ limit = 5, ...rest }) => {
     <>
       <Box {...rest}>
         <Join separator={<Spacer mt={1} />}>
-          {takeRight(toasts, limit).map(({ id, close, ...rest }) => (
-            <Toast key={id} onClose={close} {...rest} />
+          {takeRight(toasts, limit).map(({ id, ...rest }) => (
+            <Toast key={id} id={id} {...rest} />
           ))}
         </Join>
       </Box>
