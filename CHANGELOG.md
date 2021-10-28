@@ -1,3 +1,16 @@
+# (Thu Oct 28 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.5.0`
+  - feat(toasts): supports retracting toasts [#1065](https://github.com/artsy/palette/pull/1065) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Oct 25 2021)
 
 #### 🐛  Bug Fix

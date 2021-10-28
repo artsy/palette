@@ -1,3 +1,20 @@
+# v18.5.0 (Thu Oct 28 2021)
+
+#### 🚀  Enhancement
+
+- feat(toasts): supports retracting toasts [#1065](https://github.com/artsy/palette/pull/1065) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(chromatic): disables stories ([@dzucconi](https://github.com/dzucconi))
+- feat(toasts): supports retracting toasts ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.4.2 (Mon Oct 25 2021)
 
 #### 🐛  Bug Fix
