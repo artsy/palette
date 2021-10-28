@@ -59,6 +59,10 @@ export const _Clickable = () => {
   )
 }
 
+_Clickable.story = {
+  parameters: { chromatic: { disable: true } },
+}
+
 export const Placement = () => {
   return (
     <States<Partial<TooltipProps>>
