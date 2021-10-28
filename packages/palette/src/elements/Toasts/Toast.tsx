@@ -9,23 +9,29 @@ import { Text } from "../Text"
 export type ToastVariant = keyof typeof TOAST_VARIANTS
 
 export interface ToastProps extends BoxProps {
+  id: string
   action?: {
     label: string
     onClick(): void
   }
   description?: string
   message: string
-  onClose?(): void
+  onClose?(id: string): void
   variant?: ToastVariant
 }
 
 export const Toast: React.FC<ToastProps> = ({
+  id,
   action,
   description,
   message,
   onClose,
   ...rest
 }) => {
+  const handleClick = () => {
+    onClose?.(id)
+  }
+
   return (
     <Container
       width="100%"
@@ -35,10 +41,10 @@ export const Toast: React.FC<ToastProps> = ({
       color="white100"
       role="button"
       tabIndex={0}
-      onClick={onClose}
+      onClick={handleClick}
       onKeyPress={(event) => {
         if (event.key === "Enter" || event.key === " ") {
-          onClose?.()
+          onClose?.(id)
         }
       }}
       style={{ cursor: "pointer" }}
@@ -84,4 +90,5 @@ export const TOAST_VARIANTS = {
 
 const Container = styled(Box)`
   ${variant({ variants: TOAST_VARIANTS })}
+  user-select: none;
 `

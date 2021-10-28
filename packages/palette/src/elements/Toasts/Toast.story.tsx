@@ -18,7 +18,11 @@ export const Default = () => {
         { action: { label: "Undo", onClick: action("onClick") } },
       ]}
     >
-      <Toast message="Message Title" description="This is placeholder text." />
+      <Toast
+        id="example"
+        message="Message Title"
+        description="This is placeholder text."
+      />
     </States>
   )
 }

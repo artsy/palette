@@ -15,4 +15,5 @@ export const SpinnerWithDelayedShow = () => {
 
 SpinnerWithDelayedShow.story = {
   name: "Spinner with delayed show",
+  parameters: { chromatic: { disable: true } },
 }

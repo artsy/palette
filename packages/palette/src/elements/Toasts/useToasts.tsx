@@ -11,10 +11,13 @@ import { ToastProps } from "./Toast"
 interface Toast extends ToastProps {
   id: string
   ttl: number
-  close(): void
+  onClose(id: string): void
 }
 
-type Payload = Omit<Toast, "id" | "ttl" | "close"> & { ttl?: number }
+type Payload = Omit<Toast, "id" | "ttl" | "onClose"> & {
+  ttl?: number
+  onClose?(id: string): void
+}
 
 type State = { toasts: Toast[] }
 
@@ -39,49 +42,83 @@ const reducer = (state: State, action: Action): State => {
 
 export const ToastsContext = createContext<{
   state: State
-  sendToast(toast: Payload): void
+  sendToast(toast: Payload): { id: string; handleClose: () => void }
+  retractToast(id: string): void
 }>({
   state: { toasts: [] },
   sendToast: () => {
-    // noop
+    return {
+      id: "",
+      handleClose: () => {
+        // NOOP
+      },
+    }
+  },
+  retractToast: () => {
+    // NOOP
   },
 })
 
 export const ToastsProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, { toasts: [] })
 
-  const timeouts = useRef<Map<string, number>>(new Map())
+  const activeToasts = useRef<
+    Map<
+      string,
+      {
+        timeout: number
+        onClose?: (id: string) => void
+      }
+    >
+  >(new Map())
 
-  const sendToast = useCallback(({ ttl = 6000, ...rest }: Payload) => {
-    const id = generateId()
+  const retractToast = useCallback((id: string) => {
+    const toast = activeToasts.current.get(id)
 
-    const close = () => {
-      clearTimeout(timeouts.current.get(id))
-      timeouts.current.delete(id)
-      dispatch({ type: "RETRACT", payload: { id } })
-    }
+    if (!toast) return
 
-    dispatch({ type: "SEND", payload: { id, ...rest, ttl, close } })
+    clearTimeout(toast.timeout)
 
-    timeouts.current.set(
-      id,
-      window.setTimeout(() => {
-        timeouts.current.delete(id)
-        dispatch({ type: "RETRACT", payload: { id } })
-      }, ttl)
-    )
+    activeToasts.current.delete(id)
+
+    dispatch({ type: "RETRACT", payload: { id } })
+
+    toast.onClose?.(id)
   }, [])
 
+  const sendToast = useCallback(
+    ({ ttl = 6000, onClose, ...rest }: Payload) => {
+      const id = generateId()
+
+      const handleClose = () => {
+        retractToast(id)
+      }
+
+      dispatch({
+        type: "SEND",
+        payload: { ...rest, id, ttl, onClose: handleClose },
+      })
+
+      activeToasts.current.set(id, {
+        timeout: ttl !== Infinity ? window.setTimeout(handleClose, ttl) : -1,
+        onClose,
+      })
+
+      return { id, handleClose }
+    },
+    [retractToast]
+  )
+
   useEffect(() => {
-    const handles = timeouts.current
+    const toasts = activeToasts.current
 
     return () => {
-      handles.forEach(clearTimeout)
+      toasts.forEach((toast) => clearTimeout(toast.timeout))
     }
   }, [])
 
   return (
-    <ToastsContext.Provider value={{ state, sendToast }}>
+    <ToastsContext.Provider value={{ state, sendToast, retractToast }}>
       {children}
     </ToastsContext.Provider>
   )
@@ -91,9 +128,10 @@ export const useToasts = () => {
   const {
     state: { toasts },
     sendToast,
+    retractToast,
   } = useContext(ToastsContext)
 
-  return { toasts, sendToast }
+  return { toasts, sendToast, retractToast }
 }
 
 const generateId = () => Math.random().toString(26).slice(2)
