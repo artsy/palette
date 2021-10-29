@@ -99,7 +99,6 @@ export const ConditionalTabs = () => {
 }
 
 export const AutoScrolling = () => {
-  //Added to test autoscrolling for active state
   const [activeTabIndex, setActiveTabIndex] = useState(0)
 
   return (
