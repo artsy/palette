@@ -1,3 +1,21 @@
+# (Wed Nov 03 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.6.0`
+  - fix(tabs): add scrollIntoView for active tab [#1066](https://github.com/artsy/palette/pull/1066) ([@tam-kis](https://github.com/tam-kis))
+
+#### 🏠  Internal
+
+- chore(deps): bump tar from 4.4.15 to 4.4.19 [#1028](https://github.com/artsy/palette/pull/1028) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Tam ([@tam-kis](https://github.com/tam-kis))
+
+---
+
 # (Thu Oct 28 2021)
 
 #### 🚀  Enhancement

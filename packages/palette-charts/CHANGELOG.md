@@ -1,3 +1,15 @@
+# v17.6.0 (Wed Nov 03 2021)
+
+#### 🚀  Enhancement
+
+- fix(tabs): add scrollIntoView for active tab [#1066](https://github.com/artsy/palette/pull/1066) ([@tam-kis](https://github.com/tam-kis))
+
+#### Authors: 1
+
+- Tam ([@tam-kis](https://github.com/tam-kis))
+
+---
+
 # v17.3.0 (Mon Oct 18 2021)
 
 #### 🏠  Internal

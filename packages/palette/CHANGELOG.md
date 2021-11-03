@@ -1,3 +1,22 @@
+# v18.6.0 (Wed Nov 03 2021)
+
+#### 🚀  Enhancement
+
+- fix(tabs): add scrollIntoView for active tab [#1066](https://github.com/artsy/palette/pull/1066) ([@tam-kis](https://github.com/tam-kis))
+
+#### 🐛  Bug Fix
+
+- fix(tabs): import elements separately ([@tam-kis](https://github.com/tam-kis))
+- fix(tabs): remove comment for scroll on active ([@tam-kis](https://github.com/tam-kis))
+- fix(tabs): remove unused imports ([@tam-kis](https://github.com/tam-kis))
+- fix(tabs): add scrollIntoView for active tab ([@tam-kis](https://github.com/tam-kis))
+
+#### Authors: 1
+
+- Tam ([@tam-kis](https://github.com/tam-kis))
+
+---
+
 # v18.5.0 (Thu Oct 28 2021)
 
 #### 🚀  Enhancement
