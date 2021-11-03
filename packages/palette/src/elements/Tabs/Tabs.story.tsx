@@ -1,6 +1,8 @@
 import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
 import { States } from "storybook-states"
+import { Button } from "../Button"
+import { Flex } from "../Flex"
 import { ChevronIcon } from "../../svgs"
 import { Sup } from "../Sup"
 import { Tab, Tabs, TabsProps } from "./"
@@ -98,9 +100,24 @@ export const ConditionalTabs = () => {
 }
 
 export const AutoScrolling = () => {
+  const [activeTabIndex, setActiveTabIndex] = useState(0)
+
   return (
-    <Tabs onChange={action("onChange")}>
-      <Tab name="First">First</Tab>
+    <Tabs onChange={action("onChange")} initialTabIndex={activeTabIndex}>
+      <Tab name="First">
+        First
+        <Flex>
+          <Button
+            size="small"
+            marginTop={4}
+            onClick={() => {
+              setActiveTabIndex(14)
+            }}
+          >
+            Scroll to last
+          </Button>
+        </Flex>
+      </Tab>
       <Tab name="Second">Second</Tab>
       <Tab name="Third">Third</Tab>
       <Tab name="Fourth">Fourth</Tab>
@@ -114,7 +131,20 @@ export const AutoScrolling = () => {
       <Tab name="Twelveth">Twelveth</Tab>
       <Tab name="Thirteenth">Thirteenth</Tab>
       <Tab name="Fourteenth">Fourteenth</Tab>
-      <Tab name="Fifteenth">Fifteenth</Tab>
+      <Tab name="Fifteenth">
+        Fifteenth
+        <Flex>
+          <Button
+            size="small"
+            marginTop={4}
+            onClick={() => {
+              setActiveTabIndex(0)
+            }}
+          >
+            Scroll to first
+          </Button>
+        </Flex>
+      </Tab>
     </Tabs>
   )
 }
