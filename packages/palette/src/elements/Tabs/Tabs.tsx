@@ -1,5 +1,5 @@
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
-import React, { createRef, useCallback, useEffect, useState } from "react"
+import React, { createRef, useCallback, useState } from "react"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useThemeConfig } from "../../Theme"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
@@ -51,17 +51,6 @@ export const useTabs = ({
     setActiveTabIndex(initialTabIndex)
   }, [initialTabIndex])
 
-  const scrollToTab = () =>
-    activeTab.ref.current?.scrollIntoView?.({
-      inline: "center",
-      block: "nearest",
-      behavior: "smooth",
-    })
-
-  useEffect(() => {
-    scrollToTab()
-  }, [tabs, activeTabIndex])
-
   const handleClick = useCallback(
     (index: number) => {
       return () => {
@@ -69,7 +58,11 @@ export const useTabs = ({
 
         setActiveTabIndex(index)
 
-        scrollToTab()
+        tabs[index].ref.current?.scrollIntoView?.({
+          inline: "center",
+          block: "nearest",
+          behavior: "smooth",
+        })
 
         if (!onChange) return
 
