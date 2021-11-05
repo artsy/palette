@@ -1,11 +1,11 @@
 import { action } from "@storybook/addon-actions"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
-import { Button } from "../Button"
-import { Flex } from "../Flex"
 import { ChevronIcon } from "../../svgs"
 import { Sup } from "../Sup"
 import { Tab, Tabs, TabsProps } from "./"
+import { Box } from "../Box"
+import { useCursor } from "use-cursor"
 
 export default {
   title: "Components/Tabs",
@@ -100,51 +100,88 @@ export const ConditionalTabs = () => {
 }
 
 export const AutoScrolling = () => {
-  const [activeTabIndex, setActiveTabIndex] = useState(0)
+  const { index: initialTabIndex, handleNext } = useCursor({ max: 15 })
+
+  useEffect(() => {
+    const interval = setInterval(handleNext, 500)
+    return () => clearInterval(interval)
+  }, [handleNext])
 
   return (
-    <Tabs onChange={action("onChange")} initialTabIndex={activeTabIndex}>
-      <Tab name="First">
-        First
-        <Flex>
-          <Button
-            size="small"
-            marginTop={4}
-            onClick={() => {
-              setActiveTabIndex(14)
-            }}
-          >
-            Scroll to last
-          </Button>
-        </Flex>
-      </Tab>
-      <Tab name="Second">Second</Tab>
-      <Tab name="Third">Third</Tab>
-      <Tab name="Fourth">Fourth</Tab>
-      <Tab name="Fifth">Fifth</Tab>
-      <Tab name="Sixth">Sixth</Tab>
-      <Tab name="Seventh">Seventh</Tab>
-      <Tab name="Eighth">Eighth</Tab>
-      <Tab name="Nineth">Nineth</Tab>
-      <Tab name="Tenth">Tenth</Tab>
-      <Tab name="Eleventh">Eleventh</Tab>
-      <Tab name="Twelveth">Twelveth</Tab>
-      <Tab name="Thirteenth">Thirteenth</Tab>
-      <Tab name="Fourteenth">Fourteenth</Tab>
-      <Tab name="Fifteenth">
-        Fifteenth
-        <Flex>
-          <Button
-            size="small"
-            marginTop={4}
-            onClick={() => {
-              setActiveTabIndex(0)
-            }}
-          >
-            Scroll to first
-          </Button>
-        </Flex>
-      </Tab>
-    </Tabs>
+    <>
+      <Tabs initialTabIndex={initialTabIndex} onChange={action("onChange")}>
+        <Tab name="First">First</Tab>
+        <Tab name="Second">Second</Tab>
+        <Tab name="Third">Third</Tab>
+        <Tab name="Fourth">Fourth</Tab>
+        <Tab name="Fifth">Fifth</Tab>
+        <Tab name="Sixth">Sixth</Tab>
+        <Tab name="Seventh">Seventh</Tab>
+        <Tab name="Eighth">Eighth</Tab>
+        <Tab name="Nineth">Nineth</Tab>
+        <Tab name="Tenth">Tenth</Tab>
+        <Tab name="Eleventh">Eleventh</Tab>
+        <Tab name="Twelveth">Twelveth</Tab>
+        <Tab name="Thirteenth">Thirteenth</Tab>
+        <Tab name="Fourteenth">Fourteenth</Tab>
+        <Tab name="Fifteenth">Fifteenth</Tab>
+      </Tabs>
+
+      <pre>{JSON.stringify({ initialTabIndex })}</pre>
+    </>
   )
+}
+
+AutoScrolling.story = {
+  parameters: { chromatic: { disable: true } },
+}
+
+export const InitialAutoScroll = () => {
+  const [key, setKey] = useState(1)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setKey((key) => key + 1)
+    }, 500)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <>
+      <Box bg="black10" height={1000} p={2}>
+        The vertical scroll of this page should be at the top.
+        <br />
+        Scroll down to see the tabs.
+        <br />
+        Render: #{key}
+      </Box>
+
+      <Tabs onChange={action("onChange")} initialTabIndex={14}>
+        <Tab name="First">First</Tab>
+        <Tab name="Second">Second</Tab>
+        <Tab name="Third">Third</Tab>
+        <Tab name="Fourth">Fourth</Tab>
+        <Tab name="Fifth">Fifth</Tab>
+        <Tab name="Sixth">Sixth</Tab>
+        <Tab name="Seventh">Seventh</Tab>
+        <Tab name="Eighth">Eighth</Tab>
+        <Tab name="Nineth">Nineth</Tab>
+        <Tab name="Tenth">Tenth</Tab>
+        <Tab name="Eleventh">Eleventh</Tab>
+        <Tab name="Twelveth">Twelveth</Tab>
+        <Tab name="Thirteenth">Thirteenth</Tab>
+        <Tab name="Fourteenth">Fourteenth</Tab>
+        <Tab name="Fifteenth">
+          This tab should be active &amp; visible on mount.
+        </Tab>
+      </Tabs>
+
+      <Box bg="black10" height={1000} />
+    </>
+  )
+}
+
+InitialAutoScroll.story = {
+  parameters: { chromatic: { disable: true } },
 }

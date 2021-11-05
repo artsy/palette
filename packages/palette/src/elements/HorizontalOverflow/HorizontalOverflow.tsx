@@ -61,7 +61,7 @@ export type HorizontalOverflowProps = BoxProps & { children: React.ReactNode }
 
 export const HorizontalOverflow: React.ForwardRefExoticComponent<
   HorizontalOverflowProps & React.RefAttributes<HTMLDivElement>
-> = forwardRef(({ children, ref: _ref, ...rest }, forwardedRef) => {
+> = forwardRef(({ children, ...rest }, forwardedRef) => {
   const ref = useRef<HTMLDivElement | null>()
 
   useEffect(() => {
@@ -92,6 +92,7 @@ export const HorizontalOverflow: React.ForwardRefExoticComponent<
   }
 
   return (
+    // @ts-ignore
     <Overlay atEnd={atEnd} {...boxProps}>
       <Viewport
         ref={composeRefs(ref, forwardedRef) as any}

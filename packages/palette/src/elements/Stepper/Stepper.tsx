@@ -46,14 +46,19 @@ export const Stepper: React.FC<StepperProps> = ({
     },
   })
 
-  const { tabs, activeTab, activeTabIndex, handleClick } = useTabs({
+  const { tabs, activeTab, activeTabIndex, handleClick, ref } = useTabs({
     children,
     initialTabIndex,
   })
 
   return (
     <>
-      <BaseTabs separator={tokens.joinSeparator!} fill={tokens.fill} {...rest}>
+      <BaseTabs
+        ref={ref}
+        separator={tokens.joinSeparator!}
+        fill={tokens.fill}
+        {...rest}
+      >
         {tabs.map((tab, i) => {
           return (
             <BaseTab
@@ -99,7 +104,7 @@ export const Stepper: React.FC<StepperProps> = ({
         })}
       </BaseTabs>
 
-      {activeTab.child}
+      {activeTab.current.child}
     </>
   )
 }

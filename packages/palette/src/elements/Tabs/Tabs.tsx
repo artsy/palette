@@ -1,5 +1,12 @@
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
-import React, { createRef, useCallback, useEffect, useState } from "react"
+import React, {
+  createRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useThemeConfig } from "../../Theme"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
@@ -38,38 +45,47 @@ export const useTabs = ({
   initialTabIndex = 0,
   onChange,
 }: TabsProps) => {
-  const tabs = flattenChildren<TabLike>(children).map((child) => ({
-    child,
-    ref: createRef<HTMLButtonElement | null>(),
-  }))
+  const tabs = useMemo(
+    () =>
+      flattenChildren<TabLike>(children).map((child) => ({
+        child,
+        ref: createRef<HTMLButtonElement | null>(),
+      })),
+    [children]
+  )
 
   const [activeTabIndex, setActiveTabIndex] = useState<number>(initialTabIndex)
-  const activeTab = tabs[activeTabIndex]
+
+  // Wraps active tab in a ref to prevent re-rendering.
+  // This means that we need to update the active tab before the index state change
+  // to catch the re-render.
+  const activeTab = useRef(tabs[activeTabIndex])
 
   // If the `initialTabIndex` changes; update the active one
   useUpdateEffect(() => {
+    activeTab.current = tabs[initialTabIndex]
     setActiveTabIndex(initialTabIndex)
   }, [initialTabIndex])
 
-  const scrollToTab = () =>
-    activeTab.ref.current?.scrollIntoView?.({
-      inline: "center",
-      block: "nearest",
-      behavior: "smooth",
-    })
+  // Ref of the tabs viewport
+  const ref = useRef<HTMLDivElement | null>(null)
 
+  // Scroll to active tab when `activeTabIndex` changes
   useEffect(() => {
-    scrollToTab()
-  }, [tabs, activeTabIndex])
+    if (!ref.current) return
+    const tab = activeTab.current.ref.current
+    if (!tab) return
+    const position = tab.offsetLeft
+    ref.current.scrollTo?.({ left: position, behavior: "smooth" })
+  }, [activeTabIndex])
 
   const handleClick = useCallback(
     (index: number) => {
       return () => {
         if (index === activeTabIndex) return
 
+        activeTab.current = tabs[index]
         setActiveTabIndex(index)
-
-        scrollToTab()
 
         if (!onChange) return
 
@@ -80,14 +96,15 @@ export const useTabs = ({
         })
       }
     },
-    [tabs, onChange, activeTabIndex]
+    [activeTabIndex, onChange, tabs]
   )
 
   return {
-    tabs,
     activeTab,
     activeTabIndex,
     handleClick,
+    ref,
+    tabs,
   }
 }
 
@@ -103,7 +120,7 @@ export const Tabs: React.FC<TabsProps> = ({
     v3: "sm",
   })
 
-  const { tabs, activeTab, activeTabIndex, handleClick } = useTabs({
+  const { tabs, activeTab, activeTabIndex, handleClick, ref } = useTabs({
     children,
     initialTabIndex,
     onChange,
@@ -111,7 +128,7 @@ export const Tabs: React.FC<TabsProps> = ({
 
   return (
     <>
-      <BaseTabs {...rest}>
+      <BaseTabs ref={ref} {...rest}>
         {tabs.map((tab, i) => {
           return (
             <Clickable
@@ -129,7 +146,7 @@ export const Tabs: React.FC<TabsProps> = ({
         })}
       </BaseTabs>
 
-      {activeTab.child}
+      {activeTab.current.child}
     </>
   )
 }
