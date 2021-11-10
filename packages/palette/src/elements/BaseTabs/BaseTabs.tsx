@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React, { forwardRef, useMemo } from "react"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
@@ -17,39 +17,39 @@ export type BaseTabsProps = BoxProps & {
 }
 
 /** Extends `Box`, provides configurable gutter */
-export const BaseTabs: React.FC<BaseTabsProps> = ({
-  fill,
-  separator: defaultSeparator,
-  children,
-  ...rest
-}) => {
-  const separator = useThemeConfig({
-    v2: defaultSeparator ?? <Box mx={1} />,
-    v3: defaultSeparator,
-  })
+export const BaseTabs: React.ForwardRefExoticComponent<
+  BaseTabsProps & React.RefAttributes<HTMLDivElement>
+> = forwardRef(
+  ({ fill, separator: defaultSeparator, children, ...rest }, forwardedRef) => {
+    const separator = useThemeConfig({
+      v2: defaultSeparator ?? <Box mx={1} />,
+      v3: defaultSeparator,
+    })
 
-  const cells = useMemo(() => flattenChildren(children), [children])
+    const cells = useMemo(() => flattenChildren(children), [children])
 
-  return (
-    <HorizontalOverflow
-      borderBottom="1px solid"
-      borderBottomColor="black10"
-      {...rest}
-    >
-      <Join separator={separator!}>
-        {cells.map((child, i) => {
-          return (
-            <Box
-              key={i}
-              display="inline-flex"
-              textAlign="center"
-              flex={fill ? 1 : undefined}
-            >
-              {child}
-            </Box>
-          )
-        })}
-      </Join>
-    </HorizontalOverflow>
-  )
-}
+    return (
+      <HorizontalOverflow
+        ref={forwardedRef}
+        borderBottom="1px solid"
+        borderBottomColor="black10"
+        {...rest}
+      >
+        <Join separator={separator!}>
+          {cells.map((child, i) => {
+            return (
+              <Box
+                key={i}
+                display="inline-flex"
+                textAlign="center"
+                flex={fill ? 1 : undefined}
+              >
+                {child}
+              </Box>
+            )
+          })}
+        </Join>
+      </HorizontalOverflow>
+    )
+  }
+)
