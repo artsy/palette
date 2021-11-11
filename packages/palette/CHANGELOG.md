@@ -1,3 +1,22 @@
+# v18.6.1 (Thu Nov 11 2021)
+
+#### 🐛  Bug Fix
+
+- fix(tabs): avoids scrolling on mount [#1070](https://github.com/artsy/palette/pull/1070) ([@dzucconi](https://github.com/dzucconi))
+- fix(tabs): avoids scrolling on mount ([@dzucconi](https://github.com/dzucconi))
+- feat: forwards refs ([@dzucconi](https://github.com/dzucconi))
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump prismjs from 1.24.1 to 1.25.0 [#1039](https://github.com/artsy/palette/pull/1039) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.6.0 (Wed Nov 03 2021)
 
 #### 🚀  Enhancement

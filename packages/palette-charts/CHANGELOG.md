@@ -1,3 +1,15 @@
+# v17.6.1 (Thu Nov 11 2021)
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump prismjs from 1.24.1 to 1.25.0 [#1039](https://github.com/artsy/palette/pull/1039) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v17.6.0 (Wed Nov 03 2021)
 
 #### 🚀  Enhancement

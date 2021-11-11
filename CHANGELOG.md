@@ -1,3 +1,25 @@
+# (Thu Nov 11 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.6.1`
+  - fix(tabs): avoids scrolling on mount [#1070](https://github.com/artsy/palette/pull/1070) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): bump axios from 0.21.1 to 0.21.4 [#1069](https://github.com/artsy/palette/pull/1069) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump prismjs from 1.24.1 to 1.25.0 [#1039](https://github.com/artsy/palette/pull/1039) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Nov 03 2021)
 
 #### 🚀  Enhancement
