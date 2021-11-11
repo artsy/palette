@@ -44,6 +44,9 @@ export const ButtonV3: React.ForwardRefExoticComponent<
           lineHeight={1}
           variant={BUTTON_TEXT_SIZES[size!]}
           opacity={loading ? 0 : 1}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
         >
           {children}
         </Text>
@@ -51,6 +54,8 @@ export const ButtonV3: React.ForwardRefExoticComponent<
     )
   }
 )
+
+ButtonV3.displayName = "Button"
 
 ButtonV3.defaultProps = {
   size: "medium",

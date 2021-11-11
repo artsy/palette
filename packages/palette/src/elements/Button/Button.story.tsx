@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
+import { BellIcon } from "../.."
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
@@ -151,6 +152,26 @@ export const As = () => {
       {/* @ts-ignore */}
       <Button as="a" href="#example">
         This is an anchor tag with an href
+      </Button>
+    </States>
+  )
+}
+
+export const WithIcon = () => {
+  return (
+    <States<ButtonProps>
+      states={[
+        {},
+        { focus: true },
+        { hover: true },
+        { loading: true },
+        { disabled: true },
+        { loading: true, disabled: true },
+      ]}
+    >
+      <Button variant="secondaryOutline" size="small">
+        <BellIcon fill="currentColor" mr={0.5} />
+        Create an Alert
       </Button>
     </States>
   )
