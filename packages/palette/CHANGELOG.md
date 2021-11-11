@@ -1,3 +1,20 @@
+# v18.7.0 (Thu Nov 11 2021)
+
+#### 🚀  Enhancement
+
+- feat(button): improves support for icon buttons [#1071](https://github.com/artsy/palette/pull/1071) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(button): fixes alignment for icons ([@dzucconi](https://github.com/dzucconi))
+- fix(color): supports currentColor ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.6.1 (Thu Nov 11 2021)
 
 #### 🐛  Bug Fix
