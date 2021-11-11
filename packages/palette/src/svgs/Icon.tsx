@@ -13,7 +13,7 @@ export interface IconProps
   extends React.SVGProps<any>,
     SpaceProps,
     PositionProps {
-  fill?: Color
+  fill?: Color | "currentColor"
   title?: string
 }
 

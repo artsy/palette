@@ -6,4 +6,5 @@ import { Color, themeProps } from "../Theme"
  *
  * @deprecated use component `color` or `borderColor` props, or `themeGet('colors.colorName')`
  */
-export const color = (colorKey: Color) => themeProps.colors[colorKey]
+export const color = (colorKey: Color | "currentColor") =>
+  themeProps.colors[colorKey] ?? colorKey
