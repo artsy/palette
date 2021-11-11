@@ -1,5 +1,6 @@
+import composeRefs from "@seznam/compose-react-refs"
 import { themeGet } from "@styled-system/theme-get"
-import React, { useEffect, useRef, useState } from "react"
+import React, { forwardRef, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import {
   border,
@@ -58,10 +59,9 @@ const Rail = styled(Box)`
 
 export type HorizontalOverflowProps = BoxProps & { children: React.ReactNode }
 
-export const HorizontalOverflow: React.FC<HorizontalOverflowProps> = ({
-  children,
-  ...rest
-}) => {
+export const HorizontalOverflow: React.ForwardRefExoticComponent<
+  HorizontalOverflowProps & React.RefAttributes<HTMLDivElement>
+> = forwardRef(({ children, ...rest }, forwardedRef) => {
   const ref = useRef<HTMLDivElement | null>()
 
   useEffect(() => {
@@ -92,12 +92,18 @@ export const HorizontalOverflow: React.FC<HorizontalOverflowProps> = ({
   }
 
   return (
+    // @ts-ignore
     <Overlay atEnd={atEnd} {...boxProps}>
-      <Viewport ref={ref as any} onScroll={updateAtEnd}>
+      <Viewport
+        ref={composeRefs(ref, forwardedRef) as any}
+        onScroll={updateAtEnd}
+      >
         <Rail display="inline-flex" verticalAlign="top" {...railProps}>
           {children}
         </Rail>
       </Viewport>
     </Overlay>
   )
-}
+})
+
+HorizontalOverflow.displayName = "HorizontalOverflow"
