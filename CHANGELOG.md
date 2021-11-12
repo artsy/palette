@@ -1,3 +1,16 @@
+# (Fri Nov 12 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.7.1`
+  - feat(pill): supports pill with icons [#1073](https://github.com/artsy/palette/pull/1073) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Nov 11 2021)
 
 #### 🚀  Enhancement
