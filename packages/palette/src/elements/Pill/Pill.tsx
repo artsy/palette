@@ -24,6 +24,8 @@ export type PillProps = ClickableProps & {
   focus?: boolean
   /** Forces hover state */
   hover?: boolean
+  /** Prevents hover and focus states */
+  static?: boolean
 } & (
     | {
         variant?: Extract<PillVariant, "textRound" | "textSquare" | "filter">
@@ -53,6 +55,10 @@ const Container = styled(Clickable)<PillProps>`
 
   ${(props) => {
     const states = PILL_VARIANTS[props.variant ?? "textRound"]
+
+    if (props.static) {
+      return states.default
+    }
 
     return css`
       ${states.default}

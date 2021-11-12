@@ -11,7 +11,9 @@ export default {
 
 export const _States = () => {
   return (
-    <States<PillProps> states={[{}, { hover: true }, { focus: true }]}>
+    <States<PillProps>
+      states={[{}, { hover: true }, { focus: true }, { static: true }]}
+    >
       <Pill>Pill</Pill>
     </States>
   )
@@ -32,6 +34,7 @@ export const Variants = () => {
         { variant: "textRound", children: "Text Pill" },
         { variant: "textSquare", children: "Text Pill" },
         { variant: "filter", children: "Filter Pill" },
+        { variant: "textSquare", children: "Test Pill" },
         {
           variant: "artist",
           children: "Artist Name Pill",
@@ -65,6 +68,12 @@ export const Variants = () => {
             <Spacer mx={0.5} />
 
             <Pill {...props} hover>
+              Pill
+            </Pill>
+
+            <Spacer mx={0.5} />
+
+            <Pill {...props} static>
               Pill
             </Pill>
 
