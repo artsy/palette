@@ -107,7 +107,15 @@ export const Pill: React.FC<PillProps> = ({ children, ...rest }) => {
         />
       )}
 
-      <Text variant="xs" lineHeight={1} overflowEllipsis>
+      <Text
+        variant="xs"
+        lineHeight={1}
+        {...(typeof children === "string"
+          ? // Simple label — handle the text overflow
+            { overflowEllipsis: true }
+          : // Otherwise use the children as-is and center align them
+            { display: "flex", alignItems: "center" })}
+      >
         {children}
       </Text>
     </Container>
