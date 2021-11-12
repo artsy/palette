@@ -38,7 +38,20 @@ source: elements/Pill
 ### With Image
 
 <Playground>
-	<Pill variant='artist' src="https://picsum.photos/seed/user/30/30">Artist Name Pill</Pill>
+  <Pill variant="artist" src="https://picsum.photos/seed/user/30/30">
+    Artist Name Pill
+  </Pill>
 </Playground>
 
-### With Image
+### With Icon
+
+<Playground>
+  <Pill
+    variant="textSquare"
+    as={Clickable}
+    onClick={console.log.bind(console)}
+    aria-label="Remove Painting"
+  >
+    Painting <CloseIcon fill="currentColor" ml={0.5} width={15} height={15} />
+  </Pill>
+</Playground>

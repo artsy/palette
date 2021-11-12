@@ -1,6 +1,9 @@
+import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
+import { Clickable } from "../Clickable"
+import { CloseIcon } from "../../svgs/CloseIcon"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Pill, PillProps } from "./Pill"
@@ -102,6 +105,19 @@ export const LongExample = () => {
   return (
     <Pill maxWidth={300}>
       Studio Museum in Harlem Artist-in-Residence (AIR) Program
+    </Pill>
+  )
+}
+
+export const IconExample = () => {
+  return (
+    <Pill
+      variant="textSquare"
+      as={Clickable}
+      onClick={action("onClick")}
+      aria-label="Remove Painting"
+    >
+      Painting <CloseIcon fill="currentColor" ml={0.5} width={15} height={15} />
     </Pill>
   )
 }
