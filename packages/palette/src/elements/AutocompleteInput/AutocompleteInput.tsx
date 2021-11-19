@@ -313,6 +313,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
                   onMouseDown={handleMouseDown(option, i)}
                   onMouseEnter={handleMouseEnter(i)}
                   selected={i === index}
+                  tabIndex={-1}
                 >
                   {renderOption(option, i)}
                 </AutocompleteInputOption>
