@@ -189,6 +189,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     when: isDropdownVisible,
     onClickOutside: () => {
       dispatch({ type: "CLOSE" })
+      reset()
     },
   })
 
