@@ -80,6 +80,7 @@ export const Demo = () => {
       onChange={handleChange}
       onSelect={action("onSelect")}
       onSubmit={action("onSubmit")}
+      onClose={action("onClose")}
       renderOption={(option, i) => {
         const displayQuery = i === 0 && query !== ""
 
