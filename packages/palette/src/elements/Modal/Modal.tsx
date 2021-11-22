@@ -1,12 +1,15 @@
-import React, { SFC, useEffect, useRef, useState } from "react"
+import { themeGet } from "@styled-system/theme-get"
+import React, { FC, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { color, media, space } from "../../helpers"
+import { DROP_SHADOW, media } from "../../helpers"
 import { CloseIcon } from "../../svgs"
 import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
+import { Join } from "../Join"
 import { Spacer } from "../Spacer"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
+import { useOnScroll } from "../../utils/useOnScroll"
 
 /**
  * FIXME: This whole thing needs to be rebuilt from scratch
@@ -47,9 +50,9 @@ export enum ModalWidth {
 
 /**
  * Modal.
- * Spec: https://app.zeplin.io/project/5acd19ff49a1429169c3128b/screen/5c75ad115c1db5628cc03c2a
+ * Spec: https://www.figma.com/file/m6gDpKHEWDbYJyrwsVZDBr/Artsy-3.0-Design-System?node-id=6150%3A7290
  */
-export const Modal: SFC<ModalProps> = ({
+export const Modal: FC<ModalProps> = ({
   children,
   FixedButton,
   title,
@@ -61,7 +64,9 @@ export const Modal: SFC<ModalProps> = ({
   hideCloseButton,
 }) => {
   const wrapperRef = useRef(null)
+  const contentRef = useRef(null)
   const [fadeIn, setFadeIn] = useState(false)
+  const { isScrolled } = useOnScroll(contentRef)
 
   const handleEscapeKey = (event) => {
     if (event && event.key === "Escape") {
@@ -110,34 +115,56 @@ export const Modal: SFC<ModalProps> = ({
             className={fadeIn ? "fadeIn" : ""}
           >
             <ModalFlexContent>
-              {!hideCloseButton && (
-                <CloseIconWrapper onClick={() => onClose()}>
-                  <CloseIcon fill="black60" />
-                </CloseIconWrapper>
-              )}
-              <ModalScrollContent hasLogo={hasLogo} modalWidth={modalWidth}>
-                {hasLogo && (
-                  <>
-                    <Flex justifyContent="center">
-                      <Logo />
-                    </Flex>
-                    <Spacer mb={2} />
-                  </>
-                )}
-                {title && (
-                  <>
-                    <Flex justifyContent="center">
-                      <Sans size="5t" textAlign="center" color="black100">
-                        {title}
-                      </Sans>
-                    </Flex>
-                    <Spacer mb={hasLogo ? 2 : [1, 2]} />
-                  </>
-                )}
+              <ModalStickyHeader
+                position="sticky"
+                top={0}
+                display="flex"
+                justifyContent="center"
+                flexDirection="column"
+                isScrolling={isScrolled}
+                px={2}
+              >
+                <Spacer my={1} />
+                <Flex>
+                  <Box pr={6} flex={1}>
+                    <Join separator={<Spacer py={1} />}>
+                      {hasLogo && <Logo my={1} />}
+                      {title && (
+                        <Text
+                          variant="lg"
+                          color="black100"
+                          py={hasLogo ? 0 : 1}
+                        >
+                          {title}
+                        </Text>
+                      )}
+                    </Join>
+                  </Box>
+
+                  {!hideCloseButton && (
+                    <CloseIconWrapper my={1} onClick={() => onClose()}>
+                      <CloseIcon fill="black60" />
+                    </CloseIconWrapper>
+                  )}
+                </Flex>
+                <Spacer py={1} />
+              </ModalStickyHeader>
+
+              <ModalScrollContent
+                ref={contentRef}
+                hasLogo={hasLogo}
+                modalWidth={modalWidth}
+                px={2}
+                py={1}
+                pb={2}
+              >
                 {children}
               </ModalScrollContent>
+
               {FixedButton && (
-                <FixedButtonWrapper>{FixedButton}</FixedButtonWrapper>
+                <FixedButtonWrapper isScrolling={isScrolled} p={2}>
+                  {FixedButton}
+                </FixedButtonWrapper>
               )}
             </ModalFlexContent>
           </ModalElement>
@@ -147,13 +174,14 @@ export const Modal: SFC<ModalProps> = ({
   )
 }
 
-const FixedButtonWrapper = styled(Flex)`
-  border-top: 1px solid ${color("black10")};
-  padding: ${space(3)}px;
-  ${media.xs`
-    padding: ${space(2)}px;
-  `};
+interface ShadowOnScroll {
+  isScrolling?: boolean
+}
+
+const FixedButtonWrapper = styled(Flex)<ShadowOnScroll>`
+  box-shadow: ${({ isScrolling }) => (isScrolling ? DROP_SHADOW : "none")};
   flex: 0 0 auto;
+  transition: box-shadow 250ms ease-in-out;
 `
 
 const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
@@ -163,7 +191,7 @@ const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
   z-index: 9999;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(229, 229, 229, 0.5);
+  background-color: ${themeGet("colors.black5")};
   opacity: 0;
   pointer-events: ${(props) => (props.show ? "auto" : "none")};
 
@@ -185,15 +213,15 @@ const ModalWrapper = styled(Flex)`
 
 const ModalElement = styled(Box)<TransitionElementProps>`
   position: absolute;
-  border-radius: 5px;
   height: ${(props) => (props.height ? props.height : "auto") as any};
   max-height: calc(100vh - 80px);
   min-height: 58px;
   overflow: hidden;
-  background-color: ${color("white100")};
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  background-color: ${themeGet("colors.white100")};
+  box-shadow: ${DROP_SHADOW};
   width: ${(props) =>
     props.modalWidth || (props.isWide ? ModalWidth.Wide : ModalWidth.Normal)};
+
   ${media.xs`
     max-height: 100vh;
     height: 100vh;
@@ -220,25 +248,22 @@ const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
   `};
 `
 
+const ModalStickyHeader = styled(Box)<ModalScrollContentProps & ShadowOnScroll>`
+  box-shadow: ${({ isScrolling }) => (isScrolling ? DROP_SHADOW : "none")};
+  transition: box-shadow 250ms ease-in-out;
+`
+
 const ModalScrollContent = styled(Flex)<ModalScrollContentProps>`
   overflow: auto;
   flex-direction: column;
-  padding: ${(props) =>
-    space(props.hasLogo || props.modalWidth === ModalWidth.Narrow ? 2 : 3)}px;
-  ${media.xs`
-    padding: ${space(2)}px;
-  `};
 `
 
-const CloseIconWrapper = styled(Box)`
-  position: absolute;
-  top: ${space(2)}px;
-  right: ${space(2)}px;
+const CloseIconWrapper = styled(Flex)`
   cursor: pointer;
 `
 
 const Logo = styled(ArtsyLogoBlackIcon)`
-  width: 100px;
+  width: 78px;
 `
 
 Modal.displayName = "Modal"
