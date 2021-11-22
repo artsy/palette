@@ -1,5 +1,12 @@
 import composeRefs from "@seznam/compose-react-refs"
-import React, { createRef, useEffect, useMemo, useReducer, useRef } from "react"
+import React, {
+  createRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+} from "react"
 import styled from "styled-components"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { Spinner } from ".."
@@ -187,14 +194,17 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     option?.ref?.current?.focus()
   }, [index, optionsWithRefs])
 
+  const handleFocusChange = useCallback((focused: boolean) => {
+    if (focused) return
+    dispatch({ type: "CLOSE" })
+    reset()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   // Handle closing the dropdown when clicking outside of the input
   // or when focus leaves the input completely
   const { ref: containsFocusRef } = useContainsFocus({
-    onChange: (focused) => {
-      if (focused) return
-      dispatch({ type: "CLOSE" })
-      reset()
-    },
+    onChange: handleFocusChange,
   })
 
   const handleInputKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
