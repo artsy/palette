@@ -1,11 +1,18 @@
 import composeRefs from "@seznam/compose-react-refs"
-import React, { createRef, useEffect, useMemo, useReducer, useRef } from "react"
+import React, {
+  createRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+} from "react"
 import styled from "styled-components"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { Spinner } from ".."
 import { DROP_SHADOW } from "../../helpers"
 import { CloseIcon, MagnifyingGlassIcon } from "../../svgs"
-import { useClickOutside, usePosition } from "../../utils"
+import { usePosition, useContainsFocus } from "../../utils"
 import { useWidthOf } from "../../utils/useWidthOf"
 import { Box, splitBoxProps } from "../Box"
 import { Clickable } from "../Clickable"
@@ -58,6 +65,8 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   onSelect?(option: T, index: number): void
   /** on <click> of the 'x' (clear) button */
   onClear?(): void
+  /** Callback that runs when options are hidden */
+  onClose?(): void
   renderOption?(
     option: T,
     i: number
@@ -74,6 +83,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   onSelect,
   onChange,
   onClear,
+  onClose,
   onKeyDown,
   height,
   renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
@@ -123,17 +133,18 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   const isDropdownVisible = state.open && options.length > 0
 
+  useEffect(() => {
+    if (!isDropdownVisible) onClose?.()
+  }, [isDropdownVisible, onClose])
+
   // Reset keyboard navigation when options change
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(reset, [options])
 
   // Reset keyboard navigation when query is empty
   useEffect(() => {
-    if (state.query === "") {
-      reset()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.query])
+    if (state.query === "") reset()
+  }, [reset, state.query])
 
   const { anchorRef, tooltipRef } = usePosition({
     position: "bottom",
@@ -183,13 +194,17 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     option?.ref?.current?.focus()
   }, [index, optionsWithRefs])
 
-  // Handle closing the dropdown
-  useClickOutside({
-    ref: containerRef,
-    when: isDropdownVisible,
-    onClickOutside: () => {
-      dispatch({ type: "CLOSE" })
-    },
+  const handleFocusChange = useCallback((focused: boolean) => {
+    if (focused) return
+    dispatch({ type: "CLOSE" })
+    reset()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Handle closing the dropdown when clicking outside of the input
+  // or when focus leaves the input completely
+  const { ref: containsFocusRef } = useContainsFocus({
+    onChange: handleFocusChange,
   })
 
   const handleInputKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -255,7 +270,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   return (
     <Box
-      ref={containerRef as any}
+      ref={composeRefs(containerRef, containsFocusRef) as any}
       onKeyDown={handleContainerKeydown}
       {...boxProps}
     >
@@ -294,31 +309,30 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
       />
 
       {isDropdownVisible && (
-        <>
-          <AutocompleteInputDropdown
-            ref={tooltipRef as any}
-            role="listbox"
-            width={width}
-          >
-            {optionsWithRefs.map(({ option, ref }, i) => {
-              return (
-                <AutocompleteInputOption
-                  key={i}
-                  ref={ref}
-                  role="option"
-                  aria-selected={i === index}
-                  aria-posinset={i + 1}
-                  aria-setsize={options.length}
-                  onMouseDown={handleMouseDown(option, i)}
-                  onMouseEnter={handleMouseEnter(i)}
-                  selected={i === index}
-                >
-                  {renderOption(option, i)}
-                </AutocompleteInputOption>
-              )
-            })}
-          </AutocompleteInputDropdown>
-        </>
+        <AutocompleteInputDropdown
+          ref={tooltipRef as any}
+          role="listbox"
+          width={width}
+        >
+          {optionsWithRefs.map(({ option, ref }, i) => {
+            return (
+              <AutocompleteInputOption
+                key={i}
+                ref={ref}
+                role="option"
+                aria-selected={i === index}
+                aria-posinset={i + 1}
+                aria-setsize={options.length}
+                onMouseDown={handleMouseDown(option, i)}
+                onMouseEnter={handleMouseEnter(i)}
+                selected={i === index}
+                tabIndex={-1}
+              >
+                {renderOption(option, i)}
+              </AutocompleteInputOption>
+            )
+          })}
+        </AutocompleteInputDropdown>
       )}
 
       <VisuallyHidden {...(id ? { id: `${id}__assistiveHint` } : {})}>

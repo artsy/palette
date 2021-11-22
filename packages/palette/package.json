@@ -116,7 +116,6 @@
     "@artsy/palette-tokens": "^2.6.0",
     "@seznam/compose-react-refs": "^1.0.6",
     "@styled-system/theme-get": "^5.1.2",
-    "debounce": "^1.2.0",
     "luxon": "^1.15",
     "proportional-scale": "^4.0.0",
     "react-lazy-load-image-component": "1.5.0",
@@ -125,7 +124,7 @@
     "styled-system": "^5.1.5",
     "trunc-html": "^1.1.2",
     "use-cursor": "^1.2.3",
-    "use-keyboard-list-navigation": "2.4.1"
+    "use-keyboard-list-navigation": "2.4.2"
   },
   "husky": {
     "hooks": {
