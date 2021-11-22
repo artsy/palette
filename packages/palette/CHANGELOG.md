@@ -1,3 +1,26 @@
+# v18.7.2 (Mon Nov 22 2021)
+
+#### 🐛  Bug Fix
+
+- fix(DSWGW-99): Autocomplete Q/A [#1075](https://github.com/artsy/palette/pull/1075) ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): fixes performance issue ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): close options when focus leaves component ([@dzucconi](https://github.com/dzucconi))
+- feat(hooks): adds hook for detecting if focus lies within ref ([@dzucconi](https://github.com/dzucconi))
+- chore(deps): removes unused dependency ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): disables tabbing to individual options ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): clears staged options ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.4.4 to v4.5.2 [#1074](https://github.com/artsy/palette/pull/1074) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v18.7.1 (Fri Nov 12 2021)
 
 #### 🐛  Bug Fix

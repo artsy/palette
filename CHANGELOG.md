@@ -1,3 +1,22 @@
+# (Mon Nov 22 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.7.2`
+  - fix(DSWGW-99): Autocomplete Q/A [#1075](https://github.com/artsy/palette/pull/1075) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@17.7.2`, `@artsy/palette@18.7.2`
+  - chore(deps): update dep typescript from 4.4.4 to v4.5.2 [#1074](https://github.com/artsy/palette/pull/1074) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Fri Nov 12 2021)
 
 #### 🐛  Bug Fix
