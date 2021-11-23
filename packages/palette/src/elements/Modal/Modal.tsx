@@ -64,9 +64,9 @@ export const Modal: FC<ModalProps> = ({
   hideCloseButton,
 }) => {
   const wrapperRef = useRef(null)
-  const contentRef = useRef(null)
+  const sentinelRef = useRef(null)
   const [fadeIn, setFadeIn] = useState(false)
-  const { isScrolled } = useOnScroll(contentRef)
+  const { isScrolled } = useOnScroll(sentinelRef)
 
   const handleEscapeKey = (event) => {
     if (event && event.key === "Escape") {
@@ -121,7 +121,7 @@ export const Modal: FC<ModalProps> = ({
                 display="flex"
                 justifyContent="center"
                 flexDirection="column"
-                isScrolling={isScrolled}
+                isScrolled={isScrolled}
                 px={2}
               >
                 <Spacer my={1} />
@@ -151,18 +151,20 @@ export const Modal: FC<ModalProps> = ({
               </ModalStickyHeader>
 
               <ModalScrollContent
-                ref={contentRef}
                 hasLogo={hasLogo}
                 modalWidth={modalWidth}
                 px={2}
                 py={1}
                 pb={2}
               >
-                {children}
+                <>
+                  <Sentinel ref={sentinelRef} />
+                  {children}
+                </>
               </ModalScrollContent>
 
               {FixedButton && (
-                <FixedButtonWrapper isScrolling={isScrolled} p={2}>
+                <FixedButtonWrapper isScrolled={isScrolled} p={2}>
                   {FixedButton}
                 </FixedButtonWrapper>
               )}
@@ -175,11 +177,11 @@ export const Modal: FC<ModalProps> = ({
 }
 
 interface ShadowOnScroll {
-  isScrolling?: boolean
+  isScrolled?: boolean
 }
 
 const FixedButtonWrapper = styled(Flex)<ShadowOnScroll>`
-  box-shadow: ${({ isScrolling }) => (isScrolling ? DROP_SHADOW : "none")};
+  box-shadow: ${({ isScrolled }) => (isScrolled ? DROP_SHADOW : "none")};
   flex: 0 0 auto;
   transition: box-shadow 250ms ease-in-out;
 `
@@ -249,7 +251,7 @@ const ModalFlexContent = styled(Flex)<ModalScrollContentProps>`
 `
 
 const ModalStickyHeader = styled(Box)<ModalScrollContentProps & ShadowOnScroll>`
-  box-shadow: ${({ isScrolling }) => (isScrolling ? DROP_SHADOW : "none")};
+  box-shadow: ${({ isScrolled }) => (isScrolled ? DROP_SHADOW : "none")};
   transition: box-shadow 250ms ease-in-out;
 `
 
@@ -264,6 +266,15 @@ const CloseIconWrapper = styled(Flex)`
 
 const Logo = styled(ArtsyLogoBlackIcon)`
   width: 78px;
+`
+
+// This <div> is positioned such that when it leaves the top of
+// the ModalScrollContent we use IntersectionObserver within the hook
+// to switch on and of the shadows of the sticky elements
+const Sentinel = styled(Box)`
+  position: relative;
+  width: 100%;
+  height: 0;
 `
 
 Modal.displayName = "Modal"

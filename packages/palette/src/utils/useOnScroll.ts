@@ -7,21 +7,26 @@ export const useOnScroll = (ref: RefObject<HTMLElement>) => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
+    if (!("IntersectionObserver" in window)) return
+
     const node = ref.current
-    if (node) {
-      const onScroll = () => {
-        if (node.scrollTop > 0) {
-          !isScrolled && setIsScrolled(true)
-        } else {
-          isScrolled && setIsScrolled(false)
-        }
-      }
+    if (!node) return
 
-      node.addEventListener("scroll", onScroll, false)
-
-      return () => {
-        node.removeEventListener("scroll", onScroll, false)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsScrolled(!entry.isIntersecting)
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0,
       }
+    )
+
+    observer.observe(ref.current)
+
+    return () => {
+      observer.unobserve(node)
     }
   }, [ref, isScrolled])
 
