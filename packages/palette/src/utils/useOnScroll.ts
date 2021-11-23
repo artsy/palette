@@ -1,15 +1,16 @@
-import { useEffect, useState, RefObject } from "react"
+import { useEffect, useState, useRef } from "react"
 
 /**
  * useOnScroll is used to track if an element is scrolled vertically or not
  */
-export const useOnScroll = (ref: RefObject<HTMLElement>) => {
+export const useOnScroll = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const elementRef = useRef(null)
 
   useEffect(() => {
     if (!("IntersectionObserver" in window)) return
 
-    const node = ref.current
+    const node = elementRef.current
     if (!node) return
 
     const observer = new IntersectionObserver(
@@ -23,12 +24,12 @@ export const useOnScroll = (ref: RefObject<HTMLElement>) => {
       }
     )
 
-    observer.observe(ref.current)
+    observer.observe(node)
 
     return () => {
       observer.unobserve(node)
     }
-  }, [ref, isScrolled])
+  }, [elementRef, isScrolled])
 
-  return { isScrolled }
+  return { isScrolled, elementRef }
 }

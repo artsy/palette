@@ -64,9 +64,8 @@ export const Modal: FC<ModalProps> = ({
   hideCloseButton,
 }) => {
   const wrapperRef = useRef(null)
-  const sentinelRef = useRef(null)
   const [fadeIn, setFadeIn] = useState(false)
-  const { isScrolled } = useOnScroll(sentinelRef)
+  const { isScrolled, elementRef } = useOnScroll()
 
   const handleEscapeKey = (event) => {
     if (event && event.key === "Escape") {
@@ -158,7 +157,7 @@ export const Modal: FC<ModalProps> = ({
                 pb={2}
               >
                 <>
-                  <Sentinel ref={sentinelRef} />
+                  <Sentinel ref={elementRef} />
                   {children}
                 </>
               </ModalScrollContent>
