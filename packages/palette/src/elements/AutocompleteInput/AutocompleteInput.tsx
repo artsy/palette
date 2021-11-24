@@ -133,10 +133,6 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   const isDropdownVisible = state.open && options.length > 0
 
-  useEffect(() => {
-    if (!isDropdownVisible) onClose?.()
-  }, [isDropdownVisible, onClose])
-
   // Reset keyboard navigation when options change
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(reset, [options])
@@ -194,12 +190,16 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     option?.ref?.current?.focus()
   }, [index, optionsWithRefs])
 
-  const handleFocusChange = useCallback((focused: boolean) => {
-    if (focused) return
-    dispatch({ type: "CLOSE" })
-    reset()
+  const handleFocusChange = useCallback(
+    (focused: boolean) => {
+      if (focused) return
+      dispatch({ type: "CLOSE" })
+      reset()
+      onClose?.()
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    [onClose]
+  )
 
   // Handle closing the dropdown when clicking outside of the input
   // or when focus leaves the input completely
