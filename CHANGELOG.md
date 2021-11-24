@@ -1,3 +1,16 @@
+# (Wed Nov 24 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.7.3`
+  - fix(autocomplete): improves onclose; fixes memory leak [#1077](https://github.com/artsy/palette/pull/1077) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Nov 22 2021)
 
 #### 🐛  Bug Fix
