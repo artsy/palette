@@ -21,6 +21,7 @@ export const Clickable = styled.button<ClickableProps>`
   appearance: none;
   padding: 0;
   border: 0;
+  margin: 0;
   background-color: transparent;
   color: inherit;
   font: inherit;
