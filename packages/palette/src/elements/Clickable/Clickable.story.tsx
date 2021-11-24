@@ -24,6 +24,12 @@ export const Default = () => {
             </>
           ),
         },
+        {
+          bg: "red100",
+          color: "white100",
+          m: 2,
+          p: 1,
+        },
       ]}
     >
       <Clickable onClick={action("onClick")}>Clickable</Clickable>
