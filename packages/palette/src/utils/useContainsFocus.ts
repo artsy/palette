@@ -21,8 +21,8 @@ export const useContainsFocus = ({
     document.addEventListener("blur", handleFocus, true)
 
     return () => {
-      document.removeEventListener("focus", handleFocus)
-      document.removeEventListener("blur", handleFocus)
+      document.removeEventListener("focus", handleFocus, true)
+      document.removeEventListener("blur", handleFocus, true)
     }
   }, [onChange])
 
