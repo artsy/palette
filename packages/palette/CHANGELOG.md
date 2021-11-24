@@ -1,3 +1,16 @@
+# v18.7.4 (Wed Nov 24 2021)
+
+#### 🐛  Bug Fix
+
+- fix(clickable): resets margin for safari [#1078](https://github.com/artsy/palette/pull/1078) ([@dzucconi](https://github.com/dzucconi))
+- fix(clickable): resets margin for safari ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.7.3 (Wed Nov 24 2021)
 
 #### 🐛  Bug Fix
