@@ -6,11 +6,10 @@ import { useEffect, useState, useRef } from "react"
 export const useOnScroll = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const elementRef = useRef(null)
+  const node = elementRef.current
 
   useEffect(() => {
     if (!("IntersectionObserver" in window)) return
-
-    const node = elementRef.current
     if (!node) return
 
     const observer = new IntersectionObserver(
@@ -29,7 +28,7 @@ export const useOnScroll = () => {
     return () => {
       observer.unobserve(node)
     }
-  }, [elementRef, isScrolled])
+  }, [node, isScrolled])
 
   return { isScrolled, elementRef }
 }
