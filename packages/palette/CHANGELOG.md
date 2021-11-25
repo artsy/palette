@@ -1,3 +1,15 @@
+# v18.8.0 (Thu Nov 25 2021)
+
+#### 🚀  Enhancement
+
+- feat(NX02486): adjusts the modal to the new design [#1076](https://github.com/artsy/palette/pull/1076) ([@araujobarret](https://github.com/araujobarret))
+
+#### Authors: 1
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+
+---
+
 # v18.7.4 (Wed Nov 24 2021)
 
 #### 🐛  Bug Fix
