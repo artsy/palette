@@ -1,3 +1,16 @@
+# (Tue Nov 30 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.8.1`
+  - fix(autocomplete): only closes when options are visible [#1079](https://github.com/artsy/palette/pull/1079) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Nov 25 2021)
 
 #### 🚀  Enhancement
