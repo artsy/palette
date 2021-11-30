@@ -192,13 +192,14 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   const handleFocusChange = useCallback(
     (focused: boolean) => {
-      if (focused) return
+      if (focused || !isDropdownVisible) return
+
       dispatch({ type: "CLOSE" })
       reset()
       onClose?.()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [onClose]
+    [onClose, isDropdownVisible]
   )
 
   // Handle closing the dropdown when clicking outside of the input

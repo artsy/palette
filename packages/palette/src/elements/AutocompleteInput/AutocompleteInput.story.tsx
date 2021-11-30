@@ -61,6 +61,7 @@ export const Default = () => {
         options={OPTIONS}
         onSelect={action("onSelect")}
         onSubmit={action("onSubmit")}
+        onClose={action("onClose")}
       />
     </States>
   )
