@@ -192,7 +192,7 @@ const ModalOuterWrapper = styled(Box)<TransitionElementProps>`
   z-index: 9999;
   width: 100vw;
   height: 100vh;
-  background-color: ${themeGet("colors.black5")};
+  background-color: rgba(229, 229, 229, 0.5);
   opacity: 0;
   pointer-events: ${(props) => (props.show ? "auto" : "none")};
 
