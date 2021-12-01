@@ -1,3 +1,16 @@
+# (Wed Dec 01 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.9.0`
+  - fix: modal background color [#1080](https://github.com/artsy/palette/pull/1080) ([@araujobarret](https://github.com/araujobarret))
+
+#### Authors: 1
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+
+---
+
 # (Tue Nov 30 2021)
 
 #### 🐛  Bug Fix
