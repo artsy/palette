@@ -212,7 +212,7 @@ const ModalWrapper = styled(Flex)`
   align-items: center;
 `
 
-const ModalElement = styled(Box)<TransitionElementProps>`
+const ModalElement = styled(Flex)<TransitionElementProps>`
   position: absolute;
   height: ${(props) => (props.height ? props.height : "auto") as any};
   max-height: calc(100vh - 80px);
@@ -225,9 +225,8 @@ const ModalElement = styled(Box)<TransitionElementProps>`
 
   ${media.xs`
     max-height: 100vh;
-    height: 100vh;
-    width: 100vw;
-    border-radius: 0;
+    height: calc(100vh - ${themeGet("space.4")});
+    width: calc(100vw - ${themeGet("space.4")});
   `};
 
   transform: translateY(2000px);
