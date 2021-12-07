@@ -1,3 +1,15 @@
+# v18.10.0 (Tue Dec 07 2021)
+
+#### 🚀  Enhancement
+
+- feat(NX-3032): add space of 20px in xs breakpoint [#1081](https://github.com/artsy/palette/pull/1081) ([@araujobarret](https://github.com/araujobarret))
+
+#### Authors: 1
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+
+---
+
 # v18.9.0 (Wed Dec 01 2021)
 
 #### 🚀  Enhancement
