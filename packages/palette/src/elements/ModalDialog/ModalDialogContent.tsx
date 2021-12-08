@@ -9,7 +9,7 @@ import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
 import { useSentinelVisibility } from "../../utils/useSentinelVisibility"
 import { Spacer } from "../Spacer"
 
-export interface ModalDialogDialogProps
+export interface ModalDialogContentProps
   extends BoxProps,
     React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
@@ -19,7 +19,7 @@ export interface ModalDialogDialogProps
   title?: string
 }
 
-export const ModalDialogDialog: React.FC<ModalDialogDialogProps> = ({
+export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
   children,
   footer,
   hasLogo,

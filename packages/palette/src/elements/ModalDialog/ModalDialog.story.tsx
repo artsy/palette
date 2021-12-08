@@ -4,6 +4,9 @@ import { Text } from "../Text"
 import { Button } from "../Button"
 import { ModalDialog, ModalDialogProps } from "./ModalDialog"
 
+const LOREM =
+  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus sed iure repellendus animi, aliquid aut fuga maxime nemo minus quas. Error, incidunt fugit similique quidem culpa hic! Nemo, quas rerum. "
+
 export default {
   title: "Components/ModalDialog",
 }
@@ -16,57 +19,8 @@ const Demo = ({ children, ...rest }: Partial<ModalDialogProps>) => {
       <Button onClick={() => setOpen(true)}>Open Modal</Button>
 
       {open && (
-        <ModalDialog onClose={() => setOpen(false)} maxWidth={550} {...rest}>
-          {children ? (
-            children
-          ) : (
-            <Text variant="sm">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque,
-              neque voluptates! Sapiente, sint magnam. Assumenda, hic eius
-              asperiores iure explicabo itaque accusantium, consectetur aut sit
-              maxime culpa ab aliquid consequatur? Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Quam enim vel accusamus dolor
-              voluptatibus? Cumque dicta blanditiis debitis rerum asperiores
-              quae nihil minima praesentium, quaerat cupiditate amet dolor
-              similique corporis? Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Quibusdam, eaque placeat mollitia aliquam porro
-              molestiae recusandae eos iusto obcaecati quo ducimus in iure
-              tenetur vitae animi ullam nisi voluptatem inventore! Lorem ipsum,
-              dolor sit amet consectetur adipisicing elit. Eaque, neque
-              voluptates! Sapiente, sint magnam. Assumenda, hic eius asperiores
-              iure explicabo itaque accusantium, consectetur aut sit maxime
-              culpa ab aliquid consequatur? Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Quam enim vel accusamus dolor
-              voluptatibus? Cumque dicta blanditiis debitis rerum asperiores
-              quae nihil minima praesentium, quaerat cupiditate amet dolor
-              similique corporis? Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Quibusdam, eaque placeat mollitia aliquam porro
-              molestiae recusandae eos iusto obcaecati quo ducimus in iure
-              tenetur vitae animi ullam nisi voluptatem inventore! Lorem ipsum,
-              dolor sit amet consectetur adipisicing elit. Eaque, neque
-              voluptates! Sapiente, sint magnam. Assumenda, hic eius asperiores
-              iure explicabo itaque accusantium, consectetur aut sit maxime
-              culpa ab aliquid consequatur? Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Quam enim vel accusamus dolor
-              voluptatibus? Cumque dicta blanditiis debitis rerum asperiores
-              quae nihil minima praesentium, quaerat cupiditate amet dolor
-              similique corporis? Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Quibusdam, eaque placeat mollitia aliquam porro
-              molestiae recusandae eos iusto obcaecati quo ducimus in iure
-              tenetur vitae animi ullam nisi voluptatem inventore! Lorem ipsum,
-              dolor sit amet consectetur adipisicing elit. Eaque, neque
-              voluptates! Sapiente, sint magnam. Assumenda, hic eius asperiores
-              iure explicabo itaque accusantium, consectetur aut sit maxime
-              culpa ab aliquid consequatur? Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Quam enim vel accusamus dolor
-              voluptatibus? Cumque dicta blanditiis debitis rerum asperiores
-              quae nihil minima praesentium, quaerat cupiditate amet dolor
-              similique corporis? Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Quibusdam, eaque placeat mollitia aliquam porro
-              molestiae recusandae eos iusto obcaecati quo ducimus in iure
-              tenetur vitae animi ullam nisi voluptatem inventore!
-            </Text>
-          )}
+        <ModalDialog onClose={() => setOpen(false)} {...rest}>
+          {children ? children : <Text variant="sm">{LOREM.repeat(15)}</Text>}
         </ModalDialog>
       )}
     </>
@@ -78,16 +32,11 @@ export const Default = () => {
     <States<Partial<ModalDialogProps>>
       states={[
         {
-          children: (
-            <Text variant="sm">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque,
-              neque voluptates! Sapiente, sint magnam. Assumenda, hic eius
-              asperiores iure explicabo itaque accusantium, consectetur aut sit
-              maxime culpa ab aliquid consequatur?
-            </Text>
-          ),
+          children: <Text variant="sm">{LOREM}</Text>,
         },
         { title: "Modal Title" },
+        { title: "100% Width", width: "100%" },
+        { title: "Responsive Width", width: ["100%", 550] },
         {
           title:
             "Modal Title with a longer title or headline text that runs on for mutliple lines",
@@ -95,14 +44,7 @@ export const Default = () => {
         { hasLogo: true },
         { title: "Modal Title", hasLogo: true },
         {
-          children: (
-            <Text variant="sm">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque,
-              neque voluptates! Sapiente, sint magnam. Assumenda, hic eius
-              asperiores iure explicabo itaque accusantium, consectetur aut sit
-              maxime culpa ab aliquid consequatur?
-            </Text>
-          ),
+          children: <Text variant="sm">{LOREM}</Text>,
           footer: <Button width="100%">Confirm</Button>,
         },
         { title: "Modal Title", footer: <Button width="100%">Confirm</Button> },

@@ -1,17 +1,20 @@
 import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
-import { ModalDialogDialog, ModalDialogDialogProps } from "./ModalDialogDialog"
+import {
+  ModalDialogContent,
+  ModalDialogContentProps,
+} from "./ModalDialogContent"
 import { Text } from "../Text"
 import { Button } from "../Button"
 
 export default {
-  title: "Components/ModalDialogDialog",
+  title: "Components/ModalDialogContent",
 }
 
 export const Default = () => {
   return (
-    <States<Partial<ModalDialogDialogProps>>
+    <States<Partial<ModalDialogContentProps>>
       states={[
         {
           children: (
@@ -55,7 +58,7 @@ export const Default = () => {
         },
       ]}
     >
-      <ModalDialogDialog onClose={action("onClose")} maxHeight={400}>
+      <ModalDialogContent onClose={action("onClose")} maxHeight={400}>
         <Text variant="sm">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, neque
           voluptates! Sapiente, sint magnam. Assumenda, hic eius asperiores iure
@@ -99,7 +102,7 @@ export const Default = () => {
           eos iusto obcaecati quo ducimus in iure tenetur vitae animi ullam nisi
           voluptatem inventore!
         </Text>
-      </ModalDialogDialog>
+      </ModalDialogContent>
     </States>
   )
 }

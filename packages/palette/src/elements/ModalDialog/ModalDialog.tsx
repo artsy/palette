@@ -1,10 +1,13 @@
 import React from "react"
 import { ModalBase, ModalBaseProps } from "../Modal"
-import { ModalDialogDialog, ModalDialogDialogProps } from "./ModalDialogDialog"
+import {
+  ModalDialogContent,
+  ModalDialogContentProps,
+} from "./ModalDialogContent"
 import { splitBoxProps } from "../Box"
 import { useDidMount } from "../../utils/useDidMount"
 
-export type ModalDialogProps = ModalBaseProps & ModalDialogDialogProps
+export type ModalDialogProps = ModalBaseProps & ModalDialogContentProps
 
 export const ModalDialog: React.FC<ModalDialogProps> = ({
   children,
@@ -30,11 +33,12 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
       }
       {...modalProps}
     >
-      <ModalDialogDialog
+      <ModalDialogContent
         footer={footer}
         hasLogo={hasLogo}
         onClose={onClose}
         title={title}
+        width={440}
         style={
           isMounted
             ? {
@@ -46,7 +50,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
         {...boxProps}
       >
         {children}
-      </ModalDialogDialog>
+      </ModalDialogContent>
     </ModalBase>
   )
 }

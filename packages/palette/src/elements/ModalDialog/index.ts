@@ -1,2 +1,2 @@
 export * from "./ModalDialog"
-export * from "./ModalDialogDialog"
+export * from "./ModalDialogContent"
