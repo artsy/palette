@@ -21,7 +21,7 @@ interface DialogProps {
 
 /**
  * Dialog.
- * Spec: https://app.zeplin.io/project/5acd19ff49a1429169c3128b/screen/5b9a7bdaa2fa5551fff7c014
+ * @deprecated: Use `ModalDialog` instead
  */
 export const Dialog: SFC<DialogProps> = ({
   title,

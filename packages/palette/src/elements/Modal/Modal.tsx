@@ -9,7 +9,7 @@ import { Flex } from "../Flex"
 import { Join } from "../Join"
 import { Spacer } from "../Spacer"
 import { Text } from "../Text"
-import { useOnScroll } from "../../utils/useOnScroll"
+import { useSentinelVisibility } from "../../utils/useSentinelVisibility"
 
 /**
  * FIXME: This whole thing needs to be rebuilt from scratch
@@ -51,6 +51,7 @@ export enum ModalWidth {
 /**
  * Modal.
  * Spec: https://www.figma.com/file/m6gDpKHEWDbYJyrwsVZDBr/Artsy-3.0-Design-System?node-id=6150%3A7290
+ * @deprecated: Use `ModalDialog` instead
  */
 export const Modal: FC<ModalProps> = ({
   children,
@@ -65,7 +66,7 @@ export const Modal: FC<ModalProps> = ({
 }) => {
   const wrapperRef = useRef(null)
   const [fadeIn, setFadeIn] = useState(false)
-  const { isScrolled, elementRef } = useOnScroll()
+  const { sentinel, isSentinelVisible: isScrolled } = useSentinelVisibility()
 
   const handleEscapeKey = (event) => {
     if (event && event.key === "Escape") {
@@ -157,7 +158,7 @@ export const Modal: FC<ModalProps> = ({
                 pb={2}
               >
                 <>
-                  <Sentinel ref={elementRef} />
+                  {sentinel}
                   {children}
                 </>
               </ModalScrollContent>
@@ -264,15 +265,6 @@ const CloseIconWrapper = styled(Flex)`
 
 const Logo = styled(ArtsyLogoBlackIcon)`
   width: 78px;
-`
-
-// This <div> is positioned such that when it leaves the top of
-// the ModalScrollContent we use IntersectionObserver within the hook
-// to switch on and of the shadows of the sticky elements
-const Sentinel = styled(Box)`
-  position: relative;
-  width: 100%;
-  height: 0;
 `
 
 Modal.displayName = "Modal"
