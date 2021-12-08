@@ -1,3 +1,16 @@
+# (Wed Dec 08 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.11.0`
+  - feat(modaldialog): implements new modal [#1083](https://github.com/artsy/palette/pull/1083) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Dec 07 2021)
 
 #### 🚀  Enhancement

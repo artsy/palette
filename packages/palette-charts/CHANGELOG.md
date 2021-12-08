@@ -1,3 +1,15 @@
+# v17.11.0 (Wed Dec 08 2021)
+
+#### 🚀  Enhancement
+
+- feat(modaldialog): implements new modal [#1083](https://github.com/artsy/palette/pull/1083) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.7.3 (Wed Nov 24 2021)
 
 #### 🐛  Bug Fix
