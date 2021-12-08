@@ -9,7 +9,9 @@ import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
 import { useSentinelVisibility } from "../../utils/useSentinelVisibility"
 import { Spacer } from "../Spacer"
 
-export interface ModalDialogDialogProps extends BoxProps {
+export interface ModalDialogDialogProps
+  extends BoxProps,
+    React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   footer?: React.ReactNode
   hasLogo?: boolean

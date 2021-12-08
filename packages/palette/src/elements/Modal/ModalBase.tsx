@@ -37,7 +37,8 @@ const Dialog = styled(Flex).attrs({ role: "dialog" })`
 `
 
 /** BaseModal */
-export type ModalBaseProps = FlexProps &
+export type ModalBaseProps = React.HTMLAttributes<HTMLDivElement> &
+  FlexProps &
   ZIndexProps & {
     children?: React.ReactNode
     dialogProps?: FlexProps
