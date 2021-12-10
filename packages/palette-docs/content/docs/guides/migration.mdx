@@ -12,10 +12,10 @@ of.
 **For reference, check out the difference between our v2 and v3 themes below:**
 
 **v2**:
-[palette-tokens/v2](https://github.com/artsy/palette/blob/master/packages/palette-tokens/src/themes/v2.tsx)
+[palette-tokens/v2](https://github.com/artsy/palette/blob/main/packages/palette-tokens/src/themes/v2.tsx)
 
 **v3**:
-[palette-tokens/v3](https://github.com/artsy/palette/blob/master/packages/palette-tokens/src/themes/v3.tsx)
+[palette-tokens/v3](https://github.com/artsy/palette/blob/main/packages/palette-tokens/src/themes/v3.tsx)
 
 ### How to Migrate
 
@@ -54,11 +54,11 @@ const MyApp = () => {
 ```
 
 This is useful if you're programmatically setting things, as we do in Force
-[via our route config](https://github.com/artsy/force/blob/master/src/v2/Apps/Artwork/artworkRoutes.tsx#L14).
+[via our route config](https://github.com/artsy/force/blob/main/src/v2/Apps/Artwork/artworkRoutes.tsx#L14).
 
 Once the component tree is wrapped in the correct provider you should be able to
 access our
-[v3 theme](https://github.com/artsy/palette/blob/master/packages/palette-tokens/src/themes/v3.tsx).
+[v3 theme](https://github.com/artsy/palette/blob/main/packages/palette-tokens/src/themes/v3.tsx).
 
 ### Using the `useThemeConfig` hook
 
@@ -105,7 +105,7 @@ Will return dynamic values for `tokens.px` -- either `px={5}` if `v2`, or
 `px={2}` if `v3`.
 
 (See
-[here](https://github.com/artsy/force/blob/master/src/v2/Components/Footer/Footer.tsx#L219-L226)
+[here](https://github.com/artsy/force/blob/main/src/v2/Components/Footer/Footer.tsx#L219-L226)
 for a real-world example.)
 
 ### Typography

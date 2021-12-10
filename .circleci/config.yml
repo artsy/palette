@@ -47,22 +47,22 @@ workflows:
             - yarn/workflow-queue
           filters:
             branches:
-              ignore: master
+              ignore: main
       - yarn/run:
-          name: visual-test-master
+          name: visual-test-main
           script: visual-test --auto-accept-changes
           requires:
             - yarn/workflow-queue
           filters:
             branches:
-              only: master
+              only: main
 
       # PR Builds
       - auto/publish-canary:
           context: npm-deploy
           filters:
             branches:
-              ignore: master
+              ignore: main
           requires:
             - yarn/test
             - yarn/lint
@@ -74,7 +74,7 @@ workflows:
           context: npm-deploy
           filters:
             branches:
-              only: master
+              only: main
           requires:
             - yarn/test
             - yarn/lint
@@ -92,7 +92,7 @@ workflows:
                   - packages/palette/storybook-static
           filters:
             branches:
-              only: master
+              only: main
       - yarn/run:
           name: build-docs
           script: "build-docs"
@@ -103,7 +103,7 @@ workflows:
                   - packages/palette-docs/public
           filters:
             branches:
-              only: master
+              only: main
       - deploy-storybook:
           context: static-sites-uploader
           requires:
@@ -113,7 +113,7 @@ workflows:
                 at: .
           filters:
             branches:
-              only: master
+              only: main
       - deploy-docs:
           context: static-sites-uploader
           requires:
@@ -123,4 +123,4 @@ workflows:
                 at: .
           filters:
             branches:
-              only: master
+              only: main

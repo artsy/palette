@@ -1,6 +1,6 @@
 /**
  * Derived from @jxnblk's clean-tag
- * https://github.com/styled-system/extras/tree/master/packages/clean-tag
+ * https://github.com/styled-system/extras/tree/main/packages/clean-tag
  *
  * The MIT License (MIT)
  * Copyright (c) 2017-2019 Brent Jackson

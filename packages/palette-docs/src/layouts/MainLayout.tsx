@@ -160,7 +160,7 @@ const EditButton = ({ editUrl }) => {
 
 export const ViewSourceButton = ({ source }) => {
   const BASE_URL =
-    "https://github.com/artsy/palette/tree/master/packages/palette/src"
+    "https://github.com/artsy/palette/tree/main/packages/palette/src"
 
   return (
     <a

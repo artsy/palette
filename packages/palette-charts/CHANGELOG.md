@@ -266,7 +266,7 @@
 
 #### 🐛  Bug Fix
 
-- Merge branch 'master' into pavlos/cleanup ([@pvinis](https://github.com/pvinis))
+- Merge branch 'main' into pavlos/cleanup ([@pvinis](https://github.com/pvinis))
 - remove PageViewsIcon ([@pvinis](https://github.com/pvinis))
 
 #### Authors: 1
@@ -2624,7 +2624,7 @@
 #### 🐛  Bug Fix
 
 - add option to set CardTag position ([@oxaudo](https://github.com/oxaudo))
-- Merge branch 'master' of github.com:artsy/palette into updates ([@oxaudo](https://github.com/oxaudo))
+- Merge branch 'main' of github.com:artsy/palette into updates ([@oxaudo](https://github.com/oxaudo))
 - adding a small card to web view ([@oxaudo](https://github.com/oxaudo))
 
 #### Authors: 1
@@ -2902,7 +2902,7 @@
 #### 🐛  Bug Fix
 
 - better import ([@pvinis](https://github.com/pvinis))
-- Merge branch 'master' into adding-endash ([@pvinis](https://github.com/pvinis))
+- Merge branch 'main' into adding-endash ([@pvinis](https://github.com/pvinis))
 - no need to render it actually ([@pvinis](https://github.com/pvinis))
 - adding `endash` and a `range` helper ([@pvinis](https://github.com/pvinis))
 
