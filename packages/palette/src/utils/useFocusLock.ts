@@ -117,10 +117,11 @@ export const useFocusLock = (
     // If focus escapes the trap, pull it back in
     const handleFocusIn = (event: FocusEvent) => {
       const index = focusableEls.findIndex((node) => node === event.target)
+      const focusableEl = focusableEls[focusableIndex]
 
-      if (index === -1) {
+      if (index === -1 && !!focusableEl) {
         event.stopImmediatePropagation()
-        focusableEls[focusableIndex].focus()
+        focusableEl.focus()
         return
       }
     }
