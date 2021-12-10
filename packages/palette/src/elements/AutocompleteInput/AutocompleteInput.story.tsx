@@ -54,6 +54,29 @@ export const Default = () => {
             </Box>
           ),
         },
+        {
+          options: [
+            ...OPTIONS,
+            ...OPTIONS.map((option) => ({
+              ...option,
+              text: `Another ${option.text}`,
+              value: `another-${option.value}`,
+            })),
+          ],
+          footer: (
+            <Box px={2} py={1} bg="black10">
+              <Text variant="xs">Footer</Text>
+            </Box>
+          ),
+        },
+        {
+          options: [OPTIONS[0], OPTIONS[1]],
+          footer: (
+            <Box px={2} py={1} bg="black10">
+              <Text variant="xs">Footer</Text>
+            </Box>
+          ),
+        },
       ]}
     >
       <AutocompleteInput
