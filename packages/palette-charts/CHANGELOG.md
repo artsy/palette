@@ -1,3 +1,15 @@
+# v17.11.1 (Fri Dec 10 2021)
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.5.2 to v4.5.3 [#1084](https://github.com/artsy/palette/pull/1084) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 1
+
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v17.11.0 (Wed Dec 08 2021)
 
 #### 🚀  Enhancement

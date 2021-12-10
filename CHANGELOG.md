@@ -1,3 +1,27 @@
+# (Fri Dec 10 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.11.1`
+  - fix: blacklist -> blocklist [#1085](https://github.com/artsy/palette/pull/1085) ([@mdole](https://github.com/mdole))
+
+#### ⚠️ Pushed to `master`
+
+- Update renovate.json ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@17.11.1`, `@artsy/palette@18.11.1`
+  - chore(deps): update dep typescript from 4.5.2 to v4.5.3 [#1084](https://github.com/artsy/palette/pull/1084) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 3
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Matt Dole ([@mdole](https://github.com/mdole))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Wed Dec 08 2021)
 
 #### 🚀  Enhancement
