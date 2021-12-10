@@ -13,10 +13,10 @@ export const _AllIcons = () => {
   return (
     <Flex flexWrap="wrap" m={2}>
       {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
-        const blacklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
+        const blocklist = ["ChevronIcon", "CreditCardIcon", "Icon"]
         if (
           !(typeof IconComponent === "function") ||
-          blacklist.some((icon) => icon === iconName)
+          blocklist.some((icon) => icon === iconName)
         ) {
           return null
         }
