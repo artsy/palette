@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
-import { BellIcon } from "../.."
+import { BellIcon } from "../../svgs/BellIcon"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
