@@ -12,7 +12,7 @@ import { BUTTON_SIZES, BUTTON_TEXT_SIZES, BUTTON_VARIANTS } from "./tokens"
 export const ButtonV3: React.ForwardRefExoticComponent<
   ButtonProps & { ref?: React.Ref<HTMLElement> }
 > = React.forwardRef(
-  ({ children, loading, color, size, onClick, ...rest }, forwardedRef) => {
+  ({ children, loading, size, onClick, ...rest }, forwardedRef) => {
     const ref = useRef<HTMLButtonElement | null>(null)
 
     const handleClick = (
@@ -25,7 +25,7 @@ export const ButtonV3: React.ForwardRefExoticComponent<
 
     useEffect(() => {
       if (loading && ref.current !== null) {
-        ref.current!.blur()
+        ref.current?.blur()
       }
     }, [loading])
 
@@ -67,7 +67,7 @@ type ContainerProps = Pick<
   "size" | "inline" | "loading" | "hover" | "focus" | "disabled"
 >
 
-const Container = styled.button<ContainerProps>`
+export const buttonMixin = css`
   display: inline-flex;
   cursor: pointer;
   position: relative;
@@ -80,7 +80,10 @@ const Container = styled.button<ContainerProps>`
   border: 1px solid;
   transition: color 0.25s ease, border-color 0.25s ease,
     background-color 0.25s ease, box-shadow 0.25s ease;
+`
 
+const Container = styled.button<ContainerProps>`
+  ${buttonMixin}
   ${boxMixin};
 
   /* Handle sizing */
