@@ -1,3 +1,27 @@
+# (Tue Dec 14 2021)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.12.0`
+  - feat: exports button variants/mixin [#1090](https://github.com/artsy/palette/pull/1090) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- ci: updates master => main [#1091](https://github.com/artsy/palette/pull/1091) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update yarn orb from 6.0.0 to v6.1.0 [#1089](https://github.com/artsy/palette/pull/1089) ([@renovate-bot](https://github.com/renovate-bot))
+- `@artsy/palette-charts@17.12.0`, `@artsy/palette@18.12.0`
+  - chore(deps): update dep typescript from 4.5.3 to v4.5.4 [#1088](https://github.com/artsy/palette/pull/1088) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Fri Dec 10 2021)
 
 #### 🐛  Bug Fix
