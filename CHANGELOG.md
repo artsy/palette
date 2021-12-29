@@ -1,3 +1,16 @@
+# (Wed Dec 29 2021)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.12.1`
+  - fix(SWA): Fix onEnter in AutocompleteInput [#1092](https://github.com/artsy/palette/pull/1092) ([@Serge0n](https://github.com/Serge0n))
+
+#### Authors: 1
+
+- Sergey Kravchyonok ([@Serge0n](https://github.com/Serge0n))
+
+---
+
 # (Tue Dec 14 2021)
 
 #### 🚀  Enhancement
