@@ -125,7 +125,9 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     ref: containerRef,
     list: options,
     waitForInteractive: true,
-    onEnter: ({ element: option, index: i }) => {
+    onEnter: ({ element: option, index: i, event }) => {
+      event.preventDefault()
+      event.stopPropagation()
       handleSelect(option, i)
       resetUI()
     },
