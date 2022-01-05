@@ -59,6 +59,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   extends Omit<InputProps, "onSelect" | "onSubmit"> {
   defaultValue?: string
   loading?: boolean
+  footer?: React.ReactNode
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
@@ -79,6 +80,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   defaultValue = "",
   id,
   loading,
+  footer,
   onSubmit,
   onSelect,
   onChange,
@@ -317,24 +319,28 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
           role="listbox"
           width={width}
         >
-          {optionsWithRefs.map(({ option, ref }, i) => {
-            return (
-              <AutocompleteInputOption
-                key={i}
-                ref={ref}
-                role="option"
-                aria-selected={i === index}
-                aria-posinset={i + 1}
-                aria-setsize={options.length}
-                onMouseDown={handleMouseDown(option, i)}
-                onMouseEnter={handleMouseEnter(i)}
-                selected={i === index}
-                tabIndex={-1}
-              >
-                {renderOption(option, i)}
-              </AutocompleteInputOption>
-            )
-          })}
+          <AutocompleteInputOptions>
+            {optionsWithRefs.map(({ option, ref }, i) => {
+              return (
+                <AutocompleteInputOption
+                  key={i}
+                  ref={ref}
+                  role="option"
+                  aria-selected={i === index}
+                  aria-posinset={i + 1}
+                  aria-setsize={options.length}
+                  onMouseDown={handleMouseDown(option, i)}
+                  onMouseEnter={handleMouseEnter(i)}
+                  selected={i === index}
+                  tabIndex={-1}
+                >
+                  {renderOption(option, i)}
+                </AutocompleteInputOption>
+              )
+            })}
+          </AutocompleteInputOptions>
+
+          {footer}
         </AutocompleteInputDropdown>
       )}
 
@@ -357,8 +363,12 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
 const AutocompleteInputDropdown = styled(Box)`
   box-shadow: ${DROP_SHADOW};
-  max-height: 300px;
+  z-index: 1;
+`
+
+const AutocompleteInputOptions = styled(Box)`
+  /* 308 = Roughly, 5.5 default sized options  */
+  max-height: 308px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  z-index: 1;
 `
