@@ -1,3 +1,17 @@
+# v18.12.2 (Thu Jan 06 2022)
+
+#### 🐛  Bug Fix
+
+- feat(autocomplete): supports footer [#1087](https://github.com/artsy/palette/pull/1087) ([@dzucconi](https://github.com/dzucconi))
+- feat(autocomplete): adds footer ([@dzucconi](https://github.com/dzucconi))
+- fix(usefocuslock): guards in the event here are no focusable nodes ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.12.1 (Wed Dec 29 2021)
 
 #### 🐛  Bug Fix

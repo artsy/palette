@@ -1,3 +1,15 @@
+# v17.12.2 (Thu Jan 06 2022)
+
+#### 🐛  Bug Fix
+
+- feat(autocomplete): supports footer [#1087](https://github.com/artsy/palette/pull/1087) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.12.0 (Tue Dec 14 2021)
 
 #### 🏠  Internal
