@@ -35,6 +35,10 @@
     "url": "https://github.com/artsy/palette/issues"
   },
   "homepage": "https://github.com/artsy/palette#readme",
+  "resolutions": {
+    "//": "Locking colors to 1.4.0 because 1.4.4 has been deliberately corrupted",
+    "colors": "1.4.0"
+  },
   "peerDependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
