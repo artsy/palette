@@ -1,3 +1,21 @@
+# v18.13.0 (Tue Jan 18 2022)
+
+#### 🚀  Enhancement
+
+- feat(FilterSelect): Adds new <FilterSelect> component [#1099](https://github.com/artsy/palette/pull/1099) ([@damassi](https://github.com/damassi))
+- toolchain(linting): Add rule-of-hooks [#1093](https://github.com/artsy/palette/pull/1093) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat(FilterSelect): add new component ([@damassi](https://github.com/damassi))
+- toolchain(linting): Add rule-of-hooks ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v18.12.2 (Thu Jan 06 2022)
 
 #### 🐛  Bug Fix

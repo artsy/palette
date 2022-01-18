@@ -1,3 +1,19 @@
+# v17.13.0 (Tue Jan 18 2022)
+
+#### 🚀  Enhancement
+
+- security(colors.js): Lock version to 1.4 due to corruption [#1094](https://github.com/artsy/palette/pull/1094) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- security(colors.js): Lock version to 1.4 due to corruption ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v17.12.2 (Thu Jan 06 2022)
 
 #### 🐛  Bug Fix

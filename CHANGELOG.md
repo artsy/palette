@@ -1,3 +1,19 @@
+# (Tue Jan 18 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.13.0`
+  - feat(FilterSelect): Adds new <FilterSelect> component [#1099](https://github.com/artsy/palette/pull/1099) ([@damassi](https://github.com/damassi))
+  - toolchain(linting): Add rule-of-hooks [#1093](https://github.com/artsy/palette/pull/1093) ([@damassi](https://github.com/damassi))
+- `@artsy/palette-charts@17.13.0`
+  - security(colors.js): Lock version to 1.4 due to corruption [#1094](https://github.com/artsy/palette/pull/1094) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Thu Jan 06 2022)
 
 #### 🐛  Bug Fix
