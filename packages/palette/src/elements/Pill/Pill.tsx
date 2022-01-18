@@ -69,6 +69,10 @@ const Container = styled(Clickable)<PillProps>`
         ${states.focus}
         ${"active" in props && props.active && states.active}
       }
+
+      &:disabled {
+        pointer-events: none;
+      }
     `
   }}
 `

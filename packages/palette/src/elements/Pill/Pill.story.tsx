@@ -14,7 +14,9 @@ export default {
 
 export const _States = () => {
   return (
-    <States<PillProps> states={[{}, { hover: true }, { focus: true }]}>
+    <States<PillProps>
+      states={[{}, { hover: true }, { focus: true }, { disabled: true }]}
+    >
       <Pill>Pill</Pill>
     </States>
   )
