@@ -1,3 +1,15 @@
+# v17.14.0 (Tue Jan 18 2022)
+
+#### 🚀  Enhancement
+
+- chore(component): export filterselect [#1103](https://github.com/artsy/palette/pull/1103) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v17.13.0 (Tue Jan 18 2022)
 
 #### 🚀  Enhancement

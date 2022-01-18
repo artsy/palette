@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@18.14.0`
+  - chore(component): export filterselect [#1103](https://github.com/artsy/palette/pull/1103) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# (Tue Jan 18 2022)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@18.13.0`
   - feat(FilterSelect): Adds new <FilterSelect> component [#1099](https://github.com/artsy/palette/pull/1099) ([@damassi](https://github.com/damassi))
   - toolchain(linting): Add rule-of-hooks [#1093](https://github.com/artsy/palette/pull/1093) ([@damassi](https://github.com/damassi))
