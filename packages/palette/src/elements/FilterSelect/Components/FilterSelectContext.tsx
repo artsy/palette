@@ -18,6 +18,7 @@ interface FilterSelectContextProps {
   filteredItems: Item[]
   initialItemsToShow: number
   isFiltered: boolean
+  multiselect: boolean
   onChange: (state: {
     items: FilterSelectContextProps["items"]
     filteredItems: FilterSelectContextProps["filteredItems"]
@@ -39,6 +40,7 @@ export type FilterSelectState = Pick<
   | "initialItemsToShow"
   | "items"
   | "isFiltered"
+  | "multiselect"
   | "onChange"
   | "order"
   | "placeholder"
@@ -82,9 +84,16 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
         (item) => item.value === action.payload.item.value
       )
 
-      const selectedItems = isFound
-        ? reject(state.selectedItems, { value: action.payload.item.value })
-        : [...state.selectedItems, action.payload.item]
+      let selectedItems
+      if (isFound) {
+        selectedItems = reject(state.selectedItems, {
+          value: action.payload.item.value,
+        })
+      } else {
+        selectedItems = state.multiselect
+          ? [...state.selectedItems, action.payload.item]
+          : [action.payload.item]
+      }
 
       return {
         ...state,
@@ -99,6 +108,7 @@ const initialState: FilterSelectState = {
   initialItemsToShow: INITIAL_ITEMS_TO_SHOW,
   isFiltered: false,
   items: [],
+  multiselect: true,
   onChange: (x) => x,
   order: [["label"], ["asc"]],
   placeholder: "",

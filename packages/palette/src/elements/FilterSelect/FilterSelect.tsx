@@ -32,6 +32,7 @@ const _FilterSelect: React.FC = () => {
     initialItemsToShow,
     isFiltered,
     items,
+    multiselect,
     onChange,
     order,
     query,
@@ -49,7 +50,7 @@ const _FilterSelect: React.FC = () => {
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query])
+  }, [selectedItems])
 
   if (items.length === 0) {
     return null
@@ -58,7 +59,10 @@ const _FilterSelect: React.FC = () => {
   const orderItems = (items) => orderBy(items, order[0], order[1])
   const itemsOrdered = orderItems(items)
   const filterdItemsOrdered = orderItems(filteredItems)
-  const itemsSorted = uniqBy(selectedItems.concat(itemsOrdered), "value") // Move selected items to the top
+  const itemsSorted = multiselect
+    ? // Move selected items to the top
+      uniqBy(selectedItems.concat(itemsOrdered), "value")
+    : itemsOrdered
   const expanded = isBelowTheFoldSelected(selectedItems, itemsSorted)
   const showNoResults = filteredItems.length === 0 && query !== ""
 

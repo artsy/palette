@@ -72,6 +72,28 @@ describe("FilterSelect", () => {
     expect(text).toContain("Item 3")
   })
 
+  it("only selects one item if multiselect=false, and doesnt resort", () => {
+    const wrapper = getWrapper({ multiselect: false })
+    wrapper.find("Checkbox").at(1).simulate("click")
+    wrapper.update()
+    expect(wrapper.find("Checkbox").at(1).props().selected).toBe(true)
+
+    let text = wrapper.text()
+    expect(text).toContain("Item 1")
+    expect(text).toContain("Item 2")
+    expect(text).toContain("Item 3")
+
+    wrapper.find("Checkbox").at(2).simulate("click")
+    wrapper.update()
+    expect(wrapper.find("Checkbox").at(1).props().selected).not.toBe(true)
+    expect(wrapper.find("Checkbox").at(2).props().selected).toBe(true)
+
+    text = wrapper.text()
+    expect(text).toContain("Item 1")
+    expect(text).toContain("Item 2")
+    expect(text).toContain("Item 3")
+  })
+
   it("filters items", () => {
     const wrapper = getWrapper({ query: "Item 3" })
     const text = wrapper.text()
@@ -158,6 +180,7 @@ describe("FilterSelect", () => {
     })
 
     simulateTyping(wrapper, "item1")
+    wrapper.find("Checkbox").at(0).simulate("click")
     wrapper.update()
 
     expect(spy).toHaveBeenCalledWith(
@@ -168,7 +191,7 @@ describe("FilterSelect", () => {
           { label: "Item2", value: "item-2" },
         ],
         query: "item1",
-        selectedItems: [],
+        selectedItems: [{ label: "Item1", value: "item-1" }],
       })
     )
   })
