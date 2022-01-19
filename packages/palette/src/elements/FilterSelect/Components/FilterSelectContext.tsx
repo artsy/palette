@@ -13,23 +13,29 @@ export interface Item {
   [key: string]: string | number | boolean
 }
 
+// In order to satisfy the Relay compilers readonly list types. This is in
+// support for passing different kinds of item types as props, like aggregations
+export type Items = ReadonlyArray<Item>
+
+export interface FilterSelectChangeState {
+  items: FilterSelectContextProps["items"]
+  filteredItems: FilterSelectContextProps["filteredItems"]
+  selectedItems: FilterSelectContextProps["selectedItems"]
+  query: FilterSelectContextProps["query"]
+}
+
 interface FilterSelectContextProps {
-  items: Item[]
-  filteredItems: Item[]
+  items: Items
+  filteredItems: Items
   initialItemsToShow: number
   isFiltered: boolean
   multiselect: boolean
-  onChange: (state: {
-    items: FilterSelectContextProps["items"]
-    filteredItems: FilterSelectContextProps["filteredItems"]
-    selectedItems: FilterSelectContextProps["selectedItems"]
-    query: FilterSelectContextProps["query"]
-  }) => void
+  onChange: (state: FilterSelectChangeState) => void
   order: [string[], Array<"asc" | "desc">] // See: https://lodash.com/docs/4.17.15#orderBy
   placeholder: string
   query: string
   renderItemLabel?: (item: any) => string
-  selectedItems: Item[]
+  selectedItems: Items
   setSelectedItems: (item: Item) => void
   setQuery: (query: string) => void
 }
