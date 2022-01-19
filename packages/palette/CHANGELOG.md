@@ -1,3 +1,16 @@
+# v18.15.1 (Wed Jan 19 2022)
+
+#### 🐛  Bug Fix
+
+- Fix: Center briefcase and page icons [#1106](https://github.com/artsy/palette/pull/1106) ([@MrSltun](https://github.com/MrSltun))
+- center briefcase and page icons ([@MrSltun](https://github.com/MrSltun))
+
+#### Authors: 1
+
+- Sultan Al-Maari ([@MrSltun](https://github.com/MrSltun))
+
+---
+
 # v18.15.0 (Wed Jan 19 2022)
 
 #### 🚀  Enhancement
