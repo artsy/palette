@@ -13,22 +13,29 @@ export interface Item {
   [key: string]: string | number | boolean
 }
 
+// In order to satisfy the Relay compilers readonly list types. This is in
+// support for passing different kinds of item types as props, like aggregations
+export type Items = ReadonlyArray<Item>
+
+export interface FilterSelectChangeState {
+  items: FilterSelectContextProps["items"]
+  filteredItems: FilterSelectContextProps["filteredItems"]
+  selectedItems: FilterSelectContextProps["selectedItems"]
+  query: FilterSelectContextProps["query"]
+}
+
 interface FilterSelectContextProps {
-  items: Item[]
-  filteredItems: Item[]
+  items: Items
+  filteredItems: Items
   initialItemsToShow: number
   isFiltered: boolean
-  onChange: (state: {
-    items: FilterSelectContextProps["items"]
-    filteredItems: FilterSelectContextProps["filteredItems"]
-    selectedItems: FilterSelectContextProps["selectedItems"]
-    query: FilterSelectContextProps["query"]
-  }) => void
+  multiselect: boolean
+  onChange: (state: FilterSelectChangeState) => void
   order: [string[], Array<"asc" | "desc">] // See: https://lodash.com/docs/4.17.15#orderBy
   placeholder: string
   query: string
   renderItemLabel?: (item: any) => string
-  selectedItems: Item[]
+  selectedItems: Items
   setSelectedItems: (item: Item) => void
   setQuery: (query: string) => void
 }
@@ -39,6 +46,7 @@ export type FilterSelectState = Pick<
   | "initialItemsToShow"
   | "items"
   | "isFiltered"
+  | "multiselect"
   | "onChange"
   | "order"
   | "placeholder"
@@ -82,9 +90,16 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
         (item) => item.value === action.payload.item.value
       )
 
-      const selectedItems = isFound
-        ? reject(state.selectedItems, { value: action.payload.item.value })
-        : [...state.selectedItems, action.payload.item]
+      let selectedItems
+      if (isFound) {
+        selectedItems = reject(state.selectedItems, {
+          value: action.payload.item.value,
+        })
+      } else {
+        selectedItems = state.multiselect
+          ? [...state.selectedItems, action.payload.item]
+          : [action.payload.item]
+      }
 
       return {
         ...state,
@@ -99,6 +114,7 @@ const initialState: FilterSelectState = {
   initialItemsToShow: INITIAL_ITEMS_TO_SHOW,
   isFiltered: false,
   items: [],
+  multiselect: true,
   onChange: (x) => x,
   order: [["label"], ["asc"]],
   placeholder: "",

@@ -14,12 +14,13 @@ export const Default = () => {
         {
           placeholder: "Filter by artist name",
           initialItemsToShow: 6,
+          multiselect: true,
           order: [
             ["country", "name"],
             ["asc", "asc"],
           ],
           renderItemLabel: (item) => {
-            return `${item.name}, ${item.country}`
+            return `${item.label}, ${item.country}`
           },
           onChange: (state) => {
             console.log(state)
