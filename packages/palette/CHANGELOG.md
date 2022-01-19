@@ -1,3 +1,20 @@
+# v18.15.0 (Wed Jan 19 2022)
+
+#### 🚀  Enhancement
+
+- feat(filterselect): Add multiselect option [#1104](https://github.com/artsy/palette/pull/1104) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- add ReadonlyArray to satisfy relay list ([@damassi](https://github.com/damassi))
+- feat(filterselect): add multiselect=false option ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v18.14.0 (Tue Jan 18 2022)
 
 #### 🚀  Enhancement
