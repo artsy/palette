@@ -1,3 +1,22 @@
+# (Tue Jan 25 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.15.2`
+  - fix(usefocuslock): skips -1 tabindex elements [#1109](https://github.com/artsy/palette/pull/1109) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@17.15.2`, `@artsy/palette@18.15.2`
+  - chore(deps): update dep typescript from 4.5.4 to v4.5.5 [#1107](https://github.com/artsy/palette/pull/1107) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Wed Jan 19 2022)
 
 #### 🐛  Bug Fix
