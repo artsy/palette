@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { useFocusLock } from "./useFocusLock"
 import { Input } from "../elements/Input"
 import { Button } from "../elements/Button"
-import { AutocompleteInput } from ".."
+import { AutocompleteInput } from "../elements/AutocompleteInput"
 
 export default {
   title: "Hooks/useFocusLock",
@@ -19,7 +19,14 @@ export const Default = () => {
       <div ref={ref}>
         <Input placeholder="Focusable" />
         <Input placeholder="Focusable" />
-        <Button>Focusable</Button>
+        <a href="#" tabIndex={-1}>
+          Skipped
+        </a>
+        <a href="#">Focusable</a>
+        <Button variant="secondaryGray" tabIndex={-1}>
+          Skipped
+        </Button>
+        <Button variant="secondaryGray">Focusable</Button>
       </div>
       <Input placeholder="Not focusable" />
     </>
