@@ -3,12 +3,12 @@ import { useCursor } from "use-cursor"
 import { useMutationObserver } from "./useMutationObserver"
 
 const FOCUSABLE_SELECTOR = [
-  "a[href]",
-  "area[href]",
-  "input:not([disabled])",
-  "select:not([disabled])",
-  "textarea:not([disabled])",
-  "button:not([disabled])",
+  "a[href]:not([tabindex='-1'])",
+  "area[href]:not([tabindex='-1'])",
+  "input:not([disabled]):not([tabindex='-1'])",
+  "select:not([disabled]):not([tabindex='-1'])",
+  "textarea:not([disabled]):not([tabindex='-1'])",
+  "button:not([disabled]):not([tabindex='-1'])",
   '[tabindex="0"]',
 ].join(", ")
 
