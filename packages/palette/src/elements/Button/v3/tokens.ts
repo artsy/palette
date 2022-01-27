@@ -165,6 +165,12 @@ export const BUTTON_SIZES = {
     borderRadius: "25px",
     px: 4,
   },
+  // Aliased to medium, for backwards compatability with v2
+  large: {
+    height: "50px",
+    borderRadius: "25px",
+    px: 4,
+  },
 } as const
 
 /** Text sizes associated with available button sizes */
