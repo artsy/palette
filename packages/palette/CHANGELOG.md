@@ -1,3 +1,19 @@
+# v18.16.0 (Thu Jan 27 2022)
+
+#### 🚀  Enhancement
+
+- fix(button): Alias size=large to medium [#1110](https://github.com/artsy/palette/pull/1110) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix(button): Alias size=large to medium ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v18.15.2 (Tue Jan 25 2022)
 
 #### 🐛  Bug Fix
