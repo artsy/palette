@@ -25,7 +25,8 @@
     ]
   },
   "resolutions": {
-    "styled-components": "4.3.2"
+    "styled-components": "4.3.2",
+    "webpack": "5.52.1"
   },
   "devDependencies": {
     "concurrently": "4.1.0",
