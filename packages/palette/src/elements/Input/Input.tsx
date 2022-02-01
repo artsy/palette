@@ -15,7 +15,7 @@ export interface InputProps
   extends BoxProps,
     Omit<
       React.InputHTMLAttributes<HTMLInputElement>,
-      "size" | "width" | "height"
+      "size" | "width" | "height" | "capture"
     > {
   description?: string
   disabled?: boolean
@@ -116,6 +116,8 @@ export const Input: React.ForwardRefExoticComponent<
     )
   }
 )
+
+Input.displayName = "Input"
 
 type StyledInputProps = Pick<
   InputProps,

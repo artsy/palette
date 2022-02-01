@@ -1,6 +1,6 @@
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes, StyledComponentClass } from "styled-components"
 import { border, BorderProps } from "styled-system"
 import { splitProps } from "../../utils/splitProps"
 import { Box, BoxProps } from "../Box"
@@ -10,7 +10,9 @@ import { Text, TextProps } from "../Text"
 export type SkeletonBoxProps = BoxProps
 
 /** A black10 Box */
-export const SkeletonBox = styled(Box)``
+export const SkeletonBox: StyledComponentClass<SkeletonBoxProps, any> = styled(
+  Box
+)``
 SkeletonBox.defaultProps = { bg: "black10" }
 
 const splitBorderProps = splitProps<BorderProps>(border)
