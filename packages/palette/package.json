@@ -55,11 +55,13 @@
     "@babel/preset-react": "7.12.13",
     "@babel/preset-typescript": "7.12.16",
     "@seznam/compose-react-refs": "1.0.6",
-    "@storybook/addon-actions": "6.3.4",
-    "@storybook/addon-links": "6.3.4",
-    "@storybook/addon-viewport": "6.3.4",
-    "@storybook/addons": "6.3.4",
-    "@storybook/react": "6.3.4",
+    "@storybook/addon-actions": "6.5.0-alpha.30",
+    "@storybook/addon-links": "6.5.0-alpha.30",
+    "@storybook/addon-viewport": "6.5.0-alpha.30",
+    "@storybook/addons": "6.5.0-alpha.30",
+    "@storybook/builder-webpack5": "^6.5.0-alpha.30",
+    "@storybook/manager-webpack5": "^6.5.0-alpha.30",
+    "@storybook/react": "6.5.0-alpha.30",
     "@types/debounce": "1.2.0",
     "@types/enzyme": "3.10.8",
     "@types/jest": "26.0.20",
@@ -110,7 +112,8 @@
     "styled-components": "4.3.2",
     "ts-node": "8.1.0",
     "typescript": "4.5.5",
-    "typescript-styled-plugin": "0.10.0"
+    "typescript-styled-plugin": "0.10.0",
+    "webpack": "5"
   },
   "dependencies": {
     "@artsy/palette-tokens": "^2.6.0",
