@@ -1,5 +1,18 @@
 # (Tue Feb 01 2022)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.17.0`
+  - fix(storybooks): Hot reloading [#1114](https://github.com/artsy/palette/pull/1114) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# (Tue Feb 01 2022)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@18.16.1`
