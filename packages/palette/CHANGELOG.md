@@ -1,3 +1,20 @@
+# v18.16.1 (Tue Feb 01 2022)
+
+#### 🐛  Bug Fix
+
+- feature: Lodash Full [#1112](https://github.com/artsy/palette/pull/1112) ([@icirellik](https://github.com/icirellik))
+- feature: Lodash Full ([@icirellik](https://github.com/icirellik))
+- chore(docs): Fix docs by deleting monorepo lockfile [#1111](https://github.com/artsy/palette/pull/1111) ([@damassi](https://github.com/damassi))
+- chore:upgrade webpack ([@damassi](https://github.com/damassi))
+- chore(docs): Fix docs by deleting monorepo lockfile ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v18.16.0 (Thu Jan 27 2022)
 
 #### 🚀  Enhancement

@@ -1,3 +1,18 @@
+# (Tue Feb 01 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.16.1`
+  - feature: Lodash Full [#1112](https://github.com/artsy/palette/pull/1112) ([@icirellik](https://github.com/icirellik))
+  - chore(docs): Fix docs by deleting monorepo lockfile [#1111](https://github.com/artsy/palette/pull/1111) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Cameron Rollheiser ([@icirellik](https://github.com/icirellik))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Thu Jan 27 2022)
 
 #### 🚀  Enhancement
