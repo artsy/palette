@@ -1,0 +1,58 @@
+---
+name: IconButton
+source: elements/IconButton
+---
+
+`IconButton` is a `Button` with a slot for an `icon` element.
+
+<Playground>
+  <>
+    <IconButton
+      size="small"
+      variant="secondaryOutline"
+      icon={<BellIcon fill="currentColor" />}
+      mr={1}
+    >
+      Create an Alert
+    </IconButton>
+    <IconButton
+      width="auto"
+      variant="primaryBlack"
+      icon={<BellIcon fill="currentColor" />}
+    >
+      Create an Alert
+    </IconButton>
+  </>
+</Playground>
+
+### Example
+
+<Playground>
+  <Box width={600}>
+    <Join separator={<Spacer mt={1} />}>
+      <IconButton
+        variant="secondaryOutline"
+        width="100%"
+        icon={<EnvelopeIcon fill="currentColor" />}
+      >
+        Continue with Email
+      </IconButton>
+      <IconButton
+        width="100%"
+        icon={
+          // TODO: Add Apple logo to svgs
+          <div></div>
+        }
+      >
+        Continue with Apple
+      </IconButton>
+      <IconButton
+        variant="secondaryOutline"
+        width="100%"
+        icon={<FacebookIcon fill="currentColor" />}
+      >
+        Continue with Facebook
+      </IconButton>
+    </Join>
+  </Box>
+</Playground>

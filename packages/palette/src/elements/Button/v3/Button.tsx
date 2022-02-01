@@ -12,7 +12,18 @@ import { BUTTON_SIZES, BUTTON_TEXT_SIZES, BUTTON_VARIANTS } from "./tokens"
 export const ButtonV3: React.ForwardRefExoticComponent<
   ButtonProps & { ref?: React.Ref<HTMLElement> }
 > = React.forwardRef(
-  ({ children, loading, size, onClick, ...rest }, forwardedRef) => {
+  (
+    {
+      children,
+      loading,
+      size,
+      onClick,
+      alignItems = "center",
+      justifyContent = "center",
+      ...rest
+    },
+    forwardedRef
+  ) => {
     const ref = useRef<HTMLButtonElement | null>(null)
 
     const handleClick = (
@@ -36,6 +47,9 @@ export const ButtonV3: React.ForwardRefExoticComponent<
         size={size}
         loading={loading}
         tabIndex={loading ? -1 : 0}
+        display="inline-flex"
+        alignItems={alignItems}
+        justifyContent={justifyContent}
         {...rest}
       >
         {loading && <Spinner size={size} color="currentColor" />}
@@ -45,8 +59,9 @@ export const ButtonV3: React.ForwardRefExoticComponent<
           variant={BUTTON_TEXT_SIZES[size!]}
           opacity={loading ? 0 : 1}
           display="flex"
-          alignItems="center"
-          justifyContent="center"
+          alignItems={alignItems}
+          justifyContent={justifyContent}
+          width="100%"
         >
           {children}
         </Text>
@@ -68,23 +83,19 @@ type ContainerProps = Pick<
 >
 
 export const buttonMixin = css`
-  display: inline-flex;
   cursor: pointer;
   position: relative;
   white-space: nowrap;
   font-weight: normal;
   text-decoration: none;
-  align-items: center;
   text-align: center;
-  justify-content: center;
   border: 1px solid;
   transition: color 0.25s ease, border-color 0.25s ease,
     background-color 0.25s ease, box-shadow 0.25s ease;
 `
 
-const Container = styled.button<ContainerProps>`
-  ${buttonMixin}
-  ${boxMixin};
+const Container = styled.button<ContainerProps & ButtonProps>`
+  ${buttonMixin};
 
   /* Handle sizing */
   ${variant({ prop: "size", variants: BUTTON_SIZES })}
@@ -141,4 +152,6 @@ const Container = styled.button<ContainerProps>`
       }
     `
   }};
+
+  ${boxMixin};
 `
