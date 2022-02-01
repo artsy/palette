@@ -1,6 +1,4 @@
-import uniqBy from "lodash.uniqby"
-import orderBy from "lodash.orderby"
-import intersection from "lodash.intersection"
+import { intersection, orderBy, uniqBy } from "lodash"
 import * as React from "react"
 import { ShowMore } from "../ShowMore"
 import { Flex } from "../Flex"
