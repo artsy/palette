@@ -5,7 +5,12 @@ import React from "react"
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
 import styled from "styled-components"
 import { copyStringToClipboard } from "utils/copyStringToClipboard"
-import { CodeEditorTheme } from "./CodeEditorTheme"
+import {
+  CodeEditorTheme,
+  FONT_FAMILY,
+  FONT_SIZE,
+  LINE_HEIGHT,
+} from "./CodeEditorTheme"
 
 interface CodeEditorProps {
   code: string
@@ -141,10 +146,9 @@ const PreviewContainer = styled(Box)`
 `
 
 const EditorContainer = styled(Box)`
-  border-radius: 2px;
   border: 1px solid ${themeGet("colors.black10")};
   overflow-x: scroll;
-  color: #989898;
+  color: ${themeGet("colors.black60")};
 
   &:hover {
     ${CopyButton} {
@@ -167,8 +171,9 @@ const EditorContainer = styled(Box)`
 
 const ErrorContainer = styled(Box)`
   .react-live-error {
-    font-family: Menlo;
-    font-size: 12px;
+    font-family: ${FONT_FAMILY};
+    font-size: ${FONT_SIZE};
+    line-height: ${LINE_HEIGHT};
     color: ${themeGet("colors.red100")};
     white-space: pre;
     padding-top: ${themeGet("space.2")}px;

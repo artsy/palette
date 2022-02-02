@@ -1,4 +1,15 @@
-import { Box, EditIcon, Flex, Text, useTheme } from "@artsy/palette"
+import {
+  Box,
+  BoxProps,
+  Column,
+  EditIcon,
+  Flex,
+  GridColumns,
+  IconButton,
+  Spacer,
+  Text,
+  useTheme,
+} from "@artsy/palette"
 import { MetaTags } from "components/MetaTags"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
@@ -7,6 +18,7 @@ import { TableOfContents } from "components/TableOfContents"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useRef } from "react"
+import { FC } from "react"
 import { FaGithub } from "react-icons/fa"
 import { Provider as StateProvider } from "unstated"
 import { getEditUrl } from "utils/getEditUrl"
@@ -70,55 +82,62 @@ const Layout = (props) => {
     <Box ref={contentRef as any}>
       <MetaTags title={name} />
 
-      <Flex maxWidth={theme.breakpoints.md} margin="0 auto">
-        <SidebarArea pl={2} pt={4} width={[0, "21%"]} />
+      <Box maxWidth={theme.breakpoints.md} margin="0 auto" px={[2, 4]}>
+        <GridColumns>
+          <Column
+            span={3}
+            position="sticky"
+            top={0}
+            height="100vh"
+            overflowY="auto"
+            borderRight="1px solid"
+            borderColor="black10"
+            pr={2}
+            py={4}
+            display={["none", "block"]}
+          >
+            <Sidebar />
+          </Column>
 
-        <Box
-          className="DocSearch-content"
-          width={["100%", "80%", "60%"]}
-          px={6}
-          pt={4}
-          mb={4}
-        >
-          {showTitle && (
-            <TitleArea
-              name={name}
-              source={source}
-              status={status}
-              editUrl={editUrl}
-              mb={4}
-            />
-          )}
+          <Column span={7} py={4}>
+            <Box className="DocSearch-content">
+              {showTitle && (
+                <TitleArea
+                  name={name}
+                  source={source}
+                  status={status}
+                  editUrl={editUrl}
+                  mb={4}
+                />
+              )}
 
-          <MDXRenderer>{body}</MDXRenderer>
-        </Box>
+              <MDXRenderer>{body}</MDXRenderer>
+            </Box>
+          </Column>
 
-        <TableOfContentsArea headings={headings} width="20%" />
-      </Flex>
+          <Column
+            span={2}
+            position="sticky"
+            top={0}
+            height="100vh"
+            overflowY="auto"
+            py={4}
+            display={["none", "block"]}
+            borderLeft="1px solid"
+            borderColor="black10"
+            pl={2}
+          >
+            <TableOfContents headings={headings} />
+          </Column>
+        </GridColumns>
+      </Box>
     </Box>
   )
 }
 
-const SidebarArea = (props) => {
-  return (
-    <Box
-      position="sticky"
-      top={0}
-      height="100vh"
-      overflowY="auto"
-      pl={2}
-      pt={4}
-      borderRight={`1px solid lightgray`}
-      width={[0, "21%"]}
-      display={["none", "block"]}
-      {...props}
-    >
-      <Sidebar />
-    </Box>
-  )
-}
-
-const TitleArea = ({ name, source, status, editUrl, ...rest }) => {
+const TitleArea: FC<
+  BoxProps & { name: string; source: string; status: any; editUrl: string }
+> = ({ name, source, status, editUrl, ...rest }) => {
   return (
     <Flex
       justifyContent="space-between"
@@ -126,17 +145,18 @@ const TitleArea = ({ name, source, status, editUrl, ...rest }) => {
       width="100%"
       {...rest}
     >
-      <Text
-        as="h1"
-        variant="xl"
-        color="black100"
-        className="DocSearch-lvl1"
-        width="100%"
-      >
+      <Text as="h1" variant="xl" className="DocSearch-lvl1">
         {name} {status && <StatusBadge status={status} />}
       </Text>
-      <Flex alignItems="center" position="relative" mt={1}>
-        {source && <ViewSourceButton source={source} />}
+
+      <Flex alignItems="center">
+        {source && (
+          <>
+            <ViewSourceButton source={source} />
+            <Spacer ml={1} />
+          </>
+        )}
+
         <EditButton editUrl={editUrl} />
       </Flex>
     </Flex>
@@ -145,53 +165,36 @@ const TitleArea = ({ name, source, status, editUrl, ...rest }) => {
 
 const EditButton = ({ editUrl }) => {
   return (
-    <a
-      href={editUrl}
-      style={{ display: "flex", textDecoration: "none" }}
+    <IconButton
+      variant="secondaryOutline"
+      size="small"
+      icon={<EditIcon fill="currentColor" />}
+      // @ts-ignore
+      as="a"
       target="_blank"
+      href={editUrl}
     >
-      <EditIcon top="-1px" />
-      <Text variant="xs" ml={0.5}>
-        Edit
-      </Text>
-    </a>
+      Edit
+    </IconButton>
   )
 }
+
+const VIEW_SOURCE_BASE_URL =
+  "https://github.com/artsy/palette/tree/master/packages/palette/src"
 
 export const ViewSourceButton = ({ source }) => {
-  const BASE_URL =
-    "https://github.com/artsy/palette/tree/master/packages/palette/src"
-
   return (
-    <a
-      href={`${BASE_URL}/${source}`}
+    <IconButton
+      variant="secondaryOutline"
+      size="small"
+      icon={<FaGithub fill="currentColor" />}
+      // @ts-ignore
+      as="a"
       target="_blank"
-      style={{ textDecoration: "none" }}
+      href={`${VIEW_SOURCE_BASE_URL}/${source}`}
     >
-      <Flex position="relative" top="3px" pr={1}>
-        <Box pr={0.5}>
-          <FaGithub />
-        </Box>
-        <Text variant="xs">Source</Text>
-      </Flex>
-    </a>
-  )
-}
-
-const TableOfContentsArea = ({ headings, ...rest }) => {
-  return (
-    <Box
-      display={["none", "none", "block"]}
-      mt={0.5}
-      pt={12}
-      px={2}
-      right={100}
-      position="fixed"
-      top="-1px"
-      {...rest}
-    >
-      <TableOfContents headings={headings} />
-    </Box>
+      Source
+    </IconButton>
   )
 }
 

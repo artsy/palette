@@ -1,4 +1,4 @@
-import { Input } from "@artsy/palette"
+import { LabeledInput, MagnifyingGlassIcon } from "@artsy/palette"
 import React, { useEffect } from "react"
 import "./algolia.css"
 
@@ -14,6 +14,7 @@ export function SearchBox() {
     if (window.docsearchSettings === undefined) {
       return
     }
+
     window.docsearch({
       apiKey: window.docsearchSettings.apiKey,
       indexName: window.docsearchSettings.indexName,
@@ -21,5 +22,13 @@ export function SearchBox() {
       debug: window.docsearchSettings.indexName,
     })
   }, [])
-  return <Input id="search" placeholder="Search docs" />
+
+  return (
+    <LabeledInput
+      label={<MagnifyingGlassIcon fill="black60" />}
+      width="100%"
+      id="search"
+      placeholder="Search docs"
+    />
+  )
 }

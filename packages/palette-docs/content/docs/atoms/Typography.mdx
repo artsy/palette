@@ -11,7 +11,8 @@ legibility across all screen sizes. The type scale follows t-shirt sizing for a
 clear and applicable naming structure that does not limit or confuse
 application.
 
-A single variant is shorthand for a set of typography-specific tokens (font-size, line-height, letter-spacing).
+A single variant is shorthand for a set of typography-specific tokens
+(font-size, line-height, letter-spacing).
 
 <Spacer my={2} />
 
@@ -28,6 +29,4 @@ A single variant is shorthand for a set of typography-specific tokens (font-size
 
 ### All variants
 
-<Box as="pre" mb={4}>
-  {JSON.stringify(THEME_V3.textVariants, null, 2)}
-</Box>
+<CodeSnippet>{JSON.stringify(THEME_V3.textVariants, null, 2)}</CodeSnippet>

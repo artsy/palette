@@ -4,17 +4,14 @@ import React from "react"
 import { NavTree } from "./NavTree"
 import { SearchBox } from "./SearchBox"
 
-export const Sidebar = (_props) => {
+export const Sidebar = () => {
   return (
-    <Box>
-      <Link to="/" className="noUnderline" style={{ textDecoration: "none" }}>
+    <>
+      <Link to="/" style={{ textDecoration: "none" }}>
         <Flex alignItems="center">
-          <Box mr={1}>
-            <ArtsyMarkBlackIcon width="40px" height="40px" />
-          </Box>
-          <Text variant="lg" top="-3px" position="relative">
-            Palette
-          </Text>
+          <ArtsyMarkBlackIcon width={40} height={40} mr={2} />
+
+          <Text variant="xl">Palette</Text>
         </Flex>
       </Link>
 
@@ -22,9 +19,9 @@ export const Sidebar = (_props) => {
         <SearchBox />
       </Box>
 
-      <Box mt={2} mb={4}>
+      <Box mt={2}>
         <NavTree />
       </Box>
-    </Box>
+    </>
   )
 }

@@ -1,5 +1,10 @@
 import styled from "styled-components"
 
+export const FONT_FAMILY =
+  'Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace'
+export const FONT_SIZE = "14px"
+export const LINE_HEIGHT = "1.7"
+
 export const CodeEditorTheme = styled.div<{ editable: boolean }>`
   ${({ editable }) => {
     if (!editable) {
@@ -13,12 +18,10 @@ export const CodeEditorTheme = styled.div<{ editable: boolean }>`
 
   code[class*="language-"],
   pre[class*="language-"] {
-    font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
-      "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
-      "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
-      "Courier New", Courier, monospace;
-    font-size: 14px;
-    line-height: 1.375;
+    /* FIXME: This doesn't seem to actually style anything? */
+    font-family: ${FONT_FAMILY};
+    font-size: ${FONT_SIZE};
+    line-height: ${LINE_HEIGHT};
     direction: ltr;
     text-align: left;
     white-space: pre;
