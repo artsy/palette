@@ -35,34 +35,29 @@ source: elements/Popover
 
 ### With Placement
 
-import {POSITION} from '@artsy/palette'
+import { POSITION } from "@artsy/palette"
 
-<Box as="pre" mb={4}>
-  {JSON.stringify(POSITION, null, 2)}
-</Box>
-
+<CodeSnippet>{JSON.stringify(POSITION, null, 2)}</CodeSnippet>
 
 <Playground>
-	<Popover
-		popover={<Text variant="xs">Position me</Text>}
-		placement='bottom-start'
-		visible
-	>
-		{({ anchorRef }) => {
-			return (
-				<Text
-					ref={anchorRef}
-					variant="xs"
-					textAlign="center"
-					p={1}
-					maxWidth="50%"
-					mx="auto"
-					bg="black100"
-					color="white100"
-				>
-					Popover content
-				</Text>
-			)
-		}}
-	</Popover>
+  <Popover
+    popover={<Text variant="xs">Position me</Text>}
+    placement="top-end"
+    visible
+  >
+    {({ onVisible, anchorRef }) => {
+      return (
+        <Box textAlign="center">
+          <Button
+            ref={anchorRef}
+            variant="secondaryOutline"
+            size="small"
+            onClick={onVisible}
+          >
+            Click to display popover
+          </Button>
+        </Box>
+      )
+    }}
+  </Popover>
 </Playground>
