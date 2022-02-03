@@ -45,6 +45,7 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
     : {}
 
   return (
+    // @ts-ignore
     <ContainerComponent {...rest} {...containerProps}>
       {(imageUrl || initials) && (
         <Flex mr={1}>
