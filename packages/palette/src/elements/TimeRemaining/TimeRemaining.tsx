@@ -10,7 +10,10 @@ function padWithZero(num: number) {
   return num.toString().padStart(2, "0")
 }
 
-/** TimeRemaining */
+/**
+ * TimeRemaining
+ * @deprecated
+ */
 export const TimeRemaining: React.FC<{
   countdownEnd: string
   currentTime?: string | DateTime
