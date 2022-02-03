@@ -13,7 +13,7 @@ application.
 A single variant is shorthand for a set of typography-specific tokens. The
 text-treatments vary slightly depending on screen size.
 
-<Playground layout="horizontal">
+<Playground>
   <Join separator={<Spacer my={0.5} />}>
     <Text variant="xxl">Text XXL</Text>
     <Text variant="xl">Text XL</Text>
@@ -26,6 +26,4 @@ text-treatments vary slightly depending on screen size.
 
 ### All variants:
 
-<Box as="pre" mb={4}>
-  {JSON.stringify(THEME_V3.textVariants, null, 2)}
-</Box>
+<CodeSnippet>{JSON.stringify(THEME_V3.textVariants, null, 2)}</CodeSnippet>
