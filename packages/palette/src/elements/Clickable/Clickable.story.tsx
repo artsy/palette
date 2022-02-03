@@ -32,7 +32,7 @@ export const Default = () => {
         },
       ]}
     >
-      <Clickable onClick={action("onClick")}>Clickable</Clickable>
+      <Clickable onClick={action("onClick")}>Changed</Clickable>
     </States>
   )
 }
