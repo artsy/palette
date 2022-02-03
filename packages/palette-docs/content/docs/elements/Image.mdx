@@ -5,9 +5,10 @@ source: elements/Image
 
 <Playground>
   <Image
-    width="300px"
-    height="200px"
+    width={300}
+    height={200}
     src="https://picsum.photos/300/300/?random"
+    srcSet="https://picsum.photos/300/300/?random 1x, https://picsum.photos/600/600/?random 2x"
   />
 </Playground>
 
@@ -19,9 +20,10 @@ prop. This is an important performance optimization.
 <Playground>
   <Image
     lazyLoad
-    width="300px"
-    height="200px"
+    width={300}
+    height={200}
     src="https://picsum.photos/300/200/?random"
+    srcSet="https://picsum.photos/300/200/?random 1x, https://picsum.photos/600/400/?random 2x"
   />
 </Playground>
 
@@ -33,20 +35,26 @@ with the `preventRightClick` prop, and users will be unable to right click to
 
 <Playground>
   <Image
-    width="300px"
-    height="200px"
+    width={300}
+    height={200}
     src="https://picsum.photos/300/200/?random"
+    srcSet="https://picsum.photos/300/200/?random 1x, https://picsum.photos/600/400/?random 2x"
     preventRightClick
   />
 </Playground>
 
 ### Responsive image recipe using an Image component
 
-You may wish to include an image that responsively scales down with the width of the container.
-Try scaling the viewport smaller than the below image.
+You may wish to include an image that responsively scales down with the width of
+the container. Try scaling the viewport smaller than the below image.
 
 <Playground>
-  <ResponsiveBox aspectWidth={700} aspectHeight={400} maxWidth={700} maxHeight={400}>
+  <ResponsiveBox
+    aspectWidth={700}
+    aspectHeight={400}
+    maxWidth={700}
+    maxHeight={400}
+  >
     <Image
       width="100%"
       height="100%"
@@ -57,7 +65,8 @@ Try scaling the viewport smaller than the below image.
   </ResponsiveBox>
 </Playground>
 
-You may wish to keep the image at 100% width, regardless of the original native width of the image.
+You may wish to keep the image at 100% width, regardless of the original native
+width of the image.
 
 <Playground>
   <ResponsiveBox aspectWidth={700} aspectHeight={400} maxWidth="100%">
