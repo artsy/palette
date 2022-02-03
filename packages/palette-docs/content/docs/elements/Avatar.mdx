@@ -1,6 +1,6 @@
 ---
 name: Avatar
-status: ''
+status: ""
 lastPointOfContact: false
 source: elements/Avatar
 ---
@@ -10,35 +10,47 @@ All entities use a circular avatar.
 ### Sizes
 
 <Playground>
-	<Avatar size="md" src="https://picsum.photos/110/110/?random" />
+  <Avatar
+    size="md"
+    src="https://picsum.photos/100/100"
+    srcSet="https://picsum.photos/100/100 1x, https://picsum.photos/200/200 2x"
+    lazyLoad
+    initials="TK"
+  />
 </Playground>
-
-<Playground>
-	<Avatar size="sm" src="https://picsum.photos/110/110/?random" />
-</Playground>
-
-<Playground>
-	<Avatar size="xs" src="https://picsum.photos/110/110/?random" />
-</Playground>
-
-<Playground>
-	<Avatar size="xxs" src="https://picsum.photos/110/110/?random" />
-</Playground>
-
-### With lazy loading
-
-<Playground>
-	<Avatar lazy size="md" src="https://picsum.photos/110/110/?random" />
-</Playground>
-
-### Rendering a fallback
 
 <Playground>
   <Avatar
-    size="md"
-    renderFallback={({ diameter }) => (
-			<Box bgColor='brand' width={diameter} height={diameter} />
-    )}
-    src="https://www.artsy.net/does-not-exist"
+    size="sm"
+    src="https://picsum.photos/70/70"
+    srcSet="https://picsum.photos/70/70 1x, https://picsum.photos/140/140 2x"
+    lazyLoad
+    initials="TK"
   />
+</Playground>
+
+<Playground>
+  <Avatar
+    size="xs"
+    src="https://picsum.photos/45/45"
+    srcSet="https://picsum.photos/45/45 1x, https://picsum.photos/90/90 2x"
+    lazyLoad
+    initials="TK"
+  />
+</Playground>
+
+<Playground>
+  <Avatar
+    size="xxs"
+    src="https://picsum.photos/30/30"
+    srcSet="https://picsum.photos/30/30 1x, https://picsum.photos/60/60 2x"
+    lazyLoad
+    initials="TK"
+  />
+</Playground>
+
+### Without an image
+
+<Playground>
+  <Avatar initials="TK" />
 </Playground>
