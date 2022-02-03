@@ -1,7 +1,7 @@
 import React from "react"
 import { States } from "storybook-states"
-import { ShowMore } from "./ShowMore"
-import { ShowMoreProps } from "./ShowMore"
+import { ShowMore, ShowMoreProps } from "./ShowMore"
+import { Text } from "../Text"
 
 export default {
   title: "Components/ShowMore",
@@ -9,23 +9,15 @@ export default {
 
 export const Default = () => {
   return (
-    <States<ShowMoreProps>
-      states={[
-        {
-          initial: 3,
-          children: Array.from(Array(5)).map((_, index) => (
-            <div key={index}>hi</div>
-          )),
-        },
-        {
-          expanded: true,
-          children: Array.from(Array(5)).map((_, index) => (
-            <div key={index}>hi</div>
-          )),
-        },
-      ]}
-    >
-      {(props) => <ShowMore {...props} />}
+    <States<Partial<ShowMoreProps>> states={[{}, { expanded: true }]}>
+      <ShowMore initial={3}>
+        <Text variant="md">First</Text>
+        <Text variant="md">Second</Text>
+        <Text variant="md">Third</Text>
+        <Text variant="md">Fourth</Text>
+        <Text variant="md">Fifth</Text>
+        <Text variant="md">Sixth</Text>
+      </ShowMore>
     </States>
   )
 }

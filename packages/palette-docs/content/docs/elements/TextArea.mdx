@@ -37,10 +37,11 @@ source: elements/TextArea
           defaultValue="This is some text"
           onChange={console.log}
         />
-        <Spacer mb={3} />
-        <Flex alignItems="center">
-          <Checkbox selected={on} onSelect={toggle} />
-          <Serif size="3">Show error</Serif>
+        <Spacer mb={2} />
+        <Flex>
+          <Checkbox selected={on} onSelect={toggle}>
+            Show Error
+          </Checkbox>
         </Flex>
       </>
     )}
@@ -99,10 +100,11 @@ source: elements/TextArea
           description="Please provide any further pertinent details to help us assess your case."
           onChange={console.log}
         />
-        <Spacer mb={3} />
-        <Flex alignItems="center">
-          <Checkbox selected={on} onSelect={toggle} />
-          <Serif size="3">Show error</Serif>
+        <Spacer mb={2} />
+        <Flex>
+          <Checkbox selected={on} onSelect={toggle}>
+            Show Error
+          </Checkbox>
         </Flex>
       </>
     )}

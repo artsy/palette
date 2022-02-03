@@ -39,17 +39,6 @@ bidding, or following an artist.
   <Button loading>Show more</Button>
 </Playground>
 
-In the presence of inputs, use secondary-gray for the secondary button style.
-
-<Playground>
-  <Flex flexDirection="column" width="50%">
-    <Input type="text" placeholder="Username" />
-    <Button variant="secondaryGray" mt={1}>
-      Add another
-    </Button>
-  </Flex>
-</Playground>
-
 ### Disabled
 
 Like other form elements, buttons can be disabled.
@@ -91,7 +80,7 @@ form, you'll probably want to override the type of one of the buttons:
     <Button type="button" mr={1}>
       Submit
     </Button>
-    <Button variant="secondaryGray">Cancel</Button>
+    <Button variant="secondaryOutline">Cancel</Button>
   </form>
 </Playground>
 
@@ -99,7 +88,7 @@ form, you'll probably want to override the type of one of the buttons:
 
 <Playground title="primaryBlack">
   <>
-    <Button variant="primaryBlack" size="small">
+    <Button variant="primaryBlack" size="small" mr={1}>
       Follow
     </Button>
     <Button variant="primaryBlack" size="medium">
@@ -110,7 +99,7 @@ form, you'll probably want to override the type of one of the buttons:
 
 <Playground title="secondaryGray">
   <>
-    <Button variant="secondaryGray" size="small">
+    <Button variant="secondaryGray" size="small" mr={1}>
       Follow
     </Button>
     <Button variant="secondaryGray" size="medium">
@@ -121,7 +110,7 @@ form, you'll probably want to override the type of one of the buttons:
 
 <Playground title="secondaryOutline">
   <>
-    <Button variant="secondaryOutline" size="small">
+    <Button variant="secondaryOutline" size="small" mr={1}>
       Follow
     </Button>
     <Button variant="secondaryOutline" size="medium">
@@ -132,7 +121,7 @@ form, you'll probably want to override the type of one of the buttons:
 
 <Playground title="primaryWhite">
   <Box bg="black" p={1}>
-    <Button variant="primaryWhite" size="small">
+    <Button variant="primaryWhite" size="small" mr={1}>
       Follow
     </Button>
     <Button variant="primaryWhite" size="medium">
@@ -142,12 +131,12 @@ form, you'll probably want to override the type of one of the buttons:
 </Playground>
 
 <Playground title="noOutline">
-  <>
-    <Button variant="noOutline" size="small">
+  <Box bg="black5" p={1}>
+    <Button variant="noOutline" size="small" mr={1}>
       Reset
     </Button>
     <Button variant="noOutline" size="medium">
       Reset
     </Button>
-  </>
+  </Box>
 </Playground>

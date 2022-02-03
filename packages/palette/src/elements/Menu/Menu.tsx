@@ -20,7 +20,10 @@ interface MenuProps {
   width?: number | string
 }
 
-/** Menu */
+/**
+ * Menu
+ * @deprecated
+ **/
 export const Menu: React.FC<MenuProps> = ({
   children,
   m = "2px",

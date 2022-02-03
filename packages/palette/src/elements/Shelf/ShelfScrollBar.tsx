@@ -1,7 +1,7 @@
 import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { useMutationObserver } from "../.."
+import { useMutationObserver } from "../../utils/useMutationObserver"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
 import { useClickScroll } from "./useClickScroll"
@@ -131,6 +131,8 @@ export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
     )
   }
 )
+
+ShelfScrollBar.displayName = "ShelfScrollBar"
 
 const Track = styled(Box)`
   position: relative;

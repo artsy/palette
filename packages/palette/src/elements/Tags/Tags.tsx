@@ -18,6 +18,7 @@ interface TagsProps {
 }
 /**
  * Use tags for genes and categories that relate to an Artist or Artwork.
+ * @deprecated
  */
 export const Tags: React.FC<TagsProps> = ({
   tags,

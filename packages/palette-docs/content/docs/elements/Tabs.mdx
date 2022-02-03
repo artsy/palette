@@ -25,7 +25,7 @@ something in a tab.
 <Playground>
   <Tabs
     initialTabIndex={1}
-    onChange={activeTab => {
+    onChange={(activeTab) => {
       console.log(activeTab)
     }}
   >
@@ -40,7 +40,7 @@ something in a tab.
 
 <Playground>
   <Tabs
-    onChange={activeTab => {
+    onChange={(activeTab) => {
       console.log(activeTab.data)
     }}
   >
@@ -77,26 +77,18 @@ something in a tab.
     <Tab
       name={
         <>
-          Open<Sup>100</Sup>
+          Open <Sup color="brand">100</Sup>
         </>
       }
     />
     <Tab
       name={
         <>
-          Ready to ship<Sup>4</Sup>
+          Ready to ship <Sup color="brand">4</Sup>
         </>
       }
     />
-    <Tab
-      name={
-        <>
-          Complete
-          <Sup />
-          {/* empty sup to get vertical alignment right */}
-        </>
-      }
-    />
+    <Tab name={<>Complete</>} />
   </Tabs>
 </Playground>
 

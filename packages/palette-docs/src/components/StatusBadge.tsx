@@ -1,40 +1,16 @@
-import { Box, Sans } from "@artsy/palette"
+import { Sup } from "@artsy/palette"
 import React from "react"
-import styled from "styled-components"
 
 interface Props {
   status: "wip" | "tk"
 }
 
-const getStatus = (status) => {
-  switch (status) {
-    case "wip": {
-      return {
-        bg: "purple5",
-        color: "purple100",
-      }
-    }
-    default: {
-      return {
-        bg: "black5",
-        color: "black60",
-      }
-    }
-  }
-}
-
 export const StatusBadge: React.FC<Props> = ({ status }) => {
-  const { bg, color } = getStatus(status)
+  const color = status === "wip" ? "brand" : "black60"
 
   return (
-    <RoundedBorder px={0.5} display="inline-block" bg={bg}>
-      <Sans size="1" color={color}>
-        {status.toUpperCase()}
-      </Sans>
-    </RoundedBorder>
+    <Sup color={color} textTransform="uppercase">
+      {status}
+    </Sup>
   )
 }
-
-const RoundedBorder = styled(Box)`
-  border-radius: 2px;
-`

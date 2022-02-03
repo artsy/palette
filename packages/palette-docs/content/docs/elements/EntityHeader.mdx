@@ -13,7 +13,11 @@ source: elements/EntityHeader
 
 <Playground>
   <EntityHeader
-    imageUrl="https://picsum.photos/110/110/?random"
+    image={{
+      src: "https://picsum.photos/45/45",
+      srcSet: "https://picsum.photos/45/45 1x, https://picsum.photos/90/90 2x",
+      lazyLoad: true,
+    }}
     name="Francesca DiMattio"
   />
 </Playground>
@@ -40,7 +44,11 @@ When `smallVariant` prop is provided:
     smallVariant
     initials="FD"
     name="Francesca DiMattio"
-    imageUrl="https://picsum.photos/110/110/?random"
+    image={{
+      src: "https://picsum.photos/30/30",
+      srcSet: "https://picsum.photos/30/30 1x, https://picsum.photos/60/60 2x",
+      lazyLoad: true,
+    }}
     href="http://www.artsy.net/artist/francesca-dimattio"
   />
 </Playground>
@@ -48,18 +56,23 @@ When `smallVariant` prop is provided:
 ### Custom follow button
 
 <Playground>
-	<BorderBox width={500}>
-		<EntityHeader
-			imageUrl="https://picsum.photos/110/110/?random"
-			initials="FD"
-			name="Francesca DiMattio"
-			meta="American, b. 1979"
-			href="http://www.artsy.net/artist/francesca-dimattio"
-			FollowButton={<Button size='small'>Follow</Button>}
-			width='100%'
-		/>
-	</BorderBox>
+  <Box width={500} border="1px solid" borderColor="black10" p={2}>
+    <EntityHeader
+      image={{
+        src: "https://picsum.photos/45/45",
+        srcSet:
+          "https://picsum.photos/45/45 1x, https://picsum.photos/90/90 2x",
+        lazyLoad: true,
+      }}
+      initials="FD"
+      name="Francesca DiMattio"
+      meta="American, b. 1979"
+      href="http://www.artsy.net/artist/francesca-dimattio"
+      FollowButton={
+        <Button size="small" variant="secondaryOutline">
+          Follow
+        </Button>
+      }
+    />
+  </Box>
 </Playground>
-
-
-

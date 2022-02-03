@@ -11,7 +11,10 @@ import { Sans } from "../Typography"
 
 const FIVE_HOURS_IN_SECONDS = 60 * 60 * 5
 
-/** StaticCountdownTimer */
+/**
+ * StaticCountdownTimer
+ * @deprecated
+ */
 export const StaticCountdownTimer: React.FC<{
   action: string
   note: string

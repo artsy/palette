@@ -60,21 +60,22 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
   const getTreeLayout = () => {
     if (treeDepth > 0) {
       return {
-        ml: 2,
+        pl: 2,
         py: 0.5,
         variant: "md",
+        borderLeft: "1px solid",
+        borderColor: "black10",
       }
     } else {
       return {
         ml: 0,
-        py: "10px",
+        my: 1,
         variant: "lg",
-        color: "black60",
       }
     }
   }
 
-  const { ml, py, variant } = getTreeLayout()
+  const { ml, py, variant, ...styles } = getTreeLayout()
 
   return (
     <Subscribe to={[NavState]}>
@@ -100,17 +101,15 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
 
                 return (
                   <Fragment key={path}>
-                    <Text variant={variant} py={py} {...navSpacer}>
-                      {/*
-                        Don't navigate, just toggle subnav open and closed
-                      */}
+                    <Text variant={variant} py={py} {...styles} {...navSpacer}>
+                      {/* Don't navigate, just toggle subnav open and closed */}
                       <NavLink
                         disableNavigation
                         expandSubNav={expandSubNav}
                         to={path}
                         onClick={() => {
+                          // FIXME: None of the toggling works
                           navState.toggleNavItem(path)
-
                           // Recompute tree since subnav could be open or closed
                           treeDepth = 0
                         }}
@@ -120,8 +119,8 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                         {!expandSubNav && (
                           <Box position="relative" top="-15px" mr={1}>
                             <ChevronIcon
-                              width="10px"
-                              height="10px"
+                              width={10}
+                              height={10}
                               direction={expanded ? "up" : "down"}
                               fill="black60"
                               style={{
@@ -132,6 +131,7 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                         )}
                       </NavLink>
                     </Text>
+
                     {expanded && (
                       <>
                         {renderNavTree(orderedChildren, treeDepth)}
@@ -141,11 +141,17 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
                   </Fragment>
                 )
               }
+
               case false: {
                 return (
                   <Fragment key={path}>
                     <NavLink to={path}>
-                      <Text variant={variant} py={py} {...navSpacer}>
+                      <Text
+                        variant={variant}
+                        py={py}
+                        {...styles}
+                        {...navSpacer}
+                      >
                         {name} {status && <StatusBadge status={status} />}
                       </Text>
                     </NavLink>
@@ -210,9 +216,9 @@ const NavLinkWrapper = ({
   } else {
     return (
       <Link
-        to={to + "/"} // FIXME: Resolve issue with trailing slashes -- make consistent
+        to={to + "/"} // FIXME: Resolve issue with trailing slashes — make consistent
         activeClassName="isActive"
-        className={className + " noUnderline"}
+        className={className}
         style={{ textDecoration: "none" }}
         {...props}
       >
@@ -224,22 +230,18 @@ const NavLinkWrapper = ({
 
 const NavLink = styled(NavLinkWrapper)<{ expandSubNav?: boolean }>`
   display: flex;
+
   ${({ expandSubNav }) => {
     const cursor = expandSubNav ? "initial" : "pointer"
-    return `
-      cursor: ${cursor};
-    `
+    return `cursor: ${cursor};`
   }}
+
   &:hover {
     text-decoration: none;
   }
-  &&.isActive {
+
+  &.isActive {
     color: ${themeGet("colors.brand")};
-    &:before {
-      content: " \u2014 ";
-      position: relative;
-      top: 3px;
-      padding-right: 4px;
-    }
+    text-decoration: underline !important;
   }
 `

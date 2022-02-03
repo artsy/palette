@@ -3,27 +3,30 @@ name: Box
 source: elements/Box
 ---
 
-
 <Playground>
   <Box>
-		<Text variant='md'>
-			A Box component is a container for content that exposes props for space,
-			positioning, size and more.
-		</Text>
+    <Text variant="md">
+      A Box component is a container for content that exposes props for space,
+      positioning, size and more.
+    </Text>
   </Box>
 </Playground>
 
 <Playground title="Margins">
-	<Box my={2}>
-		<Text variant='md'>
-			The prop my is shorthand for "margin-top" and "margin-bottom"
-		</Text>
-	</Box>
+  <Box my={2}>
+    <Text variant="md">
+      The prop my is shorthand for "margin-top" and "margin-bottom"
+    </Text>
+  </Box>
 </Playground>
 
 <Playground title="Padding">
- 	<Text variant='md'>
-    <Box p={2}>The prop p is shorthand for "padding"</Box>
-    <Box p={6}>A lot of padding</Box>
+  <Text variant="md">
+    <Box p={2} mb={2} bg="black5">
+      The prop p is shorthand for "padding"
+    </Box>
+    <Box p={6} border="1px solid" borderColor="green100">
+      A lot of padding
+    </Box>
   </Text>
 </Playground>

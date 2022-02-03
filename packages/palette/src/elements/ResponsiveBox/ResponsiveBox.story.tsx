@@ -30,16 +30,17 @@ const Measure: React.FC<ResponsiveBoxProps> = (props) => {
   })
 
   return (
-    <Box width="100%" height="100%" p={0.5} ref={ref as any}>
-      <Text variant="small" color="white100">
+    <Box width="100%" height="100%" p={1} ref={ref as any}>
+      <Text variant="xs" color="white100">
         {props.aspectWidth}:{props.aspectHeight}
         <br />
         {("maxWidth" in props || "maxHeight" in props) && (
           <>
             with max dimensions of{" "}
-            {[(props as any).maxHeight || 0, (props as any).maxWidth || 0].join(
-              " × "
-            )}
+            {[
+              (props as any).maxHeight || 0,
+              (props as any).maxWidth || "_",
+            ].join(" × ")}
             <br />
           </>
         )}
@@ -76,7 +77,7 @@ export const Basic = () => {
               key={[i, j].join(".")}
               {...aspect}
               {...maximum}
-              bg="purple100"
+              bg="brand"
               my={2}
             >
               <Measure {...aspect} {...maximum} />
@@ -93,13 +94,7 @@ export const MaxWidth100 = () => {
     <>
       {EXAMPLE_ASPECTS.map((aspect, i) => {
         return (
-          <ResponsiveBox
-            key={i}
-            {...aspect}
-            maxWidth="100%"
-            bg="purple100"
-            my={2}
-          >
+          <ResponsiveBox key={i} {...aspect} maxWidth="100%" bg="brand" my={2}>
             <Measure {...aspect} maxWidth="100%" />
           </ResponsiveBox>
         )
