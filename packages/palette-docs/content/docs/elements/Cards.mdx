@@ -3,10 +3,27 @@ name: Cards
 source: elements/Cards
 ---
 
-### With srcSet
+### Single Card
 
 <Playground>
-  <SmallCard
+  <Card
+    title="Example Exhibition Title"
+    subtitle="Partner Gallery"
+    status="4 days left"
+    image={{
+      lazyLoad: true,
+      src: "https://picsum.photos/seed/example/400/300",
+      srcSet:
+        "https://picsum.photos/seed/example/400/300 1x, https://picsum.photos/seed/example/800/600 2x",
+    }}
+  />
+</Playground>
+
+### Triptych Card
+
+<Playground>
+  <TriptychCard
+    maxWidth={600}
     images={[
       {
         lazyLoad: true,
@@ -27,47 +44,8 @@ source: elements/Cards
           "https://picsum.photos/seed/example/200/200 1x, https://picsum.photos/seed/example/400/400 2x",
       },
     ]}
-    title="Check this out"
-    subtitle="It's good"
-    tag={{
-      color: "white100",
-      borderColor: "purple100",
-      text: "wowza!",
-      textColor: "black100",
-    }}
+    title="Example Exhibition Title"
+    subtitle="Partner Gallery"
+    status="4 days left"
   />
-</Playground>
-
-<Playground>
-  <SmallCard
-    images={[
-      "https://picsum.photos/seed/example/400/400",
-      "https://picsum.photos/seed/example/200/200",
-      "https://picsum.photos/seed/example/200/200",
-    ]}
-    title="Check this out"
-    subtitle="It's good"
-    tag={{
-      color: "white100",
-      borderColor: "purple100",
-      text: "wowza!",
-      textColor: "black100",
-    }}
-  />
-</Playground>
-
-### MediumCard
-
-<Playground>
- 	<MediumCard
-		image="https://picsum.photos/seed/example/400/300"
-		title="Check this out"
-		subtitle="It's good"
-		tag={{
-			color: "white100",
-			borderColor: "purple100",
-			text: "wowza!",
-			textColor: "black100",
-		}}
-	/>
 </Playground>
