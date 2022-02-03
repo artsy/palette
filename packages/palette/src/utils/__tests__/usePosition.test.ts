@@ -34,17 +34,14 @@ describe("placeTooltip", () => {
       style: {},
     } as HTMLElement
 
-    placeTooltip(anchor, tooltip, "top", [
-      {
-        getBoundingClientRect: () => ({
-          top: 0,
-          right: 500,
-          bottom: 600,
-          left: 0,
-        }),
-        ownerDocument: document,
-      } as HTMLElement,
-    ])
+    const boundaryRect = {
+      top: 0,
+      right: 500,
+      bottom: 600,
+      left: 0,
+    } as DOMRect
+
+    placeTooltip(anchor, tooltip, "top", 0, boundaryRect)
 
     expect(tooltip.style.display).toEqual("block")
     expect(tooltip.style.transform).toEqual("translate(150px, 0px)")
