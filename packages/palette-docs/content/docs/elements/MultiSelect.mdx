@@ -1,0 +1,24 @@
+---
+name: MultiSelect
+source: elements/MultiSelect
+---
+
+### Example
+
+Used to collapse multiple options into a single input.
+
+<Playground>
+  <MultiSelect
+    name="Medium"
+    options={[
+      { text: "Painting", value: "painting" },
+      { text: "Print", value: "print" },
+      { text: "Sculpture", value: "sculpture" },
+      { text: "Photography", value: "photography" },
+      { text: "Mixed Media", value: "mixed-media" },
+    ]}
+    onSelect={(selection) => {
+      console.log("onSelect", selection)
+    }}
+  />
+</Playground>
