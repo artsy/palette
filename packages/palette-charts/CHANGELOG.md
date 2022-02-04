@@ -1,3 +1,20 @@
+# v17.19.0 (Fri Feb 04 2022)
+
+#### 🚀  Enhancement
+
+- feat(icons): image set icon [#1121](https://github.com/artsy/palette/pull/1121) ([@dzucconi](https://github.com/dzucconi))
+
+#### 📝  Documentation
+
+- chore(docs): Super minor fixes [#1119](https://github.com/artsy/palette/pull/1119) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.18.0 (Fri Feb 04 2022)
 
 #### 🚀  Enhancement

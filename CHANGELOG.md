@@ -2,6 +2,24 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@18.19.0`
+  - feat(icons): image set icon [#1121](https://github.com/artsy/palette/pull/1121) ([@dzucconi](https://github.com/dzucconi))
+
+#### 📝  Documentation
+
+- chore(docs): Super minor fixes [#1119](https://github.com/artsy/palette/pull/1119) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Feb 04 2022)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@18.18.0`
   - feat(icon-button): implements icon button [#1115](https://github.com/artsy/palette/pull/1115) ([@dzucconi](https://github.com/dzucconi))
 

@@ -1,3 +1,25 @@
+# v18.19.0 (Fri Feb 04 2022)
+
+#### 🚀  Enhancement
+
+- feat(icons): image set icon [#1121](https://github.com/artsy/palette/pull/1121) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- docs: cleans up icon/color docs ([@dzucconi](https://github.com/dzucconi))
+- feat(icons): adds image set icon ([@dzucconi](https://github.com/dzucconi))
+
+#### 📝  Documentation
+
+- chore(docs): Super minor fixes [#1119](https://github.com/artsy/palette/pull/1119) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.18.0 (Fri Feb 04 2022)
 
 #### 🚀  Enhancement
