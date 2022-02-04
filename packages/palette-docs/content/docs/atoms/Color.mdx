@@ -8,23 +8,24 @@ to which colors can be used in conjunction with each other.
 
 <Spacer my={4} />
 
-<Flex flexWrap="wrap">
+<GridColumns>
   {Object.entries(THEME_V3.colors).map(([key, value]) => {
     return (
-      <Box pr={2} pb={2}>
+      <Column span={3}>
         <ColorComponent color={key} />
-      </Box>
+      </Column>
     )
   })}
-</Flex>
+</GridColumns>
 
 ### How to Use
 
 Assuming the component tree has been wrapped in a `<Theme>` context provider,
-all color values should be available for use within Palette components. For example:
+all color values should be available for use within Palette components. For
+example:
 
 <Playground>
-	<BorderBox backgroundColor='black5'>
-		<Text color='brand'>Banksy</Text>
-	</BorderBox>
+  <BorderBox backgroundColor="black5">
+    <Text color="brand">Banksy</Text>
+  </BorderBox>
 </Playground>

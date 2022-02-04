@@ -3,8 +3,8 @@ name: Icons
 source: svgs
 ---
 
-All Artsy icons can be found below. To use, import them from the main
-package and invoke them as a React component:
+All Artsy icons can be found below. To use, import them from the main package
+and invoke them as a React component:
 
 ```jsx
 import { CheckIcon } from "@artsy/palette"
@@ -24,43 +24,41 @@ Upload your .svg to [SVGtoJSX](https://svg2jsx.com/), copy the output, and then
 follow the patterns outlined in
 [this example PR](https://github.com/artsy/palette/pull/802).
 
-
 ### Icon List
 
-<Flex flexWrap="wrap" pt={4}>
-  {Object.entries(AllIcons).map(([iconName, IconComponent], index) => {
-    const blocklist = [
-      // We show these further down.
-      "Icon",
-      // Skip these since they are not actual icons, just svg tags.
-      "G",
-      "Title",
-      "Circle",
-      "Path",
-      "Rect",
-    ]
-    try {
-      if (
-        typeof IconComponent !== "function" ||
-        blocklist.some((icon) => icon === iconName)
-      ) {
+<GridColumns gridRowGap={4}>
+  {Object.entries(AllIcons)
+    .sort()
+    .map(([iconName, IconComponent], index) => {
+      const blocklist = [
+        // We show these further down.
+        "Icon",
+        // Skip these since they are not actual icons, just svg tags.
+        "G",
+        "Title",
+        "Circle",
+        "Path",
+        "Rect",
+      ]
+      try {
+        if (
+          typeof IconComponent !== "function" ||
+          blocklist.some((icon) => icon === iconName)
+        ) {
+          return null
+        }
+        return (
+          <Column key={index} span={3}>
+            <IconComponent width={40} height={40} />
+            <Separator my={1} />
+            <Text variant="xs">{iconName}</Text>
+          </Column>
+        )
+      } catch (error) {
         return null
       }
-      const size = "40px"
-      return (
-        <Box pr={4} pb={2} mb={4} key={index} width="20%">
-          <IconComponent width={size} height={size} />
-          <Separator my={1} />
-          <Sans size="3" weight="medium">
-            {iconName}
-          </Sans>
-        </Box>
-      )
-    } catch (error) {
-      return null
-    }
-  })}
-</Flex>
+    })}
+</GridColumns>
 
 ### ChevronIcon
 
