@@ -63,7 +63,6 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
         pl: 2,
         py: 0.5,
         variant: "md",
-        borderLeft: "1px solid",
         borderColor: "black10",
       }
     } else {

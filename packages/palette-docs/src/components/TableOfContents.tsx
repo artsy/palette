@@ -25,7 +25,7 @@ export const TableOfContents = ({ headings }) => {
 
   return (
     <>
-      <Text variant="xs" textTransform="uppercase" color="black80" mb={1}>
+      <Text variant="xs" textTransform="uppercase" color="black80" my={1}>
         On this page
       </Text>
       {headings.map(({ value }, idx) => {
