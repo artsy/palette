@@ -55,7 +55,14 @@ export const DEFAULT_MODAL_Z_INDEX = 9999
  * Low-level modal that has no opinions about layout/overlay
  * Modals content using a portal, locks scroll.
  */
-export const ModalBase: React.FC<ModalBaseProps> = ({
+export const ModalBase: React.FC<ModalBaseProps> = (props) => {
+  if (typeof window === "undefined") {
+    return null
+  }
+  return <_ModalBase {...props} />
+}
+
+export const _ModalBase: React.FC<ModalBaseProps> = ({
   children,
   zIndex = DEFAULT_MODAL_Z_INDEX,
   dialogProps = {},
