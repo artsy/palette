@@ -1,3 +1,23 @@
+# (Fri Feb 04 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.18.0`
+  - feat(icon-button): implements icon button [#1115](https://github.com/artsy/palette/pull/1115) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@18.18.0`
+  - fix(ModalBase): Make SSR friendly [#1118](https://github.com/artsy/palette/pull/1118) ([@damassi](https://github.com/damassi))
+  - Docs updates; clean up; fixes [#1116](https://github.com/artsy/palette/pull/1116) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Feb 01 2022)
 
 #### 🚀  Enhancement

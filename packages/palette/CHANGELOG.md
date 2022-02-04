@@ -1,3 +1,36 @@
+# v18.18.0 (Fri Feb 04 2022)
+
+#### 🚀  Enhancement
+
+- feat(icon-button): implements icon button [#1115](https://github.com/artsy/palette/pull/1115) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(ModalBase): Make SSR friendly [#1118](https://github.com/artsy/palette/pull/1118) ([@damassi](https://github.com/damassi))
+- fix(ModalBase): Make SSR friendly ([@damassi](https://github.com/damassi))
+- Docs updates; clean up; fixes [#1116](https://github.com/artsy/palette/pull/1116) ([@dzucconi](https://github.com/dzucconi))
+- chore: silences type warning on old component version ([@dzucconi](https://github.com/dzucconi))
+- chore: deprecates timeremaining ([@dzucconi](https://github.com/dzucconi))
+- chore: deprecates tags ([@dzucconi](https://github.com/dzucconi))
+- chore: deprecates staticcountdowntimer ([@dzucconi](https://github.com/dzucconi))
+- docs: updates spacer example ([@dzucconi](https://github.com/dzucconi))
+- docs: adds show more example; cleans up story ([@dzucconi](https://github.com/dzucconi))
+- docs: updates responsive box examples ([@dzucconi](https://github.com/dzucconi))
+- chore: fix linting errors ([@dzucconi](https://github.com/dzucconi))
+- chore: deprecates menu component ([@dzucconi](https://github.com/dzucconi))
+- docs: adds filter select doc ([@dzucconi](https://github.com/dzucconi))
+- fix: deprecates borderbox ([@dzucconi](https://github.com/dzucconi))
+- fix(banner): properly support icons ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete,useposition): removes concept of a scrollable parent; always use position: fixed which is relative to document ([@dzucconi](https://github.com/dzucconi))
+- feat(icon-button): implements icon button ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.17.0 (Tue Feb 01 2022)
 
 #### 🚀  Enhancement

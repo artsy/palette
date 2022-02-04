@@ -1,3 +1,15 @@
+# v17.18.0 (Fri Feb 04 2022)
+
+#### 🚀  Enhancement
+
+- feat(icon-button): implements icon button [#1115](https://github.com/artsy/palette/pull/1115) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.15.2 (Tue Jan 25 2022)
 
 #### 🏠  Internal
