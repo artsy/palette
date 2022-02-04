@@ -96,7 +96,7 @@ export const Marquee: React.FC<MarqueeProps> = ({
                 {marqueeText}
               </StyledText>
               {!noDivider && (
-                <StyledText px={[2, 4]} py={0.5} variant={size}>
+                <StyledText px={[1, 4]} py={0.5} variant={size}>
                   •
                 </StyledText>
               )}

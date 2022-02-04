@@ -20,3 +20,11 @@ export const Brand = () => {
 export const NoDivider = () => {
   return <Marquee marqueeText="Black Owned" noDivider />
 }
+
+export const ExtraFast = () => {
+  return <Marquee marqueeText="Black Owned" speed="5s" />
+}
+
+export const ExtraSlow = () => {
+  return <Marquee marqueeText="Black Owned" speed="20s" />
+}
