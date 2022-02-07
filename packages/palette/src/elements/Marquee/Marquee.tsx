@@ -57,12 +57,12 @@ export interface MarqueeProps extends BoxProps {
   speed?: string
   color?: string
   marqueeText: string
-  noDivider?: boolean
+  divider?: boolean
 }
 
 export const Marquee: React.FC<MarqueeProps> = ({
   marqueeText,
-  noDivider = false,
+  divider = true,
   speed = "10s",
   color,
   ...rest
@@ -95,7 +95,7 @@ export const Marquee: React.FC<MarqueeProps> = ({
               <StyledText px={[2, 4]} py={0.5} variant={size}>
                 {marqueeText}
               </StyledText>
-              {!noDivider && (
+              {divider && (
                 <StyledText px={[1, 4]} py={0.5} variant={size}>
                   •
                 </StyledText>

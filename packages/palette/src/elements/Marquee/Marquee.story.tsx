@@ -1,30 +1,24 @@
 import React from "react"
-import { Marquee } from "./Marquee"
+import { Marquee, MarqueeProps } from "./Marquee"
+import { States } from "storybook-states"
 
 export default {
   title: "Components/Marquee",
 }
 
 export const Default = () => {
-  return <Marquee marqueeText="Black Owned" />
-}
-
-export const LightVariant = () => {
-  return <Marquee marqueeText="Black Owned" variant="defaultLight" />
-}
-
-export const Brand = () => {
-  return <Marquee marqueeText="Black Owned" variant="brand" />
-}
-
-export const NoDivider = () => {
-  return <Marquee marqueeText="Black Owned" noDivider />
-}
-
-export const ExtraFast = () => {
-  return <Marquee marqueeText="Black Owned" speed="5s" />
-}
-
-export const ExtraSlow = () => {
-  return <Marquee marqueeText="Black Owned" speed="20s" />
+  return (
+    <States<MarqueeProps>
+      states={[
+        { variant: "defaultLight", marqueeText: "Black Owned" },
+        { variant: "defaultDark", marqueeText: "Black Owned" },
+        { variant: "brand", marqueeText: "Black Owned" },
+        { speed: "5s", marqueeText: "Black Owned" },
+        { speed: "20s", marqueeText: "Black Owned" },
+        { divider: false, marqueeText: "Black Owned" },
+      ]}
+    >
+      <Marquee marqueeText="Black Owned" />
+    </States>
+  )
 }
