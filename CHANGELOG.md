@@ -1,3 +1,16 @@
+# (Mon Feb 07 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@18.20.0`
+  - Scrolling marquee for black owned galleries project [#1120](https://github.com/artsy/palette/pull/1120) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # (Fri Feb 04 2022)
 
 #### 🚀  Enhancement
