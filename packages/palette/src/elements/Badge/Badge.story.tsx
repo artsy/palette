@@ -3,13 +3,19 @@ import { States } from "storybook-states"
 import { Badge, BadgeProps } from "../Badge/Badge"
 
 export default {
-  title: "Components/Cultural Badge",
+  title: "Components/Badge",
 }
 
 export const Default = () => {
   return (
-    <States<BadgeProps> states={[{ badgeCategory: "Black Owned" }]}>
-      <Badge badgeCategory="Black Owned" />
+    <States<Partial<BadgeProps>>
+      states={[
+        {},
+        { children: "LGBT+ Owned", variant: "brand" },
+        { children: "Women Owned", variant: "defaultLight" },
+      ]}
+    >
+      <Badge>Black Owned</Badge>
     </States>
   )
 }
