@@ -1,3 +1,22 @@
+# v18.20.0 (Mon Feb 07 2022)
+
+#### 🚀  Enhancement
+
+- Scrolling marquee for black owned galleries project [#1120](https://github.com/artsy/palette/pull/1120) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### 🐛  Bug Fix
+
+- PR fixes ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- deleted ribbon component ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- added scrolling marquee ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- scroll is working ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v18.19.0 (Fri Feb 04 2022)
 
 #### 🚀  Enhancement
