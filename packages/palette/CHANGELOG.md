@@ -1,3 +1,23 @@
+# v18.21.0 (Wed Feb 09 2022)
+
+#### 🚀  Enhancement
+
+- feat: [Icons] Add Google and Apple icons [#1123](https://github.com/artsy/palette/pull/1123) ([@jacobherrington](https://github.com/jacobherrington))
+
+#### 🐛  Bug Fix
+
+- feat: [Icons] Add Google and Apple icons ([@jacobherrington](https://github.com/jacobherrington))
+
+#### 🏠  Internal
+
+- docs: Add link to svg optimization tool [#1124](https://github.com/artsy/palette/pull/1124) ([@jacobherrington](https://github.com/jacobherrington))
+
+#### Authors: 1
+
+- Jacob Herrington ([@jacobherrington](https://github.com/jacobherrington))
+
+---
+
 # v18.20.0 (Mon Feb 07 2022)
 
 #### 🚀  Enhancement
