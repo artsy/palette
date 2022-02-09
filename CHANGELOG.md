@@ -2,6 +2,20 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@18.22.0`
+  - GRO-770: Added New Cultural Badges Component [#1122](https://github.com/artsy/palette/pull/1122) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez) [@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- AL_Sutherland ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Feb 09 2022)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@18.21.0`
   - feat: [Icons] Add Google and Apple icons [#1123](https://github.com/artsy/palette/pull/1123) ([@jacobherrington](https://github.com/jacobherrington))
 

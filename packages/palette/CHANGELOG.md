@@ -1,3 +1,25 @@
+# v18.22.0 (Wed Feb 09 2022)
+
+#### 🚀  Enhancement
+
+- GRO-770: Added New Cultural Badges Component [#1122](https://github.com/artsy/palette/pull/1122) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez) [@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(entityheader): adds badges support ([@dzucconi](https://github.com/dzucconi))
+- feat: supports variants ([@dzucconi](https://github.com/dzucconi))
+- Updated: renamed CulturalBadge to Badge in order to make it more flexible ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+- Updated: Per PR feedback, removing extra wrapper elements and hard coded width setting ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+- Merge branch 'main' into The_Beez_Kneez/GRO770 ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+- Added: This is to add in a basic cultural badge component for Black Owned galleries, will need to be expanded in the future if more badges added ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+
+#### Authors: 2
+
+- AL_Sutherland ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.21.0 (Wed Feb 09 2022)
 
 #### 🚀  Enhancement

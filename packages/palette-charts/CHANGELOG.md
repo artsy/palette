@@ -1,3 +1,20 @@
+# v17.22.0 (Wed Feb 09 2022)
+
+#### 🚀  Enhancement
+
+- GRO-770: Added New Cultural Badges Component [#1122](https://github.com/artsy/palette/pull/1122) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez) [@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- Merge branch 'main' into The_Beez_Kneez/GRO770 ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+
+#### Authors: 2
+
+- AL_Sutherland ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v17.20.0 (Mon Feb 07 2022)
 
 #### 🚀  Enhancement
