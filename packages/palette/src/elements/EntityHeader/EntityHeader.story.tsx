@@ -82,9 +82,30 @@ export const Default = () => {
           href: "http://www.artsy.net/artist/francesca-dimattio",
           FollowButton: <FollowButton />,
         },
+        {
+          initials: "FLD",
+          name: "Francesca Much Longer DiMattio",
+          image: imageProps,
+          meta: "American, b. Founded 1979",
+          href: "http://www.artsy.net/artist/francesca-dimattio",
+          FollowButton: <FollowButton />,
+          badges: [{ children: "Black Owned" }],
+        },
+        {
+          initials: "FLD",
+          name: "Francesca Much Longer DiMattio",
+          image: imageProps,
+          meta: "American, b. Founded 1979",
+          href: "http://www.artsy.net/artist/francesca-dimattio",
+          FollowButton: <FollowButton />,
+          badges: [
+            { children: "Black Owned" },
+            { children: "Women Owned", variant: "brand" },
+          ],
+        },
       ]}
     >
-      {(props) => <EntityHeader {...props} maxWidth={300} />}
+      {(props) => <EntityHeader {...props} maxWidth={350} />}
     </States>
   )
 }

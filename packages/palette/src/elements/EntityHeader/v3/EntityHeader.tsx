@@ -1,5 +1,6 @@
 import React from "react"
 import { Avatar } from "../../Avatar"
+import { Badge } from "../../Badge/Badge"
 import { Flex } from "../../Flex"
 import { Text } from "../../Text"
 import { EntityHeaderProps } from "../EntityHeader"
@@ -13,15 +14,14 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
   image,
   smallVariant,
   FollowButton,
+  badges,
   ...rest
 }) => {
   return (
     <Flex alignItems="center" justifyContent="space-between" {...rest}>
       <Flex
         alignItems="center"
-        {...(!!href
-          ? { as: "a", href, style: { textDecoration: "none" } }
-          : {})}
+        {...(href ? { as: "a", href, style: { textDecoration: "none" } } : {})}
       >
         {(imageUrl || image || initials) && (
           <Flex mr={1}>
@@ -36,6 +36,14 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
 
         <Flex flexDirection="column" mr={1}>
           <Text variant="md">{name}</Text>
+
+          <Text variant="md">
+            {badges?.map((badge, i) => (
+              <React.Fragment key={i}>
+                <Badge {...badge} />{" "}
+              </React.Fragment>
+            ))}
+          </Text>
 
           {meta && (
             <Text variant="xs" color="black60">
