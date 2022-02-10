@@ -1,3 +1,15 @@
+# v18.23.0 (Thu Feb 10 2022)
+
+#### 🚀  Enhancement
+
+- chore: move some type declarations to regular deps [#1125](https://github.com/artsy/palette/pull/1125) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # v18.22.0 (Wed Feb 09 2022)
 
 #### 🚀  Enhancement
