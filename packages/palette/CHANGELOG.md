@@ -1,3 +1,15 @@
+# v18.23.1 (Fri Feb 11 2022)
+
+#### 🐛  Bug Fix
+
+- Revert "chore: move some type declarations to regular deps" [#1127](https://github.com/artsy/palette/pull/1127) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # v18.23.0 (Thu Feb 10 2022)
 
 #### 🚀  Enhancement

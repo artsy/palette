@@ -1,3 +1,16 @@
+# (Fri Feb 11 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette-charts@17.23.1`, `@artsy/palette@18.23.1`
+  - Revert "chore: move some type declarations to regular deps" [#1127](https://github.com/artsy/palette/pull/1127) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # (Thu Feb 10 2022)
 
 #### 🚀  Enhancement
