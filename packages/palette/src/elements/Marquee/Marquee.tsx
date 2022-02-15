@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react"
 import styled, { keyframes } from "styled-components"
 import { variant } from "styled-system"
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
-import { useThemeConfig } from "../../Theme"
 import { Flex } from "../Flex"
 import { Box, BoxProps } from "../Box"
+import { media } from "../../helpers"
 import { Text } from "../Text"
 
 const VARIANTS = {
@@ -41,11 +41,18 @@ const StyledText = styled(Text)`
   white-space: nowrap;
 `
 
-const Inner = styled.div<{ speed: string; offset: number }>`
+const Inner = styled.div<{
+  speed: string
+  mobileSpeed: string
+  offset: number
+}>`
   animation: ${move} ${(props) => props.speed} infinite linear;
   cursor: default;
   user-select: none;
   white-space: nowrap;
+  ${media.xs`
+    animation: ${move} ${(props) => props.mobileSpeed} infinite linear;
+  `};
 `
 
 const Item = styled.div`
@@ -55,19 +62,22 @@ const Item = styled.div`
 export interface MarqueeProps extends BoxProps {
   variant?: keyof typeof VARIANTS
   speed?: string
+  mobileSpeed?: string
   color?: string
   marqueeText: string
+  textSize?: TextVariant
   divider?: boolean
 }
 
 export const Marquee: React.FC<MarqueeProps> = ({
   marqueeText,
+  textSize = "sm",
   divider = true,
-  speed = "10s",
+  speed = "30s",
+  mobileSpeed = "10s",
   color,
   ...rest
 }) => {
-  const size: TextVariant = useThemeConfig({ v2: "small", v3: "xs" })
   const containerEl = useRef<HTMLDivElement | null>(null)
   const childEl = useRef<HTMLDivElement | null>(null)
 
@@ -88,15 +98,15 @@ export const Marquee: React.FC<MarqueeProps> = ({
 
   return (
     <Container ref={containerEl as any} backgroundColor={color} {...rest}>
-      <Inner speed={speed} offset={offset}>
+      <Inner speed={speed} mobileSpeed={mobileSpeed} offset={offset}>
         {Array.from(Array(amount)).map((_, i) => (
           <Item key={i} ref={childEl as any}>
             <Flex>
-              <StyledText px={[2, 4]} py={0.5} variant={size}>
+              <StyledText px={[2, 4]} py={0.5} variant={textSize}>
                 {marqueeText}
               </StyledText>
               {divider && (
-                <StyledText px={[1, 4]} py={0.5} variant={size}>
+                <StyledText px={[1, 4]} py={0.5} variant={textSize}>
                   •
                 </StyledText>
               )}
