@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react"
-import { createPortal } from "react-dom"
 import { RemoveScroll } from "react-remove-scroll"
 import styled from "styled-components"
 import { zIndex as systemZIndex, ZIndexProps } from "styled-system"
 import { useFocusLock } from "../../utils/useFocusLock"
+import { usePortal } from "../../utils/usePortal"
 import { Flex, FlexProps } from "../Flex"
 
 // TODO: Update TypeScript definitions for this library
@@ -69,7 +69,6 @@ export const _ModalBase: React.FC<ModalBaseProps> = ({
   onClose = () => null,
   ...rest
 }) => {
-  const appendEl = useRef(document.createElement("div"))
   const containerEl = useRef<HTMLDivElement | null>(null)
   const scrollIsolationEl = useRef<HTMLDivElement | null>(null)
 
@@ -81,14 +80,7 @@ export const _ModalBase: React.FC<ModalBaseProps> = ({
     }
   }
 
-  useFocusLock(containerEl)
-
-  useEffect(() => {
-    if (appendEl.current === null) return
-
-    // Append the dialog
-    document.body.appendChild(appendEl.current)
-  }, [])
+  useFocusLock({ ref: containerEl })
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
@@ -126,6 +118,8 @@ export const _ModalBase: React.FC<ModalBaseProps> = ({
     }
   }, [])
 
+  const { createPortal } = usePortal()
+
   return createPortal(
     <Container ref={containerEl as any} zIndex={zIndex} {...rest}>
       <ScrollIsolation
@@ -136,8 +130,7 @@ export const _ModalBase: React.FC<ModalBaseProps> = ({
           {children}
         </Dialog>
       </ScrollIsolation>
-    </Container>,
-    appendEl.current
+    </Container>
   )
 }
 
