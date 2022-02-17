@@ -1,6 +1,6 @@
+import { Box } from "@artsy/palette"
 import React from "react"
 import { DonutChart } from "../DonutChart"
-import { Box } from "@artsy/palette"
 
 export default {
   title: "Components/DonutChart",
