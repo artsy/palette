@@ -28,7 +28,6 @@ export const DonutChart: React.FC<DonutChartProps> = ({
   margin = space(3),
 }) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
-  const [labelFadeIn] = useState(false)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -77,7 +76,6 @@ export const DonutChart: React.FC<DonutChartProps> = ({
       axisLabelX && (
         <DonutLabelContainer
           key={index}
-          opacity={labelFadeIn ? 1 : 0}
           x={x + centerX}
           y={y + centerY}
           center={centerX}
@@ -147,7 +145,6 @@ interface DonutLabelContainerProps {
   x: number
   y: number
   center?: number
-  opacity: number
 }
 
 // to create a float:right effect for labels that are on left side (also top)
@@ -172,6 +169,4 @@ const DonutLabelContainer = styled.div<DonutLabelContainerProps>`
     ${({ y, center }) => computeLabelTranslate(y, center)}
   );
   white-space: nowrap;
-  transition: opacity 0.4s ease-in;
-  opacity: ${({ opacity }) => opacity};
 `
