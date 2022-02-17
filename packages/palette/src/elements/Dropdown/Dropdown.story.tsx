@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
 import { Position, POSITION } from "../../utils"
 import { Box } from "../Box"
@@ -106,4 +106,34 @@ export const KeepInDOM = () => {
 
 KeepInDOM.story = {
   parameters: { chromatic: { disable: true } },
+}
+
+export const ChangeDimensions = () => {
+  const [height, setHeight] = useState(10)
+
+  useEffect(() => {
+    setInterval(() => {
+      setHeight(Math.floor(Math.random() * 100))
+    }, 1000)
+  }, [])
+
+  return (
+    <Dropdown
+      placement="top"
+      dropdown={<Box height={height} width={300} bg="rgba(0, 0, 0, 0.5)" />}
+    >
+      {({ anchorRef, anchorProps }) => {
+        return (
+          <Button
+            ref={anchorRef}
+            variant="secondaryOutline"
+            size="small"
+            {...anchorProps}
+          >
+            Hover to display dropdown
+          </Button>
+        )
+      }}
+    </Dropdown>
+  )
 }

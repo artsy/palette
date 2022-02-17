@@ -118,7 +118,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
     }
   }, [])
 
-  const { anchorRef, tooltipRef: panelRef } = usePosition({
+  const {
+    anchorRef,
+    tooltipRef: panelRef,
+    state: { isFlipped },
+  } = usePosition({
     position: placement,
     offset: 0,
     active: visible,
@@ -178,21 +182,21 @@ export const Dropdown: React.FC<DropdownProps> = ({
       case "top-start":
       case "top":
       case "top-end":
-        return { pb: offset }
+        return { [isFlipped ? "pt" : "pb"]: offset }
       case "bottom-start":
       case "bottom":
       case "bottom-end":
-        return { pt: offset }
+        return { [isFlipped ? "pb" : "pt"]: offset }
       case "left-start":
       case "left":
       case "left-end":
-        return { pr: offset }
+        return { [isFlipped ? "pl" : "pr"]: offset }
       case "right-start":
       case "right":
       case "right-end":
-        return { pl: offset }
+        return { [isFlipped ? "pr" : "pl"]: offset }
     }
-  }, [placement, offset])
+  }, [placement, isFlipped, offset])
 
   const anchorProps: React.HTMLAttributes<HTMLElement> = {
     "aria-expanded": visible,
