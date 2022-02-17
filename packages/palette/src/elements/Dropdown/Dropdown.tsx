@@ -1,7 +1,13 @@
 import React, { useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import { FLAT_SHADOW } from "../../helpers"
-import { Position, useClickOutside, usePosition } from "../../utils"
+import {
+  Position,
+  useClickOutside,
+  useFocusLock,
+  usePosition,
+} from "../../utils"
+import { usePortal } from "../../utils/usePortal"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box } from "../Box"
 
@@ -87,6 +93,23 @@ export const Dropdown: React.FC<DropdownProps> = ({
     }, 150)
   }
 
+  const {
+    anchorRef,
+    tooltipRef: panelRef,
+    state: { isFlipped },
+  } = usePosition({
+    position: placement,
+    offset: 0,
+    active: visible,
+  })
+
+  useClickOutside({
+    ref: panelRef,
+    onClickOutside: onHide,
+    when: visible,
+    type: "click",
+  })
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -116,24 +139,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       document.removeEventListener("keydown", handleKeyDown)
       document.removeEventListener("keyup", handleKeyUp)
     }
-  }, [])
-
-  const {
-    anchorRef,
-    tooltipRef: panelRef,
-    state: { isFlipped },
-  } = usePosition({
-    position: placement,
-    offset: 0,
-    active: visible,
-  })
-
-  useClickOutside({
-    ref: panelRef,
-    onClickOutside: onHide,
-    when: visible,
-    type: "click",
-  })
+  }, [panelRef])
 
   const activeRef = useRef(false)
 
@@ -206,6 +212,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
     onClick: onVisible,
   }
 
+  const { createPortal } = usePortal()
+
+  useFocusLock({ ref: panelRef, active: visible })
+
   return (
     <>
       {children({
@@ -217,43 +227,45 @@ export const Dropdown: React.FC<DropdownProps> = ({
         visible,
       })}
 
-      {(visible || keepInDOM) && (
-        <Container
-          tabIndex={0}
-          ref={panelRef as any}
-          zIndex={1}
-          display="inline-block"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          placement={placement}
-          style={{
-            ...(keepInDOM
-              ? { visibility: visible ? "visible" : "hidden" }
-              : {}),
-          }}
-          {...padding}
-        >
-          <Panel
-            bg="white100"
-            border="1px solid"
-            borderColor="black10"
-            style={
-              transition
-                ? // In
-                  { opacity: 1, transform: "translate(0)" }
-                : // Out
-                  {
-                    opacity: 0,
-                    transform: translation,
-                  }
-            }
+      {(visible || keepInDOM) &&
+        createPortal(
+          <Container
+            aria-label="Press escape to close"
+            tabIndex={0}
+            ref={panelRef as any}
+            zIndex={1}
+            display="inline-block"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            placement={placement}
+            style={{
+              ...(keepInDOM
+                ? { visibility: visible ? "visible" : "hidden" }
+                : {}),
+            }}
+            {...padding}
           >
-            {typeof dropdown === "function"
-              ? dropdown({ onVisible, onHide, setVisible, visible })
-              : dropdown}
-          </Panel>
-        </Container>
-      )}
+            <Panel
+              bg="white100"
+              border="1px solid"
+              borderColor="black10"
+              style={
+                transition
+                  ? // In
+                    { opacity: 1, transform: "translate(0)" }
+                  : // Out
+                    {
+                      opacity: 0,
+                      transform: translation,
+                    }
+              }
+            >
+              {typeof dropdown === "function"
+                ? dropdown({ onVisible, onHide, setVisible, visible })
+                : dropdown}
+            </Panel>
+          </Container>
+        )}
     </>
   )
 }

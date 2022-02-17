@@ -5,6 +5,8 @@ import { Dropdown } from "../Dropdown"
 
 jest.useFakeTimers()
 
+jest.mock("react-dom", () => ({ createPortal: (children) => children }))
+
 describe("Dropdown", () => {
   it("renders", async () => {
     const wrapper = mount(
