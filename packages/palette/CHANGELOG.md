@@ -1,3 +1,25 @@
+# v19.0.0 (Fri Feb 18 2022)
+
+#### 💥  Breaking Change
+
+- fix: tooltip/positioning improvements [#1130](https://github.com/artsy/palette/pull/1130) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(dropdown): accepts boxprops ([@dzucconi](https://github.com/dzucconi))
+- fix(useportal): makes hook safe for ssr ([@dzucconi](https://github.com/dzucconi))
+- fix(dropdown): portals panel and manages focus ([@dzucconi](https://github.com/dzucconi))
+- fix(usefocuslock): accepts an options object ([@dzucconi](https://github.com/dzucconi))
+- feat(hooks): extracts use portal ([@dzucconi](https://github.com/dzucconi))
+- fix(dropdown): maintains offset when flipping ([@dzucconi](https://github.com/dzucconi))
+- fix(useposition): respond to changes in dimensions of target tooltip ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.23.1 (Fri Feb 11 2022)
 
 #### 🐛  Bug Fix

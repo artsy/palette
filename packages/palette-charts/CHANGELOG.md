@@ -1,3 +1,25 @@
+# v18.0.0 (Fri Feb 18 2022)
+
+#### 💥  Breaking Change
+
+- fix: tooltip/positioning improvements [#1130](https://github.com/artsy/palette/pull/1130) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix: remove permanent transparency from DonutChart labels [#1133](https://github.com/artsy/palette/pull/1133) ([@pepopowitz](https://github.com/pepopowitz))
+- fix: remove permanent transparency from DonutChart labels ([@pepopowitz](https://github.com/pepopowitz))
+
+#### 🏠  Internal
+
+- feat: functioning storybooks for palette-charts [#1131](https://github.com/artsy/palette/pull/1131) ([@pepopowitz](https://github.com/pepopowitz))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Steven Hicks ([@pepopowitz](https://github.com/pepopowitz))
+
+---
+
 # v17.23.1 (Fri Feb 11 2022)
 
 #### 🐛  Bug Fix
