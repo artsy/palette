@@ -9,7 +9,7 @@ import {
 } from "../../utils"
 import { usePortal } from "../../utils/usePortal"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
-import { Box } from "../Box"
+import { Box, BoxProps } from "../Box"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -26,8 +26,7 @@ export interface DropdownActions {
   visible: boolean
 }
 
-export interface DropdownProps {
-  title?: React.ReactNode
+export interface DropdownProps extends BoxProps {
   placement?: Position
   /** Intially visible by default? */
   visible?: boolean
@@ -57,6 +56,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   children,
   offset = 10,
   dropdown,
+  ...rest
 }) => {
   const [visible, setVisible] = useState(false)
 
@@ -244,6 +244,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 : {}),
             }}
             {...padding}
+            {...rest}
           >
             <Panel
               bg="white100"
@@ -270,9 +271,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
   )
 }
 
-const Container = styled(Box)<{ placement: Position }>`
+const Container = styled(Box)<{ placement: Position } & BoxProps>`
   position: fixed;
-  z-index: 1;
   text-align: left;
   outline: 0;
 `
