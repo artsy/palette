@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
+import { Clickable, Flex } from ".."
 import { Position, POSITION } from "../../utils"
 import { Box } from "../Box"
 import { Button } from "../Button"
@@ -106,4 +107,85 @@ export const KeepInDOM = () => {
 
 KeepInDOM.story = {
   parameters: { chromatic: { disable: true } },
+}
+
+export const ChangeDimensions = () => {
+  const [height, setHeight] = useState(10)
+
+  useEffect(() => {
+    setInterval(() => {
+      setHeight(Math.floor(Math.random() * 100))
+    }, 1000)
+  }, [])
+
+  return (
+    <Dropdown
+      placement="top"
+      dropdown={<Box height={height} width={300} bg="rgba(0, 0, 0, 0.5)" />}
+    >
+      {({ anchorRef, anchorProps }) => {
+        return (
+          <Button
+            ref={anchorRef}
+            variant="secondaryOutline"
+            size="small"
+            {...anchorProps}
+          >
+            Hover to display dropdown
+          </Button>
+        )
+      }}
+    </Dropdown>
+  )
+}
+
+export const FocusOrder = () => {
+  const dropdown = (
+    <Text variant="md">
+      <Clickable display="block" width="100%" py={1} px={2}>
+        First
+      </Clickable>
+      <Clickable display="block" width="100%" py={1} px={2}>
+        Second
+      </Clickable>
+      <Clickable display="block" width="100%" py={1} px={2}>
+        Third
+      </Clickable>
+    </Text>
+  )
+
+  return (
+    <Flex>
+      <Dropdown dropdown={dropdown}>
+        {({ anchorRef, anchorProps }) => {
+          return (
+            <Button
+              ref={anchorRef}
+              variant="secondaryOutline"
+              size="small"
+              mr={1}
+              {...anchorProps}
+            >
+              First Parent
+            </Button>
+          )
+        }}
+      </Dropdown>
+
+      <Dropdown dropdown={dropdown}>
+        {({ anchorRef, anchorProps }) => {
+          return (
+            <Button
+              ref={anchorRef}
+              variant="secondaryOutline"
+              size="small"
+              {...anchorProps}
+            >
+              Second Parent
+            </Button>
+          )
+        }}
+      </Dropdown>
+    </Flex>
+  )
 }

@@ -12,12 +12,15 @@ const FOCUSABLE_SELECTOR = [
   '[tabindex="0"]',
 ].join(", ")
 
+interface UseFocusLock {
+  ref: React.MutableRefObject<HTMLElement | null>
+  active?: boolean
+}
+
 /**
  * Locks focus within the given element
  */
-export const useFocusLock = (
-  ref: React.MutableRefObject<HTMLElement | null>
-) => {
+export const useFocusLock = ({ ref, active = true }: UseFocusLock) => {
   const [focusableEls, setFocusableEls] = useState<HTMLElement[]>([])
 
   const updateFocusableEls = useCallback(() => {
@@ -26,8 +29,11 @@ export const useFocusLock = (
     setFocusableEls(
       Array.from(ref.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR))
     )
+
+    // When `active` changes that typically means our target ref
+    // is being inserted into the DOM, so we need to update the focusable elements.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [active])
 
   // Set initial focusable elements on mount
   useEffect(updateFocusableEls, [updateFocusableEls])
@@ -76,6 +82,8 @@ export const useFocusLock = (
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
+      if (!active) return
+
       switch (event.key) {
         case "Tab":
           // Lock focus within element
@@ -100,7 +108,7 @@ export const useFocusLock = (
 
       document.removeEventListener("keydown", handleKeydown)
     }
-  }, [handleNext, handlePrev])
+  }, [active, handleNext, handlePrev])
 
   useEffect(() => {
     // Update the index when any focusable is clicked

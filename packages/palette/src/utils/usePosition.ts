@@ -1,7 +1,9 @@
 /**
  * Adapted from https://codesandbox.io/s/positioning-tooltip-rhplo
  */
+import { useState } from "react"
 import { useRef } from "react"
+import { useMutationObserver } from "./useMutationObserver"
 import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
 
 export const POSITION = {
@@ -42,8 +44,25 @@ export const usePosition = ({
   /** Optionally disable for performance (default: `true`) */
   active?: boolean
 }) => {
+  const [state, setState] = useState<ReturnType<typeof placeTooltip>>({
+    isFlipped: false,
+  })
+
   const tooltipRef = useRef<HTMLElement | null>(null)
   const anchorRef = useRef<HTMLElement | null>(null)
+
+  // Re-position when there's any change to the tooltip
+  useMutationObserver({
+    ref: tooltipRef,
+    onMutate: () => {
+      if (!tooltipRef.current || !anchorRef.current) return
+
+      const { current: tooltip } = tooltipRef
+      const { current: anchor } = anchorRef
+
+      setState(placeTooltip(anchor, tooltip, position, offset))
+    },
+  })
 
   useIsomorphicLayoutEffect(() => {
     if (!tooltipRef.current || !anchorRef.current) return
@@ -57,7 +76,7 @@ export const usePosition = ({
 
     const handleScroll = () => {
       if (!active) return
-      placeTooltip(anchor, tooltip, position, offset)
+      setState(placeTooltip(anchor, tooltip, position, offset))
     }
 
     if (active) {
@@ -67,12 +86,12 @@ export const usePosition = ({
     }
 
     const handleResize = () => {
-      placeTooltip(anchor, tooltip, position, offset)
+      setState(placeTooltip(anchor, tooltip, position, offset))
     }
 
     window.addEventListener("resize", handleResize, { passive: true })
 
-    placeTooltip(anchor, tooltip, position, offset)
+    setState(placeTooltip(anchor, tooltip, position, offset))
 
     return () => {
       document.removeEventListener("scroll", handleScroll)
@@ -85,6 +104,7 @@ export const usePosition = ({
     tooltipRef,
     // Element you want to position relative to the anchor
     anchorRef,
+    state,
   }
 }
 
@@ -101,7 +121,14 @@ export const placeTooltip = (
   let targetPosition = getPosition(elementRect, tooltipRect, position)
 
   // Flip to avoid edges
-  if (shouldFlip(targetPosition, position, boundaryRect, tooltipRect)) {
+  const isFlipped = shouldFlip(
+    targetPosition,
+    position,
+    boundaryRect,
+    tooltipRect
+  )
+
+  if (isFlipped) {
     position = getOppositePosition(position)
     targetPosition = getPosition(elementRect, tooltipRect, position)
   }
@@ -127,6 +154,8 @@ export const placeTooltip = (
     position,
     offset
   )
+
+  return { isFlipped }
 }
 
 export const getPosition = (

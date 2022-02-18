@@ -11,7 +11,7 @@ export default {
 export const Default = () => {
   const ref = useRef<HTMLDivElement | null>(null)
 
-  useFocusLock(ref)
+  useFocusLock({ ref })
 
   return (
     <>
@@ -36,7 +36,7 @@ export const Default = () => {
 export const WithAutocompleteInput = () => {
   const ref = useRef<HTMLDivElement | null>(null)
 
-  useFocusLock(ref)
+  useFocusLock({ ref })
 
   return (
     <div ref={ref}>

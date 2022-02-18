@@ -1,9 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import { FLAT_SHADOW } from "../../helpers"
-import { Position, useClickOutside, usePosition } from "../../utils"
+import {
+  Position,
+  useClickOutside,
+  useFocusLock,
+  usePosition,
+} from "../../utils"
+import { usePortal } from "../../utils/usePortal"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
-import { Box } from "../Box"
+import { Box, BoxProps } from "../Box"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -20,8 +26,7 @@ export interface DropdownActions {
   visible: boolean
 }
 
-export interface DropdownProps {
-  title?: React.ReactNode
+export interface DropdownProps extends BoxProps {
   placement?: Position
   /** Intially visible by default? */
   visible?: boolean
@@ -51,6 +56,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   children,
   offset = 10,
   dropdown,
+  ...rest
 }) => {
   const [visible, setVisible] = useState(false)
 
@@ -87,6 +93,23 @@ export const Dropdown: React.FC<DropdownProps> = ({
     }, 150)
   }
 
+  const {
+    anchorRef,
+    tooltipRef: panelRef,
+    state: { isFlipped },
+  } = usePosition({
+    position: placement,
+    offset: 0,
+    active: visible,
+  })
+
+  useClickOutside({
+    ref: panelRef,
+    onClickOutside: onHide,
+    when: visible,
+    type: "click",
+  })
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -116,20 +139,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       document.removeEventListener("keydown", handleKeyDown)
       document.removeEventListener("keyup", handleKeyUp)
     }
-  }, [])
-
-  const { anchorRef, tooltipRef: panelRef } = usePosition({
-    position: placement,
-    offset: 0,
-    active: visible,
-  })
-
-  useClickOutside({
-    ref: panelRef,
-    onClickOutside: onHide,
-    when: visible,
-    type: "click",
-  })
+  }, [panelRef])
 
   const activeRef = useRef(false)
 
@@ -178,21 +188,21 @@ export const Dropdown: React.FC<DropdownProps> = ({
       case "top-start":
       case "top":
       case "top-end":
-        return { pb: offset }
+        return { [isFlipped ? "pt" : "pb"]: offset }
       case "bottom-start":
       case "bottom":
       case "bottom-end":
-        return { pt: offset }
+        return { [isFlipped ? "pb" : "pt"]: offset }
       case "left-start":
       case "left":
       case "left-end":
-        return { pr: offset }
+        return { [isFlipped ? "pl" : "pr"]: offset }
       case "right-start":
       case "right":
       case "right-end":
-        return { pl: offset }
+        return { [isFlipped ? "pr" : "pl"]: offset }
     }
-  }, [placement, offset])
+  }, [placement, isFlipped, offset])
 
   const anchorProps: React.HTMLAttributes<HTMLElement> = {
     "aria-expanded": visible,
@@ -201,6 +211,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
     onMouseLeave: onHide,
     onClick: onVisible,
   }
+
+  const { createPortal } = usePortal()
+
+  useFocusLock({ ref: panelRef, active: visible })
 
   return (
     <>
@@ -213,50 +227,52 @@ export const Dropdown: React.FC<DropdownProps> = ({
         visible,
       })}
 
-      {(visible || keepInDOM) && (
-        <Container
-          tabIndex={0}
-          ref={panelRef as any}
-          zIndex={1}
-          display="inline-block"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          placement={placement}
-          style={{
-            ...(keepInDOM
-              ? { visibility: visible ? "visible" : "hidden" }
-              : {}),
-          }}
-          {...padding}
-        >
-          <Panel
-            bg="white100"
-            border="1px solid"
-            borderColor="black10"
-            style={
-              transition
-                ? // In
-                  { opacity: 1, transform: "translate(0)" }
-                : // Out
-                  {
-                    opacity: 0,
-                    transform: translation,
-                  }
-            }
+      {(visible || keepInDOM) &&
+        createPortal(
+          <Container
+            aria-label="Press escape to close"
+            tabIndex={0}
+            ref={panelRef as any}
+            zIndex={1}
+            display="inline-block"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            placement={placement}
+            style={{
+              ...(keepInDOM
+                ? { visibility: visible ? "visible" : "hidden" }
+                : {}),
+            }}
+            {...padding}
+            {...rest}
           >
-            {typeof dropdown === "function"
-              ? dropdown({ onVisible, onHide, setVisible, visible })
-              : dropdown}
-          </Panel>
-        </Container>
-      )}
+            <Panel
+              bg="white100"
+              border="1px solid"
+              borderColor="black10"
+              style={
+                transition
+                  ? // In
+                    { opacity: 1, transform: "translate(0)" }
+                  : // Out
+                    {
+                      opacity: 0,
+                      transform: translation,
+                    }
+              }
+            >
+              {typeof dropdown === "function"
+                ? dropdown({ onVisible, onHide, setVisible, visible })
+                : dropdown}
+            </Panel>
+          </Container>
+        )}
     </>
   )
 }
 
-const Container = styled(Box)<{ placement: Position }>`
+const Container = styled(Box)<{ placement: Position } & BoxProps>`
   position: fixed;
-  z-index: 1;
   text-align: left;
   outline: 0;
 `

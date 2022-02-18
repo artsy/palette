@@ -18,7 +18,7 @@ const keydown = async (key: string, shift?: boolean) => {
 const Wrapper: React.FC = () => {
   const ref = useRef<HTMLDivElement | null>(null)
 
-  useFocusLock(ref)
+  useFocusLock({ ref })
 
   return (
     <>

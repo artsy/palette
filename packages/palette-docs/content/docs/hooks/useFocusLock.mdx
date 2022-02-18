@@ -20,7 +20,7 @@ import { useFocusLock } from "@artsy/palette"
 const Example = (props) => {
   const containerEl = useRef<HTMLDivElement | null>(null)
 
-  useFocusLock(containerEl)
+  useFocusLock({ ref: containerEl })
 
   return (
     <>
