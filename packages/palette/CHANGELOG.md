@@ -1,3 +1,16 @@
+# v19.0.2 (Tue Feb 22 2022)
+
+#### 🐛  Bug Fix
+
+- fix(useclickoutside): wait for stack to clear before adding event [#1135](https://github.com/artsy/palette/pull/1135) ([@dzucconi](https://github.com/dzucconi))
+- fix(useclickoutside): wait for stack to clear before adding event ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v19.0.1 (Tue Feb 22 2022)
 
 #### 🐛  Bug Fix

@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@19.0.2`
+  - fix(useclickoutside): wait for stack to clear before adding event [#1135](https://github.com/artsy/palette/pull/1135) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Feb 22 2022)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@19.0.1`
   - fix(modal): fixes support for percentage based widths [#1134](https://github.com/artsy/palette/pull/1134) ([@dzucconi](https://github.com/dzucconi))
 
