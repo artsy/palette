@@ -18,7 +18,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
   ...rest
 }) => {
   const isMounted = useDidMount()
-  const [boxProps, modalProps] = splitBoxProps(rest)
+  const [{ width, ...boxProps }, modalProps] = splitBoxProps(rest)
 
   return (
     <ModalBase
@@ -31,6 +31,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
             }
           : { backgroundColor: "transparent" }
       }
+      dialogProps={{ width: width ?? 440 }}
       {...modalProps}
     >
       <ModalDialogContent
@@ -38,7 +39,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
         hasLogo={hasLogo}
         onClose={onClose}
         title={title}
-        width={440}
+        width="100%"
         style={
           isMounted
             ? {

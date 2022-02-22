@@ -36,6 +36,7 @@ export const Default = () => {
         },
         { title: "Modal Title" },
         { title: "100% Width", width: "100%" },
+        { title: "Responsive Percentage Width", width: ["75%", "66%", "50%"] },
         { title: "Responsive Width", width: ["100%", 550] },
         {
           title:
