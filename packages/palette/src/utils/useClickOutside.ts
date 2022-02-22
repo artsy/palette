@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 export interface UseClickOutside {
   ref: React.RefObject<HTMLElement>
@@ -19,24 +19,25 @@ export const useClickOutside = ({
 }: UseClickOutside) => {
   const savedHandler = useRef(onClickOutside)
 
-  const handleClick = useCallback((e: Event) => {
-    if (ref && ref.current && !ref.current!.contains(e.target as Element)) {
-      savedHandler.current(e)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   useEffect(() => {
     savedHandler.current = onClickOutside
   }, [onClickOutside])
 
   useEffect(() => {
+    const handleClick = (event: Event) => {
+      if (ref.current && !ref.current.contains(event.target as Element)) {
+        savedHandler.current(event)
+      }
+    }
+
     if (when) {
-      document.addEventListener(type, handleClick)
+      setTimeout(() => {
+        document.addEventListener(type, handleClick)
+      }, 0)
+
       return () => {
         document.removeEventListener(type, handleClick)
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [when])
+  }, [ref, type, when])
 }
