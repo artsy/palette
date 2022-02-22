@@ -1,3 +1,16 @@
+# v19.0.1 (Tue Feb 22 2022)
+
+#### 🐛  Bug Fix
+
+- fix(modal): fixes support for percentage based widths [#1134](https://github.com/artsy/palette/pull/1134) ([@dzucconi](https://github.com/dzucconi))
+- fix(modal): fixes support for percentage based widths ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v19.0.0 (Fri Feb 18 2022)
 
 #### 💥  Breaking Change
