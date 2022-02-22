@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import styled from "styled-components"
 import { DROP_SHADOW } from "../../helpers"
 import { isText } from "../../helpers/isText"
@@ -58,8 +58,13 @@ export const Popover: React.FC<PopoverProps> = ({
     anchorRef.current.focus()
   }, [visible])
 
-  const onVisible = () => setVisible(true)
-  const onHide = () => setVisible(false)
+  const onVisible = useCallback(() => {
+    setVisible(true)
+  }, [])
+
+  const onHide = useCallback(() => {
+    setVisible(false)
+  }, [])
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
@@ -69,10 +74,11 @@ export const Popover: React.FC<PopoverProps> = ({
     }
 
     document.addEventListener("keydown", handleKeydown)
+
     return () => {
       document.removeEventListener("keydown", handleKeydown)
     }
-  }, [])
+  }, [onHide])
 
   const { anchorRef, tooltipRef } = usePosition({
     position: placement,
