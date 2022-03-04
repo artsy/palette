@@ -27,7 +27,7 @@ export type PillProps = ClickableProps & {
 } & (
     | {
         variant?: Extract<PillVariant, "textRound" | "textSquare" | "filter">
-        /** Forces active state */
+        /** Forces active state & border-color to black60 */
         active?: boolean
       }
     | {
@@ -109,7 +109,6 @@ export const Pill: React.FC<PillProps> = ({ children, ...rest }) => {
 
       <Text
         variant="xs"
-        lineHeight={1}
         {...(typeof children === "string"
           ? // Simple label — handle the text overflow
             { overflowEllipsis: true }
