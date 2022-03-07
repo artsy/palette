@@ -1,3 +1,24 @@
+# (Mon Mar 07 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@19.1.0`
+  - fix: modalDialog width [#1140](https://github.com/artsy/palette/pull/1140) ([@araujobarret](https://github.com/araujobarret))
+  - fix: removed line height from pill text [#1139](https://github.com/artsy/palette/pull/1139) ([@gkartalis](https://github.com/gkartalis))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@18.1.0`, `@artsy/palette@19.1.0`
+  - chore(deps): update dep typescript from 4.5.5 to v4.6.2 [#1138](https://github.com/artsy/palette/pull/1138) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 3
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+- George Kartalis ([@gkartalis](https://github.com/gkartalis))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Tue Feb 22 2022)
 
 #### 🐛  Bug Fix
