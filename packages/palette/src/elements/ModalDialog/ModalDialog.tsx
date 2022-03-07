@@ -31,7 +31,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
             }
           : { backgroundColor: "transparent" }
       }
-      dialogProps={{ width: width ?? 440 }}
+      dialogProps={{ width: width ?? 480 }}
       {...modalProps}
     >
       <ModalDialogContent
