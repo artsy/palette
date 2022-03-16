@@ -1,3 +1,16 @@
+# (Wed Mar 16 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@19.1.1`
+  - fix(badge): includes in exports [#1142](https://github.com/artsy/palette/pull/1142) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Mar 07 2022)
 
 #### 🚀  Enhancement
