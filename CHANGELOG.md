@@ -1,3 +1,16 @@
+# (Fri Mar 18 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@19.1.2`
+  - fix(filterselect): avoids calling onchange on mount [#1143](https://github.com/artsy/palette/pull/1143) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Mar 16 2022)
 
 #### 🐛  Bug Fix
