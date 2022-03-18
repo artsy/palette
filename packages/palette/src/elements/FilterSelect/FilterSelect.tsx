@@ -12,7 +12,7 @@ import { FilterInput } from "./Components/FilterInput"
 import { VisuallyHidden } from "../VisuallyHidden"
 import { Text } from "../Text"
 import { INITIAL_ITEMS_TO_SHOW } from "../ShowMore"
-import { useEffect } from "react"
+import { useUpdateEffect } from "../../utils"
 
 export type FilterSelectProps = Partial<FilterSelectState>
 
@@ -38,7 +38,7 @@ const _FilterSelect: React.FC = () => {
   } = useFilterSelectContext()
 
   // Dispatch change event
-  useEffect(() => {
+  useUpdateEffect(() => {
     if (onChange) {
       onChange({
         items,
@@ -48,7 +48,7 @@ const _FilterSelect: React.FC = () => {
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedItems])
+  }, [onChange, selectedItems])
 
   if (items.length === 0) {
     return null
