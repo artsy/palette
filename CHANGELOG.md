@@ -1,3 +1,16 @@
+# (Mon Mar 21 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@19.1.3`
+  - fix(tabs): cached tabs rendering [#1144](https://github.com/artsy/palette/pull/1144) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Mar 18 2022)
 
 #### 🐛  Bug Fix

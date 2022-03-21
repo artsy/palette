@@ -1,3 +1,18 @@
+# v19.1.3 (Mon Mar 21 2022)
+
+#### 🐛  Bug Fix
+
+- fix(tabs): cached tabs rendering [#1144](https://github.com/artsy/palette/pull/1144) ([@dzucconi](https://github.com/dzucconi))
+- fix(tabs): improves tabs rendering (still problematic) ([@dzucconi](https://github.com/dzucconi))
+- fix(join): prefers the provided child key; fallsback to index if missing ([@dzucconi](https://github.com/dzucconi))
+- fix(basetabs): adds display name ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v19.1.2 (Fri Mar 18 2022)
 
 #### 🐛  Bug Fix
