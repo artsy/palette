@@ -6,6 +6,7 @@ import { Sup } from "../Sup"
 import { Tab, Tabs, TabsProps } from "./"
 import { Box } from "../Box"
 import { useCursor } from "use-cursor"
+import { Button } from "../Button"
 
 export default {
   title: "Components/Tabs",
@@ -184,4 +185,30 @@ export const InitialAutoScroll = () => {
 
 InitialAutoScroll.story = {
   parameters: { chromatic: { disable: true } },
+}
+
+// FIXME: Currently renders one step behind
+export const Cached = () => {
+  const [count, setCount] = useState(1)
+
+  return (
+    <>
+      <Button
+        variant="secondaryOutline"
+        size="small"
+        mb={1}
+        onClick={() => {
+          setCount((prevCount) => prevCount + 1)
+        }}
+      >
+        Increment count — count: {count}
+      </Button>
+
+      <Tabs>
+        <Tab name="First">First — count: {count}</Tab>
+        <Tab name="Second">Second — count: {count}</Tab>
+        <Tab name="Third">Third — count: {count}</Tab>
+      </Tabs>
+    </>
+  )
 }
