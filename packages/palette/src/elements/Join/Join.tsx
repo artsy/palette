@@ -30,26 +30,18 @@ export const Join: React.FC<JoinProps> = ({ separator, children }) => {
 
   return (
     <>
-      {elements.reduce((acc, element, currentIndex) => {
-        acc.push(
-          // @ts-expect-error  MIGRATE_STRICT_MODE
-          React.cloneElement(element, {
-            key: `join-${currentIndex}`,
-          })
-        )
+      {elements.reduce((acc, element, index) => {
+        // Prefer provided child key, fallback to index
+        const key = typeof element.key !== "undefined" ? element.key : index
 
-        if (currentIndex !== elements.length - 1) {
-          acc.push(
-            // @ts-expect-error  MIGRATE_STRICT_MODE
-            separator &&
-              React.cloneElement(separator, {
-                key: `join-sep-${currentIndex}`,
-              })
-          )
+        acc.push(React.cloneElement(element, { key }))
+
+        if (index !== elements.length - 1) {
+          acc.push(separator && React.cloneElement(separator, { key }))
         }
 
         return acc
-      }, [])}
+      }, [] as typeof elements)}
     </>
   )
 }

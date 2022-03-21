@@ -65,7 +65,7 @@ export const useTabs = ({
   useUpdateEffect(() => {
     activeTab.current = tabs[initialTabIndex]
     setActiveTabIndex(initialTabIndex)
-  }, [initialTabIndex])
+  }, [initialTabIndex, tabs])
 
   // Ref of the tabs viewport
   const ref = useRef<HTMLDivElement | null>(null)

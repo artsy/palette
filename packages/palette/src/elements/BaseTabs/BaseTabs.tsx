@@ -53,3 +53,5 @@ export const BaseTabs: React.ForwardRefExoticComponent<
     )
   }
 )
+
+BaseTabs.displayName = "BaseTabs"
