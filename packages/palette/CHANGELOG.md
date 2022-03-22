@@ -1,3 +1,16 @@
+# v19.1.4 (Tue Mar 22 2022)
+
+#### 🐛  Bug Fix
+
+- Revert "fix(join): prefers the provided child key; fallsback to index… [#1145](https://github.com/artsy/palette/pull/1145) ([@dzucconi](https://github.com/dzucconi))
+- Revert "fix(join): prefers the provided child key; fallsback to index if missing" ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v19.1.3 (Mon Mar 21 2022)
 
 #### 🐛  Bug Fix
