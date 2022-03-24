@@ -1,3 +1,16 @@
+# (Thu Mar 24 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@19.1.5`
+  - fix(badge): prevents wrapping; handles truncation on badges [#1146](https://github.com/artsy/palette/pull/1146) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Mar 22 2022)
 
 #### 🐛  Bug Fix
