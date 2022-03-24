@@ -26,8 +26,10 @@ export interface BadgeProps extends BoxProps {
 
 export const Badge: React.FC<BadgeProps> = ({ children, ...rest }) => {
   return (
-    <Container display="inline-block" px={0.5} {...rest}>
-      <Text variant="xs">{children}</Text>
+    <Container display="inline-flex" maxWidth="100%" {...rest}>
+      <Text variant="xs" px={0.5} overflowEllipsis>
+        {children}
+      </Text>
     </Container>
   )
 }
