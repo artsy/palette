@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@19.3.0`
+  - GRO-836 Update: Marquee with newly decided default coloring [#1150](https://github.com/artsy/palette/pull/1150) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+
+#### Authors: 1
+
+- Ana Lisa Sutherland ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+
+---
+
+# (Thu Mar 31 2022)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@19.2.0`
   - GRO-836: Adding design update for gallery attributes, until further approval on designs met [#1149](https://github.com/artsy/palette/pull/1149) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
 

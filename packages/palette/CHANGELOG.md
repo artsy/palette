@@ -1,3 +1,19 @@
+# v19.3.0 (Thu Mar 31 2022)
+
+#### 🚀  Enhancement
+
+- GRO-836 Update: Marquee with newly decided default coloring [#1150](https://github.com/artsy/palette/pull/1150) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+
+#### 🐛  Bug Fix
+
+- Update: Marquee with newly decided default coloring ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+
+#### Authors: 1
+
+- Ana Lisa Sutherland ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+
+---
+
 # v19.2.0 (Thu Mar 31 2022)
 
 #### 🚀  Enhancement
