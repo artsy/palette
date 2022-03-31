@@ -1,3 +1,22 @@
+# (Thu Mar 31 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@19.2.0`
+  - GRO-836: Adding design update for gallery attributes, until further approval on designs met [#1149](https://github.com/artsy/palette/pull/1149) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@18.2.0`, `@artsy/palette@19.2.0`
+  - chore(deps): update dep typescript from 4.6.2 to v4.6.3 [#1148](https://github.com/artsy/palette/pull/1148) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Ana Lisa Sutherland ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Thu Mar 24 2022)
 
 #### 🐛  Bug Fix
