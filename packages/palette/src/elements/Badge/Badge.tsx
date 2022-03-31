@@ -10,12 +10,12 @@ const VARIANTS = {
     color: "black100",
   },
   defaultDark: {
-    backgroundColor: "black100",
-    color: "white100",
+    backgroundColor: "black10",
+    color: "black100",
   },
   brand: {
-    backgroundColor: "brand",
-    color: "white100",
+    backgroundColor: "black10",
+    color: "black100",
   },
 }
 
