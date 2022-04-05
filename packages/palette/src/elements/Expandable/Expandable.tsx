@@ -81,7 +81,10 @@ export const Expandable: React.FC<ExpandableProps> = ({
         )}
       </Clickable>
 
-      {expanded && children}
+      {expanded &&
+        (typeof children === "function"
+          ? children({ setExpanded, expanded })
+          : children)}
     </Box>
   )
 }

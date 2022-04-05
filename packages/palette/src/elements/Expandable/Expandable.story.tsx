@@ -5,6 +5,7 @@ import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Expandable, ExpandableProps } from "./Expandable"
+import { Button } from "../Button"
 
 export default {
   title: "Components/Expandable",
@@ -22,7 +23,6 @@ export const Default = () => {
           label: (
             <Flex flex={1} justifyContent="space-between">
               <Text variant="md">Heading</Text>
-
               <Clickable
                 textDecoration="underline"
                 onClick={(e) => {
@@ -37,6 +37,15 @@ export const Default = () => {
         },
         { mb: 6 },
         { expanded: true, mb: 6 },
+        {
+          expanded: true,
+          children: ({ setExpanded }) => (
+            <div>
+              <Text>Expanded content</Text>
+              <Button onClick={() => setExpanded(false)}>Close</Button>
+            </div>
+          ),
+        },
       ]}
     >
       <Expandable label="Example" maxWidth={350}>
