@@ -1,3 +1,21 @@
+# v19.4.0 (Tue Apr 05 2022)
+
+#### 🚀  Enhancement
+
+- feat(TX-255): ability to close expandable within expandable content [#1151](https://github.com/artsy/palette/pull/1151) ([@rquartararo](https://github.com/rquartararo))
+
+#### 🐛  Bug Fix
+
+- fix: bug fix ([@rquartararo](https://github.com/rquartararo))
+- feat: add story option with close button ([@rquartararo](https://github.com/rquartararo))
+- feat: pass setExpanded to children ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v19.3.0 (Thu Mar 31 2022)
 
 #### 🚀  Enhancement

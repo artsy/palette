@@ -1,3 +1,16 @@
+# (Tue Apr 05 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@19.4.0`
+  - feat(TX-255): ability to close expandable within expandable content [#1151](https://github.com/artsy/palette/pull/1151) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Thu Mar 31 2022)
 
 #### 🚀  Enhancement
