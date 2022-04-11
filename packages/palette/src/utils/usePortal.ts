@@ -15,15 +15,18 @@ export const usePortal = () => {
     }
   }, [])
 
-  const createPortal = useCallback((children: React.ReactNode) => {
-    if (typeof window === "undefined") return null
+  const createPortal = useCallback(
+    (children: React.ReactNode): React.ReactPortal | null => {
+      if (typeof window === "undefined") return null
 
-    // May execute before effect runs and appendEl is set
-    const el = appendEl.current ?? document.createElement("div")
-    appendEl.current = el
+      // May execute before effect runs and appendEl is set
+      const el = appendEl.current ?? document.createElement("div")
+      appendEl.current = el
 
-    return __createPortal__(children, el)
-  }, [])
+      return __createPortal__(children, el)
+    },
+    []
+  )
 
   return { createPortal }
 }

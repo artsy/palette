@@ -112,7 +112,15 @@ export const _ModalBase: React.FC<ModalBaseProps> = ({
       setMaxHeight(window.innerHeight)
     }
 
+    // Due to the dialog being portaled; we need to wait until the next tick
+    // before we can perform any operations that rely on the sizing of elements.
+    // Presumably anything that relies on this also listens to resize for updates.
+    setTimeout(() => {
+      window.dispatchEvent(new Event("resize"))
+    }, 0)
+
     window.addEventListener("resize", updateMaxHeight, { passive: true })
+
     return () => {
       window.removeEventListener("resize", updateMaxHeight)
     }

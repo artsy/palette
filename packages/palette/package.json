@@ -123,7 +123,7 @@
     "luxon": "^1.15",
     "proportional-scale": "^4.0.0",
     "react-lazy-load-image-component": "1.5.0",
-    "react-remove-scroll": "^2.3.0",
+    "react-remove-scroll": "2.5.0",
     "styled-bootstrap-grid": "3.1.0",
     "styled-system": "^5.1.5",
     "trunc-html": "^1.1.2",
