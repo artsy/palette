@@ -1,3 +1,17 @@
+# v19.4.1 (Tue Apr 12 2022)
+
+#### 🐛  Bug Fix
+
+- fix: add white-space: nowrap to pill component [#1153](https://github.com/artsy/palette/pull/1153) ([@gkartalis](https://github.com/gkartalis))
+- chore: add story for pill with children ([@gkartalis](https://github.com/gkartalis))
+- fix: add white-space: nowrap to pill component ([@gkartalis](https://github.com/gkartalis))
+
+#### Authors: 1
+
+- George Kartalis ([@gkartalis](https://github.com/gkartalis))
+
+---
+
 # v19.4.0 (Tue Apr 05 2022)
 
 #### 🚀  Enhancement
