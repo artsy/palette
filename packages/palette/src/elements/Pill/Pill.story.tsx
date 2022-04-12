@@ -7,6 +7,7 @@ import { CloseIcon } from "../../svgs/CloseIcon"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Pill, PillProps } from "./Pill"
+import { Sup } from "../Sup"
 
 export default {
   title: "Components/Pill",
@@ -105,6 +106,14 @@ export const LongExample = () => {
   return (
     <Pill maxWidth={300}>
       Studio Museum in Harlem Artist-in-Residence (AIR) Program
+    </Pill>
+  )
+}
+
+export const LongExampleWithChildren = () => {
+  return (
+    <Pill maxWidth={200}>
+      Artist Series <Sup pl={0.5}>130</Sup>
     </Pill>
   )
 }
