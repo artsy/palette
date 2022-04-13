@@ -114,7 +114,7 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
 
       return {
         ...state,
-        selectedItems
+        selectedItems,
       }
     }
   }
@@ -144,16 +144,6 @@ export const FilterSelectContextProvider: React.FC<
     ...props,
   })
 
-  useEffect(() => {
-    if (props.selectedItems) {
-      console.log("Debug: UPDATE_SELECTED_ITEMS", props.selectedItems);
-      dispatch({
-        type: "UPDATE_SELECTED_ITEMS",
-        payload: { selectedItems: props.selectedItems }
-      })
-    }
-  }, [props?.selectedItems?.length])
-
   const contextValue = {
     ...state,
 
@@ -170,6 +160,18 @@ export const FilterSelectContextProvider: React.FC<
       })
     },
   }
+
+  useEffect(() => {
+    if (props.selectedItems?.length) {
+      dispatch({
+        type: "UPDATE_SELECTED_ITEMS",
+        payload: {
+          selectedItems: props.selectedItems,
+        },
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.selectedItems?.length])
 
   useLayoutEffect(() => {
     if (props.query?.length) {
