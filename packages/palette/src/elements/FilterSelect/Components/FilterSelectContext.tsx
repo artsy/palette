@@ -2,6 +2,7 @@ import { reject } from "lodash"
 import React, {
   createContext,
   useContext,
+  useEffect,
   useLayoutEffect,
   useReducer,
 } from "react"
@@ -58,6 +59,7 @@ export type FilterSelectState = Pick<
 type Action =
   | { type: "SET_QUERY"; payload: { query: string } }
   | { type: "SET_SELECTED_ITEMS"; payload: { item: Item } }
+  | { type: "UPDATE_SELECTED_ITEMS"; payload: { selectedItems: Items } }
 
 const filterSelectReducer = (state: FilterSelectState, action: Action) => {
   switch (action.type) {
@@ -106,6 +108,15 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
         selectedItems,
       }
     }
+
+    case "UPDATE_SELECTED_ITEMS": {
+      const { selectedItems } = action.payload
+
+      return {
+        ...state,
+        selectedItems
+      }
+    }
   }
 }
 
@@ -132,6 +143,16 @@ export const FilterSelectContextProvider: React.FC<
     ...initialState,
     ...props,
   })
+
+  useEffect(() => {
+    if (props.selectedItems) {
+      console.log("Debug: UPDATE_SELECTED_ITEMS", props.selectedItems);
+      dispatch({
+        type: "UPDATE_SELECTED_ITEMS",
+        payload: { selectedItems: props.selectedItems }
+      })
+    }
+  }, [props?.selectedItems?.length])
 
   const contextValue = {
     ...state,
