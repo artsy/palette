@@ -37,7 +37,7 @@ interface FilterSelectContextProps {
   query: string
   renderItemLabel?: (item: any) => string
   selectedItems: Items
-  setSelectedItems: (item: Item) => void
+  toggleSelectedItems: (item: Item) => void
   setQuery: (query: string) => void
 }
 
@@ -58,8 +58,8 @@ export type FilterSelectState = Pick<
 
 type Action =
   | { type: "SET_QUERY"; payload: { query: string } }
-  | { type: "SET_SELECTED_ITEMS"; payload: { item: Item } }
-  | { type: "UPDATE_SELECTED_ITEMS"; payload: { selectedItems: Items } }
+  | { type: "TOGGLE_SELECTED_ITEM"; payload: { item: Item } }
+  | { type: "SET_SELECTED_ITEMS"; payload: { selectedItems: Items } }
 
 const filterSelectReducer = (state: FilterSelectState, action: Action) => {
   switch (action.type) {
@@ -87,7 +87,7 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
       }
     }
 
-    case "SET_SELECTED_ITEMS": {
+    case "TOGGLE_SELECTED_ITEM": {
       const isFound = !!state.selectedItems.find(
         (item) => item.value === action.payload.item.value
       )
@@ -109,7 +109,7 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
       }
     }
 
-    case "UPDATE_SELECTED_ITEMS": {
+    case "SET_SELECTED_ITEMS": {
       const { selectedItems } = action.payload
 
       return {
@@ -147,9 +147,9 @@ export const FilterSelectContextProvider: React.FC<
   const contextValue = {
     ...state,
 
-    setSelectedItems: (item) => {
+    toggleSelectedItems: (item) => {
       dispatch({
-        type: "SET_SELECTED_ITEMS",
+        type: "TOGGLE_SELECTED_ITEM",
         payload: { item },
       })
     },
@@ -164,7 +164,7 @@ export const FilterSelectContextProvider: React.FC<
   useEffect(() => {
     if (props.selectedItems?.length) {
       dispatch({
-        type: "UPDATE_SELECTED_ITEMS",
+        type: "SET_SELECTED_ITEMS",
         payload: {
           selectedItems: props.selectedItems,
         },

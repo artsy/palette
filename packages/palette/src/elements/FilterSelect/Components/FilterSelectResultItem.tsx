@@ -6,7 +6,7 @@ export const FilterSelectResultItem: React.FC<Item> = (props) => {
   const {
     renderItemLabel,
     selectedItems,
-    setSelectedItems,
+    toggleSelectedItems,
   } = useFilterSelectContext()
 
   const isSelected = !!selectedItems.find(
@@ -16,7 +16,7 @@ export const FilterSelectResultItem: React.FC<Item> = (props) => {
 
   return (
     <Checkbox
-      onSelect={() => setSelectedItems(props)}
+      onSelect={() => toggleSelectedItems(props)}
       selected={isSelected}
       key={props.value}
       my={1}
