@@ -2,6 +2,7 @@ import { reject } from "lodash"
 import React, {
   createContext,
   useContext,
+  useEffect,
   useLayoutEffect,
   useReducer,
 } from "react"
@@ -36,8 +37,9 @@ interface FilterSelectContextProps {
   query: string
   renderItemLabel?: (item: any) => string
   selectedItems: Items
-  setSelectedItems: (item: Item) => void
+  toggleSelectedItem: (item: Item) => void
   setQuery: (query: string) => void
+  setSelectedItems: (items: Items) => void
 }
 
 export type FilterSelectState = Pick<
@@ -57,7 +59,8 @@ export type FilterSelectState = Pick<
 
 type Action =
   | { type: "SET_QUERY"; payload: { query: string } }
-  | { type: "SET_SELECTED_ITEMS"; payload: { item: Item } }
+  | { type: "TOGGLE_SELECTED_ITEM"; payload: { item: Item } }
+  | { type: "SET_SELECTED_ITEMS"; payload: { items: Items } }
 
 const filterSelectReducer = (state: FilterSelectState, action: Action) => {
   switch (action.type) {
@@ -85,7 +88,7 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
       }
     }
 
-    case "SET_SELECTED_ITEMS": {
+    case "TOGGLE_SELECTED_ITEM": {
       const isFound = !!state.selectedItems.find(
         (item) => item.value === action.payload.item.value
       )
@@ -104,6 +107,15 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
       return {
         ...state,
         selectedItems,
+      }
+    }
+
+    case "SET_SELECTED_ITEMS": {
+      const { items } = action.payload
+
+      return {
+        ...state,
+        selectedItems: items,
       }
     }
   }
@@ -136,9 +148,9 @@ export const FilterSelectContextProvider: React.FC<
   const contextValue = {
     ...state,
 
-    setSelectedItems: (item) => {
+    toggleSelectedItem: (item) => {
       dispatch({
-        type: "SET_SELECTED_ITEMS",
+        type: "TOGGLE_SELECTED_ITEM",
         payload: { item },
       })
     },
@@ -148,7 +160,22 @@ export const FilterSelectContextProvider: React.FC<
         payload: { query },
       })
     },
+    setSelectedItems: (items) => {
+      dispatch({
+        type: "SET_SELECTED_ITEMS",
+        payload: {
+          items,
+        },
+      })
+    }
   }
+
+  useEffect(() => {
+    if (props.selectedItems?.length) {
+      contextValue.setSelectedItems(props.selectedItems)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.selectedItems?.length])
 
   useLayoutEffect(() => {
     if (props.query?.length) {
