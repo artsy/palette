@@ -37,7 +37,7 @@ interface FilterSelectContextProps {
   query: string
   renderItemLabel?: (item: any) => string
   selectedItems: Items
-  toggleSelectedItems: (item: Item) => void
+  toggleSelectedItem: (item: Item) => void
   setQuery: (query: string) => void
   setSelectedItems: (items: Items) => void
 }
@@ -148,7 +148,7 @@ export const FilterSelectContextProvider: React.FC<
   const contextValue = {
     ...state,
 
-    toggleSelectedItems: (item) => {
+    toggleSelectedItem: (item) => {
       dispatch({
         type: "TOGGLE_SELECTED_ITEM",
         payload: { item },
