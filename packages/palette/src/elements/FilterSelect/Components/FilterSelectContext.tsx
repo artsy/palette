@@ -39,6 +39,7 @@ interface FilterSelectContextProps {
   selectedItems: Items
   toggleSelectedItems: (item: Item) => void
   setQuery: (query: string) => void
+  setSelectedItems: (items: Items) => void
 }
 
 export type FilterSelectState = Pick<
@@ -59,7 +60,7 @@ export type FilterSelectState = Pick<
 type Action =
   | { type: "SET_QUERY"; payload: { query: string } }
   | { type: "TOGGLE_SELECTED_ITEM"; payload: { item: Item } }
-  | { type: "SET_SELECTED_ITEMS"; payload: { selectedItems: Items } }
+  | { type: "SET_SELECTED_ITEMS"; payload: { items: Items } }
 
 const filterSelectReducer = (state: FilterSelectState, action: Action) => {
   switch (action.type) {
@@ -110,11 +111,11 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
     }
 
     case "SET_SELECTED_ITEMS": {
-      const { selectedItems } = action.payload
+      const { items } = action.payload
 
       return {
         ...state,
-        selectedItems,
+        selectedItems: items,
       }
     }
   }
@@ -159,16 +160,19 @@ export const FilterSelectContextProvider: React.FC<
         payload: { query },
       })
     },
+    setSelectedItems: (items) => {
+      dispatch({
+        type: "SET_SELECTED_ITEMS",
+        payload: {
+          items,
+        },
+      })
+    }
   }
 
   useEffect(() => {
     if (props.selectedItems?.length) {
-      dispatch({
-        type: "SET_SELECTED_ITEMS",
-        payload: {
-          selectedItems: props.selectedItems,
-        },
-      })
+      contextValue.setSelectedItems(props.selectedItems)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.selectedItems?.length])
