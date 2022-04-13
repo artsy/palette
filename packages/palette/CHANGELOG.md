@@ -1,3 +1,24 @@
+# v19.5.0 (Wed Apr 13 2022)
+
+#### 🚀  Enhancement
+
+- feat(fx-3803): FilterSelect tracks changes in selectedItems [#1155](https://github.com/artsy/palette/pull/1155) ([@nickskalkin](https://github.com/nickskalkin) [@dimatretyak](https://github.com/dimatretyak))
+
+#### 🐛  Bug Fix
+
+- chore: rename toggleSelectedItems to toggleSelectedItem ([@dimatretyak](https://github.com/dimatretyak))
+- chore: add setSelectedItems ([@dimatretyak](https://github.com/dimatretyak))
+- chore: rename setSelectedItems to toggleSelectedItems ([@dimatretyak](https://github.com/dimatretyak))
+- chore: small updates ([@dimatretyak](https://github.com/dimatretyak))
+- feat(fx-3803): FilterSelect tracks changes in selectedItems ([@nickskalkin](https://github.com/nickskalkin))
+
+#### Authors: 2
+
+- Dima Tretyak (Dzmitry Tratsiak) ([@dimatretyak](https://github.com/dimatretyak))
+- Nikita Skalkin ([@nickskalkin](https://github.com/nickskalkin))
+
+---
+
 # v19.4.1 (Tue Apr 12 2022)
 
 #### 🐛  Bug Fix

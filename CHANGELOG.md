@@ -1,3 +1,17 @@
+# (Wed Apr 13 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@19.5.0`
+  - feat(fx-3803): FilterSelect tracks changes in selectedItems [#1155](https://github.com/artsy/palette/pull/1155) ([@nickskalkin](https://github.com/nickskalkin) [@dimatretyak](https://github.com/dimatretyak))
+
+#### Authors: 2
+
+- Dima Tretyak (Dzmitry Tratsiak) ([@dimatretyak](https://github.com/dimatretyak))
+- Nikita Skalkin ([@nickskalkin](https://github.com/nickskalkin))
+
+---
+
 # (Tue Apr 12 2022)
 
 #### 🐛  Bug Fix
