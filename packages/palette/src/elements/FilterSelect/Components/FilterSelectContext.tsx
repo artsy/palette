@@ -2,10 +2,10 @@ import { reject } from "lodash"
 import React, {
   createContext,
   useContext,
-  useEffect,
   useLayoutEffect,
   useReducer,
 } from "react"
+import { useUpdateEffect } from "../../../utils"
 import { INITIAL_ITEMS_TO_SHOW } from "../../ShowMore"
 
 export interface Item {
@@ -167,11 +167,11 @@ export const FilterSelectContextProvider: React.FC<
           items,
         },
       })
-    }
+    },
   }
 
-  useEffect(() => {
-    if (props.selectedItems?.length) {
+  useUpdateEffect(() => {
+    if (props.selectedItems) {
       contextValue.setSelectedItems(props.selectedItems)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
