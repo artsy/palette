@@ -1,3 +1,16 @@
+# v19.5.1 (Thu Apr 14 2022)
+
+#### 🐛  Bug Fix
+
+- fix: some small improvements for FilterSelectContext [#1156](https://github.com/artsy/palette/pull/1156) ([@dimatretyak](https://github.com/dimatretyak))
+- fix: some small improvements for FilterSelectContext ([@dimatretyak](https://github.com/dimatretyak))
+
+#### Authors: 1
+
+- Dima Tretyak (Dzmitry Tratsiak) ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # v19.5.0 (Wed Apr 13 2022)
 
 #### 🚀  Enhancement
