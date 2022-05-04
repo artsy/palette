@@ -3,7 +3,7 @@ import { Icon, IconProps, Path, Title } from "./Icon"
 
 /** GuaranteeWhiteIcon */
 export const GuaranteeWhiteIcon: React.FC<IconProps> = ({
-  title = "Guarantee",
+  title = "Guarantee White",
   ...props
 }) => {
   return (
