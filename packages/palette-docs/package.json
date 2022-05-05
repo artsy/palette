@@ -98,7 +98,7 @@
     "gatsby-plugin-s3": "^0.3.2",
     "gatsby-plugin-sharp": "^3.11.0",
     "gatsby-plugin-sitemap": "^4.7.0",
-    "gatsby-plugin-styled-components": "^4.11.0",
+    "gatsby-plugin-styled-components": "4.0.0",
     "gatsby-remark-autolink-headers": "^4.8.0",
     "gatsby-remark-prismjs": "^5.8.0",
     "gatsby-source-filesystem": "^3.11.0",
