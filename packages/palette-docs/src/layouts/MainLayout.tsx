@@ -10,6 +10,7 @@ import {
   Text,
   useTheme,
 } from "@artsy/palette"
+import { GlobalStyles } from "components/GlobalStyles"
 import { MetaTags } from "components/MetaTags"
 import { Sidebar } from "components/Sidebar"
 import { NavState } from "components/Sidebar/NavState"
@@ -79,59 +80,62 @@ const Layout = (props) => {
   const showTitle = type !== "page"
 
   return (
-    <Box ref={contentRef as any}>
-      <MetaTags title={name} />
+    <>
+      <GlobalStyles />
+      <Box ref={contentRef as any}>
+        <MetaTags title={name} />
 
-      <Box maxWidth={theme.breakpoints.md} margin="0 auto" px={[2, 4]}>
-        <GridColumns>
-          <Column
-            span={3}
-            position="sticky"
-            top={0}
-            height="100vh"
-            overflowY="auto"
-            borderRight="1px solid"
-            borderColor="black10"
-            pr={2}
-            py={4}
-            display={["none", "block"]}
-          >
-            <Sidebar />
-          </Column>
+        <Box maxWidth={theme.breakpoints.md} margin="0 auto" px={[2, 4]}>
+          <GridColumns>
+            <Column
+              span={3}
+              position="sticky"
+              top={0}
+              height="100vh"
+              overflowY="auto"
+              borderRight="1px solid"
+              borderColor="black10"
+              pr={2}
+              py={4}
+              display={["none", "block"]}
+            >
+              <Sidebar />
+            </Column>
 
-          <Column span={7} py={4}>
-            <Box className="DocSearch-content">
-              {showTitle && (
-                <TitleArea
-                  name={name}
-                  source={source}
-                  status={status}
-                  editUrl={editUrl}
-                  mb={4}
-                />
-              )}
+            <Column span={7} py={4}>
+              <Box className="DocSearch-content">
+                {showTitle && (
+                  <TitleArea
+                    name={name}
+                    source={source}
+                    status={status}
+                    editUrl={editUrl}
+                    mb={4}
+                  />
+                )}
 
-              <MDXRenderer>{body}</MDXRenderer>
-            </Box>
-          </Column>
+                <MDXRenderer>{body}</MDXRenderer>
+              </Box>
+            </Column>
 
-          <Column
-            span={2}
-            position="sticky"
-            top={0}
-            height="100vh"
-            overflowY="auto"
-            py={4}
-            display={["none", "block"]}
-            borderLeft="1px solid"
-            borderColor="black10"
-            pl={2}
-          >
-            <TableOfContents headings={headings} />
-          </Column>
-        </GridColumns>
+            <Column
+              span={2}
+              position="sticky"
+              top={0}
+              height="100vh"
+              overflowY="auto"
+              py={4}
+              display={["none", "block"]}
+              borderLeft="1px solid"
+              borderColor="black10"
+              pl={2}
+            >
+              <TableOfContents headings={headings} />
+            </Column>
+          </GridColumns>
+        </Box>
       </Box>
-    </Box>
+    </>
   )
 }
 
