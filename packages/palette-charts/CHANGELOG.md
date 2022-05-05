@@ -1,3 +1,20 @@
+# v18.6.0 (Thu May 05 2022)
+
+#### 🚀  Enhancement
+
+- feat(icon): add new guarantee icon [#1157](https://github.com/artsy/palette/pull/1157) ([@tam-kis](https://github.com/tam-kis))
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.6.3 to v4.6.4 [#1160](https://github.com/artsy/palette/pull/1160) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Tam ([@tam-kis](https://github.com/tam-kis))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v18.4.0 (Tue Apr 05 2022)
 
 #### 🚀  Enhancement

@@ -1,3 +1,28 @@
+# (Thu May 05 2022)
+
+#### 🚀  Enhancement
+
+- docs(message): Add missing <Message> component to docs [#1162](https://github.com/artsy/palette/pull/1162) ([@damassi](https://github.com/damassi))
+- fix(ssr): Fix docs ssr [#1163](https://github.com/artsy/palette/pull/1163) ([@damassi](https://github.com/damassi))
+- `@artsy/palette@19.6.0`
+  - feat(icon): add white Guarantee icon [#1161](https://github.com/artsy/palette/pull/1161) ([@tam-kis](https://github.com/tam-kis))
+  - feat(icon): add new guarantee icon [#1157](https://github.com/artsy/palette/pull/1157) ([@tam-kis](https://github.com/tam-kis))
+
+#### 🏠  Internal
+
+- chore(deps): update yarn orb from 6.1.0 to v6.2.0 [#1159](https://github.com/artsy/palette/pull/1159) ([@renovate-bot](https://github.com/renovate-bot))
+- chore(deps): update auto orb from 2.0.0 to v2.1.0 [#1158](https://github.com/artsy/palette/pull/1158) ([@renovate-bot](https://github.com/renovate-bot))
+- `@artsy/palette-charts@18.6.0`, `@artsy/palette@19.6.0`
+  - chore(deps): update dep typescript from 4.6.3 to v4.6.4 [#1160](https://github.com/artsy/palette/pull/1160) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 3
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Tam ([@tam-kis](https://github.com/tam-kis))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Thu Apr 14 2022)
 
 #### 🐛  Bug Fix

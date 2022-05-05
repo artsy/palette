@@ -1,3 +1,28 @@
+# v19.6.0 (Thu May 05 2022)
+
+#### 🚀  Enhancement
+
+- feat(icon): add white Guarantee icon [#1161](https://github.com/artsy/palette/pull/1161) ([@tam-kis](https://github.com/tam-kis))
+- feat(icon): add new guarantee icon [#1157](https://github.com/artsy/palette/pull/1157) ([@tam-kis](https://github.com/tam-kis))
+
+#### 🐛  Bug Fix
+
+- fix(icon): remove white guarantee icon and use color props ([@tam-kis](https://github.com/tam-kis))
+- fix(icon): change title of guarantee white icon ([@tam-kis](https://github.com/tam-kis))
+- feat(icon): add white Guarantee icon ([@tam-kis](https://github.com/tam-kis))
+- feat(icon): add new guarantee icon ([@tam-kis](https://github.com/tam-kis))
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.6.3 to v4.6.4 [#1160](https://github.com/artsy/palette/pull/1160) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Tam ([@tam-kis](https://github.com/tam-kis))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v19.5.1 (Thu Apr 14 2022)
 
 #### 🐛  Bug Fix
