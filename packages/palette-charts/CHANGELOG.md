@@ -1,3 +1,15 @@
+# v18.7.0 (Fri May 13 2022)
+
+#### 🚀  Enhancement
+
+- feat(range): implements range [#1154](https://github.com/artsy/palette/pull/1154) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v18.6.0 (Thu May 05 2022)
 
 #### 🚀  Enhancement
