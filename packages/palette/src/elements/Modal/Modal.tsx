@@ -131,7 +131,7 @@ export const Modal: FC<ModalProps> = ({
                       {hasLogo && <Logo my={1} />}
                       {title && (
                         <Text
-                          variant="lg"
+                          variant="lg-display"
                           color="black100"
                           py={hasLogo ? 0 : 1}
                         >

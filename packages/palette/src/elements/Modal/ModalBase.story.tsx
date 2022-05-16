@@ -61,7 +61,7 @@ const Example: React.FC<
             style={{ border: "2px solid red" }}
           >
             <Box textAlign="center">
-              <Text variant="md" color="white100">
+              <Text variant="sm-display" color="white100">
                 <Join separator={<Spacer my={1} />}>
                   <>Some example content. Click outside to close.</>
                   <Button variant="primaryWhite" onClick={handleClose}>

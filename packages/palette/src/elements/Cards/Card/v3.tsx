@@ -51,12 +51,12 @@ export const Card: React.FC<CardProps> = ({
             </Text>
           )}
 
-          <Text variant="md" color="white100">
+          <Text variant="sm-display" color="white100">
             {title}
           </Text>
 
           {subtitle && (
-            <Text variant="md" color="black15">
+            <Text variant="sm-display" color="black15">
               {subtitle}
             </Text>
           )}

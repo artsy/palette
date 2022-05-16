@@ -42,7 +42,6 @@ export const Radio: React.FC<RadioProps> = ({
   disabled,
   hover,
   error,
-  name,
   label,
   selected,
   value,
@@ -55,7 +54,7 @@ export const Radio: React.FC<RadioProps> = ({
       descriptionVariant: "small" as TextVariant,
     },
     v3: {
-      titleVariant: "md" as TextVariant,
+      titleVariant: "sm-display" as TextVariant,
       descriptionVariant: "xs" as TextVariant,
     },
   })

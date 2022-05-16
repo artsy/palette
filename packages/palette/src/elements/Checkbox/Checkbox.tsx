@@ -49,7 +49,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     },
     v3: {
       verticalMargin: 0,
-      variant: "md" as TextVariant,
+      variant: "sm-display" as TextVariant,
     },
   })
 

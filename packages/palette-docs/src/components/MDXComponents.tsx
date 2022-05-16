@@ -53,7 +53,7 @@ export const MDXComponents = {
   ),
 
   h3: (props) => (
-    <Text as="h3" variant="lg" className="DocSearch-lvl3" mb={2} mt={4}>
+    <Text as="h3" variant="lg-display" className="DocSearch-lvl3" mb={2} mt={4}>
       {props.children}
     </Text>
   ),
@@ -66,7 +66,7 @@ export const MDXComponents = {
 
   ol: (props) => {
     return (
-      <Text variant="md" as="ol">
+      <Text variant="sm-display" as="ol">
         {props.children}
       </Text>
     )

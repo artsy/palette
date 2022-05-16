@@ -65,7 +65,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
 
             {hasLogo && title && <Spacer mt={2} />}
 
-            {title && <Text variant="lg">{title}</Text>}
+            {title && <Text variant="lg-display">{title}</Text>}
           </Box>
         )}
 

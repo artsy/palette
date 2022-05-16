@@ -22,7 +22,7 @@ export const Default = () => {
         {
           label: (
             <Flex flex={1} justifyContent="space-between">
-              <Text variant="md">Heading</Text>
+              <Text variant="sm-display">Heading</Text>
               <Clickable
                 textDecoration="underline"
                 onClick={(e) => {
@@ -30,7 +30,7 @@ export const Default = () => {
                   action("Secondary action")
                 }}
               >
-                <Text variant="md">Reset</Text>
+                <Text variant="sm-display">Reset</Text>
               </Clickable>
             </Flex>
           ),

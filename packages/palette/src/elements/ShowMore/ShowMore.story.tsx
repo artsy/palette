@@ -11,12 +11,12 @@ export const Default = () => {
   return (
     <States<Partial<ShowMoreProps>> states={[{}, { expanded: true }]}>
       <ShowMore initial={3}>
-        <Text variant="md">First</Text>
-        <Text variant="md">Second</Text>
-        <Text variant="md">Third</Text>
-        <Text variant="md">Fourth</Text>
-        <Text variant="md">Fifth</Text>
-        <Text variant="md">Sixth</Text>
+        <Text variant="sm-display">First</Text>
+        <Text variant="sm-display">Second</Text>
+        <Text variant="sm-display">Third</Text>
+        <Text variant="sm-display">Fourth</Text>
+        <Text variant="sm-display">Fifth</Text>
+        <Text variant="sm-display">Sixth</Text>
       </ShowMore>
     </States>
   )
