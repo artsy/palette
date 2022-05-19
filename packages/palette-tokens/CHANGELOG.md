@@ -1,3 +1,19 @@
+# v3.0.0 (Thu May 19 2022)
+
+#### 💥  Breaking Change
+
+- feat(tokens): updated typography scale [#1164](https://github.com/artsy/palette/pull/1164) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tokens): moves to 3.1 typography tokens ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v2.6.0 (Wed Aug 11 2021)
 
 #### 🏠  Internal
