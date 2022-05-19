@@ -49,7 +49,7 @@ export const _SkeletonText = () => {
         },
       ]}
     >
-      <SkeletonText variant="md">loading</SkeletonText>
+      <SkeletonText variant="sm-display">loading</SkeletonText>
     </States>
   )
 }
@@ -59,8 +59,8 @@ const ExampleArtworkSkeleton: React.FC<{ i: number }> = ({ i }) => {
     <>
       <SkeletonBox width={200} height={[200, 300, 250, 275][i % 4]} />
       <Spacer mt={1} />
-      <SkeletonText variant="md">Artist Name</SkeletonText>
-      <SkeletonText variant="md">Artwork Title</SkeletonText>
+      <SkeletonText variant="sm-display">Artist Name</SkeletonText>
+      <SkeletonText variant="sm-display">Artwork Title</SkeletonText>
       <SkeletonText variant="xs">Partner</SkeletonText>
       <SkeletonText variant="xs">Price</SkeletonText>
     </>

@@ -10,7 +10,7 @@ export default {
 export const Default = () => {
   return (
     <Box bg="black5" maxWidth={900} mx="auto" px={2} py={1}>
-      <Text my={2} variant="md">
+      <Text my={2} variant="sm-display">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia
         temporibus delectus cum, laudantium deleniti! Fugiat explicabo velit
         accusamus, libero quod, ipsum nisi non nihil praesentium, optio
@@ -18,7 +18,7 @@ export const Default = () => {
       </Text>
 
       <FullBleed bg="blue10" px={2} py={1}>
-        <Text my={2} variant="md">
+        <Text my={2} variant="sm-display">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia
           temporibus delectus cum, laudantium deleniti! Fugiat explicabo velit
           accusamus, libero quod, ipsum nisi non nihil praesentium, optio
@@ -26,7 +26,7 @@ export const Default = () => {
         </Text>
       </FullBleed>
 
-      <Text my={2} variant="md">
+      <Text my={2} variant="sm-display">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia
         temporibus delectus cum, laudantium deleniti! Fugiat explicabo velit
         accusamus, libero quod, ipsum nisi non nihil praesentium, optio

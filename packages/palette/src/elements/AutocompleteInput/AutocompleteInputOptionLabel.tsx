@@ -10,7 +10,7 @@ export const AutocompleteInputOptionLabel: React.FC<AutocompleteInputOptionLabel
   ...rest
 }) => {
   return (
-    <Text variant="md" lineHeight={1} p={2} overflowEllipsis {...rest}>
+    <Text variant="sm-display" lineHeight={1} p={2} overflowEllipsis {...rest}>
       {text}
     </Text>
   )

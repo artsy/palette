@@ -110,7 +110,7 @@ export const Popover: React.FC<PopoverProps> = ({
             <>
               <Flex alignItems="center" flex={1} justifyContent="space-between">
                 {isText(title) ? (
-                  <Text variant="lg" lineHeight={1}>
+                  <Text variant="lg-display" lineHeight={1}>
                     {title}
                   </Text>
                 ) : (

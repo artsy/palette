@@ -7,17 +7,21 @@ export interface TextTreatment {
 
 /** Available fonts */
 export const TEXT_FONTS = {
-  sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif'
+  sans: '"ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif',
 };
 
 /** Available text variant names */
 export const TEXT_VARIANT_NAMES = [
+  "xxxl",
   "xxl",
   "xl",
   "lg",
+  "lg-display",
   "md",
   "sm",
-  "xs"
+  "sm-display",
+  "xs",
+  "bq",
 ] as const;
 
 /** Available text variants */
@@ -25,33 +29,52 @@ export const TEXT_VARIANTS: Record<
   typeof TEXT_VARIANT_NAMES[number],
   TextTreatment
 > = {
+  xxxl: {
+    fontSize: "102px",
+    lineHeight: "108px",
+    letterSpacing: "-0.01em",
+  },
   xxl: {
-    fontSize: "50px",
-    lineHeight: "54px",
-    letterSpacing: "-0.02em"
+    fontSize: "60px",
+    lineHeight: "70px",
+    letterSpacing: "-0.01em",
   },
   xl: {
-    fontSize: "34px",
-    lineHeight: "38px",
-    letterSpacing: "-0.02em"
+    fontSize: "40px",
+    lineHeight: "48px",
+    letterSpacing: "-0.01em",
   },
   lg: {
-    fontSize: "24px",
-    lineHeight: "28px",
-    letterSpacing: "-0.02em"
+    fontSize: "26px",
+    lineHeight: "40px",
+    letterSpacing: "-0.01em",
+  },
+  "lg-display": {
+    fontSize: "26px",
+    lineHeight: "32px",
+    letterSpacing: "-0.01em",
   },
   md: {
-    fontSize: "16px",
-    lineHeight: "20px"
+    fontSize: "20px",
+    lineHeight: "32px",
   },
   sm: {
     fontSize: "16px",
-    lineHeight: "24px"
+    lineHeight: "26px",
+  },
+  "sm-display": {
+    fontSize: "16px",
+    lineHeight: "20px",
   },
   xs: {
     fontSize: "13px",
-    lineHeight: "18px"
-  }
+    lineHeight: "20px",
+  },
+  bq: {
+    fontSize: "50px",
+    lineHeight: "60px",
+    letterSpacing: "-0.01em",
+  },
 };
 
 /** Name of typographic treatment */

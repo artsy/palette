@@ -47,7 +47,7 @@ export const Default = () => {
           ],
           renderOption: (option) => (
             <Box px={2} py={1}>
-              <Text variant="md">{option.text}</Text>
+              <Text variant="sm-display">{option.text}</Text>
               <Text variant="xs" color="black60">
                 {option.subtitle}
               </Text>
@@ -116,7 +116,7 @@ export const Demo = () => {
               ? { borderBottom: "1px solid", borderColor: "black10" }
               : {})}
           >
-            <Text variant="md">
+            <Text variant="sm-display">
               {displayQuery
                 ? `See full results for “${option.text}”`
                 : option.text}

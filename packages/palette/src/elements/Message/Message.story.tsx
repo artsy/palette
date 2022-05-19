@@ -21,7 +21,7 @@ export const Default = () => {
         { variant: "error" },
         {
           children: (
-            <Text variant="lg" color="red100">
+            <Text variant="lg-display" color="red100">
               custom children
             </Text>
           ),

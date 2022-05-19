@@ -62,14 +62,14 @@ function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
       return {
         pl: 2,
         py: 0.5,
-        variant: "md",
+        variant: "md-display",
         borderColor: "black10",
       }
     } else {
       return {
         ml: 0,
         my: 1,
-        variant: "lg",
+        variant: "lg-display",
       }
     }
   }

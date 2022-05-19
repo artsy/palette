@@ -35,9 +35,9 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
         )}
 
         <Flex flexDirection="column" mr={1}>
-          <Text variant="md">{name}</Text>
+          <Text variant="sm-display">{name}</Text>
 
-          <Text variant="md">
+          <Text variant="sm-display">
             {badges?.map((badge, i) => (
               <React.Fragment key={i}>
                 <Badge {...badge} />{" "}

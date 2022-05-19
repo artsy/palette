@@ -9,13 +9,13 @@ const BlankFunction = () => {
 }
 
 const NonBlankFunction = () => {
-  return <Text variant="md">Non-blank Function</Text>
+  return <Text variant="sm-display">Non-blank Function</Text>
 }
 
 const BlankFC: React.FC = () => null
 
 const NonBlankFC: React.FC = () => (
-  <Text variant="md">Non-blank Functional component</Text>
+  <Text variant="sm-display">Non-blank Functional component</Text>
 )
 
 class BlankComponent extends Component {
@@ -26,7 +26,7 @@ class BlankComponent extends Component {
 
 class NonBlankComponent extends Component {
   render() {
-    return <Text variant="md">Non-Blank Class Component</Text>
+    return <Text variant="sm-display">Non-Blank Class Component</Text>
   }
 }
 
@@ -35,8 +35,8 @@ export default { title: "Components/Join" }
 export const WithMultipleComponents = () => {
   return (
     <Join separator={<Separator my={1} />}>
-      <Text variant="md">First in the list</Text>
-      <Text variant="md">Second in the list</Text>
+      <Text variant="sm-display">First in the list</Text>
+      <Text variant="sm-display">Second in the list</Text>
     </Join>
   )
 }
@@ -48,7 +48,7 @@ WithMultipleComponents.story = {
 export const WithOneComponent = () => {
   return (
     <Join separator={<Separator my={1} />}>
-      <Text variant="md">Only one component here</Text>
+      <Text variant="sm-display">Only one component here</Text>
     </Join>
   )
 }
@@ -60,7 +60,7 @@ WithOneComponent.story = {
 export const WithSomeOfTheChildrenEmpty = () => {
   return (
     <Join separator={<Separator my={1} />}>
-      <Text variant="md">First in the list</Text>
+      <Text variant="sm-display">First in the list</Text>
       <BlankFunction />
       <NonBlankFunction />
       <BlankFC />
@@ -69,10 +69,10 @@ export const WithSomeOfTheChildrenEmpty = () => {
       <NonBlankComponent />
       <Box m="2" />
       <div>
-        <Text variant="md">Some div with the content</Text>
+        <Text variant="sm-display">Some div with the content</Text>
       </div>
       <div />
-      <Text variant="md">Another box with content</Text>
+      <Text variant="sm-display">Another box with content</Text>
       <div />
     </Join>
   )
@@ -85,18 +85,18 @@ WithSomeOfTheChildrenEmpty.story = {
 export const WithNestedChildren = () => {
   return (
     <Join separator={<Separator my={1} />}>
-      <Text variant="md">First in the list</Text>
+      <Text variant="sm-display">First in the list</Text>
       <>
-        <Text variant="md">Second in the list</Text>
-        <Text variant="md">Third in the list</Text>
+        <Text variant="sm-display">Second in the list</Text>
+        <Text variant="sm-display">Third in the list</Text>
         <>
-          <Text variant="md">Fourth in the list</Text>
-          <Text variant="md">Fifth in the list</Text>
+          <Text variant="sm-display">Fourth in the list</Text>
+          <Text variant="sm-display">Fifth in the list</Text>
         </>
 
         <Box>
-          <Text variant="md">These two lines</Text>
-          <Text variant="md">Are grouped</Text>
+          <Text variant="sm-display">These two lines</Text>
+          <Text variant="sm-display">Are grouped</Text>
         </Box>
 
         <Text>End of list</Text>

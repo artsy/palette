@@ -154,10 +154,10 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
         </Text>
       )}
 
-      <Text variant="md">{title}</Text>
+      <Text variant="sm-display">{title}</Text>
 
       {subtitle && (
-        <Text variant="md" color="black60">
+        <Text variant="sm-display" color="black60">
           {subtitle}
         </Text>
       )}

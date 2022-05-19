@@ -33,7 +33,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
     },
     v3: {
       borderColor: "black60",
-      textProps: { variant: "md" } as TextProps,
+      textProps: { variant: "sm-display" } as TextProps,
       chevronSize: 14,
       mr: 1,
     },

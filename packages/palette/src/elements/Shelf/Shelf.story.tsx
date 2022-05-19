@@ -30,7 +30,7 @@ const Demo = ({
             alignItems="center"
             justifyContent="center"
           >
-            <Text variant="md">{j + 1}</Text>
+            <Text variant="sm-display">{j + 1}</Text>
           </Box>
         ))}
     </Shelf>

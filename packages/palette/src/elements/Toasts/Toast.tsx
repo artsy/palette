@@ -51,7 +51,7 @@ export const Toast: React.FC<ToastProps> = ({
       {...rest}
     >
       <Flex alignItems="flex-start" justifyContent="space-between">
-        <Text variant="md">{message}</Text>
+        <Text variant="sm-display">{message}</Text>
 
         {action && (
           <Clickable

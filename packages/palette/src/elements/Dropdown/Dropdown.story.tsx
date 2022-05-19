@@ -141,7 +141,7 @@ export const ChangeDimensions = () => {
 
 export const FocusOrder = () => {
   const dropdown = (
-    <Text variant="md">
+    <Text variant="sm-display">
       <Clickable display="block" width="100%" py={1} px={2}>
         First
       </Clickable>

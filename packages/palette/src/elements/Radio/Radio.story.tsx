@@ -28,7 +28,7 @@ export const Default = () => {
             </Text>
           ),
         },
-        { label: <Text variant="lg">Large Custom Label</Text> },
+        { label: <Text variant="lg-display">Large Custom Label</Text> },
       ]}
     >
       <Radio>A label</Radio>
@@ -40,7 +40,7 @@ export const SplitLabel = () => {
   return (
     <Radio>
       <Flex justifyContent="space-between" flex={1}>
-        <Text variant="lg">Label</Text>
+        <Text variant="lg-display">Label</Text>
 
         <Text variant="xs" color="black60">
           Subtitle

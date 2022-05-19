@@ -13,12 +13,15 @@ export default {
 export const Default = () => {
   return (
     <States<Partial<HorizontalOverflowProps>>
-      states={[{}, { children: <Text variant="md">Not overflowing</Text> }]}
+      states={[
+        {},
+        { children: <Text variant="sm-display">Not overflowing</Text> },
+      ]}
     >
       <HorizontalOverflow bg="black10" p={2}>
         <Join separator={<Spacer mr={2} />}>
           {Array.from(Array(50)).map((_, i) => (
-            <Text key={i} variant="md" color="black100" mr={2}>
+            <Text key={i} variant="sm-display" color="black100" mr={2}>
               Example #{i}
             </Text>
           ))}
@@ -36,7 +39,7 @@ export const FillHeightCenteredContent = () => {
           {Array.from(Array(50)).map((_, i) => (
             <Text
               key={i}
-              variant="md"
+              variant="sm-display"
               color="black100"
               display="flex"
               alignItems="center"

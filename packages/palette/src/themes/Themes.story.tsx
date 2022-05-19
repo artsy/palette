@@ -119,7 +119,7 @@ export const Spacing = () => {
 
           return (
             <Box key={key}>
-              <Text variant="lg">{key}</Text>
+              <Text variant="lg-display">{key}</Text>
               <Text variant="xs">{px}px</Text>
               <Box width={px} height={1} bg="black60" />
             </Box>
@@ -253,7 +253,7 @@ export const Buttons = () => {
 
       <Separator my={4} color="black30" />
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Large - 50px
       </Text>
 
@@ -295,7 +295,7 @@ export const Buttons = () => {
         })}
       </GridColumns>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Small - 30px
       </Text>
 
@@ -351,7 +351,7 @@ export const Components = () => {
         Messages
       </Text>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Default
       </Text>
 
@@ -360,7 +360,7 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Message>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Info
       </Text>
 
@@ -369,7 +369,7 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Message>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Warning
       </Text>
 
@@ -378,7 +378,7 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Message>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Error
       </Text>
 
@@ -393,7 +393,7 @@ export const Components = () => {
         Banners
       </Text>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Default Light
       </Text>
 
@@ -402,7 +402,7 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Banner>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Default Dark
       </Text>
 
@@ -411,7 +411,7 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Banner>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Success
       </Text>
 
@@ -420,7 +420,7 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Banner>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Error
       </Text>
 
@@ -429,7 +429,7 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Banner>
 
-      <Text variant="lg" my={6}>
+      <Text variant="lg-display" my={6}>
         Brand
       </Text>
 
@@ -493,7 +493,7 @@ export const Components = () => {
         Navigational Tabs
       </Text>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         2 Tabs
       </Text>
 
@@ -502,7 +502,7 @@ export const Components = () => {
         <Tab name="Default" />
       </Tabs>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         3 Tabs
       </Text>
 
@@ -512,7 +512,7 @@ export const Components = () => {
         <Tab name="Default 03" />
       </Tabs>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         4 Tabs
       </Text>
 
@@ -523,7 +523,7 @@ export const Components = () => {
         <Tab name="Default 04" />
       </Tabs>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         5 Tabs
       </Text>
 
@@ -541,7 +541,7 @@ export const Components = () => {
         Content Tabs
       </Text>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         2 Tabs
       </Text>
 
@@ -550,7 +550,7 @@ export const Components = () => {
         <Tab name="Default" />
       </Tabs>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         3 Tabs
       </Text>
 
@@ -560,7 +560,7 @@ export const Components = () => {
         <Tab name="Default 03" />
       </Tabs>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         4 Tabs
       </Text>
 
@@ -571,7 +571,7 @@ export const Components = () => {
         <Tab name="Default 04" />
       </Tabs>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         5 Tabs
       </Text>
 
@@ -589,7 +589,7 @@ export const Components = () => {
         Steps
       </Text>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         3 Steps
       </Text>
 
@@ -599,7 +599,7 @@ export const Components = () => {
         <Step name="Default 03" />
       </Stepper>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         4 Steps
       </Text>
 
@@ -610,7 +610,7 @@ export const Components = () => {
         <Step name="Default 04" />
       </Stepper>
 
-      <Text variant="lg" my={4}>
+      <Text variant="lg-display" my={4}>
         5 Steps
       </Text>
 
@@ -675,7 +675,7 @@ export const Inputs = () => {
 
       <Separator color="black30" my={6} />
 
-      <Text my={6} variant="lg">
+      <Text my={6} variant="lg-display">
         No Title
       </Text>
 
@@ -705,7 +705,7 @@ export const Inputs = () => {
         </Column>
       </GridColumns>
 
-      <Text my={6} variant="lg">
+      <Text my={6} variant="lg-display">
         Title
       </Text>
 
@@ -744,7 +744,7 @@ export const Inputs = () => {
         </Column>
       </GridColumns>
 
-      <Text my={6} variant="lg">
+      <Text my={6} variant="lg-display">
         Title & Subtitle
       </Text>
 
@@ -822,7 +822,7 @@ export const Inputs = () => {
 
       <Separator color="black30" my={6} />
 
-      <Text my={6} variant="lg">
+      <Text my={6} variant="lg-display">
         No Title
       </Text>
 
@@ -848,7 +848,7 @@ export const Inputs = () => {
         </Column>
       </GridColumns>
 
-      <Text my={6} variant="lg">
+      <Text my={6} variant="lg-display">
         Title
       </Text>
 
@@ -878,7 +878,7 @@ export const Inputs = () => {
         </Column>
       </GridColumns>
 
-      <Text my={6} variant="lg">
+      <Text my={6} variant="lg-display">
         Title & Subtitle
       </Text>
 
@@ -924,7 +924,7 @@ export const Inputs = () => {
         </Column>
       </GridColumns>
 
-      <Text my={6} variant="lg">
+      <Text my={6} variant="lg-display">
         Sort
       </Text>
 
