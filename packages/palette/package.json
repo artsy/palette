@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette",
-  "version": "19.7.0",
+  "version": "20.0.0",
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
@@ -116,7 +116,7 @@
     "webpack": "5"
   },
   "dependencies": {
-    "@artsy/palette-tokens": "^2.6.0",
+    "@artsy/palette-tokens": "^3.0.0",
     "@seznam/compose-react-refs": "^1.0.6",
     "@styled-system/theme-get": "^5.1.2",
     "lodash": "^4.17.21",
