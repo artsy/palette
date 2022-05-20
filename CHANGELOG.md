@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@20.0.2`
+  - fix(spinner): supports box props; respects theme [#1166](https://github.com/artsy/palette/pull/1166) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri May 20 2022)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@20.0.1`
   - fix(text): updates default variant to v3 [#1165](https://github.com/artsy/palette/pull/1165) ([@dzucconi](https://github.com/dzucconi))
 
