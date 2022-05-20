@@ -1,9 +1,17 @@
 import React from "react"
-import { Spinner } from "./Spinner"
+import { States } from "storybook-states"
+import { Spinner, SpinnerProps } from "./Spinner"
 
 export default {
   title: "Components/Spinner",
+  parameters: { chromatic: { disable: true } },
 }
+
+export const Default = () => (
+  <States<SpinnerProps> states={[{}, { color: "brand", size: "small", m: 2 }]}>
+    <Spinner position="static" />
+  </States>
+)
 
 export const DefaultSpinner = () => {
   return <Spinner />
@@ -15,5 +23,4 @@ export const SpinnerWithDelayedShow = () => {
 
 SpinnerWithDelayedShow.story = {
   name: "Spinner with delayed show",
-  parameters: { chromatic: { disable: true } },
 }
