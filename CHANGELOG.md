@@ -1,3 +1,16 @@
+# (Fri May 20 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@20.0.1`
+  - fix(text): updates default variant to v3 [#1165](https://github.com/artsy/palette/pull/1165) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu May 19 2022)
 
 #### 💥  Breaking Change

@@ -1,3 +1,16 @@
+# v20.0.1 (Fri May 20 2022)
+
+#### 🐛  Bug Fix
+
+- fix(text): updates default variant to v3 [#1165](https://github.com/artsy/palette/pull/1165) ([@dzucconi](https://github.com/dzucconi))
+- fix(text): updates default variant to v3 ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v20.0.0 (Thu May 19 2022)
 
 #### 💥  Breaking Change
