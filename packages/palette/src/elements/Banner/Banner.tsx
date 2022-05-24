@@ -19,7 +19,7 @@ export const Banner: React.FC<BannerProps> = ({
   children,
   ...rest
 }) => {
-  const size: TextVariant = useThemeConfig({ v2: "small", v3: "sm" })
+  const size: TextVariant = useThemeConfig({ v2: "small", v3: "xs" })
 
   const [dismissed, setDismissed] = useState(false)
 
