@@ -9,17 +9,17 @@ how it's done.
 ### Overview
 
 \- During development most of your time will be spent in
-[`packages/palette`](https://github.com/artsy/palette/tree/master/packages/palette),
+[`packages/palette`](https://github.com/artsy/palette/tree/main/packages/palette),
 the main Palette library. Here you'll write new components inside of the
 `elements` folder, add tests, and define
-[storybook stories](https://github.com/artsy/palette/blob/master/packages/palette/src/elements/Avatar/Avatar.story.tsx)
+[storybook stories](https://github.com/artsy/palette/blob/main/packages/palette/src/elements/Avatar/Avatar.story.tsx)
 for each.
 
 \- If adding or changing a component, make sure to update the docs in
-[`packages/palette-docs`](https://github.com/artsy/palette/tree/master/packages/palette-docs).
+[`packages/palette-docs`](https://github.com/artsy/palette/tree/main/packages/palette-docs).
 
 \- If needing to modify the theme, see
-[`packages/palette-tokens`](https://github.com/artsy/palette/tree/master/packages/palette-docs).
+[`packages/palette-tokens`](https://github.com/artsy/palette/tree/main/packages/palette-docs).
 
 \- New package versions are published by attaching appropriate semver github
 labels to PRs; by default, all PRs have `minor` automatically assigned. When a
@@ -81,7 +81,7 @@ sub-packages:
 ### palette-tokens
 
 Starting at `palette-tokens`, we can see the
-[theme](https://github.com/artsy/palette/blob/master/packages/palette-tokens/src/themes/v3.tsx)
+[theme](https://github.com/artsy/palette/blob/main/packages/palette-tokens/src/themes/v3.tsx)
 that powers all of Palette. This is a simple object with keys such as
 `breakpoints`, `space` and `color`, and is read in by the main `palette` lib as
 well as [Eigen](https://github.com/artsy/eigen), our React Native mobile app.
@@ -89,7 +89,7 @@ well as [Eigen](https://github.com/artsy/eigen), our React Native mobile app.
 ### palette
 
 The `palette` package is where all of our components are defined. See the
-[elements](https://github.com/artsy/palette/tree/master/packages/palette/src/elements)
+[elements](https://github.com/artsy/palette/tree/main/packages/palette/src/elements)
 folder for the complete list.
 
 ### palette-docs

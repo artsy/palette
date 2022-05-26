@@ -1,7 +1,7 @@
 import { takeRight } from "lodash"
 
 const BASE_EDIT_URL =
-  "https://github.com/artsy/palette/edit/master/packages/palette-docs/content/"
+  "https://github.com/artsy/palette/edit/main/packages/palette-docs/content/"
 
 export function getEditUrl(fileAbsolutePath) {
   const pathParts = fileAbsolutePath.split("/")
