@@ -1,4 +1,5 @@
 import { LabeledInput, MagnifyingGlassIcon } from "@artsy/palette"
+import { navigate } from "gatsby"
 import React, { useEffect } from "react"
 import "./algolia.css"
 
@@ -20,6 +21,10 @@ export function SearchBox() {
       indexName: window.docsearchSettings.indexName,
       inputSelector: "#search",
       debug: window.docsearchSettings.indexName,
+      handleSelected: (_input, _context, suggestion) => {
+        const { pathname, hash } = new URL(suggestion.url)
+        navigate(`${pathname}${hash}`)
+      },
     })
   }, [])
 
