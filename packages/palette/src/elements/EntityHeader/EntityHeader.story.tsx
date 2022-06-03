@@ -89,7 +89,7 @@ export const Default = () => {
           meta: "American, b. Founded 1979",
           href: "http://www.artsy.net/artist/francesca-dimattio",
           FollowButton: <FollowButton />,
-          badges: [{ children: "Black Owned" }],
+          labels: [{ children: "Black Owned" }],
         },
         {
           initials: "FLD",
@@ -98,7 +98,7 @@ export const Default = () => {
           meta: "American, b. Founded 1979",
           href: "http://www.artsy.net/artist/francesca-dimattio",
           FollowButton: <FollowButton />,
-          badges: [
+          labels: [
             { children: "Black Owned" },
             { children: "Women Owned", variant: "brand" },
           ],

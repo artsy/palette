@@ -1,6 +1,6 @@
 import React from "react"
 import { useThemeConfig } from "../../Theme"
-import { BadgeProps } from "../Badge/Badge"
+import { LabelProps } from "../Label/Label"
 import { FlexProps } from "../Flex"
 import { ImageProps } from "../Image"
 import { EntityHeader as EntityHeaderV2 } from "./v2/EntityHeader"
@@ -15,7 +15,7 @@ export interface EntityHeaderProps extends FlexProps {
   initials?: string
   meta?: string
   name: string
-  badges?: BadgeProps[]
+  labels?: LabelProps[]
   smallVariant?: boolean
   FollowButton?: JSX.Element
   onClick?: (event: React.MouseEvent<HTMLElement>) => void

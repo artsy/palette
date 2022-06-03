@@ -1,6 +1,6 @@
 import React from "react"
 import { Avatar } from "../../Avatar"
-import { Badge } from "../../Badge/Badge"
+import { Label } from "../../Label/Label"
 import { Flex } from "../../Flex"
 import { Text } from "../../Text"
 import { EntityHeaderProps } from "../EntityHeader"
@@ -14,7 +14,7 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
   image,
   smallVariant,
   FollowButton,
-  badges,
+  labels,
   ...rest
 }) => {
   return (
@@ -38,9 +38,9 @@ export const EntityHeader: React.FC<EntityHeaderProps> = ({
           <Text variant="sm-display">{name}</Text>
 
           <Text variant="sm-display">
-            {badges?.map((badge, i) => (
+            {labels?.map((label, i) => (
               <React.Fragment key={i}>
-                <Badge {...badge} />{" "}
+                <Label {...label} />{" "}
               </React.Fragment>
             ))}
           </Text>
