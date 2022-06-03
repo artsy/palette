@@ -32,11 +32,11 @@ export const V3_TOKENS = {
   },
   xs: {
     diameter: 45,
-    variant: "xs" as TextVariant,
+    variant: "sm-display" as TextVariant,
   },
   sm: {
     diameter: 70,
-    variant: "sm-display" as TextVariant,
+    variant: "md" as TextVariant,
   },
   md: {
     diameter: 100,
