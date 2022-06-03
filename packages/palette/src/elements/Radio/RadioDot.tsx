@@ -8,6 +8,7 @@ export interface CheckProps {
   disabled?: boolean
   error?: boolean
   hover?: boolean
+  focus?: boolean
   selected?: boolean
 }
 
@@ -33,6 +34,8 @@ export const RadioDot = styled(Box)<CheckProps>`
           return modes.disabled
         case props.hover:
           return modes.hover
+        case props.focus:
+          return modes.focus
         case props.error:
           return modes.error
         default:
@@ -47,8 +50,8 @@ export const RadioDot = styled(Box)<CheckProps>`
   &::after {
     content: "";
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     transition: background-color 0.25s;
     background-color: currentColor;
