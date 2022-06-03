@@ -16,6 +16,8 @@ export const Default = () => {
       states={[
         {},
         { selected: true },
+        { focus: true },
+        { focus: true, selected: true },
         { hover: true },
         { hover: true, selected: true },
         { disabled: true },

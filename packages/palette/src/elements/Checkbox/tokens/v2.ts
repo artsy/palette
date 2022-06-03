@@ -14,6 +14,18 @@ export const CHECK_STATES = {
       color: ${themeGet("colors.white100")};
     `,
   },
+  focus: {
+    resting: css`
+      background-color: ${themeGet("colors.white100")};
+      border-color: ${themeGet("colors.black10")};
+      color: ${themeGet("colors.white100")};
+    `,
+    selected: css`
+      background-color: ${themeGet("colors.black100")};
+      border-color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.white100")};
+    `,
+  },
   disabled: {
     resting: css`
       background-color: ${themeGet("colors.black5")};
@@ -54,6 +66,12 @@ export const CHECK_STATES = {
 
 export const CHECKBOX_STATES = {
   default: css`
+    color: ${themeGet("colors.black100")};
+  `,
+  focus: css`
+    color: ${themeGet("colors.black100")};
+  `,
+  selected: css`
     color: ${themeGet("colors.black100")};
   `,
   hover: css`

@@ -5,7 +5,7 @@ export const CHECK_STATES = {
   default: {
     resting: css`
       background-color: ${themeGet("colors.white100")};
-      border-color: ${themeGet("colors.black100")};
+      border-color: ${themeGet("colors.black30")};
       color: ${themeGet("colors.white100")};
     `,
     selected: css`
@@ -28,9 +28,21 @@ export const CHECK_STATES = {
   },
   hover: {
     resting: css`
-      background-color: ${themeGet("colors.blue10")};
+      background-color: ${themeGet("colors.white100")};
       border-color: ${themeGet("colors.blue100")};
-      color: ${themeGet("colors.blue10")};
+      color: ${themeGet("colors.white100")};
+    `,
+    selected: css`
+      background-color: ${themeGet("colors.blue100")};
+      border-color: ${themeGet("colors.blue100")};
+      color: ${themeGet("colors.white100")};
+    `,
+  },
+  focus: {
+    resting: css`
+      background-color: ${themeGet("colors.white100")};
+      border-color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.white100")};
     `,
     selected: css`
       background-color: ${themeGet("colors.black100")};
@@ -45,8 +57,8 @@ export const CHECK_STATES = {
       color: ${themeGet("colors.white100")};
     `,
     selected: css`
-      background-color: ${themeGet("colors.black100")};
-      border-color: ${themeGet("colors.black100")};
+      background-color: ${themeGet("colors.red100")};
+      border-color: ${themeGet("colors.red100")};
       color: ${themeGet("colors.white100")};
     `,
   },
@@ -54,6 +66,13 @@ export const CHECK_STATES = {
 
 export const CHECKBOX_STATES = {
   default: css`
+    color: ${themeGet("colors.black60")};
+  `,
+  selected: css`
+    color: ${themeGet("colors.black100")};
+  `,
+  focus: css`
+    text-decoration: underline;
     color: ${themeGet("colors.black100")};
   `,
   hover: css`

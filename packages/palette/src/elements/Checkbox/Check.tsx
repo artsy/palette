@@ -10,6 +10,7 @@ export interface CheckProps {
   disabled?: boolean
   error?: boolean
   hover?: boolean
+  focus?: boolean
   selected?: boolean
 }
 
@@ -53,6 +54,8 @@ const Container = styled(Box)<CheckProps>`
 
     const mode = (() => {
       switch (true) {
+        case props.focus:
+          return modes.focus
         case props.hover:
           return modes.hover
         case props.error:
