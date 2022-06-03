@@ -2,6 +2,7 @@ import composeRefs from "@seznam/compose-react-refs"
 import React, { useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
 import { variant } from "styled-system"
+import { CheckIcon } from "../../../svgs"
 import { THEME_V3 } from "../../../themes"
 import { boxMixin } from "../../Box"
 import { Spinner } from "../../Spinner"
@@ -16,7 +17,8 @@ export const ButtonV3: React.ForwardRefExoticComponent<
     {
       children,
       loading,
-      size,
+      success,
+      size = "medium",
       onClick,
       alignItems = "center",
       justifyContent = "center",
@@ -46,6 +48,7 @@ export const ButtonV3: React.ForwardRefExoticComponent<
         onClick={handleClick}
         size={size}
         loading={loading}
+        success={success}
         tabIndex={loading ? -1 : 0}
         display="inline-flex"
         alignItems={alignItems}
@@ -54,9 +57,11 @@ export const ButtonV3: React.ForwardRefExoticComponent<
       >
         {loading && <Spinner size={size} color="currentColor" />}
 
+        {success && <CheckIcon fill="currentColor" mr={0.5} />}
+
         <Text
           lineHeight={1}
-          variant={BUTTON_TEXT_SIZES[size!]}
+          variant={BUTTON_TEXT_SIZES[size]}
           opacity={loading ? 0 : 1}
           display="flex"
           alignItems={alignItems}
@@ -79,7 +84,14 @@ ButtonV3.defaultProps = {
 
 type ContainerProps = Pick<
   ButtonProps,
-  "size" | "inline" | "loading" | "hover" | "focus" | "disabled"
+  | "active"
+  | "disabled"
+  | "focus"
+  | "hover"
+  | "inline"
+  | "loading"
+  | "size"
+  | "success"
 >
 
 export const buttonMixin = css`
@@ -87,7 +99,6 @@ export const buttonMixin = css`
   position: relative;
   white-space: nowrap;
   font-weight: normal;
-  text-decoration: none;
   text-align: center;
   border: 1px solid;
   transition: color 0.25s ease, border-color 0.25s ease,
@@ -104,6 +115,14 @@ const Container = styled.button<ContainerProps & ButtonProps>`
     // Handle props driven states
     if (props.hover) {
       return variant({ variants: BUTTON_VARIANTS.hover })
+    }
+
+    if (props.active) {
+      return variant({ variants: BUTTON_VARIANTS.active })
+    }
+
+    if (props.success) {
+      return variant({ variants: BUTTON_VARIANTS.success })
     }
 
     if (props.focus) {
@@ -144,6 +163,10 @@ const Container = styled.button<ContainerProps & ButtonProps>`
       &:focus {
         outline: 0;
         ${variant({ variants: BUTTON_VARIANTS.focus })}
+      }
+
+      &:active {
+        ${variant({ variants: BUTTON_VARIANTS.active })}
       }
 
       &:disabled {

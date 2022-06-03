@@ -1,181 +1,257 @@
+import { BUTTON_STATES, BUTTON_VARIANT_NAMES } from "../types"
 import { TextProps } from "../../Text"
 import { ButtonSize, ButtonState, ButtonVariant } from "../types"
 
-/** Available button variants */
-export const BUTTON_VARIANTS: Record<
-  ButtonState,
-  Record<ButtonVariant, any>
+const DEFAULT_PRIMARY_STATES = {
+  focus: {
+    backgroundColor: "blue100",
+    borderColor: "blue100",
+    color: "white100",
+    textDecoration: "underline",
+  },
+  hover: {
+    backgroundColor: "blue100",
+    borderColor: "blue100",
+    color: "white100",
+    textDecoration: "underline",
+  },
+  active: {
+    backgroundColor: "blue150",
+    borderColor: "blue150",
+    color: "white100",
+    textDecoration: "underline",
+  },
+  loading: {
+    backgroundColor: "blue100",
+    borderColor: "blue100",
+    color: "white100",
+  },
+  disabled: {
+    backgroundColor: "black30",
+    borderColor: "black30",
+    color: "white100",
+  },
+  success: {
+    backgroundColor: "blue100",
+    borderColor: "blue100",
+    color: "white100",
+  },
+}
+
+const DEFAULT_SECONDARY_STATES = {
+  ...DEFAULT_PRIMARY_STATES,
+  disabled: {
+    backgroundColor: "transparent",
+    borderColor: "black30",
+    color: "black30",
+  },
+}
+
+export const BUTTON_STYLES: Record<
+  ButtonVariant,
+  Record<ButtonState, unknown>
 > = {
-  default: {
-    primaryBlack: {
+  primaryBlack: {
+    default: {
       backgroundColor: "black100",
       borderColor: "black100",
       color: "white100",
     },
-    primaryWhite: {
+    ...DEFAULT_PRIMARY_STATES,
+  },
+
+  primaryWhite: {
+    default: {
       backgroundColor: "white100",
       borderColor: "white100",
       color: "black100",
     },
-    secondaryGray: {
+    ...DEFAULT_PRIMARY_STATES,
+  },
+
+  primaryBlue: {
+    default: {
+      backgroundColor: "blue100",
+      borderColor: "blue100",
+      color: "white100",
+    },
+    ...DEFAULT_PRIMARY_STATES,
+    focus: {
+      backgroundColor: "blue150",
+      borderColor: "blue150",
+      color: "white100",
+      textDecoration: "underline",
+    },
+    hover: {
+      backgroundColor: "blue150",
+      borderColor: "blue150",
+      color: "white100",
+      textDecoration: "underline",
+    },
+    active: {
+      backgroundColor: "#050e3e", // Unique color to this state
+      borderColor: "#050e3e", // Unique color to this state
+      color: "white100",
+      textDecoration: "underline",
+    },
+  },
+
+  primaryGray: {
+    default: {
       backgroundColor: "black10",
       borderColor: "black10",
       color: "black100",
     },
-    secondaryOutline: {
-      backgroundColor: "transparent",
-      borderColor: "black60",
-      color: "black100",
-    },
-    noOutline: {
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      color: "black100",
-    },
+    ...DEFAULT_PRIMARY_STATES,
   },
-  hover: {
-    primaryBlack: {
-      backgroundColor: "blue100",
-      borderColor: "blue100",
-      color: "white100",
-      textDecoration: "underline",
+
+  secondaryBlack: {
+    default: {
+      backgroundColor: "transparent",
+      borderColor: "black100",
+      color: "black100",
     },
-    primaryWhite: {
-      backgroundColor: "blue100",
+    ...DEFAULT_SECONDARY_STATES,
+  },
+
+  secondaryBlue: {
+    default: {
+      backgroundColor: "transparent",
       borderColor: "blue100",
-      color: "white100",
-      textDecoration: "underline",
-    },
-    secondaryGray: {
-      backgroundColor: "blue100",
-      borderColor: "blue100",
-      color: "white100",
-      textDecoration: "underline",
-    },
-    secondaryOutline: {
-      backgroundColor: "blue100",
-      borderColor: "blue100",
-      color: "white100",
-      textDecoration: "underline",
-    },
-    noOutline: {
-      backgroundColor: "blue10",
-      borderColor: "blue10",
       color: "blue100",
+    },
+    ...DEFAULT_SECONDARY_STATES,
+  },
+
+  secondaryWhite: {
+    default: {
+      backgroundColor: "transparent",
+      borderColor: "white100",
+      color: "white100",
+    },
+    ...DEFAULT_SECONDARY_STATES,
+  },
+
+  /** Used for follow buttons */
+  secondaryNeutral: {
+    default: {
+      backgroundColor: "transparent",
+      borderColor: "black100",
+      color: "black100",
+    },
+    ...DEFAULT_SECONDARY_STATES,
+    focus: {
+      backgroundColor: "black10",
+      borderColor: "black10",
+      color: "black100",
       textDecoration: "underline",
     },
-  },
-  focus: {
-    primaryBlack: {
+    hover: {
       backgroundColor: "black100",
-      borderColor: "blue100",
+      borderColor: "black100",
+      color: "white100",
+      textDecoration: "underline",
+    },
+    active: {
+      backgroundColor: "black100",
+      borderColor: "black100",
+      color: "white100",
+      textDecoration: "underline",
+    },
+    loading: {
+      backgroundColor: "black100",
+      borderColor: "black100",
       color: "white100",
     },
-    primaryWhite: {
-      backgroundColor: "white100",
-      borderColor: "blue100",
-      color: "black100",
-    },
-    secondaryGray: {
-      backgroundColor: "black10",
-      borderColor: "blue100",
-      color: "black100",
-    },
-    secondaryOutline: {
+    success: {
       backgroundColor: "transparent",
-      borderColor: "blue100",
-      color: "black100",
-    },
-    noOutline: {
-      backgroundColor: "black10",
-      borderColor: "blue100",
+      borderColor: "black100",
       color: "black100",
     },
   },
-  loading: {
-    primaryBlack: {
-      backgroundColor: "blue100",
-      borderColor: "blue100",
-      color: "white100",
-      textDecoration: "underline",
+
+  tertiary: {
+    default: {
+      backgroundColor: "transparent",
+      borderColor: "transparent",
+      color: "black100",
     },
-    primaryWhite: {
-      backgroundColor: "blue100",
-      borderColor: "blue100",
-      color: "white100",
-      textDecoration: "underline",
-    },
-    secondaryGray: {
-      backgroundColor: "blue100",
-      borderColor: "blue100",
-      color: "white100",
-      textDecoration: "underline",
-    },
-    secondaryOutline: {
-      backgroundColor: "blue100",
-      borderColor: "blue100",
-      color: "white100",
-      textDecoration: "underline",
-    },
-    noOutline: {
+    focus: {
       backgroundColor: "blue10",
       borderColor: "blue10",
       color: "blue100",
       textDecoration: "underline",
     },
-  },
-  disabled: {
-    primaryBlack: {
-      backgroundColor: "black30",
-      borderColor: "black30",
-      color: "white100",
+    hover: {
+      backgroundColor: "blue10",
+      borderColor: "blue10",
+      color: "blue100",
+      textDecoration: "underline",
     },
-    primaryWhite: {
-      backgroundColor: "black30",
-      borderColor: "black30",
-      color: "white100",
+    active: {
+      backgroundColor: "#cacdec", // Unique color to this state
+      borderColor: "#cacdec", // Unique color to this state
+      color: "blue100",
+      textDecoration: "underline",
     },
-    secondaryGray: {
-      backgroundColor: "black30",
-      borderColor: "black30",
-      color: "white100",
+    loading: {
+      backgroundColor: "blue10",
+      borderColor: "blue10",
+      color: "blue100",
     },
-    secondaryOutline: {
-      backgroundColor: "transparent",
-      borderColor: "black30",
-      color: "black30",
-    },
-    noOutline: {
+    disabled: {
       backgroundColor: "transparent",
       borderColor: "transparent",
       color: "black30",
+    },
+    success: {
+      backgroundColor: "transparent",
+      borderColor: "transparent",
+      color: "blue100",
     },
   },
 }
+
+type ButtonVariants = Record<ButtonState, Record<ButtonVariant, unknown>>
+
+/** Inverts the structure of the style object so that we can use responsive values for `variant` */
+export const BUTTON_VARIANTS: ButtonVariants = BUTTON_STATES.reduce(
+  (variantsMemo, state) => {
+    return {
+      ...variantsMemo,
+      [state]: BUTTON_VARIANT_NAMES.reduce((stateMemo, variant) => {
+        return {
+          ...stateMemo,
+          [variant]: BUTTON_STYLES[variant][state],
+        }
+      }, {}),
+    }
+  },
+  {} as ButtonVariants
+)
 
 /** Available button sizes */
 export const BUTTON_SIZES = {
   small: {
     height: "30px",
     borderRadius: "15px",
-    px: 2,
+    px: "25px",
   },
   medium: {
     height: "50px",
     borderRadius: "25px",
-    px: 4,
+    px: "25px",
   },
   // Aliased to medium, for backwards compatability with v2
   large: {
     height: "50px",
     borderRadius: "25px",
-    px: 4,
+    px: "25px",
   },
 } as const
 
 /** Text sizes associated with available button sizes */
 export const BUTTON_TEXT_SIZES: Record<ButtonSize, TextProps["variant"]> = {
   small: "xs",
-  medium: "sm",
-  large: "sm",
+  large: "sm-display",
 }

@@ -212,7 +212,7 @@ export const OpenDropdownByClick = () => {
           return (
             <Button
               ref={anchorRef}
-              variant="secondaryOutline"
+              variant="secondaryBlack"
               size="small"
               mr={1}
               {...anchorProps}

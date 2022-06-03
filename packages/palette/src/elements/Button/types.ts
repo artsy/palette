@@ -2,16 +2,30 @@
 export const BUTTON_VARIANT_NAMES = [
   "primaryBlack",
   "primaryWhite",
-  "secondaryGray",
-  "secondaryOutline",
-  "noOutline",
+  "primaryBlue",
+  "primaryGray",
+  "secondaryBlack",
+  "secondaryBlue",
+  "secondaryWhite",
+  "secondaryNeutral",
+  "tertiary",
 ] as const
 
 /** Name of treatments */
 export type ButtonVariant = typeof BUTTON_VARIANT_NAMES[number]
 
+export const BUTTON_STATES = [
+  "default",
+  "hover",
+  "focus",
+  "active",
+  "loading",
+  "disabled",
+  "success",
+] as const
+
 /** Possible states that require styling */
-export type ButtonState = "default" | "hover" | "focus" | "loading" | "disabled"
+export type ButtonState = typeof BUTTON_STATES[number]
 
 /** Buttons can be displayed "block" or "inline" (defaults to "block") */
 export type ButtonMode = "block" | "inline"

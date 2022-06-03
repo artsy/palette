@@ -28,6 +28,10 @@ export interface ButtonProps
   hover?: boolean
   /** Forces focus state */
   focus?: boolean
+  /** Forces active state */
+  active?: boolean
+  /** Forces success state */
+  success?: boolean
   /** @deprecated Uses inline style for button (only applicable to v2) */
   inline?: boolean
 }
