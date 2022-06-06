@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react"
+import styled from "styled-components"
 import { Box } from "../Box"
 import { Text } from "../Text"
+import { Image } from "../Image"
 import {
   ResponsiveBox,
   ResponsiveBoxAspectDimensions,
@@ -105,4 +107,47 @@ export const MaxWidth100 = () => {
 
 MaxWidth100.story = {
   name: "maxWidth: 100%",
+}
+
+const Masonry = styled(Box)`
+  column-count: 3;
+
+  * {
+    break-inside: avoid;
+  }
+`
+
+export const ColumnsWithResponsiveImages = () => {
+  return (
+    <Masonry>
+      {new Array(12).fill(0).map((_, i) => {
+        const orientation = i % 3 === 0 ? "portrait" : "landscape"
+        const width = orientation === "portrait" ? 200 : 300
+        const height = orientation === "portrait" ? 300 : 200
+
+        return (
+          // Simply being wrapped in an extra `Box` causes a image loading bug in Chrome
+          <Box key={i}>
+            <ResponsiveBox
+              aspectWidth={width}
+              aspectHeight={height}
+              maxWidth="100%"
+              bg="black10"
+              mb={2}
+            >
+              <Image
+                lazyLoad
+                width="100%"
+                height="100%"
+                src={`https://picsum.photos/seed/${i}/${width}/${height}`}
+                srcSet={`https://picsum.photos/seed/${i}/${width}/${height} 1x, https://picsum.photos/seed/${i}/${
+                  width * 2
+                }/${height * 2} 2x`}
+              />
+            </ResponsiveBox>
+          </Box>
+        )
+      })}
+    </Masonry>
+  )
 }

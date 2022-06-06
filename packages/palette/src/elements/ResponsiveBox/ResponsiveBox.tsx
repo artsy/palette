@@ -57,20 +57,14 @@ export const ResponsiveBox: React.FC<ResponsiveBoxProps> = ({
     <Box
       position="relative"
       width="100%"
-      style={{ maxWidth: scaled.maxWidth }}
+      overflow="hidden"
+      style={{
+        aspectRatio: `${aspectWidth} / ${aspectHeight}`,
+        maxWidth: scaled.maxWidth,
+      }}
       {...rest}
     >
-      <Box
-        position="relative"
-        width="100%"
-        height={0}
-        overflow="hidden"
-        style={{ paddingBottom: scaled.paddingBottom }}
-      />
-
-      <Box position="absolute" top={0} left={0} width="100%" height="100%">
-        {children}
-      </Box>
+      {children}
     </Box>
   )
 }
