@@ -1,3 +1,32 @@
+# (Mon Jun 06 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@20.0.3`
+  - fix(responsivebox): utilize native aspect-ratio property in place of padding-bottom hack [#1176](https://github.com/artsy/palette/pull/1176) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- fix(WP-52): search navigates to correct pathname on local [#1171](https://github.com/artsy/palette/pull/1171) ([@rquartararo](https://github.com/rquartararo))
+- docs(storybook): add notice about our storybooks site [#1167](https://github.com/artsy/palette/pull/1167) ([@damassi](https://github.com/damassi))
+- `@artsy/palette-charts@19.0.3`, `@artsy/palette@20.0.3`
+  - chore(deps): update dep typescript from 4.7.2 to v4.7.3 [#1173](https://github.com/artsy/palette/pull/1173) ([@renovate-bot](https://github.com/renovate-bot))
+  - chore(deps): update dep typescript from 4.6.4 to v4.7.2 [#1168](https://github.com/artsy/palette/pull/1168) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### 📝  Documentation
+
+- `@artsy/palette-tokens@3.0.1`
+  - chore(docs): Fix broken links [#1170](https://github.com/artsy/palette/pull/1170) ([@damassi](https://github.com/damassi))
+
+#### Authors: 4
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # (Fri May 20 2022)
 
 #### 🐛  Bug Fix

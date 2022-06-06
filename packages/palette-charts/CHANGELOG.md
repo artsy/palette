@@ -1,3 +1,16 @@
+# v19.0.3 (Mon Jun 06 2022)
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.7.2 to v4.7.3 [#1173](https://github.com/artsy/palette/pull/1173) ([@renovate-bot](https://github.com/renovate-bot))
+- chore(deps): update dep typescript from 4.6.4 to v4.7.2 [#1168](https://github.com/artsy/palette/pull/1168) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 1
+
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v19.0.0 (Thu May 19 2022)
 
 #### 💥  Breaking Change

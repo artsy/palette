@@ -1,3 +1,19 @@
+# v3.0.1 (Mon Jun 06 2022)
+
+#### 🐛  Bug Fix
+
+- chore(docs): Fix broken links ([@damassi](https://github.com/damassi))
+
+#### 📝  Documentation
+
+- chore(docs): Fix broken links [#1170](https://github.com/artsy/palette/pull/1170) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v3.0.0 (Thu May 19 2022)
 
 #### 💥  Breaking Change

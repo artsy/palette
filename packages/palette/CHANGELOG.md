@@ -1,3 +1,22 @@
+# v20.0.3 (Mon Jun 06 2022)
+
+#### 🐛  Bug Fix
+
+- fix(responsivebox): utilize native aspect-ratio property in place of padding-bottom hack [#1176](https://github.com/artsy/palette/pull/1176) ([@dzucconi](https://github.com/dzucconi))
+- fix(responsivebox): utilize native aspect-ratio property in place of padding-bottom hack ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.7.2 to v4.7.3 [#1173](https://github.com/artsy/palette/pull/1173) ([@renovate-bot](https://github.com/renovate-bot))
+- chore(deps): update dep typescript from 4.6.4 to v4.7.2 [#1168](https://github.com/artsy/palette/pull/1168) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v20.0.2 (Fri May 20 2022)
 
 #### 🐛  Bug Fix
