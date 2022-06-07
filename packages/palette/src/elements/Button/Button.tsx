@@ -2,7 +2,7 @@ import composeRefs from "@seznam/compose-react-refs"
 import React, { useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
 import { ResponsiveValue, variant } from "styled-system"
-import { CheckIcon } from "../../svgs"
+import { CheckIcon, IconProps } from "../../svgs"
 import { THEME_V3 } from "../../themes"
 import { boxMixin, BoxProps } from "../Box"
 import { Spinner } from "../Spinner"
@@ -36,6 +36,8 @@ export interface ButtonProps
   active?: boolean
   /** Forces success state */
   success?: boolean
+  /** Optional icon slot */
+  Icon?: React.FunctionComponent<IconProps>
 }
 
 export const Button: React.ForwardRefExoticComponent<
@@ -50,6 +52,7 @@ export const Button: React.ForwardRefExoticComponent<
       onClick,
       alignItems = "center",
       justifyContent = "center",
+      Icon,
       ...rest
     },
     forwardedRef
@@ -85,8 +88,6 @@ export const Button: React.ForwardRefExoticComponent<
       >
         {loading && <Spinner size={size} color="currentColor" />}
 
-        {success && <CheckIcon fill="currentColor" mr={0.5} />}
-
         <Text
           lineHeight={1}
           variant={BUTTON_TEXT_SIZES[size]}
@@ -96,6 +97,14 @@ export const Button: React.ForwardRefExoticComponent<
           justifyContent={justifyContent}
           width="100%"
         >
+          {!success && Icon && (
+            <Icon fill="currentColor" mr={0.5} aria-hidden="true" />
+          )}
+
+          {success && (
+            <CheckIcon fill="currentColor" mr={0.5} aria-hidden="true" />
+          )}
+
           {children}
         </Text>
       </Container>

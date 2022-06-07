@@ -188,10 +188,17 @@ export const WithIcon = () => {
         { loading: true },
         { disabled: true },
         { loading: true, disabled: true },
+        { success: true },
+        { size: "large" },
+        { size: "large", focus: true },
+        { size: "large", hover: true },
+        { size: "large", loading: true },
+        { size: "large", disabled: true },
+        { size: "large", loading: true, disabled: true },
+        { size: "large", success: true },
       ]}
     >
-      <Button variant="secondaryBlack" size="small">
-        <BellIcon fill="currentColor" mr={0.5} />
+      <Button variant="secondaryBlack" size="small" Icon={BellIcon}>
         Create an Alert
       </Button>
     </States>
