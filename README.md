@@ -4,8 +4,9 @@ Artsy's Design System
 
 ## Meta
 
-- Docs: [https://palette.artsy.net](https://palette.artsy.net)
 - Storybook: [https://palette-storybook.artsy.net](https://palette-storybook.artsy.net)
+- Docs: [https://palette.artsy.net](https://palette.artsy.net)
+- Docs Github Repo: [https://github.com/artsy/palette-docs](https://github.com/artsy/palette-dcs)
 - Point People: [@dzucconi](https://github.com/dzucconi), [@damassi](https://github.com/damassi)
 
 ## What is Palette?
@@ -38,7 +39,6 @@ This will compile Palette and boot Storybooks, our default development environme
 Other relevant commands are:
 
 ```sh
-$ yarn docs
 $ yarn test
 $ yarn type-check
 ```
@@ -62,7 +62,7 @@ and patch for bug fixes. Trivial will not cause a release and should be used whe
 
 If you don't want to release on a particular PR but the changes aren't trivial then use the `Skip Release` tag along side the appropriate version tag.
 
-`Canary` tags will publish a canary version to NPM which can be used to test work in progress. See [the CircleCI job](https://app.circleci.com/pipelines/github/artsy/palette/4138/workflows/ffc56588-35bf-41ed-a0a8-a806fc807678/jobs/20148) for the exact version published and update your consuming app accordingly. 
+`Canary` tags will publish a canary version to NPM which can be used to test work in progress. See [the CircleCI job](https://app.circleci.com/pipelines/github/artsy/palette/4138/workflows/ffc56588-35bf-41ed-a0a8-a806fc807678/jobs/20148) for the exact version published and update your consuming app accordingly.
 
 ## Repos consuming Palette
 

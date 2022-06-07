@@ -15,15 +15,6 @@ jobs:
           from: packages/palette/storybook-static
           to: "s3://artsy-static-sites/artsy-palette-storybook"
 
-  deploy-docs:
-    docker:
-      - image: "cimg/python:3.10"
-    steps:
-      - aws-s3/sync:
-          arguments: --acl public-read
-          from: packages/palette-docs/public
-          to: "s3://artsy-static-sites/artsy-palette"
-
 workflows:
   build_and_verify:
     jobs:
@@ -93,31 +84,10 @@ workflows:
           filters:
             branches:
               only: main
-      - yarn/run:
-          name: build-docs
-          script: "build-docs"
-          post-steps:
-            - persist_to_workspace:
-                root: .
-                paths:
-                  - packages/palette-docs/public
-          filters:
-            branches:
-              only: main
       - deploy-storybook:
           context: static-sites-uploader
           requires:
             - build-storybook
-          pre-steps:
-            - attach_workspace:
-                at: .
-          filters:
-            branches:
-              only: main
-      - deploy-docs:
-          context: static-sites-uploader
-          requires:
-            - build-docs
           pre-steps:
             - attach_workspace:
                 at: .

@@ -3,12 +3,9 @@
   "private": true,
   "scripts": {
     "build-storybook": "yarn compile-palette && yarn workspace @artsy/palette build-storybook",
-    "build-docs": "yarn compile-palette && yarn workspace artsy-palette-docs build",
     "compile-palette": "lerna run compile",
-    "deploy-docs": "yarn compile-palette && yarn workspace artsy-palette-docs deploy",
-    "docs": "yarn start",
     "lint": "lerna run lint",
-    "start": "yarn compile-palette && concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' 'yarn workspace artsy-palette-docs start'",
+    "start": "yarn compile-palette && concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' ",
     "storybook": "yarn compile-palette && yarn workspace @artsy/palette storybook",
     "test": "yarn compile-palette && lerna run test",
     "pretype-check": "yarn compile-palette && lerna run type-declarations",
