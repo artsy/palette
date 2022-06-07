@@ -31,7 +31,7 @@ export const Default = () => {
             <Box textAlign="center">
               <Button
                 ref={anchorRef}
-                variant="secondaryOutline"
+                variant="secondaryBlack"
                 size="small"
                 onClick={onVisible}
               >

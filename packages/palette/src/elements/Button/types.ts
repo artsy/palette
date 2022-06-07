@@ -27,16 +27,8 @@ export const BUTTON_STATES = [
 /** Possible states that require styling */
 export type ButtonState = typeof BUTTON_STATES[number]
 
-/** Buttons can be displayed "block" or "inline" (defaults to "block") */
-export type ButtonMode = "block" | "inline"
-
 /** Names of button sizes */
-export const BUTTON_SIZE_NAMES = [
-  "small",
-  "medium",
-  // DEPRECATED
-  "large",
-] as const
+export const BUTTON_SIZE_NAMES = ["small", "large"] as const
 
 /** Available sizes */
 export type ButtonSize = typeof BUTTON_SIZE_NAMES[number]

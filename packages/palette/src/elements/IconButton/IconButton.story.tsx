@@ -24,7 +24,7 @@ export const Default = () => {
     >
       <IconButton
         size="small"
-        variant="secondaryOutline"
+        variant="secondaryBlack"
         icon={<BellIcon fill="currentColor" />}
       >
         Create an Alert
@@ -38,7 +38,7 @@ export const Example = () => {
     <Box width={600}>
       <Join separator={<Spacer mt={1} />}>
         <IconButton
-          variant="secondaryOutline"
+          variant="secondaryBlack"
           width="100%"
           icon={<EnvelopeIcon fill="currentColor" />}
         >
@@ -56,7 +56,7 @@ export const Example = () => {
         </IconButton>
 
         <IconButton
-          variant="secondaryOutline"
+          variant="secondaryBlack"
           width="100%"
           icon={<FacebookIcon fill="currentColor" />}
         >

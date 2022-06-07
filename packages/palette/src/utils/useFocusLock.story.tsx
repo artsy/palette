@@ -23,10 +23,10 @@ export const Default = () => {
           Skipped
         </a>
         <a href="#">Focusable</a>
-        <Button variant="secondaryGray" tabIndex={-1}>
+        <Button variant="primaryGray" tabIndex={-1}>
           Skipped
         </Button>
-        <Button variant="secondaryGray">Focusable</Button>
+        <Button variant="primaryGray">Focusable</Button>
       </div>
       <Input placeholder="Not focusable" />
     </>

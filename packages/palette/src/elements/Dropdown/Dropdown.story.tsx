@@ -60,7 +60,7 @@ export const Default = () => {
             <Box textAlign="center">
               <Button
                 ref={anchorRef}
-                variant="secondaryOutline"
+                variant="secondaryBlack"
                 size="small"
                 {...anchorProps}
               >
@@ -93,7 +93,7 @@ export const KeepInDOM = () => {
         return (
           <Button
             ref={anchorRef}
-            variant="secondaryOutline"
+            variant="secondaryBlack"
             size="small"
             {...anchorProps}
           >
@@ -127,7 +127,7 @@ export const ChangeDimensions = () => {
         return (
           <Button
             ref={anchorRef}
-            variant="secondaryOutline"
+            variant="secondaryBlack"
             size="small"
             {...anchorProps}
           >
@@ -161,7 +161,7 @@ export const FocusOrder = () => {
           return (
             <Button
               ref={anchorRef}
-              variant="secondaryOutline"
+              variant="secondaryBlack"
               size="small"
               mr={1}
               {...anchorProps}
@@ -177,7 +177,7 @@ export const FocusOrder = () => {
           return (
             <Button
               ref={anchorRef}
-              variant="secondaryOutline"
+              variant="secondaryBlack"
               size="small"
               {...anchorProps}
             >

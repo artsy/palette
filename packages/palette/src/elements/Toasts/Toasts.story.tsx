@@ -26,7 +26,7 @@ export const Demo = () => {
           return (
             <Button
               key={variant}
-              variant="secondaryOutline"
+              variant="secondaryBlack"
               size="small"
               mr={1}
               onClick={() => {
@@ -51,7 +51,7 @@ export const Demo = () => {
 
         <Button
           size="small"
-          variant="secondaryGray"
+          variant="primaryGray"
           onClick={() => {
             const { id } = sendToast({
               variant: "message",

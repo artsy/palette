@@ -21,7 +21,7 @@ const FollowButton = () => {
     v3: (
       <Button
         size="small"
-        variant="secondaryOutline"
+        variant="secondaryBlack"
         onClick={() => alert("Follow")}
       >
         Follow

@@ -6,7 +6,6 @@ import { BellIcon } from "../../svgs/BellIcon"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
-import { Text } from "../Text"
 import { ButtonProps } from "./Button"
 import { Button, BUTTON_SIZE_NAMES, BUTTON_VARIANT_NAMES } from "./index"
 
@@ -51,7 +50,7 @@ Display.displayName = "Button"
 export const Variants = () => {
   return (
     <States<ButtonProps>
-      states={([{ size: "medium" }, { size: "small" }] as const)
+      states={([{ size: "large" }, { size: "small" }] as const)
         .map((size) => {
           return variants.map((variant) => ({ ...size, ...variant }))
         })

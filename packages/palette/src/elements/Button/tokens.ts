@@ -1,6 +1,6 @@
-import { BUTTON_STATES, BUTTON_VARIANT_NAMES } from "../types"
-import { TextProps } from "../../Text"
-import { ButtonSize, ButtonState, ButtonVariant } from "../types"
+import { BUTTON_STATES, BUTTON_VARIANT_NAMES } from "./types"
+import { TextProps } from "../Text"
+import { ButtonSize, ButtonState, ButtonVariant } from "./types"
 
 const DEFAULT_PRIMARY_STATES = {
   focus: {
