@@ -1,89 +1,62 @@
-import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
-import styled from "styled-components"
-import { Clickable } from "../Clickable"
-import { CloseIcon } from "../../svgs/CloseIcon"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
-import { Pill, PillProps } from "./Pill"
-import { Sup } from "../Sup"
+import { Pill, PillProps, PillVariant, PILL_VARIANT_NAMES } from "./Pill"
+import { Box } from "../Box"
+import { Join } from "../Join"
+import { GraphIcon } from "../../svgs"
+import styled from "styled-components"
 
 export default {
   title: "Components/Pill",
 }
 
-export const _States = () => {
-  return (
-    <States<PillProps> states={[{}, { hover: true }, { focus: true }]}>
-      <Pill>Pill</Pill>
-    </States>
-  )
-}
-
-_States.story = {
-  name: "States",
-}
-
-const _Demo = styled(Flex)``
-_Demo.displayName = "Pill"
+const Display = styled(Box)``
+Display.displayName = "Pill"
 
 export const Variants = () => {
   return (
     <States<PillProps>
-      states={[
-        {},
-        { variant: "textRound", children: "Text Pill" },
-        { variant: "textSquare", children: "Text Pill" },
-        { variant: "filter", children: "Filter Pill" },
-        {
-          variant: "artist",
-          children: "Artist Name Pill",
-          src: [
-            "https://picsum.photos/seed/user/30/30",
-            "https://picsum.photos/seed/user/60/60",
-          ],
-        },
-        {
-          variant: "artist",
-          children: "Artist Name Pill",
-        },
-        {
-          variant: "artist",
-          children: "Artist Name Pill",
-          src: "https://picsum.photos/seed/user/30/30",
-        },
-      ]}
+      states={PILL_VARIANT_NAMES.map((variant) => ({
+        variant: variant as PillVariant,
+      }))}
     >
-      {(props) => {
-        return (
-          <_Demo>
-            <Pill {...props}>Pill</Pill>
+      {(props) => (
+        <Display
+          p={1}
+          overflowX="auto"
+          {...(["primaryWhite", "secondaryWhite"].includes(`${props.variant}`)
+            ? { bg: "black100", color: "white100" }
+            : { bg: "white100", color: "black100" })}
+        >
+          <Flex>
+            <Join separator={<Spacer ml={2} />}>
+              <Pill {...props}>Default</Pill>
 
-            <Spacer mx={0.5} />
+              <Pill {...props} focus>
+                Focus
+              </Pill>
 
-            <Pill {...props} focus>
-              Pill
-            </Pill>
+              <Pill {...props} hover>
+                Hover
+              </Pill>
 
-            <Spacer mx={0.5} />
+              <Pill {...props} active>
+                Active
+              </Pill>
 
-            <Pill {...props} hover>
-              Pill
-            </Pill>
+              <Pill {...props} selected>
+                Selected
+              </Pill>
 
-            {props.variant !== "artist" && (
-              <>
-                <Spacer mx={0.5} />
-
-                <Pill {...(props as any)} active>
-                  Pill
-                </Pill>
-              </>
-            )}
-          </_Demo>
-        )
-      }}
+              <Pill {...props} disabled>
+                Disabled
+              </Pill>
+            </Join>
+          </Flex>
+        </Display>
+      )}
     </States>
   )
 }
@@ -102,7 +75,7 @@ export const LinkExample = () => {
   )
 }
 
-export const LongExample = () => {
+export const LongExampleWithTruncation = () => {
   return (
     <Pill maxWidth={300}>
       Studio Museum in Harlem Artist-in-Residence (AIR) Program
@@ -110,23 +83,77 @@ export const LongExample = () => {
   )
 }
 
-export const LongExampleWithChildren = () => {
+export const SearchWithCount = () => {
   return (
-    <Pill maxWidth={200}>
-      Artist Series <Sup pl={0.5}>130</Sup>
-    </Pill>
+    <States<PillProps>
+      states={[
+        {},
+        { focus: true },
+        { hover: true },
+        { active: true },
+        { selected: true },
+        { disabled: true },
+      ]}
+    >
+      <Pill variant="search" count={123}>
+        Artist Series
+      </Pill>
+    </States>
   )
 }
 
-export const IconExample = () => {
+export const ArtistWithImage = () => {
   return (
-    <Pill
-      variant="textSquare"
-      as={Clickable}
-      onClick={action("onClick")}
-      aria-label="Remove Painting"
+    <States<PillProps>
+      states={[
+        {},
+        { focus: true },
+        { hover: true },
+        { active: true },
+        { selected: true },
+        { disabled: true },
+      ]}
     >
-      Painting <CloseIcon fill="currentColor" ml={0.5} width={15} height={15} />
-    </Pill>
+      <Pill
+        variant="artist"
+        src={[
+          "https://picsum.photos/seed/isa/30/30",
+          "https://picsum.photos/seed/isa/60/60",
+        ]}
+      >
+        Isa Genzken
+      </Pill>
+    </States>
+  )
+}
+
+export const PillWithIcon = () => {
+  return (
+    <States<PillProps>
+      states={[
+        {},
+        { focus: true },
+        { hover: true },
+        { active: true },
+        { selected: true },
+        { disabled: true },
+        { variant: "search" },
+        { variant: "search", focus: true },
+        { variant: "search", hover: true },
+        { variant: "search", active: true },
+        { variant: "search", selected: true },
+        { variant: "search", disabled: true },
+        { variant: "filter" },
+        { variant: "filter", focus: true },
+        { variant: "filter", hover: true },
+        { variant: "filter", active: true },
+        { variant: "filter", selected: true },
+        { variant: "filter", disabled: true },
+      ]}
+    >
+      <Pill variant="badge" Icon={GraphIcon}>
+        Artist Series
+      </Pill>
+    </States>
   )
 }
