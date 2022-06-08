@@ -159,8 +159,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       document.removeEventListener("keyup", handleKeyUp)
       document.removeEventListener("click", handleClick)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [panelRef])
+  }, [panelRef, openDropdownByClick])
 
   const activeRef = useRef(false)
 
