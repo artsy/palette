@@ -131,6 +131,7 @@ export const buttonMixin = css`
   font-weight: normal;
   text-align: center;
   border: 1px solid;
+  text-decoration: none;
   transition: color 0.25s ease, border-color 0.25s ease,
     background-color 0.25s ease, box-shadow 0.25s ease;
 `

@@ -136,7 +136,7 @@ export const PILL_VARIANTS: Record<
       /* Same as default state */
     `,
     disabled: css`
-      border-color: ${themeGet("colors.black100")};
+      border-color: ${themeGet("colors.black60")};
     `,
   },
 

@@ -47,10 +47,7 @@ const DEFAULT_SECONDARY_STATES = {
   },
 }
 
-export const BUTTON_STYLES: Record<
-  ButtonVariant,
-  Record<ButtonState, unknown>
-> = {
+export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
   primaryBlack: {
     default: {
       backgroundColor: "black100",
@@ -212,7 +209,7 @@ export const BUTTON_STYLES: Record<
   },
 }
 
-type ButtonVariants = Record<ButtonState, Record<ButtonVariant, unknown>>
+type ButtonVariants = Record<ButtonState, Record<ButtonVariant, any>>
 
 /** Inverts the structure of the style object so that we can use responsive values for `variant` */
 export const BUTTON_VARIANTS: ButtonVariants = BUTTON_STATES.reduce(
@@ -237,12 +234,6 @@ export const BUTTON_SIZES = {
     borderRadius: "15px",
     px: "25px",
   },
-  medium: {
-    height: "50px",
-    borderRadius: "25px",
-    px: "25px",
-  },
-  // Aliased to medium, for backwards compatability with v2
   large: {
     height: "50px",
     borderRadius: "25px",
