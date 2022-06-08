@@ -42,12 +42,13 @@ export interface DropdownProps extends BoxProps {
   offset?: number
   /** Should the dropdown panel always be present in the DOM (vs removed when invisible) */
   keepInDOM?: boolean
+  openDropdownByClick?: boolean
   children: (dropdownActions: DropdownActions) => JSX.Element
 }
 
 /**
  * A `Dropdown` is a small modal-type element which is anchored, and can be
- * positioned relative to, another element and designed to be transitioned in on hover.
+ * positioned relative to, another element and designed to be transitioned in on hover or on click.
  */
 export const Dropdown: React.FC<DropdownProps> = ({
   placement = "top",
@@ -56,6 +57,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   children,
   offset = 10,
   dropdown,
+  openDropdownByClick,
   ...rest
 }) => {
   const [visible, setVisible] = useState(false)
@@ -91,6 +93,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
       if (activeRef.current) return
       setVisible(false)
     }, 150)
+  }
+
+  const onToggleVisibility = () => {
+    if (visible) {
+      return onHide()
+    }
+
+    onVisible()
   }
 
   const {
@@ -132,14 +142,24 @@ export const Dropdown: React.FC<DropdownProps> = ({
       }
     }
 
+    const handleClick = (event: MouseEvent) => {
+      if (!panelRef.current || !openDropdownByClick) return
+
+      if (panelRef.current.contains(event.target as Element)) {
+        onHide()
+      }
+    }
+
     document.addEventListener("keydown", handleKeyDown)
     document.addEventListener("keyup", handleKeyUp)
+    document.addEventListener("click", handleClick)
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown)
       document.removeEventListener("keyup", handleKeyUp)
+      document.removeEventListener("click", handleClick)
     }
-  }, [panelRef])
+  }, [panelRef, openDropdownByClick])
 
   const activeRef = useRef(false)
 
@@ -207,9 +227,15 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const anchorProps: React.HTMLAttributes<HTMLElement> = {
     "aria-expanded": visible,
     "aria-haspopup": true,
-    onMouseEnter: onVisible,
-    onMouseLeave: onHide,
-    onClick: onVisible,
+    ...(openDropdownByClick
+      ? {
+          onClick: onToggleVisibility,
+        }
+      : {
+          onMouseEnter: onVisible,
+          onMouseLeave: onHide,
+          onClick: onVisible,
+        }),
   }
 
   const { createPortal } = usePortal()
@@ -235,14 +261,18 @@ export const Dropdown: React.FC<DropdownProps> = ({
             ref={panelRef as any}
             zIndex={1}
             display="inline-block"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
             placement={placement}
             style={{
               ...(keepInDOM
                 ? { visibility: visible ? "visible" : "hidden" }
                 : {}),
             }}
+            {...(openDropdownByClick
+              ? {}
+              : {
+                  onMouseEnter: handleMouseEnter,
+                  onMouseLeave: handleMouseLeave,
+                })}
             {...padding}
             {...rest}
           >
