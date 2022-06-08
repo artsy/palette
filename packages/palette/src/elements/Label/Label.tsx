@@ -4,27 +4,29 @@ import styled from "styled-components"
 import { variant } from "styled-system"
 import { Box, BoxProps } from "../Box"
 
-const VARIANTS = {
-  defaultLight: {
+export const LABEL_VARIANTS = {
+  light: {
     backgroundColor: "black10",
     color: "black100",
   },
-  defaultDark: {
-    backgroundColor: "black10",
-    color: "black100",
+  dark: {
+    backgroundColor: "black100",
+    color: "white100",
   },
   brand: {
-    backgroundColor: "black10",
-    color: "black100",
+    backgroundColor: "blue100",
+    color: "white100",
   },
 }
 
-export interface BadgeProps extends BoxProps {
-  variant?: keyof typeof VARIANTS
+export type LabelVariant = keyof typeof LABEL_VARIANTS
+
+export interface LabelProps extends BoxProps {
+  variant?: LabelVariant
   children: React.ReactNode
 }
 
-export const Badge: React.FC<BadgeProps> = ({ children, ...rest }) => {
+export const Label: React.FC<LabelProps> = ({ children, ...rest }) => {
   return (
     <Container display="inline-flex" maxWidth="100%" {...rest}>
       <Text variant="xs" px={0.5} overflowEllipsis>
@@ -34,10 +36,10 @@ export const Badge: React.FC<BadgeProps> = ({ children, ...rest }) => {
   )
 }
 
-Badge.defaultProps = {
-  variant: "defaultDark",
+Label.defaultProps = {
+  variant: "light",
 }
 
 const Container = styled(Box)`
-  ${variant({ variants: VARIANTS })}
+  ${variant({ variants: LABEL_VARIANTS })}
 `

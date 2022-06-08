@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
+import { Join } from "../.."
 import { BellIcon } from "../../svgs/BellIcon"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
@@ -17,8 +18,10 @@ export const _States = () => {
         {},
         { focus: true },
         { hover: true },
+        { active: true },
         { loading: true },
         { disabled: true },
+        { success: true },
         { loading: true, disabled: true },
       ]}
     >
@@ -39,42 +42,60 @@ export const Sizes = () => {
   )
 }
 
-const _Demo = styled(Flex)``
-_Demo.displayName = "Button"
+const variants = BUTTON_VARIANT_NAMES.map((variant) => ({ variant }))
+
+const Display = styled(Box)``
+Display.displayName = "Button"
 
 export const Variants = () => {
   return (
     <States<ButtonProps>
-      states={BUTTON_VARIANT_NAMES.map((variant) => ({ variant }))}
+      states={([{ size: "large" }, { size: "small" }] as const)
+        .map((size) => {
+          return variants.map((variant) => ({ ...size, ...variant }))
+        })
+        .reduce((a, b) => {
+          return a.concat(b)
+        }, [])}
     >
       {(props) => (
-        <_Demo>
-          <Button {...props}>Label</Button>
+        <Display
+          p={1}
+          overflowX="auto"
+          {...(["primaryWhite", "secondaryWhite"].includes(`${props.variant}`)
+            ? { bg: "black100", color: "white100" }
+            : { bg: "white100", color: "black100" })}
+        >
+          <Flex>
+            <Join separator={<Spacer ml={2} />}>
+              <Button {...props}>Default</Button>
 
-          <Spacer mx={0.5} />
+              <Button {...props} focus>
+                Focus
+              </Button>
 
-          <Button {...props} focus>
-            Label
-          </Button>
+              <Button {...props} hover>
+                Hover
+              </Button>
 
-          <Spacer mx={0.5} />
+              <Button {...props} active>
+                Active
+              </Button>
 
-          <Button {...props} hover>
-            Label
-          </Button>
+              <Button {...props} loading>
+                Loading
+              </Button>
 
-          <Spacer mx={0.5} />
+              <Button {...props} disabled>
+                Disabled
+              </Button>
 
-          <Button {...props} loading>
-            Label
-          </Button>
-
-          <Spacer mx={0.5} />
-
-          <Button {...props} disabled>
-            Label
-          </Button>
-        </_Demo>
+              <Button {...props} success>
+                Success
+              </Button>
+            </Join>
+          </Flex>
+        </Display>
       )}
     </States>
   )
@@ -167,10 +188,17 @@ export const WithIcon = () => {
         { loading: true },
         { disabled: true },
         { loading: true, disabled: true },
+        { success: true },
+        { size: "large" },
+        { size: "large", focus: true },
+        { size: "large", hover: true },
+        { size: "large", loading: true },
+        { size: "large", disabled: true },
+        { size: "large", loading: true, disabled: true },
+        { size: "large", success: true },
       ]}
     >
-      <Button variant="secondaryOutline" size="small">
-        <BellIcon fill="currentColor" mr={0.5} />
+      <Button variant="secondaryBlack" size="small" Icon={BellIcon}>
         Create an Alert
       </Button>
     </States>

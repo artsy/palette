@@ -14,7 +14,10 @@ export const Sizes = () => {
         { size: "xs" },
         { size: "sm" },
         { size: "md" },
-        { initials: "LONG" },
+        { initials: "LONGER", size: "md" },
+        { initials: "LONGER", size: "sm" },
+        { initials: "LONGER", size: "xs" },
+        { initials: "LONGER", size: "xxs" },
       ]}
     >
       <Avatar size="xs" initials="TK" />

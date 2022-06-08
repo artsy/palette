@@ -50,13 +50,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       <Flex as="ol">
         <Join
           separator={
-            <Text
-              as="span"
-              size="xs"
-              color="black60"
-              mx={0.5}
-              aria-hidden="true"
-            >
+            <Text as="span" size="xs" color="black60" mx={1} aria-hidden="true">
               /
             </Text>
           }

@@ -13,6 +13,13 @@ export interface AvatarProps extends FlexProps, Partial<ImageProps> {
   size?: "xxs" | "xs" | "sm" | "md"
 }
 
+const LENGTHS = {
+  xxs: 2,
+  xs: 2,
+  sm: 3,
+  md: 4,
+}
+
 /** An circular Avatar component containing an image or initials */
 export const Avatar: React.FC<AvatarProps> = ({
   src,
@@ -35,7 +42,7 @@ export const Avatar: React.FC<AvatarProps> = ({
       size={diameter}
       bg={tokens.bg}
       border={src ? "transparent" : "1px solid"}
-      borderColor="black10"
+      borderColor="black15"
       borderRadius="50%"
       alignItems="center"
       justifyContent="center"
@@ -43,14 +50,16 @@ export const Avatar: React.FC<AvatarProps> = ({
       overflow="hidden"
       {...boxProps}
     >
-      <Text
-        variant={variant}
-        fontWeight={tokens.fontWeight}
-        color={tokens.color}
-        lineHeight={1}
-      >
-        {initials}
-      </Text>
+      {initials && (
+        <Text
+          variant={variant}
+          fontWeight={tokens.fontWeight}
+          color={tokens.color}
+          lineHeight={1}
+        >
+          {initials.slice(0, LENGTHS[size])}
+        </Text>
+      )}
 
       {src && (
         <Flex position="absolute" top={0} left={0} width="100%" height="100%">

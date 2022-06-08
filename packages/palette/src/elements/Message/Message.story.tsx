@@ -1,7 +1,12 @@
 import React from "react"
 import { States } from "storybook-states"
 import { Text } from "../Text"
-import { Message, MessageProps } from "./Message"
+import {
+  Message,
+  MessageProps,
+  MESSAGE_VARIANTS,
+  MessageVariant,
+} from "./Message"
 
 export default {
   title: "Components/Message",
@@ -11,10 +16,10 @@ export const Default = () => {
   return (
     <States<MessageProps>
       states={[
-        { title: "Message Title" },
-        { variant: "info", title: "Message Title" },
-        { variant: "warning", title: "Message Title" },
-        { variant: "error", title: "Message Title" },
+        ...Object.keys(MESSAGE_VARIANTS).map((variant) => ({
+          variant: variant as MessageVariant,
+          title: "Message Title",
+        })),
         {},
         { variant: "info" },
         { variant: "warning" },

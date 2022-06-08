@@ -26,6 +26,8 @@ export interface RadioProps
   error?: boolean
   /** Show hover state on render */
   hover?: boolean
+  /** Forces focus state */
+  focus?: boolean
   /** Value of radio button */
   value?: string
   /** Name of the radio button */
@@ -41,6 +43,7 @@ export const Radio: React.FC<RadioProps> = ({
   children,
   disabled,
   hover,
+  focus,
   error,
   label,
   selected,
@@ -85,6 +88,7 @@ export const Radio: React.FC<RadioProps> = ({
       onKeyPress={handleKeyPress}
       disabled={disabled}
       hover={hover}
+      focus={focus}
       selected={selected}
       error={error}
       {...rest}
@@ -92,6 +96,7 @@ export const Radio: React.FC<RadioProps> = ({
       <RadioDot
         disabled={disabled}
         hover={hover}
+        focus={focus}
         selected={selected}
         error={error}
         mr={1}
@@ -127,6 +132,7 @@ const Container = styled(Flex)<{
   disabled?: boolean
   error?: boolean
   hover?: boolean
+  focus?: boolean
   selected?: boolean
 }>`
   ${(props) => {
@@ -136,7 +142,8 @@ const Container = styled(Flex)<{
     })
 
     return css`
-      ${states.radio.default}
+      ${props.selected ? states.radio.selected : states.radio.default}
+      ${props.focus && states.radio.focus}
       ${props.hover && states.radio.hover}
       ${props.disabled && states.radio.disabled}
       ${props.error && states.radio.error}
@@ -154,6 +161,17 @@ const Container = styled(Flex)<{
               : states.dot.hover.resting}
           }
         `}
+      }
+
+      &:focus {
+        ${states.radio.focus}
+
+        // Radio
+        > div:first-of-type {
+          ${props.selected
+            ? states.dot.focus.selected
+            : states.dot.focus.resting}
+        }
       }
 
       &:disabled {

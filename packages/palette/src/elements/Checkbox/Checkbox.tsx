@@ -27,6 +27,8 @@ export interface CheckboxProps
   error?: boolean
   /** Used to force the checkbox into the visual hover state */
   hover?: boolean
+  /** Forces focus state */
+  focus?: boolean
   /** Callback when selected */
   onSelect?: (selected: boolean) => void
 }
@@ -38,6 +40,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   error,
   disabled,
   hover,
+  focus,
   onSelect,
   onClick,
   ...rest
@@ -84,6 +87,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       aria-checked={selected}
       selected={selected}
       hover={hover}
+      focus={focus}
       disabled={disabled}
       error={error}
       {...rest}
@@ -92,6 +96,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         selected={selected}
         error={error}
         disabled={disabled}
+        focus={focus}
         hover={hover}
       />
 
@@ -111,6 +116,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 const Container = styled(Box)<{
   selected: boolean
   hover?: boolean
+  focus?: boolean
   disabled?: boolean
   error?: boolean
 }>`
@@ -123,7 +129,8 @@ const Container = styled(Box)<{
     })
 
     return css`
-      ${states.checkbox.default}
+      ${props.selected ? states.checkbox.selected : states.checkbox.default}
+      ${props.focus && states.checkbox.focus}
       ${props.hover && states.checkbox.hover}
       ${props.disabled && states.checkbox.disabled}
       ${props.error && states.checkbox.error}
@@ -140,6 +147,17 @@ const Container = styled(Box)<{
               : states.check.hover.resting}
           }
         `}
+      }
+
+      &:focus {
+        ${states.checkbox.focus}
+
+        // Check
+         > div:first-of-type {
+          ${props.selected
+            ? states.check.focus.selected
+            : states.check.focus.resting}
+        }
       }
 
       &:disabled {

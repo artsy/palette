@@ -6,7 +6,7 @@ import { Button } from "../Button"
 
 describe("Button", () => {
   it("returns variants and sizes", () => {
-    const getWrapper = props => {
+    const getWrapper = (props) => {
       return mount(
         <Theme>
           <Button {...props}>Hi</Button>
@@ -29,19 +29,13 @@ describe("Button", () => {
       size: "small",
     })
     expect((button.find("Button").props() as any).size).toBe("small")
-    expect((button.find("Sans").props() as any).size).toBe("2")
-
-    button = getWrapper({
-      size: "medium",
-    })
-    expect((button.find("Button").props() as any).size).toBe("medium")
-    expect((button.find("Sans").props() as any).size).toBe("3t")
+    expect((button.find("Text").props() as any).variant).toBe("xs")
 
     button = getWrapper({
       size: "large",
     })
     expect((button.find("Button").props() as any).size).toBe("large")
-    expect((button.find("Sans").props() as any).size).toBe("3t")
+    expect((button.find("Text").props() as any).variant).toBe("sm-display")
   })
 
   it("shows spinner if loading is true", () => {
@@ -96,3 +90,5 @@ describe("Button", () => {
     expect(wrapper.html()).toContain("Buttontest__StyledButton")
   })
 })
+
+//

@@ -194,7 +194,7 @@ export const Cached = () => {
   return (
     <>
       <Button
-        variant="secondaryOutline"
+        variant="secondaryBlack"
         size="small"
         mb={1}
         onClick={() => {

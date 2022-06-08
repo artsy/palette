@@ -45,7 +45,7 @@ const Example: React.FC<
 
   return (
     <>
-      <Button variant="secondaryGray" onClick={() => setOpen(true)}>
+      <Button variant="primaryGray" onClick={() => setOpen(true)}>
         {label}
       </Button>
 
