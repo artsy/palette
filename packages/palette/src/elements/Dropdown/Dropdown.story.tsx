@@ -189,3 +189,39 @@ export const FocusOrder = () => {
     </Flex>
   )
 }
+
+export const OpenDropdownByClick = () => {
+  const dropdown = (
+    <Text variant="sm-display">
+      <Clickable display="block" width="100%" py={1} px={2}>
+        First
+      </Clickable>
+      <Clickable display="block" width="100%" py={1} px={2}>
+        Second
+      </Clickable>
+      <Clickable display="block" width="100%" py={1} px={2}>
+        Third
+      </Clickable>
+    </Text>
+  )
+
+  return (
+    <Flex>
+      <Dropdown dropdown={dropdown} openDropdownByClick>
+        {({ anchorRef, anchorProps }) => {
+          return (
+            <Button
+              ref={anchorRef}
+              variant="secondaryOutline"
+              size="small"
+              mr={1}
+              {...anchorProps}
+            >
+              Click to display dropdown
+            </Button>
+          )
+        }}
+      </Dropdown>
+    </Flex>
+  )
+}
