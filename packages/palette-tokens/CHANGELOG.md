@@ -1,3 +1,19 @@
+# v4.0.0 (Wed Jun 08 2022)
+
+#### 💥  Breaking Change
+
+- 3.1 updates [#1169](https://github.com/artsy/palette/pull/1169) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tokens): upgrades color tokens to 3.1 ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v3.0.1 (Mon Jun 06 2022)
 
 #### 🐛  Bug Fix

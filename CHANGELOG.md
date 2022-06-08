@@ -1,5 +1,18 @@
 # (Wed Jun 08 2022)
 
+#### 💥  Breaking Change
+
+- `@artsy/palette-tokens@4.0.0`, `@artsy/palette@21.0.0`
+  - 3.1 updates [#1169](https://github.com/artsy/palette/pull/1169) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Jun 08 2022)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@20.1.0`

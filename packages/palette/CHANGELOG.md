@@ -1,3 +1,31 @@
+# v21.0.0 (Wed Jun 08 2022)
+
+#### 💥  Breaking Change
+
+- 3.1 updates [#1169](https://github.com/artsy/palette/pull/1169) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix: q/a updates ([@dzucconi](https://github.com/dzucconi))
+- chore: fixes deps ([@dzucconi](https://github.com/dzucconi))
+- feat(button): adds icon slot to button ([@dzucconi](https://github.com/dzucconi))
+- refactor(button): removes v2 support from button ([@dzucconi](https://github.com/dzucconi))
+- feat(pill): updates pill to 3.1 ([@dzucconi](https://github.com/dzucconi))
+- feat(avatar): upgrades avatar to 3.1 ([@dzucconi](https://github.com/dzucconi))
+- feat(label): renames badge => label; upgrades to 3.1 ([@dzucconi](https://github.com/dzucconi))
+- feat(breadcrumbs): updates breadcrumbs to 3.1 ([@dzucconi](https://github.com/dzucconi))
+- feat(radio): upgrades radio to 3.1 ([@dzucconi](https://github.com/dzucconi))
+- feat(checkbox): upgrades checkbox to 3.1 ([@dzucconi](https://github.com/dzucconi))
+- feat(button): upgrades buttons to 3.1 ([@dzucconi](https://github.com/dzucconi))
+- feat(banner): upgrades banner to 3.1 ([@dzucconi](https://github.com/dzucconi))
+- feat(message): upgrades message to 3.1 ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v20.1.0 (Wed Jun 08 2022)
 
 #### 🚀  Enhancement
