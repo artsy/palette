@@ -1,3 +1,20 @@
+# v20.1.0 (Wed Jun 08 2022)
+
+#### 🚀  Enhancement
+
+- feat: add ability to open Dropdown by click [#1180](https://github.com/artsy/palette/pull/1180) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### 🐛  Bug Fix
+
+- chore: specify `openDropdownByClick` in deps ([@dimatretyak](https://github.com/dimatretyak))
+- feat: add click mode for Dropdown ([@dimatretyak](https://github.com/dimatretyak))
+
+#### Authors: 1
+
+- Dima Tretyak (Dzmitry Tratsiak) ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # v20.0.3 (Mon Jun 06 2022)
 
 #### 🐛  Bug Fix

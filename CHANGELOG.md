@@ -1,3 +1,21 @@
+# (Wed Jun 08 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@20.1.0`
+  - feat: add ability to open Dropdown by click [#1180](https://github.com/artsy/palette/pull/1180) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### 🏠  Internal
+
+- chore(docs): Remove docs from repo -> see: github.com/artsy/palette-docs [#1177](https://github.com/artsy/palette/pull/1177) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Dima Tretyak (Dzmitry Tratsiak) ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # (Mon Jun 06 2022)
 
 #### 🐛  Bug Fix
