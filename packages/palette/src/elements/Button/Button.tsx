@@ -3,10 +3,11 @@ import React, { useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
 import { ResponsiveValue, variant } from "styled-system"
 import { CheckIcon, IconProps } from "../../svgs"
+import { TextVariant } from "../../Theme"
 import { THEME_V3 } from "../../themes"
 import { boxMixin, BoxProps } from "../Box"
 import { Spinner } from "../Spinner"
-import { Text } from "../Text"
+import { Text, TextProps } from "../Text"
 import { BUTTON_SIZES, BUTTON_TEXT_SIZES, BUTTON_VARIANTS } from "./tokens"
 import { ButtonSize, ButtonVariant } from "./types"
 
@@ -25,7 +26,7 @@ export interface ButtonProps
    */
   variant?: ResponsiveValue<ButtonVariant>
   /** Size of the button */
-  size?: ButtonSize
+  size?: ResponsiveValue<ButtonSize>
   /** Displays a loader in the button */
   loading?: boolean
   /** Forces hover state */
@@ -90,7 +91,7 @@ export const Button: React.ForwardRefExoticComponent<
 
         <Text
           lineHeight={1}
-          variant={BUTTON_TEXT_SIZES[size]}
+          variant={getTextVariant(size)}
           opacity={loading ? 0 : 1}
           display="flex"
           alignItems={alignItems}
@@ -209,3 +210,17 @@ const Container = styled.button<ContainerProps & ButtonProps>`
 
   ${boxMixin};
 `
+
+const getTextVariant = (
+  size: ResponsiveValue<ButtonSize>
+): TextProps["variant"] => {
+  if (typeof size === "string") {
+    return BUTTON_TEXT_SIZES[size]
+  }
+
+  if (Array.isArray(size)) {
+    return size.map((s) => BUTTON_TEXT_SIZES[s!] as TextVariant)
+  }
+
+  return BUTTON_TEXT_SIZES.large
+}

@@ -1,65 +1,48 @@
-import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
-import { BoxProps } from "../../../dist"
-import { Color } from "../../Theme"
-import { Box } from "../Box"
+import { ResponsiveValue, variant } from "styled-system"
+import { Box, BoxProps } from "../Box"
 
-export interface SpinnerProps extends Omit<BoxProps, "size"> {
+const SPINNER_VARIANTS = {
+  small: {
+    width: 12.5,
+    height: 3,
+    // TODO: Remove `top` and `left`
+    top: "calc(50% - 1.5px)",
+    left: "calc(50% - 6.25px)",
+  },
+
+  medium: {
+    width: 20,
+    height: 4.8,
+    // TODO: Remove `top` and `left`
+    top: "calc(50% - 2.4px)",
+    left: "calc(50% - 10px)",
+  },
+
+  large: {
+    width: 25,
+    height: 6,
+    // TODO: Remove `top` and `left`
+    top: "calc(50% - 3px)",
+    left: "calc(50% - 12.5px)",
+  },
+} as const
+
+export type SpinnerSize = keyof typeof SPINNER_VARIANTS
+
+export interface SpinnerProps
+  extends Omit<BoxProps, "size" | "width" | "height"> {
   /** Delay before spinner appears */
   delay?: number
-  /** Width of the spinner */
-  width?: number
-  /** Height of the spinner */
-  height?: number
   /** Size of the spinner */
-  size?: "small" | "medium" | "large"
+  size?: ResponsiveValue<SpinnerSize>
   /** Color of the spinner */
-  color?: Color | "currentColor"
+  color?: ResponsiveValue<string>
 }
-
-/**
- * Returns width and height of spinner based on size
- * @param props
- */
-export const getSize = (props: SpinnerProps) => {
-  const base = { width: 25, height: 6 }
-
-  switch (props.size) {
-    case "small":
-      return {
-        width: base.width * 0.5,
-        height: base.height * 0.5,
-      }
-
-    case "medium":
-      return {
-        width: base.width * 0.8,
-        height: base.height * 0.8,
-      }
-
-    case "large":
-      return {
-        width: base.width,
-        height: base.height,
-      }
-
-    default:
-      return {
-        width: props.width,
-        height: props.height,
-      }
-  }
-}
-
-const spin = keyframes`
-  100% {
-    transform: rotate(360deg)
-  }
-`
 
 /** Generic Spinner component */
-export const Spinner: React.FC<SpinnerProps> = ({ delay, ...rest }) => {
+export const Spinner: React.FC<SpinnerProps> = ({ delay, color, ...rest }) => {
   const [show, setShow] = useState(delay === 0)
 
   useEffect(() => {
@@ -72,39 +55,27 @@ export const Spinner: React.FC<SpinnerProps> = ({ delay, ...rest }) => {
     }
   }, [delay])
 
-  if (!show) {
-    return null
-  }
+  if (!show) return null
 
-  return <SpinnerBar {...rest} />
+  return <Bar bg={color ?? "currentColor"} {...rest} />
 }
 
-const SpinnerBar = styled(Box)<SpinnerProps>`
-  animation: ${spin} 1s infinite linear;
-
-  ${(props) => {
-    const { width, height } = getSize(props)
-
-    return `
-      background-color: ${
-        props.color === "currentColor"
-          ? "currentColor"
-          : themeGet(`colors.${props.color}`)(props)
-      };
-
-      width: ${width}px;
-      height: ${height}px;
-      top: calc(50% - ${height}px / 2);
-      left: calc(50% - ${width}px / 2);
-    `
-  }};
+const spin = keyframes`
+  100% {
+    transform: rotate(360deg)
+  }
 `
-// TODO: Remove default `position`, `top`, & `left` props
+
+const Bar = styled(Box)`
+  animation: ${spin} 1s infinite linear;
+  ${variant({ variants: SPINNER_VARIANTS, prop: "size" })}
+`
+
 Spinner.defaultProps = {
+  // TODO: Remove `position`
   position: "absolute",
   delay: 0,
-  width: 25,
-  height: 6,
+  size: "large",
   color: "black100",
 }
 

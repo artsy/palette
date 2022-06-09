@@ -8,7 +8,13 @@ export default {
 }
 
 export const Default = () => (
-  <States<SpinnerProps> states={[{}, { color: "brand", size: "small", m: 2 }]}>
+  <States<SpinnerProps>
+    states={[
+      {},
+      { color: "brand", size: "small", m: 2 },
+      { size: ["small", "medium", "large"] },
+    ]}
+  >
     <Spinner position="static" />
   </States>
 )
