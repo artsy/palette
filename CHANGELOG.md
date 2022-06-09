@@ -1,3 +1,16 @@
+# (Thu Jun 09 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@21.1.0`
+  - feat(button): implements responsive sizes [#1181](https://github.com/artsy/palette/pull/1181) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Jun 08 2022)
 
 #### 💥  Breaking Change
