@@ -204,3 +204,7 @@ export const WithIcon = () => {
     </States>
   )
 }
+
+export const ResponsiveSize = () => {
+  return <Button size={["small", "large"]}>Resize Viewport</Button>
+}
