@@ -11,7 +11,11 @@ export const usePortal = () => {
     document.body.appendChild(el)
 
     return () => {
-      document.body.removeChild(el)
+      try {
+        document.body.removeChild(el)
+      } catch (e) {
+        // Ignore
+      }
     }
   }, [])
 
