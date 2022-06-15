@@ -1,3 +1,16 @@
+# v21.1.1 (Wed Jun 15 2022)
+
+#### 🐛  Bug Fix
+
+- fix(useportal): guards on removal [#1183](https://github.com/artsy/palette/pull/1183) ([@dzucconi](https://github.com/dzucconi))
+- fix(useportal): guards on removal ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v21.1.0 (Thu Jun 09 2022)
 
 #### 🚀  Enhancement
