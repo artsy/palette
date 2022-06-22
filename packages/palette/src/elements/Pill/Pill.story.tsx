@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
@@ -155,5 +155,17 @@ export const PillWithIcon = () => {
         Artist Series
       </Pill>
     </States>
+  )
+}
+
+export const Demo = () => {
+  const [selected, setSelected] = useState(false)
+  return (
+    <Pill
+      selected={selected}
+      onClick={() => setSelected((prevActive) => !prevActive)}
+    >
+      Example
+    </Pill>
   )
 }
