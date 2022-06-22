@@ -1,15 +1,10 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
-import styled from "styled-components"
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
-import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box, BoxProps, splitBoxProps } from "../Box"
-import { Spacer } from "../Spacer"
 import { Text } from "../Text"
-import { INPUT_STATES as V2_INPUT_STATES } from "./tokens/v2"
-import { INPUT_STATES as V3_INPUT_STATES } from "./tokens/v3"
+import { INPUT_STATES } from "./tokens"
 
 export interface InputProps
   extends BoxProps,
@@ -17,6 +12,7 @@ export interface InputProps
       React.InputHTMLAttributes<HTMLInputElement>,
       "size" | "width" | "height" | "capture"
     > {
+  active?: boolean
   description?: string
   disabled?: boolean
   error?: string | boolean
@@ -48,52 +44,30 @@ export const Input: React.ForwardRefExoticComponent<
   ) => {
     const [boxProps, inputProps] = splitBoxProps(rest)
 
-    const tokens = useThemeConfig({
-      v2: {
-        height: height ?? 40,
-        titleVariant: "text" as TextVariant,
-        titleTextTransform: null,
-        secondaryTextVariant: "small" as TextVariant,
-      },
-      v3: {
-        height: height ?? 50,
-        titleVariant: "xs" as TextVariant,
-        titleTextTransform: "uppercase",
-        secondaryTextVariant: "xs" as TextVariant,
-      },
-    })
-
     return (
       <Box width="100%" className={className} {...boxProps}>
         {(title || description) && (
           <>
-            <div>
-              {title && (
-                <Text
-                  variant={tokens.titleVariant}
-                  textTransform={tokens.titleTextTransform as any}
-                >
-                  {title}
-                  {required && (
-                    <Box as="span" color="brand">
-                      *
-                    </Box>
-                  )}
-                </Text>
-              )}
+            {title && (
+              <Text variant="xs">
+                {title}
+                {required && (
+                  <Box as="span" color="brand">
+                    *
+                  </Box>
+                )}
+              </Text>
+            )}
 
-              {description && (
-                <Text variant={tokens.secondaryTextVariant} color="black60">
-                  {description}
-                </Text>
-              )}
-            </div>
-
-            <Spacer m={0.5} />
+            {description && (
+              <Text variant="xs" color="black60">
+                {description}
+              </Text>
+            )}
           </>
         )}
 
-        <Box position="relative">
+        <Box position="relative" mt={title || description ? 0.5 : 0}>
           <StyledInput
             ref={ref as any}
             disabled={disabled}
@@ -101,14 +75,15 @@ export const Input: React.ForwardRefExoticComponent<
             hover={hover}
             error={!!error}
             required={required}
-            height={tokens.height as any}
+            height={(height ?? 50) as any}
             {...inputProps}
           />
+
           {children}
         </Box>
 
         {error && typeof error === "string" && (
-          <Text variant={tokens.secondaryTextVariant} mt={0.5} color="red100">
+          <Text variant="xs" mt={0.5} color="red100">
             {error}
           </Text>
         )}
@@ -121,7 +96,7 @@ Input.displayName = "Input"
 
 type StyledInputProps = Pick<
   InputProps,
-  "disabled" | "error" | "hover" | "focus"
+  "disabled" | "error" | "hover" | "focus" | "active"
 >
 
 const StyledInput = styled.input<StyledInputProps>`
@@ -129,37 +104,43 @@ const StyledInput = styled.input<StyledInputProps>`
   padding: 0 ${themeGet("space.1")};
   appearance: none;
   line-height: 1;
-  border: 1px solid;
+  border: 0;
+  border-bottom: 1px solid;
   border-radius: 0;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, color 0.25s;
   font-family: ${themeGet("fonts.sans")};
   ${systemHeight};
 
-  ${(props) => {
-    const states = getThemeConfig(props, {
-      v2: V2_INPUT_STATES,
-      v3: V3_INPUT_STATES,
-    })
+  ::placeholder {
+    transition: color 0.25s;
+  }
 
+  ${(props) => {
     return css`
-      ${states.default}
-      ${props.hover && states.hover}
-      ${props.focus && states.focus}
-      ${props.disabled && states.disabled}
-      ${props.error && states.error}
+      ${INPUT_STATES.default}
+      ${props.hover && INPUT_STATES.hover}
+      ${props.focus && INPUT_STATES.focus}
+      ${props.active && INPUT_STATES.active}
+      ${props.disabled && INPUT_STATES.disabled}
+      ${props.error && INPUT_STATES.error}
 
       &:hover {
-        ${states.hover}
+        ${INPUT_STATES.hover}
       }
 
       &:focus {
         outline: none;
-        ${states.focus}
+        ${INPUT_STATES.focus}
+
+        :not(:placeholder-shown) {
+          ${INPUT_STATES.active}
+          ${props.error && INPUT_STATES.error}
+        }
       }
 
       &:disabled {
         cursor: default;
-        ${states.disabled}
+        ${INPUT_STATES.disabled}
       }
     `
   }};

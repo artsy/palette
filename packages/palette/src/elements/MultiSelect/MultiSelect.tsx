@@ -10,11 +10,11 @@ import { Box, BoxProps } from "../Box"
 import { Checkbox } from "../Checkbox"
 import { Clickable } from "../Clickable"
 import { caretMixin, Option } from "../Select"
-import { Spacer } from "../Spacer"
 import { Sup } from "../Sup"
 import { Text } from "../Text"
 
 export interface MultiSelectProps extends BoxProps {
+  complete?: boolean
   description?: string
   disabled?: boolean
   error?: string | boolean
@@ -28,6 +28,7 @@ export interface MultiSelectProps extends BoxProps {
 }
 
 export const MultiSelect: React.FC<MultiSelectProps> = ({
+  complete,
   description,
   disabled,
   error,
@@ -102,7 +103,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
       {(title || description) && (
         <>
           {title && (
-            <Text variant="xs" textTransform="uppercase">
+            <Text variant="xs">
               {title}
               {required && (
                 <Box as="span" color="brand">
@@ -117,18 +118,18 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
               {description}
             </Text>
           )}
-
-          <Spacer m={0.5} />
         </>
       )}
 
       <Container
         ref={anchorRef as any}
         onClick={onVisible}
-        disabled={disabled!}
-        error={error!}
+        complete={complete || selection.length > 0}
+        disabled={disabled}
+        error={error}
         focus={focus || visible}
-        hover={hover!}
+        hover={hover}
+        mt={title || description ? 0.5 : 0}
         {...rest}
       >
         <Text variant="sm" lineHeight={1}>
@@ -188,6 +189,10 @@ const STATES = {
     color: ${themeGet("colors.black60")};
     border-color: ${themeGet("colors.black30")};
   `,
+  complete: css`
+    color: ${themeGet("colors.black100")};
+    border-color: ${themeGet("colors.black60")};
+  `,
   focus: css`
     color: ${themeGet("colors.black100")};
     border-color: ${themeGet("colors.black60")};
@@ -198,7 +203,7 @@ const STATES = {
   `,
   disabled: css`
     color: ${themeGet("colors.black30")};
-    border-color: ${themeGet("colors.black10")};
+    border-color: ${themeGet("colors.black30")};
   `,
   error: css`
     color: ${themeGet("colors.black100")};
@@ -206,15 +211,17 @@ const STATES = {
   `,
 }
 
-type ContainerProps = Required<
-  Pick<MultiSelectProps, "disabled" | "error" | "hover" | "focus">
+type ContainerProps = Pick<
+  MultiSelectProps,
+  "complete" | "disabled" | "error" | "hover" | "focus"
 >
 
 const Container = styled(Clickable)<ContainerProps>`
   position: relative;
   width: 100%;
   height: 50px;
-  border: 1px solid;
+  border: 0;
+  border-bottom: 1px solid;
   /* 24px = space.1 + 4px-wide caret + space.1 */
   padding: 0 24px 0 ${themeGet("space.1")};
   transition: background-color 0.25s, border-color 0.25s;
@@ -222,13 +229,13 @@ const Container = styled(Clickable)<ContainerProps>`
   ${(props) => {
     return css`
       ${STATES.default}
-
+      ${props.complete && STATES.complete}
       ${props.hover && STATES.hover}
-        ${props.focus && STATES.focus}
-        ${props.disabled && STATES.disabled}
-        ${props.error && STATES.error}
+      ${props.focus && STATES.focus}
+      ${props.disabled && STATES.disabled}
+      ${props.error && STATES.error}
 
-        &:hover {
+      &:hover {
         ${STATES.hover}
       }
 

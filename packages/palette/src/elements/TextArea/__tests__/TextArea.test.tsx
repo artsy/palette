@@ -94,37 +94,37 @@ describe("TextArea", () => {
 
   it("shows a character limit label if you specify one", () => {
     const wrapper = getWrapper({ characterLimit: 300 })
-    expect(wrapper.text()).toContain("0 / 300 max")
+    expect(wrapper.text()).toContain("300 characters remaining")
   })
 
   it("shows the correct amount in the limit label if you supply a default value", () => {
     const wrapper = getWrapper({ characterLimit: 300, defaultValue: "banana" })
-    expect(wrapper.text()).toContain("6 / 300 max")
+    expect(wrapper.text()).toContain("294 characters remaining")
   })
 
   it("updates the limit label as you type", () => {
     const wrapper = getWrapper({ characterLimit: 20 })
-    expect(wrapper.text()).toContain("0 / 20 max")
+    expect(wrapper.text()).toContain("20 characters remaining")
 
     simulateTyping(wrapper, "hello")
-    expect(wrapper.text()).toContain("5 / 20 max")
+    expect(wrapper.text()).toContain("15 characters remaining")
 
     simulateTyping(wrapper, "hello there")
-    expect(wrapper.text()).toContain("11 / 20 max")
+    expect(wrapper.text()).toContain("9 characters remaining")
 
     simulateTyping(wrapper, "hello there chris")
-    expect(wrapper.text()).toContain("17 / 20 max")
+    expect(wrapper.text()).toContain("3 characters remaining")
 
     simulateTyping(wrapper, "hello there christopher")
-    expect(wrapper.text()).toContain("23 / 20 max")
+    expect(wrapper.text()).toContain("-3 characters remaining")
 
     simulateTyping(wrapper, "")
-    expect(wrapper.text()).toContain("0 / 20 max")
+    expect(wrapper.text()).toContain("20 characters remaining")
   })
 
   it("calls onChange with correct values for exceedsCharacterLimit", () => {
     const wrapper = getWrapper({ characterLimit: 20 })
-    expect(wrapper.text()).toContain("0 / 20 max")
+    expect(wrapper.text()).toContain("20 characters remaining")
 
     simulateTyping(wrapper, "hello")
     expect(onChange).toHaveBeenLastCalledWith({
