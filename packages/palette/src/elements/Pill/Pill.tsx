@@ -33,9 +33,9 @@ export type PillProps = ClickableProps & {
   focus?: boolean
   /** Forces hover state */
   hover?: boolean
-  /** Forces active state */
+  /** Forces active state. This is for working with :active; not denoting a selected state */
   active?: boolean
-  /** Forces selected state */
+  /** Forces selected state. Use this state to denote the selected state */
   selected?: boolean
   /** Optional icon slot */
   Icon?: React.FunctionComponent<IconProps>
@@ -128,9 +128,9 @@ const Container = styled(Clickable)<PillProps>`
 
     return css`
       ${states.default}
-      ${props.selected && states.selected}
       ${props.focus && states.focus}
       ${props.hover && states.hover}
+      ${props.selected && states.selected}
       ${props.active && states.active}
       ${props.disabled && states.disabled}
 
@@ -141,11 +141,12 @@ const Container = styled(Clickable)<PillProps>`
       &:focus {
         outline: 0;
         ${states.focus}
-        ${props.active && states.active}
+        ${props.selected && states.selected}
       }
 
       &:active {
         ${states.active}
+        ${props.selected && states.selected}
       }
 
       &:disabled {
