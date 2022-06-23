@@ -1,3 +1,22 @@
+# (Thu Jun 23 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@21.1.2`
+  - fix(pills): fixes hover on selected pills [#1185](https://github.com/artsy/palette/pull/1185) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette-charts@20.1.2`, `@artsy/palette@21.1.2`
+  - chore(deps): update dep typescript from 4.7.3 to v4.7.4 [#1184](https://github.com/artsy/palette/pull/1184) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Jun 15 2022)
 
 #### 🐛  Bug Fix

@@ -1,3 +1,21 @@
+# v21.1.2 (Thu Jun 23 2022)
+
+#### 🐛  Bug Fix
+
+- fix(pills): fixes hover on selected pills [#1185](https://github.com/artsy/palette/pull/1185) ([@dzucconi](https://github.com/dzucconi))
+- fix(pills): fixes hover on selected pills ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.7.3 to v4.7.4 [#1184](https://github.com/artsy/palette/pull/1184) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v21.1.1 (Wed Jun 15 2022)
 
 #### 🐛  Bug Fix

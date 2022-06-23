@@ -1,3 +1,15 @@
+# v20.1.2 (Thu Jun 23 2022)
+
+#### 🏠  Internal
+
+- chore(deps): update dep typescript from 4.7.3 to v4.7.4 [#1184](https://github.com/artsy/palette/pull/1184) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 1
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+
+---
+
 # v19.0.3 (Mon Jun 06 2022)
 
 #### 🏠  Internal
