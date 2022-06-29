@@ -1,3 +1,16 @@
+# v21.1.3 (Wed Jun 29 2022)
+
+#### 🐛  Bug Fix
+
+- fix(range): adds ability to label each slider [#1186](https://github.com/artsy/palette/pull/1186) ([@dzucconi](https://github.com/dzucconi))
+- fix(range): adds ability to label each slider ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v21.1.2 (Thu Jun 23 2022)
 
 #### 🐛  Bug Fix
