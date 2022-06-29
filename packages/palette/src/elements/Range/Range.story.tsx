@@ -18,7 +18,13 @@ export const Default = () => {
     <States<Partial<RangeProps>>
       states={[{}, { value: [1100, 3450] }, { step: 1, max: 10 }]}
     >
-      <Range min={0} max={5000} step={10} onChange={action("onChange")} />
+      <Range
+        min={0}
+        max={5000}
+        step={10}
+        onChange={action("onChange")}
+        ariaLabels={["Min price", "Max price"]}
+      />
     </States>
   )
 }

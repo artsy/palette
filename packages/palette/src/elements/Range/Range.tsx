@@ -10,6 +10,7 @@ import { Flex } from "../Flex"
 export const RANGE_HANDLE_SIZE = 24
 
 export interface RangeProps extends BoxProps {
+  ariaLabels?: [string, string]
   min: number
   max: number
   step: number
@@ -18,6 +19,7 @@ export interface RangeProps extends BoxProps {
 }
 
 export const Range: React.FC<RangeProps> = ({
+  ariaLabels,
   min,
   max,
   step,
@@ -93,6 +95,7 @@ export const Range: React.FC<RangeProps> = ({
         step={step}
         onInput={handleMinChange}
         value={values[0]}
+        aria-label={ariaLabels?.[0]}
       />
 
       <Slider
@@ -103,6 +106,7 @@ export const Range: React.FC<RangeProps> = ({
         onInput={handleMaxChange}
         value={values[1]}
         style={{ clip: maxRectangle }}
+        aria-label={ariaLabels?.[1]}
       />
 
       {/* Max slider is clipped so position a shadow independent of it */}
