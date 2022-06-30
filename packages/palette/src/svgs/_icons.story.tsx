@@ -34,6 +34,7 @@ export const _AllIcons = () => {
 
           return (
             <Column key={name} span={2}>
+              {/* @ts-ignore */}
               <IconComponent width={40} height={40} />
 
               <Separator my={1} />
