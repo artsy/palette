@@ -1,3 +1,19 @@
+# v22.0.0 (Thu Jun 30 2022)
+
+#### 💥  Breaking Change
+
+- feat: 3.1 input updates [#1182](https://github.com/artsy/palette/pull/1182) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(inputs): updates inputs to 3.1 styling ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v21.1.3 (Wed Jun 29 2022)
 
 #### 🐛  Bug Fix
