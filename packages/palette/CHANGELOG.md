@@ -1,3 +1,16 @@
+# v22.0.2 (Thu Jun 30 2022)
+
+#### 🐛  Bug Fix
+
+- fix(toggle): deprecates toggle [#1189](https://github.com/artsy/palette/pull/1189) ([@dzucconi](https://github.com/dzucconi))
+- fix(toggle): deprecates toggle ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v22.0.1 (Thu Jun 30 2022)
 
 #### 🐛  Bug Fix

@@ -2,6 +2,20 @@
 
 #### 🐛  Bug Fix
 
+- fix: force release [#1188](https://github.com/artsy/palette/pull/1188) ([@dzucconi](https://github.com/dzucconi))
+- `@artsy/palette@22.0.2`
+  - fix(toggle): deprecates toggle [#1189](https://github.com/artsy/palette/pull/1189) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Jun 30 2022)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@22.0.1`
   - fix(icons): removes hover functionality from wechat icon [#1187](https://github.com/artsy/palette/pull/1187) ([@dzucconi](https://github.com/dzucconi))
 
