@@ -1,7 +1,7 @@
 {
   "name": "@artsy/palette-charts",
   "sideEffects": false,
-  "version": "20.1.3",
+  "version": "21.0.0",
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
@@ -115,7 +115,7 @@
     "typescript-styled-plugin": "0.10.0"
   },
   "dependencies": {
-    "@artsy/palette": "^21.1.3",
+    "@artsy/palette": "^22.0.0",
     "@seznam/compose-react-refs": "^1.0.6",
     "@styled-system/theme-get": "^5.1.2",
     "d3-interpolate": "^1.3.2",
