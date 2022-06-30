@@ -1,26 +1,30 @@
 import { themeGet } from "@styled-system/theme-get"
 import { css } from "styled-components"
-import { State } from "./types"
 
-export const TEXTAREA_STATES: Record<State, any> = {
+export const SELECT_STATES = {
   default: css`
-    min-height: ${themeGet("space.12")};
+    height: 50px;
     font-size: ${themeGet("textVariants.sm.fontSize")};
-    line-height: ${themeGet("textVariants.sm.lineHeight")};
     color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black30")};
+    border-color: ${themeGet("colors.black60")};
   `,
   focus: css`
+    color: ${themeGet("colors.blue100")};
     border-color: ${themeGet("colors.black60")};
+    text-decoration: underline;
   `,
   hover: css`
+    color: ${themeGet("colors.blue100")};
     border-color: ${themeGet("colors.black60")};
+    text-decoration: underline;
   `,
   disabled: css`
-    color: ${themeGet("colors.black60")};
-    border-color: ${themeGet("colors.black10")};
+    color: ${themeGet("colors.black30")};
+    border-color: ${themeGet("colors.black30")};
+    text-decoration: none;
   `,
   error: css`
+    color: ${themeGet("colors.black100")};
     border-color: ${themeGet("colors.red100")};
   `,
 }

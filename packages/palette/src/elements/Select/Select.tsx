@@ -1,15 +1,11 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled, { css } from "styled-components"
-import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Flex } from "../Flex"
-import { Spacer } from "../Spacer"
 import { Text } from "../Text"
-import { Variant } from "./tokens/types"
-import { SELECT_VARIANTS as V2_SELECT_VARIANTS } from "./tokens/v2"
-import { SELECT_VARIANTS as V3_SELECT_VARIANTS } from "./tokens/v3"
+import { Variant } from "./types"
+import { SELECT_STATES } from "./tokens"
 
 export interface Option {
   value: string
@@ -52,19 +48,6 @@ export const Select: React.FC<SelectProps> = ({
 }) => {
   const [boxProps, selectProps] = splitBoxProps(rest)
 
-  const tokens = useThemeConfig({
-    v2: {
-      titleVariant: (variant === "default" ? "text" : "small") as TextVariant,
-      titleTextTransform: null,
-      secondaryTextVariant: "small" as TextVariant,
-    },
-    v3: {
-      titleVariant: "xs" as TextVariant,
-      titleTextTransform: "uppercase",
-      secondaryTextVariant: "xs" as TextVariant,
-    },
-  })
-
   return (
     <Box width="100%" {...boxProps}>
       <Flex
@@ -83,13 +66,12 @@ export const Select: React.FC<SelectProps> = ({
         <div>
           {title && (
             <Text
-              variant={tokens.titleVariant}
+              variant="xs"
               lineHeight={
                 variant === "inline" && description === undefined
                   ? 1
                   : undefined
               }
-              style={{ textTransform: tokens.titleTextTransform as any }}
             >
               {title}
               {required && (
@@ -101,20 +83,19 @@ export const Select: React.FC<SelectProps> = ({
           )}
 
           {description && (
-            <Text variant={tokens.secondaryTextVariant} color="black60">
+            <Text variant="xs" color="black60">
               {description}
             </Text>
           )}
         </div>
 
-        {(title || description) && <Spacer m={0.5} />}
-
         <Container
           variant={variant}
-          disabled={disabled!}
-          hover={hover!}
+          disabled={!!disabled}
+          hover={!!hover}
           error={error!}
-          focus={focus!}
+          focus={!!focus}
+          mt={title || description ? 0.5 : 0}
         >
           <select
             id={id}
@@ -138,7 +119,7 @@ export const Select: React.FC<SelectProps> = ({
       </Flex>
 
       {error && typeof error === "string" && (
-        <Text variant={tokens.secondaryTextVariant} mt={0.5} color="red100">
+        <Text variant="xs" mt={0.5} color="red100">
           {error}
         </Text>
       )}
@@ -192,7 +173,7 @@ type ContainerProps = Required<
   Pick<SelectProps, "variant" | "disabled" | "error" | "hover" | "focus">
 >
 
-const Container = styled.div<ContainerProps>`
+const Container = styled(Box)<ContainerProps>`
   position: relative;
   width: 100%;
 
@@ -202,38 +183,32 @@ const Container = styled.div<ContainerProps>`
     /* 24px = space.1 + 4px-wide caret + space.1 */
     padding: 0 24px 0 ${themeGet("space.1")};
     font-family: ${themeGet("fonts.sans")};
-    border: 1px solid;
+    border: 0;
+    border-bottom: 1px solid;
     cursor: pointer;
     line-height: 1;
     transition: color 0.25s, background-color 0.25s, border-color 0.25s;
 
     ${(props) => {
-      const variants = getThemeConfig(props, {
-        v2: V2_SELECT_VARIANTS,
-        v3: V3_SELECT_VARIANTS,
-      })
-
-      const states = variants[props.variant]
-
       return css`
-        ${states.default}
+        ${SELECT_STATES.default}
 
-        ${props.hover && states.hover}
-        ${props.focus && states.focus}
-        ${props.disabled && states.disabled}
-        ${props.error && states.error}
+        ${props.hover && SELECT_STATES.hover}
+        ${props.focus && SELECT_STATES.focus}
+        ${props.disabled && SELECT_STATES.disabled}
+        ${props.error && SELECT_STATES.error}
 
         &:hover {
-          ${states.hover}
+          ${SELECT_STATES.hover}
         }
 
         &:focus {
-          ${states.focus}
+          ${SELECT_STATES.focus}
         }
 
         &:disabled {
           cursor: default;
-          ${states.disabled}
+          ${SELECT_STATES.disabled}
         }
       `
     }};
@@ -241,19 +216,3 @@ const Container = styled.div<ContainerProps>`
 
   ${caretMixin}
 `
-
-/**
- * Default variant of Select. In v2 contexts this is the larger select.
- * @deprecated Use` <Select />`
- */
-export const LargeSelect: React.FC<Omit<SelectProps, "variant">> = (props) => {
-  return <Select variant="default" {...props} />
-}
-
-/**
- * Inline variant of Select. In v2 contexts this is the smaller select.
- * @deprecated Use `<Select variant="inline">`
- */
-export const SelectSmall: React.FC<Omit<SelectProps, "variant">> = (props) => {
-  return <Select variant="inline" {...props} />
-}

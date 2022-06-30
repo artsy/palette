@@ -22,6 +22,7 @@ export const Default = () => {
         {},
         { focus: true },
         { hover: true },
+        { complete: true },
         { error: "Something went wrong." },
         { disabled: true },
         { title: "Medium", name: "Select" },

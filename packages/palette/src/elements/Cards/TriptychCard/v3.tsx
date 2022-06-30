@@ -148,11 +148,7 @@ export const TriptychCard: React.FC<TriptychCardProps> = ({
         </Flex>
       </ResponsiveBox>
 
-      {status && (
-        <Text variant="xs" textTransform="uppercase">
-          {status}
-        </Text>
-      )}
+      {status && <Text variant="xs">{status}</Text>}
 
       <Text variant="sm-display">{title}</Text>
 
