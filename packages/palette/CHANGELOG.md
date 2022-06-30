@@ -1,3 +1,16 @@
+# v22.0.1 (Thu Jun 30 2022)
+
+#### 🐛  Bug Fix
+
+- fix(icons): removes hover functionality from wechat icon [#1187](https://github.com/artsy/palette/pull/1187) ([@dzucconi](https://github.com/dzucconi))
+- fix(icons): removes hover functionality from wechat icon ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v22.0.0 (Thu Jun 30 2022)
 
 #### 💥  Breaking Change
