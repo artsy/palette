@@ -6,6 +6,9 @@ import { Clickable } from "../Clickable"
 import { Flex, FlexProps } from "../Flex"
 import { Sans } from "../Typography"
 
+/**
+ * @deprecated Use `Expandable` instead.
+ */
 export interface ToggleProps extends FlexProps {
   chevronSize?: number
   disabled?: boolean
