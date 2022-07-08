@@ -3,6 +3,7 @@ import * as React from "react"
 import { useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import { FLAT_SHADOW } from "../../helpers"
+import { useUpdateEffect } from "../../utils"
 import { remapValue } from "../../utils/remapValue"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
@@ -67,6 +68,11 @@ export const Range: React.FC<RangeProps> = ({
       window.removeEventListener("resize", handleResize)
     }
   }, [])
+
+   // Sync local state with value prop
+   useUpdateEffect(() => {
+    setValues(value)
+  }, [...value])
 
   const selectionRectangle = `rect(0, ${remapValue(
     values[1],
