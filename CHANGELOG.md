@@ -1,3 +1,16 @@
+# (Fri Jul 08 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@22.0.3`
+  - chore: sync local state with `value` prop for `Range` component [#1192](https://github.com/artsy/palette/pull/1192) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### Authors: 1
+
+- Dima Tretyak (Dzmitry Tratsiak) ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # (Thu Jun 30 2022)
 
 #### 🐛  Bug Fix
