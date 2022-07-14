@@ -1,8 +1,6 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import { CheckIcon } from "../../svgs/CheckIcon"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
-import { useThemeConfig } from "../../Theme"
 import { BaseTab, BaseTabs } from "../BaseTabs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
@@ -22,30 +20,8 @@ export const Stepper: React.FC<StepperProps> = ({
   disableNavigation,
   initialTabIndex = 0,
   children,
-  fill,
   ...rest
 }) => {
-  const tokens = useThemeConfig({
-    v2: {
-      fill,
-      joinSeparator: <ChevronIcon fill="black30" width={12} mx={2} />,
-      inlineSeparator: null,
-      verticalAlignment: "center",
-      horizontalAlignment: "center",
-      checkAlignment: "left",
-      textVariant: "mediumText" as TextVariant,
-    },
-    v3: {
-      fill: true,
-      joinSeparator: null,
-      inlineSeparator: <ChevronIcon fill="black60" height={10} ml={1} />,
-      verticalAlignment: "center",
-      horizontalAlignment: "flex-start",
-      checkAlignment: "right",
-      textVariant: "sm" as TextVariant,
-    },
-  })
-
   const { tabs, activeTab, activeTabIndex, handleClick, ref } = useTabs({
     children,
     initialTabIndex,
@@ -53,12 +29,7 @@ export const Stepper: React.FC<StepperProps> = ({
 
   return (
     <>
-      <BaseTabs
-        ref={ref}
-        separator={tokens.joinSeparator!}
-        fill={tokens.fill}
-        {...rest}
-      >
+      <BaseTabs ref={ref} fill {...rest}>
         {tabs.map((tab, i) => {
           return (
             <BaseTab
@@ -69,35 +40,21 @@ export const Stepper: React.FC<StepperProps> = ({
               disabled={disableNavigation || i > currentStepIndex}
               onClick={handleClick(i)}
               active={i === activeTabIndex}
-              variant={tokens.textVariant}
-              justifyContent={tokens.horizontalAlignment}
+              variant="sm"
+              justifyContent="flex-start"
             >
-              <Flex
-                alignItems={tokens.verticalAlignment}
-                justifyContent="space-between"
-                flex={1}
-              >
-                <Flex alignItems={tokens.verticalAlignment}>
-                  {currentStepIndex > i && tokens.checkAlignment === "left" && (
-                    <CheckIcon fill="green100" mr={1} />
-                  )}
-
+              <Flex alignItems="center" justifyContent="space-between" flex={1}>
+                <Flex alignItems="center">
                   <Box color={i > currentStepIndex ? "black30" : undefined}>
                     {tab.child.props.name}
                   </Box>
 
-                  {currentStepIndex > i &&
-                    tokens.checkAlignment === "right" && (
-                      <CheckIcon
-                        width={16}
-                        height={16}
-                        fill="green100"
-                        ml={1}
-                      />
-                    )}
+                  {currentStepIndex > i && (
+                    <CheckIcon width={16} height={16} fill="green100" ml={1} />
+                  )}
                 </Flex>
 
-                {tokens.inlineSeparator}
+                <ChevronIcon fill="black60" height={10} ml={1} />
               </Flex>
             </BaseTab>
           )
