@@ -1,8 +1,6 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
-import { useThemeConfig } from "../../Theme"
 import { Flex, FlexProps } from "../Flex"
 import { Text } from "../Text"
 
@@ -58,16 +56,15 @@ export const Message: React.FC<MessageProps> = ({
   variant,
   ...rest
 }) => {
-  const size: TextVariant = useThemeConfig({ v2: "text", v3: "sm-display" })
   const color = variant === "default" ? "black60" : "black100"
 
   return (
     <Container p={2} variant={variant} {...rest}>
-      <Text variant={size} color="currentColor">
+      <Text variant="sm-display" color="currentColor">
         {title}
       </Text>
 
-      <Text variant={size} color={color}>
+      <Text variant="sm-display" color={color}>
         {children}
       </Text>
     </Container>
