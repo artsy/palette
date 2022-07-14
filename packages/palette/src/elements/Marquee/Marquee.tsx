@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import styled, { keyframes } from "styled-components"
 import { variant } from "styled-system"
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
-import { useThemeConfig } from "../../Theme"
 import { Flex } from "../Flex"
 import { Box, BoxProps } from "../Box"
 import { Text } from "../Text"
@@ -67,7 +65,6 @@ export const Marquee: React.FC<MarqueeProps> = ({
   color,
   ...rest
 }) => {
-  const size: TextVariant = useThemeConfig({ v2: "small", v3: "xs" })
   const containerEl = useRef<HTMLDivElement | null>(null)
   const childEl = useRef<HTMLDivElement | null>(null)
 
@@ -92,11 +89,11 @@ export const Marquee: React.FC<MarqueeProps> = ({
         {Array.from(Array(amount)).map((_, i) => (
           <Item key={i} ref={childEl as any}>
             <Flex>
-              <StyledText px={[2, 4]} py={0.5} variant={size}>
+              <StyledText px={[2, 4]} py={0.5} variant="xs">
                 {marqueeText}
               </StyledText>
               {divider && (
-                <StyledText px={[1, 4]} py={0.5} variant={size}>
+                <StyledText px={[1, 4]} py={0.5} variant="xs">
                   •
                 </StyledText>
               )}
