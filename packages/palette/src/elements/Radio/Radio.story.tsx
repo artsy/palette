@@ -25,7 +25,7 @@ export const Default = () => {
         { label: "A label", children: "This is my description" },
         {
           label: (
-            <Text variant="small" color="blue100">
+            <Text variant="xs" color="blue100">
               Small Custom Label
             </Text>
           ),
