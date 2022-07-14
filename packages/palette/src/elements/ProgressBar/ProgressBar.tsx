@@ -1,5 +1,4 @@
 import React from "react"
-import { useThemeConfig } from "../../Theme"
 import { Color } from "../../themes/types"
 import { Box, BoxProps } from "../Box"
 
@@ -18,8 +17,6 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   transition = "transform 1s ease",
   ...rest
 }) => {
-  const bgColor = useThemeConfig({ v2: "black10", v3: "black30" })
-
   return (
     <Box
       tabIndex={0}
@@ -32,7 +29,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
       overflow="hidden"
       mt={0.5}
       mb={1}
-      bg={showBackground ? bgColor : "transparent"}
+      bg={showBackground ? "black30" : "transparent"}
       {...rest}
     >
       <Box
