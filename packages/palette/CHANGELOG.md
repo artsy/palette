@@ -1,3 +1,19 @@
+# v22.1.0 (Thu Jul 14 2022)
+
+#### 🚀  Enhancement
+
+- feat(banner): exports variants; ensures text stays centered when dismissible [#1193](https://github.com/artsy/palette/pull/1193) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(banner): exports variants; ensures text stays centered when dismissable ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v22.0.3 (Fri Jul 08 2022)
 
 #### 🐛  Bug Fix
