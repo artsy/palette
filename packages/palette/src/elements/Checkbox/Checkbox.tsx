@@ -1,20 +1,11 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import styled, { css } from "styled-components"
 import { isText } from "../../helpers/isText"
-import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Check } from "./Check"
-import {
-  CHECK_STATES as V2_CHECK_STATES,
-  CHECKBOX_STATES as V2_CHECKBOX_STATES,
-} from "./tokens/v2"
-import {
-  CHECK_STATES as V3_CHECK_STATES,
-  CHECKBOX_STATES as V3_CHECKBOX_STATES,
-} from "./tokens/v3"
+import { CHECK_STATES, CHECKBOX_STATES } from "./tokens"
 
 export interface CheckboxProps
   extends BoxProps,
@@ -45,17 +36,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   onClick,
   ...rest
 }) => {
-  const tokens = useThemeConfig({
-    v2: {
-      verticalMargin: 0.5,
-      variant: "text" as TextVariant,
-    },
-    v3: {
-      verticalMargin: 0,
-      variant: "sm-display" as TextVariant,
-    },
-  })
-
   const isSelectable = !disabled && onSelect !== undefined
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -77,7 +57,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <Container
-      my={tokens.verticalMargin}
       display="flex"
       alignItems="center"
       onClick={handleClick}
@@ -102,7 +81,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
       <Flex alignItems="center" flex={1}>
         {isText(children) ? (
-          <Text variant={tokens.variant} lineHeight={1}>
+          <Text variant="sm-display" lineHeight={1}>
             {children}
           </Text>
         ) : (
@@ -123,45 +102,40 @@ const Container = styled(Box)<{
   user-select: none;
 
   ${(props) => {
-    const states = getThemeConfig(props, {
-      v2: { checkbox: V2_CHECKBOX_STATES, check: V2_CHECK_STATES },
-      v3: { checkbox: V3_CHECKBOX_STATES, check: V3_CHECK_STATES },
-    })
-
     return css`
-      ${props.selected ? states.checkbox.selected : states.checkbox.default}
-      ${props.focus && states.checkbox.focus}
-      ${props.hover && states.checkbox.hover}
-      ${props.disabled && states.checkbox.disabled}
-      ${props.error && states.checkbox.error}
+      ${props.selected ? CHECKBOX_STATES.selected : CHECKBOX_STATES.default}
+      ${props.focus && CHECKBOX_STATES.focus}
+      ${props.hover && CHECKBOX_STATES.hover}
+      ${props.disabled && CHECKBOX_STATES.disabled}
+      ${props.error && CHECKBOX_STATES.error}
 
       &:hover {
         ${!props.error &&
         css`
-          ${states.checkbox.hover}
+          ${CHECKBOX_STATES.hover}
 
           // Check
           > div:first-of-type {
             ${props.selected
-              ? states.check.hover.selected
-              : states.check.hover.resting}
+              ? CHECK_STATES.hover.selected
+              : CHECK_STATES.hover.resting}
           }
         `}
       }
 
       &:focus {
-        ${states.checkbox.focus}
+        ${CHECKBOX_STATES.focus}
 
         // Check
          > div:first-of-type {
           ${props.selected
-            ? states.check.focus.selected
-            : states.check.focus.resting}
+            ? CHECK_STATES.focus.selected
+            : CHECK_STATES.focus.resting}
         }
       }
 
       &:disabled {
-        ${states.checkbox.disabled}
+        ${CHECKBOX_STATES.disabled}
       }
     `
   }}
