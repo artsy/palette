@@ -1,10 +1,28 @@
 import React from "react"
-import { ResponsiveBox } from "../../ResponsiveBox"
-import { Box } from "../../Box"
-import { Flex } from "../../Flex"
-import { Image, ImageProps } from "../../Image"
-import { Text } from "../../Text"
-import { TriptychCardProps, isArrayOfStrings } from "./TriptychCard"
+import { Image, ImageProps } from "../Image"
+import { Box, BoxProps } from "../Box"
+import { ResponsiveBox } from "../ResponsiveBox"
+import { Flex } from "../Flex"
+import { Text } from "../Text"
+
+type Images = ImageProps[] | string[]
+
+export interface TriptychCardProps extends BoxProps {
+  /** 1, 2, or 3 images */
+  images: Images
+  title?: string | null
+  subtitle?: string | null
+  status?: string | null
+}
+
+export const isArrayOfStrings = (images: Images): images is string[] =>
+  [...images].every((src) => typeof src === "string")
+
+/**
+ * `TriptychCard` is a card with a layout one square image on the left,
+ * one tall or two square images on the right, and text for title and subtitle
+ * at the bottom.
+ */
 
 export const TriptychCard: React.FC<TriptychCardProps> = ({
   images,
