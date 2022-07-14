@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
-import { useThemeConfig } from "../../Theme"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
 import { VisuallyHidden } from "../VisuallyHidden"
@@ -38,8 +37,6 @@ export const ProgressDots: React.FC<ProgressDotsProps> = ({
   onClick,
   ...rest
 }) => {
-  const bgColor = useThemeConfig({ v2: "black10", v3: "black30" })
-
   return (
     <>
       <Box
@@ -55,7 +52,7 @@ export const ProgressDots: React.FC<ProgressDotsProps> = ({
             <Indicator
               key={i}
               variant={indicatorVariant}
-              bg={i === activeIndex ? "black100" : bgColor}
+              bg={i === activeIndex ? "black100" : "black30"}
               mx={0.5}
             />
           )
