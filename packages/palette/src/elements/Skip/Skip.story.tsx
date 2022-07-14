@@ -9,9 +9,9 @@ export default {
 export const SkipButton = () => {
   return (
     <>
-      <Text variant="text">Press &lt;tab&gt; to focus</Text>
+      <Text variant="sm">Press &lt;tab&gt; to focus</Text>
       <Skip>Skip to main content</Skip>
-      <Text variant="text">
+      <Text variant="sm">
         It should not interfere with the normal flow of content
       </Text>
     </>
@@ -25,11 +25,11 @@ SkipButton.story = {
 export const SkipButtonWithSpacing = () => {
   return (
     <>
-      <Text variant="text">Press &lt;tab&gt; to focus</Text>
+      <Text variant="sm">Press &lt;tab&gt; to focus</Text>
       <Skip width="100%" my={1}>
         Skip to main content
       </Skip>
-      <Text variant="text">
+      <Text variant="sm">
         It should not interfere with the normal flow of content
       </Text>
     </>
@@ -43,11 +43,11 @@ SkipButtonWithSpacing.story = {
 export const SkipLink = () => {
   return (
     <>
-      <Text variant="text">Press &lt;tab&gt; to focus</Text>
+      <Text variant="sm">Press &lt;tab&gt; to focus</Text>
       <Skip width="100%" my={1} as="a" href="#main">
         Skip to main content
       </Skip>
-      <Text variant="text">
+      <Text variant="sm">
         It should not interfere with the normal flow of content
       </Text>
     </>

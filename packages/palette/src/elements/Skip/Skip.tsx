@@ -39,10 +39,12 @@ export const Skip = React.forwardRef(
         bg="black10"
         {...rest}
       >
-        <Text p={1} variant="text">
+        <Text p={1} variant="sm">
           {children}
         </Text>
       </Container>
     )
   }
 )
+
+Skip.displayName = "Skip"
