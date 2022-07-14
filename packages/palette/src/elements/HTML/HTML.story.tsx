@@ -42,19 +42,11 @@ export const Html = () => {
     <>
       <HTML
         style={{ border: "1px dotted" }}
-        variant="title"
+        variant="lg-display"
         html={HTML_EXAMPLE}
       />
-      <HTML
-        style={{ border: "1px dotted" }}
-        variant="text"
-        html={HTML_EXAMPLE}
-      />
-      <HTML
-        style={{ border: "1px dotted" }}
-        variant="small"
-        html={HTML_EXAMPLE}
-      />
+      <HTML style={{ border: "1px dotted" }} variant="sm" html={HTML_EXAMPLE} />
+      <HTML style={{ border: "1px dotted" }} variant="xs" html={HTML_EXAMPLE} />
     </>
   )
 }

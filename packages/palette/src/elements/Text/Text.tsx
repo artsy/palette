@@ -1,7 +1,7 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
-import { TEXT_VARIANTS as V2_TEXT_VARIANTS } from "@artsy/palette-tokens/dist/typography/v2"
-import { TEXT_VARIANTS as V3_TEXT_VARIANTS } from "@artsy/palette-tokens/dist/typography/v3"
-import { themeGet } from "@styled-system/theme-get"
+import {
+  TEXT_VARIANTS,
+  TextVariant,
+} from "@artsy/palette-tokens/dist/typography/v3"
 import styled, { css } from "styled-components"
 import {
   color,
@@ -14,7 +14,7 @@ import {
   TypographyProps,
   variant,
 } from "styled-system"
-import { Color, getThemeConfig } from "../../Theme"
+import { Color } from "../../Theme"
 import { Box, BoxProps } from "../Box"
 
 /** BaseTextProps */
@@ -76,23 +76,8 @@ export type TextProps = BaseTextProps &
 /** Text */
 export const Text = styled(Box)<TextProps>`
   && {
-    ${(props) => {
-      return getThemeConfig(props, {
-        v2: css`
-          ${variant({ variants: V2_TEXT_VARIANTS.small })}
-          ${textMixin}
-
-        @media (min-width: ${themeGet("breakpoints.0")}) {
-            ${variant({ variants: V2_TEXT_VARIANTS.large })}
-            ${textMixin}
-          }
-        `,
-        v3: css`
-          ${variant({ variants: V3_TEXT_VARIANTS })}
-          ${textMixin}
-        `,
-      })
-    }}
+    ${variant({ variants: TEXT_VARIANTS })}
+    ${textMixin}
 
     ${(props) => {
       return css`
