@@ -1,4 +1,3 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React, {
   createRef,
   useCallback,
@@ -8,7 +7,6 @@ import React, {
   useState,
 } from "react"
 import { flattenChildren } from "../../helpers/flattenChildren"
-import { useThemeConfig } from "../../Theme"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { BaseTabs, BaseTabsProps } from "../BaseTabs"
 import { BaseTab } from "../BaseTabs"
@@ -115,11 +113,6 @@ export const Tabs: React.FC<TabsProps> = ({
   onChange,
   ...rest
 }) => {
-  const textVariant: TextVariant = useThemeConfig({
-    v2: "mediumText",
-    v3: "sm",
-  })
-
   const { tabs, activeTab, activeTabIndex, handleClick, ref } = useTabs({
     children,
     initialTabIndex,
@@ -138,7 +131,7 @@ export const Tabs: React.FC<TabsProps> = ({
               onClick={handleClick(i)}
               flex={1}
             >
-              <BaseTab active={i === activeTabIndex} variant={textVariant}>
+              <BaseTab active={i === activeTabIndex} variant="sm">
                 <span>{tab.child.props.name}</span>
               </BaseTab>
             </Clickable>
