@@ -1,15 +1,15 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React, { useState } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
 import { CloseIcon } from "../../svgs/CloseIcon"
-import { useThemeConfig } from "../../Theme"
 import { Clickable } from "../Clickable"
 import { Flex, FlexProps } from "../Flex"
 import { Text } from "../Text"
 
+export type BannerVariant = keyof typeof BANNER_VARIANTS
+
 export interface BannerProps extends FlexProps {
-  variant?: keyof typeof VARIANTS
+  variant?: BannerVariant
   dismissable?: boolean
 }
 
@@ -19,8 +19,6 @@ export const Banner: React.FC<BannerProps> = ({
   children,
   ...rest
 }) => {
-  const size: TextVariant = useThemeConfig({ v2: "small", v3: "xs" })
-
   const [dismissed, setDismissed] = useState(false)
 
   const handleClick = () => {
@@ -30,9 +28,9 @@ export const Banner: React.FC<BannerProps> = ({
   if (dismissed) return null
 
   return (
-    <Container p={1} {...rest}>
+    <Container position="relative" py={1} px={4} {...rest}>
       <Text
-        variant={size}
+        variant="xs"
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -44,7 +42,11 @@ export const Banner: React.FC<BannerProps> = ({
 
       {dismissable && (
         <Clickable
-          pl={1}
+          position="absolute"
+          top={0}
+          right={0}
+          bottom={0}
+          p={1}
           display="flex"
           alignItems="center"
           color="currentColor"
@@ -61,7 +63,7 @@ Banner.defaultProps = {
   variant: "defaultLight",
 }
 
-const VARIANTS = {
+export const BANNER_VARIANTS = {
   defaultLight: {
     backgroundColor: "black10",
     color: "black100",
@@ -85,5 +87,5 @@ const VARIANTS = {
 }
 
 const Container = styled(Flex)`
-  ${variant({ variants: VARIANTS })}
+  ${variant({ variants: BANNER_VARIANTS })}
 `
