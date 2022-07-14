@@ -1,7 +1,5 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React from "react"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
-import { useThemeConfig } from "../../Theme"
 import { Flex, FlexProps } from "../Flex"
 import { Link, LinkProps } from "../Link"
 import { Text } from "../Text"
@@ -37,27 +35,6 @@ export const Pagination: React.FC<PaginationProps> = ({
   pageCursors: { around, first, last, previous },
   ...rest
 }) => {
-  const tokens = useThemeConfig({
-    v2: {
-      order: { pages: 1, prev: 2, next: 3 },
-      textVariant: "mediumText" as TextVariant,
-      containerProps: {
-        flexDirection: "row",
-        justifyContent: "flex-end",
-        mr: -1,
-      } as FlexProps,
-      pagesProps: { pr: 4 },
-      ellipsisProps: { color: "black30" },
-    },
-    v3: {
-      order: { prev: 1, pages: 2, next: 3 },
-      textVariant: "sm" as TextVariant,
-      containerProps: { justifyContent: "space-between" },
-      pagesProps: {},
-      ellipsisProps: { color: "black60" },
-    },
-  })
-
   const handlePrevClick = (event: React.MouseEvent) => {
     if (previous) {
       onClick && onClick(previous.cursor, previous.page, event)
@@ -75,17 +52,36 @@ export const Pagination: React.FC<PaginationProps> = ({
       as="nav"
       aria-label="Pagination"
       display="flex"
-      variant={tokens.textVariant}
+      variant="sm"
       lineHeight={1}
       alignItems="center"
-      {...tokens.containerProps}
+      justifyContent="space-between"
       {...rest}
     >
-      <Flex order={tokens.order.pages} {...tokens.pagesProps}>
+      <NextPrevButton
+        data-testid="prev"
+        aria-label="Previous"
+        getHref={getHref}
+        onClick={handlePrevClick}
+        page={previous?.page}
+        disabled={!previous}
+        pr={0.5}
+      >
+        <ChevronIcon
+          pr={0.5}
+          direction="left"
+          height={12}
+          fill={"currentColor" as any}
+        />
+
+        <span>Prev</span>
+      </NextPrevButton>
+
+      <Flex>
         {first && (
           <>
             <Page onClick={onClick} pageCursor={first} getHref={getHref} />
-            <Flex alignItems="center" p={0.5} {...tokens.ellipsisProps}>
+            <Flex alignItems="center" p={0.5} color="black60">
               …
             </Flex>
           </>
@@ -104,37 +100,17 @@ export const Pagination: React.FC<PaginationProps> = ({
 
         {last && (
           <>
-            <Flex alignItems="center" p={0.5} {...tokens.ellipsisProps}>
+            <Flex alignItems="center" p={0.5} color="black60">
               …
             </Flex>
+
             <Page onClick={onClick} pageCursor={last} getHref={getHref} />
           </>
         )}
       </Flex>
 
       <NextPrevButton
-        data-testid="prev"
-        aria-label="Previous"
-        order={tokens.order.prev}
-        getHref={getHref}
-        onClick={handlePrevClick}
-        page={previous?.page}
-        disabled={!previous}
-        pr={0.5}
-      >
-        <ChevronIcon
-          pr={0.5}
-          direction="left"
-          height={12}
-          fill={"currentColor" as any}
-        />
-
-        <span>Prev</span>
-      </NextPrevButton>
-
-      <NextPrevButton
         data-testid="next"
-        order={tokens.order.next}
         getHref={getHref}
         onClick={handleNextClick}
         page={nextPage}
@@ -166,21 +142,6 @@ const Page: React.FC<PageProps> = ({
   pageCursor: { cursor, isCurrent, page },
   ...rest
 }) => {
-  const tokens = useThemeConfig({
-    v2: {
-      states: {
-        inactive: { bg: "transparent" },
-        active: { bg: "black5" },
-      },
-    },
-    v3: {
-      states: {
-        inactive: { color: "black60" },
-        active: { color: "black100" },
-      },
-    },
-  })
-
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
@@ -199,8 +160,8 @@ const Page: React.FC<PageProps> = ({
       alignItems="center"
       p={0.5}
       {...(isCurrent
-        ? { ...tokens.states.active, "aria-current": "page" }
-        : tokens.states.inactive)}
+        ? { color: "black100", "aria-current": "page" }
+        : { color: "black60" })}
       {...rest}
     >
       {page}
@@ -265,9 +226,3 @@ const NextPrevButton: React.FC<NextPrevButtonProps> = ({
     </Link>
   )
 }
-
-/**
- * Alias of Pagination
- * @deprecated Use `Pagination`
- */
-export const LargePagination = Pagination
