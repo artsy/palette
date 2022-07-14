@@ -2,7 +2,6 @@ import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
 import { BaseTab, BaseTabs } from "."
-import { ChevronIcon } from "../../svgs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
 import { BaseTabProps } from "./BaseTab"
@@ -32,12 +31,7 @@ export const _BaseTab = () => {
 export const Default = () => {
   return (
     <States<Partial<BaseTabsProps>>
-      states={[
-        {},
-        { fill: true },
-        { separator: <ChevronIcon mx={2} fill="black30" width="12px" /> },
-        { justifyContent: "center" },
-      ]}
+      states={[{}, { fill: true }, { justifyContent: "center" }]}
     >
       <BaseTabs>
         <BaseTab>First</BaseTab>
