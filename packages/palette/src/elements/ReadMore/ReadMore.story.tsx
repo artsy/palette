@@ -128,7 +128,7 @@ WithCustomizableTypography.story = {
 
 export const WithCustomizableTypography2 = () => {
   return (
-    <HTML variant="largeTitle">
+    <HTML variant="lg">
       <ReadMore
         maxChars={300}
         content={`<p>
