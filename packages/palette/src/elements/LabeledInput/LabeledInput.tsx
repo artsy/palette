@@ -1,7 +1,5 @@
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
 import React, { useEffect, useRef, useState } from "react"
 import { isText as _isText } from "../../helpers/isText"
-import { useThemeConfig } from "../../Theme"
 import { Box, splitBoxProps } from "../Box"
 import { Input, InputProps } from "../Input"
 import { Text } from "../Text"
@@ -23,8 +21,6 @@ export const LabeledInput: React.ForwardRefExoticComponent<
   }, [])
 
   const [boxProps, inputProps] = splitBoxProps(rest)
-
-  const variant: TextVariant = useThemeConfig({ v2: "small", v3: "xs" })
 
   const isText = _isText(label)
 
@@ -49,7 +45,7 @@ export const LabeledInput: React.ForwardRefExoticComponent<
           }}
         >
           {isText ? (
-            <Text variant={variant} color="black60" lineHeight={1}>
+            <Text variant="xs" color="black60" lineHeight={1}>
               {label}
             </Text>
           ) : (
@@ -60,3 +56,5 @@ export const LabeledInput: React.ForwardRefExoticComponent<
     </Box>
   )
 })
+
+LabeledInput.displayName = "LabeledInput"
