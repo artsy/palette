@@ -1,3 +1,39 @@
+# v23.0.0 (Fri Jul 15 2022)
+
+#### 💥  Breaking Change
+
+- chore(v2): drops support for v2 completely [#1194](https://github.com/artsy/palette/pull/1194) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(theme): default text variant export should be v3 ([@dzucconi](https://github.com/dzucconi))
+- chore(readmore): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(html): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(skip): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(checkbox): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(labeledinput): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(expandable): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(pagination): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(marquee): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(message): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(progressbar): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(progressdots): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(entityheader): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(radio): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(tabs): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(cards): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(avatar): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(basetabs): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore: removes unused tags component ([@dzucconi](https://github.com/dzucconi))
+- chore(stepper): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+- chore(text): drops support for v2 ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v22.1.0 (Thu Jul 14 2022)
 
 #### 🚀  Enhancement
