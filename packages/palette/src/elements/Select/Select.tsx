@@ -95,7 +95,7 @@ export const Select: React.FC<SelectProps> = ({
           hover={!!hover}
           error={error!}
           focus={!!focus}
-          mt={title || description ? 0.5 : 0}
+          mt={variant !== "inline" && (title || description) ? 0.5 : 0}
         >
           <select
             id={id}
