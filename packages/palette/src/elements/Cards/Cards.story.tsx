@@ -1,7 +1,7 @@
 import React from "react"
 import { States } from "storybook-states"
-import { Card, CardProps } from "./Card/Card"
-import { TriptychCard, TriptychCardProps } from "./TriptychCard/TriptychCard"
+import { Card, CardProps } from "./Card"
+import { TriptychCard, TriptychCardProps } from "./TriptychCard"
 
 export default {
   title: "Components/Cards",

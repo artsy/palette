@@ -31,13 +31,13 @@ export const RealWorldExample = () => {
       <GridColumnsDebug />
 
       <Column span={6} wrap>
-        <Text as="h1" variant="largeTitle">
+        <Text as="h1" variant="xl">
           Page Title Long Enough So As To Line Break
         </Text>
       </Column>
 
       <Column span={6}>
-        <Text as="h2" variant="subtitle" mb={1}>
+        <Text as="h2" variant="lg-display" mb={1}>
           Page subtitle
         </Text>
 
@@ -45,7 +45,7 @@ export const RealWorldExample = () => {
       </Column>
 
       <Column span={5} start={8}>
-        <Text variant="mediumText" mb={1}>
+        <Text variant="sm-display" mb={1}>
           Featured content
         </Text>
 

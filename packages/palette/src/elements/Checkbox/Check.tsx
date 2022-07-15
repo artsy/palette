@@ -1,10 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { CheckIcon } from "../../svgs"
-import { getThemeConfig, useThemeConfig } from "../../Theme"
 import { Box } from "../Box"
-import { CHECK_STATES as V2_STATES } from "./tokens/v2"
-import { CHECK_STATES as V3_STATES } from "./tokens/v3"
+import { CHECK_STATES } from "./tokens"
 
 export interface CheckProps {
   disabled?: boolean
@@ -20,15 +18,10 @@ export const Check: React.FC<CheckProps> = ({
   selected,
   ...rest
 }) => {
-  const tokens = useThemeConfig({
-    v2: { border: 1 },
-    v3: { border: "1px solid" },
-  })
-
   return (
     <Container
       mr={1}
-      border={tokens.border}
+      border="1px solid"
       disabled={disabled}
       selected={selected}
       {...rest}
@@ -47,23 +40,18 @@ const Container = styled(Box)<CheckProps>`
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 
   ${(props) => {
-    const modes = getThemeConfig(props, {
-      v2: V2_STATES,
-      v3: V3_STATES,
-    })
-
     const mode = (() => {
       switch (true) {
         case props.focus:
-          return modes.focus
+          return CHECK_STATES.focus
         case props.hover:
-          return modes.hover
+          return CHECK_STATES.hover
         case props.error:
-          return modes.error
+          return CHECK_STATES.error
         case props.disabled:
-          return modes.disabled
+          return CHECK_STATES.disabled
         default:
-          return modes.default
+          return CHECK_STATES.default
       }
     })()
 

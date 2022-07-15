@@ -1,10 +1,9 @@
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 import React from "react"
-import { useThemeConfig } from "../../Theme"
 import { splitBoxProps } from "../Box"
 import { Flex, FlexProps } from "../Flex"
 import { Image, ImageProps } from "../Image"
 import { Text } from "../Text"
-import { V2_TOKENS, V3_TOKENS } from "./tokens"
 
 export interface AvatarProps extends FlexProps, Partial<ImageProps> {
   /** If an image is missing, show initials instead */
@@ -20,6 +19,28 @@ const LENGTHS = {
   md: 4,
 }
 
+const TOKENS = {
+  fontWeight: "normal",
+  color: "black100",
+  bg: "transparent",
+  xxs: {
+    diameter: 30,
+    variant: "xs" as TextVariant,
+  },
+  xs: {
+    diameter: 45,
+    variant: "sm-display" as TextVariant,
+  },
+  sm: {
+    diameter: 70,
+    variant: "md" as TextVariant,
+  },
+  md: {
+    diameter: 100,
+    variant: "lg-display" as TextVariant,
+  },
+}
+
 /** An circular Avatar component containing an image or initials */
 export const Avatar: React.FC<AvatarProps> = ({
   src,
@@ -30,17 +51,12 @@ export const Avatar: React.FC<AvatarProps> = ({
 }) => {
   const [boxProps, imageProps] = splitBoxProps(rest)
 
-  const tokens = useThemeConfig({
-    v2: V2_TOKENS,
-    v3: V3_TOKENS,
-  })
-
-  const { diameter, variant } = tokens[size] ?? V3_TOKENS.sm
+  const { diameter, variant } = TOKENS[size] ?? TOKENS.sm
 
   return (
     <Flex
       size={diameter}
-      bg={tokens.bg}
+      bg={TOKENS.bg}
       border={src ? "transparent" : "1px solid"}
       borderColor="black15"
       borderRadius="50%"
@@ -53,8 +69,8 @@ export const Avatar: React.FC<AvatarProps> = ({
       {initials && (
         <Text
           variant={variant}
-          fontWeight={tokens.fontWeight}
-          color={tokens.color}
+          fontWeight={TOKENS.fontWeight}
+          color={TOKENS.color}
           lineHeight={1}
         >
           {initials.slice(0, LENGTHS[size])}

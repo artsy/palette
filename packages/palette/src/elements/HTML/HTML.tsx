@@ -1,7 +1,6 @@
+import { themeGet } from "@styled-system/theme-get"
 import React, { HTMLAttributes } from "react"
 import styled, { css } from "styled-components"
-import { color } from "../../helpers"
-import { space } from "../../helpers/space"
 import { Text, TextProps } from "../Text"
 
 /**
@@ -26,7 +25,7 @@ export const htmlMixin = css`
   blockquote,
   pre,
   hr {
-    margin: ${space(1)}px auto;
+    margin: ${themeGet("space.1")}px auto;
 
     &:first-child {
       margin-top: 0;
@@ -40,7 +39,7 @@ export const htmlMixin = css`
   hr {
     height: 1px;
     border: 0;
-    background-color: ${color("black10")};
+    background-color: ${themeGet("colors.black10")};
   }
 `
 
@@ -49,7 +48,7 @@ const Container = styled(Text)`
 `
 
 Container.defaultProps = {
-  variant: "text",
+  variant: "sm",
 }
 
 /**
@@ -57,7 +56,7 @@ Container.defaultProps = {
  * If `html` prop is passed; it's set as innerHTML, otherwise contents are wrapped
  * with default HTML styling.
  */
-export const HTML: React.FC<HTMLProps> = props => {
+export const HTML: React.FC<HTMLProps> = (props) => {
   if ("html" in props) {
     const { html, ...htmlRest } = props
     return (

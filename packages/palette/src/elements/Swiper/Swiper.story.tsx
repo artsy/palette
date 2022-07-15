@@ -31,7 +31,7 @@ const Demo = ({
             p={1}
             textAlign="center"
           >
-            <Text variant="caption">{i + 1}</Text>
+            <Text variant="xs">{i + 1}</Text>
           </Clickable>
         ))}
       </Swiper>
@@ -104,6 +104,7 @@ export const CustomRailAndCells = () => {
     <Demo
       snap="start"
       widths={["100%", "100%", "100%", "100%"]}
+      // eslint-disable-next-line react/display-name
       Cell={React.forwardRef((props, ref) => {
         return (
           <SwiperCell

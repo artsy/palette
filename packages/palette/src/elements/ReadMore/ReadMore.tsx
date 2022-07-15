@@ -17,7 +17,9 @@ const ReadMoreOrLessLink: React.FC<ClickableProps> = ({
         textDecoration="underline"
         {...rest}
       >
-        <Text variant="mediumText">{children}</Text>
+        <Text variant="xs" fontWeight="bold">
+          {children}
+        </Text>
       </Clickable>
     </>
   )
@@ -59,6 +61,8 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
   onReadLessClicked,
   onReadMoreClicked,
 }) => {
+  const [expanded, setExpanded] = useState(!!isExpanded)
+
   if (typeof expandedHTML !== "string") {
     return null
   }
@@ -67,7 +71,6 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
   const truncatedHTML = truncate(expandedHTML, maxChars).html
 
   const visible = charCount > maxChars
-  const [expanded, setExpanded] = useState(!!isExpanded)
 
   const handleClick = () => {
     if (disabled) return

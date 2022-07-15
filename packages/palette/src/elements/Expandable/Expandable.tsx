@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import { isText } from "../../helpers/isText"
 import { ChevronIcon } from "../../svgs"
-import { useThemeConfig } from "../../Theme"
 import { Box, splitBoxProps } from "../Box"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Flex } from "../Flex"
-import { Text, TextProps } from "../Text"
+import { Text } from "../Text"
 
 export interface ExpandableProps extends ClickableProps {
   label?: string | JSX.Element
@@ -24,21 +23,6 @@ export const Expandable: React.FC<ExpandableProps> = ({
   onClick,
   ...rest
 }) => {
-  const tokens = useThemeConfig({
-    v2: {
-      borderColor: "black10",
-      textProps: { variant: "small", fontWeight: "bold" } as TextProps,
-      chevronSize: 12,
-      mr: undefined,
-    },
-    v3: {
-      borderColor: "black60",
-      textProps: { variant: "sm-display" } as TextProps,
-      chevronSize: 14,
-      mr: 1,
-    },
-  })
-
   const [expanded, setExpanded] = useState(defaultExpanded)
 
   const [boxProps, clickableProps] = splitBoxProps(rest)
@@ -58,7 +42,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
         alignItems="center"
         justifyContent="space-between"
         borderTop="1px solid"
-        borderColor={tokens.borderColor}
+        borderColor="black60"
         pt={1}
         disabled={disabled}
         aria-expanded={expanded}
@@ -66,16 +50,16 @@ export const Expandable: React.FC<ExpandableProps> = ({
         {...clickableProps}
       >
         <Flex flex={1} minHeight={40} display="flex" alignItems="center">
-          {isText(label) ? <Text {...tokens.textProps}>{label}</Text> : label}
+          {isText(label) ? <Text variant="sm-display">{label}</Text> : label}
         </Flex>
 
         {!disabled && (
           <ChevronIcon
             direction={expanded ? "up" : "down"}
-            width={tokens.chevronSize}
-            height={tokens.chevronSize}
+            width={14}
+            height={14}
             ml={1}
-            mr={tokens.mr}
+            mr={1}
             aria-hidden="true"
           />
         )}

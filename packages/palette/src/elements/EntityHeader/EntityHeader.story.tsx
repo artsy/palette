@@ -1,9 +1,6 @@
 import React from "react"
 import { States } from "storybook-states"
-import { useThemeConfig } from "../../Theme"
 import { Button } from "../Button"
-import { Clickable } from "../Clickable"
-import { Text } from "../Text"
 import { EntityHeader, EntityHeaderProps } from "./EntityHeader"
 
 export default {
@@ -11,23 +8,15 @@ export default {
 }
 
 const FollowButton = () => {
-  return useThemeConfig({
-    v2: (
-      <Clickable textDecoration="underline" onClick={() => alert("Follow")}>
-        <Text variant="text">Follow</Text>
-      </Clickable>
-    ),
-
-    v3: (
-      <Button
-        size="small"
-        variant="secondaryBlack"
-        onClick={() => alert("Follow")}
-      >
-        Follow
-      </Button>
-    ),
-  })
+  return (
+    <Button
+      size="small"
+      variant="secondaryBlack"
+      onClick={() => alert("Follow")}
+    >
+      Follow
+    </Button>
+  )
 }
 
 const imageProps = {

@@ -1,10 +1,8 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import { getThemeConfig } from "../../Theme"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Text, TextProps } from "../Text"
-import { STATES as V2_STATES } from "./tokens/v2"
-import { STATES as V3_STATES } from "./tokens/v3"
+import { STATES } from "./tokens"
 
 /**
  * Utilize as="a" or as={Component} to alter functionality
@@ -38,28 +36,26 @@ export const BaseTab = styled(Text)<BaseTabProps>`
   z-index: 1;
 
   ${(props) => {
-    const states = getThemeConfig(props, { v2: V2_STATES, v3: V3_STATES })
-
     return css`
-      ${states.default}
-      ${props.hover && states.hover}
-      ${props.focus && states.focus}
-      ${props.active && states.active}
+      ${STATES.default}
+      ${props.hover && STATES.hover}
+      ${props.focus && STATES.focus}
+      ${props.active && STATES.active}
 
       &:hover:not(:disabled) {
-        ${states.hover}
+        ${STATES.hover}
       }
 
       &:focus {
         outline: 0;
-        ${states.focus}
+        ${STATES.focus}
       }
     `
   }}
 `
 
 BaseTab.defaultProps = {
-  variant: "mediumText",
+  variant: "sm",
   mb: "-1px",
   alignItems: "flex-start",
   justifyContent: "center",

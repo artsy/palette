@@ -1,10 +1,16 @@
 import React from "react"
-import { CardProps } from "./Card"
-import { ResponsiveBox } from "../.."
-import { TEXT_SHADOW } from "../../.."
-import { Box } from "../../Box"
-import { Image } from "../../Image"
-import { Text } from "../../Text"
+import { Image, ImageProps } from "../Image"
+import { Box, BoxProps } from "../Box"
+import { Text } from "../Text"
+import { ResponsiveBox } from "../ResponsiveBox"
+import { TEXT_SHADOW } from "../../helpers"
+
+export interface CardProps extends BoxProps {
+  image: string | ImageProps
+  title?: string | null
+  subtitle?: string | null
+  status?: string | null
+}
 
 /**
  * `Card` is a card with one image one tall image, and text for title

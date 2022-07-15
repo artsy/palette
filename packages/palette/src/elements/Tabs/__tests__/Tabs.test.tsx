@@ -95,25 +95,6 @@ describe("Tabs", () => {
     })
   })
 
-  it("allows user to set separator between tabs", () => {
-    const TabSeparator = (
-      <div className="foundTabSeparator" key={Math.random()}>
-        foo|bar
-      </div>
-    )
-    const wrapper = mount(
-      <div>
-        <Tabs initialTabIndex={1} separator={TabSeparator}>
-          <Tab name="Overview" />
-          <Tab name="CV" />
-        </Tabs>
-      </div>
-    )
-
-    expect(wrapper.html()).toContain("foundTabSeparator")
-    expect(wrapper.html()).toContain("foo|bar")
-  })
-
   it("renders superscripts after tab text", () => {
     const wrapper = mount(
       <div>

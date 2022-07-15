@@ -1,8 +1,6 @@
 import styled from "styled-components"
-import { getThemeConfig } from "../../Theme"
 import { Box } from "../Box"
-import { RADIO_DOT_STATES as V2_RADIO_DOT_STATES } from "./tokens/v2"
-import { RADIO_DOT_STATES as V3_RADIO_DOT_STATES } from "./tokens/v3"
+import { RADIO_DOT_STATES } from "./tokens"
 
 export interface CheckProps {
   disabled?: boolean
@@ -23,23 +21,18 @@ export const RadioDot = styled(Box)<CheckProps>`
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 
   ${(props) => {
-    const modes = getThemeConfig(props, {
-      v2: V2_RADIO_DOT_STATES,
-      v3: V3_RADIO_DOT_STATES,
-    })
-
     const mode = (() => {
       switch (true) {
         case props.disabled:
-          return modes.disabled
+          return RADIO_DOT_STATES.disabled
         case props.hover:
-          return modes.hover
+          return RADIO_DOT_STATES.hover
         case props.focus:
-          return modes.focus
+          return RADIO_DOT_STATES.focus
         case props.error:
-          return modes.error
+          return RADIO_DOT_STATES.error
         default:
-          return modes.default
+          return RADIO_DOT_STATES.default
       }
     })()
 

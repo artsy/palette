@@ -22,8 +22,7 @@ import {
   Text,
 } from "../elements"
 import { isThemeV2, useTheme } from "../Theme"
-
-import { TextVariant } from "@artsy/palette-tokens/dist/typography/types"
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 
 export default {
   title: "Theme",
