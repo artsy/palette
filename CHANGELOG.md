@@ -1,5 +1,18 @@
 # (Fri Jul 15 2022)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@24.0.1`
+  - fix(select): supresses top margin when inline [#1196](https://github.com/artsy/palette/pull/1196) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Jul 15 2022)
+
 #### 💥  Breaking Change
 
 - `@artsy/palette@24.0.0`
