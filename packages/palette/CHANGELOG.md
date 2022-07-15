@@ -1,3 +1,19 @@
+# v24.0.0 (Fri Jul 15 2022)
+
+#### 💥  Breaking Change
+
+- chore: removes grid + styled-bootstrap-grid [#1195](https://github.com/artsy/palette/pull/1195) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore: removes grid + styled-bootstrap-grid ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v23.0.0 (Fri Jul 15 2022)
 
 #### 💥  Breaking Change
