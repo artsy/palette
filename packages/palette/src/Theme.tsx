@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import { GridThemeProvider as StyledGridThemeProvider } from "styled-bootstrap-grid"
 // FIXME: Upgrading styled-components types to get `ThemeContext` breaks many other typings.
 // Notably: `Icon` and `Sans|Serif`
 // @ts-expect-error  MIGRATE_STRICT_MODE
@@ -10,17 +9,6 @@ export { THEME_V2, THEME_V3 } from "./themes"
 export * from "@artsy/palette-tokens/dist/themes/v2"
 
 export { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
-
-/**
- * Creates a new Grid context for web. This glues the v2 grid theme into any other theme.
- */
-const GridThemeProvider = ({ children }) => {
-  return (
-    <StyledGridThemeProvider gridTheme={THEME_V2.grid}>
-      {children}
-    </StyledGridThemeProvider>
-  )
-}
 
 const THEMES = {
   v2: THEME_V2,
@@ -39,11 +27,7 @@ export const Theme: React.FC<{ theme?: TTheme | keyof typeof THEMES }> = ({
       ? THEMES[themeOrThemeKey]
       : themeOrThemeKey
 
-  return (
-    <ThemeProvider theme={theme}>
-      <GridThemeProvider>{children}</GridThemeProvider>
-    </ThemeProvider>
-  )
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 
 /** Utilize only the v2 theme */
