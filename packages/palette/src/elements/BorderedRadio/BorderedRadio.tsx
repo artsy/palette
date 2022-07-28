@@ -25,4 +25,8 @@ export const BorderedRadio = styled(Radio)<BorderedRadioProps>`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+
+  div {
+    text-decoration: none !important;
+  }
 `
