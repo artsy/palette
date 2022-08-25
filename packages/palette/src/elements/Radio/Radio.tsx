@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import { Spacer } from "../.."
 import { Flex, FlexProps } from "../../elements/Flex"
 import { isText } from "../../helpers/isText"
 import { Text } from "../Text"
@@ -73,17 +74,17 @@ export const Radio: React.FC<RadioProps> = ({
       error={error}
       {...rest}
     >
-      <RadioDot
-        disabled={disabled}
-        hover={hover}
-        focus={focus}
-        selected={selected}
-        error={error}
-        mr={1}
-      />
-
       <Flex flexDirection="column" flex={1}>
         <Flex alignItems="center" flex={1}>
+          <RadioDot
+            disabled={disabled}
+            hover={hover}
+            focus={focus}
+            selected={selected}
+            error={error}
+            mr={1}
+          />
+
           {isText(title) ? (
             <Text variant="sm-display" lineHeight={description ? undefined : 1}>
               {title}
@@ -94,9 +95,12 @@ export const Radio: React.FC<RadioProps> = ({
         </Flex>
 
         {isText(description) ? (
-          <Text variant="xs" color="black60">
-            {description}
-          </Text>
+          <Flex>
+            <Spacer ml="30px" />
+            <Text variant="xs" color="black60">
+              {description}
+            </Text>
+          </Flex>
         ) : (
           description
         )}
@@ -127,7 +131,7 @@ const Container = styled(Flex)<{
           ${RADIO_STATES.hover}
 
           // Radio
-          > div:first-of-type {
+          > div:nth-of-type(2) {
             ${props.selected
               ? RADIO_DOT_STATES.hover.selected
               : RADIO_DOT_STATES.hover.resting}
@@ -139,7 +143,7 @@ const Container = styled(Flex)<{
         ${RADIO_STATES.focus}
 
         // Radio
-        > div:first-of-type {
+        > div:nth-of-type(2) {
           ${props.selected
             ? RADIO_DOT_STATES.focus.selected
             : RADIO_DOT_STATES.focus.resting}
