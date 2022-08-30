@@ -144,8 +144,18 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
     const handleClick = (event: MouseEvent) => {
       if (!panelRef.current || !openDropdownByClick) return
+      const target = event.target as Element
+      const tagName = target.tagName.toLowerCase()
+      let isClosableElement = tagName === "a"
+      let element: Element | null = target
 
-      if (panelRef.current.contains(event.target as Element)) {
+      // Find parent link element
+      if (!isClosableElement) {
+        element = target.closest("a")
+        isClosableElement = !!element
+      }
+
+      if (isClosableElement && element && panelRef.current.contains(element)) {
         onHide()
       }
     }
