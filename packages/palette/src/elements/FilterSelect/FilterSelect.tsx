@@ -83,7 +83,14 @@ const _FilterSelect: React.FC = () => {
           <FilterSelectResultItem key={item.value} {...item} />
         ))
       ) : (
-        <ShowMore expanded={expanded} initial={initialItemsToShow}>
+        <ShowMore
+          expanded={expanded}
+          initial={initialItemsToShow}
+          variant={"xs"}
+          textDecoration={"underline"}
+          mt={1}
+          textAlign="left"
+        >
           {itemsSorted.map((item) => {
             return <FilterSelectResultItem key={item.value} {...item} />
           })}

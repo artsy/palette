@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { compose, ResponsiveValue, system } from "styled-system"
+import { splitProps } from "../../utils/splitProps"
 import { boxMixin, BoxProps } from "../Box"
 
 const cursor = system({ cursor: true })
@@ -12,6 +13,8 @@ export type ClickableProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     cursor?: ResponsiveValue<string>
     textDecoration?: ResponsiveValue<string>
   }
+
+const clickableMixin = compose(boxMixin, cursor, textDecoration)
 
 /**
  * Clickable is a utility component useful for wrapping things like <div>s
@@ -27,7 +30,7 @@ export const Clickable = styled.button<ClickableProps>`
   font: inherit;
   text-align: inherit;
 
-  ${compose(boxMixin, cursor, textDecoration)}
+  ${clickableMixin}
 
   &:disabled {
     cursor: default;
@@ -38,3 +41,5 @@ Clickable.defaultProps = {
   cursor: "pointer",
   type: "button",
 }
+
+export const splitClickableProps = splitProps<ClickableProps>(clickableMixin)
