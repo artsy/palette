@@ -1,3 +1,22 @@
+# (Tue Aug 30 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@24.1.0`
+  - feat: close dropdown only when link is clicked [#1203](https://github.com/artsy/palette/pull/1203) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### 🏠  Internal
+
+- chore(deps): bump moment from 2.29.1 to 2.29.4 [#1191](https://github.com/artsy/palette/pull/1191) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump terser from 4.8.0 to 4.8.1 [#1197](https://github.com/artsy/palette/pull/1197) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Dima Tretyak (Dzmitry Tratsiak) ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # (Fri Jul 15 2022)
 
 #### 🐛  Bug Fix

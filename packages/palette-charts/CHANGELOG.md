@@ -1,3 +1,15 @@
+# v23.1.0 (Tue Aug 30 2022)
+
+#### 🏠  Internal
+
+- chore(deps): bump moment from 2.29.1 to 2.29.4 [#1191](https://github.com/artsy/palette/pull/1191) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v21.0.0 (Thu Jun 30 2022)
 
 #### 💥  Breaking Change

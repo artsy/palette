@@ -1,3 +1,24 @@
+# v24.1.0 (Tue Aug 30 2022)
+
+#### 🚀  Enhancement
+
+- feat: close dropdown only when link is clicked [#1203](https://github.com/artsy/palette/pull/1203) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### 🐛  Bug Fix
+
+- feat: close dropdown only when link is clicked ([@dimatretyak](https://github.com/dimatretyak))
+
+#### 🏠  Internal
+
+- chore(deps): bump moment from 2.29.1 to 2.29.4 [#1191](https://github.com/artsy/palette/pull/1191) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Dima Tretyak (Dzmitry Tratsiak) ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # v24.0.1 (Fri Jul 15 2022)
 
 #### 🐛  Bug Fix
