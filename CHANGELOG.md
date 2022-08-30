@@ -1,5 +1,18 @@
 # (Tue Aug 30 2022)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@24.1.1`
+  - feat: make ShowMore more flexible [#1202](https://github.com/artsy/palette/pull/1202) ([@mdole](https://github.com/mdole))
+
+#### Authors: 1
+
+- Matt Dole ([@mdole](https://github.com/mdole))
+
+---
+
+# (Tue Aug 30 2022)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@24.1.0`
