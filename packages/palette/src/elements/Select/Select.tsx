@@ -1,11 +1,17 @@
 import { themeGet } from "@styled-system/theme-get"
-import React from "react"
+import React, {
+  forwardRef,
+  ForwardRefExoticComponent,
+  Ref,
+  useRef,
+} from "react"
 import styled, { css } from "styled-components"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Variant } from "./types"
 import { SELECT_STATES } from "./tokens"
+import composeRefs from "@seznam/compose-react-refs"
 
 export interface Option {
   value: string
@@ -30,102 +36,114 @@ export interface SelectProps
 }
 
 /** A drop-down select menu */
-export const Select: React.FC<SelectProps> = ({
-  description,
-  disabled,
-  error,
-  focus,
-  hover,
-  id,
-  name,
-  options,
-  required,
-  selected,
-  title,
-  variant = "default",
-  onSelect,
-  ...rest
-}) => {
-  const [boxProps, selectProps] = splitBoxProps(rest)
+export const Select: ForwardRefExoticComponent<
+  SelectProps & { ref?: Ref<HTMLElement> }
+> = forwardRef(
+  (
+    {
+      description,
+      disabled,
+      error,
+      focus,
+      hover,
+      id,
+      name,
+      options,
+      required,
+      selected,
+      title,
+      variant = "default",
+      onSelect,
+      ...rest
+    },
+    forwardedRef
+  ) => {
+    const ref = useRef<HTMLSelectElement | null>(null)
 
-  return (
-    <Box width="100%" {...boxProps}>
-      <Flex
-        as="label"
-        {...(variant === "inline"
-          ? {
-              flexDirection: "row",
-              alignItems: "center",
-            }
-          : {
-              flexDirection: "column",
-              alignItems: "flex-start",
-            })}
-        {...(id ? { for: id } : {})}
-      >
-        <div>
-          {title && (
-            <Text
-              variant="xs"
-              lineHeight={
-                variant === "inline" && description === undefined
-                  ? 1
-                  : undefined
+    const [boxProps, selectProps] = splitBoxProps(rest)
+
+    return (
+      <Box width="100%" {...boxProps}>
+        <Flex
+          as="label"
+          {...(variant === "inline"
+            ? {
+                flexDirection: "row",
+                alignItems: "center",
               }
-            >
-              {title}
-              {required && (
-                <Box as="span" color="brand">
-                  *
-                </Box>
-              )}
-            </Text>
-          )}
-
-          {description && (
-            <Text variant="xs" color="black60">
-              {description}
-            </Text>
-          )}
-        </div>
-
-        <Container
-          variant={variant}
-          disabled={!!disabled}
-          hover={!!hover}
-          error={error!}
-          focus={!!focus}
-          mt={variant !== "inline" && (title || description) ? 0.5 : 0}
+            : {
+                flexDirection: "column",
+                alignItems: "flex-start",
+              })}
+          {...(id ? { for: id } : {})}
         >
-          <select
-            id={id}
-            disabled={disabled}
-            name={name}
-            value={selected}
-            onChange={(event) => {
-              onSelect && onSelect(event.target.value)
-            }}
-            {...selectProps}
-          >
-            {options.map(({ value, text }) => {
-              return (
-                <option value={value} key={value}>
-                  {text}
-                </option>
-              )
-            })}
-          </select>
-        </Container>
-      </Flex>
+          <div>
+            {title && (
+              <Text
+                variant="xs"
+                lineHeight={
+                  variant === "inline" && description === undefined
+                    ? 1
+                    : undefined
+                }
+              >
+                {title}
+                {required && (
+                  <Box as="span" color="brand">
+                    *
+                  </Box>
+                )}
+              </Text>
+            )}
 
-      {error && typeof error === "string" && (
-        <Text variant="xs" mt={0.5} color="red100">
-          {error}
-        </Text>
-      )}
-    </Box>
-  )
-}
+            {description && (
+              <Text variant="xs" color="black60">
+                {description}
+              </Text>
+            )}
+          </div>
+
+          <Container
+            variant={variant}
+            disabled={!!disabled}
+            hover={!!hover}
+            error={error!}
+            focus={!!focus}
+            mt={variant !== "inline" && (title || description) ? 0.5 : 0}
+          >
+            <select
+              ref={composeRefs(ref, forwardedRef) as any}
+              id={id}
+              disabled={disabled}
+              name={name}
+              value={selected}
+              onChange={(event) => {
+                onSelect && onSelect(event.target.value)
+              }}
+              {...selectProps}
+            >
+              {options.map(({ value, text }) => {
+                return (
+                  <option value={value} key={value}>
+                    {text}
+                  </option>
+                )
+              })}
+            </select>
+          </Container>
+        </Flex>
+
+        {error && typeof error === "string" && (
+          <Text variant="xs" mt={0.5} color="red100">
+            {error}
+          </Text>
+        )}
+      </Box>
+    )
+  }
+)
+
+Select.displayName = "Select"
 
 const resetMixin = css`
   appearance: none;
