@@ -1,17 +1,11 @@
 import { themeGet } from "@styled-system/theme-get"
-import React, {
-  forwardRef,
-  ForwardRefExoticComponent,
-  Ref,
-  useRef,
-} from "react"
+import React, { forwardRef, ForwardRefExoticComponent, Ref } from "react"
 import styled, { css } from "styled-components"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Variant } from "./types"
 import { SELECT_STATES } from "./tokens"
-import composeRefs from "@seznam/compose-react-refs"
 
 export interface Option {
   value: string
@@ -56,10 +50,8 @@ export const Select: ForwardRefExoticComponent<
       onSelect,
       ...rest
     },
-    forwardedRef
+    ref
   ) => {
-    const ref = useRef<HTMLSelectElement | null>(null)
-
     const [boxProps, selectProps] = splitBoxProps(rest)
 
     return (
@@ -112,7 +104,7 @@ export const Select: ForwardRefExoticComponent<
             mt={variant !== "inline" && (title || description) ? 0.5 : 0}
           >
             <select
-              ref={composeRefs(ref, forwardedRef) as any}
+              ref={ref as any}
               id={id}
               disabled={disabled}
               name={name}
