@@ -22,15 +22,26 @@ export const Default = () => {
         { disabled: true, selected: true },
         { error: true },
         { error: true, selected: true },
-        { label: "A label", children: "This is my description" },
         {
-          label: (
-            <Text variant="xs" color="blue100">
-              Small Custom Label
-            </Text>
-          ),
+          label: "A label that takes up multiple lines",
+          width: "200px",
+          children: "This is my description",
         },
-        { label: <Text variant="lg-display">Large Custom Label</Text> },
+        {
+          label: "A small sized radio",
+          size: "small",
+          children: "This is my description",
+        },
+        {
+          label: "A medium sized radio",
+          size: "medium",
+          children: "This is my description",
+        },
+        {
+          label: "A large sized radio",
+          size: "large",
+          children: "This is my description",
+        },
       ]}
     >
       <Radio>A label</Radio>
@@ -42,7 +53,7 @@ export const SplitLabel = () => {
   return (
     <Radio>
       <Flex justifyContent="space-between" flex={1}>
-        <Text variant="lg-display">Label</Text>
+        <Text variant="sm-display">Label</Text>
 
         <Text variant="xs" color="black60">
           Subtitle

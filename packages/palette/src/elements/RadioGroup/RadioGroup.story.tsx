@@ -3,7 +3,6 @@ import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Button } from "../Button"
 import { Radio } from "../Radio/Radio"
-import { Text } from "../Text"
 import { RadioGroup, RadioGroupProps } from "./RadioGroup"
 
 export default {
@@ -24,9 +23,7 @@ export const Default = () => {
       <RadioGroup onSelect={action("onSelect")}>
         {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
           (value) => {
-            return (
-              <Radio key={value} value={value} label={<Text>{value}</Text>} />
-            )
+            return <Radio mb={1} key={value} value={value} label={value} />
           }
         )}
       </RadioGroup>
