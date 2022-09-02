@@ -1,3 +1,17 @@
+# v24.1.2 (Fri Sep 02 2022)
+
+#### 🐛  Bug Fix
+
+- refactor(Select): add useForwardRef [#1204](https://github.com/artsy/palette/pull/1204) ([@laurabeth](https://github.com/laurabeth))
+- cleanup ([@laurabeth](https://github.com/laurabeth))
+- refactor Select into ForwardRef component ([@laurabeth](https://github.com/laurabeth))
+
+#### Authors: 1
+
+- Laura Bhayani ([@laurabeth](https://github.com/laurabeth))
+
+---
+
 # v24.1.1 (Tue Aug 30 2022)
 
 #### 🐛  Bug Fix
