@@ -25,7 +25,7 @@ export interface RadioProps
   name?: string
   /** The label content, if not specified the children will be used  */
   label?: React.ReactNode
-  /** The radio variant, if not specified, "small" will be used  */
+  /** The radio size, if not specified, "sm" will be used  */
   size?: keyof typeof RADIO_SIZES
   /** Callback when selected */
   onSelect?: (selected: { selected: boolean; value: string }) => void
@@ -41,7 +41,7 @@ export const Radio: React.FC<RadioProps> = ({
   label,
   selected,
   value,
-  size = "small",
+  size = "sm",
   onSelect,
   ...rest
 }) => {
@@ -88,7 +88,6 @@ export const Radio: React.FC<RadioProps> = ({
           focus={focus}
           selected={selected}
           error={error}
-          mr={1}
         />
       </Flex>
 

@@ -29,17 +29,17 @@ export const Default = () => {
         },
         {
           label: "A small sized radio",
-          size: "small",
+          size: "sm",
           children: "This is my description",
         },
         {
           label: "A medium sized radio",
-          size: "medium",
+          size: "md",
           children: "This is my description",
         },
         {
           label: "A large sized radio",
-          size: "large",
+          size: "lg",
           children: "This is my description",
         },
       ]}

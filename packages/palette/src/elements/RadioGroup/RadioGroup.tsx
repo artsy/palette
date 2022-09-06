@@ -19,7 +19,9 @@ export interface RadioGroupProps extends FlexProps {
   /** Default value of radio button */
   defaultValue?: string
   /** Child <Radio /> elements */
-  children: Array<React.ReactElement<RadioProps>>
+  children:
+    | Array<React.ReactElement<RadioProps>>
+    | React.ReactElement<RadioProps>
 }
 
 interface RadioGroupState {

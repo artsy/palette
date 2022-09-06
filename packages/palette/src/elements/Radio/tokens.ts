@@ -111,17 +111,17 @@ interface SizeVariant {
 }
 
 export const RADIO_SIZES: Record<string, SizeVariant> = {
-  small: {
+  sm: {
     labelFontSize: "sm-display",
     descriptionFontSize: "xs",
     dotSize: "20px",
   },
-  medium: {
+  md: {
     labelFontSize: "md",
     descriptionFontSize: "sm",
     dotSize: "25px",
   },
-  large: {
+  lg: {
     labelFontSize: "lg-display",
     descriptionFontSize: "md",
     dotSize: "32px",
