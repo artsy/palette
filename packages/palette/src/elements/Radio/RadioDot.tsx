@@ -11,8 +11,8 @@ export interface CheckProps {
 }
 
 export const RadioDot = styled(Box)<CheckProps>`
-  width: 20px;
-  height: 20px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   display: flex;
   align-items: center;

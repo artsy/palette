@@ -1,5 +1,7 @@
 import { themeGet } from "@styled-system/theme-get"
 import { css } from "styled-components"
+import { ResponsiveValue } from "styled-system"
+import { TextVariant } from "../../Theme"
 
 export const RADIO_DOT_STATES = {
   default: {
@@ -101,3 +103,27 @@ export const RADIO_STATES = {
     color: ${themeGet("colors.red100")};
   `,
 } as const
+
+interface SizeVariant {
+  labelFontSize: ResponsiveValue<TextVariant>
+  descriptionFontSize: ResponsiveValue<TextVariant>
+  dotSize: string
+}
+
+export const RADIO_SIZES: Record<string, SizeVariant> = {
+  sm: {
+    labelFontSize: "sm-display",
+    descriptionFontSize: "xs",
+    dotSize: "20px",
+  },
+  md: {
+    labelFontSize: "md",
+    descriptionFontSize: "sm",
+    dotSize: "25px",
+  },
+  lg: {
+    labelFontSize: "lg-display",
+    descriptionFontSize: "md",
+    dotSize: "32px",
+  },
+}

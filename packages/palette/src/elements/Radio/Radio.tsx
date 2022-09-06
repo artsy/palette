@@ -4,7 +4,7 @@ import { Flex, FlexProps } from "../../elements/Flex"
 import { isText } from "../../helpers/isText"
 import { Text } from "../Text"
 import { RadioDot } from "./RadioDot"
-import { RADIO_DOT_STATES, RADIO_STATES } from "./tokens"
+import { RADIO_DOT_STATES, RADIO_STATES, RADIO_SIZES } from "./tokens"
 
 export interface RadioProps
   extends FlexProps,
@@ -25,6 +25,8 @@ export interface RadioProps
   name?: string
   /** The label content, if not specified the children will be used  */
   label?: React.ReactNode
+  /** The radio size, if not specified, "sm" will be used  */
+  size?: keyof typeof RADIO_SIZES
   /** Callback when selected */
   onSelect?: (selected: { selected: boolean; value: string }) => void
 }
@@ -39,6 +41,7 @@ export const Radio: React.FC<RadioProps> = ({
   label,
   selected,
   value,
+  size = "sm",
   onSelect,
   ...rest
 }) => {
@@ -73,19 +76,28 @@ export const Radio: React.FC<RadioProps> = ({
       error={error}
       {...rest}
     >
-      <RadioDot
-        disabled={disabled}
-        hover={hover}
-        focus={focus}
-        selected={selected}
-        error={error}
+      <Flex
+        height={RADIO_SIZES[size].dotSize}
+        width={RADIO_SIZES[size].dotSize}
+        alignSelf="start"
         mr={1}
-      />
+      >
+        <RadioDot
+          disabled={disabled}
+          hover={hover}
+          focus={focus}
+          selected={selected}
+          error={error}
+        />
+      </Flex>
 
       <Flex flexDirection="column" flex={1}>
         <Flex alignItems="center" flex={1}>
           {isText(title) ? (
-            <Text variant="sm-display" lineHeight={description ? undefined : 1}>
+            <Text
+              variant={RADIO_SIZES[size].labelFontSize}
+              lineHeight={description ? undefined : 1}
+            >
               {title}
             </Text>
           ) : (
@@ -94,7 +106,7 @@ export const Radio: React.FC<RadioProps> = ({
         </Flex>
 
         {isText(description) ? (
-          <Text variant="xs" color="black60">
+          <Text variant={RADIO_SIZES[size].descriptionFontSize} color="black60">
             {description}
           </Text>
         ) : (
@@ -127,7 +139,7 @@ const Container = styled(Flex)<{
           ${RADIO_STATES.hover}
 
           // Radio
-          > div:first-of-type {
+          > ${RadioDot} {
             ${props.selected
               ? RADIO_DOT_STATES.hover.selected
               : RADIO_DOT_STATES.hover.resting}
@@ -139,7 +151,7 @@ const Container = styled(Flex)<{
         ${RADIO_STATES.focus}
 
         // Radio
-        > div:first-of-type {
+        > ${RadioDot} {
           ${props.selected
             ? RADIO_DOT_STATES.focus.selected
             : RADIO_DOT_STATES.focus.resting}
