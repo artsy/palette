@@ -1,3 +1,16 @@
+# (Fri Sep 09 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@24.2.0`
+  - feat(TX-649): create radio size variants [#1205](https://github.com/artsy/palette/pull/1205) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Fri Sep 02 2022)
 
 #### 🐛  Bug Fix
