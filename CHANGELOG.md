@@ -1,3 +1,16 @@
+# (Wed Sep 21 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@24.3.0`
+  - feat(FX-4151): Add new guarantee icons [#1207](https://github.com/artsy/palette/pull/1207) ([@gkartalis](https://github.com/gkartalis))
+
+#### Authors: 1
+
+- George Kartalis ([@gkartalis](https://github.com/gkartalis))
+
+---
+
 # (Fri Sep 09 2022)
 
 #### 🚀  Enhancement
