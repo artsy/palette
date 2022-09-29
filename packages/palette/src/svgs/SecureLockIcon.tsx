@@ -8,7 +8,7 @@ export const SecureLockIcon: React.FC<IconProps> = ({
   ...props
 }) => {
   return (
-    <Icon viewBox="0 0 24 24" {...props}>
+    <Icon viewBox="0 0 18 18" {...props}>
       <Title>{title}</Title>
       <Path
         fill={color(props.fill!)}

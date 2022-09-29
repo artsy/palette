@@ -8,7 +8,7 @@ export const VerifiedIcon: React.FC<IconProps> = ({
   ...props
 }) => {
   return (
-    <Icon {...props} viewBox="0 0 24 24">
+    <Icon {...props} viewBox="0 0 18 18">
       <Title>{title}</Title>
       <Path
         className="verified-checkmark"
