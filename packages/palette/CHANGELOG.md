@@ -1,3 +1,16 @@
+# v24.3.1 (Mon Oct 03 2022)
+
+#### 🐛  Bug Fix
+
+- fix(types): adds children to types [#1209](https://github.com/artsy/palette/pull/1209) ([@dzucconi](https://github.com/dzucconi))
+- fix(types): adds children to types ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v24.3.0 (Wed Sep 21 2022)
 
 #### 🚀  Enhancement
