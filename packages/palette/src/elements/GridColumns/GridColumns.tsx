@@ -34,6 +34,7 @@ const Cell = styled(Box)<CellProps>`
 export type ColumnProps = CellProps & {
   /** denotes whether or not to break to a new row after column */
   wrap?: boolean
+  children?: React.ReactNode
 }
 
 /**

@@ -15,10 +15,15 @@ const THEMES = {
   v3: THEME_V3,
 }
 
+interface ThemeProps {
+  theme?: TTheme | keyof typeof THEMES
+  children?: React.ReactNode
+}
+
 /**
  * A wrapper component for passing down the Artsy theme context
  */
-export const Theme: React.FC<{ theme?: TTheme | keyof typeof THEMES }> = ({
+export const Theme: React.FC<ThemeProps> = ({
   children,
   theme: themeOrThemeKey = THEME_V2,
 }) => {
