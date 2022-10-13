@@ -5,7 +5,7 @@ import { isText } from "../../helpers/isText"
 import { CloseIcon } from "../../svgs"
 import { Position, useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
-import { Box } from "../Box"
+import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
@@ -20,7 +20,7 @@ export interface PopoverActions {
   anchorRef: React.MutableRefObject<HTMLElement>
 }
 
-export interface PopoverProps {
+export interface PopoverProps extends BoxProps {
   title?: React.ReactNode
   placement?: Position
   /** Intially visible by default? */
@@ -39,6 +39,7 @@ export const Popover: React.FC<PopoverProps> = ({
   visible: _visible = false,
   children,
   popover,
+  ...rest
 }) => {
   const [visible, setVisible] = useState(false)
 
@@ -105,6 +106,7 @@ export const Popover: React.FC<PopoverProps> = ({
           display="inline-block"
           bg="white100"
           p={2}
+          {...rest}
         >
           {title && (
             <>
