@@ -1,3 +1,16 @@
+# (Thu Oct 13 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@24.4.0`
+  - chore: forward box props to `Popover` component [#1210](https://github.com/artsy/palette/pull/1210) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### Authors: 1
+
+- Dima Tretyak ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # (Mon Oct 03 2022)
 
 #### 🐛  Bug Fix
