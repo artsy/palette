@@ -1,3 +1,16 @@
+# (Mon Oct 17 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@24.5.0`
+  - fix(Box): add gridArea mixin [#1211](https://github.com/artsy/palette/pull/1211) ([@laurabeth](https://github.com/laurabeth))
+
+#### Authors: 1
+
+- Laura Bhayani ([@laurabeth](https://github.com/laurabeth))
+
+---
+
 # (Thu Oct 13 2022)
 
 #### 🚀  Enhancement
