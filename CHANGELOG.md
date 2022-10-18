@@ -1,3 +1,16 @@
+# (Tue Oct 18 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@24.5.1`
+  - fix(shelf): adds label to scrollbar thumb [#1212](https://github.com/artsy/palette/pull/1212) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Oct 17 2022)
 
 #### 🚀  Enhancement
