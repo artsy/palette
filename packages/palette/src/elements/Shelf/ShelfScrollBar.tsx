@@ -124,7 +124,7 @@ export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
               backfaceVisibility: "hidden",
             }}
           >
-            <HitArea ref={thumbRef as any} tabIndex={-1} />
+            <HitArea ref={thumbRef as any} tabIndex={-1} aria-label="Thumb" />
           </Thumb>
         )}
       </Track>
