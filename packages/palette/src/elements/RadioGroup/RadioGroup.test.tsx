@@ -69,7 +69,9 @@ describe("RadioGroup", () => {
       </RadioGroup>
     )
 
-    expect(wrapper.find("Sans").text()).toBe("i am disabled right now mate")
+    expect(wrapper.find("Text").first().text()).toBe(
+      "i am disabled right now mate"
+    )
   })
 
   it("allows Radios within the group to be deselectable", () => {

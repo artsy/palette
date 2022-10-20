@@ -1,11 +1,7 @@
 import React from "react"
 import { Flex, FlexProps } from "../Flex"
 import { RadioProps } from "../Radio"
-import { Sans } from "../Typography"
-
-/**
- * Spec: zpl.io/bAvnwlB
- */
+import { Text } from "../Text"
 
 export interface RadioGroupProps extends FlexProps {
   /** Ability to deselect the selection */
@@ -30,8 +26,6 @@ interface RadioGroupState {
 
 /**
  * A stateful collection of Radio buttons
- *
- * Spec: zpl.io/bAvnwlB
  */
 export class RadioGroup extends React.Component<
   RadioGroupProps,
@@ -98,18 +92,22 @@ export class RadioGroup extends React.Component<
     const {
       disabled,
       disabledText,
-      onSelect,
-      defaultValue,
-      children,
-      ...others
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      onSelect: _onSelect,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      defaultValue: _defaultValue,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      children: _children,
+      ...rest
     } = this.props
     return (
-      <Flex flexDirection="column" {...others}>
+      <Flex flexDirection="column" {...rest}>
         {disabled && disabledText && (
-          <Sans size="2" my={0.3} color="black60">
+          <Text variant="xs" mb={1} color="black60">
             {disabledText}
-          </Sans>
+          </Text>
         )}
+
         {this.renderRadioButtons()}
       </Flex>
     )
