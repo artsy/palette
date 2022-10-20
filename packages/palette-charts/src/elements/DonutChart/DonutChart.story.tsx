@@ -6,7 +6,7 @@ export default {
   title: "Components/DonutChart",
 }
 
-export const SimpleDonut = () => {
+export const Default = () => {
   return (
     <Box width="500px">
       <DonutChart
@@ -30,8 +30,4 @@ export const SimpleDonut = () => {
       />
     </Box>
   )
-}
-
-SimpleDonut.story = {
-  name: "simple donut",
 }

@@ -1,10 +1,8 @@
 import { DateTime, Duration } from "luxon"
 import React from "react"
-import { color } from "../../helpers/color"
-import { SansSize } from "../../Theme"
 import { useCurrentTime } from "../../utils/useCurrentTime"
 import { Flex } from "../Flex"
-import { Sans } from "../Typography"
+import { Text } from "../Text"
 
 function padWithZero(num: number) {
   return num.toString().padStart(2, "0")
@@ -17,22 +15,18 @@ function padWithZero(num: number) {
 export const TimeRemaining: React.FC<{
   countdownEnd: string
   currentTime?: string | DateTime
-  highlight: Parameters<typeof color>[0]
-  labelFontSize?: SansSize
+  highlight: string
   labelWithoutTimeRemaining?: string
   labelWithTimeRemaining?: string
   timeEndedDisplayText?: string
-  timerFontSize?: SansSize
   trailingText?: string
 }> = ({
   countdownEnd,
   currentTime,
-  highlight = "purple100",
-  labelFontSize = "3",
+  highlight = "brand",
   labelWithoutTimeRemaining,
   labelWithTimeRemaining,
   timeEndedDisplayText,
-  timerFontSize = "3",
   trailingText,
 }) => {
   const duration = Duration.fromISO(
@@ -54,7 +48,7 @@ export const TimeRemaining: React.FC<{
 
   return (
     <Flex flexDirection="column" alignItems="center">
-      <Sans size={timerFontSize} color={highlight} weight="medium">
+      <Text variant="sm" color={highlight} fontWeight="bold">
         {hasEnded && timeEndedDisplayText ? (
           timeEndedDisplayText
         ) : (
@@ -66,11 +60,12 @@ export const TimeRemaining: React.FC<{
             {trailingText && ` ${trailingText}`}
           </>
         )}
-      </Sans>
+      </Text>
+
       {(labelWithTimeRemaining || labelWithoutTimeRemaining) && (
-        <Sans size={labelFontSize} weight="medium">
+        <Text variant="sm" fontWeight="bold">
           {hasEnded ? labelWithoutTimeRemaining : labelWithTimeRemaining}
-        </Sans>
+        </Text>
       )}
     </Flex>
   )
