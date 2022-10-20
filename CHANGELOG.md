@@ -1,3 +1,16 @@
+# (Thu Oct 20 2022)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette-charts@24.0.0`, `@artsy/palette@25.0.0`
+  - fix: removes typography components [#1213](https://github.com/artsy/palette/pull/1213) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Oct 18 2022)
 
 #### 🐛  Bug Fix

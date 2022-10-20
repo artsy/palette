@@ -1,3 +1,26 @@
+# v25.0.0 (Thu Oct 20 2022)
+
+#### 💥  Breaking Change
+
+- fix: removes typography components [#1213](https://github.com/artsy/palette/pull/1213) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(breaking): removes sans/serif components ([@dzucconi](https://github.com/dzucconi))
+- fix(radiogroup): removes deprecated typography components ([@dzucconi](https://github.com/dzucconi))
+- fix(breaking): deletes menu component ([@dzucconi](https://github.com/dzucconi))
+- fix(staticcountdowntimer): removes deprecated typography components ([@dzucconi](https://github.com/dzucconi))
+- fix(timeremaining): removes deprecated typography components ([@dzucconi](https://github.com/dzucconi))
+- fix(dialog): removes deprecated typography components ([@dzucconi](https://github.com/dzucconi))
+- fix(breaking): removes colors ([@dzucconi](https://github.com/dzucconi))
+- fix(breaking): removes toggle ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v24.5.1 (Tue Oct 18 2022)
 
 #### 🐛  Bug Fix

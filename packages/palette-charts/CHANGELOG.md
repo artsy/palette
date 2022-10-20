@@ -1,3 +1,19 @@
+# v24.0.0 (Thu Oct 20 2022)
+
+#### 💥  Breaking Change
+
+- fix: removes typography components [#1213](https://github.com/artsy/palette/pull/1213) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(charts): removes deprecated typography components ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v23.1.0 (Tue Aug 30 2022)
 
 #### 🏠  Internal
