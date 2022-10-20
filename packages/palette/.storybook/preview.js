@@ -1,37 +1,18 @@
-import React, { useState } from "react"
+import React from "react"
 import { Theme } from "../src/Theme"
-import { THEMES } from "../src/themes"
 import { injectGlobalStyles } from "../src/helpers/injectGlobalStyles"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { breakpoints } from "../src/Theme"
-import { Tabs, Tab } from "../src/elements/Tabs"
 
 const { GlobalStyles } = injectGlobalStyles()
 
 export const decorators = [
   (Story) => {
-    const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "v3")
-
     return (
-      <Theme theme={THEMES[theme]}>
+      <Theme theme="v3">
         <>
           <GlobalStyles />
-
-          <Tabs
-            initialTabIndex={["v3", "v2"].indexOf(theme)}
-            onChange={({ name }) => {
-              setTheme(name)
-              localStorage.setItem("theme", name)
-            }}
-          >
-            <Tab name="v3">
-              <Story />
-            </Tab>
-
-            <Tab name="v2">
-              <Story />
-            </Tab>
-          </Tabs>
+          <Story />
         </>
       </Theme>
     )

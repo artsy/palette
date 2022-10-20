@@ -10,7 +10,7 @@ import {
   padding,
   PaddingProps,
 } from "styled-system"
-import { visuallyDisableScrollbar } from "../.."
+import { visuallyDisableScrollbar } from "../../helpers/visuallyDisableScrollbar"
 import { splitProps } from "../../utils/splitProps"
 import { Box, BoxProps } from "../Box"
 

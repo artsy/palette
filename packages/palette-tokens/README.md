@@ -10,7 +10,6 @@ In the main theme file for a Palette implementation:
 
 ```
 import tokens from "@artsy/palette-tokens"
-import { fontFamily } from "./platform/fonts"
 
 /**
  * This is required only in consuming versions of palette to keep
@@ -25,7 +24,9 @@ export * from "@artsy/palette-tokens";
  */
 export const themeConfig = {
   ...tokens,
-  fontFamily
+  fontFamily: {
+    // ...
+  }
 }
 ```
 
