@@ -6,7 +6,7 @@ import { ModalBase } from "../Modal"
 import { Range, RangeProps } from "./Range"
 import { LabeledInput } from "../LabeledInput"
 import { Flex } from "../Flex"
-import { Spacer } from "../.."
+import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 
 export default {
