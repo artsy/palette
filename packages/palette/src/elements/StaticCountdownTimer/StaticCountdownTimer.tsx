@@ -6,8 +6,8 @@ import { Flex } from "../Flex"
 import { ProgressBarTimer } from "../ProgressBarTimer"
 import { Spacer } from "../Spacer"
 import { StackableBorderBox } from "../StackableBorderBox"
+import { Text } from "../Text"
 import { TimeRemaining } from "../TimeRemaining"
-import { Sans } from "../Typography"
 
 const FIVE_HOURS_IN_SECONDS = 60 * 60 * 5
 
@@ -44,7 +44,7 @@ export const StaticCountdownTimer: React.FC<{
       "seconds"
     ).seconds < FIVE_HOURS_IN_SECONDS
       ? "red100"
-      : "purple100"
+      : "brand"
 
   return (
     <StackableBorderBox flexDirection="column">
@@ -70,12 +70,12 @@ export const StaticCountdownTimer: React.FC<{
         currentTime={useCurrentTime(currentTime)}
         highlight={highlight}
       />
-      <Sans size="2" weight="medium" color="black100">
+      <Text variant="xs" fontWeight="bold" color="black100">
         {action} by {actionDeadline}
-      </Sans>
-      <Sans size="2" color="black60">
+      </Text>
+      <Text variant="xs" color="black60">
         {note}
-      </Sans>
+      </Text>
     </StackableBorderBox>
   )
 }
