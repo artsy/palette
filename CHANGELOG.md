@@ -1,5 +1,18 @@
 # (Thu Oct 20 2022)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette-tokens@4.0.1`, `@artsy/palette@25.0.1`
+  - chore: removes v2 tab [#1214](https://github.com/artsy/palette/pull/1214) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Oct 20 2022)
+
 #### 💥  Breaking Change
 
 - `@artsy/palette-charts@24.0.0`, `@artsy/palette@25.0.0`
