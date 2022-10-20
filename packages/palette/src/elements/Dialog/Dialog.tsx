@@ -1,9 +1,9 @@
-import React, { SFC } from "react"
-import styled from "styled-components"
-import { color } from "../../helpers"
+import React, { FC } from "react"
+import { Button } from "../Button"
 import { Flex } from "../Flex"
 import { Modal, ModalWidth } from "../Modal"
-import { Sans } from "../Typography"
+import { Spacer } from "../Spacer"
+import { Text } from "../Text"
 
 interface CtaProps {
   action(): void
@@ -23,7 +23,7 @@ interface DialogProps {
  * Dialog.
  * @deprecated: Use `ModalDialog` instead
  */
-export const Dialog: SFC<DialogProps> = ({
+export const Dialog: FC<DialogProps> = ({
   title,
   detail,
   show = true,
@@ -31,19 +31,6 @@ export const Dialog: SFC<DialogProps> = ({
   secondaryCta,
   onClose = () => null,
 }) => {
-  const StyledSans = styled(Sans)`
-    transition: color 0.14s ease;
-    cursor: pointer;
-    color: ${color("purple100")};
-  `
-
-  const ModalButton: React.FC<{
-    secondary?: boolean
-    onClick: () => void
-  }> = (props) => {
-    return <StyledSans pl={4} size="3" weight="medium" {...props} />
-  }
-
   return (
     <Modal
       show={show}
@@ -53,24 +40,35 @@ export const Dialog: SFC<DialogProps> = ({
     >
       <>
         <Flex flexDirection="column">
-          <Sans size="4" weight="medium" mb={10}>
+          <Text variant="sm-display" fontWeight="bold" mb={1}>
             {title}
-          </Sans>
+          </Text>
+
           {detail && (
-            <Sans size="3" color="black60">
+            <Text variant="xs" color="black60">
               {detail}
-            </Sans>
+            </Text>
           )}
         </Flex>
-        <Flex mt={3} justifyContent="flex-end">
+
+        <Flex mt={2} justifyContent="flex-end">
           {secondaryCta && (
-            <ModalButton secondary onClick={secondaryCta.action}>
-              {secondaryCta.text}
-            </ModalButton>
+            <>
+              <Button
+                onClick={secondaryCta.action}
+                size="small"
+                variant="secondaryBlack"
+              >
+                {secondaryCta.text}
+              </Button>
+
+              <Spacer ml={1} />
+            </>
           )}
-          <ModalButton onClick={primaryCta.action}>
+
+          <Button onClick={primaryCta.action} size="small">
             {primaryCta.text}
-          </ModalButton>
+          </Button>
         </Flex>
       </>
     </Modal>

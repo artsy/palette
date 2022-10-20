@@ -40,7 +40,7 @@ describe("Dialog", () => {
       <Dialog primaryCta={cta} title="Make up your mind" />
     )
     expect(cta.action).not.toHaveBeenCalled()
-    const ctaButton = component.find('div[children="Continue"]')
+    const ctaButton = component.find("button")
     expect(ctaButton.length).toBe(1)
     ctaButton.simulate("click")
     expect(cta.action).toHaveBeenCalled()
@@ -103,7 +103,7 @@ describe("Dialog", () => {
     )
     expect(redPill.action).not.toHaveBeenCalled()
     expect(bluePill.action).not.toHaveBeenCalled()
-    const blueButton = component.find('div[children="Blue pill"]')
+    const blueButton = component.find("button").first()
     expect(blueButton.length).toBe(1)
     blueButton.simulate("click")
     expect(redPill.action).not.toHaveBeenCalled()
