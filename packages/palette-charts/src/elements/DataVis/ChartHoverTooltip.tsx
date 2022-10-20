@@ -1,4 +1,5 @@
-import { color, Flex, media } from "@artsy/palette"
+import { Flex, media } from "@artsy/palette"
+import { themeGet } from "@styled-system/theme-get"
 import React, { useContext, useRef } from "react"
 import styled from "styled-components"
 import { MousePositionContext } from "./MousePositionContext"
@@ -34,6 +35,6 @@ const HoverTooltipPositioner = styled(BaseTooltipPositioner)`
   `};
   z-index: 2;
   position: fixed;
-  background-color: ${color("white100")};
+  background-color: ${themeGet("colors.white100")};
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 `

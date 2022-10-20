@@ -1,4 +1,5 @@
-import { color, Flex, Sans, space } from "@artsy/palette"
+import { Flex, Text } from "@artsy/palette"
+import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
@@ -7,7 +8,7 @@ import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
 import { Bar } from "./Bar"
 
 const ChartContainer = styled(Flex)`
-  border-bottom: 1px solid ${color("black10")};
+  border-bottom: 1px solid ${themeGet("colors.black10")};
 `
 
 function useHighlightLabelPositionConstraints(
@@ -75,7 +76,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
   const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
   const [minHeight, setMinHeight] = useState(0)
   const maxValue = Math.max(...bars.map(({ value }) => value))
-  const allZero = bars.every(item => item.value === 0)
+  const allZero = bars.every((item) => item.value === 0)
   return (
     <ProvideMousePosition>
       <Flex
@@ -114,19 +115,22 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
             }
           )}
         </ChartContainer>
+
         <Flex justifyContent="space-between">
-          <Sans color="black60" size="2">
+          <Text color="black60" variant="xs">
             {minLabel}
-          </Sans>
-          <Sans color="black60" size="2">
+          </Text>
+
+          <Text color="black60" variant="xs">
             {maxLabel}
-          </Sans>
+          </Text>
         </Flex>
-        {bars.filter(bar => bar.axisLabelX).length > 0 && (
+
+        {bars.filter((bar) => bar.axisLabelX).length > 0 && (
           <Flex>
             {bars.map(({ axisLabelX }, i) => (
               <BarAxisLabelContainer key={i}>
-                <AxisLabelX color="black60" size="2">
+                <AxisLabelX color="black60" variant="xs">
                   {axisLabelX}
                 </AxisLabelX>
               </BarAxisLabelContainer>
@@ -140,11 +144,11 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
 
 const BarAxisLabelContainer = styled.div`
   flex: 1;
-  min-height: ${space(2)}px;
+  min-height: ${themeGet("space.2")};
   position: relative;
 `
 
-const AxisLabelX = styled(Sans)`
+const AxisLabelX = styled(Text)`
   position: absolute;
   text-align: center;
   white-space: nowrap;

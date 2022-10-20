@@ -1,8 +1,7 @@
+import { Flex, Text, Theme } from "@artsy/palette"
 import { mount } from "enzyme"
 import "jest-styled-components"
 import createMockRaf from "mock-raf"
-
-import { Flex, Sans, Theme } from "@artsy/palette"
 import React from "react"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { LineChart, PointHoverArea } from "./LineChart"
@@ -22,12 +21,8 @@ const mockPoints = [
     value: 50,
     tooltip: (
       <Flex alignItems="center" flexDirection="column">
-        <Sans size="2" weight="medium">
-          Sept 30
-        </Sans>
-        <Sans size="2" color="black60">
-          423 views
-        </Sans>
+        <Text>Sept 30</Text>
+        <Text>423 views</Text>
       </Flex>
     ),
   },

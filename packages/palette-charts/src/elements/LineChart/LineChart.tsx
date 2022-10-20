@@ -1,4 +1,4 @@
-import { Flex, media, Sans, space } from "@artsy/palette"
+import { Flex, media, space, Text } from "@artsy/palette"
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
@@ -61,7 +61,7 @@ export const LineChart: React.FC<LineChartProps> = ({
                     first={i === 0}
                     last={i === points.length - 1}
                   >
-                    <AxisLabelX color="black60" size="2">
+                    <AxisLabelX color="black60" variant="xs">
                       {axisLabelX}
                     </AxisLabelX>
                   </BarAxisLabelContainer>
@@ -125,7 +125,7 @@ const BarAxisLabelContainer = styled.div<AxisContainerProps>`
   `};
 `
 
-const AxisLabelX = styled(Sans)`
+const AxisLabelX = styled(Text)`
   position: absolute;
   text-align: center;
   white-space: nowrap;

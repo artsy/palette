@@ -1,4 +1,4 @@
-import { Box, color, Color, Sans, space } from "@artsy/palette"
+import { Box, color, Color, space, Text } from "@artsy/palette"
 import { interpolate } from "d3-interpolate"
 import { arc as d3_arc, pie as d3_pie } from "d3-shape"
 import React, { useRef, useState } from "react"
@@ -25,7 +25,7 @@ export interface DonutChartProps extends ChartProps {
  */
 export const DonutChart: React.FC<DonutChartProps> = ({
   points,
-  margin = space(3),
+  margin = space(3), // FIXME: This whole
 }) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
 
@@ -80,9 +80,9 @@ export const DonutChart: React.FC<DonutChartProps> = ({
           y={y + centerY}
           center={centerX}
         >
-          <Sans color="black60" size="2">
+          <Text color="black60" variant="xs">
             {coerceTooltipWithoutPadding(axisLabelX)}
-          </Sans>
+          </Text>
         </DonutLabelContainer>
       )
     )

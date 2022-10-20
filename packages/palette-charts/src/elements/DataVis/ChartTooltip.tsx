@@ -1,4 +1,4 @@
-import { Flex, FlexProps, Sans } from "@artsy/palette"
+import { Flex, FlexProps, Text } from "@artsy/palette"
 import React from "react"
 import styled from "styled-components"
 
@@ -60,11 +60,10 @@ export const ChartTooltip = ({
     px={noPadding ? 0 : 1}
     {...others}
   >
-    <Sans color={"black100"} weight="medium" size="2">
-      {title}
-    </Sans>
-    <Sans color={"black60"} size="2">
+    <Text variant="xs">{title}</Text>
+
+    <Text color="black60" variant="xs">
       {description}
-    </Sans>
+    </Text>
   </ChartTooltipWrapper>
 )
