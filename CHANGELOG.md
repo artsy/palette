@@ -1,3 +1,16 @@
+# (Fri Oct 21 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@25.1.0`
+  - feat: add ability to pass `onClose` prop for `Popover` component [#1216](https://github.com/artsy/palette/pull/1216) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### Authors: 1
+
+- Dima Tretyak ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # (Thu Oct 20 2022)
 
 #### 🐛  Bug Fix
