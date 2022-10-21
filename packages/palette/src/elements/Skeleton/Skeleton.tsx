@@ -14,6 +14,7 @@ export const SkeletonBox: StyledComponentClass<SkeletonBoxProps, any> = styled(
   Box
 )``
 SkeletonBox.defaultProps = { bg: "black10" }
+SkeletonBox.displayName = "SkeletonBox"
 
 const splitBorderProps = splitProps<BorderProps>(border)
 
