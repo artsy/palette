@@ -27,6 +27,7 @@ export interface PopoverProps extends BoxProps {
   visible?: boolean
   popover: React.ReactNode
   children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
+  onClose?: () => void
 }
 
 /**
@@ -39,6 +40,7 @@ export const Popover: React.FC<PopoverProps> = ({
   visible: _visible = false,
   children,
   popover,
+  onClose,
   ...rest
 }) => {
   const [visible, setVisible] = useState(false)
@@ -67,10 +69,15 @@ export const Popover: React.FC<PopoverProps> = ({
     setVisible(false)
   }, [])
 
+  const handleHide = useCallback(() => {
+    onHide()
+    onClose?.()
+  }, [onHide, onClose])
+
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        onHide()
+        handleHide()
       }
     }
 
@@ -79,7 +86,7 @@ export const Popover: React.FC<PopoverProps> = ({
     return () => {
       document.removeEventListener("keydown", handleKeydown)
     }
-  }, [onHide])
+  }, [handleHide])
 
   const { anchorRef, tooltipRef } = usePosition({
     position: placement,
@@ -89,7 +96,7 @@ export const Popover: React.FC<PopoverProps> = ({
 
   useClickOutside({
     ref: tooltipRef,
-    onClickOutside: onHide,
+    onClickOutside: handleHide,
     when: visible,
     type: "click",
   })
@@ -133,7 +140,7 @@ export const Popover: React.FC<PopoverProps> = ({
             pt={2}
             px={1}
             mx={0.5}
-            onClick={onHide}
+            onClick={handleHide}
             aria-label="Close"
           >
             <CloseIcon fill="black100" display="block" />

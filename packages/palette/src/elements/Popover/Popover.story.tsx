@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
 import { Position, POSITION } from "../../utils"
@@ -16,7 +17,11 @@ export default {
 export const Default = () => {
   return (
     <States<Partial<PopoverProps>>
-      states={[{}, { title: "Example Title", visible: true }]}
+      states={[
+        {},
+        { title: "Example Title", visible: true },
+        { onClose: action("onClose") },
+      ]}
     >
       <Popover
         placement="bottom"
