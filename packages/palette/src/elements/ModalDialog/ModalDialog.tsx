@@ -17,7 +17,8 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
   title,
   ...rest
 }) => {
-  const isMounted = useDidMount()
+  const isMounted = useDidMount({ clearCallStack: true })
+
   const [{ width, ...boxProps }, modalProps] = splitBoxProps(rest)
 
   return (
