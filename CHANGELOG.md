@@ -1,5 +1,23 @@
 # (Fri Oct 21 2022)
 
+#### 💥  Breaking Change
+
+- `@artsy/palette@26.0.0`
+  - fix: updates react-remove-scroll [#1217](https://github.com/artsy/palette/pull/1217) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@26.0.0`
+  - chore: bumps storybook version [#1215](https://github.com/artsy/palette/pull/1215) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Oct 21 2022)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@25.1.0`

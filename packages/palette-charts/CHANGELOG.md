@@ -1,3 +1,15 @@
+# v25.0.0 (Fri Oct 21 2022)
+
+#### 🏠  Internal
+
+- chore: bumps storybook version [#1215](https://github.com/artsy/palette/pull/1215) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v24.0.1 (Thu Oct 20 2022)
 
 #### 🐛  Bug Fix

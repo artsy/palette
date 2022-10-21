@@ -1,3 +1,27 @@
+# v26.0.0 (Fri Oct 21 2022)
+
+#### 💥  Breaking Change
+
+- fix: updates react-remove-scroll [#1217](https://github.com/artsy/palette/pull/1217) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(modaldialog): fixes animation by waiting for next tick ([@dzucconi](https://github.com/dzucconi))
+- chore(deps): bumps react-lazy-image ([@dzucconi](https://github.com/dzucconi))
+- chore(deps): bumps react-remove-scroll ([@dzucconi](https://github.com/dzucconi))
+- chore(skeleton): sets display name ([@dzucconi](https://github.com/dzucconi))
+- chore: bumps storybook version ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore: bumps storybook version [#1215](https://github.com/artsy/palette/pull/1215) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v25.1.0 (Fri Oct 21 2022)
 
 #### 🚀  Enhancement
