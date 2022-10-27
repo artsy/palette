@@ -37,12 +37,14 @@ export const usePosition = ({
   position,
   offset = 0,
   active = true,
+  denyFlipPosition,
 }: {
   position: Position
   /** Distance from anchor (default: `0`) */
   offset?: number
   /** Optionally disable for performance (default: `true`) */
   active?: boolean
+  denyFlipPosition?: boolean
 }) => {
   const [state, setState] = useState<ReturnType<typeof placeTooltip>>({
     isFlipped: false,
@@ -55,16 +57,21 @@ export const usePosition = ({
   useMutationObserver({
     ref: tooltipRef,
     onMutate: () => {
+      console.log("[debug] onMutate")
+
       if (!tooltipRef.current || !anchorRef.current) return
 
       const { current: tooltip } = tooltipRef
       const { current: anchor } = anchorRef
 
-      setState(placeTooltip(anchor, tooltip, position, offset))
+      console.log("[debug[ mutation observer", placeTooltip({anchor, tooltip, position, offset, denyFlipPosition}))
+      setState(placeTooltip({anchor, tooltip, position, offset, denyFlipPosition}))
     },
   })
 
   useIsomorphicLayoutEffect(() => {
+    console.log("[debug] useIsomorphicLayoutEffect")
+
     if (!tooltipRef.current || !anchorRef.current) return
 
     const { current: tooltip } = tooltipRef
@@ -75,8 +82,10 @@ export const usePosition = ({
     tooltip.style.left = "0"
 
     const handleScroll = () => {
+      console.log("[debug] handleScroll")
       if (!active) return
-      setState(placeTooltip(anchor, tooltip, position, offset))
+      console.log("[debug] handleScroll", placeTooltip({ anchor, tooltip, position, offset, denyFlipPosition }))
+      setState(placeTooltip({ anchor, tooltip, position, offset, denyFlipPosition }))
     }
 
     if (active) {
@@ -86,12 +95,13 @@ export const usePosition = ({
     }
 
     const handleResize = () => {
-      setState(placeTooltip(anchor, tooltip, position, offset))
+      console.log("[debug] handleResize", placeTooltip({ anchor, tooltip, position, offset, denyFlipPosition }))
+      setState(placeTooltip({ anchor, tooltip, position, offset, denyFlipPosition }))
     }
 
     window.addEventListener("resize", handleResize, { passive: true })
 
-    setState(placeTooltip(anchor, tooltip, position, offset))
+    setState(placeTooltip({ anchor, tooltip, position, offset, denyFlipPosition }))
 
     return () => {
       document.removeEventListener("scroll", handleScroll)
@@ -108,20 +118,25 @@ export const usePosition = ({
   }
 }
 
-export const placeTooltip = (
+interface PlaceTooltipOptions {
   anchor: HTMLElement,
   tooltip: HTMLElement,
-  position: Position,
-  offset = 0,
-  boundaryRect = getDocumentBoundingRect()
-) => {
+  position: Position
+  offset?: number
+  denyFlipPosition?: boolean
+  boundaryRect?: DOMRect
+}
+
+export const placeTooltip = (options: PlaceTooltipOptions) => {
+  let { position } = options
+  const {anchor, tooltip, offset = 0, boundaryRect = getDocumentBoundingRect(), denyFlipPosition } = options
   const elementRect = anchor.getBoundingClientRect()
   const tooltipRect = tooltip.getBoundingClientRect()
 
   let targetPosition = getPosition(elementRect, tooltipRect, position)
 
   // Flip to avoid edges
-  const isFlipped = shouldFlip(
+  const isFlipped = !denyFlipPosition && shouldFlip(
     targetPosition,
     position,
     boundaryRect,

@@ -26,6 +26,7 @@ export interface PopoverProps extends BoxProps {
   /** Intially visible by default? */
   visible?: boolean
   popover: React.ReactNode
+  denyFlipPosition?: boolean
   children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
   onClose?: () => void
 }
@@ -40,6 +41,7 @@ export const Popover: React.FC<PopoverProps> = ({
   visible: _visible = false,
   children,
   popover,
+  denyFlipPosition,
   onClose,
   ...rest
 }) => {
@@ -92,6 +94,7 @@ export const Popover: React.FC<PopoverProps> = ({
     position: placement,
     offset: 10,
     active: visible,
+    denyFlipPosition,
   })
 
   useClickOutside({
