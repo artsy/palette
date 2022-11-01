@@ -1,3 +1,16 @@
+# v26.0.1 (Tue Nov 01 2022)
+
+#### 🐛  Bug Fix
+
+- fix(horizontaloverflow): accommodate half pixel differences [#1220](https://github.com/artsy/palette/pull/1220) ([@dzucconi](https://github.com/dzucconi))
+- fix(horizontaloverflow): accommodate half pixel differences ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v26.0.0 (Fri Oct 21 2022)
 
 #### 💥  Breaking Change
