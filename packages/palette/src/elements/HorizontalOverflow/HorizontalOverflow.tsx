@@ -4,6 +4,7 @@ import React, { forwardRef, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import {
   border,
+  BorderProps,
   compose,
   justifyContent,
   JustifyContentProps,
@@ -14,9 +15,9 @@ import { visuallyDisableScrollbar } from "../../helpers/visuallyDisableScrollbar
 import { splitProps } from "../../utils/splitProps"
 import { Box, BoxProps } from "../Box"
 
-const splitRailProps = splitProps<PaddingProps & JustifyContentProps>(
-  compose(padding, justifyContent, border)
-)
+const splitRailProps = splitProps<
+  PaddingProps & JustifyContentProps & BorderProps
+>(compose(padding, justifyContent, border))
 
 const Overlay = styled(Box)<{ atEnd: boolean }>`
   position: relative;
@@ -72,7 +73,7 @@ export const HorizontalOverflow: React.ForwardRefExoticComponent<
     }
   }, [])
 
-  const [railProps, boxProps] = splitRailProps(rest)
+  const [railProps, { ref: _ref, ...boxProps }] = splitRailProps(rest)
 
   const [atEnd, setAtEnd] = useState(false)
 
@@ -83,7 +84,8 @@ export const HorizontalOverflow: React.ForwardRefExoticComponent<
       current: { scrollLeft, scrollWidth, clientWidth },
     } = ref
 
-    if (scrollLeft + clientWidth === scrollWidth) {
+    // Check if we're at the end of the scroll (within 1px)
+    if (Math.abs(scrollLeft + clientWidth - scrollWidth) <= 1) {
       setAtEnd(true)
       return
     }
@@ -92,7 +94,6 @@ export const HorizontalOverflow: React.ForwardRefExoticComponent<
   }
 
   return (
-    // @ts-ignore
     <Overlay atEnd={atEnd} {...boxProps}>
       <Viewport
         ref={composeRefs(ref, forwardedRef) as any}
