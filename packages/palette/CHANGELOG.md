@@ -1,3 +1,16 @@
+# v26.1.1 (Thu Nov 17 2022)
+
+#### 🐛  Bug Fix
+
+- fix(modaldialogcontent): fixes width for shorter content [#1225](https://github.com/artsy/palette/pull/1225) ([@dzucconi](https://github.com/dzucconi))
+- fix(modaldialogcontent): fixes width for shorter content ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v26.1.0 (Thu Nov 17 2022)
 
 #### 🚀  Enhancement

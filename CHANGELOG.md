@@ -1,5 +1,18 @@
 # (Thu Nov 17 2022)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@26.1.1`
+  - fix(modaldialogcontent): fixes width for shorter content [#1225](https://github.com/artsy/palette/pull/1225) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Nov 17 2022)
+
 #### 🚀  Enhancement
 
 - chore(deps): update cimg/python docker tag to v3.11 [#1219](https://github.com/artsy/palette/pull/1219) ([@renovate[bot]](https://github.com/renovate[bot]))
