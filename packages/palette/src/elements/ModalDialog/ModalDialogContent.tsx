@@ -15,7 +15,9 @@ export interface ModalDialogContentProps
   children: React.ReactNode
   footer?: React.ReactNode
   hasLogo?: boolean
+  leftPanel?: React.ReactNode
   onClose: () => void
+  rightPanel?: React.ReactNode
   title?: string
 }
 
@@ -23,7 +25,9 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
   children,
   footer,
   hasLogo,
+  leftPanel,
   onClose,
+  rightPanel,
   title,
   ...rest
 }) => {
@@ -38,66 +42,65 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
   } = useSentinelVisibility()
 
   return (
-    <Flex
-      bg="white100"
-      flexDirection="column"
-      overflow="hidden"
-      m={2}
-      style={{ boxShadow: DROP_SHADOW }}
-      {...rest}
-    >
-      <Flex
-        alignItems="flex-start"
-        justifyContent="space-between"
-        zIndex={1}
-        style={{
-          transition: "box-shadow 250ms",
-          boxShadow: isAtTop ? DROP_SHADOW : undefined,
-        }}
-      >
-        {(title || hasLogo) && (
-          <Box m={2}>
-            {hasLogo && (
-              <ArtsyLogoBlackIcon
-                display="block"
-                style={{ width: "75px", height: "26px" }}
-              />
-            )}
+    <Flex bg="white100" m={2} style={{ boxShadow: DROP_SHADOW }} {...rest}>
+      {leftPanel}
 
-            {hasLogo && title && <Spacer mt={2} />}
-
-            {title && <Text variant="lg-display">{title}</Text>}
-          </Box>
-        )}
-
-        <Clickable p={2} ml="auto" onClick={onClose} aria-label="Close">
-          <CloseIcon fill="black100" display="block" />
-        </Clickable>
-      </Flex>
-
-      <Box
-        px={2}
-        pb={2}
-        flex={1}
-        overflow="auto"
-        style={{ WebkitOverflowScrolling: "touch" }}
-      >
-        {topSentinel}
-        {children}
-        {bottomSentinel}
-      </Box>
-
-      {footer && (
-        <Box
-          p={2}
+      <Flex flexDirection="column" overflow="hidden">
+        <Flex
+          alignItems="flex-start"
+          justifyContent="space-between"
+          zIndex={1}
           style={{
             transition: "box-shadow 250ms",
-            boxShadow: isAtBottom ? DROP_SHADOW : undefined,
+            boxShadow: isAtTop ? DROP_SHADOW : undefined,
           }}
         >
-          {footer}
+          {(title || hasLogo) && (
+            <Box m={2}>
+              {hasLogo && (
+                <ArtsyLogoBlackIcon
+                  display="block"
+                  style={{ width: "75px", height: "26px" }}
+                />
+              )}
+
+              {hasLogo && title && <Spacer mt={2} />}
+
+              {title && <Text variant="lg-display">{title}</Text>}
+            </Box>
+          )}
+
+          <Clickable p={2} ml="auto" onClick={onClose} aria-label="Close">
+            <CloseIcon fill="black100" display="block" />
+          </Clickable>
+        </Flex>
+
+        <Box
+          px={2}
+          pb={2}
+          flex={1}
+          overflow="auto"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {topSentinel}
+          {children}
+          {bottomSentinel}
         </Box>
-      )}
+
+        {footer && (
+          <Box
+            p={2}
+            style={{
+              transition: "box-shadow 250ms",
+              boxShadow: isAtBottom ? DROP_SHADOW : undefined,
+            }}
+          >
+            {footer}
+          </Box>
+        )}
+      </Flex>
+
+      {rightPanel}
     </Flex>
   )
 }

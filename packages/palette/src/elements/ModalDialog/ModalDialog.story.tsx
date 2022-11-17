@@ -3,6 +3,7 @@ import { States } from "storybook-states"
 import { Text } from "../Text"
 import { Button } from "../Button"
 import { ModalDialog, ModalDialogProps } from "./ModalDialog"
+import { Box } from "../Box"
 
 const LOREM =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus sed iure repellendus animi, aliquid aut fuga maxime nemo minus quas. Error, incidunt fugit similique quidem culpa hic! Nemo, quas rerum. "
@@ -59,6 +60,46 @@ export const Default = () => {
             "Modal Title with a longer title or headline text that runs on for mutliple lines",
           hasLogo: true,
           footer: <Button width="100%">Confirm</Button>,
+        },
+        {
+          width: 800,
+          title: "With Left Panel",
+          leftPanel: (
+            <Box bg="black100" width={300} flexShrink={0} p={1}>
+              <Text variant="xs" color="white100">
+                Some custom content on the left
+              </Text>
+            </Box>
+          ),
+        },
+        {
+          width: 800,
+          title: "With Right Panel",
+          rightPanel: (
+            <Box bg="black100" width={300} flexShrink={0} p={1}>
+              <Text variant="xs" color="white100">
+                Some custom content on the left
+              </Text>
+            </Box>
+          ),
+        },
+        {
+          width: "100%",
+          title: "With Left and Right Panels",
+          leftPanel: (
+            <Box bg="black100" width={300} flexShrink={0} p={1}>
+              <Text variant="xs" color="white100">
+                Some custom content on the left
+              </Text>
+            </Box>
+          ),
+          rightPanel: (
+            <Box bg="black100" width={300} flexShrink={0} p={1}>
+              <Text variant="xs" color="white100">
+                Some custom content on the left
+              </Text>
+            </Box>
+          ),
         },
       ]}
     >
