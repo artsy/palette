@@ -49,6 +49,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
       <Flex
         alignItems="flex-start"
         justifyContent="space-between"
+        zIndex={1}
         style={{
           transition: "box-shadow 250ms",
           boxShadow: isAtTop ? DROP_SHADOW : undefined,
