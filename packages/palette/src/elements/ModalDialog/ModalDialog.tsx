@@ -7,13 +7,19 @@ import {
 import { splitBoxProps } from "../Box"
 import { useDidMount } from "../../utils/useDidMount"
 
-export type ModalDialogProps = ModalBaseProps & ModalDialogContentProps
+export type ModalDialogProps = ModalBaseProps &
+  ModalDialogContentProps & {
+    leftPanel?: React.ReactNode
+    rightPanel?: React.ReactNode
+  }
 
 export const ModalDialog: React.FC<ModalDialogProps> = ({
   children,
   footer,
   hasLogo,
+  leftPanel,
   onClose,
+  rightPanel,
   title,
   ...rest
 }) => {
@@ -38,7 +44,9 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
       <ModalDialogContent
         footer={footer}
         hasLogo={hasLogo}
+        leftPanel={leftPanel}
         onClose={onClose}
+        rightPanel={rightPanel}
         title={title}
         width="100%"
         style={
