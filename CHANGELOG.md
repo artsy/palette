@@ -1,3 +1,18 @@
+# (Thu Nov 17 2022)
+
+#### 🚀  Enhancement
+
+- chore(deps): update cimg/python docker tag to v3.11 [#1219](https://github.com/artsy/palette/pull/1219) ([@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette@26.1.0`
+  - feat(modaldialog): adds left/right panel support [#1224](https://github.com/artsy/palette/pull/1224) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Nov 01 2022)
 
 #### 🐛  Bug Fix

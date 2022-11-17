@@ -1,3 +1,20 @@
+# v26.1.0 (Thu Nov 17 2022)
+
+#### 🚀  Enhancement
+
+- feat(modaldialog): adds left/right panel support [#1224](https://github.com/artsy/palette/pull/1224) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(modaldialog): adds support for left/right panels ([@dzucconi](https://github.com/dzucconi))
+- fix(modalcontent): ensures shadow covers inputs ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v26.0.1 (Tue Nov 01 2022)
 
 #### 🐛  Bug Fix
