@@ -45,7 +45,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
     <Flex bg="white100" m={2} style={{ boxShadow: DROP_SHADOW }} {...rest}>
       {leftPanel}
 
-      <Flex flexDirection="column" overflow="hidden">
+      <Flex flexDirection="column" overflow="hidden" width="100%">
         <Flex
           alignItems="flex-start"
           justifyContent="space-between"

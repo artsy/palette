@@ -21,6 +21,13 @@ export const Default = () => {
       states={[
         {
           children: (
+            <Text variant="sm" bg="black10">
+              Content shorter than width
+            </Text>
+          ),
+        },
+        {
+          children: (
             <Text variant="sm">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque,
               neque voluptates! Sapiente, sint magnam. Assumenda, hic eius
