@@ -1,3 +1,16 @@
+# v26.1.2 (Tue Nov 22 2022)
+
+#### 🐛  Bug Fix
+
+- fix(select): corrects types [#1227](https://github.com/artsy/palette/pull/1227) ([@dzucconi](https://github.com/dzucconi))
+- fix(select): corrects types ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v26.1.1 (Thu Nov 17 2022)
 
 #### 🐛  Bug Fix

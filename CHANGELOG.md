@@ -1,3 +1,21 @@
+# (Tue Nov 22 2022)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@26.1.2`
+  - fix(select): corrects types [#1227](https://github.com/artsy/palette/pull/1227) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update yarn orb from 6.2.0 to v6.4.0 [#1226](https://github.com/artsy/palette/pull/1226) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Nov 17 2022)
 
 #### 🐛  Bug Fix
