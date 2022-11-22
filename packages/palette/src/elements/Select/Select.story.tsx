@@ -60,6 +60,7 @@ export const Example = () => {
       title="Sort:"
       options={OPTIONS}
       selected="-year"
+      autoComplete="year"
     />
   )
 }

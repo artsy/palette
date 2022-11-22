@@ -14,7 +14,7 @@ export interface Option {
 
 export interface SelectProps
   extends BoxProps,
-    Omit<React.HTMLAttributes<HTMLSelectElement>, "onSelect"> {
+    Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "onSelect" | "size"> {
   description?: string
   disabled?: boolean
   error?: string | boolean
