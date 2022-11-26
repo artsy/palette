@@ -1,9 +1,14 @@
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 import React from "react"
+import styled from "styled-components"
 import { splitBoxProps } from "../Box"
 import { Flex, FlexProps } from "../Flex"
 import { Image, ImageProps } from "../Image"
 import { Text } from "../Text"
+
+const Container = styled(Flex)`
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+`
 
 export interface AvatarProps extends FlexProps, Partial<ImageProps> {
   /** If an image is missing, show initials instead */
@@ -54,7 +59,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   const { diameter, variant } = TOKENS[size] ?? TOKENS.sm
 
   return (
-    <Flex
+    <Container
       size={diameter}
       bg={TOKENS.bg}
       border={src ? "transparent" : "1px solid"}
@@ -89,6 +94,6 @@ export const Avatar: React.FC<AvatarProps> = ({
           />
         </Flex>
       )}
-    </Flex>
+    </Container>
   )
 }
