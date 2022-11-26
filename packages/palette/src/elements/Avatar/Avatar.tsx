@@ -6,6 +6,12 @@ import { Flex, FlexProps } from "../Flex"
 import { Image, ImageProps } from "../Image"
 import { Text } from "../Text"
 
+/**
+ * On Safari, border-radius with overflow hidden on an image causes a rendering issue
+ * The image shows as a square at first, then the border-radius kicks in and it becomes a circle
+ * This is a css hack that solves the issue
+ * src: https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b
+ */
 const Container = styled(Flex)`
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 `
