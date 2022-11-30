@@ -84,6 +84,10 @@ export const BANNER_VARIANTS = {
     backgroundColor: "brand",
     color: "white100",
   },
+  brandLight: {
+    backgroundColor: "blue10",
+    color: "black100",
+  },
 }
 
 const Container = styled(Flex)`

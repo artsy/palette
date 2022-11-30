@@ -16,6 +16,7 @@ export const Default = () => {
         { variant: "success" },
         { variant: "error" },
         { variant: "brand" },
+        { variant: "brandLight" },
       ]}
     >
       <Banner dismissable>
