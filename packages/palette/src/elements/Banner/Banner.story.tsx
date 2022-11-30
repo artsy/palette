@@ -11,6 +11,7 @@ export const Default = () => {
     <States<BannerProps>
       states={[
         { dismissable: false },
+        { justifyContentStart: true },
         { variant: "defaultLight" },
         { variant: "defaultDark" },
         { variant: "success" },

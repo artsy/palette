@@ -11,11 +11,13 @@ export type BannerVariant = keyof typeof BANNER_VARIANTS
 export interface BannerProps extends FlexProps {
   variant?: BannerVariant
   dismissable?: boolean
+  justifyContentStart?: boolean
 }
 
 /** A banner */
 export const Banner: React.FC<BannerProps> = ({
   dismissable = false,
+  justifyContentStart = false,
   children,
   ...rest
 }) => {
@@ -33,7 +35,7 @@ export const Banner: React.FC<BannerProps> = ({
         variant="xs"
         display="flex"
         alignItems="center"
-        justifyContent="center"
+        justifyContent={justifyContentStart ? "start" : "center"}
         textAlign="center"
         flex={1}
       >
