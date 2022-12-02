@@ -1,3 +1,30 @@
+# (Fri Dec 02 2022)
+
+### Release Notes
+
+#### feat: Spacer uses `x`/`y` now ([#1232](https://github.com/artsy/palette/pull/1232))
+
+To migrate to this version, replace the following props on`Spacer`:
+- `mb`, `mt` with `y`.
+- `ml`, `mr` with `x`.
+- `my` with `y`. if in a flex context, double the value (`my={1}` becomes `y={2}`).
+- `mx` with `x`. if in a flex context,double the value (`mx={1}` becomes `x={2}`).
+- `m` with either `x` or `y`, figure out which one you need based on the case. if in a flex context, double the value as well.
+- similarly for `p*`.
+
+---
+
+#### 💥  Breaking Change
+
+- `@artsy/palette@27.0.0`
+  - feat: Spacer uses `x`/`y` now [#1232](https://github.com/artsy/palette/pull/1232) ([@pvinis](https://github.com/pvinis))
+
+#### Authors: 1
+
+- Pavlos Vinieratos ([@pvinis](https://github.com/pvinis))
+
+---
+
 # (Tue Nov 22 2022)
 
 #### 🐛  Bug Fix
