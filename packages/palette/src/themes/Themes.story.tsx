@@ -21,7 +21,7 @@ import {
   Tabs,
   Text,
 } from "../elements"
-import { isThemeV2, useTheme } from "../Theme"
+import { useTheme } from "../Theme"
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 
 export default {
@@ -170,9 +170,7 @@ export const Grid = () => {
 export const Typography = () => {
   const { theme } = useTheme()
 
-  const variants = isThemeV2(theme)
-    ? theme.textVariants.large
-    : theme.textVariants
+  const variants = theme.textVariants
 
   const treatments = Object.keys(variants) as TextVariant[]
 
