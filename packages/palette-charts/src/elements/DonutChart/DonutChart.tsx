@@ -1,4 +1,5 @@
-import { Box, color, Color, space, Text } from "@artsy/palette"
+import { Box, color, space, Text } from "@artsy/palette"
+import { Color } from "@artsy/palette-tokens/dist/themes/v3"
 import { interpolate } from "d3-interpolate"
 import { arc as d3_arc, pie as d3_pie } from "d3-shape"
 import React, { useRef, useState } from "react"
