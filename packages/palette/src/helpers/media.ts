@@ -1,5 +1,5 @@
+import { breakpoints } from "@artsy/palette-tokens/dist/themes/v3"
 import { css } from "styled-components"
-import { breakpoints } from "../Theme"
 
 type Media = { [S in keyof typeof breakpoints]: typeof css }
 

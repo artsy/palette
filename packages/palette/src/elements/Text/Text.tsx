@@ -14,7 +14,7 @@ import {
   TypographyProps,
   variant,
 } from "styled-system"
-import { Color } from "../../Theme"
+import { Color } from "../../themes/types"
 import { Box, BoxProps } from "../Box"
 
 /** BaseTextProps */

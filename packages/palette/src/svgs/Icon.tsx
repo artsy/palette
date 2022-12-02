@@ -7,7 +7,7 @@ import {
   space,
   SpaceProps,
 } from "styled-system"
-import { Color } from "../Theme"
+import { Color } from "../themes/types"
 
 export interface IconProps
   extends React.SVGProps<any>,

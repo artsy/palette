@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { color, space } from "../../helpers"
-import { SpacingUnit } from "../../Theme"
+import { SpacingUnit } from "../../themes/types"
 import { Clickable, ClickableProps } from "../Clickable"
 
 const ARROW_WIDTH: SpacingUnit[] = [2, 4]
@@ -39,7 +39,7 @@ const Arrow = styled(Clickable)`
  * Set some easily overwriteable props using `defaultProps`
  */
 Arrow.defaultProps = {
-  width: ARROW_WIDTH.map(value => space(value)),
+  width: ARROW_WIDTH.map((value) => space(value)),
   height: "100%",
   color: "black60",
 }

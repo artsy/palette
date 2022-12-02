@@ -1,4 +1,5 @@
-import { Color, themeProps } from "../Theme"
+import { THEME_V3 } from "@artsy/palette-tokens"
+import { Color } from "../themes/types"
 
 /**
  * A helper to easily access colors when not in a styled-components or
@@ -7,4 +8,4 @@ import { Color, themeProps } from "../Theme"
  * @deprecated use component `color` or `borderColor` props, or `themeGet('colors.colorName')`
  */
 export const color = (colorKey: Color | "currentColor") =>
-  themeProps.colors[colorKey] ?? colorKey
+  THEME_V3.colors[colorKey] ?? colorKey

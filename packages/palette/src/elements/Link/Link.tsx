@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { color } from "../../helpers"
-import { Color } from "../../Theme"
+import { Color } from "../../themes/types"
 import { boxMixin, BoxProps } from "../Box"
 
 type UnderlineBehaviors = "default" | "hover" | "none"
