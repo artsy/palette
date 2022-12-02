@@ -19,7 +19,7 @@ export const Default = () => {
       ]}
     >
       <HorizontalOverflow bg="black10" p={2}>
-        <Join separator={<Spacer mr={2} />}>
+        <Join separator={<Spacer x={2} />}>
           {Array.from(Array(50)).map((_, i) => (
             <Text key={i} variant="sm-display" color="black100" mr={2}>
               Example #{i}
@@ -35,7 +35,7 @@ export const FillHeightCenteredContent = () => {
   return (
     <Box height={100} bg="red10">
       <HorizontalOverflow border="1px solid" p={2} height="100%">
-        <Join separator={<Spacer mr={2} />}>
+        <Join separator={<Spacer x={2} />}>
           {Array.from(Array(50)).map((_, i) => (
             <Text
               key={i}

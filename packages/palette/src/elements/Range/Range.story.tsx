@@ -51,12 +51,12 @@ export const InContext = () => {
       <Flex>
         <LabeledInput title="Min" label="$USD" flex={1} value={min} />
 
-        <Spacer ml={1} />
+        <Spacer x={1} />
 
         <LabeledInput title="Max" label="$USD" flex={1} value={max} />
       </Flex>
 
-      <Spacer mt={1} />
+      <Spacer y={1} />
 
       <Range
         min={0}
@@ -66,7 +66,7 @@ export const InContext = () => {
         onChange={setMinMax}
       />
 
-      <Spacer mt={0.5} />
+      <Spacer y={0.5} />
 
       <Flex justifyContent="space-between">
         <Text variant="xs">$0</Text>

@@ -31,6 +31,7 @@ to peek at the proposal and provide feedback before moving forward.
 In the project root run the following:
 
 ```sh
+$ lerna bootstrap
 $ yarn storybook
 ```
 

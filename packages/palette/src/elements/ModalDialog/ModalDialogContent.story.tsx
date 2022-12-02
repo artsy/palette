@@ -69,7 +69,7 @@ export const Default = () => {
       ]}
     >
       <ModalDialogContent onClose={action("onClose")} maxHeight={400}>
-        <Join separator={<Spacer mt={1} />}>
+        <Join separator={<Spacer y={1} />}>
           <Text variant="sm">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque,
             neque voluptates! Sapiente, sint magnam. Assumenda, hic eius

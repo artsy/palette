@@ -58,7 +58,7 @@ const ExampleArtworkSkeleton: React.FC<{ i: number }> = ({ i }) => {
   return (
     <>
       <SkeletonBox width={200} height={[200, 300, 250, 275][i % 4]} />
-      <Spacer mt={1} />
+      <Spacer y={1} />
       <SkeletonText variant="sm-display">Artist Name</SkeletonText>
       <SkeletonText variant="sm-display">Artwork Title</SkeletonText>
       <SkeletonText variant="xs">Partner</SkeletonText>
@@ -77,7 +77,7 @@ export const _ExampleArtworkSkeleton = () => {
 
 export const StressTest = () => {
   return (
-    <Join separator={<Spacer mt={6} />}>
+    <Join separator={<Spacer y={6} />}>
       {Array.from(Array(12)).map((_, i) => {
         return (
           <Skeleton key={`a-${i}`} overflow="hidden">

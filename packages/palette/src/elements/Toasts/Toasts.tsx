@@ -16,7 +16,7 @@ export const Toasts: React.FC<ToastsProps> = ({ limit = 5, ...rest }) => {
   return (
     <>
       <Box {...rest}>
-        <Join separator={<Spacer mt={1} />}>
+        <Join separator={<Spacer y={1} />}>
           {takeRight(toasts, limit).map(({ id, ...rest }) => (
             <Toast key={id} id={id} {...rest} />
           ))}

@@ -62,7 +62,7 @@ export const Dialog: FC<DialogProps> = ({
                 {secondaryCta.text}
               </Button>
 
-              <Spacer ml={1} />
+              <Spacer x={1} />
             </>
           )}
 
