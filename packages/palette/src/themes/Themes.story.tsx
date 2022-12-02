@@ -112,7 +112,7 @@ export const Spacing = () => {
 
       <Separator color="black30" my={12} />
 
-      <Join separator={<Spacer my={2} />}>
+      <Join separator={<Spacer y={2} />}>
         {spacing.map((key) => {
           const px = parseFloat(key) * 10
 

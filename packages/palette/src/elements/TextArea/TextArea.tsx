@@ -101,7 +101,7 @@ export const TextArea: React.ForwardRefExoticComponent<
               )}
             </div>
 
-            <Spacer m={0.5} />
+            <Spacer y={0.5} />
           </>
         )}
 

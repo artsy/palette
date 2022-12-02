@@ -55,7 +55,7 @@ export const StaticCountdownTimer: React.FC<{
           fill={highlight}
           style={{ marginTop: "1.5px" }}
         />
-        <Spacer mr="7px" />
+        <Spacer x="7px" />
         <TimeRemaining
           countdownEnd={countdownEnd}
           highlight={highlight}

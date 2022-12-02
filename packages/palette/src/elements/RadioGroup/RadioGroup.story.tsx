@@ -23,7 +23,7 @@ export const Default = () => {
       ]}
     >
       <RadioGroup onSelect={action("onSelect")}>
-        <Join separator={<Spacer mb={0.5} />}>
+        <Join separator={<Spacer y={0.5} />}>
           {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
             (value) => {
               return <Radio key={value} value={value} label={value} />
@@ -51,7 +51,7 @@ export const WithDefaultValue = () => {
 
       <RadioGroup defaultValue={defaultValue} onSelect={action("onSelect")}>
         <Radio value="SHIP" label="Provide shipping address" />
-        <Spacer mb={0.5} />
+        <Spacer y={0.5} />
         <Radio value="PICKUP" label="Arrange for pickup" />
       </RadioGroup>
     </>

@@ -62,7 +62,7 @@ const Example: React.FC<
           >
             <Box textAlign="center">
               <Text variant="sm-display" color="white100">
-                <Join separator={<Spacer my={1} />}>
+                <Join separator={<Spacer y={2} />}>
                   <>Some example content. Click outside to close.</>
                   <Button variant="primaryWhite" onClick={handleClose}>
                     Or click here to close.

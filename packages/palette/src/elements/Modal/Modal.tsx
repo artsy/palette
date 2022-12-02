@@ -124,10 +124,10 @@ export const Modal: FC<ModalProps> = ({
                 isScrolled={isScrolled}
                 px={2}
               >
-                <Spacer my={1} />
+                <Spacer y={2} />
                 <Flex>
                   <Box pr={6} flex={1}>
-                    <Join separator={<Spacer py={1} />}>
+                    <Join separator={<Spacer y={2} />}>
                       {hasLogo && <Logo my={1} />}
                       {title && (
                         <Text
@@ -147,7 +147,7 @@ export const Modal: FC<ModalProps> = ({
                     </CloseIconWrapper>
                   )}
                 </Flex>
-                <Spacer py={1} />
+                <Spacer y={2} />
               </ModalStickyHeader>
 
               <ModalScrollContent

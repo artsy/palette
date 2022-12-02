@@ -1,14 +1,16 @@
 import React from "react"
 import { Box, BoxProps } from "../../elements/Box"
 
-/** Spacer implements Box */
-export type SpacerProps = BoxProps & React.HTMLAttributes<HTMLDivElement>
+export type SpacerProps = {
+  x?: BoxProps["ml"]
+  y?: BoxProps["mt"]
+} & React.HTMLAttributes<HTMLDivElement>
 
 /**
- * A component used to inject space where it's needed
+ * Used to inject space where it's needed.
  */
-export const Spacer: React.FC<SpacerProps> = (props) => {
-  return <Box {...props} />
+export const Spacer = ({ x, y, ...restProps }: SpacerProps) => {
+  return <Box {...restProps} ml={x} mt={y} />
 }
 
 Spacer.displayName = "Spacer"

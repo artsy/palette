@@ -126,10 +126,10 @@ export const Popover: React.FC<PopoverProps> = ({
                   title
                 )}
 
-                <Spacer ml={4} />
+                <Spacer x={4} />
               </Flex>
 
-              <Spacer mt={0.5} />
+              <Spacer y={0.5} />
             </>
           )}
 
@@ -146,7 +146,7 @@ export const Popover: React.FC<PopoverProps> = ({
             <CloseIcon fill="black100" display="block" />
           </Clickable>
 
-          {!title && <Spacer mt={2} />}
+          {!title && <Spacer y={2} />}
 
           {popover}
         </Tip>

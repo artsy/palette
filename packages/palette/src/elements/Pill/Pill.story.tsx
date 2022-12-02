@@ -31,7 +31,7 @@ export const Variants = () => {
             : { bg: "white100", color: "black100" })}
         >
           <Flex>
-            <Join separator={<Spacer ml={2} />}>
+            <Join separator={<Spacer x={2} />}>
               <Pill {...props}>Default</Pill>
 
               <Pill {...props} focus>
