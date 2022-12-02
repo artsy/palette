@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
-import { Clickable, Flex } from ".."
+import { Clickable, Flex } from "../index"
 import { Position, POSITION } from "../../utils"
 import { Box } from "../Box"
 import { Button } from "../Button"

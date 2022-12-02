@@ -1,6 +1,6 @@
 import React from "react"
 import { States } from "storybook-states"
-import { Text, Box, Join, Spacer } from ".."
+import { Text, Box, Join, Spacer } from "../index"
 import {
   HorizontalOverflow,
   HorizontalOverflowProps,
