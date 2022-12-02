@@ -1,5 +1,5 @@
 import { THEME_V3 } from "@artsy/palette-tokens"
-import { SpacingUnit } from "../themes/types"
+import { SpacingUnit } from "@artsy/palette-tokens/dist/themes/v3"
 
 /**
  * A helper to easily access space values when not in a styled-components or

@@ -1,3 +1,4 @@
+import { Color } from "@artsy/palette-tokens/dist/themes/v3"
 import {
   TEXT_VARIANTS,
   TextVariant,
@@ -14,7 +15,6 @@ import {
   TypographyProps,
   variant,
 } from "styled-system"
-import { Color } from "../../themes/types"
 import { Box, BoxProps } from "../Box"
 
 /** BaseTextProps */

@@ -3,7 +3,6 @@ export * from "./helpers"
 export * from "./svgs"
 export * from "./Theme"
 export * from "./utils"
-export * from "./themes/types"
 
 // Helpers
 import * as _AllIcons from "./svgs"

@@ -1,3 +1,4 @@
+import { Color } from "@artsy/palette-tokens/dist/themes/v3"
 import React, { FC } from "react"
 import styled from "styled-components"
 import {
@@ -7,7 +8,6 @@ import {
   space,
   SpaceProps,
 } from "styled-system"
-import { Color } from "../themes/types"
 
 export interface IconProps
   extends React.SVGProps<any>,

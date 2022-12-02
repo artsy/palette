@@ -1,5 +1,5 @@
 import { THEME_V3 } from "@artsy/palette-tokens"
-import { Color } from "../themes/types"
+import { Color } from "@artsy/palette-tokens/dist/themes/v3"
 
 /**
  * A helper to easily access colors when not in a styled-components or

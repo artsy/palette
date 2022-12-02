@@ -1,5 +1,5 @@
+import { Color } from "@artsy/palette-tokens/dist/themes/v3"
 import React from "react"
-import { Color } from "../../themes/types"
 import { Box, BoxProps } from "../Box"
 
 export interface ProgressBarProps extends BoxProps {

@@ -1,6 +1,6 @@
+import { SpacingUnit } from "@artsy/palette-tokens/dist/themes/v3"
 import styled from "styled-components"
 import { color, space } from "../../helpers"
-import { SpacingUnit } from "../../themes/types"
 import { Clickable, ClickableProps } from "../Clickable"
 
 const ARROW_WIDTH: SpacingUnit[] = [2, 4]

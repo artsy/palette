@@ -1,3 +1,4 @@
+import { Color } from "@artsy/palette-tokens/dist/themes/v3"
 import {
   TEXT_VARIANT_NAMES,
   TEXT_VARIANTS,
@@ -6,7 +7,6 @@ import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
-import { Color } from "../../themes/types"
 import { Flex } from "../Flex"
 import { Text, TextProps } from "./Text"
 

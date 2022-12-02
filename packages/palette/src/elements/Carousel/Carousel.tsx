@@ -1,3 +1,4 @@
+import { SpacingUnit } from "@artsy/palette-tokens/dist/themes/v3"
 import React, {
   Children,
   createRef,
@@ -11,7 +12,6 @@ import styled from "styled-components"
 import { ResponsiveValue, system } from "styled-system"
 import { useCursor } from "use-cursor"
 import { ChevronIcon } from "../../svgs"
-import { SpacingUnit } from "../../themes/types"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Skip } from "../Skip"
