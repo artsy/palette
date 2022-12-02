@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Text } from ".."
+import { Text } from "../index"
 import { Box } from "../Box"
 import { Button } from "../Button"
 import { Input } from "../Input"
