@@ -1,4 +1,4 @@
-import { THEME_V3 } from ".";
+import { THEME_V3 } from "./index";
 import { Color, SpacingUnit } from "./themes/types";
 
 /**
