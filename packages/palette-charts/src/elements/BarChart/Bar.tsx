@@ -1,4 +1,4 @@
-import { Box, breakpoints, color, Flex, media, space } from "@artsy/palette"
+import { Box, color, Flex, media, space, THEME_V3 } from "@artsy/palette"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import {
@@ -26,10 +26,10 @@ const BarBox = styled(Box)`
     margin-right: 0;
   }
   flex: 1;
-  cursor: ${props => ((props as any).onClick ? "pointer" : "default")};
+  cursor: ${(props) => ((props as any).onClick ? "pointer" : "default")};
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${THEME_V3.breakpoints.sm}) {
     :hover {
       background: ${(props: BarBoxProps) =>
         props.isHighlighted ? color("black60") : color("black30")};
@@ -176,7 +176,7 @@ export const Bar = ({
         <HighlightLabel
           innerRef={highlightLabelRef}
           opacity={hasEnteredViewport ? 1 : 0}
-          onMeasureHighlightLabel={labelHeight =>
+          onMeasureHighlightLabel={(labelHeight) =>
             onMeasureHeight(labelHeight + finalBarHeight)
           }
         >
