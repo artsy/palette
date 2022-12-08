@@ -1,4 +1,4 @@
-# Artsy's Design System 
+# Palette - Artsy's Design System 
 
 ### Storybook 
 [https://palette-storybook.artsy.net](https://palette-storybook.artsy.net) 
@@ -25,12 +25,14 @@ Palette is a collection of primitive, product-agnostic elements that help encaps
 
 ## Does my component belong in Palette?
 
-If the component applies to Artsy as a brand and can/will be used across multiple digital products, then Palette is a great place for it. If it's highly product specific then it's best to leave the component where it's used. We can always move things later.
+If the component applies to Artsy as a brand and can/will be used across multiple digital products, then Palette is a great place for it. If it's highly product 
+specific then it's best to leave the component where it's used. We can always move things later.
 
 ## How to contribute
 
-If you'd like to add a new component to Palette please create an issue using the component spec template [- link?]. 
-That'll give both design and engineering a chance to peek at the proposal and provide feedback before moving forward.
+If you'd like to add a new component to Palette please raising it in the **#design-system** 
+Slack channel. That'll give both design and engineering a chance 
+to peek at the proposal and provide feedback before moving forward.
 
 ## Local development
 
@@ -74,11 +76,12 @@ If you don't want to release on a particular PR but the changes aren't trivial t
 ## Repos consuming Palette
 
 - [Force](https://github.com/artsy/force)
-- [Volt-V2](https://github.com/artsy/volt-v2)
-- [Volt](https://github.com/artsy/volt)
-- [Prediction](https://github.com/artsy/prediction)
-- [Positron](https://github.com/artsy/positron)
 - [Forque](https://github.com/artsy/forque)
+- [Volt](https://github.com/artsy/volt)
+- [Volt-V2](https://github.com/artsy/volt-v2)
+- [Positron](https://github.com/artsy/positron)
+- [Prediction](https://github.com/artsy/prediction)
+
 
 ## About Artsy
 
