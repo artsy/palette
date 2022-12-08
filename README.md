@@ -15,7 +15,7 @@ Icons will be removed from palette-storybook.artsy.net eventually
 [https://icons.artsy.net](https://icons.artsy.net) use this for icons
 
 ### Other links
-- Docs [https://palette.artsy.net](https://palette.artsy.net) To be depracated. It contains old design system and components. Docs will eventually move to the palette-storybook.artsy.net
+- Docs [https://palette.artsy.net](https://palette.artsy.net) To be depracated. It contains out of date Design System and Components. Docs will eventually move to the palette-storybook.artsy.net
 - Docs Github Repo: [https://github.com/artsy/palette-docs](https://github.com/artsy/palette-docs)
 
 ## What is Palette?
@@ -26,11 +26,11 @@ Palette is a collection of primitive, product-agnostic elements that help encaps
 
 If the component applies to Artsy as a brand and can/will be used across multiple digital products, then Palette is a great place for it. If it's highly product specific then it's best to leave the component where it's used. We can always move things later.
 
-If the above guidance still doesn't give you a good sense of what to do, please join the bi-weekly design systems sync.
+If the above guidance still doesn't give you a good sense of what to do, please join the bi-weekly design systems sync. [- link?]
 
 ## How to contribute
 
-If you'd like to add a new component to Palette please create an issue using the component spec template. That'll give both design and engineering a chance to peek at the proposal and provide feedback before moving forward.
+If you'd like to add a new component to Palette please create an issue using the component spec template [- link?]. That'll give both design and engineering a chance to peek at the proposal and provide feedback before moving forward.
 
 ## Local development
 
