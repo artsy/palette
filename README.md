@@ -10,7 +10,7 @@ The latest design system and components are available here 🙌🏻 We have a ne
 Icons will be removed from palette-storybook.artsy.net eventually
 
 ### Icons 
-[https://icons.artsy.net/](https://icons.artsy.net/) use this for icons
+[https://icons.artsy.net](https://icons.artsy.net) use this for icons
 
 ### Other links
 Docs [https://palette.artsy.net](https://palette.artsy.net) To be depracated. It contains old design system and components. Docs will eventually move to the palette-storybook.artsy.net
@@ -72,6 +72,7 @@ If you don't want to release on a particular PR but the changes aren't trivial t
 ## Repos consuming Palette
 
 - [Force](https://github.com/artsy/force)
+- [Volt-V2](https://github.com/artsy/volt-v2)
 - [Volt](https://github.com/artsy/volt)
 - [Prediction](https://github.com/artsy/prediction)
 - [Positron](https://github.com/artsy/positron)
