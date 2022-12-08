@@ -1,12 +1,20 @@
 # @artsy/palette [![CircleCI](https://circleci.com/gh/artsy/palette.svg?style=shield)](https://circleci.com/gh/artsy/palette) [![npm version](https://badge.fury.io/js/%40artsy%2Fpalette.svg)](https://www.npmjs.com/package/@artsy/palette) [![Netlify Status](https://api.netlify.com/api/v1/badges/beb9e8d7-10cc-4a2e-99bb-0d4c6f46db82/deploy-status)](https://app.netlify.com/sites/artsy-palette/deploys)
 
-Artsy's Design System
+# Artsy's Design System
 
-- Storybook: [https://palette-storybook.artsy.net](https://palette-storybook.artsy.net) the latest design system and components are available here 🙌🏻 we have a new repo for icons and prefer to use that one ⬇️ Icons will be removed from palette-storybook.artsy.net eventually
-- Icons: [https://icons.artsy.net/](https://icons.artsy.net/) use this for icons
-- Docs [https://palette.artsy.net](https://palette.artsy.net) To be depracated. It contains old design system and components. Docs will eventually move to the palette-storybook.artsy.net
-- Docs Github Repo: [https://github.com/artsy/palette-docs](https://github.com/artsy/palette-docs)
-- Point People: [@dzucconi](https://github.com/dzucconi), [@damassi](https://github.com/damassi)
+Point People: [@dzucconi](https://github.com/dzucconi), [@damassi](https://github.com/damassi)
+
+### Storybook 
+[https://palette-storybook.artsy.net](https://palette-storybook.artsy.net) 
+The latest design system and components are available here 🙌🏻 We have a new repo for icons and prefer to use that one ⬇️ 
+Icons will be removed from palette-storybook.artsy.net eventually
+
+### Icons 
+[https://icons.artsy.net/](https://icons.artsy.net/) use this for icons
+
+### Other links
+Docs [https://palette.artsy.net](https://palette.artsy.net) To be depracated. It contains old design system and components. Docs will eventually move to the palette-storybook.artsy.net
+Docs Github Repo: [https://github.com/artsy/palette-docs](https://github.com/artsy/palette-docs)
 
 ## What is Palette?
 
