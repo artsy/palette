@@ -15,8 +15,8 @@ Icons will be removed from palette-storybook.artsy.net eventually
 [https://icons.artsy.net](https://icons.artsy.net) use this for icons
 
 ### Other links
-Docs [https://palette.artsy.net](https://palette.artsy.net) To be depracated. It contains old design system and components. Docs will eventually move to the palette-storybook.artsy.net
-Docs Github Repo: [https://github.com/artsy/palette-docs](https://github.com/artsy/palette-docs)
+- Docs [https://palette.artsy.net](https://palette.artsy.net) To be depracated. It contains old design system and components. Docs will eventually move to the palette-storybook.artsy.net
+- Docs Github Repo: [https://github.com/artsy/palette-docs](https://github.com/artsy/palette-docs)
 
 ## What is Palette?
 
