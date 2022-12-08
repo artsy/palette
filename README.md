@@ -78,6 +78,7 @@ If you don't want to release on a particular PR but the changes aren't trivial t
 - [Volt](https://github.com/artsy/volt)
 - [Prediction](https://github.com/artsy/prediction)
 - [Positron](https://github.com/artsy/positron)
+- [Forque](https://github.com/artsy/forque)
 
 ## About Artsy
 
