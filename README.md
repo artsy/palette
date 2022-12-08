@@ -5,9 +5,12 @@ Artsy's Design System
 ## Meta
 
 - Storybook: [https://palette-storybook.artsy.net](https://palette-storybook.artsy.net)
-- Docs: [https://palette.artsy.net](https://palette.artsy.net)
-- Docs Github Repo: [https://github.com/artsy/palette-docs](https://github.com/artsy/palette-docs)
+- <del>Docs: [https://palette.artsy.net](https://palette.artsy.net)</del> (Deprecated: Documentation will be moved to Storybook to have a single source of truth.)
 - Point People: [@dzucconi](https://github.com/dzucconi), [@damassi](https://github.com/damassi)
+
+## Related Repos
+
+- Icons: [https://github.com/artsy/icons](https://github.com/artsy/icons)
 
 ## What is Palette?
 
@@ -19,12 +22,9 @@ across our digital product portfolio.
 If the component applies to Artsy as a brand and can/will be used across multiple digital products, then Palette is a great place for it. If it's highly product
 specific then it's best to leave the component where it's used. We can always move things later!
 
-If the above guidance still doesn't give you a good sense of what to do, please join the bi-weekly design systems sync.
-
 ## How to contribute
 
-If you'd like to add a new component to Palette please create an issue using the component spec template. That'll give both design and engineering a chance
-to peek at the proposal and provide feedback before moving forward.
+If you'd like to add a new component to Palette please raise the need in our `#design-system` Slack channel.
 
 ## Local development
 
@@ -35,7 +35,7 @@ $ lerna bootstrap
 $ yarn storybook
 ```
 
-This will compile Palette and boot Storybooks, our default development environment.
+This will compile Palette and boot Storybooks, our default development environment. New components require stories.
 
 Other relevant commands are:
 
@@ -68,9 +68,11 @@ If you don't want to release on a particular PR but the changes aren't trivial t
 ## Repos consuming Palette
 
 - [Force](https://github.com/artsy/force)
-- [Volt](https://github.com/artsy/volt)
-- [Prediction](https://github.com/artsy/prediction)
+- [Forque](https://github.com/artsy/forque)
 - [Positron](https://github.com/artsy/positron)
+- [Prediction](https://github.com/artsy/prediction)
+- [Volt-V2](https://github.com/artsy/volt-v2)
+- [Volt](https://github.com/artsy/volt)
 
 ## About Artsy
 
