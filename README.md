@@ -2,29 +2,25 @@
 
 Artsy's Design System
 
-## Meta
-
-- Storybook: [https://palette-storybook.artsy.net](https://palette-storybook.artsy.net)
-- Docs: [https://palette.artsy.net](https://palette.artsy.net)
+- Storybook: [https://palette-storybook.artsy.net](https://palette-storybook.artsy.net) the latest design system and components are available here 🙌🏻 we have a new repo for icons and prefer to use that one ⬇️ Icons will be removed from palette-storybook.artsy.net eventually
+- Icons: [https://icons.artsy.net/](https://icons.artsy.net/) use this for icons
+- Docs [https://palette.artsy.net](https://palette.artsy.net) To be depracated. It contains old design system and components. Docs will eventually move to the palette-storybook.artsy.net
 - Docs Github Repo: [https://github.com/artsy/palette-docs](https://github.com/artsy/palette-docs)
 - Point People: [@dzucconi](https://github.com/dzucconi), [@damassi](https://github.com/damassi)
 
 ## What is Palette?
 
-Palette is a collection of primitive, product-agnostic elements that help encapsulate Artsy's look and feel at base level. This project is intended to be used
-across our digital product portfolio.
+Palette is a collection of primitive, product-agnostic elements that help encapsulate Artsy's look and feel at base level. This project is intended to be used across our digital product portfolio.
 
 ## Does my component belong in Palette?
 
-If the component applies to Artsy as a brand and can/will be used across multiple digital products, then Palette is a great place for it. If it's highly product
-specific then it's best to leave the component where it's used. We can always move things later!
+If the component applies to Artsy as a brand and can/will be used across multiple digital products, then Palette is a great place for it. If it's highly product specific then it's best to leave the component where it's used. We can always move things later.
 
 If the above guidance still doesn't give you a good sense of what to do, please join the bi-weekly design systems sync.
 
 ## How to contribute
 
-If you'd like to add a new component to Palette please create an issue using the component spec template. That'll give both design and engineering a chance
-to peek at the proposal and provide feedback before moving forward.
+If you'd like to add a new component to Palette please create an issue using the component spec template. That'll give both design and engineering a chance to peek at the proposal and provide feedback before moving forward.
 
 ## Local development
 
