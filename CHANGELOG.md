@@ -1,3 +1,21 @@
+# (Fri Dec 09 2022)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@27.1.0`
+  - fix(modaldialog): addresses long titles; focus-visible close state [#1236](https://github.com/artsy/palette/pull/1236) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@27.1.0`
+  - docs: updates readme [#1235](https://github.com/artsy/palette/pull/1235) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Dec 02 2022)
 
 ### Release Notes

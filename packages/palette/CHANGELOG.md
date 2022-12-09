@@ -1,3 +1,25 @@
+# v27.1.0 (Fri Dec 09 2022)
+
+#### 🚀  Enhancement
+
+- fix(modaldialog): addresses long titles; focus-visible close state [#1236](https://github.com/artsy/palette/pull/1236) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(modaldialog): addresses long titles; focus-visible close state ([@dzucconi](https://github.com/dzucconi))
+- feat(text): adds support for hyphenation ([@dzucconi](https://github.com/dzucconi))
+- docs: updates readme ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- docs: updates readme [#1235](https://github.com/artsy/palette/pull/1235) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v27.0.0 (Fri Dec 02 2022)
 
 ### Release Notes
