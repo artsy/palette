@@ -15,6 +15,9 @@ export default {
   title: "Components/ModalDialogContent",
 }
 
+const EXAMPLE_LONG_NAME =
+  "Egypt, Thebes, Wadi Qubbanet el-Qirud, New Kingdom, Late Dynasty 18 or early Dynasty 19"
+
 export const Default = () => {
   return (
     <States<Partial<ModalDialogContentProps>>
@@ -40,6 +43,10 @@ export const Default = () => {
         {
           title:
             "Modal Title with a longer title or headline text that runs on for mutliple lines",
+        },
+        { title: "Pneumonoultramicroscopicsilicovolcanoconiosis" },
+        {
+          title: `Sign up to discover new works by ${EXAMPLE_LONG_NAME} and more artists you love`,
         },
         { hasLogo: true },
         { title: "Modal Title", hasLogo: true },

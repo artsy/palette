@@ -8,6 +8,8 @@ import { CloseIcon } from "../../svgs/CloseIcon"
 import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
 import { useSentinelVisibility } from "../../utils/useSentinelVisibility"
 import { Spacer } from "../Spacer"
+import styled from "styled-components"
+import { themeGet } from "@styled-system/theme-get"
 
 export interface ModalDialogContentProps
   extends BoxProps,
@@ -66,13 +68,17 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
 
               {hasLogo && title && <Spacer y={2} />}
 
-              {title && <Text variant="lg-display">{title}</Text>}
+              {title && (
+                <Text variant="lg-display" lineClamp={6} hyphenate>
+                  {title}
+                </Text>
+              )}
             </Box>
           )}
 
-          <Clickable p={2} ml="auto" onClick={onClose} aria-label="Close">
-            <CloseIcon fill="black100" display="block" />
-          </Clickable>
+          <Close p={2} ml="auto" onClick={onClose} aria-label="Close">
+            <CloseIcon fill="currentColor" display="block" />
+          </Close>
         </Flex>
 
         <Box
@@ -104,3 +110,13 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
     </Flex>
   )
 }
+
+const Close = styled(Clickable)`
+  color: ${themeGet("colors.black100")};
+
+  &:focus,
+  &.focus-visible {
+    outline: none;
+    color: ${themeGet("colors.black60")};
+  }
+`
