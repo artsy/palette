@@ -65,9 +65,17 @@ export const overflowEllipsisMixin = css`
   text-overflow: ellipsis;
 `
 
+/** Adds hyphenation to overflowing text */
+export const hyphenate = css`
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+`
+
 /** TextProps */
 export type TextProps = BaseTextProps &
   BoxProps & {
+    hyphenate?: boolean
     overflowEllipsis?: boolean
     textTransform?: ResponsiveValue<TextTransform>
     lineClamp?: ResponsiveValue<number>
@@ -81,6 +89,7 @@ export const Text = styled(Box)<TextProps>`
 
     ${(props) => {
       return css`
+        ${props.hyphenate && hyphenate}
         ${props.overflowEllipsis && overflowEllipsisMixin}
         ${props.lineClamp &&
         css`
