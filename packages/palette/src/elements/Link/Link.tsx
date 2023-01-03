@@ -30,7 +30,7 @@ const backwardsCompatCompute = (state: string, props: LinkProps) => {
  * Basic <a> tag styled with additional LinkProps
  *
  * @deprecated Do not use this component! 
- * tip: if working on Force you should use RouterLink 
+ * Tip: If working on Force, please use RouterLink.  
  */
 export const Link = styled.a<LinkProps>`
   color: ${color("black100")};
