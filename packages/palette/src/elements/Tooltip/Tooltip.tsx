@@ -1,9 +1,23 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { variant } from "styled-system"
 import { DROP_SHADOW, isText } from "../../helpers"
 import { Position, usePosition } from "../../utils/usePosition"
 import { Box, BoxProps } from "../Box"
 import { Text } from "../Text"
+
+export const TOOLTIP_VARIANTS = {
+  defaultLight: {
+    backgroundColor: "white100",
+    color: "black100",
+  },
+  defaultDark: {
+    backgroundColor: "black100",
+    color: "white100",
+  },
+}
+
+export type TooltipVariant = keyof typeof TOOLTIP_VARIANTS
 
 export interface TooltipProps extends BoxProps {
   /** Anchor element to attach to tooltip */
@@ -11,6 +25,7 @@ export interface TooltipProps extends BoxProps {
   /** Content of tooltip */
   content: React.ReactNode
   placement?: Position
+  variant?: TooltipVariant
   visible?: boolean
 }
 
@@ -22,6 +37,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   content,
   width = 230,
   placement = "top",
+  variant = "defaultLight",
   visible,
 }) => {
   const [active, setActive] = useState(false)
@@ -58,9 +74,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
       <Tip
         ref={tooltipRef as any}
+        variant={variant}
         p={1}
         width={width}
-        bg="white100"
         zIndex={1}
         {...(visible
           ? // If there's a visible prop being passed; use that
@@ -74,7 +90,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   )
 }
 
-const Tip = styled(Box)`
+const Tip = styled(Box)<{ variant?: TooltipVariant }>`
   position: absolute;
   z-index: 1;
   transition: opacity 250ms ease-out;
@@ -82,6 +98,7 @@ const Tip = styled(Box)`
   box-shadow: ${DROP_SHADOW};
   cursor: default;
   pointer-events: none;
+  ${variant({ variants: TOOLTIP_VARIANTS })}
 `
 
 const compose = (a?: (...args: any) => any, b?: (...args: any) => any) => {

@@ -1,11 +1,25 @@
 import React, { useCallback, useEffect, useState } from "react"
 import styled from "styled-components"
+import { variant } from "styled-system"
 import { DROP_SHADOW } from "../../helpers"
 import { CloseIcon } from "../../svgs"
 import { Position, useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
+
+export const POPOVER_VARIANTS = {
+  defaultLight: {
+    backgroundColor: "white100",
+    color: "black100",
+  },
+  defaultDark: {
+    backgroundColor: "black100",
+    color: "white100",
+  },
+}
+
+export type PopoverVariant = keyof typeof POPOVER_VARIANTS
 
 export interface PopoverActions {
   /** Call to show popover */
@@ -17,12 +31,13 @@ export interface PopoverActions {
 }
 
 export interface PopoverProps extends BoxProps {
-  placement?: Position
-  /** Intially visible by default? */
-  visible?: boolean
-  popover: React.ReactNode
   children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
   onClose?: () => void
+  placement?: Position
+  popover: React.ReactNode
+  variant?: PopoverVariant
+  /** Initial default visibility */
+  visible?: boolean
 }
 
 /**
@@ -35,6 +50,7 @@ export const Popover: React.FC<PopoverProps> = ({
   children,
   popover,
   onClose,
+  variant = "defaultLight",
   ...rest
 }) => {
   const [visible, setVisible] = useState(false)
@@ -105,16 +121,11 @@ export const Popover: React.FC<PopoverProps> = ({
           ref={tooltipRef as any}
           zIndex={1}
           display="inline-block"
-          bg="white100"
+          variant={variant}
         >
-          <Clickable
-            p={1}
-            onClick={handleHide}
-            aria-label="Close"
-            style={{ float: "right" }}
-          >
-            <CloseIcon fill="black100" display="block" />
-          </Clickable>
+          <Close p={1} onClick={handleHide} aria-label="Close">
+            <CloseIcon fill="currentColor" display="block" />
+          </Close>
 
           <Box py={2} px={1} {...rest}>
             {popover}
@@ -125,10 +136,15 @@ export const Popover: React.FC<PopoverProps> = ({
   )
 }
 
-const Tip = styled(Box)`
+const Tip = styled(Box)<{ variant?: PopoverVariant }>`
   position: fixed;
   z-index: 1;
   text-align: left;
   transition: opacity 250ms ease-out;
   box-shadow: ${DROP_SHADOW};
+  ${variant({ variants: POPOVER_VARIANTS })}
+`
+
+const Close = styled(Clickable)`
+  float: right;
 `

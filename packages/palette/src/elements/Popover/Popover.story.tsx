@@ -55,6 +55,7 @@ export const Default = () => {
             </>
           ),
         },
+        { variant: "defaultDark", placement: "bottom", visible: true },
       ]}
     >
       <Popover
