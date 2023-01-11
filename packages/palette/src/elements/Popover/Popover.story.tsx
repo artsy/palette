@@ -19,8 +19,42 @@ export const Default = () => {
     <States<Partial<PopoverProps>>
       states={[
         {},
-        { title: "Example Title", visible: true },
+        { visible: true },
         { onClose: action("onClose") },
+        {
+          visible: true,
+          popover: (
+            <Text variant="xs" width={300}>
+              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+              | | | — (Content interaction with close button.)
+            </Text>
+          ),
+        },
+        {
+          visible: true,
+          p: 0,
+          popover: (
+            <>
+              {new Array(4).fill(0).map((_, i) => (
+                <Text
+                  key={i}
+                  variant="sm-display"
+                  overflowEllipsis
+                  bg="red10"
+                  px={1}
+                  py={0.5}
+                >
+                  Example Item
+                </Text>
+              ))}
+            </>
+          ),
+        },
       ]}
     >
       <Popover

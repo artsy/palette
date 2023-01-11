@@ -1,15 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react"
 import styled from "styled-components"
 import { DROP_SHADOW } from "../../helpers"
-import { isText } from "../../helpers/isText"
 import { CloseIcon } from "../../svgs"
 import { Position, useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
-import { Flex } from "../Flex"
-import { Spacer } from "../Spacer"
-import { Text } from "../Text"
 
 export interface PopoverActions {
   /** Call to show popover */
@@ -21,7 +17,6 @@ export interface PopoverActions {
 }
 
 export interface PopoverProps extends BoxProps {
-  title?: React.ReactNode
   placement?: Position
   /** Intially visible by default? */
   visible?: boolean
@@ -35,7 +30,6 @@ export interface PopoverProps extends BoxProps {
  * positioned relative to, another element.
  */
 export const Popover: React.FC<PopoverProps> = ({
-  title,
   placement = "top",
   visible: _visible = false,
   children,
@@ -112,43 +106,19 @@ export const Popover: React.FC<PopoverProps> = ({
           zIndex={1}
           display="inline-block"
           bg="white100"
-          p={2}
-          {...rest}
         >
-          {title && (
-            <>
-              <Flex alignItems="center" flex={1} justifyContent="space-between">
-                {isText(title) ? (
-                  <Text variant="lg-display" lineHeight={1}>
-                    {title}
-                  </Text>
-                ) : (
-                  title
-                )}
-
-                <Spacer x={4} />
-              </Flex>
-
-              <Spacer y={0.5} />
-            </>
-          )}
-
           <Clickable
-            position="absolute"
-            right={0}
-            top={0}
-            pt={2}
-            px={1}
-            mx={0.5}
+            p={1}
             onClick={handleHide}
             aria-label="Close"
+            style={{ float: "right" }}
           >
             <CloseIcon fill="black100" display="block" />
           </Clickable>
 
-          {!title && <Spacer y={2} />}
-
-          {popover}
+          <Box py={2} px={1} {...rest}>
+            {popover}
+          </Box>
         </Tip>
       )}
     </>

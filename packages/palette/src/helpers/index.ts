@@ -1,3 +1,4 @@
+export * from "./isText"
 export * from "./color"
 export * from "./injectGlobalStyles"
 export * from "./media"

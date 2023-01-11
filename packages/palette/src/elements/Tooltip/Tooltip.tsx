@@ -1,17 +1,17 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { DROP_SHADOW } from "../../helpers"
+import { DROP_SHADOW, isText } from "../../helpers"
 import { Position, usePosition } from "../../utils/usePosition"
-import { Box } from "../Box"
+import { Box, BoxProps } from "../Box"
 import { Text } from "../Text"
 
-export interface TooltipProps {
+export interface TooltipProps extends BoxProps {
+  /** Anchor element to attach to tooltip */
+  children: React.ReactElement<any, string | React.JSXElementConstructor<any>>
+  /** Content of tooltip */
   content: React.ReactNode
   placement?: Position
-  size?: "sm" | "lg"
-  width?: number | null
   visible?: boolean
-  children: React.ReactElement<any, string | React.JSXElementConstructor<any>>
 }
 
 /**
@@ -19,8 +19,7 @@ export interface TooltipProps {
  */
 export const Tooltip: React.FC<TooltipProps> = ({
   children,
-  content: _content,
-  size = "lg",
+  content,
   width = 230,
   placement = "top",
   visible,
@@ -38,8 +37,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const deactivate = () => {
     setActive(false)
   }
-
-  const content = typeof _content === "string" ? truncate(_content) : _content
 
   const { anchorRef, tooltipRef } = usePosition({
     position: placement,
@@ -60,10 +57,10 @@ export const Tooltip: React.FC<TooltipProps> = ({
       })}
 
       <Tip
-        p={size === "sm" ? 0.5 : 2}
+        ref={tooltipRef as any}
+        p={1}
         width={width}
         bg="white100"
-        ref={tooltipRef as any}
         zIndex={1}
         {...(visible
           ? // If there's a visible prop being passed; use that
@@ -71,7 +68,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           : // Otherwise use the active state
             { opacity: active ? 1 : 0 })}
       >
-        <Text variant="xs">{content}</Text>
+        {isText(content) ? <Text variant="xs">{content}</Text> : content}
       </Tip>
     </>
   )
@@ -86,16 +83,6 @@ const Tip = styled(Box)`
   cursor: default;
   pointer-events: none;
 `
-
-const truncate = (tip: string): string => {
-  let substring = tip.substring(0, 300)
-
-  if (substring !== tip) {
-    substring += "…"
-  }
-
-  return substring
-}
 
 const compose = (a?: (...args: any) => any, b?: (...args: any) => any) => {
   return (...args) => {
