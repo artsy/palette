@@ -36,6 +36,7 @@ export const Default = () => {
           ),
         },
         {
+          pointer: true,
           visible: true,
           p: 0,
           popover: (
@@ -55,7 +56,12 @@ export const Default = () => {
             </>
           ),
         },
-        { variant: "defaultDark", placement: "bottom", visible: true },
+        {
+          variant: "defaultDark",
+          placement: "bottom",
+          visible: true,
+          pointer: true,
+        },
       ]}
     >
       <Popover
@@ -101,6 +107,8 @@ export const Placement = () => {
           <Popover
             popover={<Text variant="xs">{JSON.stringify(props)}</Text>}
             visible
+            variant="defaultDark"
+            pointer
             {...props}
           >
             {({ anchorRef }) => {
@@ -112,8 +120,7 @@ export const Placement = () => {
                   p={1}
                   maxWidth="50%"
                   mx="auto"
-                  bg="black100"
-                  color="white100"
+                  bg="black10"
                 >
                   {JSON.stringify(props)}
                 </Text>

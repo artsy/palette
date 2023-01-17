@@ -4,6 +4,7 @@ import { variant } from "styled-system"
 import { DROP_SHADOW, isText } from "../../helpers"
 import { Position, usePosition } from "../../utils/usePosition"
 import { Box, BoxProps } from "../Box"
+import { Pointer } from "../Pointer"
 import { Text } from "../Text"
 
 export const TOOLTIP_VARIANTS = {
@@ -25,6 +26,7 @@ export interface TooltipProps extends BoxProps {
   /** Content of tooltip */
   content: React.ReactNode
   placement?: Position
+  pointer?: boolean
   variant?: TooltipVariant
   visible?: boolean
 }
@@ -37,6 +39,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   content,
   width = 230,
   placement = "top",
+  pointer = false,
   variant = "defaultLight",
   visible,
 }) => {
@@ -54,7 +57,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
     setActive(false)
   }
 
-  const { anchorRef, tooltipRef } = usePosition({
+  const {
+    anchorRef,
+    tooltipRef,
+    state: { isFlipped },
+  } = usePosition({
     position: placement,
     offset: 10,
     active: visible ?? active,
@@ -75,7 +82,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
       <Tip
         ref={tooltipRef as any}
         variant={variant}
-        p={1}
         width={width}
         zIndex={1}
         {...(visible
@@ -84,7 +90,17 @@ export const Tooltip: React.FC<TooltipProps> = ({
           : // Otherwise use the active state
             { opacity: active ? 1 : 0 })}
       >
-        {isText(content) ? <Text variant="xs">{content}</Text> : content}
+        {pointer && (
+          <Pointer
+            variant={variant}
+            placement={placement}
+            isFlipped={isFlipped}
+          />
+        )}
+
+        <Panel variant={variant} p={1}>
+          {isText(content) ? <Text variant="xs">{content}</Text> : content}
+        </Panel>
       </Tip>
     </>
   )
@@ -98,6 +114,10 @@ const Tip = styled(Box)<{ variant?: TooltipVariant }>`
   box-shadow: ${DROP_SHADOW};
   cursor: default;
   pointer-events: none;
+  ${variant({ variants: TOOLTIP_VARIANTS })}
+`
+
+const Panel = styled(Box)<{ variant?: TooltipVariant }>`
   ${variant({ variants: TOOLTIP_VARIANTS })}
 `
 

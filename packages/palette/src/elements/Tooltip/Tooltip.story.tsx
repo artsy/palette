@@ -72,15 +72,20 @@ export const Placement = () => {
     >
       {(props) => {
         return (
-          <Tooltip content={JSON.stringify(props)} visible {...props}>
+          <Tooltip
+            content={JSON.stringify(props)}
+            variant="defaultDark"
+            pointer
+            visible
+            {...props}
+          >
             <Text
               variant="xs"
               textAlign="center"
               p={1}
               maxWidth="50%"
               mx="auto"
-              bg="black100"
-              color="white100"
+              bg="black10"
             >
               {JSON.stringify(props)}
             </Text>

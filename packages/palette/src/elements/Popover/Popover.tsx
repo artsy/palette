@@ -7,6 +7,7 @@ import { Position, useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
+import { Pointer } from "../Pointer"
 
 export const POPOVER_VARIANTS = {
   defaultLight: {
@@ -34,6 +35,8 @@ export interface PopoverProps extends BoxProps {
   children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
   onClose?: () => void
   placement?: Position
+  /** Display triangular pointer back to anchor node */
+  pointer?: boolean
   popover: React.ReactNode
   variant?: PopoverVariant
   /** Initial default visibility */
@@ -45,12 +48,13 @@ export interface PopoverProps extends BoxProps {
  * positioned relative to, another element.
  */
 export const Popover: React.FC<PopoverProps> = ({
-  placement = "top",
-  visible: _visible = false,
   children,
-  popover,
   onClose,
+  placement = "top",
+  pointer = false,
+  popover,
   variant = "defaultLight",
+  visible: _visible = false,
   ...rest
 }) => {
   const [visible, setVisible] = useState(false)
@@ -98,7 +102,11 @@ export const Popover: React.FC<PopoverProps> = ({
     }
   }, [handleHide])
 
-  const { anchorRef, tooltipRef } = usePosition({
+  const {
+    anchorRef,
+    tooltipRef,
+    state: { isFlipped },
+  } = usePosition({
     position: placement,
     offset: 10,
     active: visible,
@@ -121,15 +129,37 @@ export const Popover: React.FC<PopoverProps> = ({
           ref={tooltipRef as any}
           zIndex={1}
           display="inline-block"
+          position="relative"
           variant={variant}
         >
-          <Close p={1} onClick={handleHide} aria-label="Close">
+          {pointer && (
+            <Pointer
+              variant={variant}
+              placement={placement}
+              isFlipped={isFlipped}
+            />
+          )}
+
+          <Close
+            position="relative"
+            zIndex={2}
+            p={1}
+            onClick={handleHide}
+            aria-label="Close"
+          >
             <CloseIcon fill="currentColor" display="block" />
           </Close>
 
-          <Box py={2} px={1} {...rest}>
+          <Panel
+            variant={variant}
+            position="relative"
+            py={2}
+            px={1}
+            zIndex={1}
+            {...rest}
+          >
             {popover}
-          </Box>
+          </Panel>
         </Tip>
       )}
     </>
@@ -142,6 +172,10 @@ const Tip = styled(Box)<{ variant?: PopoverVariant }>`
   text-align: left;
   transition: opacity 250ms ease-out;
   box-shadow: ${DROP_SHADOW};
+  ${variant({ variants: POPOVER_VARIANTS })}
+`
+
+const Panel = styled(Box)<{ variant?: PopoverVariant }>`
   ${variant({ variants: POPOVER_VARIANTS })}
 `
 
