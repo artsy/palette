@@ -42,6 +42,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   pointer = false,
   variant = "defaultLight",
   visible,
+  ...rest
 }) => {
   const [active, setActive] = useState(false)
 
@@ -102,7 +103,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           />
         )}
 
-        <Panel variant={variant} p={1}>
+        <Panel variant={variant} p={1} {...rest}>
           {isText(content) ? <Text variant="xs">{content}</Text> : content}
         </Panel>
       </Tip>
