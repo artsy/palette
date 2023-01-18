@@ -1,17 +1,34 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { DROP_SHADOW } from "../../helpers"
+import { variant } from "styled-system"
+import { DROP_SHADOW, isText } from "../../helpers"
 import { Position, usePosition } from "../../utils/usePosition"
-import { Box } from "../Box"
+import { Box, BoxProps } from "../Box"
+import { Pointer } from "../Pointer"
 import { Text } from "../Text"
 
-export interface TooltipProps {
+export const TOOLTIP_VARIANTS = {
+  defaultLight: {
+    backgroundColor: "white100",
+    color: "black100",
+  },
+  defaultDark: {
+    backgroundColor: "black100",
+    color: "white100",
+  },
+}
+
+export type TooltipVariant = keyof typeof TOOLTIP_VARIANTS
+
+export interface TooltipProps extends BoxProps {
+  /** Anchor element to attach to tooltip */
+  children: React.ReactElement<any, string | React.JSXElementConstructor<any>>
+  /** Content of tooltip */
   content: React.ReactNode
   placement?: Position
-  size?: "sm" | "lg"
-  width?: number | null
+  pointer?: boolean
+  variant?: TooltipVariant
   visible?: boolean
-  children: React.ReactElement<any, string | React.JSXElementConstructor<any>>
 }
 
 /**
@@ -19,10 +36,11 @@ export interface TooltipProps {
  */
 export const Tooltip: React.FC<TooltipProps> = ({
   children,
-  content: _content,
-  size = "lg",
+  content,
   width = 230,
   placement = "top",
+  pointer = false,
+  variant = "defaultLight",
   visible,
 }) => {
   const [active, setActive] = useState(false)
@@ -39,9 +57,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
     setActive(false)
   }
 
-  const content = typeof _content === "string" ? truncate(_content) : _content
-
-  const { anchorRef, tooltipRef } = usePosition({
+  const {
+    anchorRef,
+    tooltipRef,
+    state: { isFlipped },
+  } = usePosition({
     position: placement,
     offset: 10,
     active: visible ?? active,
@@ -60,10 +80,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
       })}
 
       <Tip
-        p={size === "sm" ? 0.5 : 2}
-        width={width}
-        bg="white100"
         ref={tooltipRef as any}
+        variant={variant}
+        width={width}
         zIndex={1}
         {...(visible
           ? // If there's a visible prop being passed; use that
@@ -71,13 +90,23 @@ export const Tooltip: React.FC<TooltipProps> = ({
           : // Otherwise use the active state
             { opacity: active ? 1 : 0 })}
       >
-        <Text variant="xs">{content}</Text>
+        {pointer && (
+          <Pointer
+            variant={variant}
+            placement={placement}
+            isFlipped={isFlipped}
+          />
+        )}
+
+        <Panel variant={variant} p={1}>
+          {isText(content) ? <Text variant="xs">{content}</Text> : content}
+        </Panel>
       </Tip>
     </>
   )
 }
 
-const Tip = styled(Box)`
+const Tip = styled(Box)<{ variant?: TooltipVariant }>`
   position: absolute;
   z-index: 1;
   transition: opacity 250ms ease-out;
@@ -85,17 +114,12 @@ const Tip = styled(Box)`
   box-shadow: ${DROP_SHADOW};
   cursor: default;
   pointer-events: none;
+  ${variant({ variants: TOOLTIP_VARIANTS })}
 `
 
-const truncate = (tip: string): string => {
-  let substring = tip.substring(0, 300)
-
-  if (substring !== tip) {
-    substring += "…"
-  }
-
-  return substring
-}
+const Panel = styled(Box)<{ variant?: TooltipVariant }>`
+  ${variant({ variants: TOOLTIP_VARIANTS })}
+`
 
 const compose = (a?: (...args: any) => any, b?: (...args: any) => any) => {
   return (...args) => {

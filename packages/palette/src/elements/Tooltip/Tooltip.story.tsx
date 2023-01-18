@@ -8,8 +8,7 @@ import { Clickable } from "../Clickable"
 import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
 
-const CONTENT =
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis odio laudantium sint possimus debitis commodi iusto odit, sunt facilis consequuntur, hic rem doloremque illum provident temporibus atque. Ducimus, commodi necessitatibus?"
+const CONTENT = "Lorem ipsum dolor sit amet consectetur adipisicing elit?"
 
 export default {
   title: "Components/Tooltip",
@@ -22,6 +21,7 @@ export const Default = () => {
         { placement: "top-start" },
         { placement: "bottom", width: 600 },
         { placement: "bottom", visible: true },
+        { variant: "defaultDark", placement: "bottom", visible: true },
       ]}
     >
       <Tooltip content={CONTENT}>
@@ -72,15 +72,20 @@ export const Placement = () => {
     >
       {(props) => {
         return (
-          <Tooltip content={JSON.stringify(props)} visible {...props}>
+          <Tooltip
+            content={JSON.stringify(props)}
+            variant="defaultDark"
+            pointer
+            visible
+            {...props}
+          >
             <Text
               variant="xs"
               textAlign="center"
               p={1}
               maxWidth="50%"
               mx="auto"
-              bg="black100"
-              color="white100"
+              bg="black10"
             >
               {JSON.stringify(props)}
             </Text>

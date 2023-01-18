@@ -1,15 +1,26 @@
 import React, { useCallback, useEffect, useState } from "react"
 import styled from "styled-components"
+import { variant } from "styled-system"
 import { DROP_SHADOW } from "../../helpers"
-import { isText } from "../../helpers/isText"
 import { CloseIcon } from "../../svgs"
 import { Position, useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
-import { Flex } from "../Flex"
-import { Spacer } from "../Spacer"
-import { Text } from "../Text"
+import { Pointer } from "../Pointer"
+
+export const POPOVER_VARIANTS = {
+  defaultLight: {
+    backgroundColor: "white100",
+    color: "black100",
+  },
+  defaultDark: {
+    backgroundColor: "black100",
+    color: "white100",
+  },
+}
+
+export type PopoverVariant = keyof typeof POPOVER_VARIANTS
 
 export interface PopoverActions {
   /** Call to show popover */
@@ -21,13 +32,15 @@ export interface PopoverActions {
 }
 
 export interface PopoverProps extends BoxProps {
-  title?: React.ReactNode
-  placement?: Position
-  /** Intially visible by default? */
-  visible?: boolean
-  popover: React.ReactNode
   children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
   onClose?: () => void
+  placement?: Position
+  /** Display triangular pointer back to anchor node */
+  pointer?: boolean
+  popover: React.ReactNode
+  variant?: PopoverVariant
+  /** Initial default visibility */
+  visible?: boolean
 }
 
 /**
@@ -35,12 +48,13 @@ export interface PopoverProps extends BoxProps {
  * positioned relative to, another element.
  */
 export const Popover: React.FC<PopoverProps> = ({
-  title,
-  placement = "top",
-  visible: _visible = false,
   children,
-  popover,
   onClose,
+  placement = "top",
+  pointer = false,
+  popover,
+  variant = "defaultLight",
+  visible: _visible = false,
   ...rest
 }) => {
   const [visible, setVisible] = useState(false)
@@ -88,7 +102,11 @@ export const Popover: React.FC<PopoverProps> = ({
     }
   }, [handleHide])
 
-  const { anchorRef, tooltipRef } = usePosition({
+  const {
+    anchorRef,
+    tooltipRef,
+    state: { isFlipped },
+  } = usePosition({
     position: placement,
     offset: 10,
     active: visible,
@@ -111,54 +129,56 @@ export const Popover: React.FC<PopoverProps> = ({
           ref={tooltipRef as any}
           zIndex={1}
           display="inline-block"
-          bg="white100"
-          p={2}
-          {...rest}
+          position="relative"
+          variant={variant}
         >
-          {title && (
-            <>
-              <Flex alignItems="center" flex={1} justifyContent="space-between">
-                {isText(title) ? (
-                  <Text variant="lg-display" lineHeight={1}>
-                    {title}
-                  </Text>
-                ) : (
-                  title
-                )}
-
-                <Spacer x={4} />
-              </Flex>
-
-              <Spacer y={0.5} />
-            </>
+          {pointer && (
+            <Pointer
+              variant={variant}
+              placement={placement}
+              isFlipped={isFlipped}
+            />
           )}
 
-          <Clickable
-            position="absolute"
-            right={0}
-            top={0}
-            pt={2}
-            px={1}
-            mx={0.5}
+          <Close
+            position="relative"
+            zIndex={2}
+            p={1}
             onClick={handleHide}
             aria-label="Close"
           >
-            <CloseIcon fill="black100" display="block" />
-          </Clickable>
+            <CloseIcon fill="currentColor" display="block" />
+          </Close>
 
-          {!title && <Spacer y={2} />}
-
-          {popover}
+          <Panel
+            variant={variant}
+            position="relative"
+            py={2}
+            px={1}
+            zIndex={1}
+            {...rest}
+          >
+            {popover}
+          </Panel>
         </Tip>
       )}
     </>
   )
 }
 
-const Tip = styled(Box)`
+const Tip = styled(Box)<{ variant?: PopoverVariant }>`
   position: fixed;
   z-index: 1;
   text-align: left;
   transition: opacity 250ms ease-out;
   box-shadow: ${DROP_SHADOW};
+  ${variant({ variants: POPOVER_VARIANTS })}
+`
+
+const Panel = styled(Box)<{ variant?: PopoverVariant }>`
+  ${variant({ variants: POPOVER_VARIANTS })}
+`
+
+const Close = styled(Clickable)`
+  float: right;
 `
