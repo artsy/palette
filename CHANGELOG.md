@@ -1,3 +1,26 @@
+# (Wed Jan 18 2023)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette@28.0.0`
+  - feat(popover/tooltip): variants and pointers [#1242](https://github.com/artsy/palette/pull/1242) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@28.0.0`
+  - chore(doc): Attempt to improve Link deprecation message [#1239](https://github.com/artsy/palette/pull/1239) ([@araujobarret](https://github.com/araujobarret))
+
+#### 🏠  Internal
+
+- chore(deps): upgrades lerna [#1243](https://github.com/artsy/palette/pull/1243) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Dec 09 2022)
 
 #### 🚀  Enhancement

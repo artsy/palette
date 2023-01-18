@@ -1,3 +1,25 @@
+# v28.0.0 (Wed Jan 18 2023)
+
+#### 💥  Breaking Change
+
+- feat(popover/tooltip): variants and pointers [#1242](https://github.com/artsy/palette/pull/1242) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tooltip/popover): adds support for pointers ([@dzucconi](https://github.com/dzucconi))
+- feat(popover/tooltip): supports dark color variant ([@dzucconi](https://github.com/dzucconi))
+- feat(popover/tooltip): adjusts spacing and props interface ([@dzucconi](https://github.com/dzucconi))
+- chore(doc): Attempt to improve Link deprecation message [#1239](https://github.com/artsy/palette/pull/1239) ([@araujobarret](https://github.com/araujobarret))
+- Update packages/palette/src/elements/Link/Link.tsx ([@araujobarret](https://github.com/araujobarret))
+- chore(doc): Attempt to improve Link deprecation message ([@araujobarret](https://github.com/araujobarret))
+
+#### Authors: 2
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v27.1.0 (Fri Dec 09 2022)
 
 #### 🚀  Enhancement
