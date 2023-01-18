@@ -84,11 +84,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
         variant={variant}
         width={width}
         zIndex={1}
-        {...(visible
-          ? // If there's a visible prop being passed; use that
-            { opacity: visible ? 1 : 0 }
-          : // Otherwise use the active state
-            { opacity: active ? 1 : 0 })}
+        style={
+          // If visible is explictly set to `false` then the tooltip should be hidden
+          // Otherwise it should be visible or utilize the active state.
+          visible !== false
+            ? {
+                opacity: visible ?? active ? 1 : 0,
+              }
+            : { opacity: 0 }
+        }
       >
         {pointer && (
           <Pointer

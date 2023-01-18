@@ -1,9 +1,10 @@
 import { action } from "@storybook/addon-actions"
-import React from "react"
+import React, { useState } from "react"
 import { States } from "storybook-states"
 import { HelpIcon } from "../../svgs"
 import { Position, POSITION } from "../../utils/usePosition"
 import { Box } from "../Box"
+import { Button } from "../Button"
 import { Clickable } from "../Clickable"
 import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
@@ -20,21 +21,32 @@ export const Default = () => {
       states={[
         { placement: "top-start" },
         { placement: "bottom", width: 600 },
-        { placement: "bottom", visible: true },
-        { variant: "defaultDark", placement: "bottom", visible: true },
+        { placement: "bottom", visible: true, pointer: true },
+        {
+          variant: "defaultDark",
+          placement: "bottom",
+          visible: true,
+          pointer: true,
+        },
+        {
+          visible: false,
+          children: <>This text has a tooltip that never displays</>,
+        },
       ]}
     >
-      <Tooltip content={CONTENT}>
-        <Text
-          variant="xs"
-          textAlign="center"
-          p={1}
-          bg="black100"
-          color="white100"
-        >
-          This text has a tooltip
-        </Text>
-      </Tooltip>
+      {({ children, ...rest }) => (
+        <Tooltip content={CONTENT} {...rest}>
+          <Text
+            variant="xs"
+            textAlign="center"
+            p={1}
+            bg="black100"
+            color="white100"
+          >
+            {children ?? "This text has a tooltip"}
+          </Text>
+        </Tooltip>
+      )}
     </States>
   )
 }
@@ -107,5 +119,29 @@ export const IconExample = () => {
         </Box>
       </Tooltip>
     </Text>
+  )
+}
+
+export const ExternalControl = () => {
+  const [visible, setVisible] = useState(false)
+
+  return (
+    <>
+      <Tooltip
+        content={CONTENT}
+        visible={visible}
+        pointer
+        variant="defaultDark"
+      >
+        <Button
+          variant="secondaryBlack"
+          onClick={() => {
+            setVisible((visible) => !visible)
+          }}
+        >
+          {visible ? "Click to hide tooltip" : "Click to show tooltip"}
+        </Button>
+      </Tooltip>
+    </>
   )
 }
