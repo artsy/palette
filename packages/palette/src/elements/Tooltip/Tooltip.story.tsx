@@ -32,6 +32,10 @@ export const Default = () => {
           visible: false,
           children: <>This text has a tooltip that never displays</>,
         },
+        {
+          visible: true,
+          textAlign: "center",
+        },
       ]}
     >
       {({ children, ...rest }) => (
