@@ -1,3 +1,16 @@
+# v28.1.1 (Wed Jan 18 2023)
+
+#### 🐛  Bug Fix
+
+- fix(tooltip): spreads rest props [#1246](https://github.com/artsy/palette/pull/1246) ([@dzucconi](https://github.com/dzucconi))
+- fix(tooltip): spreads rest props ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v28.1.0 (Wed Jan 18 2023)
 
 #### 🚀  Enhancement
