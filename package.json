@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "concurrently": "4.1.0",
-    "lerna": "3.13.1"
+    "lerna": "6.4.1"
   }
 }
