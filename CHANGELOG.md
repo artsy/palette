@@ -1,3 +1,16 @@
+# (Thu Jan 19 2023)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette-charts@28.0.0`, `@artsy/palette@29.0.0`
+  - chore: removes luxon and related components [#1247](https://github.com/artsy/palette/pull/1247) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Jan 18 2023)
 
 #### 🐛  Bug Fix
