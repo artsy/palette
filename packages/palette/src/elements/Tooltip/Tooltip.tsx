@@ -25,6 +25,7 @@ export interface TooltipProps extends BoxProps {
   children: React.ReactElement<any, string | React.JSXElementConstructor<any>>
   /** Content of tooltip */
   content: React.ReactNode
+  offset?: number
   placement?: Position
   pointer?: boolean
   variant?: TooltipVariant
@@ -38,6 +39,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   children,
   content,
   width = 230,
+  offset = 10,
   placement = "top",
   pointer = false,
   variant = "defaultLight",
@@ -64,7 +66,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     state: { isFlipped },
   } = usePosition({
     position: placement,
-    offset: 10,
+    offset,
     active: visible ?? active,
   })
 
