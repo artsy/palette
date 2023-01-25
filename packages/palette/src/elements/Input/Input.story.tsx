@@ -66,3 +66,33 @@ export const Required = () => {
 export const CustomHeight = () => {
   return <Input height={40} placeholder="Input is 40px in height" />
 }
+
+export const DefaultNewDesign = () => {
+  return (
+    <States<InputProps>
+      states={[
+        {},
+        {
+          title: "Title",
+          newDesign: true,
+          description: "The quick brown fox jumps over the lazy dog",
+        },
+        { focus: true, newDesign: true, value: "hello world" },
+        { hover: true, newDesign: true },
+        { active: true, newDesign: true },
+        { error: "Something went wrong.", newDesign: true },
+        { disabled: true, newDesign: true },
+        { title: "Your offer", name: "offer", newDesign: true },
+        { title: "Your offer", required: true, newDesign: true },
+        {
+          title: "Your offer",
+          description: "This is my description",
+          newDesign: true,
+        },
+        { width: "50%", newDesign: true },
+      ]}
+    >
+      <Input placeholder="Start typing…" />
+    </States>
+  )
+}

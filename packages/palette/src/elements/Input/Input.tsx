@@ -5,8 +5,15 @@ import { height as systemHeight } from "styled-system"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
 import { INPUT_STATES } from "./tokens"
+import TextField, {
+  HelperText,
+  Input as MaterialInput,
+} from "@material/react-text-field"
+import "@material/react-text-field/dist/text-field.css"
 
-export interface InputProps
+export type InputProps = (InputOldDesignProps | InputNewDesignProps) &
+  InputSharedProps
+export interface InputSharedProps
   extends BoxProps,
     Omit<
       React.InputHTMLAttributes<HTMLInputElement>,
@@ -22,6 +29,16 @@ export interface InputProps
   title?: string
 }
 
+interface InputOldDesignProps {
+  readonly newDesign?: false
+}
+
+interface InputNewDesignProps {
+  floatingLabelClassName?: string
+  fullWidth?: boolean
+  readonly newDesign: true
+}
+
 /** Input component */
 export const Input: React.ForwardRefExoticComponent<
   InputProps & { ref?: React.Ref<HTMLInputElement> }
@@ -33,16 +50,36 @@ export const Input: React.ForwardRefExoticComponent<
       description,
       disabled,
       error,
-      required,
       focus,
-      hover,
-      title,
       height,
+      hover,
+      required,
+      title,
       ...rest
     },
     ref
   ) => {
     const [boxProps, inputProps] = splitBoxProps(rest)
+
+    if (rest.newDesign) {
+      return (
+        <Box width="100%" className={className} {...boxProps}>
+          <TextFieldStyledComponent
+            label={title}
+            floatingLabelClassName={rest.floatingLabelClassName}
+            outlined
+            color="blue100"
+            helperText={<HelperText>{description}</HelperText>}
+          >
+            <MaterialInput
+              disabled={disabled}
+              ref={ref as any}
+              {...inputProps}
+            />
+          </TextFieldStyledComponent>
+        </Box>
+      )
+    }
 
     return (
       <Box width="100%" className={className} {...boxProps}>
@@ -142,6 +179,23 @@ const StyledInput = styled.input<StyledInputProps>`
         cursor: default;
         ${INPUT_STATES.disabled}
       }
+    `
+  }};
+`
+
+const TextFieldStyles = css`
+  .mdc-text-field {
+    font-family: ${themeGet("fonts.sans")};
+  }
+  .mdc-floating-label {
+    color: ${themeGet("colors.blue100")};
+  }
+`
+
+const TextFieldStyledComponent = styled(TextField)`
+  ${() => {
+    return css`
+      ${TextFieldStyles}
     `
   }};
 `
