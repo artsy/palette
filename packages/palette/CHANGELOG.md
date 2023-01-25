@@ -1,3 +1,19 @@
+# v29.1.0 (Wed Jan 25 2023)
+
+#### 🚀  Enhancement
+
+- feat(tooltip/popover): supports offset [#1249](https://github.com/artsy/palette/pull/1249) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tooltip/popover): supports offset ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v29.0.0 (Thu Jan 19 2023)
 
 #### 💥  Breaking Change
