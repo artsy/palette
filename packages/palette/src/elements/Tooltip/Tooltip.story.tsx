@@ -36,6 +36,11 @@ export const Default = () => {
           visible: true,
           textAlign: "center",
         },
+        {
+          visible: true,
+          pointer: true,
+          offset: -10,
+        },
       ]}
     >
       {({ children, ...rest }) => (

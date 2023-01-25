@@ -33,6 +33,7 @@ export interface PopoverActions {
 
 export interface PopoverProps extends BoxProps {
   children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
+  offset?: number
   onClose?: () => void
   placement?: Position
   /** Display triangular pointer back to anchor node */
@@ -50,6 +51,7 @@ export interface PopoverProps extends BoxProps {
 export const Popover: React.FC<PopoverProps> = ({
   children,
   onClose,
+  offset = 10,
   placement = "top",
   pointer = false,
   popover,
@@ -108,7 +110,7 @@ export const Popover: React.FC<PopoverProps> = ({
     state: { isFlipped },
   } = usePosition({
     position: placement,
-    offset: 10,
+    offset,
     active: visible,
   })
 
