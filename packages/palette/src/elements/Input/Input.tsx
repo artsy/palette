@@ -83,7 +83,7 @@ export const Input: React.ForwardRefExoticComponent<
         </Box>
 
         {error && typeof error === "string" && (
-          <Text variant="xs" mt={0.5} color="red100">
+          <Text variant="xs" mt={0.5} ml={1} color="red100">
             {error}
           </Text>
         )}
@@ -105,8 +105,8 @@ const StyledInput = styled.input<StyledInputProps>`
   appearance: none;
   line-height: 1;
   border: 0;
-  border-bottom: 1px solid;
-  border-radius: 0;
+  border: 1px solid ${themeGet("colors.black15")};
+  border-radius: 3px;
   transition: border-color 0.25s, color 0.25s;
   font-family: ${themeGet("fonts.sans")};
   ${systemHeight};
@@ -126,6 +126,11 @@ const StyledInput = styled.input<StyledInputProps>`
 
       &:hover {
         ${INPUT_STATES.hover}
+      }
+
+      &:not(:placeholder-shown) {
+        ${INPUT_STATES.completed}
+        ${props.error && INPUT_STATES.error}
       }
 
       &:focus {
