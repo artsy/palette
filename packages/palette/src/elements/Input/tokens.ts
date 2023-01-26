@@ -14,10 +14,10 @@ export const INPUT_STATES: Record<State, any> = {
   `,
   focus: css`
     color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black60")};
+    border-color: ${themeGet("colors.blue100")};
 
     ::placeholder {
-      color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.black60")};
     }
   `,
   hover: css`
@@ -35,6 +35,10 @@ export const INPUT_STATES: Record<State, any> = {
     ::placeholder {
       color: ${themeGet("colors.black100")};
     }
+  `,
+  completed: css`
+    color: ${themeGet("colors.black100")};
+    border-color: ${themeGet("colors.black60")};
   `,
   disabled: css`
     color: ${themeGet("colors.black30")};

@@ -1,4 +1,4 @@
-import { Text } from "@artsy/palette"
+import { Text } from "../Text"
 import * as React from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
