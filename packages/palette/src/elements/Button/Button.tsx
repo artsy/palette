@@ -79,7 +79,8 @@ export const Button: React.ForwardRefExoticComponent<
         ref={composeRefs(ref, forwardedRef) as any}
         onClick={handleClick}
         size={size}
-        loading={loading}
+        // @ts-ignore typings here is not supporting transient props yet
+        $loading={loading}
         success={success}
         tabIndex={loading ? -1 : 0}
         display="inline-flex"
