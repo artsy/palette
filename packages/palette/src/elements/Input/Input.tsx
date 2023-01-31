@@ -129,7 +129,7 @@ const StyledInput = styled.input<StyledInputProps>`
       }
 
       &:not(:placeholder-shown) {
-        ${INPUT_STATES.completed}
+        ${!!props.placeholder && INPUT_STATES.completed}
         ${props.error && INPUT_STATES.error}
       }
 
