@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
-import { Tooltip, TooltipVariant } from "../Tooltip"
+import { Tooltip } from "../Tooltip"
 import { INPUT_STATES } from "./tokens"
 
 export interface InputProps
@@ -15,7 +15,6 @@ export interface InputProps
     > {
   active?: boolean
   description?: string
-  descriptionVariant?: TooltipVariant
   disabled?: boolean
   error?: string | boolean
   focus?: boolean
@@ -33,7 +32,6 @@ export const Input: React.ForwardRefExoticComponent<
       children,
       className,
       description,
-      descriptionVariant,
       disabled,
       error,
       required,
@@ -52,12 +50,7 @@ export const Input: React.ForwardRefExoticComponent<
     return (
       <Box width="100%" className={className} {...boxProps}>
         {description && (
-          <Tooltip
-            pointer
-            content={description}
-            variant={descriptionVariant}
-            placement={"top-end"}
-          >
+          <Tooltip pointer content={description} placement="top-end">
             <Text variant="xs" color="black60" textAlign="right">
               <u>What is this?</u>
             </Text>
@@ -119,7 +112,7 @@ const StyledInput = styled.input<StyledInputProps>`
   ${systemHeight};
 
   ::placeholder {
-    transition: color 0.25s, opacity 0.2s;
+    transition: color 0.25s, opacity 0.25s;
   }
 
   ${(props) => {
@@ -171,8 +164,9 @@ const StyledLabel = styled.label<StyledInputProps>`
   left: 5px;
   padding: 0 5px;
   background-color: ${themeGet("colors.white100")};
-  transform: translateY(-50%);
-  transition: 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+  transform: translate(0, -50%) scale(1);
+  transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+  transition-property: color, transform;
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
 `
