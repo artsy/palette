@@ -20,6 +20,8 @@ export const Default = () => {
         { disabled: true },
         { title: "Your offer", name: "offer" },
         { title: "Your offer", required: true },
+        { title: "Your offer", maxLength: 50 },
+        { title: "Your offer", required: true, maxLength: 50 },
         { title: "Your offer", description: "This is my description" },
         { width: "50%" },
       ]}

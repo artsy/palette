@@ -35,4 +35,9 @@ describe("Input", () => {
     expect(wrapper.text()).not.toContain("*Required")
     expect(wrapper.text()).toContain("This is the error")
   })
+
+  it("returns an input with a character counter when maxLength is provided", () => {
+    const wrapper = mount(<Input maxLength={10} />)
+    expect(wrapper.text()).toContain("0/10")
+  })
 })

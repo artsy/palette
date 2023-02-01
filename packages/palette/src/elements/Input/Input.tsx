@@ -44,8 +44,13 @@ export const Input: React.ForwardRefExoticComponent<
     ref
   ) => {
     const [boxProps, inputProps] = splitBoxProps(rest)
+    const [charCount, setCharCount] = React.useState(0)
 
     const inputName = inputProps.name || "palette-input"
+
+    const countChars = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setCharCount(e.target.value.length)
+    }
 
     return (
       <Box width="100%" className={className} {...boxProps}>
@@ -68,6 +73,10 @@ export const Input: React.ForwardRefExoticComponent<
             height={(height ?? 50) as any}
             name={inputName}
             title={title}
+            onChange={(e) => {
+              inputProps.onChange?.(e)
+              if (inputProps.maxLength) countChars(e)
+            }}
             {...inputProps}
           />
 
@@ -76,11 +85,22 @@ export const Input: React.ForwardRefExoticComponent<
           {children}
         </Box>
 
-        {required && !(error && typeof error === "string") && (
-          <Text variant="xs" mt={0.5} ml={1} color="black60">
-            *Required
-          </Text>
-        )}
+        {(required || inputProps?.maxLength) &&
+          !(error && typeof error === "string") && (
+            <Box display="flex" mt={0.5} mx={1}>
+              {required && (
+                <Text flex={1} variant="xs" color="black60" textAlign="left">
+                  *Required
+                </Text>
+              )}
+
+              {!!inputProps?.maxLength && (
+                <Text flex={1} variant="xs" color="black60" textAlign="right">
+                  {charCount}/{inputProps.maxLength}
+                </Text>
+              )}
+            </Box>
+          )}
 
         {error && typeof error === "string" && (
           <Text variant="xs" mt={0.5} ml={1} color="red100">
