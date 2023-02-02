@@ -20,8 +20,6 @@ export const Default = () => {
         { disabled: true },
         { disabled: true, value: "Example value" },
         { title: "Your offer", name: "offer" },
-        { inputPrefix: "USD", title: "Price" },
-        { inputPrefix: "XYZ", title: "Your offer", name: "offer" },
         { title: "Your offer", required: true },
         { title: "Your offer", maxLength: 50 },
         { title: "Your offer", required: true, maxLength: 50 },
