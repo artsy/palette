@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { variant } from "styled-system"
 import { DROP_SHADOW } from "../../helpers"
 import { CloseIcon } from "../../svgs"
-import { Position, useClickOutside, usePosition } from "../../utils"
+import { Position, useClickOutside, usePortal, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
@@ -121,49 +121,52 @@ export const Popover: React.FC<PopoverProps> = ({
     type: "click",
   })
 
+  const { createPortal } = usePortal()
+
   return (
     <>
       {children({ anchorRef: anchorRef as any, onVisible, onHide })}
 
-      {visible && (
-        <Tip
-          tabIndex={0}
-          ref={tooltipRef as any}
-          zIndex={1}
-          display="inline-block"
-          position="relative"
-          variant={variant}
-        >
-          {pointer && (
-            <Pointer
-              variant={variant}
-              placement={placement}
-              isFlipped={isFlipped}
-            />
-          )}
-
-          <Close
-            position="relative"
-            zIndex={2}
-            p={1}
-            onClick={handleHide}
-            aria-label="Close"
-          >
-            <CloseIcon fill="currentColor" display="block" />
-          </Close>
-
-          <Panel
-            variant={variant}
-            position="relative"
-            py={2}
-            px={1}
+      {visible &&
+        createPortal(
+          <Tip
+            tabIndex={0}
+            ref={tooltipRef as any}
             zIndex={1}
-            {...rest}
+            display="inline-block"
+            position="relative"
+            variant={variant}
           >
-            {popover}
-          </Panel>
-        </Tip>
-      )}
+            {pointer && (
+              <Pointer
+                variant={variant}
+                placement={placement}
+                isFlipped={isFlipped}
+              />
+            )}
+
+            <Close
+              position="relative"
+              zIndex={2}
+              p={1}
+              onClick={handleHide}
+              aria-label="Close"
+            >
+              <CloseIcon fill="currentColor" display="block" />
+            </Close>
+
+            <Panel
+              variant={variant}
+              position="relative"
+              py={2}
+              px={1}
+              zIndex={1}
+              {...rest}
+            >
+              {popover}
+            </Panel>
+          </Tip>
+        )}
     </>
   )
 }
