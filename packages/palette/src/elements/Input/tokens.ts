@@ -30,6 +30,7 @@ export const INPUT_STATES: Record<State, any> = {
       color: ${themeGet("colors.blue100")};
       // scale(0.8125) is the result of font size xs / sm-display (13/16)
       transform: translate(-5px, -150%) scale(0.8125);
+      padding: 0 5px;
     }
   `,
   hover: css`
@@ -55,6 +56,7 @@ export const INPUT_STATES: Record<State, any> = {
     & + label {
       color: ${themeGet("colors.blue100")};
       transform: translate(-5px, -150%) scale(0.8125);
+      padding: 0 5px;
     }
   `,
   completed: css`
@@ -64,6 +66,7 @@ export const INPUT_STATES: Record<State, any> = {
     & + label {
       color: ${themeGet("colors.blue60")};
       transform: translate(-5px, -150%) scale(0.8125);
+      padding: 0 5px;
     }
   `,
   disabled: css`
@@ -90,6 +93,7 @@ export const INPUT_STATES: Record<State, any> = {
     & + label {
       color: ${themeGet("colors.red100")};
       transform: translate(-5px, -150%) scale(0.8125);
+      padding: 0 5px;
     }
   `,
 }
