@@ -21,6 +21,7 @@ export interface InputProps
   hover?: boolean
   required?: boolean
   title?: string
+  inputPrefix?: string
 }
 
 /** Input component */
@@ -39,6 +40,7 @@ export const Input: React.ForwardRefExoticComponent<
       hover,
       title,
       height,
+      inputPrefix,
       ...rest
     },
     ref
@@ -54,7 +56,7 @@ export const Input: React.ForwardRefExoticComponent<
 
     return (
       <Box width="100%" className={className} {...boxProps}>
-        {description && (
+        {!!description && (
           <Tooltip pointer content={description} placement="top-end">
             <Text variant="xs" color="black60" textAlign="right">
               <u>What is this?</u>
@@ -73,6 +75,7 @@ export const Input: React.ForwardRefExoticComponent<
             height={(height ?? 50) as any}
             name={inputName}
             title={title}
+            inputPrefix={inputPrefix}
             onChange={(e) => {
               inputProps.onChange?.(e)
               if (inputProps.maxLength) countChars(e)
@@ -80,7 +83,17 @@ export const Input: React.ForwardRefExoticComponent<
             {...inputProps}
           />
 
-          {title && <StyledLabel htmlFor={inputName}>{title}</StyledLabel>}
+          {!!title && (
+            <StyledLabel inputPrefix={inputPrefix} htmlFor={inputName}>
+              {title}
+            </StyledLabel>
+          )}
+
+          {!!inputPrefix && (
+            <StyledPrefix variant="sm-display" color="black60">
+              {inputPrefix}
+            </StyledPrefix>
+          )}
 
           {children}
         </Box>
@@ -116,7 +129,7 @@ Input.displayName = "Input"
 
 type StyledInputProps = Pick<
   InputProps,
-  "disabled" | "error" | "hover" | "focus" | "active" | "title"
+  "disabled" | "error" | "hover" | "focus" | "active" | "title" | "inputPrefix"
 >
 
 const StyledInput = styled.input<StyledInputProps>`
@@ -124,7 +137,6 @@ const StyledInput = styled.input<StyledInputProps>`
   padding: 0 ${themeGet("space.1")};
   appearance: none;
   line-height: 1;
-  border: 0;
   border: 1px solid ${themeGet("colors.black15")};
   border-radius: 3px;
   transition: border-color 0.25s, color 0.25s;
@@ -143,6 +155,10 @@ const StyledInput = styled.input<StyledInputProps>`
       ${props.active && INPUT_STATES.active}
       ${props.disabled && INPUT_STATES.disabled}
       ${props.error && INPUT_STATES.error}
+      ${!!props.inputPrefix &&
+      css`
+        padding-left: 50px;
+      `}
 
       &:hover {
         ${INPUT_STATES.hover}
@@ -186,7 +202,28 @@ const StyledLabel = styled.label<StyledInputProps>`
   background-color: ${themeGet("colors.white100")};
   transform: translate(0, -50%) scale(1);
   transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
-  transition-property: color, transform;
+  transition-property: color, transform, padding;
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
+
+  ${({ inputPrefix }) => {
+    return css`
+      ${!!inputPrefix &&
+      css`
+        padding-left: 45px;
+      `}
+    `
+  }}
 `
+
+const StyledPrefix = styled(Text)`
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 35px;
+  margin: 0 5px;
+  text-align: right;
+`
+
+// fix width the prefix, add padding or something to adjust for the newly added prefix and animate as usual
