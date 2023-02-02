@@ -21,7 +21,8 @@ export interface InputProps
   hover?: boolean
   required?: boolean
   title?: string
-  inputPrefix?: string
+  prefixOffset?: number
+  suffixOffset?: number
 }
 
 /** Input component */
@@ -40,7 +41,8 @@ export const Input: React.ForwardRefExoticComponent<
       hover,
       title,
       height,
-      inputPrefix,
+      prefixOffset,
+      suffixOffset,
       ...rest
     },
     ref
@@ -75,7 +77,8 @@ export const Input: React.ForwardRefExoticComponent<
             height={(height ?? 50) as any}
             name={inputName}
             title={title}
-            inputPrefix={inputPrefix}
+            suffixOffset={suffixOffset}
+            prefixOffset={prefixOffset}
             onChange={(e) => {
               inputProps.onChange?.(e)
               if (inputProps.maxLength) countChars(e)
@@ -84,15 +87,9 @@ export const Input: React.ForwardRefExoticComponent<
           />
 
           {!!title && (
-            <StyledLabel inputPrefix={inputPrefix} htmlFor={inputName}>
+            <StyledLabel prefixOffset={prefixOffset} htmlFor={inputName}>
               {title}
             </StyledLabel>
-          )}
-
-          {!!inputPrefix && (
-            <StyledPrefix variant="sm-display" color="black60">
-              {inputPrefix}
-            </StyledPrefix>
           )}
 
           {children}
@@ -129,7 +126,14 @@ Input.displayName = "Input"
 
 type StyledInputProps = Pick<
   InputProps,
-  "disabled" | "error" | "hover" | "focus" | "active" | "title" | "inputPrefix"
+  | "disabled"
+  | "error"
+  | "hover"
+  | "focus"
+  | "active"
+  | "title"
+  | "suffixOffset"
+  | "prefixOffset"
 >
 
 const StyledInput = styled.input<StyledInputProps>`
@@ -155,9 +159,13 @@ const StyledInput = styled.input<StyledInputProps>`
       ${props.active && INPUT_STATES.active}
       ${props.disabled && INPUT_STATES.disabled}
       ${props.error && INPUT_STATES.error}
-      ${!!props.inputPrefix &&
+      ${!!props.prefixOffset &&
       css`
-        padding-left: 50px;
+        padding-left: ${props.prefixOffset}px;
+      `}
+      ${!!props.suffixOffset &&
+      css`
+        padding-right: ${props.suffixOffset}px;
       `}
 
       &:hover {
@@ -206,24 +214,9 @@ const StyledLabel = styled.label<StyledInputProps>`
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
 
-  ${({ inputPrefix }) => {
-    return css`
-      ${!!inputPrefix &&
-      css`
-        padding-left: 45px;
-      `}
-    `
-  }}
+  ${({ prefixOffset }) =>
+    !!prefixOffset &&
+    css`
+      padding-left: ${prefixOffset - 5}px;
+    `}
 `
-
-const StyledPrefix = styled(Text)`
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  width: 35px;
-  margin: 0 5px;
-  text-align: right;
-`
-
-// fix width the prefix, add padding or something to adjust for the newly added prefix and animate as usual
