@@ -1,3 +1,16 @@
+# (Thu Feb 02 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@29.2.0`
+  - feat(popover): renders into a portal [#1251](https://github.com/artsy/palette/pull/1251) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Jan 25 2023)
 
 #### 🚀  Enhancement

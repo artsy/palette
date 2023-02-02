@@ -1,3 +1,19 @@
+# v29.2.0 (Thu Feb 02 2023)
+
+#### 🚀  Enhancement
+
+- feat(popover): renders into a portal [#1251](https://github.com/artsy/palette/pull/1251) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(popover): renders into a portal ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v29.1.0 (Wed Jan 25 2023)
 
 #### 🚀  Enhancement
