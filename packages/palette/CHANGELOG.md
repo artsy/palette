@@ -1,3 +1,16 @@
+# v29.2.1 (Mon Feb 06 2023)
+
+#### 🐛  Bug Fix
+
+- fix(popover): threads through z-index to correct element [#1253](https://github.com/artsy/palette/pull/1253) ([@dzucconi](https://github.com/dzucconi))
+- fix(popover): threads through z-index to correct element ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v29.2.0 (Thu Feb 02 2023)
 
 #### 🚀  Enhancement
