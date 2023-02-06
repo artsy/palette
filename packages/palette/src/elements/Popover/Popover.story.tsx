@@ -61,6 +61,7 @@ export const Default = () => {
           placement: "bottom",
           visible: true,
           pointer: true,
+          zIndex: 99,
         },
       ]}
     >

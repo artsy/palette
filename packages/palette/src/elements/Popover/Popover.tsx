@@ -57,6 +57,7 @@ export const Popover: React.FC<PopoverProps> = ({
   popover,
   variant = "defaultLight",
   visible: _visible = false,
+  zIndex,
   ...rest
 }) => {
   const [visible, setVisible] = useState(false)
@@ -132,7 +133,7 @@ export const Popover: React.FC<PopoverProps> = ({
           <Tip
             tabIndex={0}
             ref={tooltipRef as any}
-            zIndex={1}
+            zIndex={zIndex ?? 1}
             display="inline-block"
             position="relative"
             variant={variant}
