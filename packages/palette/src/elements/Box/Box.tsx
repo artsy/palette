@@ -20,6 +20,7 @@ import {
   textAlign,
   TextAlignProps,
 } from "styled-system"
+import { BaseSpaceProps } from "../../themes/types"
 import { splitProps } from "../../utils/splitProps"
 
 export interface BoxProps
@@ -30,7 +31,7 @@ export interface BoxProps
     GridAreaProps,
     LayoutProps,
     PositionProps,
-    SpaceProps,
+    SpaceProps<BaseSpaceProps>,
     TextAlignProps {}
 
 /**

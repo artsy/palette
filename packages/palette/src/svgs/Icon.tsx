@@ -8,10 +8,11 @@ import {
   SpaceProps,
 } from "styled-system"
 import { Color } from "../Theme"
+import { BaseSpaceProps } from "../themes/types"
 
 export interface IconProps
   extends React.SVGProps<any>,
-    SpaceProps,
+    SpaceProps<BaseSpaceProps>,
     PositionProps {
   fill?: Color | "currentColor"
   title?: string

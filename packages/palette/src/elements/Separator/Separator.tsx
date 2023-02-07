@@ -10,9 +10,10 @@ import {
   width,
   WidthProps,
 } from "styled-system"
+import { BaseSpaceProps } from "../../themes/types"
 
 export interface SeparatorProps
-  extends SpaceProps,
+  extends SpaceProps<BaseSpaceProps>,
     WidthProps,
     BorderProps,
     ColorProps {}

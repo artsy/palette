@@ -10,5 +10,8 @@ import {
 } from "@artsy/palette-tokens/dist/themes/v3"
 
 export type Color = ColorV2 | ColorV3
-export type SpacingUnit = SpacingUnitV2 | SpacingUnitV3
+export type SpacingUnit = SpacingUnitV2 | SpacingUnitV3 | `${number}px`
 export type Breakpoint = BreakpointV2 | BreakpointV3
+
+// Constrains styled-system's spacing unit to those defined by us
+export type BaseSpaceProps = { space: Record<SpacingUnit, any> }

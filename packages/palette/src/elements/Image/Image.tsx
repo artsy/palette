@@ -13,12 +13,13 @@ import {
   width,
   WidthProps,
 } from "styled-system"
+import { BaseSpaceProps } from "../../themes/types"
 import { CleanTag } from "../CleanTag"
 import { LazyImage } from "./LazyImage"
 
 export interface ImageProps
   extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, "width" | "height">,
-    SpaceProps,
+    SpaceProps<BaseSpaceProps>,
     WidthProps,
     HeightProps,
     MaxHeightProps,
