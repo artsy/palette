@@ -154,3 +154,35 @@ export const ExternalControl = () => {
     </>
   )
 }
+
+export const PointerCentering = () => {
+  return (
+    <Box
+      width={800}
+      height={800}
+      overflow="auto"
+      border="1px dotted"
+      borderColor="black60"
+    >
+      <Box width={4000} height={4000}>
+        <Box
+          width={800}
+          height={800}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Tooltip
+            content={CONTENT}
+            visible
+            pointer
+            variant="defaultDark"
+            placement="top"
+          >
+            <Box bg="black30" width={50} height={50} />
+          </Tooltip>
+        </Box>
+      </Box>
+    </Box>
+  )
+}

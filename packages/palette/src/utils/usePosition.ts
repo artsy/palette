@@ -5,6 +5,13 @@ import { useState } from "react"
 import { useRef } from "react"
 import { useMutationObserver } from "./useMutationObserver"
 import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
+import {
+  arrow,
+  computePosition,
+  ComputePositionReturn,
+  flip,
+  offset as offsetMiddleware,
+} from "@floating-ui/react"
 
 export const POSITION = {
   "top-start": "top-start",
@@ -28,12 +35,97 @@ interface TargetPosition {
   y: number
 }
 
+export const usePosition = ({
+  position,
+  offset = 0,
+  active = true,
+}: {
+  position: Position
+  /** Distance from anchor (default: `0`) */
+  offset?: number
+  /** Optionally disable for performance (default: `true`) */
+  active?: boolean
+}) => {
+  const tooltipRef = useRef<HTMLElement | null>(null)
+  const anchorRef = useRef<HTMLElement | null>(null)
+  const pointerRef = useRef<HTMLElement | null>(null)
+
+  const [state, setState] = useState<ComputePositionReturn>({
+    placement: position,
+    strategy: "absolute",
+    middlewareData: {},
+    x: 0,
+    y: 0,
+  })
+
+  useIsomorphicLayoutEffect(() => {
+    const exec = async () => {
+      if (!tooltipRef.current || !anchorRef.current) return
+
+      const { current: tooltip } = tooltipRef
+      const { current: anchor } = anchorRef
+
+      const computedPosition = await computePosition(anchor, tooltip, {
+        placement: position,
+        middleware: [
+          offsetMiddleware(offset),
+          flip(),
+          ...(pointerRef.current
+            ? [arrow({ element: pointerRef.current })]
+            : []),
+        ],
+      })
+
+      setState(computedPosition)
+
+      Object.assign(tooltip.style, {
+        position: computedPosition.strategy,
+        top: `${computedPosition.y}px`,
+        left: `${computedPosition.x}px`,
+      })
+
+      if (pointerRef.current && computedPosition.middlewareData.arrow) {
+        const { current: pointer } = pointerRef
+        const { x, y } = computedPosition.middlewareData.arrow
+
+        Object.assign(pointer.style, {
+          left: x != null ? `${x}px` : "",
+          top: y != null ? `${y}px` : "",
+        })
+      }
+    }
+
+    exec()
+
+    window.addEventListener("resize", exec)
+    document.addEventListener("scroll", exec)
+
+    return () => {
+      window.removeEventListener("resize", exec)
+      document.removeEventListener("scroll", exec)
+    }
+  }, [])
+
+  return {
+    // Element that floating element is anchored to
+    tooltipRef,
+    // Element you want to position relative to the anchor
+    anchorRef,
+    // Element that points to the anchor
+    pointerRef,
+    state: {
+      ...state,
+      isFlipped: false,
+    },
+  }
+}
+
 /**
  * Will position the floating element (tooltip) relative to the anchor element,
  * using `position: fixed` and in such a way that it shouldn't ever appear
  * partially offscreen and will move correctly when the parent is scrolled.
  */
-export const usePosition = ({
+export const usePositionX = ({
   position,
   offset = 0,
   active = true,

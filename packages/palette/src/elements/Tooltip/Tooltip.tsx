@@ -1,11 +1,20 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
 import { DROP_SHADOW, isText } from "../../helpers"
-import { Position, usePosition } from "../../utils/usePosition"
+import { Position } from "../../utils/usePosition"
 import { Box, BoxProps } from "../Box"
-import { Pointer } from "../Pointer"
+import { Pointer, POINTER_SIZE } from "../Pointer"
 import { Text } from "../Text"
+import {
+  useFloating,
+  autoUpdate,
+  flip,
+  offset as offsetMiddleware,
+  shift,
+  arrow,
+  hide,
+} from "@floating-ui/react"
 
 export const TOOLTIP_VARIANTS = {
   defaultLight: {
@@ -40,7 +49,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   content,
   width = 230,
   offset = 10,
-  placement = "top",
+  placement: desiredPlacement = "top",
   pointer = false,
   variant = "defaultLight",
   visible,
@@ -60,20 +69,36 @@ export const Tooltip: React.FC<TooltipProps> = ({
     setActive(false)
   }
 
-  const {
-    anchorRef,
-    tooltipRef,
-    state: { isFlipped },
-  } = usePosition({
-    position: placement,
-    offset,
-    active: visible ?? active,
+  const pointerRef = useRef<HTMLDivElement | null>(null)
+
+  const { x, y, refs, middlewareData, placement } = useFloating({
+    placement: desiredPlacement,
+    middleware: [
+      flip(),
+      offsetMiddleware(offset),
+      shift(),
+      arrow({
+        element: pointerRef,
+        padding: offset,
+      }),
+      hide(),
+    ],
+    whileElementsMounted: autoUpdate,
   })
+
+  const side = placement.split("-")[0]
+
+  const staticSide = {
+    top: "bottom",
+    right: "left",
+    bottom: "top",
+    left: "right",
+  }[side]
 
   return (
     <>
       {React.cloneElement(children, {
-        ref: anchorRef,
+        ref: refs.setReference,
         tabIndex: 0,
         onClick: compose(handleClick, children.props?.onClick),
         onMouseOver: compose(activate, children.props?.onMouseOver),
@@ -83,9 +108,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
       })}
 
       <Tip
-        ref={tooltipRef as any}
+        ref={refs.setFloating as any}
         variant={variant}
         width={width}
+        top={y}
+        left={x}
         zIndex={1}
         style={
           // If visible is explictly set to `false` then the tooltip should be hidden
@@ -99,9 +126,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
       >
         {pointer && (
           <Pointer
+            ref={pointerRef as any}
             variant={variant}
-            placement={placement}
-            isFlipped={isFlipped}
+            top={middlewareData.arrow?.y}
+            left={middlewareData.arrow?.x}
+            right=""
+            bottom=""
+            {...{ [`${staticSide}`]: `${-POINTER_SIZE / 2}px` }}
           />
         )}
 
