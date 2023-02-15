@@ -1,3 +1,17 @@
+# v28.3.0 (Wed Feb 15 2023)
+
+#### 🏠  Internal
+
+- chore(deps): bump express from 4.17.2 to 4.18.2 [#1237](https://github.com/artsy/palette/pull/1237) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump minimatch from 3.0.4 to 3.0.5 [#1244](https://github.com/artsy/palette/pull/1244) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump http-cache-semantics from 4.1.0 to 4.1.1 [#1252](https://github.com/artsy/palette/pull/1252) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v28.0.0 (Thu Jan 19 2023)
 
 #### 💥  Breaking Change

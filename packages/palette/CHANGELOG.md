@@ -1,3 +1,26 @@
+# v29.3.0 (Wed Feb 15 2023)
+
+#### 🚀  Enhancement
+
+- feat: add `header` prop for `ModalDialogContent` [#1256](https://github.com/artsy/palette/pull/1256) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### 🐛  Bug Fix
+
+- feat: add `header` prop for `ModalDialogContent` ([@dimatretyak](https://github.com/dimatretyak))
+
+#### 🏠  Internal
+
+- chore(deps): bump express from 4.17.2 to 4.18.2 [#1237](https://github.com/artsy/palette/pull/1237) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump minimatch from 3.0.4 to 3.0.5 [#1244](https://github.com/artsy/palette/pull/1244) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump http-cache-semantics from 4.1.0 to 4.1.1 [#1252](https://github.com/artsy/palette/pull/1252) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Dima Tretyak ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # v29.2.1 (Mon Feb 06 2023)
 
 #### 🐛  Bug Fix
