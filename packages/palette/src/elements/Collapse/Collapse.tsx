@@ -93,6 +93,7 @@ export class Collapse extends React.Component<CollapseProps> {
         style={{
           transition: "height 0.3s ease",
           overflow: "hidden",
+          display: open ? "inline" : "none",
           ...heightProps,
         }}
       >
