@@ -10,21 +10,19 @@ export default {
 }
 
 export const Default = () => {
-  const [open, setOpen] = useState(false)
+  const [openCollapse, setOpenCollapse] = useState(false)
 
   return (
-    <>
-      <States<CollapseProps> states={[{ open: false }]}>
-        <>
-          <Button onClick={() => setOpen(!open)}>
-            {open ? "Close" : "Open"}
-          </Button>
-          <Spacer y={1} />
-          <Collapse open={open}>
-            <Text>This collapse is open.</Text>
-          </Collapse>
-        </>
-      </States>
-    </>
+    <States<Partial<CollapseProps>> states={[{ open: false }]}>
+      <>
+        <Button onClick={() => setOpenCollapse(!openCollapse)}>
+          {openCollapse ? "Close" : "Open"}
+        </Button>
+        <Spacer y={1} />
+        <Collapse open={openCollapse}>
+          <Text>This collapse is open.</Text>
+        </Collapse>
+      </>
+    </States>
   )
 }
