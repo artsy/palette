@@ -101,6 +101,23 @@ export const Default = () => {
             </Box>
           ),
         },
+        {
+          title: "With Header",
+          header: (
+            <Box bg="black10" p={2} textAlign="center">
+              <Text variant="xs">Header Content</Text>
+            </Box>
+          ),
+        },
+        {
+          title: "With Header and Footer",
+          header: (
+            <Box bg="black10" p={2} textAlign="center">
+              <Text variant="xs">Header Content</Text>
+            </Box>
+          ),
+          footer: <Button width="100%">Confirm</Button>,
+        },
       ]}
     >
       {(props) => <Demo {...props} />}

@@ -21,6 +21,7 @@ export interface ModalDialogContentProps
   onClose: () => void
   rightPanel?: React.ReactNode
   title?: string
+  header?: React.ReactNode
 }
 
 export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
@@ -31,6 +32,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
   onClose,
   rightPanel,
   title,
+  header,
   ...rest
 }) => {
   const {
@@ -49,36 +51,39 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
 
       <Flex flexDirection="column" overflow="hidden" width="100%">
         <Flex
-          alignItems="flex-start"
-          justifyContent="space-between"
+          flexDirection="column"
           zIndex={1}
           style={{
             transition: "box-shadow 250ms",
             boxShadow: isAtTop ? DROP_SHADOW : undefined,
           }}
         >
-          {(title || hasLogo) && (
-            <Box m={2}>
-              {hasLogo && (
-                <ArtsyLogoBlackIcon
-                  display="block"
-                  style={{ width: "75px", height: "26px" }}
-                />
-              )}
+          <Flex alignItems="flex-start" justifyContent="space-between">
+            {(title || hasLogo) && (
+              <Box m={2}>
+                {hasLogo && (
+                  <ArtsyLogoBlackIcon
+                    display="block"
+                    style={{ width: "75px", height: "26px" }}
+                  />
+                )}
 
-              {hasLogo && title && <Spacer y={2} />}
+                {hasLogo && title && <Spacer y={2} />}
 
-              {title && (
-                <Text variant="lg-display" lineClamp={6} hyphenate>
-                  {title}
-                </Text>
-              )}
-            </Box>
-          )}
+                {title && (
+                  <Text variant="lg-display" lineClamp={6} hyphenate>
+                    {title}
+                  </Text>
+                )}
+              </Box>
+            )}
 
-          <Close p={2} ml="auto" onClick={onClose} aria-label="Close">
-            <CloseIcon fill="currentColor" display="block" />
-          </Close>
+            <Close p={2} ml="auto" onClick={onClose} aria-label="Close">
+              <CloseIcon fill="currentColor" display="block" />
+            </Close>
+          </Flex>
+
+          {header && <Box p={2}>{header}</Box>}
         </Flex>
 
         <Box

@@ -21,6 +21,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
   onClose,
   rightPanel,
   title,
+  header,
   ...rest
 }) => {
   const isMounted = useDidMount({ clearCallStack: true })
@@ -48,6 +49,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
         onClose={onClose}
         rightPanel={rightPanel}
         title={title}
+        header={header}
         width="100%"
         style={
           isMounted
