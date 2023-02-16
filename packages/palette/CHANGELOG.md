@@ -1,3 +1,19 @@
+# v29.4.0 (Thu Feb 16 2023)
+
+#### 🚀  Enhancement
+
+- feat(tooltip|popover): pointer centering [#1255](https://github.com/artsy/palette/pull/1255) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tooltip,popover): pointers attempt to point at the center of the anchor node ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v29.3.0 (Wed Feb 15 2023)
 
 #### 🚀  Enhancement

@@ -1,3 +1,16 @@
+# (Thu Feb 16 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@29.4.0`
+  - feat(tooltip|popover): pointer centering [#1255](https://github.com/artsy/palette/pull/1255) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Feb 15 2023)
 
 #### 🚀  Enhancement
