@@ -1,3 +1,19 @@
+# v29.5.0 (Thu Feb 16 2023)
+
+#### 🚀  Enhancement
+
+- feat(popover): supports optionally ignoring outside clicks [#1259](https://github.com/artsy/palette/pull/1259) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(popover): supports optionally ignoring outside clicks ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v29.4.1 (Thu Feb 16 2023)
 
 #### 🐛  Bug Fix
