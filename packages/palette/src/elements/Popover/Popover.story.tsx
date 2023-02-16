@@ -63,6 +63,9 @@ export const Default = () => {
           pointer: true,
           zIndex: 99,
         },
+        {
+          ignoreClickOutside: true,
+        },
       ]}
     >
       <Popover

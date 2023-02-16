@@ -35,6 +35,7 @@ export interface PopoverProps extends BoxProps {
   children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
   offset?: number
   onClose?: () => void
+  ignoreClickOutside?: boolean
   placement?: Position
   /** Display triangular pointer back to anchor node */
   pointer?: boolean
@@ -52,6 +53,7 @@ export const Popover: React.FC<PopoverProps> = ({
   children,
   onClose,
   offset = 10,
+  ignoreClickOutside = false,
   placement = "top",
   pointer = false,
   popover,
@@ -118,7 +120,7 @@ export const Popover: React.FC<PopoverProps> = ({
   useClickOutside({
     ref: tooltipRef,
     onClickOutside: handleHide,
-    when: visible,
+    when: visible && !ignoreClickOutside,
     type: "click",
   })
 
