@@ -1,5 +1,18 @@
 # (Thu Feb 16 2023)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@29.4.1`
+  - fix(popover,tooltip): fixes default z-index handling [#1258](https://github.com/artsy/palette/pull/1258) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Feb 16 2023)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@29.4.0`
