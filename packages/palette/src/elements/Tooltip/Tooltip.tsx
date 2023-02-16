@@ -44,6 +44,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   pointer = false,
   variant = "defaultLight",
   visible,
+  zIndex = 1,
   ...rest
 }) => {
   const [active, setActive] = useState(false)
@@ -86,7 +87,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
         ref={tooltipRef as any}
         variant={variant}
         width={width}
-        zIndex={1}
+        zIndex={zIndex}
         style={
           // If visible is explictly set to `false` then the tooltip should be hidden
           // Otherwise it should be visible or utilize the active state.
@@ -117,7 +118,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
 const Tip = styled(Box)<{ variant?: TooltipVariant }>`
   position: absolute;
-  z-index: 1;
   transition: opacity 250ms ease-out;
   text-align: left;
   box-shadow: ${DROP_SHADOW};
