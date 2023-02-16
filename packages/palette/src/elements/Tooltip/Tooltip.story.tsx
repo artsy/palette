@@ -6,6 +6,8 @@ import { Position, POSITION } from "../../utils/usePosition"
 import { Box } from "../Box"
 import { Button } from "../Button"
 import { Clickable } from "../Clickable"
+import { Input } from "../Input"
+import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
 
@@ -150,6 +152,78 @@ export const ExternalControl = () => {
         >
           {visible ? "Click to hide tooltip" : "Click to show tooltip"}
         </Button>
+      </Tooltip>
+    </>
+  )
+}
+
+export const PointerCentering = () => {
+  const [placement, setPlacement] = useState<Position>("top")
+  const [size, setSize] = useState(50)
+
+  return (
+    <>
+      {Object.keys(POSITION).map((placement) => {
+        return (
+          <Button
+            key={placement}
+            mr={1}
+            mb={1}
+            variant="secondaryBlack"
+            size="small"
+            onMouseOver={() => {
+              setPlacement(placement as Position)
+            }}
+          >
+            {placement}
+          </Button>
+        )
+      })}
+
+      <Input
+        type="range"
+        min={0}
+        max={200}
+        value={size}
+        onChange={(e) => {
+          setSize(parseInt(e.target.value))
+        }}
+      />
+
+      <Spacer y={12} />
+
+      <Tooltip
+        content={CONTENT}
+        pointer
+        visible
+        variant="defaultDark"
+        placement={placement}
+      >
+        <Box
+          bg="black10"
+          width={size}
+          height={size}
+          mx="auto"
+          position="relative"
+        >
+          <Box
+            height="1px"
+            bg="red100"
+            width="100%"
+            position="absolute"
+            top="50%"
+            mt="-0.5px"
+          />
+
+          <Box
+            height="100%"
+            width="1px"
+            bg="red100"
+            position="absolute"
+            left="50%"
+            ml="-0.5px"
+          />
+        </Box>
       </Tooltip>
     </>
   )

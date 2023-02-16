@@ -5,6 +5,7 @@ import { useState } from "react"
 import { useRef } from "react"
 import { useMutationObserver } from "./useMutationObserver"
 import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
+import { useResizeObserver } from "./useResizeObserver"
 
 export const POSITION = {
   "top-start": "top-start",
@@ -51,18 +52,20 @@ export const usePosition = ({
   const tooltipRef = useRef<HTMLElement | null>(null)
   const anchorRef = useRef<HTMLElement | null>(null)
 
+  const update = () => {
+    if (!tooltipRef.current || !anchorRef.current) return
+
+    const { current: tooltip } = tooltipRef
+    const { current: anchor } = anchorRef
+
+    setState(placeTooltip(anchor, tooltip, position, offset))
+  }
+
   // Re-position when there's any change to the tooltip
-  useMutationObserver({
-    ref: tooltipRef,
-    onMutate: () => {
-      if (!tooltipRef.current || !anchorRef.current) return
+  useMutationObserver({ ref: tooltipRef, onMutate: update })
 
-      const { current: tooltip } = tooltipRef
-      const { current: anchor } = anchorRef
-
-      setState(placeTooltip(anchor, tooltip, position, offset))
-    },
-  })
+  // Re-position when there's any change to the anchor's size
+  useResizeObserver({ target: anchorRef, onResize: update })
 
   useIsomorphicLayoutEffect(() => {
     if (!tooltipRef.current || !anchorRef.current) return
@@ -97,7 +100,7 @@ export const usePosition = ({
       document.removeEventListener("scroll", handleScroll)
       window.removeEventListener("resize", handleResize)
     }
-  }, [active, tooltipRef, anchorRef])
+  }, [active, tooltipRef, anchorRef, position])
 
   return {
     // Element that floating element is anchored to
