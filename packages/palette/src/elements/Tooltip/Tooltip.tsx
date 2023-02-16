@@ -99,6 +99,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
       >
         {pointer && (
           <Pointer
+            anchorRef={anchorRef}
+            tooltipRef={tooltipRef}
             variant={variant}
             placement={placement}
             isFlipped={isFlipped}

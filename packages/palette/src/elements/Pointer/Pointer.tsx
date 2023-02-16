@@ -1,8 +1,9 @@
-import React, { FC, useMemo } from "react"
+import React, { FC, useEffect, useMemo, useState, useCallback } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
 import { DROP_SHADOW } from "../../helpers"
 import { Position } from "../../utils"
+import { useResizeObserver } from "../../utils/useResizeObserver"
 import { Box } from "../Box"
 
 const POINTER_VARIANTS = {
@@ -17,6 +18,8 @@ const POINTER_VARIANTS = {
 type PointerVariant = keyof typeof POINTER_VARIANTS
 
 export interface PointerProps {
+  anchorRef: React.RefObject<HTMLElement>
+  tooltipRef: React.RefObject<HTMLElement>
   isFlipped: boolean
   placement: Position
   variant?: PointerVariant
@@ -26,16 +29,28 @@ export interface PointerProps {
  * Internal-use component for displaying a triangular pointer to an anchor node
  */
 export const Pointer: FC<PointerProps> = ({
+  anchorRef,
+  tooltipRef,
   isFlipped,
   placement,
   variant = "defaultLight",
 }) => {
+  const [[anchorWidth, anchorHeight], setAnchorDimensions] = useState([0, 0])
+  const [[tooltipWidth, tooltipHeight], setTooltipDimensions] = useState([0, 0])
+
   const position = useMemo(() => {
+    const horizontalCenter = anchorWidth / 2
+    const verticalCenter = anchorHeight / 2
+
     switch (placement) {
       case "top-start":
         return {
           bottom: isFlipped ? "100%" : 0,
-          left: `${POINTER_WIDTH}px`,
+          left: `${
+            horizontalCenter > tooltipWidth
+              ? POINTER_WIDTH
+              : horizontalCenter - POINTER_WIDTH / 2
+          }px`,
         }
       case "top":
         return {
@@ -45,12 +60,20 @@ export const Pointer: FC<PointerProps> = ({
       case "top-end":
         return {
           bottom: isFlipped ? "100%" : 0,
-          right: `${POINTER_WIDTH * 2}px`,
+          right: `${
+            horizontalCenter > tooltipWidth
+              ? POINTER_WIDTH * 2
+              : horizontalCenter + POINTER_WIDTH / 2
+          }px`,
         }
       case "bottom-start":
         return {
           top: isFlipped ? "100%" : 0,
-          left: `${POINTER_WIDTH}px`,
+          left: `${
+            horizontalCenter > tooltipWidth
+              ? POINTER_WIDTH
+              : horizontalCenter - POINTER_WIDTH / 2
+          }px`,
         }
       case "bottom":
         return {
@@ -60,11 +83,19 @@ export const Pointer: FC<PointerProps> = ({
       case "bottom-end":
         return {
           top: isFlipped ? "100%" : 0,
-          right: `${POINTER_WIDTH * 2}px`,
+          right: `${
+            horizontalCenter > tooltipWidth
+              ? POINTER_WIDTH * 2
+              : horizontalCenter + POINTER_WIDTH / 2
+          }px`,
         }
       case "left-start":
         return {
-          top: `${POINTER_WIDTH}px`,
+          top: `${
+            verticalCenter > tooltipHeight - POINTER_WIDTH / 2
+              ? POINTER_WIDTH
+              : verticalCenter
+          }px`,
           ...(isFlipped
             ? { left: `-${POINTER_WIDTH / 2}px` }
             : { right: `${POINTER_WIDTH / 2}px` }),
@@ -78,14 +109,23 @@ export const Pointer: FC<PointerProps> = ({
         }
       case "left-end":
         return {
-          bottom: `${POINTER_WIDTH}px`,
+          bottom: `${
+            verticalCenter > tooltipHeight - POINTER_WIDTH / 2
+              ? POINTER_WIDTH
+              : verticalCenter
+          }px`,
+
           ...(isFlipped
             ? { left: `-${POINTER_WIDTH / 2}px` }
             : { right: `${POINTER_WIDTH / 2}px` }),
         }
       case "right-start":
         return {
-          top: `${POINTER_WIDTH}px`,
+          top: `${
+            verticalCenter > tooltipHeight - POINTER_WIDTH / 2
+              ? POINTER_WIDTH
+              : verticalCenter
+          }px`,
           ...(isFlipped
             ? { right: `${POINTER_WIDTH / 2}px` }
             : { left: `-${POINTER_WIDTH / 2}px` }),
@@ -99,13 +139,38 @@ export const Pointer: FC<PointerProps> = ({
         }
       case "right-end":
         return {
-          bottom: `${POINTER_WIDTH}px`,
+          bottom: `${
+            verticalCenter > tooltipHeight - POINTER_WIDTH / 2
+              ? POINTER_WIDTH
+              : verticalCenter
+          }px`,
           ...(isFlipped
             ? { right: `${POINTER_WIDTH / 2}px` }
             : { left: `-${POINTER_WIDTH / 2}px` }),
         }
     }
-  }, [isFlipped, placement])
+  }, [
+    anchorHeight,
+    anchorWidth,
+    isFlipped,
+    placement,
+    tooltipHeight,
+    tooltipWidth,
+  ])
+
+  const handleResize = useCallback(() => {
+    if (!anchorRef.current || !tooltipRef.current) return
+
+    const anchorRect = anchorRef.current.getBoundingClientRect()
+    const tooltipRect = tooltipRef.current.getBoundingClientRect()
+
+    setAnchorDimensions([anchorRect.width, anchorRect.height])
+    setTooltipDimensions([tooltipRect.width, tooltipRect.height])
+  }, [anchorRef, tooltipRef])
+
+  useEffect(handleResize, [handleResize])
+
+  useResizeObserver({ target: anchorRef, onResize: handleResize })
 
   return <Container variant={variant} {...position} />
 }

@@ -140,6 +140,8 @@ export const Popover: React.FC<PopoverProps> = ({
           >
             {pointer && (
               <Pointer
+                anchorRef={anchorRef}
+                tooltipRef={tooltipRef}
                 variant={variant}
                 placement={placement}
                 isFlipped={isFlipped}
