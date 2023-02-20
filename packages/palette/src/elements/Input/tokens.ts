@@ -64,7 +64,7 @@ export const INPUT_STATES: Record<State, any> = {
     border-color: ${themeGet("colors.black60")};
 
     & + label {
-      color: ${themeGet("colors.blue60")};
+      color: ${themeGet("colors.black60")};
       transform: translate(-5px, -150%) scale(0.8125);
       padding: 0 5px;
     }

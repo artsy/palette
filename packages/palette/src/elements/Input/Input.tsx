@@ -141,7 +141,7 @@ const StyledInput = styled.input<StyledInputProps>`
   padding: 0 ${themeGet("space.1")};
   appearance: none;
   line-height: 1;
-  border: 1px solid ${themeGet("colors.black15")};
+  border: 1px solid;
   border-radius: 3px;
   transition: border-color 0.25s, color 0.25s;
   font-family: ${themeGet("fonts.sans")};
