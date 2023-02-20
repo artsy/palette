@@ -132,6 +132,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
             onChange={(e) => {
               const inputValue = e.target.value
               const countryCodeValue = selectedOption.value
+              inputProps.onChange?.(e)
 
               onInputChange?.({ inputValue, countryCodeValue })
             }}
