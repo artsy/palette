@@ -28,8 +28,8 @@ export const INPUT_STATES: Record<State, any> = {
 
     & + label {
       color: ${themeGet("colors.blue100")};
-      // scale(0.8125) is the result of font size xs / sm-display (13/16)
-      transform: translate(-5px, -150%) scale(0.8125);
+      transform: translateY(-150%);
+      font-size: ${themeGet("textVariants.xs.fontSize")};
       padding: 0 5px;
     }
   `,
@@ -55,7 +55,8 @@ export const INPUT_STATES: Record<State, any> = {
 
     & + label {
       color: ${themeGet("colors.blue100")};
-      transform: translate(-5px, -150%) scale(0.8125);
+      transform: translateY(-150%);
+      font-size: ${themeGet("textVariants.xs.fontSize")};
       padding: 0 5px;
     }
   `,
@@ -65,7 +66,8 @@ export const INPUT_STATES: Record<State, any> = {
 
     & + label {
       color: ${themeGet("colors.blue60")};
-      transform: translate(-5px, -150%) scale(0.8125);
+      transform: translateY(-150%);
+      font-size: ${themeGet("textVariants.xs.fontSize")};
       padding: 0 5px;
     }
   `,
@@ -80,7 +82,8 @@ export const INPUT_STATES: Record<State, any> = {
 
     &:not(:placeholder-shown) + label {
       color: ${themeGet("colors.black30")};
-      transform: translate(-5px, -150%) scale(0.8125);
+      transform: translateY(-150%);
+      font-size: ${themeGet("textVariants.xs.fontSize")};
     }
 
     &:placeholder-shown + label {
@@ -92,7 +95,8 @@ export const INPUT_STATES: Record<State, any> = {
 
     & + label {
       color: ${themeGet("colors.red100")};
-      transform: translate(-5px, -150%) scale(0.8125);
+      transform: translateY(-150%);
+      font-size: ${themeGet("textVariants.xs.fontSize")};
       padding: 0 5px;
     }
   `,

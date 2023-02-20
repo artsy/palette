@@ -208,9 +208,9 @@ const StyledLabel = styled.label<StyledInputProps>`
   left: 5px;
   padding: 0 5px;
   background-color: ${themeGet("colors.white100")};
-  transform: translate(0, -50%) scale(1);
+  transform: translateY(-50%);
   transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
-  transition-property: color, transform, padding;
+  transition-property: color, transform, padding, font-size;
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
 
