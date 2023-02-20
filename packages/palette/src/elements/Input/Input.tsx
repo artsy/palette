@@ -23,6 +23,7 @@ export interface InputProps
   title?: string
   prefixOffset?: number
   suffixOffset?: number
+  showCounter?: boolean
 }
 
 /** Input component */
@@ -43,6 +44,7 @@ export const Input: React.ForwardRefExoticComponent<
       height,
       prefixOffset,
       suffixOffset,
+      showCounter,
       ...rest
     },
     ref
@@ -95,7 +97,7 @@ export const Input: React.ForwardRefExoticComponent<
           {children}
         </Box>
 
-        {(required || inputProps?.maxLength) &&
+        {(required || (inputProps?.maxLength && showCounter)) &&
           !(error && typeof error === "string") && (
             <Box display="flex" mt={0.5} mx={1}>
               {required && (
@@ -104,7 +106,7 @@ export const Input: React.ForwardRefExoticComponent<
                 </Text>
               )}
 
-              {!!inputProps?.maxLength && (
+              {!!inputProps?.maxLength && showCounter && (
                 <Text flex={1} variant="xs" color="black60" textAlign="right">
                   {charCount}/{inputProps.maxLength}
                 </Text>
