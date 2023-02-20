@@ -52,7 +52,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       onInputChange,
       ...rest
     },
-    ref
+    forwardedRef
   ) => {
     if (options.length === 0) {
       throw new Error(
@@ -104,9 +104,9 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       <Box width="100%" className={className} {...boxProps}>
         <ContainerBox
           ref={anchorRef as any}
+          isDropdownVisible={isDropdownVisible}
           hover={hover}
           focus={focus}
-          isDropdownVisible={isDropdownVisible}
           error={error}
           disabled={disabled}
         >
@@ -123,7 +123,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
 
           <StyledInput
             disabled={disabled}
-            ref={composeRefs(inputRef, ref) as any}
+            ref={composeRefs(inputRef, forwardedRef) as any}
             type="tel"
             autoComplete="tel-national"
             name={inputName}
@@ -150,25 +150,6 @@ export const PhoneInput: React.ForwardRefExoticComponent<
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <SelectOptions>
-              {/* {optionsWithRefs.map(({ option, ref }, i) => {
-              return (
-                <AutocompleteInputOption
-                  key={i}
-                  ref={ref}
-                  role="option"
-                  aria-selected={i === index}
-                  aria-posinset={i + 1}
-                  aria-setsize={options.length}
-                  onMouseDown={handleMouseDown(option, i)}
-                  onMouseEnter={handleMouseEnter(i)}
-                  selected={i === index}
-                  tabIndex={-1}
-                >
-                  {renderOption(option, i)}
-                </AutocompleteInputOption>
-              )
-            })} */}
-
               {filteredOptions.map((option, i) => {
                 return (
                   <SelectOption
