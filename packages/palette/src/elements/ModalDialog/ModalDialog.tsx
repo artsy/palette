@@ -26,7 +26,10 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
 }) => {
   const isMounted = useDidMount({ clearCallStack: true })
 
-  const [{ width, ...boxProps }, modalProps] = splitBoxProps(rest)
+  const [
+    { width, ...boxProps },
+    { titleVariant, ...modalProps },
+  ] = splitBoxProps(rest)
 
   return (
     <ModalBase
@@ -51,6 +54,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
         title={title}
         header={header}
         width="100%"
+        titleVariant={titleVariant}
         style={
           isMounted
             ? {
