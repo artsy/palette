@@ -1,7 +1,7 @@
 import React from "react"
 import { Clickable } from "../Clickable"
 import { DROP_SHADOW } from "../../helpers/shadow"
-import { Box, BoxProps } from "../Box"
+import { Box, boxMixin, BoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { CloseIcon } from "../../svgs/CloseIcon"
@@ -10,11 +10,17 @@ import { useSentinelVisibility } from "../../utils/useSentinelVisibility"
 import { Spacer } from "../Spacer"
 import styled from "styled-components"
 import { themeGet } from "@styled-system/theme-get"
-import { ResponsiveValue } from "styled-system"
+import { compose, ResponsiveValue, system } from "styled-system"
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
+import { splitProps } from "../../utils/splitProps"
+
+interface TitleVariantProps {
+  titleVariant?: ResponsiveValue<TextVariant>
+}
 
 export interface ModalDialogContentProps
   extends BoxProps,
+    TitleVariantProps,
     React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   footer?: React.ReactNode
@@ -24,7 +30,6 @@ export interface ModalDialogContentProps
   rightPanel?: React.ReactNode
   title?: string
   header?: React.ReactNode
-  titleVariant?: ResponsiveValue<TextVariant>
 }
 
 export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
@@ -129,3 +134,9 @@ const Close = styled(Clickable)`
     color: ${themeGet("colors.black60")};
   }
 `
+
+const titleVariant = system({ titleVariant: true })
+
+export const splitModalDialogContentProps = splitProps<
+  BoxProps & TitleVariantProps
+>(compose(boxMixin, titleVariant))
