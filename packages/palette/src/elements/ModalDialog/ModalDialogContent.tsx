@@ -10,6 +10,8 @@ import { useSentinelVisibility } from "../../utils/useSentinelVisibility"
 import { Spacer } from "../Spacer"
 import styled from "styled-components"
 import { themeGet } from "@styled-system/theme-get"
+import { ResponsiveValue } from "styled-system"
+import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 
 export interface ModalDialogContentProps
   extends BoxProps,
@@ -22,6 +24,7 @@ export interface ModalDialogContentProps
   rightPanel?: React.ReactNode
   title?: string
   header?: React.ReactNode
+  titleVariant?: ResponsiveValue<TextVariant>
 }
 
 export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
@@ -33,6 +36,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
   rightPanel,
   title,
   header,
+  titleVariant = "lg-display",
   ...rest
 }) => {
   const {
@@ -71,7 +75,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
                 {hasLogo && title && <Spacer y={2} />}
 
                 {title && (
-                  <Text variant="lg-display" lineClamp={6} hyphenate>
+                  <Text variant={titleVariant} lineClamp={6} hyphenate>
                     {title}
                   </Text>
                 )}

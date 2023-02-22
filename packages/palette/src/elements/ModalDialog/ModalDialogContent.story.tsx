@@ -73,6 +73,16 @@ export const Default = () => {
           hasLogo: true,
           footer: <Button width="100%">Confirm</Button>,
         },
+        {
+          title: "Modal Title with different variant",
+          titleVariant: "sm-display",
+          footer: <Button width="100%">Confirm</Button>,
+        },
+        {
+          title: "Modal Title with responsive variants",
+          titleVariant: ["sm-display", "lg-display"],
+          footer: <Button width="100%">Confirm</Button>,
+        },
       ]}
     >
       <ModalDialogContent onClose={action("onClose")} maxHeight={400}>
