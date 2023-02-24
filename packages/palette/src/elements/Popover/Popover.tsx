@@ -33,9 +33,10 @@ export interface PopoverActions {
 
 export interface PopoverProps extends BoxProps {
   children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
+  ignoreClickOutside?: boolean
+  manageFocus?: boolean
   offset?: number
   onClose?: () => void
-  ignoreClickOutside?: boolean
   placement?: Position
   /** Display triangular pointer back to anchor node */
   pointer?: boolean
@@ -51,9 +52,10 @@ export interface PopoverProps extends BoxProps {
  */
 export const Popover: React.FC<PopoverProps> = ({
   children,
-  onClose,
-  offset = 10,
   ignoreClickOutside = false,
+  manageFocus = true,
+  offset = 10,
+  onClose,
   placement = "top",
   pointer = false,
   popover,
@@ -71,6 +73,8 @@ export const Popover: React.FC<PopoverProps> = ({
 
   // Yields focus back and forth between popover and anchor
   useUpdateEffect(() => {
+    if (!manageFocus) return
+
     if (visible && tooltipRef.current) {
       tooltipRef.current.focus()
       return

@@ -140,3 +140,38 @@ export const Placement = () => {
 Placement.story = {
   parameters: { chromatic: { disable: true } },
 }
+
+export const ManageFocus = () => {
+  return (
+    <States<Partial<PopoverProps>>
+      states={[
+        { visible: true, manageFocus: false },
+        { visible: true, manageFocus: true },
+      ]}
+    >
+      <Popover
+        placement="bottom"
+        popover={
+          <Text variant="xs" width={300}>
+            {CONTENT}
+          </Text>
+        }
+      >
+        {({ onVisible, anchorRef }) => {
+          return (
+            <Box textAlign="center">
+              <Button
+                ref={anchorRef}
+                variant="secondaryBlack"
+                size="small"
+                onClick={onVisible}
+              >
+                Click to display popover
+              </Button>
+            </Box>
+          )
+        }}
+      </Popover>
+    </States>
+  )
+}
