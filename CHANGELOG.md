@@ -1,3 +1,16 @@
+# (Fri Feb 24 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@29.6.0`
+  - feat(popover): adds prop to disable focus management [#1261](https://github.com/artsy/palette/pull/1261) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Feb 16 2023)
 
 #### 🚀  Enhancement
