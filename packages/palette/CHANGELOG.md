@@ -1,3 +1,16 @@
+# v29.6.2 (Thu Mar 02 2023)
+
+#### 🐛  Bug Fix
+
+- fix(popover): adjusts vertical padding [#1264](https://github.com/artsy/palette/pull/1264) ([@dzucconi](https://github.com/dzucconi))
+- fix(popover): adjusts vertical padding ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v29.6.1 (Thu Mar 02 2023)
 
 #### 🐛  Bug Fix
