@@ -36,7 +36,10 @@ export interface PopoverProps extends BoxProps {
   ignoreClickOutside?: boolean
   manageFocus?: boolean
   offset?: number
+  /** Called whenever the Popver is closed (both explcitly dismissed and through click outside) */
   onClose?: () => void
+  /** Called whenever the Popover is dismissed (explicitly) */
+  onDismiss?: () => void
   placement?: Position
   /** Display triangular pointer back to anchor node */
   pointer?: boolean
@@ -56,6 +59,7 @@ export const Popover: React.FC<PopoverProps> = ({
   manageFocus = true,
   offset = 10,
   onClose,
+  onDismiss,
   placement = "top",
   pointer = false,
   popover,
@@ -96,6 +100,11 @@ export const Popover: React.FC<PopoverProps> = ({
     onHide()
     onClose?.()
   }, [onHide, onClose])
+
+  const handleDismiss = useCallback(() => {
+    handleHide()
+    onDismiss?.()
+  }, [handleHide, onDismiss])
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
@@ -158,7 +167,7 @@ export const Popover: React.FC<PopoverProps> = ({
               position="relative"
               zIndex={2}
               p={1}
-              onClick={handleHide}
+              onClick={handleDismiss}
               aria-label="Close"
             >
               <CloseIcon fill="currentColor" display="block" />

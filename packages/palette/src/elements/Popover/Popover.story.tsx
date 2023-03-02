@@ -20,7 +20,7 @@ export const Default = () => {
       states={[
         {},
         { visible: true },
-        { onClose: action("onClose") },
+        { onClose: action("onClose"), onDismiss: action("onDismiss") },
         {
           visible: true,
           popover: (
