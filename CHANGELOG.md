@@ -1,3 +1,16 @@
+# (Thu Mar 02 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@29.6.1`
+  - fix(usefocuslock): uses a more accurate method of determining focusable [#1262](https://github.com/artsy/palette/pull/1262) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Feb 24 2023)
 
 #### 🚀  Enhancement
