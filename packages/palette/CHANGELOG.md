@@ -1,3 +1,19 @@
+# v29.7.0 (Thu Mar 02 2023)
+
+#### 🚀  Enhancement
+
+- feat(popover): adds ondismiss callback [#1265](https://github.com/artsy/palette/pull/1265) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(popover): adds ondismiss callback ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v29.6.2 (Thu Mar 02 2023)
 
 #### 🐛  Bug Fix

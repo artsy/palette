@@ -1,5 +1,18 @@
 # (Thu Mar 02 2023)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@29.7.0`
+  - feat(popover): adds ondismiss callback [#1265](https://github.com/artsy/palette/pull/1265) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Mar 02 2023)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@29.6.2`
