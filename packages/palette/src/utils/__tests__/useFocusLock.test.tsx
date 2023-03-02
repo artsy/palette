@@ -3,6 +3,22 @@ import React, { useRef } from "react"
 import { act } from "react-dom/test-utils"
 import { useFocusLock } from "../useFocusLock"
 
+jest.mock("tabbable", () => {
+  const tabbable = jest.requireActual("tabbable")
+
+  return {
+    ...tabbable,
+    tabbable: (node, options) =>
+      tabbable.tabbable(node, { ...options, displayCheck: "none" }),
+    focusable: (node, options) =>
+      tabbable.focusable(node, { ...options, displayCheck: "none" }),
+    isFocusable: (node, options) =>
+      tabbable.isFocusable(node, { ...options, displayCheck: "none" }),
+    isTabbable: (node, options) =>
+      tabbable.isTabbable(node, { ...options, displayCheck: "none" }),
+  }
+})
+
 const flushPromiseQueue = () => new Promise((resolve) => setTimeout(resolve, 0))
 
 const keydown = async (key: string, shift?: boolean) => {
@@ -34,27 +50,35 @@ const Wrapper: React.FC = () => {
 }
 
 describe("useFocusLock", () => {
+  beforeAll(() => {
+    jest.useFakeTimers()
+  })
+
   it("cycles through the tabbable elements", async () => {
     mount(<Wrapper />, { attachTo: document.body })
 
+    jest.runAllTimers()
+
     expect(document.activeElement?.id).toEqual("1")
-    await keydown("Tab")
+    keydown("Tab")
     expect(document.activeElement?.id).toEqual("2")
-    await keydown("Tab")
+    keydown("Tab")
     expect(document.activeElement?.id).toEqual("3")
-    await keydown("Tab")
+    keydown("Tab")
     expect(document.activeElement?.id).toEqual("1")
   })
 
   it("can handle reverse with shift", async () => {
     mount(<Wrapper />, { attachTo: document.body })
 
+    jest.runAllTimers()
+
     expect(document.activeElement?.id).toEqual("1")
-    await keydown("Tab", true)
+    keydown("Tab", true)
     expect(document.activeElement?.id).toEqual("3")
-    await keydown("Tab", true)
+    keydown("Tab", true)
     expect(document.activeElement?.id).toEqual("2")
-    await keydown("Tab", true)
+    keydown("Tab", true)
     expect(document.activeElement?.id).toEqual("1")
   })
 })
