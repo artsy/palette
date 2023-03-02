@@ -167,8 +167,7 @@ export const Popover: React.FC<PopoverProps> = ({
             <Panel
               variant={variant}
               position="relative"
-              py={2}
-              px={1}
+              p={1}
               zIndex={1}
               {...rest}
             >
