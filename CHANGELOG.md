@@ -1,5 +1,18 @@
 # (Fri Mar 03 2023)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@30.0.1`
+  - fix(input): corrects display of disabled inputs in safari/mobile safari [#1270](https://github.com/artsy/palette/pull/1270) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Mar 03 2023)
+
 #### 💥  Breaking Change
 
 - `@artsy/palette@30.0.0`

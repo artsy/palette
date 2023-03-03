@@ -1,3 +1,17 @@
+# v30.0.1 (Fri Mar 03 2023)
+
+#### 🐛  Bug Fix
+
+- fix(input): corrects display of disabled inputs in safari/mobile safari [#1270](https://github.com/artsy/palette/pull/1270) ([@dzucconi](https://github.com/dzucconi))
+- fix(input): fixes opacity for disabled inputs in ios ([@dzucconi](https://github.com/dzucconi))
+- fix(input): fixes text color for disabled inputs in safari ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v30.0.0 (Fri Mar 03 2023)
 
 #### 💥  Breaking Change
