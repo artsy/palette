@@ -1,3 +1,17 @@
+# v29.7.2 (Fri Mar 03 2023)
+
+#### 🐛  Bug Fix
+
+- Revert "Revert "fix(usefocuslock): uses a more accurate method of determining focusable"" [#1267](https://github.com/artsy/palette/pull/1267) ([@dzucconi](https://github.com/dzucconi))
+- fix(usefocuslock): observes disabled attribute changes ([@dzucconi](https://github.com/dzucconi))
+- Revert "Revert "fix(usefocuslock): uses a more accurate method of determining focusable"" ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v29.7.1 (Fri Mar 03 2023)
 
 #### 🐛  Bug Fix
