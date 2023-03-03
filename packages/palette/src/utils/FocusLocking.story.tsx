@@ -1,22 +1,18 @@
-import React, { useRef } from "react"
-import { useFocusLock } from "./useFocusLock"
+import React, { useState } from "react"
 import { Input } from "../elements/Input"
 import { Button } from "../elements/Button"
 import { AutocompleteInput } from "../elements/AutocompleteInput"
+import { FocusOn } from "react-focus-on"
 
 export default {
-  title: "Hooks/useFocusLock",
+  title: "Utils/FocusLocking",
 }
 
 export const Default = () => {
-  const ref = useRef<HTMLDivElement | null>(null)
-
-  useFocusLock({ ref })
-
   return (
     <>
       <Input placeholder="Not focusable" />
-      <div ref={ref}>
+      <FocusOn>
         <Input placeholder="Focusable" />
         <Input placeholder="Focusable" />
         <a href="#" tabIndex={-1}>
@@ -27,19 +23,15 @@ export const Default = () => {
           Skipped
         </Button>
         <Button variant="primaryGray">Focusable</Button>
-      </div>
+      </FocusOn>
       <Input placeholder="Not focusable" />
     </>
   )
 }
 
 export const WithAutocompleteInput = () => {
-  const ref = useRef<HTMLDivElement | null>(null)
-
-  useFocusLock({ ref })
-
   return (
-    <div ref={ref}>
+    <FocusOn>
       <Input placeholder="Focusable" />
       <Input placeholder="Focusable" />
       <AutocompleteInput
@@ -50,6 +42,21 @@ export const WithAutocompleteInput = () => {
           { text: "Three", value: "three" },
         ]}
       />
-    </div>
+    </FocusOn>
+  )
+}
+
+export const DisableToEnable = () => {
+  const [value, setValue] = useState("")
+
+  return (
+    <FocusOn>
+      <Input
+        placeholder="Value"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <Button disabled={!value}>Submit</Button>
+    </FocusOn>
   )
 }
