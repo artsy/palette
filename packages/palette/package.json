@@ -122,7 +122,6 @@
     "react-lazy-load-image-component": "1.5.5",
     "react-remove-scroll": "2.5.5",
     "styled-system": "^5.1.5",
-    "tabbable": "^6.1.1",
     "trunc-html": "^1.1.2",
     "use-cursor": "^1.2.3",
     "use-keyboard-list-navigation": "2.4.2"

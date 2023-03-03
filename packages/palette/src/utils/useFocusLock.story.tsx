@@ -26,9 +26,6 @@ export const Default = () => {
         <Button variant="primaryGray" tabIndex={-1}>
           Skipped
         </Button>
-        <Button variant="primaryGray" disabled>
-          Disabled
-        </Button>
         <Button variant="primaryGray">Focusable</Button>
       </div>
       <Input placeholder="Not focusable" />
