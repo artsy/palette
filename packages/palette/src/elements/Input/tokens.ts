@@ -38,6 +38,8 @@ export const INPUT_STATES: Record<State, any> = {
   `,
   disabled: css`
     color: ${themeGet("colors.black30")};
+    /* For Safari: */
+    -webkit-text-fill-color: ${themeGet("colors.black30")};
     border-color: ${themeGet("colors.black30")};
     background-color: transparent;
 
