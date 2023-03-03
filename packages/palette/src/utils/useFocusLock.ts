@@ -1,31 +1,34 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import { useCursor } from "use-cursor"
 import { useMutationObserver } from "./useMutationObserver"
-import { tabbable } from "tabbable"
+
+const FOCUSABLE_SELECTOR = [
+  "a[href]:not([tabindex='-1'])",
+  "area[href]:not([tabindex='-1'])",
+  "input:not([disabled]):not([tabindex='-1'])",
+  "select:not([disabled]):not([tabindex='-1'])",
+  "textarea:not([disabled]):not([tabindex='-1'])",
+  "button:not([disabled]):not([tabindex='-1'])",
+  '[tabindex="0"]',
+].join(", ")
 
 interface UseFocusLock {
   ref: React.MutableRefObject<HTMLElement | null>
   active?: boolean
 }
 
-type FocusableElement = HTMLElement | SVGElement
-
-const MUTATION_OBSERVER_OPTIONS = {
-  attributes: true,
-  subtree: true,
-  attributeFilter: ["disabled"],
-}
-
 /**
  * Locks focus within the given element
  */
 export const useFocusLock = ({ ref, active = true }: UseFocusLock) => {
-  const [focusableEls, setFocusableEls] = useState<FocusableElement[]>([])
+  const [focusableEls, setFocusableEls] = useState<HTMLElement[]>([])
 
   const updateFocusableEls = useCallback(() => {
     if (ref.current === null) return
 
-    setFocusableEls(tabbable(ref.current))
+    setFocusableEls(
+      Array.from(ref.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR))
+    )
 
     // When `active` changes that typically means our target ref
     // is being inserted into the DOM, so we need to update the focusable elements.
@@ -33,27 +36,18 @@ export const useFocusLock = ({ ref, active = true }: UseFocusLock) => {
   }, [active])
 
   // Set initial focusable elements on mount
-  useEffect(() => {
-    // Wait for the next tick to ensure focusable elements are in the DOM
-    const timeout = setTimeout(() => {
-      updateFocusableEls()
-    }, 0)
-
-    return () => {
-      clearTimeout(timeout)
-    }
-  }, [updateFocusableEls])
+  useEffect(updateFocusableEls, [updateFocusableEls])
 
   const skipUpdateFocusRef = useRef(false)
 
-  const handleMutate = useCallback(
-    (mutations: MutationRecord[]) => {
+  // Detects when DOM changes and updates focusable elements
+  useMutationObserver({
+    ref,
+    onMutate: (mutations) => {
       // Check to see if any of the mutations has either added or removed nodes
       const hasMeaningfullyMutated = mutations.some((mutation) => {
         return (
-          mutation.addedNodes.length > 0 ||
-          mutation.removedNodes.length > 0 ||
-          mutation.attributeName === "disabled"
+          mutation.addedNodes.length > 0 || mutation.removedNodes.length > 0
         )
       })
 
@@ -62,14 +56,6 @@ export const useFocusLock = ({ ref, active = true }: UseFocusLock) => {
         updateFocusableEls()
       }
     },
-    [updateFocusableEls]
-  )
-
-  // Detects when DOM changes and updates focusable elements
-  useMutationObserver({
-    ref,
-    onMutate: handleMutate,
-    options: MUTATION_OBSERVER_OPTIONS,
   })
 
   const {
