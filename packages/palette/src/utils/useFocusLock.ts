@@ -10,6 +10,12 @@ interface UseFocusLock {
 
 type FocusableElement = HTMLElement | SVGElement
 
+const MUTATION_OBSERVER_OPTIONS = {
+  attributes: true,
+  subtree: true,
+  attributeFilter: ["disabled"],
+}
+
 /**
  * Locks focus within the given element
  */
@@ -40,14 +46,14 @@ export const useFocusLock = ({ ref, active = true }: UseFocusLock) => {
 
   const skipUpdateFocusRef = useRef(false)
 
-  // Detects when DOM changes and updates focusable elements
-  useMutationObserver({
-    ref,
-    onMutate: (mutations) => {
+  const handleMutate = useCallback(
+    (mutations: MutationRecord[]) => {
       // Check to see if any of the mutations has either added or removed nodes
       const hasMeaningfullyMutated = mutations.some((mutation) => {
         return (
-          mutation.addedNodes.length > 0 || mutation.removedNodes.length > 0
+          mutation.addedNodes.length > 0 ||
+          mutation.removedNodes.length > 0 ||
+          mutation.attributeName === "disabled"
         )
       })
 
@@ -56,6 +62,14 @@ export const useFocusLock = ({ ref, active = true }: UseFocusLock) => {
         updateFocusableEls()
       }
     },
+    [updateFocusableEls]
+  )
+
+  // Detects when DOM changes and updates focusable elements
+  useMutationObserver({
+    ref,
+    onMutate: handleMutate,
+    options: MUTATION_OBSERVER_OPTIONS,
   })
 
   const {
