@@ -40,6 +40,10 @@ export const INPUT_STATES: Record<State, any> = {
     color: ${themeGet("colors.black30")};
     border-color: ${themeGet("colors.black30")};
     background-color: transparent;
+    /* For Safari: */
+    -webkit-text-fill-color: ${themeGet("colors.black30")};
+    /* For iOS */
+    opacity: 1;
 
     ::placeholder {
       color: ${themeGet("colors.black30")};

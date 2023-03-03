@@ -18,6 +18,7 @@ export const Default = () => {
         { active: true },
         { error: "Something went wrong." },
         { disabled: true },
+        { disabled: true, value: "Example value" },
         { title: "Your offer", name: "offer" },
         { title: "Your offer", required: true },
         { title: "Your offer", description: "This is my description" },
