@@ -1,14 +1,19 @@
 import React, { useEffect, useRef, useState } from "react"
-import { RemoveScroll } from "react-remove-scroll"
 import styled from "styled-components"
 import { zIndex as systemZIndex, ZIndexProps } from "styled-system"
-import { useFocusLock } from "../../utils/useFocusLock"
 import { usePortal } from "../../utils/usePortal"
 import { Flex, FlexProps } from "../Flex"
+import { FocusOn } from "react-focus-on"
 
-// TODO: Update TypeScript definitions for this library
-// https://github.com/theKashey/react-remove-scroll
-const ScrollIsolation = styled(RemoveScroll as any)`
+const Focus = styled(FocusOn)`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const Backdrop = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -69,18 +74,16 @@ export const _ModalBase: React.FC<ModalBaseProps> = ({
   onClose = () => null,
   ...rest
 }) => {
-  const containerEl = useRef<HTMLDivElement | null>(null)
-  const scrollIsolationEl = useRef<HTMLDivElement | null>(null)
+  const focusEl = useRef<HTMLDivElement | null>(null)
+  const backdropEl = useRef<HTMLDivElement | null>(null)
 
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    if (event.target === scrollIsolationEl.current) {
+    if (event.target === backdropEl.current) {
       onClose()
     }
   }
-
-  useFocusLock({ ref: containerEl })
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
@@ -129,15 +132,14 @@ export const _ModalBase: React.FC<ModalBaseProps> = ({
   const { createPortal } = usePortal()
 
   return createPortal(
-    <Container ref={containerEl as any} zIndex={zIndex} {...rest}>
-      <ScrollIsolation
-        ref={scrollIsolationEl as any}
-        onMouseDown={handleMouseDown}
-      >
-        <Dialog maxHeight={maxHeight} {...dialogProps}>
-          {children}
-        </Dialog>
-      </ScrollIsolation>
+    <Container zIndex={zIndex} {...rest}>
+      <Focus ref={focusEl as any}>
+        <Backdrop ref={backdropEl as any} onMouseDown={handleMouseDown}>
+          <Dialog maxHeight={maxHeight} {...dialogProps}>
+            {children}
+          </Dialog>
+        </Backdrop>
+      </Focus>
     </Container>
   )
 }
