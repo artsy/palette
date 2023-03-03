@@ -1,15 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import { FLAT_SHADOW } from "../../helpers"
-import {
-  Position,
-  useClickOutside,
-  useFocusLock,
-  usePosition,
-} from "../../utils"
+import { Position, usePosition } from "../../utils"
 import { usePortal } from "../../utils/usePortal"
-import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
+import { FocusOn } from "react-focus-on"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -67,17 +62,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
     setVisible(_visible)
   }, [_visible])
 
-  // Yields focus back and forth between dropdown and anchor
-  useUpdateEffect(() => {
-    if (visible && panelRef.current) {
-      panelRef.current.focus()
-      return
-    }
-
-    if (!anchorRef.current) return
-    anchorRef.current.focus()
-  }, [visible])
-
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const onVisible = () => {
@@ -111,13 +95,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
     position: placement,
     offset: 0,
     active: visible,
-  })
-
-  useClickOutside({
-    ref: panelRef,
-    onClickOutside: onHide,
-    when: visible,
-    type: "click",
   })
 
   useEffect(() => {
@@ -250,8 +227,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   const { createPortal } = usePortal()
 
-  useFocusLock({ ref: panelRef, active: visible })
-
   return (
     <>
       {children({
@@ -301,9 +276,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
                     }
               }
             >
-              {typeof dropdown === "function"
-                ? dropdown({ onVisible, onHide, setVisible, visible })
-                : dropdown}
+              <FocusOn noIsolation enabled={visible} onClickOutside={onHide}>
+                {typeof dropdown === "function"
+                  ? dropdown({ onVisible, onHide, setVisible, visible })
+                  : dropdown}
+              </FocusOn>
             </Panel>
           </Container>
         )}
