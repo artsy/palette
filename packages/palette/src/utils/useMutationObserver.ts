@@ -9,19 +9,17 @@ type UseMutationObserver = {
   | { element?: HTMLElement | null }
 )
 
-const DEFAULT_OPTIONS = {
-  attributes: true,
-  characterData: true,
-  childList: true,
-  subtree: true,
-}
-
 /**
  * Accepts a ref and calls the `onMutate` callback when mutations are observed.
  */
 export const useMutationObserver = ({
   onMutate,
-  options = DEFAULT_OPTIONS,
+  options = {
+    attributes: true,
+    characterData: true,
+    childList: true,
+    subtree: true,
+  },
   ...rest
 }: UseMutationObserver) => {
   useEffect(() => {
@@ -31,14 +29,15 @@ export const useMutationObserver = ({
 
     const el = "ref" in rest ? rest.ref.current : rest.element
 
-    if (!el) return
-    const observer = new MutationObserver(onMutate)
+    if (el) {
+      const observer = new MutationObserver(onMutate)
 
-    // Start observing the target node for configured mutations
-    observer.observe(el, options)
+      // Start observing the target node for configured mutations
+      observer.observe(el, options)
 
-    return () => {
-      observer.disconnect()
+      return () => {
+        observer.disconnect()
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onMutate, options])
