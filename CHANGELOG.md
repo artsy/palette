@@ -1,5 +1,18 @@
 # (Fri Mar 03 2023)
 
+#### 💥  Breaking Change
+
+- `@artsy/palette@30.0.0`
+  - fix: replaces internal focus lock hook with react-focus-on [#1269](https://github.com/artsy/palette/pull/1269) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Mar 03 2023)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@29.7.3`
