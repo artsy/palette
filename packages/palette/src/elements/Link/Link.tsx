@@ -1,3 +1,4 @@
+import { themeGet } from "@styled-system/theme-get"
 import styled from "styled-components"
 import { color } from "../../helpers"
 import { Color } from "../../Theme"
@@ -6,6 +7,7 @@ import { boxMixin, BoxProps } from "../Box"
 type UnderlineBehaviors = "default" | "hover" | "none"
 
 export interface LinkProps extends BoxProps {
+  visitedColor?: Color
   hoverColor?: Color
   noUnderline?: boolean
   underlineBehavior?: UnderlineBehaviors
@@ -29,17 +31,22 @@ const backwardsCompatCompute = (state: string, props: LinkProps) => {
 /**
  * Basic <a> tag styled with additional LinkProps
  *
- * @deprecated Do not use this component! 
- * Tip: If working on Force, please use RouterLink.  
+ * Tip: If working on Force, please use RouterLink.
  */
 export const Link = styled.a<LinkProps>`
-  color: ${color("black100")};
+  color: inherit;
   transition: color 0.25s;
   text-decoration: ${(props) => backwardsCompatCompute("normal", props)};
   &:hover {
     text-decoration: ${(props) => backwardsCompatCompute("hover", props)};
     color: ${(props) =>
-      props.hoverColor ? color(props.hoverColor) : color("black100")};
+      props.hoverColor ? color(props.hoverColor) : themeGet("colors.blue100")};
+  }
+  &:visited {
+    color: ${(props) =>
+      props.visitedColor
+        ? color(props.visitedColor)
+        : themeGet("colors.blue150")};
   }
   ${boxMixin};
 `
