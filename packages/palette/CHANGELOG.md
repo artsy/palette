@@ -1,3 +1,19 @@
+# v30.1.0 (Mon Mar 13 2023)
+
+#### 🚀  Enhancement
+
+- feat(popover): optionally passes actions to popover [#1272](https://github.com/artsy/palette/pull/1272) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(popover): optionally passes actions to popover ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v30.0.1 (Fri Mar 03 2023)
 
 #### 🐛  Bug Fix
