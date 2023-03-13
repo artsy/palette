@@ -18,7 +18,7 @@ export interface PageCursors {
   previous: PageCursor
 }
 
-const PageLink = styled.a<BoxProps>`
+export const PageLink = styled.a<BoxProps>`
   text-decoration: none;
   &:hover {
     text-decoration: underline;
