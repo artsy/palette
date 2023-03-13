@@ -27,12 +27,14 @@ export interface PopoverActions {
   onVisible(): void
   /** Call to hide popover */
   onHide(): void
+  /** Call to dismiss popover */
+  onDismiss(): void
   /** Pass ref to element you want the popover to be anchored to */
   anchorRef: React.MutableRefObject<HTMLElement>
 }
 
 export interface PopoverProps extends BoxProps {
-  children: ({ anchorRef, onVisible, onHide }: PopoverActions) => JSX.Element
+  children: (actions: PopoverActions) => JSX.Element
   ignoreClickOutside?: boolean
   manageFocus?: boolean
   offset?: number
@@ -43,7 +45,9 @@ export interface PopoverProps extends BoxProps {
   placement?: Position
   /** Display triangular pointer back to anchor node */
   pointer?: boolean
-  popover: React.ReactNode
+  popover:
+    | ((actions: Omit<PopoverActions, "anchorRef">) => JSX.Element)
+    | React.ReactNode
   variant?: PopoverVariant
   /** Initial default visibility */
   visible?: boolean
@@ -141,7 +145,12 @@ export const Popover: React.FC<PopoverProps> = ({
 
   return (
     <>
-      {children({ anchorRef: anchorRef as any, onVisible, onHide })}
+      {children({
+        anchorRef: anchorRef as any,
+        onVisible,
+        onHide: handleHide,
+        onDismiss: handleDismiss,
+      })}
 
       {visible &&
         createPortal(
@@ -180,7 +189,13 @@ export const Popover: React.FC<PopoverProps> = ({
               zIndex={1}
               {...rest}
             >
-              {popover}
+              {typeof popover === "function"
+                ? popover({
+                    onVisible,
+                    onHide: handleHide,
+                    onDismiss: handleDismiss,
+                  })
+                : popover}
             </Panel>
           </Tip>
         )}

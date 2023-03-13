@@ -4,6 +4,8 @@ import { States } from "storybook-states"
 import { Position, POSITION } from "../../utils"
 import { Box } from "../Box"
 import { Button } from "../Button"
+import { Flex } from "../Flex"
+import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 import { Popover, PopoverProps } from "./Popover"
 
@@ -156,6 +158,64 @@ export const ManageFocus = () => {
             {CONTENT}
           </Text>
         }
+      >
+        {({ onVisible, anchorRef }) => {
+          return (
+            <Box textAlign="center">
+              <Button
+                ref={anchorRef}
+                variant="secondaryBlack"
+                size="small"
+                onClick={onVisible}
+              >
+                Click to display popover
+              </Button>
+            </Box>
+          )
+        }}
+      </Popover>
+    </States>
+  )
+}
+
+export const PopoverActions = () => {
+  return (
+    <States<Partial<PopoverProps>> states={[{ visible: true }]}>
+      <Popover
+        placement="bottom"
+        popover={({ onHide, onDismiss }) => {
+          return (
+            <>
+              <Text variant="xs" width={300}>
+                {CONTENT}
+              </Text>
+
+              <Spacer y={2} />
+
+              <Flex>
+                <Button
+                  flex={1}
+                  size="small"
+                  variant="secondaryBlack"
+                  onClick={onHide}
+                >
+                  Hide
+                </Button>
+
+                <Spacer x={1} />
+
+                <Button
+                  flex={1}
+                  size="small"
+                  variant="secondaryBlack"
+                  onClick={onDismiss}
+                >
+                  Dismiss
+                </Button>
+              </Flex>
+            </>
+          )
+        }}
       >
         {({ onVisible, anchorRef }) => {
           return (
