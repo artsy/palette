@@ -14,7 +14,8 @@ const linkMixin = compose(boxMixin, textDecoration)
 /**
  * Basic <a> tag styled with additional LinkProps
  *
- * Tip: If working on Force, please use RouterLink.
+ * Tip: If working on Force, please use <Link as={RouterLink}>.
+
  */
 export const Link = styled.a<LinkProps>`
   color: currentColor;
