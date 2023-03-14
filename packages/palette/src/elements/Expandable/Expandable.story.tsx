@@ -6,6 +6,7 @@ import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Expandable, ExpandableProps } from "./Expandable"
 import { Button } from "../Button"
+import { Box } from "../Box"
 
 export default {
   title: "Components/Expandable",
@@ -52,5 +53,17 @@ export const Default = () => {
         <Text>Expanded content</Text>
       </Expandable>
     </States>
+  )
+}
+
+export const ConfigurableColors = () => {
+  return (
+    <Box color="white100" bg="black100">
+      <States<Partial<ExpandableProps>> states={[{}, { expanded: true }]}>
+        <Expandable label="Example" maxWidth={350} borderColor="black30">
+          <Text>Expanded content</Text>
+        </Expandable>
+      </States>
+    </Box>
   )
 }
