@@ -1,51 +1,36 @@
+import { themeGet } from "@styled-system/theme-get"
 import styled from "styled-components"
-import { color } from "../../helpers"
-import { Color } from "../../Theme"
+import { compose, ResponsiveValue, system } from "styled-system"
 import { boxMixin, BoxProps } from "../Box"
 
-type UnderlineBehaviors = "default" | "hover" | "none"
+const textDecoration = system({ textDecoration: true })
 
 export interface LinkProps extends BoxProps {
-  hoverColor?: Color
-  noUnderline?: boolean
-  underlineBehavior?: UnderlineBehaviors
+  textDecoration?: ResponsiveValue<string>
 }
 
-const computeUnderline = (
-  state: string,
-  behavior: UnderlineBehaviors
-): string => {
-  const blocklist: UnderlineBehaviors[] =
-    state === "hover" ? ["none"] : ["hover", "none"]
-  const none = blocklist.includes(behavior)
-  return none ? "none" : "underline"
-}
-
-const backwardsCompatCompute = (state: string, props: LinkProps) => {
-  const behavior = props.noUnderline ? "hover" : props.underlineBehavior
-  return computeUnderline(state, behavior!)
-}
+const linkMixin = compose(boxMixin, textDecoration)
 
 /**
  * Basic <a> tag styled with additional LinkProps
  *
- * @deprecated Do not use this component! 
- * Tip: If working on Force, please use RouterLink.  
+ * Tip: If working on Force, please use <Link as={RouterLink}>.
+
  */
 export const Link = styled.a<LinkProps>`
-  color: ${color("black100")};
+  color: currentColor;
   transition: color 0.25s;
-  text-decoration: ${(props) => backwardsCompatCompute("normal", props)};
   &:hover {
-    text-decoration: ${(props) => backwardsCompatCompute("hover", props)};
-    color: ${(props) =>
-      props.hoverColor ? color(props.hoverColor) : color("black100")};
+    color: ${themeGet("colors.blue100")};
   }
-  ${boxMixin};
+  &:visited {
+    color: ${themeGet("colors.blue150")};
+  }
+  ${linkMixin};
 `
 
 Link.displayName = "Link"
 
 Link.defaultProps = {
-  underlineBehavior: "default",
+  textDecoration: "underline",
 }

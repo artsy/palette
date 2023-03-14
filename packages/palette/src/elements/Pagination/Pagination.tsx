@@ -1,8 +1,9 @@
 import React from "react"
 import { ChevronIcon } from "../../svgs/ChevronIcon"
 import { Flex, FlexProps } from "../Flex"
-import { Link, LinkProps } from "../Link"
 import { Text } from "../Text"
+import styled from "styled-components"
+import { boxMixin, BoxProps } from "../Box"
 
 interface PageCursor {
   cursor: string
@@ -16,6 +17,14 @@ export interface PageCursors {
   last: PageCursor
   previous: PageCursor
 }
+
+export const PageLink = styled.a<BoxProps>`
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  ${boxMixin}
+`
 
 export interface PaginationProps extends FlexProps {
   getHref?: (page: number) => string
@@ -130,7 +139,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   )
 }
 
-interface PageProps extends LinkProps {
+interface PageProps extends BoxProps {
   getHref?: (page: number) => string
   onClick?: (cursor: string, page: number, event: React.MouseEvent) => void
   pageCursor: PageCursor
@@ -151,10 +160,9 @@ const Page: React.FC<PageProps> = ({
   const href = page && typeof getHref !== "undefined" ? getHref(page) : ""
 
   return (
-    <Link
+    <PageLink
       href={href}
       onClick={handleClick}
-      underlineBehavior="hover"
       borderRadius={2}
       display="flex"
       alignItems="center"
@@ -165,11 +173,11 @@ const Page: React.FC<PageProps> = ({
       {...rest}
     >
       {page}
-    </Link>
+    </PageLink>
   )
 }
 
-export interface NextPrevButtonProps extends LinkProps {
+export interface NextPrevButtonProps extends BoxProps {
   disabled: boolean
   getHref?: (page: number) => string
   onClick: (event: React.MouseEvent) => void
@@ -202,10 +210,9 @@ const NextPrevButton: React.FC<NextPrevButtonProps> = ({
   }
 
   return (
-    <Link
+    <PageLink
       href={href}
       onClick={onClick}
-      underlineBehavior="hover"
       display="flex"
       alignItems="center"
       py={0.5}
@@ -223,6 +230,6 @@ const NextPrevButton: React.FC<NextPrevButtonProps> = ({
       {...rest}
     >
       {children}
-    </Link>
+    </PageLink>
   )
 }

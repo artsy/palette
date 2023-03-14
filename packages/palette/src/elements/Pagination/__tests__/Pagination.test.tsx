@@ -1,7 +1,7 @@
 import { mount } from "enzyme"
 import React from "react"
 import { Theme } from "../../../Theme"
-import { Pagination } from "../Pagination"
+import { Pagination, PageLink } from "../Pagination"
 
 const mockGetHref = (page) => {
   const baseUrl = "http://www.example.com"
@@ -132,7 +132,7 @@ describe("Pagination", () => {
         pages.forEach((page) => {
           expect(html).toContain(`>${page}<`)
         })
-        wrapper.find("Link").first().simulate("click")
+        wrapper.find(PageLink).first().simulate("click")
         expect(onClickMock).toHaveBeenCalled()
       })
     })
