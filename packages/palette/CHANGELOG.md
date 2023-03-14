@@ -1,3 +1,15 @@
+# v31.0.0 (Tue Mar 14 2023)
+
+#### 💥  Breaking Change
+
+- feat(TX-943): update link hover and visited colors [#1271](https://github.com/artsy/palette/pull/1271) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v30.1.0 (Mon Mar 13 2023)
 
 #### 🚀  Enhancement
