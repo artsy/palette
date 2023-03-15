@@ -21,6 +21,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
   children,
   disabled,
   onClick,
+  borderColor = "black60",
   ...rest
 }) => {
   const [expanded, setExpanded] = useState(defaultExpanded)
@@ -42,7 +43,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
         alignItems="center"
         justifyContent="space-between"
         borderTop="1px solid"
-        borderColor="black60"
+        borderColor={borderColor}
         pt={1}
         disabled={disabled}
         aria-expanded={expanded}
@@ -60,6 +61,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
             height={14}
             ml={1}
             mr={1}
+            fill="currentColor"
             aria-hidden="true"
           />
         )}
