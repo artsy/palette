@@ -1,3 +1,19 @@
+# v31.1.0 (Wed Mar 15 2023)
+
+#### 🚀  Enhancement
+
+- feat(expandable): supports color configurations [#1274](https://github.com/artsy/palette/pull/1274) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(expandable): supports color configurations ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.0.0 (Tue Mar 14 2023)
 
 #### 💥  Breaking Change
