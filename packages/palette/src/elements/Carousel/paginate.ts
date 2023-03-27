@@ -35,6 +35,27 @@ export const chunk = ({
 /** Align last page to the left or right */
 export type CarouselPaginationAlignment = "left" | "right"
 
+export type CarouselPaginateBy = "page" | "cell"
+
+interface PaginateCarouselProps {
+  viewport: number
+  values: number[]
+  alignment?: CarouselPaginationAlignment
+  paginateBy?: CarouselPaginateBy
+}
+
+const paginateCarouselByCell = ({
+  values,
+  viewport,
+}: Pick<PaginateCarouselProps, "values" | "viewport">) => {
+  const offsets = compound(values)
+  const lastOffset = offsets[offsets.length - 1]
+  const offsetToLastItem = lastOffset - viewport
+  const edges = offsets.filter((offset) => offsetToLastItem > offset)
+
+  return [0, ...edges, offsetToLastItem]
+}
+
 /**
  * Creates an array of offsets based on the given viewport
  * @param viewport window width
@@ -45,11 +66,12 @@ export const paginateCarousel = ({
   viewport,
   values,
   alignment = "right",
-}: {
-  viewport: number
-  values: number[]
-  alignment?: CarouselPaginationAlignment
-}) => {
+  paginateBy = "page",
+}: PaginateCarouselProps) => {
+  if (paginateBy === "cell") {
+    return paginateCarouselByCell({ values, viewport })
+  }
+
   const offsets = chunk({ viewport, values })
 
   // Only a single page — no need to paginate
@@ -62,6 +84,7 @@ export const paginateCarousel = ({
     const edges = compound(offsets)
     const head = edges.slice(0, -2)
     const tail = edges[edges.length - 1] - viewport
+
     return [0, ...head, tail]
   }
 
