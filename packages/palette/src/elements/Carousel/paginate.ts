@@ -48,12 +48,19 @@ const paginateCarouselByCell = ({
   values,
   viewport,
 }: Pick<PaginateCarouselProps, "values" | "viewport">) => {
+  const sum = values.reduce((acc, curr) => acc + curr, 0)
+
+  // No need to paginate
+  if (sum <= viewport) {
+    return [0]
+  }
+
   const offsets = compound(values)
   const lastOffset = offsets[offsets.length - 1]
-  const offsetToLastItem = lastOffset - viewport
-  const edges = offsets.filter((offset) => offsetToLastItem > offset)
+  const offsetToLastCell = lastOffset - viewport
+  const edges = offsets.filter((offset) => offsetToLastCell > offset)
 
-  return [0, ...edges, offsetToLastItem]
+  return [0, ...edges, offsetToLastCell]
 }
 
 /**
@@ -84,7 +91,6 @@ export const paginateCarousel = ({
     const edges = compound(offsets)
     const head = edges.slice(0, -2)
     const tail = edges[edges.length - 1] - viewport
-
     return [0, ...head, tail]
   }
 
