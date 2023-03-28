@@ -1,3 +1,16 @@
+# (Tue Mar 28 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@31.2.0`
+  - feat(FX-4653): add ability to scroll `Carousel` by cell [#1277](https://github.com/artsy/palette/pull/1277) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### Authors: 1
+
+- Dima Tretyak ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # (Wed Mar 15 2023)
 
 #### 🚀  Enhancement

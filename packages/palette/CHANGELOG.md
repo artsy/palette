@@ -1,3 +1,22 @@
+# v31.2.0 (Tue Mar 28 2023)
+
+#### 🚀  Enhancement
+
+- feat(FX-4653): add ability to scroll `Carousel` by cell [#1277](https://github.com/artsy/palette/pull/1277) ([@dimatretyak](https://github.com/dimatretyak))
+
+#### 🐛  Bug Fix
+
+- chore: add useful comments ([@dimatretyak](https://github.com/dimatretyak))
+- chore: add test cases ([@dimatretyak](https://github.com/dimatretyak))
+- feat: no pagination ([@dimatretyak](https://github.com/dimatretyak))
+- feat: add ability to paginate by cell for `Carousel` ([@dimatretyak](https://github.com/dimatretyak))
+
+#### Authors: 1
+
+- Dima Tretyak ([@dimatretyak](https://github.com/dimatretyak))
+
+---
+
 # v31.1.0 (Wed Mar 15 2023)
 
 #### 🚀  Enhancement
