@@ -86,6 +86,7 @@ export interface CarouselProps extends BoxProps {
    * that cell widths can be calculated.
    */
   Cell?: React.ForwardRefExoticComponent<CarouselCellProps>
+  paginateBy?: "page" | "cell"
   onChange?(index: number): void
   onPageCountChange?(count: number): void
 }
@@ -103,6 +104,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   Next = CarouselNext,
   Rail = CarouselRail,
   Cell = CarouselCell,
+  paginateBy = "page",
   onChange,
   onPageCountChange,
   ...rest
@@ -130,7 +132,14 @@ export const Carousel: React.FC<CarouselProps> = ({
   const init = () => {
     const { current: viewport } = viewportRef
     const values = cells.map(({ ref }) => ref.current!.clientWidth)
-    setPages(paginateCarousel({ viewport: viewport!.clientWidth, values }))
+
+    setPages(
+      paginateCarousel({
+        viewport: viewport!.clientWidth,
+        values,
+        paginateBy,
+      })
+    )
   }
 
   useEffect(() => {

@@ -59,98 +59,162 @@ describe("chunk", () => {
 })
 
 describe("paginate", () => {
-  it("returns a single page of 0 when the widths fit within the viewport", () => {
-    expect(
-      paginateCarousel({ viewport: 1000, values: [100, 100, 100, 100, 100] })
-    ).toStrictEqual([0])
+  describe("by page", () => {
+    it("returns a single page of 0 when the widths fit within the viewport", () => {
+      expect(
+        paginateCarousel({ viewport: 1000, values: [100, 100, 100, 100, 100] })
+      ).toStrictEqual([0])
+    })
+
+    it("returns multiple pages (1)", () => {
+      expect(
+        paginateCarousel({
+          viewport: 1000,
+          values: [
+            // 0
+            1000,
+            // 1000
+            1000,
+          ],
+        })
+      ).toStrictEqual([0, 1000])
+    })
+
+    it("returns multiple pages (2)", () => {
+      expect(
+        paginateCarousel({
+          viewport: 1000,
+          values: [
+            // 0
+            500,
+            500,
+            // 1000
+            500,
+            500,
+          ],
+        })
+      ).toStrictEqual([0, 1000])
+    })
+
+    it("returns multiple pages (3)", () => {
+      expect(
+        paginateCarousel({
+          viewport: 1000,
+          values: [
+            // 0
+            500,
+            500,
+            // 1000
+            500,
+            500,
+            // 2000
+            500,
+            500,
+          ],
+        })
+      ).toStrictEqual([0, 1000, 2000])
+    })
+
+    it("returns multiple pages (4)", () => {
+      expect(
+        paginateCarousel({
+          viewport: 1000,
+          values: [
+            // 0
+            1000,
+            // 1000
+            1000,
+            // 2000
+            1000,
+            // 3000
+            1000,
+            // 4000
+            1000,
+          ],
+        })
+      ).toStrictEqual([0, 1000, 2000, 3000, 4000])
+    })
+
+    it("handles the last page remainder (1)", () => {
+      expect(
+        paginateCarousel({
+          viewport: 1000,
+          values: [
+            // 0
+            1000,
+            // 1250
+            250,
+          ],
+        })
+      ).toStrictEqual([0, 250])
+    })
+
+    it("handles the last page remainder (2)", () => {
+      expect(
+        paginateCarousel({ viewport: 880, values: [333, 333, 333, 333, 333] })
+      ).toStrictEqual([0, 666, 785])
+    })
   })
 
-  it("returns multiple pages (1)", () => {
-    expect(
-      paginateCarousel({
+  describe("by cell", () => {
+    it("returns a single ofset when the total width of cells is less than viewport", () => {
+      const result = paginateCarousel({
         viewport: 1000,
-        values: [
-          // 0
-          1000,
-          // 1000
-          1000,
-        ],
+        values: [100, 100, 100, 100, 100],
+        paginateBy: "cell",
       })
-    ).toStrictEqual([0, 1000])
-  })
 
-  it("returns multiple pages (2)", () => {
-    expect(
-      paginateCarousel({
+      expect(result).toStrictEqual([0])
+    })
+
+    it("returns a signle offset when the total width of cells is equal the viewport", () => {
+      const result = paginateCarousel({
+        viewport: 500,
+        values: [100, 100, 100, 100, 100],
+        paginateBy: "cell",
+      })
+
+      expect(result).toStrictEqual([0])
+    })
+
+    it("returns correct offsets when all cells have the same width", () => {
+      const result = paginateCarousel({
         viewport: 1000,
-        values: [
-          // 0
-          500,
-          500,
-          // 1000
-          500,
-          500,
-        ],
+        values: [500, 500, 500, 500, 500],
+        paginateBy: "cell",
       })
-    ).toStrictEqual([0, 1000])
-  })
 
-  it("returns multiple pages (3)", () => {
-    expect(
-      paginateCarousel({
+      expect(result).toStrictEqual([0, 500, 1000, 1500])
+    })
+
+    it("returns correct offsets when cells have different widths", () => {
+      const result = paginateCarousel({
         viewport: 1000,
-        values: [
-          // 0
-          500,
-          500,
-          // 1000
-          500,
-          500,
-          // 2000
-          500,
-          500,
-        ],
+        values: [500, 500, 250, 250, 250, 250, 500],
+        paginateBy: "cell",
       })
-    ).toStrictEqual([0, 1000, 2000])
-  })
 
-  it("returns multiple pages (4)", () => {
-    expect(
-      paginateCarousel({
+      expect(result).toStrictEqual([0, 500, 1000, 1250, 1500])
+    })
+
+    it("handles the last cell remainder (1)", () => {
+      const result = paginateCarousel({
         viewport: 1000,
-        values: [
-          // 0
-          1000,
-          // 1000
-          1000,
-          // 2000
-          1000,
-          // 3000
-          1000,
-          // 4000
-          1000,
-        ],
+        values: [500, 500, 250, 250, 250, 250, 1250],
+        paginateBy: "cell",
       })
-    ).toStrictEqual([0, 1000, 2000, 3000, 4000])
-  })
 
-  it("handles the last page remainder (1)", () => {
-    expect(
-      paginateCarousel({
-        viewport: 1000,
-        values: [
-          // 0
-          1000,
-          // 1250
-          250,
-        ],
+      expect(result).toStrictEqual([0, 500, 1000, 1250, 1500, 1750, 2000, 2250])
+    })
+
+    it("handles the last cell remainder (2)", () => {
+      const result = paginateCarousel({
+        viewport: 880,
+        values: [333, 333, 333, 333, 333],
+        paginateBy: "cell",
       })
-    ).toStrictEqual([0, 250])
-  })
 
-  it("handles the last page remainder (2)", () => {
-    expect(
-      paginateCarousel({ viewport: 880, values: [333, 333, 333, 333, 333] })
-    ).toStrictEqual([0, 666, 785])
+      expect(result).toStrictEqual([0, 333, 666, 785])
+    })
   })
 })
