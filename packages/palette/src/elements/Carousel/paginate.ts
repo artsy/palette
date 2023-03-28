@@ -57,7 +57,13 @@ const paginateCarouselByCell = ({
 
   const offsets = compound(values)
   const lastOffset = offsets[offsets.length - 1]
+
+  // Get the offset when the last cell is fully displayed
+  // and aligned to the right at the end of the carousel
   const offsetToLastCell = lastOffset - viewport
+
+  // Ignore some offsets whose value exceeds the offset of the last cell
+  // when it is displayed and aligned to the right
   const edges = offsets.filter((offset) => offsetToLastCell > offset)
 
   return [0, ...edges, offsetToLastCell]
