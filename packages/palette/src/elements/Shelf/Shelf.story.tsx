@@ -109,3 +109,11 @@ export const ClientSideUpdates = () => {
 ClientSideUpdates.story = {
   parameters: { chromatic: { disable: true } },
 }
+
+export const PaginateByCell = () => {
+  return (
+    <Box maxWidth={1920} mx="auto">
+      <Demo paginateBy="cell" />
+    </Box>
+  )
+}

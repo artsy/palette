@@ -12,7 +12,11 @@ import styled from "styled-components"
 import { useCursor } from "use-cursor"
 import { visuallyDisableScrollbar } from "../../helpers/visuallyDisableScrollbar"
 import { Box, BoxProps } from "../Box"
-import { CELL_GAP_PADDING_AMOUNT, paginateCarousel } from "../Carousel"
+import {
+  CELL_GAP_PADDING_AMOUNT,
+  paginateCarousel,
+  CarouselPaginateBy,
+} from "../Carousel"
 import { FlexProps } from "../Flex"
 import { FullBleed } from "../FullBleed"
 import { ShelfNext, ShelfPrevious } from "./ShelfNavigation"
@@ -24,6 +28,7 @@ export type ShelfProps = BoxProps & {
   showProgress?: boolean
   snap?: "none" | "start" | "end" | "center"
   children: JSX.Element | JSX.Element[]
+  paginateBy?: CarouselPaginateBy
   onChange?(index: number): void
 }
 
@@ -35,6 +40,7 @@ export const Shelf: React.FC<ShelfProps> = ({
   showProgress = true,
   snap = "none",
   children,
+  paginateBy,
   onChange,
   ...rest
 }) => {
@@ -77,6 +83,7 @@ export const Shelf: React.FC<ShelfProps> = ({
         // we want to scroll to the parent boundaries instead.
         viewport: container.clientWidth,
         values,
+        paginateBy,
       })
     )
 
