@@ -23,6 +23,7 @@ export interface InputProps
   title?: string
   prefixOffset?: number
   suffixOffset?: number
+  showCounter?: boolean
 }
 
 /** Input component */
@@ -43,6 +44,7 @@ export const Input: React.ForwardRefExoticComponent<
       height,
       prefixOffset,
       suffixOffset,
+      showCounter,
       ...rest
     },
     ref
@@ -95,7 +97,7 @@ export const Input: React.ForwardRefExoticComponent<
           {children}
         </Box>
 
-        {(required || inputProps?.maxLength) &&
+        {(required || (inputProps?.maxLength && showCounter)) &&
           !(error && typeof error === "string") && (
             <Box display="flex" mt={0.5} mx={1}>
               {required && (
@@ -104,7 +106,7 @@ export const Input: React.ForwardRefExoticComponent<
                 </Text>
               )}
 
-              {!!inputProps?.maxLength && (
+              {!!inputProps?.maxLength && showCounter && (
                 <Text flex={1} variant="xs" color="black60" textAlign="right">
                   {charCount}/{inputProps.maxLength}
                 </Text>
@@ -208,9 +210,9 @@ const StyledLabel = styled.label<StyledInputProps>`
   left: 5px;
   padding: 0 5px;
   background-color: ${themeGet("colors.white100")};
-  transform: translate(0, -50%) scale(1);
+  transform: translateY(-50%);
   transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
-  transition-property: color, transform, padding;
+  transition-property: color, transform, padding, font-size;
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
 
