@@ -1,6 +1,6 @@
 import * as React from "react"
-import { CloseCircleIcon } from "../../../svgs/CloseCircleIcon"
-import { MagnifyingGlassIcon } from "../../../svgs/MagnifyingGlassIcon"
+import CloseStrokeIcon from "@artsy/icons/CloseStrokeIcon"
+import SearchIcon from "@artsy/icons/SearchIcon"
 import { InputProps } from "../../Input"
 import { LabeledInput } from "../../LabeledInput"
 import { Clickable } from "../../Clickable"
@@ -34,11 +34,11 @@ export const FilterInput: React.FC<InputProps> = (props) => {
             onClick={handleClick}
             aria-label="Clear search input"
           >
-            <CloseCircleIcon />
+            <CloseStrokeIcon />
           </Clickable>
         ) : (
           // Resting state
-          <MagnifyingGlassIcon style={{ pointerEvents: "none" }} />
+          <SearchIcon style={{ pointerEvents: "none" }} />
         )
       }
       onChange={handleChange}

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
 import { Join } from "../Join"
-import { BellIcon } from "../../svgs/BellIcon"
+import BellStrokeIcon from "@artsy/icons/BellStrokeIcon"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
@@ -198,7 +198,7 @@ export const WithIcon = () => {
         { size: "large", success: true },
       ]}
     >
-      <Button variant="secondaryBlack" size="small" Icon={BellIcon}>
+      <Button variant="secondaryBlack" size="small" Icon={BellStrokeIcon}>
         Create an Alert
       </Button>
     </States>

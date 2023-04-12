@@ -41,6 +41,11 @@
   resolved "https://registry.yarnpkg.com/@artsy/auto-config/-/auto-config-1.1.0.tgz#5134a87f73869f63eca040ed019c42e2f509be05"
   integrity sha512-zZS4o3nz40YNegoQnWdKpr+sQOlAGfU/sgRQBOEuHCPLEBv/KxlxeielvpZ6Gy8iEvAiHy7PEiyQxKLK2O4uFw==
 
+"@artsy/icons@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@artsy/icons/-/icons-3.2.2.tgz#8f0b836fa5b40c4d4fc327ec72fd7748e3be43ec"
+  integrity sha512-4Y7kGrLBOXCfAnrUEI/cT42fOUuuKG3KqfOUZ6lwAZC0W+oBCEshUGgMSK1x3NN0kzE+j6jVtvSVQpvrUfKDBg==
+
 "@babel/cli@7.12.16":
   version "7.12.16"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.12.16.tgz#bde5bc5118d90e539603abcd37938c5f0fd6c87a"

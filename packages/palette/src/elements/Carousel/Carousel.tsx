@@ -10,7 +10,8 @@ import React, {
 import styled from "styled-components"
 import { ResponsiveValue, system } from "styled-system"
 import { useCursor } from "use-cursor"
-import { ChevronIcon } from "../../svgs"
+import ChevronLeftIcon from "@artsy/icons/ChevronLeftIcon"
+import ChevronRightIcon from "@artsy/icons/ChevronRightIcon"
 import { SpacingUnit } from "../../Theme"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
@@ -209,7 +210,7 @@ export const Carousel: React.FC<CarouselProps> = ({
           disabled={index === 0}
           aria-label="Previous page"
         >
-          <ChevronIcon direction="left" width={15} height={15} />
+          <ChevronLeftIcon width={15} height={15} />
         </Previous>
 
         <Next
@@ -217,7 +218,7 @@ export const Carousel: React.FC<CarouselProps> = ({
           disabled={index === pages.length - 1}
           aria-label="Next page"
         >
-          <ChevronIcon direction="right" width={15} height={15} />
+          <ChevronRightIcon width={15} height={15} />
         </Next>
       </nav>
 

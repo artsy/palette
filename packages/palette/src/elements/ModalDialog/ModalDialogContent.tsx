@@ -4,8 +4,8 @@ import { DROP_SHADOW } from "../../helpers/shadow"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
-import { CloseIcon } from "../../svgs/CloseIcon"
-import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
+import CloseIcon from "@artsy/icons/CloseIcon"
+import ArtsyLogoIcon from "@artsy/icons/ArtsyLogoIcon"
 import { useSentinelVisibility } from "../../utils/useSentinelVisibility"
 import { Spacer } from "../Spacer"
 import styled from "styled-components"
@@ -62,10 +62,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
             {(title || hasLogo) && (
               <Box m={2}>
                 {hasLogo && (
-                  <ArtsyLogoBlackIcon
-                    display="block"
-                    style={{ width: "75px", height: "26px" }}
-                  />
+                  <ArtsyLogoIcon display="block" width={75} height={26} />
                 )}
 
                 {hasLogo && title && <Spacer y={2} />}

@@ -1,7 +1,6 @@
 import { action } from "@storybook/addon-actions"
 import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
-import { ChevronIcon } from "../../svgs"
 import { Sup } from "../Sup"
 import { Tab, Tabs, TabsProps } from "./"
 import { Box } from "../Box"
@@ -15,12 +14,7 @@ export default {
 export const Default = () => {
   return (
     <States<Partial<TabsProps>>
-      states={[
-        {},
-        { initialTabIndex: 2 },
-        { separator: <ChevronIcon mx={2} fill="black30" width="12px" /> },
-        { justifyContent: "center" },
-      ]}
+      states={[{}, { initialTabIndex: 2 }, { justifyContent: "center" }]}
     >
       <Tabs onChange={action("onChange")}>
         <Tab name="Overview">Overview panel</Tab>

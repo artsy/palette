@@ -1,5 +1,6 @@
 import React from "react"
-import { ChevronIcon } from "../../svgs/ChevronIcon"
+import ChevronLeftIcon from "@artsy/icons/ChevronLeftIcon"
+import ChevronRightIcon from "@artsy/icons/ChevronRightIcon"
 import { Flex, FlexProps } from "../Flex"
 import { Text } from "../Text"
 import styled from "styled-components"
@@ -76,12 +77,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         disabled={!previous}
         pr={0.5}
       >
-        <ChevronIcon
-          pr={0.5}
-          direction="left"
-          height={12}
-          fill={"currentColor" as any}
-        />
+        <ChevronLeftIcon mr={0.5} height={12} width={12} />
 
         <span>Prev</span>
       </NextPrevButton>
@@ -128,12 +124,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       >
         <span>Next</span>
 
-        <ChevronIcon
-          pl={0.5}
-          direction="right"
-          height={12}
-          fill={"currentColor" as any}
-        />
+        <ChevronRightIcon ml={0.5} height={12} width={12} />
       </NextPrevButton>
     </Text>
   )

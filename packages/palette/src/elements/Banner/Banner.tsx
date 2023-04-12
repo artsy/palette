@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
-import { CloseIcon } from "../../svgs/CloseIcon"
+import CloseIcon from "@artsy/icons/CloseIcon"
 import { Clickable } from "../Clickable"
 import { Flex, FlexProps } from "../Flex"
 import { Text } from "../Text"

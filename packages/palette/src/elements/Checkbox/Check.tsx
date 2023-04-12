@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { CheckIcon } from "../../svgs"
+import CheckmarkIcon from "@artsy/icons/CheckmarkIcon"
 import { Box } from "../Box"
 import { CHECK_STATES } from "./tokens"
 
@@ -26,7 +26,7 @@ export const Check: React.FC<CheckProps> = ({
       selected={selected}
       {...rest}
     >
-      <CheckIcon aria-hidden fill={"currentColor" as any} />
+      <CheckmarkIcon aria-hidden />
     </Container>
   )
 }

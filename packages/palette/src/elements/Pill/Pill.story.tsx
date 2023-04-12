@@ -5,7 +5,7 @@ import { Spacer } from "../Spacer"
 import { Pill, PillProps, PillVariant, PILL_VARIANT_NAMES } from "./Pill"
 import { Box } from "../Box"
 import { Join } from "../Join"
-import { GraphIcon } from "../../svgs"
+import GraphIcon from "@artsy/icons/GraphIcon"
 import styled from "styled-components"
 
 export default {

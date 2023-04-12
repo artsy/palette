@@ -20,14 +20,14 @@ describe("Stepper", () => {
 
   it("shows no checkmarks initially", () => {
     const wrapper = getWrapper()
-    expect(wrapper.find("CheckIcon").length).toBe(0)
+    expect(wrapper.find("CheckmarkIcon").length).toBe(0)
   })
 
   it("shows checkmarks after selected", () => {
     const wrapper = getWrapper({
       currentStepIndex: 2,
     })
-    expect(wrapper.find("CheckIcon").length).toBe(2)
+    expect(wrapper.find("CheckmarkIcon").length).toBe(2)
   })
 
   it("disables stepper", () => {
