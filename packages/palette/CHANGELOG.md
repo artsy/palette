@@ -1,3 +1,21 @@
+# v31.3.0 (Thu Apr 13 2023)
+
+#### 🚀  Enhancement
+
+- fix(icons): utilizes new icons package throughout [#1278](https://github.com/artsy/palette/pull/1278) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(deps): upgrades jest to 28 ([@dzucconi](https://github.com/dzucconi))
+- chore(deps): upgrades jest to 27 ([@dzucconi](https://github.com/dzucconi))
+- fix(icons): utilizes new icons package throughout ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.2.0 (Tue Mar 28 2023)
 
 #### 🚀  Enhancement

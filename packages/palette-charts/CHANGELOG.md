@@ -1,3 +1,19 @@
+# v30.3.0 (Thu Apr 13 2023)
+
+#### 🚀  Enhancement
+
+- fix(icons): utilizes new icons package throughout [#1278](https://github.com/artsy/palette/pull/1278) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(deps): upgrades charts to jest 28 ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v28.6.2 (Thu Mar 02 2023)
 
 #### 🐛  Bug Fix

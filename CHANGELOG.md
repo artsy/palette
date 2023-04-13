@@ -1,3 +1,16 @@
+# (Thu Apr 13 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette-charts@30.3.0`, `@artsy/palette@31.3.0`
+  - fix(icons): utilizes new icons package throughout [#1278](https://github.com/artsy/palette/pull/1278) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Mar 28 2023)
 
 #### 🚀  Enhancement
