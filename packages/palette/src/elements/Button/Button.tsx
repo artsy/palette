@@ -2,7 +2,7 @@ import composeRefs from "@seznam/compose-react-refs"
 import React, { useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
 import { ResponsiveValue, variant } from "styled-system"
-import { CheckIcon, IconProps } from "../../svgs"
+import CheckmarkIcon from "@artsy/icons/CheckmarkIcon"
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 import { THEME_V3 } from "../../themes"
 import { boxMixin, BoxProps } from "../Box"
@@ -38,7 +38,7 @@ export interface ButtonProps
   /** Forces success state */
   success?: boolean
   /** Optional icon slot */
-  Icon?: React.FunctionComponent<IconProps>
+  Icon?: React.FunctionComponent<BoxProps & { fill?: ResponsiveValue<string> }>
 }
 
 export const Button: React.ForwardRefExoticComponent<
@@ -103,7 +103,7 @@ export const Button: React.ForwardRefExoticComponent<
           )}
 
           {success && (
-            <CheckIcon fill="currentColor" mr={0.5} aria-hidden="true" />
+            <CheckmarkIcon fill="currentColor" mr={0.5} aria-hidden="true" />
           )}
 
           {children}

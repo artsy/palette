@@ -3,7 +3,8 @@ import React from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
 import { DROP_SHADOW } from "../../helpers"
-import { ChevronIcon } from "../../svgs"
+import ChevronLeftIcon from "@artsy/icons/ChevronLeftIcon"
+import ChevronRightIcon from "@artsy/icons/ChevronRightIcon"
 import { Clickable, ClickableProps } from "../Clickable"
 
 /** ShelfNavigationProps */
@@ -76,7 +77,7 @@ const Arrow = styled(Clickable)<ShelfNavigationProps>`
 export const ShelfNext: React.FC<ShelfNavigationProps> = (props) => {
   return (
     <Arrow {...props}>
-      <ChevronIcon direction="right" width={15} height={15} />
+      <ChevronRightIcon width={15} height={15} />
     </Arrow>
   )
 }
@@ -87,7 +88,7 @@ export const ShelfNext: React.FC<ShelfNavigationProps> = (props) => {
 export const ShelfPrevious: React.FC<ShelfNavigationProps> = (props) => {
   return (
     <Arrow {...props}>
-      <ChevronIcon direction="left" width={15} height={15} />
+      <ChevronLeftIcon width={15} height={15} />
     </Arrow>
   )
 }

@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { InputProps } from "../Input"
 import { LabeledInput } from "../LabeledInput"
 import { Clickable } from "../Clickable"
-import { EyeClosedIcon } from "../../svgs/EyeClosedIcon"
-import { EyeOpenedIcon } from "../../svgs/EyeOpenedIcon"
+import ShowIcon from "@artsy/icons/ShowIcon"
+import HideIcon from "@artsy/icons/HideIcon"
 
 export interface PasswordInputProps extends InputProps {
   defaultVisibility?: boolean
@@ -24,11 +24,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
       type={visibility ? "text" : "password"}
       label={
         <Clickable onClick={handleClick} height="100%">
-          {visibility ? (
-            <EyeClosedIcon display="block" />
-          ) : (
-            <EyeOpenedIcon display="block" />
-          )}
+          {visibility ? <HideIcon /> : <ShowIcon />}
         </Clickable>
       }
       {...rest}

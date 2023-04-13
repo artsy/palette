@@ -2,11 +2,13 @@ import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
-import { CloseIcon, IconProps } from "../../svgs"
+import CloseIcon from "@artsy/icons/CloseIcon"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Sup } from "../Sup"
 import { Text } from "../Text"
 import { PILL_VARIANTS } from "./tokens"
+import { BoxProps } from "../Box"
+import { ResponsiveValue } from "styled-system"
 
 export const PILL_VARIANT_NAMES = [
   "default",
@@ -38,7 +40,7 @@ export type PillProps = ClickableProps & {
   /** Forces selected state. Use this state to denote the selected state */
   selected?: boolean
   /** Optional icon slot */
-  Icon?: React.FunctionComponent<IconProps>
+  Icon?: React.FunctionComponent<BoxProps & { fill?: ResponsiveValue<string> }>
 } & (
     | {
         variant?: Extract<

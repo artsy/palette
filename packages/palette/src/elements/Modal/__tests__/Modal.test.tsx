@@ -1,7 +1,7 @@
 import { mount } from "enzyme"
 import React from "react"
-import { CloseIcon } from "../../../svgs"
-import { ArtsyLogoBlackIcon } from "../../../svgs/ArtsyLogoBlackIcon"
+import ArtsyLogoIcon from "@artsy/icons/ArtsyLogoIcon"
+import CloseIcon from "@artsy/icons/CloseIcon"
 import { Button } from "../../Button"
 import { Modal } from "../Modal"
 
@@ -9,7 +9,7 @@ describe("Modal", () => {
   it("displays logo when enabled", () => {
     const onClose = () => null
     const component = mount(<Modal onClose={onClose} hasLogo show />)
-    expect(component.find(ArtsyLogoBlackIcon).length).toEqual(1)
+    expect(component.find(ArtsyLogoIcon).length).toEqual(1)
   })
 
   it("displays custom title", () => {

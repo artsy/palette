@@ -2,8 +2,8 @@ import { themeGet } from "@styled-system/theme-get"
 import React, { FC, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { DROP_SHADOW, media } from "../../helpers"
-import { CloseIcon } from "../../svgs"
-import { ArtsyLogoBlackIcon } from "../../svgs/ArtsyLogoBlackIcon"
+import CloseIcon from "@artsy/icons/CloseIcon"
+import ArtsyLogoIcon from "@artsy/icons/ArtsyLogoIcon"
 import { Box } from "../Box"
 import { Flex } from "../Flex"
 import { Join } from "../Join"
@@ -128,7 +128,7 @@ export const Modal: FC<ModalProps> = ({
                 <Flex>
                   <Box pr={6} flex={1}>
                     <Join separator={<Spacer y={2} />}>
-                      {hasLogo && <Logo my={1} />}
+                      {hasLogo && <Logo width={78} my={1} />}
                       {title && (
                         <Text
                           variant="lg-display"
@@ -263,9 +263,7 @@ const CloseIconWrapper = styled(Flex)`
   cursor: pointer;
 `
 
-const Logo = styled(ArtsyLogoBlackIcon)`
-  width: 78px;
-`
+const Logo = styled(ArtsyLogoIcon)``
 
 Modal.displayName = "Modal"
 ModalWrapper.displayName = "ModalWrapper"

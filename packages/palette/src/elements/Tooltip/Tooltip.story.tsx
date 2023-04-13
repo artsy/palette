@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
 import { States } from "storybook-states"
-import { HelpIcon } from "../../svgs"
+import HelpIcon from "@artsy/icons/HelpIcon"
 import { Position, POSITION } from "../../utils/usePosition"
 import { Box } from "../Box"
 import { Button } from "../Button"

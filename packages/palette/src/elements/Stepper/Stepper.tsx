@@ -1,6 +1,6 @@
 import React from "react"
-import { CheckIcon } from "../../svgs/CheckIcon"
-import { ChevronIcon } from "../../svgs/ChevronIcon"
+import CheckmarkIcon from "@artsy/icons/CheckmarkIcon"
+import ChevronRightIcon from "@artsy/icons/ChevronRightIcon"
 import { BaseTab, BaseTabs } from "../BaseTabs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
@@ -50,11 +50,16 @@ export const Stepper: React.FC<StepperProps> = ({
                   </Box>
 
                   {currentStepIndex > i && (
-                    <CheckIcon width={16} height={16} fill="green100" ml={1} />
+                    <CheckmarkIcon
+                      width={16}
+                      height={16}
+                      color="green100"
+                      ml={1}
+                    />
                   )}
                 </Flex>
 
-                <ChevronIcon fill="black60" height={10} ml={1} />
+                <ChevronRightIcon fill="black60" height={10} ml={1} />
               </Flex>
             </BaseTab>
           )

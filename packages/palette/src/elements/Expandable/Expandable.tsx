@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { isText } from "../../helpers/isText"
-import { ChevronIcon } from "../../svgs"
+import ChevronUpIcon from "@artsy/icons/ChevronUpIcon"
+import ChevronDownIcon from "@artsy/icons/ChevronDownIcon"
 import { Box, splitBoxProps } from "../Box"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Flex } from "../Flex"
@@ -55,15 +56,25 @@ export const Expandable: React.FC<ExpandableProps> = ({
         </Flex>
 
         {!disabled && (
-          <ChevronIcon
-            direction={expanded ? "up" : "down"}
-            width={14}
-            height={14}
-            ml={1}
-            mr={1}
-            fill="currentColor"
-            aria-hidden="true"
-          />
+          <>
+            {expanded ? (
+              <ChevronUpIcon
+                width={14}
+                height={14}
+                ml={1}
+                mr={1}
+                aria-hidden="true"
+              />
+            ) : (
+              <ChevronDownIcon
+                width={14}
+                height={14}
+                ml={1}
+                mr={1}
+                aria-hidden="true"
+              />
+            )}
+          </>
         )}
       </Clickable>
 

@@ -11,7 +11,8 @@ import styled from "styled-components"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { Spinner } from ".."
 import { DROP_SHADOW } from "../../helpers"
-import { CloseIcon, MagnifyingGlassIcon } from "../../svgs"
+import SearchIcon from "@artsy/icons/SearchIcon"
+import CloseIcon from "@artsy/icons/CloseIcon"
 import { usePosition, useContainsFocus } from "../../utils"
 import { useWidthOf } from "../../utils/useWidthOf"
 import { Box, splitBoxProps } from "../Box"
@@ -301,7 +302,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
               <CloseIcon fill="black60" aria-hidden />
             </Clickable>
           ) : (
-            <MagnifyingGlassIcon fill="black60" aria-hidden />
+            <SearchIcon fill="black60" aria-hidden />
           )
         }
         value={staged?.text ?? state.query}
