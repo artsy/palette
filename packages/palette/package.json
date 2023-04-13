@@ -63,7 +63,7 @@
     "@storybook/react": "6.5.12",
     "@types/debounce": "1.2.0",
     "@types/enzyme": "3.10.8",
-    "@types/jest": "26.0.20",
+    "@types/jest": "^27.0.0",
     "@types/node": "14.14.27",
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.1",
@@ -77,7 +77,7 @@
     "@typescript-eslint/parser": "^4.31.1",
     "@wojtekmaj/enzyme-adapter-react-17": "0.4.1",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "26.6.3",
+    "babel-jest": "^27.0.0",
     "babel-loader": "8.2.2",
     "babel-plugin-add-react-displayname": "0.0.5",
     "babel-plugin-module-resolver": "4.1.0",
@@ -94,7 +94,7 @@
     "fork-ts-checker-notifier-webpack-plugin": "1.0.0",
     "fork-ts-checker-webpack-plugin": "1.2.0",
     "husky": "2.1.0",
-    "jest": "26.6.3",
+    "jest": "^27.0.0",
     "jest-styled-components": "7.0.0-2",
     "lint-staged": "8.1.5",
     "mock-raf": "1.0.1",
@@ -169,6 +169,7 @@
     "transform": {
       ".(ts|tsx)": "babel-jest"
     },
+    "testEnvironment": "jsdom",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
       "<rootDir>/dist/",
