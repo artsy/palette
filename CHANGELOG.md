@@ -1,3 +1,16 @@
+# (Tue Apr 18 2023)
+
+#### ⚠️ Pushed to `main`
+
+- `@artsy/palette@31.3.1`
+  - Update BorderBox.tsx ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # (Thu Apr 13 2023)
 
 #### 🚀  Enhancement

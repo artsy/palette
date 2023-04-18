@@ -1,3 +1,15 @@
+# v31.3.1 (Tue Apr 18 2023)
+
+#### ⚠️ Pushed to `main`
+
+- Update BorderBox.tsx ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v31.3.0 (Thu Apr 13 2023)
 
 #### 🚀  Enhancement
