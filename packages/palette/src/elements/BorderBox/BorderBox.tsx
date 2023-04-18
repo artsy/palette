@@ -5,7 +5,7 @@ import { BorderBoxBase, BorderBoxProps } from "./BorderBoxBase"
 /**
  * A `div` that has a common border and padding set by default, with an optional
  * `hover` property for visually focusing content.
- * @deprecated: Use `Box` along with props e.g. `border="1px solid" borderColor="black10"`,
+ * @deprecated: Use `Box` along with props e.g. `border="1px solid" borderColor="black10" p={2}`,
  * as needed.
  */
 export const BorderBox = styled(BorderBoxBase)<BorderBoxProps>`
