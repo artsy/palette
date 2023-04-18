@@ -1,10 +1,10 @@
 import composeRefs from "@seznam/compose-react-refs"
 import { themeGet } from "@styled-system/theme-get"
-import React, { useRef, useState } from "react"
+import React, { useCallback, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
 import { DROP_SHADOW } from "../../helpers"
-import { usePosition, useWidthOf } from "../../utils"
+import { useContainsFocus, usePosition, useWidthOf } from "../../utils"
 import { Box, splitBoxProps } from "../Box"
 import { Input, InputProps } from "../Input"
 import { Text } from "../Text"
@@ -100,8 +100,28 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       onSelect?.(option)
     }
 
+    const handleFocusChange = useCallback(
+      (focused: boolean) => {
+        if (focused || !isDropdownVisible) return
+
+        setDropdownVisible(false)
+      },
+      [isDropdownVisible]
+    )
+
+    // Handle closing the dropdown when clicking outside of the input
+    // or when focus leaves the input completely
+    const { ref: containsFocusRef } = useContainsFocus({
+      onChange: handleFocusChange,
+    })
+
     return (
-      <Box width="100%" className={className} {...boxProps}>
+      <Box
+        ref={containsFocusRef as any}
+        width="100%"
+        className={className}
+        {...boxProps}
+      >
         <ContainerBox
           ref={anchorRef as any}
           isDropdownVisible={isDropdownVisible}
