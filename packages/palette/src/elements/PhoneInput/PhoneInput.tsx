@@ -175,7 +175,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
         )}
 
         {error && typeof error === "string" && (
-          <Text variant="xs" mt={0.5} ml={1} color="red100" textAlign="right">
+          <Text variant="xs" mt={0.5} mr={1} color="red100" textAlign="right">
             {error}
           </Text>
         )}
@@ -326,7 +326,7 @@ const StyledInput = styled.input`
 
   ::placeholder {
     color: ${themeGet("colors.black60")};
-    trasition: color 0.25s;
+    transition: color 0.25s;
   }
 `
 

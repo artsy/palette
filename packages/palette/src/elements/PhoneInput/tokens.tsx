@@ -8,6 +8,10 @@ export const PHONE_INPUT_STATES = {
       border-color: ${themeGet("colors.blue100")};
     }
 
+    > input::placeholder {
+      color: ${themeGet("colors.black60")};
+    }
+
     > label {
       color: ${themeGet("colors.blue100")};
     }
@@ -18,6 +22,7 @@ export const PHONE_INPUT_STATES = {
       border-color: ${themeGet("colors.black100")};
     }
 
+    > input::placeholder,
     > label {
       color: ${themeGet("colors.black100")};
     }
@@ -28,6 +33,7 @@ export const PHONE_INPUT_STATES = {
       border-color: ${themeGet("colors.black60")};
     }
 
+    > input::placeholder,
     > label {
       color: ${themeGet("colors.black60")};
     }
@@ -40,10 +46,7 @@ export const PHONE_INPUT_STATES = {
       border-color: ${themeGet("colors.black30")};
     }
 
-    > input::placeholder {
-      color: ${themeGet("colors.black30")};
-    }
-
+    > input::placeholder,
     > label {
       color: ${themeGet("colors.black30")};
     }
