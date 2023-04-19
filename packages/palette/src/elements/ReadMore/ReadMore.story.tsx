@@ -72,7 +72,7 @@ export const CharacterCapWithHtml = () => {
         <hr />
         <p>
           <strong>Lorem ipsum dolor</strong> sit amet consectetur adipisicing
-          elit. Ducimus eligendi obcaecati voluptate{" "}
+          elit. Ducimus eligendi obcaecati voluptate
           <em>molestias vero nobis voluptatum</em>, tenetur dolorum assumenda.
         </p>
         <p>
@@ -107,7 +107,7 @@ export const WithCustomizableTypography = () => {
             <hr />
             <p>
               <strong>Lorem ipsum dolor</strong> sit amet consectetur
-              adipisicing elit. Ducimus eligendi obcaecati voluptate{" "}
+              adipisicing elit. Ducimus eligendi obcaecati voluptate
               <em>molestias vero nobis voluptatum</em>, tenetur dolorum
               assumenda.
             </p>
@@ -143,7 +143,7 @@ export const WithCustomizableTypography2 = () => {
             <hr />
             <p>
               <strong>Lorem ipsum dolor</strong> sit amet consectetur
-              adipisicing elit. Ducimus eligendi obcaecati voluptate{" "}
+              adipisicing elit. Ducimus eligendi obcaecati voluptate
               <em>molestias vero nobis voluptatum</em>, tenetur dolorum
               assumenda.
             </p>
