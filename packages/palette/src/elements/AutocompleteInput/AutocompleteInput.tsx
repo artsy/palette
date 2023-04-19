@@ -60,6 +60,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   extends Omit<InputProps, "onSelect" | "onSubmit"> {
   defaultValue?: string
   loading?: boolean
+  header?: React.ReactNode
   footer?: React.ReactNode
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
@@ -81,6 +82,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   defaultValue = "",
   id,
   loading,
+  header,
   footer,
   onSubmit,
   onSelect,
@@ -320,6 +322,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
           role="listbox"
           width={width}
         >
+          {header}
           <AutocompleteInputOptions>
             {optionsWithRefs.map(({ option, ref }, i) => {
               return (
