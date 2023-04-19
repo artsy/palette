@@ -1,47 +1,9 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import truncate from "trunc-html"
-import { Clickable, ClickableProps } from "../Clickable"
+import { Clickable } from "../Clickable"
 import { Text } from "../Text"
-
-const ReadMoreOrLessLink: React.FC<ClickableProps> = ({
-  children,
-  ...rest
-}) => {
-  return (
-    <>
-      {" "}
-      <Clickable
-        aria-expanded="false"
-        cursor="pointer"
-        textDecoration="underline"
-        {...rest}
-      >
-        <Text variant="xs" fontWeight="bold">
-          {children}
-        </Text>
-      </Clickable>
-    </>
-  )
-}
-
-ReadMoreOrLessLink.displayName = "ReadMoreOrLessLink"
-
-const Container = styled.div<{ isExpanded: boolean }>`
-  cursor: pointer;
-
-  > span {
-    display: ${({ isExpanded }) => (isExpanded ? "block" : "inline")};
-  }
-
-  > span > *:last-child {
-    display: inherit;
-  }
-`
-
-Container.displayName = "Container"
-
-const HTML_TAG_REGEX = /(<([^>]+)>)/gi
+import { Box } from "../Box"
 
 export interface ReadMoreProps {
   content: string
@@ -63,9 +25,8 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
 }) => {
   const [expanded, setExpanded] = useState(!!isExpanded)
 
-  if (typeof expandedHTML !== "string") {
-    return null
-  }
+  if (typeof expandedHTML !== "string") return null
+
   const charCount = expandedHTML.replace(HTML_TAG_REGEX, "").length
 
   const truncatedHTML = truncate(expandedHTML, maxChars).html
@@ -92,16 +53,44 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
   }
 
   return (
-    <Container onClick={handleClick} isExpanded={expanded}>
-      <span
-        dangerouslySetInnerHTML={{
-          __html: expanded ? expandedHTML : truncatedHTML,
-        }}
-      />
+    <Container aria-expanded={expanded}>
+      {expanded ? (
+        <>
+          <Box dangerouslySetInnerHTML={{ __html: expandedHTML }} />
 
-      <ReadMoreOrLessLink>
-        {expanded ? "Read less" : "Read more"}
-      </ReadMoreOrLessLink>
+          <Clickable
+            cursor="pointer"
+            textDecoration="underline"
+            onClick={handleClick}
+          >
+            <Text variant="xs" fontWeight="bold">
+              Read less
+            </Text>
+          </Clickable>
+        </>
+      ) : (
+        <Clickable onClick={handleClick}>
+          <span dangerouslySetInnerHTML={{ __html: truncatedHTML }} />{" "}
+          <Text
+            as="span"
+            variant="xs"
+            fontWeight="bold"
+            style={{ textDecoration: "underline" }}
+          >
+            Read more
+          </Text>
+        </Clickable>
+      )}
     </Container>
   )
 }
+
+const Container = styled.div`
+  > * > span > *:last-child {
+    display: inherit;
+  }
+`
+
+Container.displayName = "Container"
+
+const HTML_TAG_REGEX = /(<([^>]+)>)/gi
