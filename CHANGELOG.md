@@ -1,3 +1,16 @@
+# (Wed Apr 19 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@31.4.0`
+  - feat: adding header to AutoCompleteInput component [#1279](https://github.com/artsy/palette/pull/1279) ([@rajsam003](https://github.com/rajsam003))
+
+#### Authors: 1
+
+- Sam Raj ([@rajsam003](https://github.com/rajsam003))
+
+---
+
 # (Tue Apr 18 2023)
 
 #### ⚠️ Pushed to `main`
