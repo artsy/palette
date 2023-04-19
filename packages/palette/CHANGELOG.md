@@ -1,3 +1,16 @@
+# v31.4.1 (Wed Apr 19 2023)
+
+#### 🐛  Bug Fix
+
+- fix(readmore): corrects clickable areas in expanded state [#1280](https://github.com/artsy/palette/pull/1280) ([@dzucconi](https://github.com/dzucconi))
+- fix(readmore): corrects clickable areas in expanded state ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.4.0 (Wed Apr 19 2023)
 
 #### 🚀  Enhancement
