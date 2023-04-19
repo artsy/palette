@@ -77,6 +77,19 @@ export const Default = () => {
             </Box>
           ),
         },
+        {
+          options: [OPTIONS[0], OPTIONS[1]],
+          header: (
+            <Box px={2} py={1} bg="black10">
+              <Text variant="xs">Header</Text>
+            </Box>
+          ),
+          footer: (
+            <Box px={2} py={1} bg="black10">
+              <Text variant="xs">Footer</Text>
+            </Box>
+          ),
+        },
       ]}
     >
       <AutocompleteInput
