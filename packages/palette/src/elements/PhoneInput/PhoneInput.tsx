@@ -245,6 +245,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
           focus={focus}
           error={error}
           disabled={disabled}
+          placeholder={inputProps.placeholder}
         >
           <SelectContainer
             ref={countryPickerRef as any}
@@ -359,7 +360,7 @@ const caretMixin = css`
 
 type ContainerProps = Pick<
   PhoneInputProps,
-  "disabled" | "error" | "hover" | "focus"
+  "disabled" | "error" | "hover" | "focus" | "placeholder"
 > & { isDropdownVisible: boolean }
 
 const ContainerBox = styled(Box)<ContainerProps>`
@@ -369,9 +370,9 @@ const ContainerBox = styled(Box)<ContainerProps>`
 
   ${(props) => {
     return css`
+      ${PHONE_INPUT_STATES.default}
       ${props.hover && PHONE_INPUT_STATES.hover}
-      ${props.focus && PHONE_INPUT_STATES.focus}
-      ${props.isDropdownVisible && PHONE_INPUT_STATES.focus}
+      ${(props.focus || props.isDropdownVisible) && PHONE_INPUT_STATES.focus}
       ${props.disabled && PHONE_INPUT_STATES.disabled}
       ${props.error && PHONE_INPUT_STATES.error}
 
@@ -384,11 +385,16 @@ const ContainerBox = styled(Box)<ContainerProps>`
 
       &:focus-within {
         ${!props.disabled && PHONE_INPUT_STATES.focus}
+
+        &:has(input:not(:placeholder-shown)) {
+          ${PHONE_INPUT_STATES.active}
+          ${props.error && PHONE_INPUT_STATES.error};
+        }
       }
 
-      > input:not(:placeholder-shown) {
-        ${!props.placeholder && PHONE_INPUT_STATES.completed}
-        ${!!props.error && PHONE_INPUT_STATES.error}
+      &:has(input:not(:placeholder-shown)) {
+        ${!!props.placeholder && PHONE_INPUT_STATES.completed}
+        ${props.error && PHONE_INPUT_STATES.error};
       }
     `
   }}

@@ -2,6 +2,32 @@ import { themeGet } from "@styled-system/theme-get"
 import { css } from "styled-components"
 
 export const PHONE_INPUT_STATES = {
+  default: css`
+    > div,
+    > input {
+      border-color: ${themeGet("colors.black30")};
+    }
+
+    > input::placeholder,
+    > label {
+      color: ${themeGet("colors.black60")};
+    }
+  `,
+  active: css`
+    > div,
+    > input {
+      border-color: ${themeGet("colors.blue100")};
+      color: ${themeGet("colors.black100")};
+    }
+
+    > input::placeholder {
+      color: ${themeGet("colors.black100")};
+    }
+
+    > label {
+      color: ${themeGet("colors.blue100")};
+    }
+  `,
   focus: css`
     > div,
     > input {
@@ -31,9 +57,9 @@ export const PHONE_INPUT_STATES = {
     > div,
     > input {
       border-color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.black100")};
     }
 
-    > input::placeholder,
     > label {
       color: ${themeGet("colors.black60")};
     }
