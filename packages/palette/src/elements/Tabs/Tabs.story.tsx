@@ -28,17 +28,14 @@ export const Default = () => {
 
 export const WithData = () => {
   const [data, setData] = useState({ name: "Pending" })
-  const [index, setIndex] = useState(0)
 
   return (
     <>
       <Tabs
-        initialTabIndex={index}
         onChange={(tabInfo) => {
           if (!tabInfo) return
 
           setData(tabInfo.data)
-          setIndex(tabInfo.tabIndex)
         }}
       >
         <Tab name="Overview" data={{ name: "Overview" }}>
