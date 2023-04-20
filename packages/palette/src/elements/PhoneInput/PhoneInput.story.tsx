@@ -207,7 +207,15 @@ const countriesExample = [
 
 export const Default = () => {
   return (
-    <States<Partial<PhoneInputProps>> states={[{}]}>
+    <States<Partial<PhoneInputProps>>
+      states={[
+        {},
+        { placeholder: "(000) 000 0000" },
+        { placeholder: "(000) 000 0000", required: true },
+        { placeholder: "(000) 000 0000", disabled: true },
+        { placeholder: "(000) 000 0000", error: "Something is wrong" },
+      ]}
+    >
       <PhoneInput
         options={countriesExample}
         onSelect={(option) => console.log(option)}

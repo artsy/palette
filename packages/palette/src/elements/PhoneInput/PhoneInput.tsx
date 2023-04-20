@@ -1,6 +1,13 @@
 import composeRefs from "@seznam/compose-react-refs"
 import { themeGet } from "@styled-system/theme-get"
-import React, { useCallback, useRef, useState } from "react"
+import React, {
+  createRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
 import { DROP_SHADOW } from "../../helpers"
@@ -9,6 +16,7 @@ import { Box, splitBoxProps } from "../Box"
 import { Input, InputProps } from "../Input"
 import { Text } from "../Text"
 import { PHONE_INPUT_STATES } from "./tokens"
+import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 
 type Option = {
   text: string
@@ -61,6 +69,9 @@ export const PhoneInput: React.ForwardRefExoticComponent<
     }
 
     const inputRef = useRef<HTMLInputElement | null>(null)
+    const searchInputRef = useRef<HTMLInputElement | null>(null)
+    const containerRef = useRef<HTMLDivElement | null>(null)
+    const countryPickerRef = useRef<HTMLDivElement | null>(null)
 
     const [boxProps, inputProps] = splitBoxProps(rest)
     const [isDropdownVisible, setDropdownVisible] = useState(false)
@@ -73,10 +84,6 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       active: isDropdownVisible,
     })
 
-    const { width } = useWidthOf({ ref: anchorRef })
-
-    const inputName = inputProps.name || "palette-phone-input"
-
     const filteredOptions = options.filter((option) => {
       if (searchQuery !== "") {
         const filteredCountry =
@@ -87,11 +94,38 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       return true
     })
 
-    /**
-     * TODO:
-     * - [ ] Close dropdown when clicking outside the dropdown
-     * - [ ] Keyboard navigation - check AutocompleteInput.tsx for reference
-     */
+    const { index, reset, set } = useKeyboardListNavigation({
+      ref: containerRef,
+      list: filteredOptions,
+      waitForInteractive: true,
+      onEnter: ({ element: option, event }) => {
+        event.preventDefault()
+        event.stopPropagation()
+        if (option) {
+          handleSelect(option)
+        }
+        resetUI()
+      },
+    })
+
+    const { width } = useWidthOf({ ref: anchorRef })
+
+    const inputName = inputProps.name || "palette-phone-input"
+
+    const optionsWithRefs = useMemo(() => {
+      return filteredOptions.map((option) => ({
+        option,
+        ref: createRef<HTMLDivElement>(),
+      }))
+    }, [filteredOptions])
+
+    const resetUI = () => {
+      setTimeout(() => {
+        inputRef.current?.focus()
+        reset()
+        setDropdownVisible(false)
+      }, 100)
+    }
 
     const handleSelect = (option: Option) => {
       inputRef.current?.focus()
@@ -99,6 +133,11 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       setDropdownVisible(false)
       onSelect?.(option)
     }
+
+    useEffect(() => {
+      const option = optionsWithRefs[index]
+      option?.ref?.current?.focus()
+    }, [index, optionsWithRefs])
 
     const handleFocusChange = useCallback(
       (focused: boolean) => {
@@ -115,9 +154,86 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       onChange: handleFocusChange,
     })
 
+    // Moves focus back to input when typing
+    const handleContainerKeydown = (
+      event: React.KeyboardEvent<HTMLDivElement>
+    ) => {
+      switch (event.key) {
+        case "Alt":
+        case "ArrowDown":
+        case "ArrowUp":
+        case "Control":
+        case "Enter":
+        case "Meta":
+        case "Shift":
+        case "Tab":
+          // Ignore
+          return
+
+        case "Escape":
+          event.preventDefault()
+          event.stopPropagation()
+
+          setDropdownVisible(false)
+          inputRef.current?.blur()
+          reset()
+
+          return
+      }
+    }
+
+    const handleCountryPickerKeydown = (
+      event: React.KeyboardEvent<HTMLDivElement>
+    ) => {
+      switch (event.key) {
+        case "Escape":
+          event.preventDefault()
+          event.stopPropagation()
+
+          setDropdownVisible(false)
+          countryPickerRef.current?.blur()
+          reset()
+
+          return
+
+        case "Enter":
+        case " ":
+          event.preventDefault()
+          event.stopPropagation()
+
+          if (!disabled) {
+            setDropdownVisible(true)
+          }
+          return
+      }
+    }
+
+    const handleSearchInputKeydown = (
+      event: React.KeyboardEvent<HTMLInputElement>
+    ) => {
+      switch (event.key) {
+        case "Tab":
+          if (event.shiftKey) {
+            // ignore
+          } else {
+            // move down to the list
+            event.preventDefault()
+            event.stopPropagation()
+            reset()
+
+            set({ cursor: 0, interactive: true })
+          }
+          return
+
+        default:
+          searchInputRef.current?.focus()
+      }
+    }
+
     return (
       <Box
-        ref={containsFocusRef as any}
+        onKeyDown={handleContainerKeydown}
+        ref={composeRefs(containerRef, containsFocusRef) as any}
         width="100%"
         className={className}
         {...boxProps}
@@ -131,12 +247,17 @@ export const PhoneInput: React.ForwardRefExoticComponent<
           disabled={disabled}
         >
           <SelectContainer
+            ref={countryPickerRef as any}
             disabled={disabled}
             onClick={() => {
-              if (!disabled) {
+              if (!disabled && !isDropdownVisible) {
                 setDropdownVisible(true)
+              } else {
+                setDropdownVisible(false)
               }
             }}
+            tabIndex={disabled ? -1 : 0}
+            onKeyDown={handleCountryPickerKeydown}
           >
             {selectedOption.text}
           </SelectContainer>
@@ -165,17 +286,27 @@ export const PhoneInput: React.ForwardRefExoticComponent<
         {isDropdownVisible && (
           <SelectDropdown ref={tooltipRef as any} role="listbox" width={width}>
             <Input
-              placeholder="Search"
+              ref={searchInputRef}
               mb={1}
+              autoFocus
+              placeholder="Search"
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearchInputKeydown}
             />
+
             <SelectOptions>
-              {filteredOptions.map((option, i) => {
+              {optionsWithRefs.map(({ option, ref }, i) => {
                 return (
                   <SelectOption
                     key={i}
+                    ref={ref as any}
+                    role="option"
+                    aria-selected={option.value === selectedOption.value}
+                    aria-posinset={i + 1}
+                    aria-setsize={options.length}
                     selected={option.value === selectedOption.value}
                     onClick={() => handleSelect(option)}
+                    tabIndex={-1}
                   >
                     <Text minWidth={80}>{option.text}</Text>
                     <Text>{option.name}</Text>
@@ -183,8 +314,6 @@ export const PhoneInput: React.ForwardRefExoticComponent<
                 )
               })}
             </SelectOptions>
-
-            {/* {footer} */}
           </SelectDropdown>
         )}
 
@@ -254,7 +383,7 @@ const ContainerBox = styled(Box)<ContainerProps>`
       }
 
       &:focus-within {
-        ${PHONE_INPUT_STATES.focus}
+        ${!props.disabled && PHONE_INPUT_STATES.focus}
       }
 
       > input:not(:placeholder-shown) {
@@ -316,6 +445,7 @@ const SelectOption = styled(Box)<{ selected?: boolean }>`
     text-decoration: underline;
   }
 
+  &:focus,
   &:active {
     color: ${themeGet("colors.black100")};
     text-decoration: none;
