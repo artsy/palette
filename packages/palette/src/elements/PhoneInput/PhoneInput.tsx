@@ -17,6 +17,7 @@ import { Input, InputProps } from "../Input"
 import { Text } from "../Text"
 import { PHONE_INPUT_STATES } from "./tokens"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
+import { RequiredField } from "../../shared/RequiredField"
 
 type Option = {
   text: string
@@ -315,9 +316,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
         )}
 
         {required && !(error && typeof error === "string") && (
-          <Text mt={0.5} ml={1} variant="xs" color="black60" textAlign="left">
-            *Required
-          </Text>
+          <RequiredField mt={0.5} ml={1} />
         )}
 
         {error && typeof error === "string" && (

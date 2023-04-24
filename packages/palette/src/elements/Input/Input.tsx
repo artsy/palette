@@ -6,6 +6,7 @@ import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { INPUT_STATES } from "./tokens"
+import { RequiredField } from "../../shared/RequiredField"
 
 export interface InputProps
   extends BoxProps,
@@ -100,11 +101,7 @@ export const Input: React.ForwardRefExoticComponent<
         {(required || (inputProps?.maxLength && showCounter)) &&
           !(error && typeof error === "string") && (
             <Box display="flex" mt={0.5} mx={1}>
-              {required && (
-                <Text flex={1} variant="xs" color="black60" textAlign="left">
-                  *Required
-                </Text>
-              )}
+              {required && <RequiredField flex={1} />}
 
               {!!inputProps?.maxLength && showCounter && (
                 <Text flex={1} variant="xs" color="black60" textAlign="right">
