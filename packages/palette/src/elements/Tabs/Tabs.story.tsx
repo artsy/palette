@@ -27,10 +27,17 @@ export const Default = () => {
 }
 
 export const WithData = () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState({ name: "Pending" })
+
   return (
     <>
-      <Tabs onChange={setData as any}>
+      <Tabs
+        onChange={(tabInfo) => {
+          if (!tabInfo) return
+
+          setData(tabInfo.data)
+        }}
+      >
         <Tab name="Overview" data={{ name: "Overview" }}>
           Overview panel
         </Tab>

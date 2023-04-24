@@ -11,6 +11,7 @@ import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { BaseTabs, BaseTabsProps } from "../BaseTabs"
 import { BaseTab } from "../BaseTabs"
 import { Clickable } from "../Clickable"
+import { usePrevious } from "../../utils/usePrevious"
 
 export interface TabLike extends JSX.Element {
   props: TabProps
@@ -50,6 +51,7 @@ export const useTabs = ({
     [children]
   )
 
+  const previousInitialTabIndex = usePrevious(initialTabIndex)
   const [activeTabIndex, setActiveTabIndex] = useState<number>(initialTabIndex)
 
   // Wraps active tab in a ref to prevent re-rendering.
@@ -59,6 +61,8 @@ export const useTabs = ({
 
   // If the `initialTabIndex` changes; update the active one
   useUpdateEffect(() => {
+    // Only update if the `initialTabIndex` has changed externally
+    if (initialTabIndex === previousInitialTabIndex) return
     activeTab.current = tabs[initialTabIndex]
     setActiveTabIndex(initialTabIndex)
   }, [initialTabIndex, tabs])
