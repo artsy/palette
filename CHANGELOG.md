@@ -1,3 +1,16 @@
+# (Mon Apr 24 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@31.4.2`
+  - fix(tabs): fixes parent re-renders from resetting state [#1282](https://github.com/artsy/palette/pull/1282) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Apr 19 2023)
 
 #### 🐛  Bug Fix

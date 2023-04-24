@@ -1,3 +1,18 @@
+# v31.4.2 (Mon Apr 24 2023)
+
+#### 🐛  Bug Fix
+
+- fix(tabs): fixes parent re-renders from resetting state [#1282](https://github.com/artsy/palette/pull/1282) ([@dzucconi](https://github.com/dzucconi))
+- feat(hooks): exports useprevious ([@dzucconi](https://github.com/dzucconi))
+- fix(tabs): fixes parent re-renders from resetting state ([@dzucconi](https://github.com/dzucconi))
+- chore(tabs): fixes tab story ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.4.1 (Wed Apr 19 2023)
 
 #### 🐛  Bug Fix
