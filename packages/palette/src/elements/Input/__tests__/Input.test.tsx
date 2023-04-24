@@ -36,8 +36,8 @@ describe("Input", () => {
     expect(wrapper.text()).toContain("This is the error")
   })
 
-  it("returns an input with a character counter when maxLength is provided", () => {
-    const wrapper = mount(<Input maxLength={10} />)
+  it("returns an input with a character counter when showCounter is provided", () => {
+    const wrapper = mount(<Input maxLength={10} showCounter />)
     expect(wrapper.text()).toContain("0/10")
   })
 })
