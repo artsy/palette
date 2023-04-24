@@ -251,11 +251,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
             ref={countryPickerRef as any}
             disabled={disabled}
             onClick={() => {
-              if (!disabled && !isDropdownVisible) {
-                setDropdownVisible(true)
-              } else {
-                setDropdownVisible(false)
-              }
+              setDropdownVisible(!disabled && !isDropdownVisible)
             }}
             tabIndex={disabled ? -1 : 0}
             onKeyDown={handleCountryPickerKeydown}
@@ -274,9 +270,9 @@ export const PhoneInput: React.ForwardRefExoticComponent<
             onChange={(e) => {
               const inputValue = e.target.value
               const countryCodeValue = selectedOption.value
-              inputProps.onChange?.(e)
-
               onInputChange?.({ inputValue, countryCodeValue })
+
+              inputProps.onChange?.(e)
             }}
             {...inputProps}
           />
