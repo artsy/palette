@@ -15,12 +15,21 @@ import {
   LayoutProps,
   position,
   PositionProps,
+  ResponsiveValue,
   space,
   SpaceProps,
+  system,
   textAlign,
   TextAlignProps,
 } from "styled-system"
 import { splitProps } from "../../utils/splitProps"
+
+const gap = system({
+  gap: {
+    property: "gap",
+    scale: "space",
+  },
+})
 
 export interface BoxProps
   extends BackgroundProps,
@@ -31,7 +40,9 @@ export interface BoxProps
     LayoutProps,
     PositionProps,
     SpaceProps,
-    TextAlignProps {}
+    TextAlignProps {
+  gap?: ResponsiveValue<string | number>
+}
 
 /**
  * All the system functions for Box
@@ -45,7 +56,8 @@ export const boxMixin = compose(
   layout,
   position,
   space,
-  textAlign
+  textAlign,
+  gap
 )
 
 /**
