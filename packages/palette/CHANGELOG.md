@@ -1,3 +1,19 @@
+# v31.6.0 (Tue Apr 25 2023)
+
+#### 🚀  Enhancement
+
+- feat(box): supports gap [#1286](https://github.com/artsy/palette/pull/1286) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(box): supports gap ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.5.0 (Tue Apr 25 2023)
 
 #### 🚀  Enhancement
