@@ -11,6 +11,7 @@ export interface ExpandableProps extends ClickableProps {
   label?: string | JSX.Element
   expanded?: boolean
   children: React.ReactNode
+  onToggle?: (isExpanded: boolean) => void
 }
 
 /**
@@ -22,6 +23,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
   children,
   disabled,
   onClick,
+  onToggle,
   borderColor = "black60",
   ...rest
 }) => {
@@ -32,7 +34,12 @@ export const Expandable: React.FC<ExpandableProps> = ({
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    setExpanded((prevExpanded) => !prevExpanded)
+    setExpanded((prevExpanded) => {
+      const isExpanded = !prevExpanded
+      onToggle && onToggle(isExpanded)
+      return isExpanded
+    })
+
     onClick && onClick(event)
   }
 
