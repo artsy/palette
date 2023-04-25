@@ -50,7 +50,7 @@ export const Default = () => {
         { label: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
       ]}
     >
-      <Expandable label="Example" maxWidth={350}>
+      <Expandable label="Example" maxWidth={350} onToggle={action("onToggle")}>
         <Text>Expanded content</Text>
       </Expandable>
     </States>
