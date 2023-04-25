@@ -1,3 +1,16 @@
+# v31.4.3 (Tue Apr 25 2023)
+
+#### 🐛  Bug Fix
+
+- fix(expandable): better supports multi-line expandable headings [#1284](https://github.com/artsy/palette/pull/1284) ([@dzucconi](https://github.com/dzucconi))
+- fix(expandable): better supports multi-line expandable headings ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.4.2 (Mon Apr 24 2023)
 
 #### 🐛  Bug Fix
