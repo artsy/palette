@@ -47,6 +47,7 @@ export const Default = () => {
             </div>
           ),
         },
+        { label: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
       ]}
     >
       <Expandable label="Example" maxWidth={350}>

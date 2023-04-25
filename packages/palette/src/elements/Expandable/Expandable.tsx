@@ -45,13 +45,14 @@ export const Expandable: React.FC<ExpandableProps> = ({
         justifyContent="space-between"
         borderTop="1px solid"
         borderColor={borderColor}
-        pt={1}
+        pt={2}
+        pb={1}
         disabled={disabled}
         aria-expanded={expanded}
         onClick={handleClick}
         {...clickableProps}
       >
-        <Flex flex={1} minHeight={40} display="flex" alignItems="center">
+        <Flex flex={1} display="flex" alignItems="center">
           {isText(label) ? <Text variant="sm-display">{label}</Text> : label}
         </Flex>
 
