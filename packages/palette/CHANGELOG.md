@@ -1,3 +1,19 @@
+# v31.5.0 (Tue Apr 25 2023)
+
+#### 🚀  Enhancement
+
+- feat(expandable): adds event callback [#1285](https://github.com/artsy/palette/pull/1285) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(expandable): adds event callback ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.4.3 (Tue Apr 25 2023)
 
 #### 🐛  Bug Fix
