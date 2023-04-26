@@ -249,6 +249,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
           placeholder={inputProps.placeholder}
         >
           <SelectContainer
+            data-testid="country-picker"
             ref={countryPickerRef as any}
             disabled={disabled}
             onClick={() => {
@@ -265,6 +266,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
             ref={composeRefs(inputRef, forwardedRef) as any}
             type="tel"
             autoComplete="tel-national"
+            required={required}
             name={inputName}
             maxLength={25}
             placeholder={inputProps.placeholder}
