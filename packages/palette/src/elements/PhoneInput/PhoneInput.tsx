@@ -19,7 +19,15 @@ import { PHONE_INPUT_STATES } from "./tokens"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { RequiredField } from "../../shared/RequiredField"
 
-type Option = {
+/**
+ * The option structure for the list in the dropdown menu
+ *
+ * @interface Option
+ * @property {string} `text` is the content that will be displayed as selected option
+ * @property {string} `name` is the content that will be displayed in the dropdown list
+ * @property {string} `value` is the value that will be passed to onSelect
+ */
+interface Option {
   text: string
   name: string
   value: string
@@ -30,19 +38,14 @@ type Option = {
 export interface PhoneInputProps extends Omit<InputProps, "onSelect"> {
   options: Option[]
   onSelect: (option: Option) => void
-  onInputChange?: ({
-    inputValue,
-    countryCodeValue,
-  }: {
-    inputValue: string
-    countryCodeValue: string
-  }) => void
   active?: boolean
   disabled?: boolean
   error?: string | boolean
   focus?: boolean
   hover?: boolean
   required?: boolean
+  dropdownValue?: string
+  inputValue?: string
 }
 
 export const PhoneInput: React.ForwardRefExoticComponent<
@@ -58,7 +61,8 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       hover,
       required,
       onSelect,
-      onInputChange,
+      dropdownValue,
+      inputValue,
       ...rest
     },
     forwardedRef
@@ -74,10 +78,19 @@ export const PhoneInput: React.ForwardRefExoticComponent<
     const containerRef = useRef<HTMLDivElement | null>(null)
     const countryPickerRef = useRef<HTMLDivElement | null>(null)
 
+    const defaultOption = useMemo(
+      () =>
+        dropdownValue &&
+        options.find((option) => option.value === dropdownValue),
+      [dropdownValue, options]
+    )
+
     const [boxProps, inputProps] = splitBoxProps(rest)
     const [isDropdownVisible, setDropdownVisible] = useState(false)
     const [searchQuery, setSearchQuery] = useState("")
-    const [selectedOption, setSelectedOption] = useState(options[0])
+    const [selectedOption, setSelectedOption] = useState(
+      defaultOption || options[0]
+    )
 
     const { anchorRef, tooltipRef } = usePosition({
       position: "bottom",
@@ -130,6 +143,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
 
     const handleSelect = (option: Option) => {
       inputRef.current?.focus()
+      setSearchQuery("")
       setSelectedOption(option)
       setDropdownVisible(false)
       onSelect?.(option)
@@ -270,13 +284,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
             name={inputName}
             maxLength={25}
             placeholder={inputProps.placeholder}
-            onChange={(e) => {
-              const inputValue = e.target.value
-              const countryCodeValue = selectedOption.value
-              onInputChange?.({ inputValue, countryCodeValue })
-
-              inputProps.onChange?.(e)
-            }}
+            value={inputValue}
             {...inputProps}
           />
 
@@ -290,6 +298,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
               mb={1}
               autoFocus
               placeholder="Search"
+              value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleSearchInputKeydown}
             />
@@ -446,6 +455,10 @@ const SelectOption = styled(Box)<{ selected?: boolean }>`
   &:hover {
     color: ${themeGet("colors.blue100")};
     text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 
   &:focus,
