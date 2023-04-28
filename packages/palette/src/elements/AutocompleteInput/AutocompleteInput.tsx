@@ -75,6 +75,8 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
     i: number
   ): React.ReactElement<any, string | React.JSXElementConstructor<any>>
   options: T[]
+  /** Pass "true" to avoid scrolling behavior */
+  fullHeight?: boolean
 }
 
 /** AutocompleteInput */
@@ -93,6 +95,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   height,
   renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
   options,
+  fullHeight,
   ...rest
 }: AutocompleteInputProps<T>) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -323,7 +326,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
           width={width}
         >
           {header}
-          <AutocompleteInputOptions>
+          <AutocompleteInputOptions fullHeight={fullHeight}>
             {optionsWithRefs.map(({ option, ref }, i) => {
               return (
                 <AutocompleteInputOption
@@ -370,9 +373,13 @@ const AutocompleteInputDropdown = styled(Box)`
   z-index: 1;
 `
 
-const AutocompleteInputOptions = styled(Box)`
+interface AutocompleteInputOptionProps {
+  fullHeight?: boolean
+}
+
+const AutocompleteInputOptions = styled(Box)<AutocompleteInputOptionProps>`
   /* 308 = Roughly, 5.5 default sized options  */
-  max-height: 308px;
+  max-height: ${(props) => (props.fullHeight === true ? "none" : "308px")};
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 `

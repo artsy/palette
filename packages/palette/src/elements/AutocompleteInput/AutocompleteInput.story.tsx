@@ -90,6 +90,17 @@ export const Default = () => {
             </Box>
           ),
         },
+        {
+          options: [
+            ...OPTIONS,
+            ...OPTIONS.map((option) => ({
+              ...option,
+              text: `Another ${option.text}`,
+              value: `another-${option.value}`,
+            })),
+          ],
+          fullHeight: true,
+        },
       ]}
     >
       <AutocompleteInput
