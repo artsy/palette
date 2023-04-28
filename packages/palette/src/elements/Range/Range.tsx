@@ -16,7 +16,7 @@ export interface RangeProps extends BoxProps {
   max: number
   step: number
   value?: number[]
-  onChange?: (range: [min: number, max: number]) => void
+  onChange?: (range: [number, number]) => void
 }
 
 export const Range: React.FC<RangeProps> = ({
