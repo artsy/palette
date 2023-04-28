@@ -1,3 +1,16 @@
+# v31.6.1 (Fri Apr 28 2023)
+
+#### 🐛  Bug Fix
+
+- fix(range): removes labelled tuple for time being [#1288](https://github.com/artsy/palette/pull/1288) ([@dzucconi](https://github.com/dzucconi))
+- fix(range): removes labelled tuple for time being ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.6.0 (Tue Apr 25 2023)
 
 #### 🚀  Enhancement
