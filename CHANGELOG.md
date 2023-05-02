@@ -1,3 +1,16 @@
+# (Tue May 02 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@31.6.2`
+  - fix(filterselect): uses radio when single select [#1289](https://github.com/artsy/palette/pull/1289) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Apr 28 2023)
 
 #### 🐛  Bug Fix
