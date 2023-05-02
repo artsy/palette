@@ -74,19 +74,19 @@ describe("FilterSelect", () => {
 
   it("only selects one item if multiselect=false, and doesnt resort", () => {
     const wrapper = getWrapper({ multiselect: false })
-    wrapper.find("Checkbox").at(1).simulate("click")
+    wrapper.find("Radio").at(1).simulate("click")
     wrapper.update()
-    expect(wrapper.find("Checkbox").at(1).props().selected).toBe(true)
+    expect(wrapper.find("Radio").at(1).props().selected).toBe(true)
 
     let text = wrapper.text()
     expect(text).toContain("Item 1")
     expect(text).toContain("Item 2")
     expect(text).toContain("Item 3")
 
-    wrapper.find("Checkbox").at(2).simulate("click")
+    wrapper.find("Radio").at(2).simulate("click")
     wrapper.update()
-    expect(wrapper.find("Checkbox").at(1).props().selected).not.toBe(true)
-    expect(wrapper.find("Checkbox").at(2).props().selected).toBe(true)
+    expect(wrapper.find("Radio").at(1).props().selected).not.toBe(true)
+    expect(wrapper.find("Radio").at(2).props().selected).toBe(true)
 
     text = wrapper.text()
     expect(text).toContain("Item 1")

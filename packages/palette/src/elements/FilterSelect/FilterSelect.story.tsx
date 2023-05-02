@@ -10,11 +10,12 @@ export default {
 
 export const Default = () => {
   return (
-    <States<FilterSelectProps> states={[{}]}>
+    <States<FilterSelectProps>
+      states={[{ multiselect: true }, { multiselect: false }]}
+    >
       <FilterSelect
         placeholder="Filter by artist name"
         initialItemsToShow={6}
-        multiselect
         order={[
           ["country", "name"],
           ["asc", "asc"],
