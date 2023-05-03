@@ -78,16 +78,17 @@ export const INPUT_STATES: Record<State, any> = {
 
     ::placeholder {
       color: ${themeGet("colors.black30")};
+      opacity: 1;
     }
 
     &:not(:placeholder-shown) + label {
       color: ${themeGet("colors.black30")};
-      transform: translateY(-150%);
-      font-size: ${themeGet("textVariants.xs.fontSize")};
     }
 
     &:placeholder-shown + label {
       color: ${themeGet("colors.black30")};
+      transform: translateY(-150%);
+      font-size: ${themeGet("textVariants.xs.fontSize")};
     }
   `,
   error: css`
