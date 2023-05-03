@@ -127,7 +127,7 @@ export const TextArea: React.ForwardRefExoticComponent<
         )}
 
         {error && typeof error === "string" && (
-          <Text variant="xs" color="red100" mt={0.5}>
+          <Text variant="xs" color="red100" mt={0.5} ml={1}>
             {error}
           </Text>
         )}

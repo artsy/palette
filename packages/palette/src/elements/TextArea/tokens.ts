@@ -82,12 +82,12 @@ export const TEXTAREA_STATES: Record<State, any> = {
 
     &:not(:placeholder-shown) + label {
       color: ${themeGet("colors.black30")};
+      transform: translateY(-150%);
+      font-size: ${themeGet("textVariants.xs.fontSize")};
     }
 
     &:placeholder-shown + label {
       color: ${themeGet("colors.black30")};
-      transform: translateY(-150%);
-      font-size: ${themeGet("textVariants.sm.fontSize")};
     }
   `,
   error: css`
