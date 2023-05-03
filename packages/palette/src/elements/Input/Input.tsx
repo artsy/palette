@@ -2,11 +2,11 @@ import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
+import { RequiredField } from "../../shared/RequiredField"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { INPUT_STATES } from "./tokens"
-import { RequiredField } from "../../shared/RequiredField"
 
 export interface InputProps
   extends BoxProps,
