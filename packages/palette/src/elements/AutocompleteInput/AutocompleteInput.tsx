@@ -75,7 +75,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
     i: number
   ): React.ReactElement<any, string | React.JSXElementConstructor<any>>
   options: T[]
-  dropdownMaxHeight?: string
+  dropdownMaxHeight?: string | number
 }
 
 /** AutocompleteInput */
@@ -280,14 +280,24 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   // Option that is being hovered or keyed into
   const staged = options[index]
 
-  const headerAndFooterHeight =
-    (headerRef?.current?.clientHeight ?? 0) +
-    (footerRef?.current?.clientHeight ?? 0)
+  const getMaxHeight = () => {
+    /* 308 = Roughly, 5.5 default sized options  */
+    if (!dropdownMaxHeight) return 308
 
-  /* 308 = Roughly, 5.5 default sized options  */
-  const inputOptionsMaxHeight = dropdownMaxHeight
-    ? Number(dropdownMaxHeight.replace("px", "")) - headerAndFooterHeight
-    : 308
+    let value = dropdownMaxHeight
+
+    if (typeof dropdownMaxHeight === "number") {
+      value = `${dropdownMaxHeight}px`
+    }
+
+    const headerAndFooterHeight =
+      (headerRef?.current?.clientHeight ?? 0) +
+      (footerRef?.current?.clientHeight ?? 0)
+
+    return `calc(${value} - ${headerAndFooterHeight}px)`
+  }
+
+  const inputOptionsMaxHeight = getMaxHeight()
 
   return (
     <Box
