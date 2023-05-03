@@ -282,7 +282,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   const getMaxHeight = () => {
     /* 308 = Roughly, 5.5 default sized options  */
-    if (!dropdownMaxHeight) return 308
+    if (!dropdownMaxHeight) return "308px"
 
     let value = dropdownMaxHeight
 
@@ -394,11 +394,11 @@ const AutocompleteInputDropdown = styled(Box)`
 `
 
 interface AutocompleteInputOptionProps {
-  maxHeight: number
+  maxHeight: string
 }
 
 const AutocompleteInputOptions = styled(Box)<AutocompleteInputOptionProps>`
-  max-height: ${(props) => `${props.maxHeight}px`};
+  max-height: ${(props) => props.maxHeight};
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 `
