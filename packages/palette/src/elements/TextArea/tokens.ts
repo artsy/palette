@@ -77,7 +77,6 @@ export const TEXTAREA_STATES: Record<State, any> = {
 
     ::placeholder {
       color: ${themeGet("colors.black30")};
-      opacity: 1;
     }
 
     &:not(:placeholder-shown) + label {
