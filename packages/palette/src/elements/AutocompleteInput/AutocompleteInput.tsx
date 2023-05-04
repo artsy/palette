@@ -75,7 +75,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
     i: number
   ): React.ReactElement<any, string | React.JSXElementConstructor<any>>
   options: T[]
-  dropdownMaxHeight?: string | number
+  maxHeight?: string | number
 }
 
 /** AutocompleteInput */
@@ -94,7 +94,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   height,
   renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
   options,
-  dropdownMaxHeight,
+  maxHeight,
   ...rest
 }: AutocompleteInputProps<T>) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -282,13 +282,9 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   const getMaxHeight = () => {
     /* 308 = Roughly, 5.5 default sized options  */
-    if (!dropdownMaxHeight) return "308px"
+    if (!maxHeight) return "308px"
 
-    let value = dropdownMaxHeight
-
-    if (typeof dropdownMaxHeight === "number") {
-      value = `${dropdownMaxHeight}px`
-    }
+    const value = typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight
 
     const headerAndFooterHeight =
       (headerRef?.current?.clientHeight ?? 0) +
@@ -393,12 +389,7 @@ const AutocompleteInputDropdown = styled(Box)`
   z-index: 1;
 `
 
-interface AutocompleteInputOptionProps {
-  maxHeight: string
-}
-
-const AutocompleteInputOptions = styled(Box)<AutocompleteInputOptionProps>`
-  max-height: ${(props) => props.maxHeight};
+const AutocompleteInputOptions = styled(Box)`
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 `

@@ -109,7 +109,7 @@ export const Default = () => {
               <Text variant="xs">Footer</Text>
             </Box>
           ),
-          dropdownMaxHeight: "700px",
+          maxHeight: "700px",
         },
       ]}
     >
