@@ -1,3 +1,15 @@
+# v31.7.0 (Thu May 04 2023)
+
+#### 🚀  Enhancement
+
+- feat: disabling scrolling behavior for AutocompleteInput [#1287](https://github.com/artsy/palette/pull/1287) ([@nickskalkin](https://github.com/nickskalkin))
+
+#### Authors: 1
+
+- Nikita Skalkin ([@nickskalkin](https://github.com/nickskalkin))
+
+---
+
 # v31.6.2 (Tue May 02 2023)
 
 #### 🐛  Bug Fix
