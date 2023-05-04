@@ -75,6 +75,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
     i: number
   ): React.ReactElement<any, string | React.JSXElementConstructor<any>>
   options: T[]
+  maxHeight?: string | number
 }
 
 /** AutocompleteInput */
@@ -93,10 +94,13 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   height,
   renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
   options,
+  maxHeight,
   ...rest
 }: AutocompleteInputProps<T>) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
+  const headerRef = useRef<HTMLDivElement | null>(null)
+  const footerRef = useRef<HTMLDivElement | null>(null)
 
   const [boxProps, inputProps] = splitBoxProps(rest)
 
@@ -276,6 +280,21 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   // Option that is being hovered or keyed into
   const staged = options[index]
 
+  const getMaxHeight = () => {
+    /* 308 = Roughly, 5.5 default sized options  */
+    if (!maxHeight) return "308px"
+
+    const value = typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight
+
+    const headerAndFooterHeight =
+      (headerRef?.current?.clientHeight ?? 0) +
+      (footerRef?.current?.clientHeight ?? 0)
+
+    return `calc(${value} - ${headerAndFooterHeight}px)`
+  }
+
+  const inputOptionsMaxHeight = getMaxHeight()
+
   return (
     <Box
       ref={composeRefs(containerRef, containsFocusRef) as any}
@@ -322,8 +341,8 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
           role="listbox"
           width={width}
         >
-          {header}
-          <AutocompleteInputOptions>
+          <div ref={headerRef}>{header}</div>
+          <AutocompleteInputOptions maxHeight={inputOptionsMaxHeight}>
             {optionsWithRefs.map(({ option, ref }, i) => {
               return (
                 <AutocompleteInputOption
@@ -344,7 +363,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
             })}
           </AutocompleteInputOptions>
 
-          {footer}
+          <div ref={footerRef}>{footer}</div>
         </AutocompleteInputDropdown>
       )}
 
@@ -371,8 +390,6 @@ const AutocompleteInputDropdown = styled(Box)`
 `
 
 const AutocompleteInputOptions = styled(Box)`
-  /* 308 = Roughly, 5.5 default sized options  */
-  max-height: 308px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 `
