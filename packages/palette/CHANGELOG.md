@@ -1,3 +1,15 @@
+# v31.7.1 (Thu May 04 2023)
+
+#### 🐛  Bug Fix
+
+- Fixes Types of property 'maxHeight' are incompatible for AutocompleteInput [#1291](https://github.com/artsy/palette/pull/1291) ([@nickskalkin](https://github.com/nickskalkin))
+
+#### Authors: 1
+
+- Nikita Skalkin ([@nickskalkin](https://github.com/nickskalkin))
+
+---
+
 # v31.7.0 (Thu May 04 2023)
 
 #### 🚀  Enhancement
