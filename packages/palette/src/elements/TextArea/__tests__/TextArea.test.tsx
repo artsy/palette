@@ -36,7 +36,7 @@ describe("TextArea", () => {
   })
 
   it("doesn't show a title if you don't supply a title", () => {
-    const wrapper = getWrapper({ title: null })
+    const wrapper = getWrapper({ title: undefined })
     expect(wrapper.html()).not.toContain("Title")
   })
 
