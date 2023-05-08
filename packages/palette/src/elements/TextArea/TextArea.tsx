@@ -18,7 +18,7 @@ export interface TextAreaProps
   defaultValue?: string
   description?: React.ReactNode
   required?: boolean
-  title?: React.ReactNode
+  title?: string
   disabled?: boolean
   error?: string | boolean
   focus?: boolean
@@ -102,7 +102,7 @@ export const TextArea: React.ForwardRefExoticComponent<
             defaultValue={defaultValue}
             required={required}
             name={textAreaName}
-            title={title ? (typeof title === "string" ? title : "") : undefined}
+            title={title}
             {...inputProps}
           />
 
