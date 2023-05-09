@@ -21,7 +21,7 @@ import {
   Tabs,
   Text,
 } from "../elements"
-import { isThemeV2, useTheme } from "../Theme"
+import { useTheme } from "../Theme"
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 
 export default {
@@ -170,11 +170,7 @@ export const Grid = () => {
 export const Typography = () => {
   const { theme } = useTheme()
 
-  const variants = isThemeV2(theme)
-    ? theme.textVariants.large
-    : theme.textVariants
-
-  const treatments = Object.keys(variants) as TextVariant[]
+  const treatments = Object.keys(theme.textVariants) as TextVariant[]
 
   return (
     <>
@@ -202,9 +198,9 @@ export const Typography = () => {
                   {name}
                   <br />
                   {[
-                    variants[name].fontSize,
-                    variants[name].lineHeight,
-                    variants[name].letterSpacing,
+                    theme.textVariants[name].fontSize,
+                    theme.textVariants[name].lineHeight,
+                    theme.textVariants[name].letterSpacing,
                   ]
                     .filter(Boolean)
                     .join("/")}
@@ -212,16 +208,18 @@ export const Typography = () => {
               </Column>
 
               <Column span={6}>
-                {Object.entries(variants[name]).map(([key, value]) => {
-                  return (
-                    <Text key={key} variant="sm">
-                      <Box as="span" color="black60">
-                        {key}:
-                      </Box>{" "}
-                      {value}
-                    </Text>
-                  )
-                })}
+                {Object.entries(theme.textVariants[name]).map(
+                  ([key, value]) => {
+                    return (
+                      <Text key={key} variant="sm">
+                        <Box as="span" color="black60">
+                          {key}:
+                        </Box>{" "}
+                        {value}
+                      </Text>
+                    )
+                  }
+                )}
               </Column>
             </GridColumns>
           )

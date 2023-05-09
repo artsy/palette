@@ -1,21 +1,12 @@
 import styled from "styled-components"
-import { space as styledSpace } from "styled-system"
-import { media, space } from "../../helpers"
-import { BorderBox } from "../BorderBox"
-import { BorderBoxProps } from "../BorderBox/BorderBoxBase"
+import { BorderBox, BorderBoxProps } from "../BorderBox"
+
+export type StackableBorderBoxProps = BorderBoxProps
 
 /**
  * A stackable border box is a BorderBox that shares borders with its siblings.
  */
 export const StackableBorderBox = styled(BorderBox)<BorderBoxProps>`
-  padding: ${space(3)}px;
-  ${styledSpace};
-
-  ${media.sm`
-    padding: ${space(2)}px;
-    ${styledSpace};
-  `};
-
   :not(:first-child) {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -28,3 +19,7 @@ export const StackableBorderBox = styled(BorderBox)<BorderBoxProps>`
 `
 
 StackableBorderBox.displayName = "StackableBorderBox"
+
+StackableBorderBox.defaultProps = {
+  ...BorderBox.defaultProps,
+}

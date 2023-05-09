@@ -1,53 +1,32 @@
 import * as prettier from "prettier"
-import { themeProps } from "../src/Theme"
+import { THEME } from "../src/Theme"
 
 import * as fs from "fs"
 
 const spaceMapping = {
-  m: v => `margin: ${v};`,
-  mt: v => `margin-top: ${v};`,
-  mb: v => `margin-bottom: ${v};`,
-  ml: v => `margin-left: ${v};`,
-  mr: v => `margin-right: ${v};`,
-  mx: v => `margin-right: ${v}; margin-left: ${v};`,
-  my: v => `margin-top: ${v}; margin-bottom: ${v};`,
-  p: v => `padding: ${v};`,
-  pt: v => `padding-top: ${v};`,
-  pb: v => `padding-bottom: ${v};`,
-  pl: v => `padding-left: ${v};`,
-  pr: v => `padding-right: ${v};`,
-  px: v => `padding-right: ${v}; padding-left: ${v};`,
-  py: v => `padding-top: ${v}; padding-bottom: ${v};`,
+  m: (v) => `margin: ${v};`,
+  mt: (v) => `margin-top: ${v};`,
+  mb: (v) => `margin-bottom: ${v};`,
+  ml: (v) => `margin-left: ${v};`,
+  mr: (v) => `margin-right: ${v};`,
+  mx: (v) => `margin-right: ${v}; margin-left: ${v};`,
+  my: (v) => `margin-top: ${v}; margin-bottom: ${v};`,
+  p: (v) => `padding: ${v};`,
+  pt: (v) => `padding-top: ${v};`,
+  pb: (v) => `padding-bottom: ${v};`,
+  pl: (v) => `padding-left: ${v};`,
+  pr: (v) => `padding-right: ${v};`,
+  px: (v) => `padding-right: ${v}; padding-left: ${v};`,
+  py: (v) => `padding-top: ${v}; padding-bottom: ${v};`,
 }
 
-const bg = v => `background: ${v};`
-const color = v => `color: ${v};`
+const bg = (v) => `background: ${v};`
+const color = (v) => `color: ${v};`
 
-interface Font {
-  fontStyle?: any
-  fontVariant?: any
-  fontWeight?: any
-  fontSize?: any
-  lineHeight?: any
-  fontFamily?: any
-}
+let styles = ""
+let variables = ""
 
-const font = ({
-  fontStyle = "",
-  fontVariant = "",
-  fontWeight = "",
-  fontSize = "",
-  lineHeight = "",
-  fontFamily,
-}: Font) =>
-  `font: ${fontStyle} ${fontVariant} ${fontWeight} ${fontSize}${
-    fontSize && lineHeight ? "/" + lineHeight : lineHeight
-  } ${fontFamily};`
-
-let styles: string = ""
-let variables: string = ""
-
-Object.entries(themeProps.space).forEach(([unit, value]) => {
+Object.entries(THEME.space).forEach(([unit, value]) => {
   variables += `--space-${unit.replace(".", "_")}: ${value};`
   Object.entries(spaceMapping).forEach(([classPrefix, cssGenerator]) => {
     styles += `.${classPrefix}-${unit.replace(".", "_")} { ${cssGenerator(
@@ -56,7 +35,7 @@ Object.entries(themeProps.space).forEach(([unit, value]) => {
   })
 })
 
-Object.entries(themeProps.colors).forEach(([name, value]) => {
+Object.entries(THEME.colors).forEach(([name, value]) => {
   variables += `--color-${name}: ${value};`
 
   styles += `
@@ -65,38 +44,26 @@ Object.entries(themeProps.colors).forEach(([name, value]) => {
 `
 })
 
-Object.keys(themeProps.fontFamily).forEach(
-  // FIXME:
-  // @ts-ignore
-  (family: keyof typeof themeProps.fontFamily) => {
-    Object.entries(themeProps.fontFamily[family]).forEach(
-      ([type, properties]) => {
-        Object.entries(themeProps.typeSizes[family]).forEach(
-          ([size, sizeProps]) => {
-            // Ensure all props are objects
-            const normalizedProps =
-              typeof properties === "string"
-                ? {
-                    fontFamily: properties,
-                  }
-                : properties
-
-            const formattedType =
-              type === "regular"
-                ? ""
-                : "-" + type.replace(/([A-Z])/, "-$1").toLowerCase()
-
-            styles += `
-            .${family}-${size}${formattedType} {
-              ${font({ ...normalizedProps, ...sizeProps })}
-            }
-          `
-          }
-        )
-      }
-    )
-  }
-)
+Object.entries(THEME.fonts).forEach(([fontName, fontFamily]) => {
+  Object.entries(THEME.textVariants).forEach(([size, textTreatment]) => {
+    styles += `
+      .${fontName}-${size} {
+        font-family: ${fontFamily};
+        line-height: ${textTreatment.lineHeight};
+        ${textTreatment.fontSize ? `font-size: ${textTreatment.fontSize};` : ""}
+        ${
+          textTreatment.fontWeight
+            ? `font-weight: ${textTreatment.fontWeight};`
+            : ""
+        }
+        ${
+          textTreatment.letterSpacing
+            ? `letter-spacing: ${textTreatment.letterSpacing};`
+            : ""
+        }
+      }`
+  })
+})
 
 const stylesheet = `
   :root {

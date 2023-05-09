@@ -11,7 +11,7 @@ describe("Button", () => {
         <Banner />
       </Theme>
     )
-    expect(wrapper).toHaveStyleRule("background-color", "#E5E5E5")
+    expect(wrapper).toHaveStyleRule("background-color", "#E7E7E7")
   })
 
   it("displays the message", () => {
