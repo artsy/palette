@@ -55,8 +55,6 @@ export const TextArea: React.ForwardRefExoticComponent<
 
     const [value, setValue] = useState(defaultValue)
 
-    const textAreaName = inputProps.name || "palette-text-area"
-
     const characterLimitExceeded = useCallback(
       (text: string) => {
         return Boolean(characterLimit && text.length > characterLimit)
@@ -101,12 +99,13 @@ export const TextArea: React.ForwardRefExoticComponent<
             onChange={handleChange}
             defaultValue={defaultValue}
             required={required}
-            name={textAreaName}
             title={title}
             {...inputProps}
           />
 
-          {!!title && <StyledLabel htmlFor={textAreaName}>{title}</StyledLabel>}
+          {!!title && (
+            <StyledLabel htmlFor={inputProps.name}>{title}</StyledLabel>
+          )}
         </Box>
 
         {(required || characterLimit) && !(error && typeof error === "string") && (
