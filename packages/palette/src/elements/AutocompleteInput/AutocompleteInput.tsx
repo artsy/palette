@@ -9,7 +9,7 @@ import React, {
 } from "react"
 import styled from "styled-components"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
-import { Spinner } from ".."
+import { Spinner } from "../Spinner"
 import { DROP_SHADOW } from "../../helpers"
 import SearchIcon from "@artsy/icons/SearchIcon"
 import CloseIcon from "@artsy/icons/CloseIcon"

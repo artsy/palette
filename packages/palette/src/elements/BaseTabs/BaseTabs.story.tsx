@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
-import { BaseTab, BaseTabs } from "."
+import { BaseTab, BaseTabs } from "../BaseTabs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
 import { BaseTabProps } from "./BaseTab"
