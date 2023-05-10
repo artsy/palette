@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# This script starts a nodemon file watcher which will detect changes in the
+# `dist` folder and sync them to yalc. This is useful for testing changes in
+# a consuming React Native project, where `yarn link` doesn't work.
+#
+# For setup instructions see https://docs.joshuatz.com/cheatsheets/devops/yalc/
+
+if ! command -v yalc &> /dev/null
+then
+    echo "Error running sync command. 'yalc' is not installed. Please install it with 'yarn global add yalc'."
+    echo "See https://docs.joshuatz.com/cheatsheets/devops/yalc/ for more info."
+    exit
+fi
+
+yarn concurrently 'yarn watch' 'nodemon -w dist --exec "yalc push --changed" --delay 1'
