@@ -1,10 +1,13 @@
 import React from "react"
 import { States } from "storybook-states"
-import { Text, Box, Join, Spacer } from ".."
 import {
   HorizontalOverflow,
   HorizontalOverflowProps,
 } from "./HorizontalOverflow"
+import { Text } from "../Text"
+import { Spacer } from "../Spacer"
+import { Join } from "../Join"
+import { Box } from "../Box"
 
 export default {
   title: "Components/HorizontalOverflow",

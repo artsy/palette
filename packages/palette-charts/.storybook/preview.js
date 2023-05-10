@@ -6,11 +6,9 @@ const { GlobalStyles } = injectGlobalStyles()
 export const decorators = [
   (Story) => {
     return (
-      <Theme theme="v3">
-        <>
-          <GlobalStyles />
-          <Story />
-        </>
+      <Theme>
+        <GlobalStyles />
+        <Story />
       </Theme>
     )
   },

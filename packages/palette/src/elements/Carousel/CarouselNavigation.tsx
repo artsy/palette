@@ -1,7 +1,8 @@
 import styled from "styled-components"
-import { color, space } from "../../helpers"
+import { space } from "../../helpers"
 import { SpacingUnit } from "../../Theme"
 import { Clickable, ClickableProps } from "../Clickable"
+import { themeGet } from "@styled-system/theme-get"
 
 const ARROW_WIDTH: SpacingUnit[] = [2, 4]
 const ARROW_TRANSITION_MS = 250
@@ -26,7 +27,7 @@ const Arrow = styled(Clickable)`
   &:hover,
   &:focus {
     outline: 0;
-    color: ${color("black100")};
+    color: ${themeGet("colors.black100")};
   }
 
   &:disabled {
@@ -39,7 +40,7 @@ const Arrow = styled(Clickable)`
  * Set some easily overwriteable props using `defaultProps`
  */
 Arrow.defaultProps = {
-  width: ARROW_WIDTH.map(value => space(value)),
+  width: ARROW_WIDTH.map((value) => space(value)),
   height: "100%",
   color: "black60",
 }

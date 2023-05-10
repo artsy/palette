@@ -137,5 +137,7 @@ export const THEME = {
 export type SpacingUnit = keyof typeof THEME["space"];
 /** All available color keys */
 export type Color = keyof typeof THEME["colors"];
+/** All available color values */
+export type ColorValue = typeof THEME["colors"][Color];
 /** All available width breakpoint */
 export type Breakpoint = keyof typeof breakpoints;

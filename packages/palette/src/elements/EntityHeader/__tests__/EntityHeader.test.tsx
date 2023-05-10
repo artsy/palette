@@ -1,20 +1,17 @@
 import { mount } from "enzyme"
 import React from "react"
-import { ThemeProviderV3 } from "../../../Theme"
 import { EntityHeader } from "../EntityHeader"
 
 describe("EntityHeader", () => {
   const getWrapper = () => {
     return mount(
-      <ThemeProviderV3>
-        <EntityHeader
-          name="Example"
-          image={{
-            src: "example1x.jpg",
-            srcSet: "example1x.jpg 1x, example2x.jpg 2x",
-          }}
-        />
-      </ThemeProviderV3>
+      <EntityHeader
+        name="Example"
+        image={{
+          src: "example1x.jpg",
+          srcSet: "example1x.jpg 1x, example2x.jpg 2x",
+        }}
+      />
     )
   }
 

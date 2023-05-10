@@ -25,7 +25,7 @@ export interface DonutChartProps extends ChartProps {
  */
 export const DonutChart: React.FC<DonutChartProps> = ({
   points,
-  margin = space(3), // FIXME: This whole
+  margin = space(2), // FIXME: This whole
 }) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
 

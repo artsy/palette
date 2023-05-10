@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
-import { Clickable, Flex } from ".."
 import { Position, POSITION } from "../../utils"
 import { Box } from "../Box"
 import { Button } from "../Button"
 import { Text } from "../Text"
 import { Dropdown, DropdownProps } from "./Dropdown"
+import { Clickable } from "../Clickable"
+import { Flex } from "../Flex"
 
 export default {
   title: "Components/Dropdown",

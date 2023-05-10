@@ -6,7 +6,8 @@ import { Text } from "../Text"
 import { ToastVariant, TOAST_VARIANTS } from "./Toast"
 import { Toasts } from "./Toasts"
 import { ToastsProvider, useToasts } from "./useToasts"
-import { Clickable, Separator } from ".."
+import { Separator } from "../Separator"
+import { Clickable } from "../Clickable"
 
 export default {
   title: "Components/Toasts",

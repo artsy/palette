@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 import { ResponsiveValue, variant } from "styled-system"
 import CheckmarkIcon from "@artsy/icons/CheckmarkIcon"
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
-import { THEME_V3 } from "../../themes"
+import { THEME } from "../../themes"
 import { boxMixin, BoxProps } from "../Box"
 import { Spinner } from "../Spinner"
 import { Text, TextProps } from "../Text"
@@ -186,7 +186,7 @@ const Container = styled.button<ContainerProps & ButtonProps>`
   ${() => {
     // Handle pseudo classes
     return css`
-      @media ${THEME_V3.mediaQueries.hover} {
+      @media ${THEME.mediaQueries.hover} {
         &:hover {
           ${variant({ variants: BUTTON_VARIANTS.hover })}
         }
