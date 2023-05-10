@@ -22,5 +22,5 @@
     "target": "es2015"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules/*", "dist/*", "www/*"]
+  "exclude": ["node_modules/*", "dist/*", "packages/palette/dist/*", "www/*"]
 }
