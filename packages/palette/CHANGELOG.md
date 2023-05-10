@@ -1,3 +1,26 @@
+# v32.0.0 (Wed May 10 2023)
+
+#### 💥  Breaking Change
+
+- chore(theme): removes v2; v3 default [#1292](https://github.com/artsy/palette/pull/1292) ([@dzucconi](https://github.com/dzucconi) [@damassi](https://github.com/damassi))
+
+#### 🚀  Enhancement
+
+- feat(dev): add yalc for local package dev [#1294](https://github.com/artsy/palette/pull/1294) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix import paths ([@damassi](https://github.com/damassi))
+- chore(theme): removes v2; v3 default ([@dzucconi](https://github.com/dzucconi))
+- feat(dev): add yalc for local package dev ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v31.7.1 (Thu May 04 2023)
 
 #### 🐛  Bug Fix

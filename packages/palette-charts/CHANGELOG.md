@@ -1,3 +1,20 @@
+# v31.0.0 (Wed May 10 2023)
+
+#### 💥  Breaking Change
+
+- chore(theme): removes v2; v3 default [#1292](https://github.com/artsy/palette/pull/1292) ([@dzucconi](https://github.com/dzucconi) [@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- chore(theme): removes v2; v3 default ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v30.4.1 (Wed Apr 19 2023)
 
 #### 🐛  Bug Fix
