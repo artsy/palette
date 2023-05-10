@@ -1,7 +1,8 @@
 import { themeGet } from "@styled-system/theme-get"
 import { css } from "styled-components"
+import { State } from "./types"
 
-export const SELECT_STATES = {
+export const SELECT_STATES: Record<State, any> = {
   default: css`
     height: 50px;
     font-size: ${themeGet("textVariants.sm-display.fontSize")};

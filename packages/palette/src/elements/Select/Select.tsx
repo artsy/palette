@@ -2,9 +2,7 @@ import { themeGet } from "@styled-system/theme-get"
 import React, { forwardRef, ForwardRefExoticComponent, Ref } from "react"
 import styled, { css } from "styled-components"
 import { Box, BoxProps, splitBoxProps } from "../Box"
-import { Flex } from "../Flex"
 import { Text } from "../Text"
-import { Variant } from "./types"
 import { SELECT_STATES } from "./tokens"
 import { Tooltip } from "../Tooltip"
 import { RequiredField } from "../../shared/RequiredField"
@@ -27,7 +25,6 @@ export interface SelectProps
   required?: boolean
   selected?: string
   title?: string
-  variant?: Variant
   onSelect?: (value: string) => void
 }
 
@@ -48,7 +45,6 @@ export const Select: ForwardRefExoticComponent<
       required,
       selected,
       title,
-      variant = "default",
       onSelect,
       ...rest
     },
@@ -66,51 +62,35 @@ export const Select: ForwardRefExoticComponent<
           </Tooltip>
         )}
 
-        <Flex
-          as="label"
-          {...(variant === "inline"
-            ? {
-                flexDirection: "row",
-                alignItems: "center",
-              }
-            : {
-                flexDirection: "column",
-                alignItems: "flex-start",
-              })}
-          {...(id ? { htmlFor: id } : {})}
+        <Container
+          disabled={!!disabled}
+          hover={!!hover}
+          error={error!}
+          focus={!!focus}
+          title={title}
         >
-          <Container
-            variant={variant}
-            disabled={!!disabled}
-            hover={!!hover}
-            error={error!}
-            focus={!!focus}
-            title={title}
-            mt={variant !== "inline" && (title || description) ? 0.5 : 0}
+          <select
+            ref={ref as any}
+            id={id}
+            disabled={disabled}
+            name={name}
+            value={selected}
+            onChange={(event) => {
+              onSelect && onSelect(event.target.value)
+            }}
+            {...selectProps}
           >
-            <select
-              ref={ref as any}
-              id={id}
-              disabled={disabled}
-              name={name}
-              value={selected}
-              onChange={(event) => {
-                onSelect && onSelect(event.target.value)
-              }}
-              {...selectProps}
-            >
-              {options.map(({ value, text }) => {
-                return (
-                  <option value={value} key={value}>
-                    {text}
-                  </option>
-                )
-              })}
-            </select>
+            {options.map(({ value, text }) => {
+              return (
+                <option value={value} key={value}>
+                  {text}
+                </option>
+              )
+            })}
+          </select>
 
-            {!!title && <StyledLabel>{title}</StyledLabel>}
-          </Container>
-        </Flex>
+          {!!title && <StyledLabel htmlFor={id}>{title}</StyledLabel>}
+        </Container>
 
         {required && !(error && typeof error === "string") && (
           <RequiredField mt={0.5} ml={1} />
@@ -171,7 +151,7 @@ export const caretMixin = css`
 `
 
 type ContainerProps = Required<
-  Pick<SelectProps, "variant" | "disabled" | "error" | "hover" | "focus">
+  Pick<SelectProps, "disabled" | "error" | "hover" | "focus">
 >
 
 const Container = styled(Box)<ContainerProps>`
