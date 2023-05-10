@@ -922,32 +922,6 @@ export const Inputs = () => {
           />
         </Column>
       </GridColumns>
-
-      <Text my={6} variant="lg-display">
-        Sort
-      </Text>
-
-      <GridColumns>
-        <Column span={2}>
-          <Select variant="inline" title="Sort:" options={OPTIONS} />
-        </Column>
-
-        <Column span={2}>
-          <Select variant="inline" title="Sort:" options={OPTIONS} focus />
-        </Column>
-
-        <Column span={2}>
-          <Select variant="inline" title="Sort:" options={OPTIONS} hover />
-        </Column>
-
-        <Column span={2}>
-          <Select variant="inline" title="Sort:" options={OPTIONS} error />
-        </Column>
-
-        <Column span={2} wrap>
-          <Select variant="inline" title="Sort:" options={OPTIONS} disabled />
-        </Column>
-      </GridColumns>
     </>
   )
 }
