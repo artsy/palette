@@ -2,10 +2,10 @@ import { themeGet } from "@styled-system/theme-get"
 import React, { forwardRef, ForwardRefExoticComponent, Ref } from "react"
 import styled, { css } from "styled-components"
 import { Box, BoxProps, splitBoxProps } from "../Box"
-import { Flex } from "../Flex"
 import { Text } from "../Text"
-import { Variant } from "./types"
 import { SELECT_STATES } from "./tokens"
+import { Tooltip } from "../Tooltip"
+import { RequiredField } from "../../shared/RequiredField"
 
 export interface Option {
   value: string
@@ -25,7 +25,6 @@ export interface SelectProps
   required?: boolean
   selected?: string
   title?: string
-  variant?: Variant
   onSelect?: (value: string) => void
 }
 
@@ -46,7 +45,6 @@ export const Select: ForwardRefExoticComponent<
       required,
       selected,
       title,
-      variant = "default",
       onSelect,
       ...rest
     },
@@ -56,77 +54,50 @@ export const Select: ForwardRefExoticComponent<
 
     return (
       <Box width="100%" {...boxProps}>
-        <Flex
-          as="label"
-          {...(variant === "inline"
-            ? {
-                flexDirection: "row",
-                alignItems: "center",
-              }
-            : {
-                flexDirection: "column",
-                alignItems: "flex-start",
-              })}
-          {...(id ? { for: id } : {})}
+        {!!description && (
+          <Tooltip pointer content={description} placement="top-end">
+            <Text variant="xs" color="black60" textAlign="right">
+              <u>What is this?</u>
+            </Text>
+          </Tooltip>
+        )}
+
+        <Container
+          disabled={!!disabled}
+          hover={!!hover}
+          error={error!}
+          focus={!!focus}
+          title={title}
         >
-          <div>
-            {title && (
-              <Text
-                variant="xs"
-                lineHeight={
-                  variant === "inline" && description === undefined
-                    ? 1
-                    : undefined
-                }
-              >
-                {title}
-                {required && (
-                  <Box as="span" color="brand">
-                    *
-                  </Box>
-                )}
-              </Text>
-            )}
-
-            {description && (
-              <Text variant="xs" color="black60">
-                {description}
-              </Text>
-            )}
-          </div>
-
-          <Container
-            variant={variant}
-            disabled={!!disabled}
-            hover={!!hover}
-            error={error!}
-            focus={!!focus}
-            mt={variant !== "inline" && (title || description) ? 0.5 : 0}
+          <select
+            ref={ref as any}
+            id={id}
+            disabled={disabled}
+            name={name}
+            value={selected}
+            onChange={(event) => {
+              onSelect && onSelect(event.target.value)
+            }}
+            {...selectProps}
           >
-            <select
-              ref={ref as any}
-              id={id}
-              disabled={disabled}
-              name={name}
-              value={selected}
-              onChange={(event) => {
-                onSelect && onSelect(event.target.value)
-              }}
-              {...selectProps}
-            >
-              {options.map(({ value, text }) => {
-                return (
-                  <option value={value} key={value}>
-                    {text}
-                  </option>
-                )
-              })}
-            </select>
-          </Container>
-        </Flex>
+            {options.map(({ value, text }) => {
+              return (
+                <option value={value} key={value}>
+                  {text}
+                </option>
+              )
+            })}
+          </select>
+
+          {!!title && <StyledLabel htmlFor={id}>{title}</StyledLabel>}
+        </Container>
+
+        {required && !(error && typeof error === "string") && (
+          <RequiredField mt={0.5} ml={1} />
+        )}
 
         {error && typeof error === "string" && (
-          <Text variant="xs" mt={0.5} color="red100">
+          <Text variant="xs" mt={0.5} ml={1} color="red100">
             {error}
           </Text>
         )}
@@ -180,7 +151,7 @@ export const caretMixin = css`
 `
 
 type ContainerProps = Required<
-  Pick<SelectProps, "variant" | "disabled" | "error" | "hover" | "focus">
+  Pick<SelectProps, "disabled" | "error" | "hover" | "focus">
 >
 
 const Container = styled(Box)<ContainerProps>`
@@ -193,8 +164,9 @@ const Container = styled(Box)<ContainerProps>`
     /* 24px = space.1 + 4px-wide caret + space.1 */
     padding: 0 24px 0 ${themeGet("space.1")};
     font-family: ${themeGet("fonts.sans")};
-    border: 0;
-    border-bottom: 1px solid;
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: ${themeGet("colors.black30")};
     cursor: pointer;
     line-height: 1;
     transition: color 0.25s, background-color 0.25s, border-color 0.25s;
@@ -220,9 +192,34 @@ const Container = styled(Box)<ContainerProps>`
           cursor: default;
           ${SELECT_STATES.disabled}
         }
+
+        &:not(:has(option[value=""]:checked)):not(:focus) {
+          ${!(props.disabled || props.focus) && SELECT_STATES.completed}
+          ${props.error && SELECT_STATES.error}
+        }
+
+        &:has(option[value=""]:checked) {
+          ${props.title &&
+          css`
+            color: transparent;
+          `}
+        }
       `
     }};
   }
 
   ${caretMixin}
+`
+
+const StyledLabel = styled.label`
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+  transision-property: color, font-size, transform;
+  background-color: ${themeGet("colors.white100")};
+  font-family: ${themeGet("fonts.sans")};
 `
