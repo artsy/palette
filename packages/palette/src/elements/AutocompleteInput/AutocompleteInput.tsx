@@ -66,7 +66,6 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   defaultValue?: string
   loading?: boolean
   header?: React.ReactNode
-  // footer?: React.ReactNode
   footer?:
     | React.ReactNode
     | ((dropdownActions: Pick<FooterActions, "onHide">) => void)
