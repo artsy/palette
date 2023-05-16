@@ -23,7 +23,7 @@ import { VisuallyHidden } from "../VisuallyHidden"
 import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 
-export interface FooterActions {
+export interface AutocompleteFooterActions {
   /** Call to hide dropdown */
   onHide(): void
 }
@@ -68,7 +68,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   header?: React.ReactNode
   footer?:
     | React.ReactNode
-    | ((dropdownActions: Pick<FooterActions, "onHide">) => void)
+    | ((dropdownActions: AutocompleteFooterActions) => void)
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
@@ -226,9 +226,9 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     onChange: handleFocusChange,
   })
 
-  const handleHide = useCallback(() => {
+  const handleHide = () => {
     onClose?.()
-  }, [onClose])
+  }
 
   const handleInputKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     switch (event.key) {
