@@ -24,7 +24,7 @@ import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 
 export interface AutocompleteFooterActions {
-  /** Call to hide dropdown */
+  /** Call to close dropdown */
   onClose(): void
 }
 
