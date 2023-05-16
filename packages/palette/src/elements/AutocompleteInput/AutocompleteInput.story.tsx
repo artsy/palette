@@ -105,11 +105,11 @@ export const Default = () => {
               <Text variant="xs">Header</Text>
             </Box>
           ),
-          footer: ({ onHide }) => (
+          footer: ({ onClose }) => (
             <Clickable
               display="flex"
               width={"100%"}
-              onClick={onHide}
+              onClick={onClose}
               px={2}
               py={1}
               bg="white"

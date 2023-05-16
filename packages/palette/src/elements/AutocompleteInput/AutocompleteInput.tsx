@@ -25,7 +25,7 @@ import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 
 export interface AutocompleteFooterActions {
   /** Call to hide dropdown */
-  onHide(): void
+  onClose(): void
 }
 
 /** Base option type — can be expanded */
@@ -226,7 +226,9 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     onChange: handleFocusChange,
   })
 
-  const handleHide = () => {
+  const handleClose = () => {
+    dispatch({ type: "CLOSE" })
+    reset()
     onClose?.()
   }
 
@@ -379,7 +381,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
           <div ref={footerRef}>
             {typeof footer === "function"
-              ? footer({ onHide: handleHide })
+              ? footer({ onClose: handleClose })
               : footer}
           </div>
         </AutocompleteInputDropdown>
