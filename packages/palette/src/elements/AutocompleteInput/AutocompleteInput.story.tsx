@@ -175,3 +175,75 @@ export const Demo = () => {
     />
   )
 }
+
+const CITIES = [
+  { text: "New York", value: "new-york" },
+  { text: "Los Angeles", value: "los-angeles" },
+  { text: "London", value: "london" },
+  { text: "Berlin", value: "berlin" },
+  { text: "Paris", value: "paris" },
+  { text: "Rome", value: "rome" },
+  { text: "Madrid", value: "madrid" },
+  { text: "Barcelona", value: "barcelona" },
+  { text: "Amsterdam", value: "amsterdam" },
+  { text: "Brussels", value: "brussels" },
+  { text: "Copenhagen", value: "copenhagen" },
+  { text: "Dublin", value: "dublin" },
+  { text: "Florence", value: "florence" },
+  { text: "Geneva", value: "geneva" },
+  { text: "Helsinki", value: "helsinki" },
+  { text: "Hong Kong", value: "hong-kong" },
+  { text: "Lisbon", value: "lisbon" },
+  { text: "Milan", value: "milan" },
+  { text: "Monaco", value: "monaco" },
+  { text: "Moscow", value: "moscow" },
+  { text: "Munich", value: "munich" },
+  { text: "New Delhi", value: "new-delhi" },
+  { text: "Oslo", value: "oslo" },
+  { text: "Prague", value: "prague" },
+  { text: "Rio de Janeiro", value: "rio-de-janeiro" },
+  { text: "San Francisco", value: "san-francisco" },
+  { text: "São Paulo", value: "sao-paulo" },
+  { text: "Seoul", value: "seoul" },
+  { text: "Shanghai", value: "shanghai" },
+  { text: "Singapore", value: "singapore" },
+  { text: "Stockholm", value: "stockholm" },
+  { text: "Sydney", value: "sydney" },
+  { text: "Taipei", value: "taipei" },
+  { text: "Tokyo", value: "tokyo" },
+  { text: "Toronto", value: "toronto" },
+  { text: "Venice", value: "venice" },
+  { text: "Vienna", value: "vienna" },
+  { text: "Warsaw", value: "warsaw" },
+  { text: "Zurich", value: "zurich" },
+]
+
+export const FilterDemo = () => {
+  const [query, setQuery] = useState("")
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value)
+  }
+
+  return (
+    <Box
+      display="flex"
+      height="150vh"
+      width="100%"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <AutocompleteInput
+        width={["75%", "50%"]}
+        placeholder="Begin typing..."
+        options={CITIES.filter((option) => {
+          return option.text.toLowerCase().includes(query.toLowerCase())
+        })}
+        onChange={handleChange}
+        onSelect={action("onSelect")}
+        onSubmit={action("onSubmit")}
+        onClose={action("onClose")}
+      />
+    </Box>
+  )
+}
