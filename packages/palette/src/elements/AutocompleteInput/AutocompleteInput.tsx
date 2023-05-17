@@ -212,9 +212,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     (focused: boolean) => {
       if (focused || !isDropdownVisible) return
 
-      dispatch({ type: "CLOSE" })
-      reset()
-      onClose?.()
+      handleClose()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [onClose, isDropdownVisible]
