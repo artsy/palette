@@ -1,3 +1,21 @@
+# (Wed May 17 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@33.1.0`
+  - feat: close dropdown when the footer is clicked [#1296](https://github.com/artsy/palette/pull/1296) ([@rajsam003](https://github.com/rajsam003))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@33.1.0`
+  - chore: reuse handleClose method [#1297](https://github.com/artsy/palette/pull/1297) ([@rajsam003](https://github.com/rajsam003))
+
+#### Authors: 1
+
+- Sam Raj ([@rajsam003](https://github.com/rajsam003))
+
+---
+
 # (Thu May 11 2023)
 
 #### 💥  Breaking Change

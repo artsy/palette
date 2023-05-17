@@ -1,3 +1,25 @@
+# v33.1.0 (Wed May 17 2023)
+
+#### 🚀  Enhancement
+
+- feat: close dropdown when the footer is clicked [#1296](https://github.com/artsy/palette/pull/1296) ([@rajsam003](https://github.com/rajsam003))
+
+#### 🐛  Bug Fix
+
+- chore: reuse handleClose method [#1297](https://github.com/artsy/palette/pull/1297) ([@rajsam003](https://github.com/rajsam003))
+- reuse ([@rajsam003](https://github.com/rajsam003))
+- rename ([@rajsam003](https://github.com/rajsam003))
+- updqte ([@rajsam003](https://github.com/rajsam003))
+- update ([@rajsam003](https://github.com/rajsam003))
+- fix ([@rajsam003](https://github.com/rajsam003))
+- feat: close dropdown by clicking the footer ([@rajsam003](https://github.com/rajsam003))
+
+#### Authors: 1
+
+- Sam Raj ([@rajsam003](https://github.com/rajsam003))
+
+---
+
 # v33.0.0 (Thu May 11 2023)
 
 #### 💥  Breaking Change
