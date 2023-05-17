@@ -23,6 +23,11 @@ import { VisuallyHidden } from "../VisuallyHidden"
 import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 
+export interface AutocompleteFooterActions {
+  /** Call to close dropdown */
+  onClose(): void
+}
+
 /** Base option type — can be expanded */
 export interface AutocompleteInputOptionType {
   text: string
@@ -61,7 +66,9 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   defaultValue?: string
   loading?: boolean
   header?: React.ReactNode
-  footer?: React.ReactNode
+  footer?:
+    | React.ReactNode
+    | ((dropdownActions: AutocompleteFooterActions) => void)
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
@@ -219,6 +226,12 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     onChange: handleFocusChange,
   })
 
+  const handleClose = () => {
+    dispatch({ type: "CLOSE" })
+    reset()
+    onClose?.()
+  }
+
   const handleInputKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     switch (event.key) {
       // Handle <Enter> when nothing is selected
@@ -366,7 +379,11 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
             })}
           </AutocompleteInputOptions>
 
-          <div ref={footerRef}>{footer}</div>
+          <div ref={footerRef}>
+            {typeof footer === "function"
+              ? footer({ onClose: handleClose })
+              : footer}
+          </div>
         </AutocompleteInputDropdown>
       )}
 

@@ -4,6 +4,7 @@ import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Text } from "../Text"
 import { AutocompleteInput, AutocompleteInputProps } from "./AutocompleteInput"
+import { Clickable } from "../Clickable"
 
 export default {
   title: "Components/AutocompleteInput",
@@ -104,10 +105,17 @@ export const Default = () => {
               <Text variant="xs">Header</Text>
             </Box>
           ),
-          footer: (
-            <Box px={2} py={1} bg="black10">
+          footer: ({ onClose }) => (
+            <Clickable
+              display="flex"
+              width={"100%"}
+              onClick={onClose}
+              px={2}
+              py={1}
+              bg="white"
+            >
               <Text variant="xs">Footer</Text>
-            </Box>
+            </Clickable>
           ),
           dropdownMaxHeight: "700px",
         },
