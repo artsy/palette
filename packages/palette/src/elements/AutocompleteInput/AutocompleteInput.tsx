@@ -22,6 +22,7 @@ import { LabeledInput } from "../LabeledInput"
 import { VisuallyHidden } from "../VisuallyHidden"
 import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
+import { ResponsiveValue } from "styled-system"
 
 export interface AutocompleteFooterActions {
   /** Call to close dropdown */
@@ -82,7 +83,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
     i: number
   ): React.ReactElement<any, string | React.JSXElementConstructor<any>>
   options: T[]
-  dropdownMaxHeight?: string | number
+  dropdownMaxHeight?: ResponsiveValue<string | number>
 }
 
 /** AutocompleteInput */
@@ -101,7 +102,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   height,
   renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
   options,
-  dropdownMaxHeight,
+  dropdownMaxHeight = 308, // 308 = roughly 5.5 options
   ...rest
 }: AutocompleteInputProps<T>) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -161,9 +162,11 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   }, [reset, state.query])
 
   const { anchorRef, tooltipRef } = usePosition({
+    key: options.length,
     position: "bottom",
     offset: 10,
     active: isDropdownVisible,
+    clamp: false,
   })
 
   const { width } = useWidthOf({ ref: anchorRef })
@@ -291,24 +294,6 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   // Option that is being hovered or keyed into
   const staged = options[index]
 
-  const getMaxHeight = () => {
-    /* 308 = Roughly, 5.5 default sized options  */
-    if (!dropdownMaxHeight) return "308px"
-
-    const value =
-      typeof dropdownMaxHeight === "number"
-        ? `${dropdownMaxHeight}px`
-        : dropdownMaxHeight
-
-    const headerAndFooterHeight =
-      (headerRef?.current?.clientHeight ?? 0) +
-      (footerRef?.current?.clientHeight ?? 0)
-
-    return `calc(${value} - ${headerAndFooterHeight}px)`
-  }
-
-  const inputOptionsMaxHeight = getMaxHeight()
-
   return (
     <Box
       ref={composeRefs(containerRef, containsFocusRef) as any}
@@ -356,7 +341,8 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
           width={width}
         >
           <div ref={headerRef}>{header}</div>
-          <AutocompleteInputOptions maxHeight={inputOptionsMaxHeight}>
+
+          <AutocompleteInputOptions maxHeight={dropdownMaxHeight}>
             {optionsWithRefs.map(({ option, ref }, i) => {
               return (
                 <AutocompleteInputOption
