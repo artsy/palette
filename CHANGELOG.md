@@ -1,3 +1,16 @@
+# (Thu May 18 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@33.1.1`
+  - fix(autocompleteinput): adjusts height when filtering results [#1298](https://github.com/artsy/palette/pull/1298) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed May 17 2023)
 
 #### 🚀  Enhancement

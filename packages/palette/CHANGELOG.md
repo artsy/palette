@@ -1,3 +1,18 @@
+# v33.1.1 (Thu May 18 2023)
+
+#### 🐛  Bug Fix
+
+- fix(autocompleteinput): adjusts height when filtering results [#1298](https://github.com/artsy/palette/pull/1298) ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): adjusts height when options are filtered ([@dzucconi](https://github.com/dzucconi))
+- feat(use-position): adds support for disabling clamp and flip; listen to key ([@dzucconi](https://github.com/dzucconi))
+- chore(autocomplete): adds story to manifest dropdown height changes ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v33.1.0 (Wed May 17 2023)
 
 #### 🚀  Enhancement
