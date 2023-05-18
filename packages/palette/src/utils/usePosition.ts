@@ -35,15 +35,25 @@ interface TargetPosition {
  * partially offscreen and will move correctly when the parent is scrolled.
  */
 export const usePosition = ({
+  key,
   position,
   offset = 0,
   active = true,
+  flip = true,
+  clamp = true,
 }: {
+  /** Listen to changes on this value */
+  key?: string | number | boolean
+  /** Placement relative to anchor */
   position: Position
   /** Distance from anchor (default: `0`) */
   offset?: number
   /** Optionally disable for performance (default: `true`) */
   active?: boolean
+  /** Optionally disable flipping (default: `true`) */
+  flip?: boolean
+  /** Optionally disable clamping (default: `true`) */
+  clamp?: boolean
 }) => {
   const [state, setState] = useState<ReturnType<typeof placeTooltip>>({
     isFlipped: false,
@@ -58,7 +68,7 @@ export const usePosition = ({
     const { current: tooltip } = tooltipRef
     const { current: anchor } = anchorRef
 
-    setState(placeTooltip(anchor, tooltip, position, offset))
+    setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
   }
 
   // Re-position when there's any change to the tooltip
@@ -66,6 +76,9 @@ export const usePosition = ({
 
   // Re-position when there's any change to the anchor's size
   useResizeObserver({ target: anchorRef, onResize: update })
+
+  // Listen to changes on key
+  useIsomorphicLayoutEffect(update, [key])
 
   useIsomorphicLayoutEffect(() => {
     if (!tooltipRef.current || !anchorRef.current) return
@@ -79,7 +92,7 @@ export const usePosition = ({
 
     const handleScroll = () => {
       if (!active) return
-      setState(placeTooltip(anchor, tooltip, position, offset))
+      setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
     }
 
     if (active) {
@@ -89,12 +102,12 @@ export const usePosition = ({
     }
 
     const handleResize = () => {
-      setState(placeTooltip(anchor, tooltip, position, offset))
+      setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
     }
 
     window.addEventListener("resize", handleResize, { passive: true })
 
-    setState(placeTooltip(anchor, tooltip, position, offset))
+    setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
 
     return () => {
       document.removeEventListener("scroll", handleScroll)
@@ -111,25 +124,39 @@ export const usePosition = ({
   }
 }
 
-export const placeTooltip = (
-  anchor: HTMLElement,
-  tooltip: HTMLElement,
-  position: Position,
+interface PlaceTooltip {
+  anchor: HTMLElement
+  tooltip: HTMLElement
+  position: Position
+  offset?: number
+  boundaryRect?: DOMRect
+  flip?: boolean
+  clamp?: boolean
+}
+
+export const placeTooltip = ({
+  anchor,
+  tooltip,
+  position,
   offset = 0,
-  boundaryRect = getDocumentBoundingRect()
-) => {
+  boundaryRect = getDocumentBoundingRect(),
+  flip = true,
+  clamp = true,
+}: PlaceTooltip) => {
   const elementRect = anchor.getBoundingClientRect()
   const tooltipRect = tooltip.getBoundingClientRect()
 
   let targetPosition = getPosition(elementRect, tooltipRect, position)
 
   // Flip to avoid edges
-  const isFlipped = shouldFlip(
-    targetPosition,
-    position,
-    boundaryRect,
-    tooltipRect
-  )
+  const isFlipped =
+    flip &&
+    shouldFlip({
+      targetPosition,
+      position,
+      boundaryRect,
+      tooltipRect,
+    })
 
   if (isFlipped) {
     position = getOppositePosition(position)
@@ -137,16 +164,18 @@ export const placeTooltip = (
   }
 
   // Clamp position within boundary
-  targetPosition.x = Math.max(boundaryRect.left, targetPosition.x)
-  targetPosition.x = Math.min(
-    boundaryRect.right - tooltipRect.width,
-    targetPosition.x
-  )
-  targetPosition.y = Math.max(boundaryRect.top, targetPosition.y)
-  targetPosition.y = Math.min(
-    boundaryRect.bottom - tooltipRect.height,
-    targetPosition.y
-  )
+  if (clamp) {
+    targetPosition.x = Math.max(boundaryRect.left, targetPosition.x)
+    targetPosition.x = Math.min(
+      boundaryRect.right - tooltipRect.width,
+      targetPosition.x
+    )
+    targetPosition.y = Math.max(boundaryRect.top, targetPosition.y)
+    targetPosition.y = Math.min(
+      boundaryRect.bottom - tooltipRect.height,
+      targetPosition.y
+    )
+  }
 
   // Should hide entirely if it scrolls out of view
   const shouldHide = !isWithin(elementRect, boundaryRect)
@@ -311,12 +340,19 @@ export const getDocumentBoundingRect = () => {
   } as DOMRect
 }
 
-export const shouldFlip = (
-  targetPosition: TargetPosition,
-  position: Position,
-  boundaryRect: Pick<DOMRect, "top" | "right" | "bottom" | "left">,
+interface ShouldFlip {
+  targetPosition: TargetPosition
+  position: Position
+  boundaryRect: Pick<DOMRect, "top" | "right" | "bottom" | "left">
   tooltipRect: Pick<DOMRect, "width" | "height">
-) => {
+}
+
+export const shouldFlip = ({
+  targetPosition,
+  position,
+  boundaryRect,
+  tooltipRect,
+}: ShouldFlip) => {
   switch (position) {
     case "top-start":
     case "top":

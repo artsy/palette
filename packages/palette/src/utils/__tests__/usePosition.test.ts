@@ -41,7 +41,13 @@ describe("placeTooltip", () => {
       left: 0,
     } as DOMRect
 
-    placeTooltip(anchor, tooltip, "top", 0, boundaryRect)
+    placeTooltip({
+      anchor,
+      tooltip,
+      position: "top",
+      offset: 0,
+      boundaryRect,
+    })
 
     expect(tooltip.style.display).toEqual("block")
     expect(tooltip.style.transform).toEqual("translate(150px, 0px)")
@@ -112,12 +118,12 @@ describe("shouldFlip", () => {
   it("returns false when safe", () => {
     expect(
       positions.map((position) =>
-        shouldFlip(
-          { x: 0, y: 0 },
+        shouldFlip({
+          targetPosition: { x: 0, y: 0 },
           position,
-          { top: 0, right: 500, bottom: 600, left: 0 },
-          { width: 100, height: 100 }
-        )
+          boundaryRect: { top: 0, right: 500, bottom: 600, left: 0 },
+          tooltipRect: { width: 100, height: 100 },
+        })
       )
     ).toEqual([
       false,
@@ -138,12 +144,12 @@ describe("shouldFlip", () => {
   it("returns true when at page boundaries", () => {
     expect(
       positions.map((position) =>
-        shouldFlip(
-          { x: 401, y: 501 },
+        shouldFlip({
+          targetPosition: { x: 401, y: 501 },
           position,
-          { top: 0, right: 500, bottom: 600, left: 0 },
-          { width: 100, height: 100 }
-        )
+          boundaryRect: { top: 0, right: 500, bottom: 600, left: 0 },
+          tooltipRect: { width: 100, height: 100 },
+        })
       )
     ).toEqual([
       false,
