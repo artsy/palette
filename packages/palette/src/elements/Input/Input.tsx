@@ -151,6 +151,12 @@ const StyledInput = styled.input<StyledInputProps>`
     transition: color 0.25s, opacity 0.25s;
   }
 
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 100px white inset;
+  }
+
   ${(props) => {
     return css`
       ${INPUT_STATES.default}

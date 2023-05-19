@@ -159,6 +159,13 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
     transition: color 0.25s, opacity 0.25s;
   }
 
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    // 1000px since the textarea dimensions are adjustable
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
+
   ${(props) => {
     return css`
       ${TEXTAREA_STATES.default}
