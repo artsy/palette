@@ -31,7 +31,6 @@ export const Drawer: FC<DrawerProps> = ({
           width={["100%", "auto"]}
           overflowX="hidden"
           overflowY="scroll"
-          open={open}
           anchor={anchor}
           zIndex={zIndex}
         >
@@ -80,7 +79,7 @@ const fadeIn = keyframes`
   }
 `
 
-const Container = styled(Flex)<DrawerProps>`
+const Container = styled(Flex)<Pick<DrawerProps, "anchor">>`
   top: 0;
   left: 0;
   width: 100%;
@@ -95,7 +94,7 @@ const Container = styled(Flex)<DrawerProps>`
   }}
 `
 
-const Content = styled(Box)<DrawerProps & { open: boolean }>`
+const Content = styled(Box)<Pick<DrawerProps, "anchor">>`
   position: absolute;
   top: 0;
 
