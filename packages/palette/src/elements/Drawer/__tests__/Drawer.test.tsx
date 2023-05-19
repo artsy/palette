@@ -18,6 +18,8 @@ const DrawerContent: React.FC = () => {
 }
 
 describe("Drawer", () => {
+  jest.spyOn(console, "error").mockImplementation(() => null)
+
   it("renders the drawer content when the open button is clicked", () => {
     const wrapper = mount(<DrawerContent />)
 
