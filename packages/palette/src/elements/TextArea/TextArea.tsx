@@ -163,7 +163,7 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
     // 1000px since the textarea dimensions are adjustable
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-box-shadow: 0 0 0px 1000px ${themeGet("colors.white100")} inset;
   }
 
   ${(props) => {

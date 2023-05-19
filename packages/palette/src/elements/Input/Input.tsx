@@ -154,7 +154,7 @@ const StyledInput = styled.input<StyledInputProps>`
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 100px white inset;
+    -webkit-box-shadow: 0 0 0px 100px ${themeGet("colors.white100")} inset;
   }
 
   ${(props) => {
