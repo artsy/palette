@@ -3,7 +3,11 @@ import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Text } from "../Text"
-import { AutocompleteInput, AutocompleteInputProps } from "./AutocompleteInput"
+import {
+  AutocompleteInput,
+  AutocompleteInputOptionType,
+  AutocompleteInputProps,
+} from "./AutocompleteInput"
 import { Clickable } from "../Clickable"
 
 export default {
@@ -220,9 +224,18 @@ const CITIES = [
 
 export const FilterDemo = () => {
   const [query, setQuery] = useState("")
+  const [selection, setSelection] = useState("")
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)
+  }
+
+  const handleSelect = (option: AutocompleteInputOptionType) => {
+    setSelection(JSON.stringify(option))
+  }
+
+  const handleClear = () => {
+    setQuery("")
   }
 
   return (
@@ -232,6 +245,8 @@ export const FilterDemo = () => {
       width="100%"
       alignItems="center"
       justifyContent="center"
+      flexDirection="column"
+      gap={2}
     >
       <AutocompleteInput
         width={["75%", "50%"]}
@@ -240,10 +255,15 @@ export const FilterDemo = () => {
           return option.text.toLowerCase().includes(query.toLowerCase())
         })}
         onChange={handleChange}
-        onSelect={action("onSelect")}
+        onSelect={handleSelect}
+        onClear={handleClear}
         onSubmit={action("onSubmit")}
         onClose={action("onClose")}
       />
+
+      <Text variant="xs">
+        Selected: {selection ? selection : "Nothing Yet"}
+      </Text>
     </Box>
   )
 }

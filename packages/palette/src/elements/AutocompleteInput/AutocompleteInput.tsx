@@ -13,7 +13,7 @@ import { Spinner } from "../Spinner"
 import { DROP_SHADOW } from "../../helpers"
 import SearchIcon from "@artsy/icons/SearchIcon"
 import CloseIcon from "@artsy/icons/CloseIcon"
-import { usePosition, useContainsFocus } from "../../utils"
+import { usePosition, useContainsFocus, useClickOutside } from "../../utils"
 import { useWidthOf } from "../../utils/useWidthOf"
 import { Box, splitBoxProps } from "../Box"
 import { Clickable } from "../Clickable"
@@ -181,6 +181,10 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     resetUI()
   }
 
+  const handleClick = () => {
+    dispatch({ type: "OPEN" })
+  }
+
   const handleMouseEnter = (i: number) => () => {
     set({ cursor: i, interactive: true })
   }
@@ -205,6 +209,18 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     onClear?.()
   }
 
+  const handleClose = useCallback(() => {
+    dispatch({ type: "CLOSE" })
+    reset()
+    onClose?.()
+  }, [onClose, reset])
+
+  const ignoreFocusChangeRef = useRef<boolean>(false)
+  const ignoreFocusChange = {
+    onMouseDown: () => (ignoreFocusChangeRef.current = true),
+    onMouseUp: () => (ignoreFocusChangeRef.current = false),
+  }
+
   // Moves focus to different options when keyboard navigating using up/down
   useEffect(() => {
     const option = optionsWithRefs[index]
@@ -213,12 +229,12 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   const handleFocusChange = useCallback(
     (focused: boolean) => {
-      if (focused || !isDropdownVisible) return
+      if (ignoreFocusChangeRef.current || focused || !isDropdownVisible) return
 
       handleClose()
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [onClose, isDropdownVisible]
+
+    [isDropdownVisible, handleClose]
   )
 
   // Handle closing the dropdown when clicking outside of the input
@@ -227,11 +243,12 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     onChange: handleFocusChange,
   })
 
-  const handleClose = () => {
-    dispatch({ type: "CLOSE" })
-    reset()
-    onClose?.()
-  }
+  useClickOutside({
+    ref: containsFocusRef,
+    onClickOutside: handleClose,
+    when: isDropdownVisible,
+    type: "click",
+  })
 
   const handleInputKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     switch (event.key) {
@@ -329,6 +346,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
         onChange={handleChange}
         onFocus={handleFocus}
         onKeyDown={handleInputKeydown}
+        onClick={handleClick}
         autoComplete="off"
         height={height}
         {...inputProps}
@@ -340,7 +358,9 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
           role="listbox"
           width={width}
         >
-          <div ref={headerRef}>{header}</div>
+          <div ref={headerRef} {...ignoreFocusChange}>
+            {header}
+          </div>
 
           <AutocompleteInputOptions maxHeight={dropdownMaxHeight}>
             {optionsWithRefs.map(({ option, ref }, i) => {
@@ -363,7 +383,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
             })}
           </AutocompleteInputOptions>
 
-          <div ref={footerRef}>
+          <div ref={footerRef} {...ignoreFocusChange}>
             {typeof footer === "function"
               ? footer({ onClose: handleClose })
               : footer}
