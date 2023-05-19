@@ -1,3 +1,16 @@
+# v33.1.2 (Fri May 19 2023)
+
+#### 🐛  Bug Fix
+
+- fix(autocomplete): improves focus management for pointer devices [#1299](https://github.com/artsy/palette/pull/1299) ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): improves focus management for pointer devices ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v33.1.1 (Thu May 18 2023)
 
 #### 🐛  Bug Fix
