@@ -1,22 +1,16 @@
 import React from "react"
 import { mount } from "enzyme"
 import { Drawer } from "../Drawer"
-import { DrawerProvider } from "../DrawerProvider"
 import { Button } from "../../Button"
 import { Text } from "../../Text"
-import { useDrawer } from "../useDrawer"
-
-const Provider = ({ children }) => {
-  return <DrawerProvider>{children}</DrawerProvider>
-}
 
 const DrawerContent: React.FC = () => {
-  const { toggle } = useDrawer()
+  const [open, setOpen] = React.useState(false)
 
   return (
     <>
-      <Button onClick={() => toggle()}>Open</Button>
-      <Drawer>
+      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Drawer open={open} anchor="left" onClose={() => setOpen(false)}>
         <Text>Drawer Content</Text>
       </Drawer>
     </>
@@ -25,30 +19,22 @@ const DrawerContent: React.FC = () => {
 
 describe("Drawer", () => {
   it("renders the drawer content when the open button is clicked", () => {
-    const wrapper = mount(
-      <Provider>
-        <DrawerContent />
-      </Provider>
-    )
+    const wrapper = mount(<DrawerContent />)
 
-    expect(wrapper.find(Drawer).childAt(0).prop("isOpen")).toBe(false)
+    expect(wrapper.find(Drawer).children().length).toBe(0)
 
     wrapper.find(Button).simulate("click")
 
-    expect(wrapper.find(Drawer).childAt(0).prop("isOpen")).toBe(true)
+    expect(wrapper.find(Drawer).prop("open")).toBe(true)
   })
 
   it("hides the drawer when the overlay is clicked", () => {
-    const wrapper = mount(
-      <Provider>
-        <DrawerContent />
-      </Provider>
-    )
+    const wrapper = mount(<DrawerContent />)
 
     wrapper.find("Button").simulate("click")
-    expect(wrapper.find(Drawer).childAt(0).prop("isOpen")).toBe(true)
+    expect(wrapper.find(Drawer).prop("open")).toBe(true)
 
     wrapper.find("[data-testid='drawer-overlay']").first().simulate("click")
-    expect(wrapper.find(Drawer).childAt(0).prop("isOpen")).toBe(false)
+    expect(wrapper.find(Drawer).children().length).toBe(0)
   })
 })

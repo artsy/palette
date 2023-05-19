@@ -1,98 +1,132 @@
 import React, { FC } from "react"
-import { Box, Flex, breakpoints } from "@artsy/palette"
-import styled, { css } from "styled-components"
+import { Box, Flex } from "@artsy/palette"
+import styled, { css, keyframes } from "styled-components"
 import { zIndex } from "styled-system"
-import { useDrawer } from "./useDrawer"
+import { FocusOn } from "react-focus-on"
 
 export interface DrawerProps {
+  open: boolean
   anchor?: "left" | "right"
-  flexContent?: number
-  flexOverlay?: number
+  zIndex?: number
+  onClose?(): void
 }
 
 export const Drawer: FC<DrawerProps> = ({
   children,
   anchor = "right",
-  flexContent = 1,
-  flexOverlay = 3,
+  zIndex = DEFAULT_DRAWER_Z_INDEX,
+  open,
+  onClose,
 }) => {
-  const { isOpen, toggle } = useDrawer()
-  const activeClass = isOpen ? "active" : ""
+  if (!open) {
+    return null
+  }
 
   return (
-    <Container
-      position="fixed"
-      zIndex={9999}
-      className={activeClass}
-      anchor={anchor}
-      isOpen={isOpen}
-    >
-      <Box
-        flex={[1, flexContent]}
-        height="100%"
-        backgroundColor="white100"
-        overflowY="scroll"
-        className={activeClass}
-      >
-        {children}
-      </Box>
+    <Container zIndex={zIndex} anchor={anchor}>
+      <Focus onClickOutside={onClose}>
+        <Content
+          backgroundColor="white100"
+          height="100%"
+          width={["100%", "auto"]}
+          overflowX="hidden"
+          overflowY="scroll"
+          open={open}
+          anchor={anchor}
+          zIndex={zIndex}
+        >
+          {children}
+        </Content>
+      </Focus>
 
       <Overlay
         backgroundColor="black100"
         height="100%"
         display={["none", "flex"]}
-        flex={flexOverlay}
-        onClick={toggle}
-        className={activeClass}
+        onClick={onClose}
         data-testid="drawer-overlay"
+        width="inherit"
       />
     </Container>
   )
 }
 
-const Container = styled(Flex)<DrawerProps & { isOpen: boolean }>`
+const DEFAULT_DRAWER_Z_INDEX = 9999
+
+const slideLeftToRight = keyframes`
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`
+
+const slideRightToLeft = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+`
+
+const Container = styled(Flex)<DrawerProps>`
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(
+  ${zIndex}
+  position: fixed;
+
+  ${(props) => {
+    return css`
+      flex-direction: ${props.anchor === "left" ? "row" : "row-reverse"};
+    `
+  }}
+`
+
+const Content = styled(Box)<DrawerProps & { open: boolean }>`
+  position: absolute;
+  top: 0;
+
+  animation-duration: 200ms;
+  animation-name: ${(props) =>
+    props.anchor === "left" ? slideLeftToRight : slideRightToLeft};
+  animation-timing-function: cubic-bezier(
     0.075,
     0.82,
     0.165,
     1
   ); /* easeOutCirc */
-  align-items: center;
-  justify-content: center;
-  ${zIndex}
 
   ${(props) => {
     return css`
-      transform: translateX(${props.anchor === "left" ? -100 : 100}%);
-      flex-direction: ${props.anchor === "left" ? "row" : "row-reverse"};
-      transition-duration: ${props.isOpen ? "300ms" : "6000ms"};
-      transition-delay: ${props.isOpen ? 0 : 100}ms;
-
-      /* If the screen width is not too big a shorter delay is better */
-      @media (max-width: ${breakpoints.sm}) {
-        transition-duration: ${props.isOpen ? "300ms" : "600ms"};
-      }
+      ${props.anchor === "left" ? "left: 0;" : "right: 0;"};
     `
   }}
-
-  &.active {
-    transform: translateX(0);
-  }
 `
 
 const Overlay = styled(Box)`
-  opacity: 0;
-  transition: opacity 50ms ease;
-  pointer-events: none;
+  opacity: 0.5;
+  pointer-events: auto;
 
-  &.active {
-    opacity: 0.5;
-    pointer-events: auto;
-    transition: opacity 300ms ease 200ms;
-  }
+  animation-duration: 150ms;
+  animation-name: ${fadeIn};
+  animation-timing-function: ease-in-out;
+`
+
+const Focus = styled(FocusOn)`
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 `
