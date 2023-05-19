@@ -3,9 +3,13 @@ import { css } from "styled-components"
 
 export const PHONE_INPUT_STATES = {
   default: css`
-    > div,
+    > div {
+      border-color: ${themeGet("colors.black30")};
+    }
+
     > input {
       border-color: ${themeGet("colors.black30")};
+      outline: none;
     }
 
     > input::placeholder,
