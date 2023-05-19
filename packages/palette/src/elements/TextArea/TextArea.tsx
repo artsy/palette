@@ -100,6 +100,7 @@ export const TextArea: React.ForwardRefExoticComponent<
             defaultValue={defaultValue}
             required={required}
             title={title}
+            placeholder={inputProps.placeholder || " "}
             {...inputProps}
           />
 
@@ -172,7 +173,7 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
       }
 
       &:not(:placeholder-shown) {
-        ${!!props.placeholder && TEXTAREA_STATES.completed}
+        ${TEXTAREA_STATES.completed}
         ${props.error && TEXTAREA_STATES.error}
       }
 

@@ -86,6 +86,7 @@ export const Input: React.ForwardRefExoticComponent<
               inputProps.onChange?.(e)
               if (inputProps.maxLength) countChars(e)
             }}
+            placeholder={inputProps.placeholder || " "}
             {...inputProps}
           />
 
@@ -172,7 +173,7 @@ const StyledInput = styled.input<StyledInputProps>`
       }
 
       &:not(:placeholder-shown) {
-        ${!!props.placeholder && INPUT_STATES.completed}
+        ${INPUT_STATES.completed}
         ${props.error && INPUT_STATES.error}
       }
 
