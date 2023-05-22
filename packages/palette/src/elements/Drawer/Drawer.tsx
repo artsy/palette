@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import { Box, Flex } from "@artsy/palette"
-import styled, { css, keyframes } from "styled-components"
+import styled, { css } from "styled-components"
 import { zIndex } from "styled-system"
 import { FocusOn } from "react-focus-on"
 
@@ -18,13 +18,11 @@ export const Drawer: FC<DrawerProps> = ({
   open,
   onClose,
 }) => {
-  if (!open) {
-    return null
-  }
+  const openClass = open ? "open" : ""
 
   return (
-    <Container zIndex={zIndex} anchor={anchor}>
-      <Focus onClickOutside={onClose}>
+    <Container zIndex={zIndex} anchor={anchor} className={openClass}>
+      <Focus onClickOutside={onClose} enabled={open} onEscapeKey={onClose}>
         <Content
           backgroundColor="white100"
           height="100%"
@@ -33,6 +31,7 @@ export const Drawer: FC<DrawerProps> = ({
           overflowY="scroll"
           anchor={anchor}
           zIndex={zIndex}
+          className={openClass}
         >
           {children}
         </Content>
@@ -45,39 +44,13 @@ export const Drawer: FC<DrawerProps> = ({
         onClick={onClose}
         data-testid="drawer-overlay"
         width="inherit"
+        className={openClass}
       />
     </Container>
   )
 }
 
-const DEFAULT_DRAWER_Z_INDEX = 9999
-
-const slideLeftToRight = keyframes`
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-`
-
-const slideRightToLeft = keyframes`
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-`
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.5;
-  }
-`
+const DEFAULT_DRAWER_Z_INDEX = 1
 
 const Container = styled(Flex)<Pick<DrawerProps, "anchor">>`
   top: 0;
@@ -86,42 +59,43 @@ const Container = styled(Flex)<Pick<DrawerProps, "anchor">>`
   height: 100%;
   ${zIndex}
   position: fixed;
+  pointer-events: none;
 
   ${(props) => {
     return css`
       flex-direction: ${props.anchor === "left" ? "row" : "row-reverse"};
     `
   }}
+
+  &.open {
+    transform: translateX(0px);
+    pointer-events: auto;
+  }
 `
 
 const Content = styled(Box)<Pick<DrawerProps, "anchor">>`
   position: absolute;
   top: 0;
+  transition: transform 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-overflow-scrolling: touch;
 
-  animation-duration: 200ms;
-  animation-name: ${(props) =>
-    props.anchor === "left" ? slideLeftToRight : slideRightToLeft};
-  animation-timing-function: cubic-bezier(
-    0.075,
-    0.82,
-    0.165,
-    1
-  ); /* easeOutCirc */
+  ${(props) => css`
+    ${props.anchor === "left" ? "left: 0;" : "right: 0;"}
+    transform: translateX(${props.anchor === "left" ? "-100%" : "100%"});
+  `};
 
-  ${(props) => {
-    return css`
-      ${props.anchor === "left" ? "left: 0;" : "right: 0;"};
-    `
-  }}
+  &.open {
+    transform: translateX(0);
+  }
 `
 
 const Overlay = styled(Box)`
-  opacity: 0.5;
-  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 150ms linear 50ms;
 
-  animation-duration: 150ms;
-  animation-name: ${fadeIn};
-  animation-timing-function: ease-in-out;
+  &.open {
+    opacity: 0.5;
+  }
 `
 
 const Focus = styled(FocusOn)`

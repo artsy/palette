@@ -23,7 +23,7 @@ describe("Drawer", () => {
   it("renders the drawer content when the open button is clicked", () => {
     const wrapper = mount(<DrawerContent />)
 
-    expect(wrapper.find(Drawer).children().length).toBe(0)
+    expect(wrapper.find(Drawer).prop("open")).toBe(false)
 
     wrapper.find(Button).simulate("click")
 
@@ -37,6 +37,6 @@ describe("Drawer", () => {
     expect(wrapper.find(Drawer).prop("open")).toBe(true)
 
     wrapper.find("[data-testid='drawer-overlay']").first().simulate("click")
-    expect(wrapper.find(Drawer).children().length).toBe(0)
+    expect(wrapper.find(Drawer).prop("open")).toBe(false)
   })
 })
