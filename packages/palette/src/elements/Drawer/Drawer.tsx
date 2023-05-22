@@ -68,7 +68,6 @@ const Container = styled(Flex)<Pick<DrawerProps, "anchor">>`
   }}
 
   &.open {
-    transform: translateX(0px);
     pointer-events: auto;
   }
 `
