@@ -31,7 +31,6 @@ export const Drawer: FC<DrawerProps> = ({
           overflowY="scroll"
           anchor={anchor}
           zIndex={zIndex}
-          className={openClass}
         >
           {children}
         </Content>
@@ -44,13 +43,29 @@ export const Drawer: FC<DrawerProps> = ({
         onClick={onClose}
         data-testid="drawer-overlay"
         width="inherit"
-        className={openClass}
       />
     </Container>
   )
 }
 
 const DEFAULT_DRAWER_Z_INDEX = 1
+
+const Content = styled(Box)<Pick<DrawerProps, "anchor">>`
+  position: absolute;
+  top: 0;
+  transition: transform 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-overflow-scrolling: touch;
+
+  ${(props) => css`
+    ${props.anchor === "left" ? "left: 0;" : "right: 0;"}
+    transform: translateX(${props.anchor === "left" ? "-100%" : "100%"});
+  `};
+`
+
+const Overlay = styled(Box)`
+  opacity: 0;
+  transition: opacity 150ms linear 50ms;
+`
 
 const Container = styled(Flex)<Pick<DrawerProps, "anchor">>`
   top: 0;
@@ -68,32 +83,16 @@ const Container = styled(Flex)<Pick<DrawerProps, "anchor">>`
   }}
 
   &.open {
+    transform: translateX(0px);
     pointer-events: auto;
-  }
-`
 
-const Content = styled(Box)<Pick<DrawerProps, "anchor">>`
-  position: absolute;
-  top: 0;
-  transition: transform 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
-  -webkit-overflow-scrolling: touch;
+    ${Content} {
+      transform: translateX(0px);
+    }
 
-  ${(props) => css`
-    ${props.anchor === "left" ? "left: 0;" : "right: 0;"}
-    transform: translateX(${props.anchor === "left" ? "-100%" : "100%"});
-  `};
-
-  &.open {
-    transform: translateX(0);
-  }
-`
-
-const Overlay = styled(Box)`
-  opacity: 0;
-  transition: opacity 150ms linear 50ms;
-
-  &.open {
-    opacity: 0.5;
+    ${Overlay} {
+      opacity: 0.5;
+    }
   }
 `
 
