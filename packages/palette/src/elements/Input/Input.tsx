@@ -60,7 +60,12 @@ export const Input: React.ForwardRefExoticComponent<
     }
 
     return (
-      <Box width="100%" className={className} {...boxProps}>
+      <Box
+        pt={title && !description ? 1 : 0}
+        width="100%"
+        className={className}
+        {...boxProps}
+      >
         {!!description && (
           <Tooltip pointer content={description} placement="top-end">
             <Text variant="xs" color="black60" textAlign="right">
