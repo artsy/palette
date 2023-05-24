@@ -61,7 +61,7 @@ export const Input: React.ForwardRefExoticComponent<
 
     return (
       <Box
-        pt={title && !description ? 1 : 0}
+        pt={title && !description ? 0.5 : 0}
         width="100%"
         className={className}
         {...boxProps}
