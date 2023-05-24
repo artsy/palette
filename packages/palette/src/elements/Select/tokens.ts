@@ -26,6 +26,8 @@ export const SELECT_STATES: Record<State, any> = {
 
     + label {
       color: ${themeGet("colors.blue100")};
+      transform: translateY(-150%);
+      font-size: ${themeGet("textVariants.xs.fontSize")};
     }
 
     &:has(option[value=""]:checked) + label {
