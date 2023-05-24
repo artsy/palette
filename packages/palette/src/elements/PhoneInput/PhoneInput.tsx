@@ -92,12 +92,6 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       defaultOption || options[0]
     )
 
-    const { anchorRef, tooltipRef } = usePosition({
-      position: "bottom",
-      offset: 10,
-      active: isDropdownVisible,
-    })
-
     const filteredOptions = options.filter((option) => {
       if (searchQuery !== "") {
         const filteredCountry =
@@ -106,6 +100,14 @@ export const PhoneInput: React.ForwardRefExoticComponent<
         return filteredCountry
       }
       return true
+    })
+
+    const { anchorRef, tooltipRef } = usePosition({
+      key: filteredOptions.length,
+      position: "bottom",
+      offset: 10,
+      active: isDropdownVisible,
+      flip: false,
     })
 
     const { index, reset, set } = useKeyboardListNavigation({
