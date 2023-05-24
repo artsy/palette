@@ -198,7 +198,7 @@ const Container = styled(Box)<ContainerProps>`
           ${props.error && SELECT_STATES.error}
         }
 
-        &:has(option[value=""]:checked) {
+        &:not(:focus):has(option[value=""]:checked) {
           ${props.title &&
           css`
             color: transparent;
