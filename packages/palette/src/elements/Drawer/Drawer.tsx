@@ -1,6 +1,5 @@
 import React, { FC } from "react"
-import { Box } from "../Box"
-import { Flex } from "../Flex"
+import { Box, Flex } from "@artsy/palette"
 import styled, { css } from "styled-components"
 import { zIndex } from "styled-system"
 import { FocusOn } from "react-focus-on"
@@ -37,15 +36,10 @@ export const Drawer: FC<DrawerProps> = ({
           overflowY="scroll"
           anchor={anchor}
           zIndex={zIndex}
-          transition={
-            open
-              ? "transform .6s cubic-bezier(0.190, 1.000, 0.220, 1.000)" // easeOutExpo
-              : "transform 1s cubic-bezier(0.075, 0.820, 0.165, 1.000)" // easeOutCirc
-          }
           style={{
             transform: open
               ? "translateX(0)"
-              : `translateX(${anchor === "left" ? "-110%" : "110%"})`,
+              : `translateX(${anchor === "left" ? "-100%" : "100%"})`,
           }}
         >
           {children}
@@ -69,16 +63,11 @@ export const Drawer: FC<DrawerProps> = ({
 
 const DEFAULT_DRAWER_Z_INDEX = 1
 
-const Content = styled(Box)<
-  Pick<DrawerProps, "anchor"> & { transition: string }
->`
+const Content = styled(Box)<Pick<DrawerProps, "anchor">>`
   position: absolute;
   top: 0;
+  transition: transform 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-overflow-scrolling: touch;
-
-  ${(props) => css`
-    transition: ${props.transition};
-  `}
 
   ${(props) => css`
     ${props.anchor === "left" ? "left: 0;" : "right: 0;"}
