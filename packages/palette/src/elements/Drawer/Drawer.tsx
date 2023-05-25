@@ -18,10 +18,15 @@ export const Drawer: FC<DrawerProps> = ({
   open,
   onClose,
 }) => {
-  const openClass = open ? "open" : ""
-
   return (
-    <Container zIndex={zIndex} anchor={anchor} className={openClass}>
+    <Container
+      zIndex={zIndex}
+      anchor={anchor}
+      style={{
+        pointerEvents: open ? "auto" : "none",
+        transform: open ? "translateX(0)" : "none",
+      }}
+    >
       <Focus onClickOutside={onClose} enabled={open} onEscapeKey={onClose}>
         <Content
           backgroundColor="white100"
@@ -31,6 +36,11 @@ export const Drawer: FC<DrawerProps> = ({
           overflowY="scroll"
           anchor={anchor}
           zIndex={zIndex}
+          style={{
+            transform: open
+              ? "translateX(0)"
+              : `translateX(${anchor === "left" ? "-100%" : "100%"})`,
+          }}
         >
           {children}
         </Content>
@@ -43,6 +53,9 @@ export const Drawer: FC<DrawerProps> = ({
         onClick={onClose}
         data-testid="drawer-overlay"
         width="inherit"
+        style={{
+          opacity: open ? "0.5" : "0",
+        }}
       />
     </Container>
   )
@@ -58,12 +71,10 @@ const Content = styled(Box)<Pick<DrawerProps, "anchor">>`
 
   ${(props) => css`
     ${props.anchor === "left" ? "left: 0;" : "right: 0;"}
-    transform: translateX(${props.anchor === "left" ? "-100%" : "100%"});
   `};
 `
 
 const Overlay = styled(Box)`
-  opacity: 0;
   transition: opacity 150ms linear 50ms;
 `
 
@@ -74,26 +85,12 @@ const Container = styled(Flex)<Pick<DrawerProps, "anchor">>`
   height: 100%;
   ${zIndex}
   position: fixed;
-  pointer-events: none;
 
   ${(props) => {
     return css`
       flex-direction: ${props.anchor === "left" ? "row" : "row-reverse"};
     `
   }}
-
-  &.open {
-    transform: translateX(0px);
-    pointer-events: auto;
-
-    ${Content} {
-      transform: translateX(0px);
-    }
-
-    ${Overlay} {
-      opacity: 0.5;
-    }
-  }
 `
 
 const Focus = styled(FocusOn)`
