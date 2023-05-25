@@ -1,3 +1,15 @@
+# v33.2.0 (Thu May 25 2023)
+
+#### 🚀  Enhancement
+
+- feat(NX-3251): add drawer element [#1295](https://github.com/artsy/palette/pull/1295) ([@araujobarret](https://github.com/araujobarret))
+
+#### Authors: 1
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+
+---
+
 # v33.1.2 (Fri May 19 2023)
 
 #### 🐛  Bug Fix
