@@ -1,3 +1,15 @@
+# v33.3.0 (Fri May 26 2023)
+
+#### 🚀  Enhancement
+
+- feat(Drawer): export Drawer element [#1300](https://github.com/artsy/palette/pull/1300) ([@araujobarret](https://github.com/araujobarret))
+
+#### Authors: 1
+
+- Carlos Alberto de Araujo Barreto ([@araujobarret](https://github.com/araujobarret))
+
+---
+
 # v33.2.0 (Thu May 25 2023)
 
 #### 🚀  Enhancement
