@@ -1,5 +1,6 @@
 import React, { FC } from "react"
-import { Box, Flex } from "@artsy/palette"
+import { Box } from "../Box"
+import { Flex } from "../Flex"
 import styled, { css } from "styled-components"
 import { zIndex } from "styled-system"
 import { FocusOn } from "react-focus-on"
