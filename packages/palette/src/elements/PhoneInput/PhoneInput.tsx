@@ -297,7 +297,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
           <SelectDropdown ref={tooltipRef as any} role="listbox" width={width}>
             <Input
               ref={searchInputRef}
-              mb={1}
+              p={1}
               autoFocus
               placeholder="Search"
               value={searchQuery}
@@ -434,7 +434,6 @@ const SelectDropdown = styled(Box)`
   box-shadow: ${DROP_SHADOW};
   z-index: 1;
   background: ${themeGet("colors.white100")};
-  padding: ${themeGet("space.1")};
 `
 
 const SelectOptions = styled(Box)`
@@ -442,6 +441,7 @@ const SelectOptions = styled(Box)`
   max-height: 308px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  padding: ${themeGet("space.1")};
 `
 
 const SelectOption = styled(Box)<{ selected?: boolean }>`
@@ -457,10 +457,6 @@ const SelectOption = styled(Box)<{ selected?: boolean }>`
   &:hover {
     color: ${themeGet("colors.blue100")};
     text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: none;
   }
 
   &:focus,
