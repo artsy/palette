@@ -298,6 +298,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
             <Input
               ref={searchInputRef}
               p={1}
+              pb={0}
               autoFocus
               placeholder="Search"
               value={searchQuery}
