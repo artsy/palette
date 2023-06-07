@@ -1,13 +1,6 @@
 import composeRefs from "@seznam/compose-react-refs"
 import { themeGet } from "@styled-system/theme-get"
-import React, {
-  createRef,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react"
+import React, { createRef, useCallback, useMemo, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
 import { DROP_SHADOW } from "../../helpers"
@@ -110,7 +103,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       flip: false,
     })
 
-    const { index, reset, set } = useKeyboardListNavigation({
+    const { reset, set } = useKeyboardListNavigation({
       ref: containerRef,
       list: filteredOptions,
       waitForInteractive: true,
@@ -151,11 +144,6 @@ export const PhoneInput: React.ForwardRefExoticComponent<
       onSelect?.(option)
     }
 
-    useEffect(() => {
-      const option = optionsWithRefs[index]
-      option?.ref?.current?.focus()
-    }, [index, optionsWithRefs])
-
     const handleFocusChange = useCallback(
       (focused: boolean) => {
         if (focused || !isDropdownVisible) return
@@ -170,34 +158,6 @@ export const PhoneInput: React.ForwardRefExoticComponent<
     const { ref: containsFocusRef } = useContainsFocus({
       onChange: handleFocusChange,
     })
-
-    // Moves focus back to input when typing
-    const handleContainerKeydown = (
-      event: React.KeyboardEvent<HTMLDivElement>
-    ) => {
-      switch (event.key) {
-        case "Alt":
-        case "ArrowDown":
-        case "ArrowUp":
-        case "Control":
-        case "Enter":
-        case "Meta":
-        case "Shift":
-        case "Tab":
-          // Ignore
-          return
-
-        case "Escape":
-          event.preventDefault()
-          event.stopPropagation()
-
-          setDropdownVisible(false)
-          inputRef.current?.blur()
-          reset()
-
-          return
-      }
-    }
 
     const handleCountryPickerKeydown = (
       event: React.KeyboardEvent<HTMLDivElement>
@@ -242,6 +202,14 @@ export const PhoneInput: React.ForwardRefExoticComponent<
           }
           return
 
+        case "Enter":
+          event.preventDefault()
+          event.stopPropagation()
+          if (filteredOptions.length) {
+            handleSelect(filteredOptions[0])
+          }
+          return
+
         default:
           searchInputRef.current?.focus()
       }
@@ -249,7 +217,6 @@ export const PhoneInput: React.ForwardRefExoticComponent<
 
     return (
       <Box
-        onKeyDown={handleContainerKeydown}
         ref={composeRefs(containerRef, containsFocusRef) as any}
         width="100%"
         className={className}
