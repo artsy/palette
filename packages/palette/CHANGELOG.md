@@ -1,3 +1,19 @@
+# v34.0.0 (Thu Jun 22 2023)
+
+#### 💥  Breaking Change
+
+- fix(modaldialog): corrects padding with header [#1302](https://github.com/artsy/palette/pull/1302) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(modaldialog): corrects padding with header ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v33.3.0 (Fri May 26 2023)
 
 #### 🚀  Enhancement
