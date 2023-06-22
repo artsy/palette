@@ -80,7 +80,11 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
             </Close>
           </Flex>
 
-          {header && <Box p={2}>{header}</Box>}
+          {header && (
+            <Box px={2} pb={2}>
+              {header}
+            </Box>
+          )}
         </Flex>
 
         <Box
