@@ -1,3 +1,19 @@
+# v34.1.0 (Wed Jun 28 2023)
+
+#### 🚀  Enhancement
+
+- feat(autocomplete): allows configuration of clamp/flip [#1303](https://github.com/artsy/palette/pull/1303) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(autocomplete): allows configuration of clamp/flip ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v34.0.0 (Thu Jun 22 2023)
 
 #### 💥  Breaking Change
