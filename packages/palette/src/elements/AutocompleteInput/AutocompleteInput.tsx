@@ -64,9 +64,14 @@ const reducer = (state: State, action: Action): State => {
 
 export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   extends Omit<InputProps, "onSelect" | "onSubmit"> {
+  /** Optionally enable clamping (default: `false`) */
+  clamp?: boolean
   defaultValue?: string
+  dropdownMaxHeight?: ResponsiveValue<string | number>
   loading?: boolean
   header?: React.ReactNode
+  /** Optionally disable flipping (default: `true`) */
+  flip?: boolean
   footer?:
     | React.ReactNode
     | ((dropdownActions: AutocompleteFooterActions) => void)
@@ -78,31 +83,32 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   onClear?(): void
   /** Callback that runs when options are hidden */
   onClose?(): void
+  options: T[]
   renderOption?(
     option: T,
     i: number
   ): React.ReactElement<any, string | React.JSXElementConstructor<any>>
-  options: T[]
-  dropdownMaxHeight?: ResponsiveValue<string | number>
 }
 
 /** AutocompleteInput */
 export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
+  clamp = false,
   defaultValue = "",
+  dropdownMaxHeight = 308, // 308 = roughly 5.5 options
+  flip = true,
+  footer,
+  header,
+  height,
   id,
   loading,
-  header,
-  footer,
-  onSubmit,
-  onSelect,
   onChange,
   onClear,
   onClose,
   onKeyDown,
-  height,
-  renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
+  onSelect,
+  onSubmit,
   options,
-  dropdownMaxHeight = 308, // 308 = roughly 5.5 options
+  renderOption = (option) => <AutocompleteInputOptionLabel {...option} />,
   ...rest
 }: AutocompleteInputProps<T>) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -162,11 +168,12 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   }, [reset, state.query])
 
   const { anchorRef, tooltipRef } = usePosition({
-    key: options.length,
-    position: "bottom",
-    offset: 10,
     active: isDropdownVisible,
-    clamp: false,
+    clamp,
+    flip,
+    key: options.length,
+    offset: 10,
+    position: "bottom",
   })
 
   const { width } = useWidthOf({ ref: anchorRef })
