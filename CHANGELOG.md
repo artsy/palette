@@ -1,3 +1,16 @@
+# (Wed Jun 28 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@34.1.0`
+  - feat(autocomplete): allows configuration of clamp/flip [#1303](https://github.com/artsy/palette/pull/1303) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Jun 22 2023)
 
 #### 💥  Breaking Change
