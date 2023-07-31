@@ -37,6 +37,11 @@ export const Drawer: FC<DrawerProps> = ({
           overflowY="scroll"
           anchor={anchor}
           zIndex={zIndex}
+          transition={
+            open
+              ? "transform .6s cubic-bezier(0.190, 1.000, 0.220, 1.000)" // easeOutExpo
+              : "transform .3s cubic-bezier(0.600, 0.040, 0.980, 0.335)" // easeInCirc
+          }
           style={{
             transform: open
               ? "translateX(0)"
@@ -64,11 +69,16 @@ export const Drawer: FC<DrawerProps> = ({
 
 const DEFAULT_DRAWER_Z_INDEX = 1
 
-const Content = styled(Box)<Pick<DrawerProps, "anchor">>`
+const Content = styled(Box)<
+  Pick<DrawerProps, "anchor"> & { transition: string }
+>`
   position: absolute;
   top: 0;
-  transition: transform 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-overflow-scrolling: touch;
+
+  ${(props) => css`
+    transition: ${props.transition};
+  `}
 
   ${(props) => css`
     ${props.anchor === "left" ? "left: 0;" : "right: 0;"}
