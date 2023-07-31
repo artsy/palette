@@ -1,3 +1,16 @@
+# (Mon Jul 31 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@34.1.1`
+  - chore(drawer): Smooth out animation [#1304](https://github.com/artsy/palette/pull/1304) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Wed Jun 28 2023)
 
 #### 🚀  Enhancement
