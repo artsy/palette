@@ -1,3 +1,19 @@
+# v34.3.0 (Tue Aug 01 2023)
+
+#### 🚀  Enhancement
+
+- feat(modaldialog): exposes modal close button [#1306](https://github.com/artsy/palette/pull/1306) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(modaldialog): exposes modal close button ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v34.2.0 (Tue Aug 01 2023)
 
 #### 🚀  Enhancement
