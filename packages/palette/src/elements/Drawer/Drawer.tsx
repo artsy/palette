@@ -40,12 +40,12 @@ export const Drawer: FC<DrawerProps> = ({
           transition={
             open
               ? "transform .6s cubic-bezier(0.190, 1.000, 0.220, 1.000)" // easeOutExpo
-              : "transform .3s cubic-bezier(0.600, 0.040, 0.980, 0.335)" // easeInCirc
+              : "transform 1s cubic-bezier(0.075, 0.820, 0.165, 1.000)" // easeOutCirc
           }
           style={{
             transform: open
               ? "translateX(0)"
-              : `translateX(${anchor === "left" ? "-100%" : "100%"})`,
+              : `translateX(${anchor === "left" ? "-100%" : "110%"})`,
           }}
         >
           {children}
