@@ -1,5 +1,5 @@
-import React from "react"
-import { Clickable } from "../Clickable"
+import React, { FC } from "react"
+import { Clickable, ClickableProps } from "../Clickable"
 import { DROP_SHADOW } from "../../helpers/shadow"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
@@ -75,9 +75,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
               </Box>
             )}
 
-            <Close p={2} ml="auto" onClick={onClose} aria-label="Close">
-              <CloseIcon fill="currentColor" display="block" />
-            </Close>
+            <ModalClose onClick={onClose} />
           </Flex>
 
           {header && (
@@ -114,6 +112,16 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
 
       {rightPanel}
     </Flex>
+  )
+}
+
+export type ModalCloseProps = ClickableProps
+
+export const ModalClose: FC<ModalCloseProps> = (props) => {
+  return (
+    <Close p={2} ml="auto" aria-label="Close" {...props}>
+      <CloseIcon fill="currentColor" display="block" />
+    </Close>
   )
 }
 
