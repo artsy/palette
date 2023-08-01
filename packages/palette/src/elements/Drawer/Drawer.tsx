@@ -45,7 +45,7 @@ export const Drawer: FC<DrawerProps> = ({
           style={{
             transform: open
               ? "translateX(0)"
-              : `translateX(${anchor === "left" ? "-100%" : "110%"})`,
+              : `translateX(${anchor === "left" ? "-110%" : "110%"})`,
           }}
         >
           {children}
