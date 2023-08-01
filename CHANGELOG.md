@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@34.3.0`
+  - feat(modaldialog): exposes modal close button [#1306](https://github.com/artsy/palette/pull/1306) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Aug 01 2023)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@34.2.0`
   - fix(drawer): Update transition a bit more [#1305](https://github.com/artsy/palette/pull/1305) ([@damassi](https://github.com/damassi))
 
