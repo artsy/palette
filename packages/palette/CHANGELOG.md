@@ -1,3 +1,23 @@
+# v34.2.0 (Tue Aug 01 2023)
+
+#### 🚀  Enhancement
+
+- fix(drawer): Update transition a bit more [#1305](https://github.com/artsy/palette/pull/1305) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix(drawer): update transition a bit more ([@damassi](https://github.com/damassi))
+
+#### ⚠️ Pushed to `main`
+
+- fix(drawer): fix out position ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v34.1.1 (Mon Jul 31 2023)
 
 #### 🐛  Bug Fix
