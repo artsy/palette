@@ -1,3 +1,16 @@
+# (Wed Aug 09 2023)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette@35.0.0`
+  - chore: removes deprecated modal and dialog [#1308](https://github.com/artsy/palette/pull/1308) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Aug 01 2023)
 
 #### 🚀  Enhancement
