@@ -1,3 +1,16 @@
+# (Fri Aug 25 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@35.1.0`
+  - feat(autocompleteinput): exposes ref to the underlying input [#1309](https://github.com/artsy/palette/pull/1309) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Aug 09 2023)
 
 #### 💥  Breaking Change
