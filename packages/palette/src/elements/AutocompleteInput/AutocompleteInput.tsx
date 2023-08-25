@@ -75,6 +75,8 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   footer?:
     | React.ReactNode
     | ((dropdownActions: AutocompleteFooterActions) => void)
+  /** Ref to the input; workaround generics */
+  forwardRef?: React.Ref<HTMLInputElement>
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
@@ -97,6 +99,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   dropdownMaxHeight = 308, // 308 = roughly 5.5 options
   flip = true,
   footer,
+  forwardRef: forwardedRef,
   header,
   height,
   id,
@@ -325,7 +328,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
       {...boxProps}
     >
       <LabeledInput
-        ref={composeRefs(inputRef, anchorRef) as any}
+        ref={composeRefs(inputRef, anchorRef, forwardedRef) as any}
         role="combobox"
         aria-expanded={isDropdownVisible}
         aria-autocomplete="list"
