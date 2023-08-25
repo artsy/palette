@@ -1,5 +1,5 @@
 import { action } from "@storybook/addon-actions"
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Text } from "../Text"
@@ -9,6 +9,8 @@ import {
   AutocompleteInputProps,
 } from "./AutocompleteInput"
 import { Clickable } from "../Clickable"
+import { Flex } from "../Flex"
+import { Button } from "../Button"
 
 export default {
   title: "Components/AutocompleteInput",
@@ -265,5 +267,30 @@ export const FilterDemo = () => {
         Selected: {selection ? selection : "Nothing Yet"}
       </Text>
     </Box>
+  )
+}
+
+export const ProgrammaticFocus = () => {
+  const ref = useRef<HTMLInputElement | null>(null)
+
+  return (
+    <Flex flexDirection="column" gap={2}>
+      <AutocompleteInput
+        forwardRef={ref}
+        width={["75%", "50%"]}
+        placeholder="Begin typing..."
+        options={CITIES}
+      />
+
+      <Button
+        onClick={() => {
+          if (!ref.current) return
+          console.log({ ref })
+          ref.current.focus()
+        }}
+      >
+        Focus input
+      </Button>
+    </Flex>
   )
 }
