@@ -99,6 +99,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   dropdownMaxHeight = 308, // 308 = roughly 5.5 options
   flip = true,
   footer,
+  forwardRef: forwardedRef,
   header,
   height,
   id,
