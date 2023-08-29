@@ -53,7 +53,7 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
   }
 
   return (
-    <Container aria-expanded={expanded} showDetails={expanded}>
+    <Container aria-expanded={expanded}>
       {expanded ? (
         <>
           <Box dangerouslySetInnerHTML={{ __html: expandedHTML }} />
@@ -85,12 +85,7 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
   )
 }
 
-const Container = styled.div<{
-  showDetails: boolean
-}>`
-  transition: max-height 3s;
-  max-height: ${({ showDetails }) =>
-    showDetails ? "1000px" : "calc(1.5rem * 2)"};
+const Container = styled.div`
   > * > span > *:last-child {
     display: inherit;
   }
