@@ -1,3 +1,16 @@
+# (Thu Aug 31 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@35.2.0`
+  - style(range): fix spurious shadows in mobile Safari [#1311](https://github.com/artsy/palette/pull/1311) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # (Fri Aug 25 2023)
 
 #### 🚀  Enhancement
