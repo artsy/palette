@@ -69,8 +69,8 @@ export const Range: React.FC<RangeProps> = ({
     }
   }, [])
 
-   // Sync local state with value prop
-   useUpdateEffect(() => {
+  // Sync local state with value prop
+  useUpdateEffect(() => {
     setValues(value)
   }, [...value])
 
@@ -114,15 +114,6 @@ export const Range: React.FC<RangeProps> = ({
         style={{ clip: maxRectangle }}
         aria-label={ariaLabels?.[1]}
       />
-
-      {/* Max slider is clipped so position a shadow independent of it */}
-      <Shadow
-        left={remapValue(
-          values[1],
-          { min, max },
-          { min: 0, max: maxWidth - RANGE_HANDLE_SIZE }
-        )}
-      />
     </Track>
   )
 }
@@ -143,18 +134,6 @@ const Track = styled(Flex)`
     margin-top: -1px;
     background-color: ${themeGet("colors.black30")};
   }
-`
-
-const Shadow = styled(Box)`
-  position: absolute;
-  width: ${RANGE_HANDLE_SIZE}px;
-  height: ${RANGE_HANDLE_SIZE}px;
-  top: 50%;
-  margin-top: -${RANGE_HANDLE_SIZE / 2}px;
-  background-color: transparent;
-  pointer-events: none;
-  border-radius: 50%;
-  box-shadow: ${FLAT_SHADOW};
 `
 
 const Selection = styled(Box)`
@@ -180,6 +159,7 @@ const handleStyles = css`
   background-color: ${themeGet("colors.white100")};
   border-radius: 50%;
   border: 1px solid ${themeGet("colors.black10")};
+  box-shadow: ${FLAT_SHADOW};
 `
 
 const Slider = styled.input`
@@ -218,16 +198,6 @@ const Slider = styled.input`
     &::-moz-range-thumb {
       box-shadow: none;
       background-color: ${themeGet("colors.black5")};
-    }
-  }
-
-  &:first-of-type {
-    &::-webkit-slider-thumb {
-      box-shadow: ${FLAT_SHADOW};
-    }
-
-    &::-moz-range-thumb {
-      box-shadow: ${FLAT_SHADOW};
     }
   }
 `
