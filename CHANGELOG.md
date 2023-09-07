@@ -1,3 +1,16 @@
+# (Thu Sep 07 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@35.3.0`
+  - feat(stack): implements stack component [#1312](https://github.com/artsy/palette/pull/1312) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Aug 31 2023)
 
 #### 🚀  Enhancement

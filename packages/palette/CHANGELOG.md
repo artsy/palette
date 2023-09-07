@@ -1,3 +1,19 @@
+# v35.3.0 (Thu Sep 07 2023)
+
+#### 🚀  Enhancement
+
+- feat(stack): implements stack component [#1312](https://github.com/artsy/palette/pull/1312) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(stack): implements stack component ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v35.2.0 (Thu Aug 31 2023)
 
 #### 🚀  Enhancement
