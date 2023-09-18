@@ -16,6 +16,7 @@ export const PILL_VARIANT_NAMES = [
   "filter",
   "profile",
   "badge",
+  "gray",
 ] as const
 
 export type PillVariant = typeof PILL_VARIANT_NAMES[number]
@@ -45,7 +46,7 @@ export type PillProps = ClickableProps & {
     | {
         variant?: Extract<
           PillVariant,
-          "default" | "search" | "badge" | "filter"
+          "default" | "search" | "badge" | "filter" | "gray"
         >
       }
     | {

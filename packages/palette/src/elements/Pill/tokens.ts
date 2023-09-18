@@ -152,7 +152,7 @@ export const PILL_VARIANTS: Record<
     active: css`
       background-color: ${themeGet("colors.black5")};
       border-color: ${themeGet("colors.black5")};
-      color: ${themeGet("colors.blue100")};
+      color: ${themeGet("colors.black100")};
       text-decoration: underline;
     `,
     selected: css`
@@ -206,5 +206,36 @@ export const PILL_VARIANTS: Record<
       border-color: ${themeGet("colors.blue10")};
       color: ${themeGet("colors.blue100")};
     `,
+  },
+
+  gray: {
+    default: css`
+      border-radius: 15px;
+      height: 30px;
+      padding: 0 15px;
+      background-color: ${themeGet("colors.black10")};
+      border-color: ${themeGet("colors.black10")};
+      color: ${themeGet("colors.black100")};
+    `,
+    hover: css`
+      background-color: ${themeGet("colors.black10")};
+      border-color: ${themeGet("colors.black10")};
+      color: ${themeGet("colors.blue100")};
+      text-decoration: underline;
+    `,
+    focus: css`
+      background-color: ${themeGet("colors.black10")};
+      border-color: ${themeGet("colors.black10")};
+      color: ${themeGet("colors.blue100")};
+      text-decoration: underline;
+    `,
+    active: css`
+      background-color: ${themeGet("colors.black10")};
+      border-color: ${themeGet("colors.black10")};
+      color: ${themeGet("colors.black100")};
+      text-decoration: underline;
+    `,
+    selected: DEFAULT_STATES.selected,
+    disabled: DEFAULT_STATES.disabled,
   },
 }
