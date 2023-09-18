@@ -38,7 +38,7 @@ export const Range: React.FC<RangeProps> = ({
   const handleMinChange = ({
     target: { valueAsNumber: value },
   }: React.ChangeEvent<HTMLInputElement>) => {
-    if (value > values[1]) return
+    if (value > values[1] - step) return
     setValues([value, values[1]])
     onChange?.([value, values[1]])
   }
@@ -46,7 +46,7 @@ export const Range: React.FC<RangeProps> = ({
   const handleMaxChange = ({
     target: { valueAsNumber: value },
   }: React.ChangeEvent<HTMLInputElement>) => {
-    if (value < values[0]) return
+    if (value < values[0] + step) return
     setValues([values[0], value])
     onChange?.([values[0], value])
   }
