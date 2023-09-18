@@ -14,7 +14,7 @@ export const PILL_VARIANT_NAMES = [
   "default",
   "search",
   "filter",
-  "artist",
+  "profile",
   "badge",
 ] as const
 
@@ -49,8 +49,8 @@ export type PillProps = ClickableProps & {
         >
       }
     | {
-        /** `"artist"` pills have an optional `src` */
-        variant?: Extract<PillVariant, "artist">
+        /** `"profile"` pills have an optional `src` */
+        variant?: Extract<PillVariant, "profile">
         /**
          * Optional avatar; 1x or [1x, 2x]
          * Should target 30x30 @1x, 60x60 @2x
@@ -68,12 +68,12 @@ export type PillProps = ClickableProps & {
 /**
  * A Pill is a non-CTA button.
  * It may be used for things like active filters, search states,
- * or to denote an artist entity (possibly in the context of a card).
+ * or to denote an profile entity (possibly in the context of a card).
  */
 export const Pill: React.FC<PillProps> = ({ children, Icon, ...rest }) => {
   return (
     <Container {...rest}>
-      {rest.variant === "artist" && (
+      {rest.variant === "profile" && (
         <Thumbnail
           {...(rest.src
             ? { src: typeof rest.src === "string" ? rest.src : rest.src[0] }
@@ -103,7 +103,7 @@ export const Pill: React.FC<PillProps> = ({ children, Icon, ...rest }) => {
       </Text>
 
       {((rest.variant === "filter" && !rest.disabled) ||
-        (rest.variant === "artist" && rest.selected)) && (
+        (rest.variant === "profile" && rest.selected)) && (
         <CloseIcon fill="currentColor" ml={0.5} width={15} height={15} />
       )}
     </Container>

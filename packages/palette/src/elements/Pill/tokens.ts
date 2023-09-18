@@ -140,28 +140,31 @@ export const PILL_VARIANTS: Record<
     `,
   },
 
-  artist: {
+  profile: {
     ...DEFAULT_STATES,
     default: css`
       border-radius: 25px;
       height: 50px;
       padding: 0 ${themeGet("space.2")} 0 ${themeGet("space.1")};
+      background-color: ${themeGet("colors.black5")};
+      border-color: ${themeGet("colors.black5")};
     `,
     active: css`
-      background-color: ${themeGet("colors.black10")};
-      border-color: ${themeGet("colors.black10")};
+      background-color: ${themeGet("colors.black5")};
+      border-color: ${themeGet("colors.black5")};
       color: ${themeGet("colors.blue100")};
       text-decoration: underline;
     `,
     selected: css`
-      background-color: transparent;
       border-color: ${themeGet("colors.blue100")};
       color: ${themeGet("colors.black100")};
+      background-color: ${themeGet("colors.black5")};
+      border-color: ${themeGet("colors.black5")};
     `,
     disabled: css`
-      background-color: transparent;
-      border-color: ${themeGet("colors.black10")};
-      color: ${themeGet("colors.black60")};
+      background-color: ${themeGet("colors.black5")};
+      border-color: ${themeGet("colors.black5")};
+      color: ${themeGet("colors.black30")};
     `,
   },
 
