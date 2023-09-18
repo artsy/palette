@@ -1,5 +1,18 @@
 # (Mon Sep 18 2023)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@36.1.0`
+  - fix(range): prevent min from exactly equaling max [#1313](https://github.com/artsy/palette/pull/1313) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
+# (Mon Sep 18 2023)
+
 #### 💥  Breaking Change
 
 - `@artsy/palette@36.0.0`
