@@ -64,10 +64,10 @@ export const Variants = () => {
 export const LinkExample = () => {
   return (
     <Pill
-      variant="artist"
+      variant="profile"
       as="a"
       // TODO: Need a decent way of typing the threaded polymorphic `as` prop
-      // @ts-expect-error  MIGRATE_STRICT_MODE
+      // @ts-expect-error MIGRATE_STRICT_MODE
       href="#example"
     >
       Artist Name
@@ -115,7 +115,7 @@ export const ArtistWithImage = () => {
       ]}
     >
       <Pill
-        variant="artist"
+        variant="profile"
         src={[
           "https://picsum.photos/seed/isa/30/30",
           "https://picsum.photos/seed/isa/60/60",
