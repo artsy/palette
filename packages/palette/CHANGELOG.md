@@ -1,3 +1,20 @@
+# v36.0.0 (Mon Sep 18 2023)
+
+#### 💥  Breaking Change
+
+- feat(pills): adds profile and gray variant; removes artist variant [#1314](https://github.com/artsy/palette/pull/1314) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(pill): adds `gray` variant ([@dzucconi](https://github.com/dzucconi))
+- feat(pills): adds `profile` variant ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v35.3.0 (Thu Sep 07 2023)
 
 #### 🚀  Enhancement
