@@ -185,7 +185,7 @@ export const PILL_VARIANTS: Record<
     default: css`
       border-radius: 25px;
       height: 50px;
-      padding: 0 ${themeGet("space.2")} 0 ${themeGet("space.1")};
+      padding: 0 ${themeGet("space.2")} 0 ${themeGet("space.2")};
       background-color: ${themeGet("colors.black5")};
       border-color: ${themeGet("colors.black5")};
     `,
