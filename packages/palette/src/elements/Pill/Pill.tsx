@@ -57,6 +57,8 @@ export type PillProps = ClickableProps & {
          * Should target 30x30 @1x, 60x60 @2x
          */
         src?: string | [string, string]
+        /** Optionally switch into a condensed form */
+        compact?: boolean
       }
     | {
         /** `search` pills have an optional `count` */
@@ -72,9 +74,12 @@ export type PillProps = ClickableProps & {
  * or to denote an profile entity (possibly in the context of a card).
  */
 export const Pill: React.FC<PillProps> = ({ children, Icon, ...rest }) => {
+  const variant =
+    rest.variant === "profile" && rest.compact ? "gray" : rest.variant
+
   return (
-    <Container {...rest}>
-      {rest.variant === "profile" && (
+    <Container {...rest} variant={variant}>
+      {rest.variant === "profile" && rest.src && !rest.compact && (
         <Thumbnail
           {...(rest.src
             ? { src: typeof rest.src === "string" ? rest.src : rest.src[0] }
@@ -167,4 +172,5 @@ const Thumbnail = styled.img`
   height: 30px;
   margin-right: ${themeGet("space.1")};
   background-color: ${themeGet("colors.black30")};
+  margin-left: -${themeGet("space.1")};
 `

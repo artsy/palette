@@ -169,3 +169,17 @@ export const Demo = () => {
     </Pill>
   )
 }
+
+export const ProfileVariant = () => {
+  return (
+    <States<PillProps>
+      states={[
+        { variant: "profile" },
+        { variant: "profile", compact: true },
+        { variant: "profile", src: undefined },
+      ]}
+    >
+      <Pill src="https://picsum.photos/seed/isa/60/60">Isa Genzken</Pill>
+    </States>
+  )
+}
