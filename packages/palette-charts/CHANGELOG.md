@@ -1,3 +1,15 @@
+# v35.1.1 (Tue Sep 19 2023)
+
+#### 🐛  Bug Fix
+
+- fix(pill): updates profile + gray tokens [#1315](https://github.com/artsy/palette/pull/1315) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v33.0.0 (Thu Jun 22 2023)
 
 #### 💥  Breaking Change

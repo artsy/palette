@@ -1,3 +1,17 @@
+# v36.1.1 (Tue Sep 19 2023)
+
+#### 🐛  Bug Fix
+
+- fix(pill): updates profile + gray tokens [#1315](https://github.com/artsy/palette/pull/1315) ([@dzucconi](https://github.com/dzucconi))
+- fix(pill): handles special casing for profile variant: compact & missing src ([@dzucconi](https://github.com/dzucconi))
+- fix(pill): updates profile + gray tokens ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v36.1.0 (Mon Sep 18 2023)
 
 #### 🚀  Enhancement

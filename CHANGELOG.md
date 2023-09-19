@@ -1,3 +1,16 @@
+# (Tue Sep 19 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.1.1`
+  - fix(pill): updates profile + gray tokens [#1315](https://github.com/artsy/palette/pull/1315) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Sep 18 2023)
 
 #### 🚀  Enhancement
