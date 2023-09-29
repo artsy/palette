@@ -14,8 +14,9 @@ export const PILL_VARIANT_NAMES = [
   "default",
   "search",
   "filter",
-  "artist",
+  "profile",
   "badge",
+  "gray",
 ] as const
 
 export type PillVariant = typeof PILL_VARIANT_NAMES[number]
@@ -45,17 +46,19 @@ export type PillProps = ClickableProps & {
     | {
         variant?: Extract<
           PillVariant,
-          "default" | "search" | "badge" | "filter"
+          "default" | "search" | "badge" | "filter" | "gray"
         >
       }
     | {
-        /** `"artist"` pills have an optional `src` */
-        variant?: Extract<PillVariant, "artist">
+        /** `"profile"` pills have an optional `src` */
+        variant?: Extract<PillVariant, "profile">
         /**
          * Optional avatar; 1x or [1x, 2x]
          * Should target 30x30 @1x, 60x60 @2x
          */
         src?: string | [string, string]
+        /** Optionally switch into a condensed form */
+        compact?: boolean
       }
     | {
         /** `search` pills have an optional `count` */
@@ -68,12 +71,15 @@ export type PillProps = ClickableProps & {
 /**
  * A Pill is a non-CTA button.
  * It may be used for things like active filters, search states,
- * or to denote an artist entity (possibly in the context of a card).
+ * or to denote an profile entity (possibly in the context of a card).
  */
 export const Pill: React.FC<PillProps> = ({ children, Icon, ...rest }) => {
+  const variant =
+    rest.variant === "profile" && rest.compact ? "gray" : rest.variant
+
   return (
-    <Container {...rest}>
-      {rest.variant === "artist" && (
+    <Container {...rest} variant={variant}>
+      {rest.variant === "profile" && rest.src && !rest.compact && (
         <Thumbnail
           {...(rest.src
             ? { src: typeof rest.src === "string" ? rest.src : rest.src[0] }
@@ -103,7 +109,7 @@ export const Pill: React.FC<PillProps> = ({ children, Icon, ...rest }) => {
       </Text>
 
       {((rest.variant === "filter" && !rest.disabled) ||
-        (rest.variant === "artist" && rest.selected)) && (
+        (rest.variant === "profile" && rest.selected)) && (
         <CloseIcon fill="currentColor" ml={0.5} width={15} height={15} />
       )}
     </Container>
@@ -166,4 +172,5 @@ const Thumbnail = styled.img`
   height: 30px;
   margin-right: ${themeGet("space.1")};
   background-color: ${themeGet("colors.black30")};
+  margin-left: -${themeGet("space.1")};
 `

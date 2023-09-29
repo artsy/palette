@@ -472,7 +472,7 @@ export const Components = () => {
                 </Pill>
               </Column>
 
-              {variant !== "artist" && (
+              {variant !== "profile" && (
                 <Column span={3}>
                   <Pill variant={variant} active>
                     Active

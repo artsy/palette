@@ -1,6 +1,71 @@
+# (Tue Sep 19 2023)
+
+#### 🐛 Bug Fix
+
+- `@artsy/palette@36.1.1`
+  - fix(pill): updates profile + gray tokens [#1315](https://github.com/artsy/palette/pull/1315) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Mon Sep 18 2023)
+
+#### 🚀 Enhancement
+
+- `@artsy/palette@36.1.0`
+  - fix(range): prevent min from exactly equaling max [#1313](https://github.com/artsy/palette/pull/1313) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
+# (Mon Sep 18 2023)
+
+#### 💥 Breaking Change
+
+- `@artsy/palette@36.0.0`
+  - feat(pills): adds profile and gray variant; removes artist variant [#1314](https://github.com/artsy/palette/pull/1314) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Sep 07 2023)
+
+#### 🚀 Enhancement
+
+- `@artsy/palette@35.3.0`
+  - feat(stack): implements stack component [#1312](https://github.com/artsy/palette/pull/1312) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Aug 31 2023)
+
+#### 🚀 Enhancement
+
+- `@artsy/palette@35.2.0`
+  - style(range): fix spurious shadows in mobile Safari [#1311](https://github.com/artsy/palette/pull/1311) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # (Fri Aug 25 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@35.1.0`
   - feat(autocompleteinput): exposes ref to the underlying input [#1309](https://github.com/artsy/palette/pull/1309) ([@dzucconi](https://github.com/dzucconi))
@@ -13,7 +78,7 @@
 
 # (Wed Aug 09 2023)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@35.0.0`
   - chore: removes deprecated modal and dialog [#1308](https://github.com/artsy/palette/pull/1308) ([@dzucconi](https://github.com/dzucconi))
@@ -26,7 +91,7 @@
 
 # (Tue Aug 01 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@34.3.0`
   - feat(modaldialog): exposes modal close button [#1306](https://github.com/artsy/palette/pull/1306) ([@dzucconi](https://github.com/dzucconi))
@@ -39,7 +104,7 @@
 
 # (Tue Aug 01 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@34.2.0`
   - fix(drawer): Update transition a bit more [#1305](https://github.com/artsy/palette/pull/1305) ([@damassi](https://github.com/damassi))
@@ -57,7 +122,7 @@
 
 # (Mon Jul 31 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@34.1.1`
   - chore(drawer): Smooth out animation [#1304](https://github.com/artsy/palette/pull/1304) ([@damassi](https://github.com/damassi))
@@ -70,7 +135,7 @@
 
 # (Wed Jun 28 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@34.1.0`
   - feat(autocomplete): allows configuration of clamp/flip [#1303](https://github.com/artsy/palette/pull/1303) ([@dzucconi](https://github.com/dzucconi))
@@ -83,7 +148,7 @@
 
 # (Thu Jun 22 2023)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@34.0.0`
   - fix(modaldialog): corrects padding with header [#1302](https://github.com/artsy/palette/pull/1302) ([@dzucconi](https://github.com/dzucconi))
@@ -96,7 +161,7 @@
 
 # (Fri May 26 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@33.3.0`
   - feat(Drawer): export Drawer element [#1300](https://github.com/artsy/palette/pull/1300) ([@araujobarret](https://github.com/araujobarret))
@@ -109,7 +174,7 @@
 
 # (Thu May 25 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@33.2.0`
   - feat(NX-3251): add drawer element [#1295](https://github.com/artsy/palette/pull/1295) ([@araujobarret](https://github.com/araujobarret))
@@ -122,7 +187,7 @@
 
 # (Fri May 19 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@33.1.2`
   - fix(autocomplete): improves focus management for pointer devices [#1299](https://github.com/artsy/palette/pull/1299) ([@dzucconi](https://github.com/dzucconi))
@@ -135,7 +200,7 @@
 
 # (Thu May 18 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@33.1.1`
   - fix(autocompleteinput): adjusts height when filtering results [#1298](https://github.com/artsy/palette/pull/1298) ([@dzucconi](https://github.com/dzucconi))
@@ -148,12 +213,12 @@
 
 # (Wed May 17 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@33.1.0`
   - feat: close dropdown when the footer is clicked [#1296](https://github.com/artsy/palette/pull/1296) ([@rajsam003](https://github.com/rajsam003))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@33.1.0`
   - chore: reuse handleClose method [#1297](https://github.com/artsy/palette/pull/1297) ([@rajsam003](https://github.com/rajsam003))
@@ -166,7 +231,7 @@
 
 # (Thu May 11 2023)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@33.0.0`
   - fix: removes icons [#1283](https://github.com/artsy/palette/pull/1283) ([@dzucconi](https://github.com/dzucconi))
@@ -179,12 +244,12 @@
 
 # (Wed May 10 2023)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette-charts@31.0.0`, `@artsy/palette-tokens@5.0.0`, `@artsy/palette@32.0.0`
   - chore(theme): removes v2; v3 default [#1292](https://github.com/artsy/palette/pull/1292) ([@dzucconi](https://github.com/dzucconi) [@damassi](https://github.com/damassi))
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@32.0.0`
   - feat(dev): add yalc for local package dev [#1294](https://github.com/artsy/palette/pull/1294) ([@damassi](https://github.com/damassi))
@@ -198,7 +263,7 @@
 
 # (Thu May 04 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@31.7.1`
   - Fixes Types of property 'maxHeight' are incompatible for AutocompleteInput [#1291](https://github.com/artsy/palette/pull/1291) ([@nickskalkin](https://github.com/nickskalkin))
@@ -211,7 +276,7 @@
 
 # (Thu May 04 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@31.7.0`
   - feat: disabling scrolling behavior for AutocompleteInput [#1287](https://github.com/artsy/palette/pull/1287) ([@nickskalkin](https://github.com/nickskalkin))
@@ -224,7 +289,7 @@
 
 # (Tue May 02 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@31.6.2`
   - fix(filterselect): uses radio when single select [#1289](https://github.com/artsy/palette/pull/1289) ([@dzucconi](https://github.com/dzucconi))
@@ -237,7 +302,7 @@
 
 # (Fri Apr 28 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@31.6.1`
   - fix(range): removes labelled tuple for time being [#1288](https://github.com/artsy/palette/pull/1288) ([@dzucconi](https://github.com/dzucconi))
@@ -250,7 +315,7 @@
 
 # (Tue Apr 25 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@31.6.0`
   - feat(box): supports gap [#1286](https://github.com/artsy/palette/pull/1286) ([@dzucconi](https://github.com/dzucconi))
@@ -263,7 +328,7 @@
 
 # (Tue Apr 25 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@31.5.0`
   - feat(expandable): adds event callback [#1285](https://github.com/artsy/palette/pull/1285) ([@dzucconi](https://github.com/dzucconi))
@@ -276,7 +341,7 @@
 
 # (Tue Apr 25 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@31.4.3`
   - fix(expandable): better supports multi-line expandable headings [#1284](https://github.com/artsy/palette/pull/1284) ([@dzucconi](https://github.com/dzucconi))
@@ -289,7 +354,7 @@
 
 # (Mon Apr 24 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@31.4.2`
   - fix(tabs): fixes parent re-renders from resetting state [#1282](https://github.com/artsy/palette/pull/1282) ([@dzucconi](https://github.com/dzucconi))
@@ -302,7 +367,7 @@
 
 # (Wed Apr 19 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@31.4.1`
   - fix(readmore): corrects clickable areas in expanded state [#1280](https://github.com/artsy/palette/pull/1280) ([@dzucconi](https://github.com/dzucconi))
@@ -315,7 +380,7 @@
 
 # (Wed Apr 19 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@31.4.0`
   - feat: adding header to AutoCompleteInput component [#1279](https://github.com/artsy/palette/pull/1279) ([@rajsam003](https://github.com/rajsam003))
@@ -341,7 +406,7 @@
 
 # (Thu Apr 13 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette-charts@30.3.0`, `@artsy/palette@31.3.0`
   - fix(icons): utilizes new icons package throughout [#1278](https://github.com/artsy/palette/pull/1278) ([@dzucconi](https://github.com/dzucconi))
@@ -354,7 +419,7 @@
 
 # (Tue Mar 28 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@31.2.0`
   - feat(FX-4653): add ability to scroll `Carousel` by cell [#1277](https://github.com/artsy/palette/pull/1277) ([@dimatretyak](https://github.com/dimatretyak))
@@ -367,7 +432,7 @@
 
 # (Wed Mar 15 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@31.1.0`
   - feat(expandable): supports color configurations [#1274](https://github.com/artsy/palette/pull/1274) ([@dzucconi](https://github.com/dzucconi))
@@ -380,7 +445,7 @@
 
 # (Tue Mar 14 2023)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@31.0.0`
   - feat(TX-943): update link hover and visited colors [#1271](https://github.com/artsy/palette/pull/1271) ([@rquartararo](https://github.com/rquartararo))
@@ -393,7 +458,7 @@
 
 # (Mon Mar 13 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@30.1.0`
   - feat(popover): optionally passes actions to popover [#1272](https://github.com/artsy/palette/pull/1272) ([@dzucconi](https://github.com/dzucconi))
@@ -406,7 +471,7 @@
 
 # (Fri Mar 03 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@30.0.1`
   - fix(input): corrects display of disabled inputs in safari/mobile safari [#1270](https://github.com/artsy/palette/pull/1270) ([@dzucconi](https://github.com/dzucconi))
@@ -419,7 +484,7 @@
 
 # (Fri Mar 03 2023)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@30.0.0`
   - fix: replaces internal focus lock hook with react-focus-on [#1269](https://github.com/artsy/palette/pull/1269) ([@dzucconi](https://github.com/dzucconi))
@@ -432,7 +497,7 @@
 
 # (Fri Mar 03 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@29.7.3`
   - Revert "Revert "Revert "fix(usefocuslock): uses a more accurate method of determining focusable""" [#1268](https://github.com/artsy/palette/pull/1268) ([@dzucconi](https://github.com/dzucconi))
@@ -445,7 +510,7 @@
 
 # (Fri Mar 03 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@29.7.2`
   - Revert "Revert "fix(usefocuslock): uses a more accurate method of determining focusable"" [#1267](https://github.com/artsy/palette/pull/1267) ([@dzucconi](https://github.com/dzucconi))
@@ -458,7 +523,7 @@
 
 # (Fri Mar 03 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@29.7.1`
   - Revert "fix(usefocuslock): uses a more accurate method of determining focusable" [#1266](https://github.com/artsy/palette/pull/1266) ([@dzucconi](https://github.com/dzucconi))
@@ -471,7 +536,7 @@
 
 # (Thu Mar 02 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@29.7.0`
   - feat(popover): adds ondismiss callback [#1265](https://github.com/artsy/palette/pull/1265) ([@dzucconi](https://github.com/dzucconi))
@@ -484,7 +549,7 @@
 
 # (Thu Mar 02 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@29.6.2`
   - fix(popover): adjusts vertical padding [#1264](https://github.com/artsy/palette/pull/1264) ([@dzucconi](https://github.com/dzucconi))
@@ -497,7 +562,7 @@
 
 # (Thu Mar 02 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@29.6.1`
   - fix(usefocuslock): uses a more accurate method of determining focusable [#1262](https://github.com/artsy/palette/pull/1262) ([@dzucconi](https://github.com/dzucconi))
@@ -510,7 +575,7 @@
 
 # (Fri Feb 24 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@29.6.0`
   - feat(popover): adds prop to disable focus management [#1261](https://github.com/artsy/palette/pull/1261) ([@dzucconi](https://github.com/dzucconi))
@@ -523,7 +588,7 @@
 
 # (Thu Feb 16 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@29.5.0`
   - feat(popover): supports optionally ignoring outside clicks [#1259](https://github.com/artsy/palette/pull/1259) ([@dzucconi](https://github.com/dzucconi))
@@ -536,7 +601,7 @@
 
 # (Thu Feb 16 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@29.4.1`
   - fix(popover,tooltip): fixes default z-index handling [#1258](https://github.com/artsy/palette/pull/1258) ([@dzucconi](https://github.com/dzucconi))
@@ -549,7 +614,7 @@
 
 # (Thu Feb 16 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@29.4.0`
   - feat(tooltip|popover): pointer centering [#1255](https://github.com/artsy/palette/pull/1255) ([@dzucconi](https://github.com/dzucconi))
@@ -562,12 +627,12 @@
 
 # (Wed Feb 15 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@29.3.0`
   - feat: add `header` prop for `ModalDialogContent` [#1256](https://github.com/artsy/palette/pull/1256) ([@dimatretyak](https://github.com/dimatretyak))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): bump express from 4.17.2 to 4.18.2 [#1237](https://github.com/artsy/palette/pull/1237) ([@dependabot[bot]](https://github.com/dependabot[bot]))
 - chore(deps): bump minimatch from 3.0.4 to 3.0.5 [#1244](https://github.com/artsy/palette/pull/1244) ([@dependabot[bot]](https://github.com/dependabot[bot]))
@@ -582,7 +647,7 @@
 
 # (Mon Feb 06 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@29.2.1`
   - fix(popover): threads through z-index to correct element [#1253](https://github.com/artsy/palette/pull/1253) ([@dzucconi](https://github.com/dzucconi))
@@ -595,7 +660,7 @@
 
 # (Thu Feb 02 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@29.2.0`
   - feat(popover): renders into a portal [#1251](https://github.com/artsy/palette/pull/1251) ([@dzucconi](https://github.com/dzucconi))
@@ -608,7 +673,7 @@
 
 # (Wed Jan 25 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@29.1.0`
   - feat(tooltip/popover): supports offset [#1249](https://github.com/artsy/palette/pull/1249) ([@dzucconi](https://github.com/dzucconi))
@@ -621,7 +686,7 @@
 
 # (Thu Jan 19 2023)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette-charts@28.0.0`, `@artsy/palette@29.0.0`
   - chore: removes luxon and related components [#1247](https://github.com/artsy/palette/pull/1247) ([@dzucconi](https://github.com/dzucconi))
@@ -634,7 +699,7 @@
 
 # (Wed Jan 18 2023)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@28.1.1`
   - fix(tooltip): spreads rest props [#1246](https://github.com/artsy/palette/pull/1246) ([@dzucconi](https://github.com/dzucconi))
@@ -647,7 +712,7 @@
 
 # (Wed Jan 18 2023)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@28.1.0`
   - feat(tooltip): supports external control [#1245](https://github.com/artsy/palette/pull/1245) ([@dzucconi](https://github.com/dzucconi))
@@ -660,17 +725,17 @@
 
 # (Wed Jan 18 2023)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@28.0.0`
   - feat(popover/tooltip): variants and pointers [#1242](https://github.com/artsy/palette/pull/1242) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@28.0.0`
   - chore(doc): Attempt to improve Link deprecation message [#1239](https://github.com/artsy/palette/pull/1239) ([@araujobarret](https://github.com/araujobarret))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): upgrades lerna [#1243](https://github.com/artsy/palette/pull/1243) ([@dzucconi](https://github.com/dzucconi))
 
@@ -683,12 +748,12 @@
 
 # (Fri Dec 09 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@27.1.0`
   - fix(modaldialog): addresses long titles; focus-visible close state [#1236](https://github.com/artsy/palette/pull/1236) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@27.1.0`
   - docs: updates readme [#1235](https://github.com/artsy/palette/pull/1235) ([@dzucconi](https://github.com/dzucconi))
@@ -706,6 +771,7 @@
 #### feat: Spacer uses `x`/`y` now ([#1232](https://github.com/artsy/palette/pull/1232))
 
 To migrate to this version, replace the following props on`Spacer`:
+
 - `mb`, `mt` with `y`.
 - `ml`, `mr` with `x`.
 - `my` with `y`. if in a flex context, double the value (`my={1}` becomes `y={2}`).
@@ -715,7 +781,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 ---
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@27.0.0`
   - feat: Spacer uses `x`/`y` now [#1232](https://github.com/artsy/palette/pull/1232) ([@pvinis](https://github.com/pvinis))
@@ -728,12 +794,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Nov 22 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@26.1.2`
   - fix(select): corrects types [#1227](https://github.com/artsy/palette/pull/1227) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): update yarn orb from 6.2.0 to v6.4.0 [#1226](https://github.com/artsy/palette/pull/1226) ([@renovate[bot]](https://github.com/renovate[bot]))
 
@@ -746,7 +812,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Nov 17 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@26.1.1`
   - fix(modaldialogcontent): fixes width for shorter content [#1225](https://github.com/artsy/palette/pull/1225) ([@dzucconi](https://github.com/dzucconi))
@@ -759,7 +825,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Nov 17 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - chore(deps): update cimg/python docker tag to v3.11 [#1219](https://github.com/artsy/palette/pull/1219) ([@renovate[bot]](https://github.com/renovate[bot]))
 - `@artsy/palette@26.1.0`
@@ -774,7 +840,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Nov 01 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@26.0.1`
   - fix(horizontaloverflow): accommodate half pixel differences [#1220](https://github.com/artsy/palette/pull/1220) ([@dzucconi](https://github.com/dzucconi))
@@ -787,12 +853,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Oct 21 2022)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@26.0.0`
   - fix: updates react-remove-scroll [#1217](https://github.com/artsy/palette/pull/1217) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@26.0.0`
   - chore: bumps storybook version [#1215](https://github.com/artsy/palette/pull/1215) ([@dzucconi](https://github.com/dzucconi))
@@ -805,7 +871,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Oct 21 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@25.1.0`
   - feat: add ability to pass `onClose` prop for `Popover` component [#1216](https://github.com/artsy/palette/pull/1216) ([@dimatretyak](https://github.com/dimatretyak))
@@ -818,7 +884,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Oct 20 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette-tokens@4.0.1`, `@artsy/palette@25.0.1`
   - chore: removes v2 tab [#1214](https://github.com/artsy/palette/pull/1214) ([@dzucconi](https://github.com/dzucconi))
@@ -831,7 +897,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Oct 20 2022)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette-charts@24.0.0`, `@artsy/palette@25.0.0`
   - fix: removes typography components [#1213](https://github.com/artsy/palette/pull/1213) ([@dzucconi](https://github.com/dzucconi))
@@ -844,7 +910,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Oct 18 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@24.5.1`
   - fix(shelf): adds label to scrollbar thumb [#1212](https://github.com/artsy/palette/pull/1212) ([@dzucconi](https://github.com/dzucconi))
@@ -857,7 +923,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Oct 17 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@24.5.0`
   - fix(Box): add gridArea mixin [#1211](https://github.com/artsy/palette/pull/1211) ([@laurabeth](https://github.com/laurabeth))
@@ -870,7 +936,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Oct 13 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@24.4.0`
   - chore: forward box props to `Popover` component [#1210](https://github.com/artsy/palette/pull/1210) ([@dimatretyak](https://github.com/dimatretyak))
@@ -883,7 +949,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Oct 03 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@24.3.1`
   - fix(types): adds children to types [#1209](https://github.com/artsy/palette/pull/1209) ([@dzucconi](https://github.com/dzucconi))
@@ -896,7 +962,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Sep 21 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@24.3.0`
   - feat(FX-4151): Add new guarantee icons [#1207](https://github.com/artsy/palette/pull/1207) ([@gkartalis](https://github.com/gkartalis))
@@ -909,7 +975,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Sep 09 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@24.2.0`
   - feat(TX-649): create radio size variants [#1205](https://github.com/artsy/palette/pull/1205) ([@rquartararo](https://github.com/rquartararo))
@@ -922,7 +988,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Sep 02 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@24.1.2`
   - refactor(Select): add useForwardRef [#1204](https://github.com/artsy/palette/pull/1204) ([@laurabeth](https://github.com/laurabeth))
@@ -935,7 +1001,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Aug 30 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@24.1.1`
   - feat: make ShowMore more flexible [#1202](https://github.com/artsy/palette/pull/1202) ([@mdole](https://github.com/mdole))
@@ -948,12 +1014,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Aug 30 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@24.1.0`
   - feat: close dropdown only when link is clicked [#1203](https://github.com/artsy/palette/pull/1203) ([@dimatretyak](https://github.com/dimatretyak))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): bump moment from 2.29.1 to 2.29.4 [#1191](https://github.com/artsy/palette/pull/1191) ([@dependabot[bot]](https://github.com/dependabot[bot]))
 - chore(deps): bump terser from 4.8.0 to 4.8.1 [#1197](https://github.com/artsy/palette/pull/1197) ([@dependabot[bot]](https://github.com/dependabot[bot]))
@@ -967,7 +1033,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jul 15 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@24.0.1`
   - fix(select): supresses top margin when inline [#1196](https://github.com/artsy/palette/pull/1196) ([@dzucconi](https://github.com/dzucconi))
@@ -980,7 +1046,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jul 15 2022)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@24.0.0`
   - chore: removes grid + styled-bootstrap-grid [#1195](https://github.com/artsy/palette/pull/1195) ([@dzucconi](https://github.com/dzucconi))
@@ -993,7 +1059,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jul 15 2022)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@23.0.0`
   - chore(v2): drops support for v2 completely [#1194](https://github.com/artsy/palette/pull/1194) ([@dzucconi](https://github.com/dzucconi))
@@ -1006,7 +1072,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jul 14 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@22.1.0`
   - feat(banner): exports variants; ensures text stays centered when dismissible [#1193](https://github.com/artsy/palette/pull/1193) ([@dzucconi](https://github.com/dzucconi))
@@ -1019,7 +1085,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jul 08 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@22.0.3`
   - chore: sync local state with `value` prop for `Range` component [#1192](https://github.com/artsy/palette/pull/1192) ([@dimatretyak](https://github.com/dimatretyak))
@@ -1032,7 +1098,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jun 30 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - fix: force release [#1188](https://github.com/artsy/palette/pull/1188) ([@dzucconi](https://github.com/dzucconi))
 - `@artsy/palette@22.0.2`
@@ -1046,7 +1112,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jun 30 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@22.0.1`
   - fix(icons): removes hover functionality from wechat icon [#1187](https://github.com/artsy/palette/pull/1187) ([@dzucconi](https://github.com/dzucconi))
@@ -1059,7 +1125,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jun 30 2022)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@22.0.0`
   - feat: 3.1 input updates [#1182](https://github.com/artsy/palette/pull/1182) ([@dzucconi](https://github.com/dzucconi))
@@ -1072,7 +1138,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 29 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@21.1.3`
   - fix(range): adds ability to label each slider [#1186](https://github.com/artsy/palette/pull/1186) ([@dzucconi](https://github.com/dzucconi))
@@ -1085,12 +1151,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jun 23 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@21.1.2`
   - fix(pills): fixes hover on selected pills [#1185](https://github.com/artsy/palette/pull/1185) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@20.1.2`, `@artsy/palette@21.1.2`
   - chore(deps): update dep typescript from 4.7.3 to v4.7.4 [#1184](https://github.com/artsy/palette/pull/1184) ([@renovate[bot]](https://github.com/renovate[bot]))
@@ -1104,7 +1170,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 15 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@21.1.1`
   - fix(useportal): guards on removal [#1183](https://github.com/artsy/palette/pull/1183) ([@dzucconi](https://github.com/dzucconi))
@@ -1117,7 +1183,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jun 09 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@21.1.0`
   - feat(button): implements responsive sizes [#1181](https://github.com/artsy/palette/pull/1181) ([@dzucconi](https://github.com/dzucconi))
@@ -1130,7 +1196,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 08 2022)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette-tokens@4.0.0`, `@artsy/palette@21.0.0`
   - 3.1 updates [#1169](https://github.com/artsy/palette/pull/1169) ([@dzucconi](https://github.com/dzucconi))
@@ -1143,12 +1209,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 08 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@20.1.0`
   - feat: add ability to open Dropdown by click [#1180](https://github.com/artsy/palette/pull/1180) ([@dimatretyak](https://github.com/dimatretyak))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(docs): Remove docs from repo -> see: github.com/artsy/palette-docs [#1177](https://github.com/artsy/palette/pull/1177) ([@damassi](https://github.com/damassi))
 
@@ -1161,12 +1227,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Jun 06 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@20.0.3`
   - fix(responsivebox): utilize native aspect-ratio property in place of padding-bottom hack [#1176](https://github.com/artsy/palette/pull/1176) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - fix(WP-52): search navigates to correct pathname on local [#1171](https://github.com/artsy/palette/pull/1171) ([@rquartararo](https://github.com/rquartararo))
 - docs(storybook): add notice about our storybooks site [#1167](https://github.com/artsy/palette/pull/1167) ([@damassi](https://github.com/damassi))
@@ -1174,7 +1240,7 @@ To migrate to this version, replace the following props on`Spacer`:
   - chore(deps): update dep typescript from 4.7.2 to v4.7.3 [#1173](https://github.com/artsy/palette/pull/1173) ([@renovate-bot](https://github.com/renovate-bot))
   - chore(deps): update dep typescript from 4.6.4 to v4.7.2 [#1168](https://github.com/artsy/palette/pull/1168) ([@renovate-bot](https://github.com/renovate-bot))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - `@artsy/palette-tokens@3.0.1`
   - chore(docs): Fix broken links [#1170](https://github.com/artsy/palette/pull/1170) ([@damassi](https://github.com/damassi))
@@ -1190,7 +1256,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 20 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@20.0.2`
   - fix(spinner): supports box props; respects theme [#1166](https://github.com/artsy/palette/pull/1166) ([@dzucconi](https://github.com/dzucconi))
@@ -1203,7 +1269,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 20 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@20.0.1`
   - fix(text): updates default variant to v3 [#1165](https://github.com/artsy/palette/pull/1165) ([@dzucconi](https://github.com/dzucconi))
@@ -1216,7 +1282,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu May 19 2022)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette-tokens@3.0.0`, `@artsy/palette@20.0.0`
   - feat(tokens): updated typography scale [#1164](https://github.com/artsy/palette/pull/1164) ([@dzucconi](https://github.com/dzucconi))
@@ -1229,7 +1295,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 13 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@19.7.0`
   - feat(range): implements range [#1154](https://github.com/artsy/palette/pull/1154) ([@dzucconi](https://github.com/dzucconi))
@@ -1242,7 +1308,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu May 05 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - docs(message): Add missing <Message> component to docs [#1162](https://github.com/artsy/palette/pull/1162) ([@damassi](https://github.com/damassi))
 - fix(ssr): Fix docs ssr [#1163](https://github.com/artsy/palette/pull/1163) ([@damassi](https://github.com/damassi))
@@ -1250,7 +1316,7 @@ To migrate to this version, replace the following props on`Spacer`:
   - feat(icon): add white Guarantee icon [#1161](https://github.com/artsy/palette/pull/1161) ([@tam-kis](https://github.com/tam-kis))
   - feat(icon): add new guarantee icon [#1157](https://github.com/artsy/palette/pull/1157) ([@tam-kis](https://github.com/tam-kis))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): update yarn orb from 6.1.0 to v6.2.0 [#1159](https://github.com/artsy/palette/pull/1159) ([@renovate-bot](https://github.com/renovate-bot))
 - chore(deps): update auto orb from 2.0.0 to v2.1.0 [#1158](https://github.com/artsy/palette/pull/1158) ([@renovate-bot](https://github.com/renovate-bot))
@@ -1267,7 +1333,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Apr 14 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.5.1`
   - fix: some small improvements for FilterSelectContext [#1156](https://github.com/artsy/palette/pull/1156) ([@dimatretyak](https://github.com/dimatretyak))
@@ -1280,7 +1346,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Apr 13 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@19.5.0`
   - feat(fx-3803): FilterSelect tracks changes in selectedItems [#1155](https://github.com/artsy/palette/pull/1155) ([@nickskalkin](https://github.com/nickskalkin) [@dimatretyak](https://github.com/dimatretyak))
@@ -1294,7 +1360,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Apr 12 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.4.1`
   - fix: add white-space: nowrap to pill component [#1153](https://github.com/artsy/palette/pull/1153) ([@gkartalis](https://github.com/gkartalis))
@@ -1307,7 +1373,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Apr 05 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@19.4.0`
   - feat(TX-255): ability to close expandable within expandable content [#1151](https://github.com/artsy/palette/pull/1151) ([@rquartararo](https://github.com/rquartararo))
@@ -1320,7 +1386,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Mar 31 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@19.3.0`
   - GRO-836 Update: Marquee with newly decided default coloring [#1150](https://github.com/artsy/palette/pull/1150) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
@@ -1333,12 +1399,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Mar 31 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@19.2.0`
   - GRO-836: Adding design update for gallery attributes, until further approval on designs met [#1149](https://github.com/artsy/palette/pull/1149) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@18.2.0`, `@artsy/palette@19.2.0`
   - chore(deps): update dep typescript from 4.6.2 to v4.6.3 [#1148](https://github.com/artsy/palette/pull/1148) ([@renovate-bot](https://github.com/renovate-bot))
@@ -1352,7 +1418,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Mar 24 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.1.5`
   - fix(badge): prevents wrapping; handles truncation on badges [#1146](https://github.com/artsy/palette/pull/1146) ([@dzucconi](https://github.com/dzucconi))
@@ -1365,7 +1431,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Mar 22 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.1.4`
   - Revert "fix(join): prefers the provided child key; fallsback to index… [#1145](https://github.com/artsy/palette/pull/1145) ([@dzucconi](https://github.com/dzucconi))
@@ -1378,7 +1444,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Mar 21 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.1.3`
   - fix(tabs): cached tabs rendering [#1144](https://github.com/artsy/palette/pull/1144) ([@dzucconi](https://github.com/dzucconi))
@@ -1391,7 +1457,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Mar 18 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.1.2`
   - fix(filterselect): avoids calling onchange on mount [#1143](https://github.com/artsy/palette/pull/1143) ([@dzucconi](https://github.com/dzucconi))
@@ -1404,7 +1470,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 16 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.1.1`
   - fix(badge): includes in exports [#1142](https://github.com/artsy/palette/pull/1142) ([@dzucconi](https://github.com/dzucconi))
@@ -1417,13 +1483,13 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Mar 07 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@19.1.0`
   - fix: modalDialog width [#1140](https://github.com/artsy/palette/pull/1140) ([@araujobarret](https://github.com/araujobarret))
   - fix: removed line height from pill text [#1139](https://github.com/artsy/palette/pull/1139) ([@gkartalis](https://github.com/gkartalis))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@18.1.0`, `@artsy/palette@19.1.0`
   - chore(deps): update dep typescript from 4.5.5 to v4.6.2 [#1138](https://github.com/artsy/palette/pull/1138) ([@renovate-bot](https://github.com/renovate-bot))
@@ -1438,7 +1504,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Feb 22 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.0.2`
   - fix(useclickoutside): wait for stack to clear before adding event [#1135](https://github.com/artsy/palette/pull/1135) ([@dzucconi](https://github.com/dzucconi))
@@ -1451,7 +1517,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Feb 22 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@19.0.1`
   - fix(modal): fixes support for percentage based widths [#1134](https://github.com/artsy/palette/pull/1134) ([@dzucconi](https://github.com/dzucconi))
@@ -1464,17 +1530,17 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Feb 18 2022)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@19.0.0`
   - fix: tooltip/positioning improvements [#1130](https://github.com/artsy/palette/pull/1130) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette-charts@18.0.0`
   - fix: remove permanent transparency from DonutChart labels [#1133](https://github.com/artsy/palette/pull/1133) ([@pepopowitz](https://github.com/pepopowitz))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@18.0.0`
   - feat: functioning storybooks for palette-charts [#1131](https://github.com/artsy/palette/pull/1131) ([@pepopowitz](https://github.com/pepopowitz))
@@ -1488,7 +1554,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Feb 11 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette-charts@17.23.1`, `@artsy/palette@18.23.1`
   - Revert "chore: move some type declarations to regular deps" [#1127](https://github.com/artsy/palette/pull/1127) ([@anandaroop](https://github.com/anandaroop))
@@ -1501,7 +1567,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Feb 10 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette-charts@17.23.0`, `@artsy/palette@18.23.0`
   - chore: move some type declarations to regular deps [#1125](https://github.com/artsy/palette/pull/1125) ([@anandaroop](https://github.com/anandaroop))
@@ -1514,7 +1580,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Feb 09 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.22.0`
   - GRO-770: Added New Cultural Badges Component [#1122](https://github.com/artsy/palette/pull/1122) ([@The-Beez-Kneez](https://github.com/The-Beez-Kneez) [@dzucconi](https://github.com/dzucconi))
@@ -1528,12 +1594,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Feb 09 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.21.0`
   - feat: [Icons] Add Google and Apple icons [#1123](https://github.com/artsy/palette/pull/1123) ([@jacobherrington](https://github.com/jacobherrington))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - docs: Add link to svg optimization tool [#1124](https://github.com/artsy/palette/pull/1124) ([@jacobherrington](https://github.com/jacobherrington))
 
@@ -1545,7 +1611,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Feb 07 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.20.0`
   - Scrolling marquee for black owned galleries project [#1120](https://github.com/artsy/palette/pull/1120) ([@lilyfromseattle](https://github.com/lilyfromseattle))
@@ -1558,12 +1624,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Feb 04 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.19.0`
   - feat(icons): image set icon [#1121](https://github.com/artsy/palette/pull/1121) ([@dzucconi](https://github.com/dzucconi))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - chore(docs): Super minor fixes [#1119](https://github.com/artsy/palette/pull/1119) ([@damassi](https://github.com/damassi))
 
@@ -1576,12 +1642,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Feb 04 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.18.0`
   - feat(icon-button): implements icon button [#1115](https://github.com/artsy/palette/pull/1115) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.18.0`
   - fix(ModalBase): Make SSR friendly [#1118](https://github.com/artsy/palette/pull/1118) ([@damassi](https://github.com/damassi))
@@ -1596,7 +1662,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Feb 01 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.17.0`
   - fix(storybooks): Hot reloading [#1114](https://github.com/artsy/palette/pull/1114) ([@damassi](https://github.com/damassi))
@@ -1609,7 +1675,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Feb 01 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.16.1`
   - feature: Lodash Full [#1112](https://github.com/artsy/palette/pull/1112) ([@icirellik](https://github.com/icirellik))
@@ -1624,7 +1690,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jan 27 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.16.0`
   - fix(button): Alias size=large to medium [#1110](https://github.com/artsy/palette/pull/1110) ([@damassi](https://github.com/damassi))
@@ -1637,12 +1703,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Jan 25 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.15.2`
   - fix(usefocuslock): skips -1 tabindex elements [#1109](https://github.com/artsy/palette/pull/1109) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@17.15.2`, `@artsy/palette@18.15.2`
   - chore(deps): update dep typescript from 4.5.4 to v4.5.5 [#1107](https://github.com/artsy/palette/pull/1107) ([@renovate-bot](https://github.com/renovate-bot))
@@ -1656,7 +1722,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jan 19 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.15.1`
   - Fix: Center briefcase and page icons [#1106](https://github.com/artsy/palette/pull/1106) ([@MrSltun](https://github.com/MrSltun))
@@ -1669,7 +1735,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jan 19 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.15.0`
   - feat(filterselect): Add multiselect option [#1104](https://github.com/artsy/palette/pull/1104) ([@damassi](https://github.com/damassi))
@@ -1682,7 +1748,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Jan 18 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.14.0`
   - chore(component): export filterselect [#1103](https://github.com/artsy/palette/pull/1103) ([@damassi](https://github.com/damassi))
@@ -1695,7 +1761,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Jan 18 2022)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.13.0`
   - feat(FilterSelect): Adds new <FilterSelect> component [#1099](https://github.com/artsy/palette/pull/1099) ([@damassi](https://github.com/damassi))
@@ -1711,7 +1777,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jan 06 2022)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.12.2`
   - feat(autocomplete): supports footer [#1087](https://github.com/artsy/palette/pull/1087) ([@dzucconi](https://github.com/dzucconi))
@@ -1724,7 +1790,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Dec 29 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.12.1`
   - fix(SWA): Fix onEnter in AutocompleteInput [#1092](https://github.com/artsy/palette/pull/1092) ([@Serge0n](https://github.com/Serge0n))
@@ -1737,16 +1803,16 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Dec 14 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.12.0`
   - feat: exports button variants/mixin [#1090](https://github.com/artsy/palette/pull/1090) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - ci: updates master => main [#1091](https://github.com/artsy/palette/pull/1091) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): update yarn orb from 6.0.0 to v6.1.0 [#1089](https://github.com/artsy/palette/pull/1089) ([@renovate-bot](https://github.com/renovate-bot))
 - `@artsy/palette-charts@17.12.0`, `@artsy/palette@18.12.0`
@@ -1761,7 +1827,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Dec 10 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.11.1`
   - fix: blacklist -> blocklist [#1085](https://github.com/artsy/palette/pull/1085) ([@mdole](https://github.com/mdole))
@@ -1770,7 +1836,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 - Update renovate.json ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@17.11.1`, `@artsy/palette@18.11.1`
   - chore(deps): update dep typescript from 4.5.2 to v4.5.3 [#1084](https://github.com/artsy/palette/pull/1084) ([@renovate-bot](https://github.com/renovate-bot))
@@ -1785,7 +1851,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Dec 08 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.11.0`
   - feat(modaldialog): implements new modal [#1083](https://github.com/artsy/palette/pull/1083) ([@dzucconi](https://github.com/dzucconi))
@@ -1798,7 +1864,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Dec 07 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.10.0`
   - feat(NX-3032): add space of 20px in xs breakpoint [#1081](https://github.com/artsy/palette/pull/1081) ([@araujobarret](https://github.com/araujobarret))
@@ -1811,7 +1877,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Dec 01 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.9.0`
   - fix: modal background color [#1080](https://github.com/artsy/palette/pull/1080) ([@araujobarret](https://github.com/araujobarret))
@@ -1824,7 +1890,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Nov 30 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.8.1`
   - fix(autocomplete): only closes when options are visible [#1079](https://github.com/artsy/palette/pull/1079) ([@dzucconi](https://github.com/dzucconi))
@@ -1837,7 +1903,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Nov 25 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.8.0`
   - feat(NX02486): adjusts the modal to the new design [#1076](https://github.com/artsy/palette/pull/1076) ([@araujobarret](https://github.com/araujobarret))
@@ -1850,7 +1916,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Nov 24 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.7.4`
   - fix(clickable): resets margin for safari [#1078](https://github.com/artsy/palette/pull/1078) ([@dzucconi](https://github.com/dzucconi))
@@ -1863,7 +1929,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Nov 24 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.7.3`
   - fix(autocomplete): improves onclose; fixes memory leak [#1077](https://github.com/artsy/palette/pull/1077) ([@dzucconi](https://github.com/dzucconi))
@@ -1876,12 +1942,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Nov 22 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.7.2`
   - fix(DSWGW-99): Autocomplete Q/A [#1075](https://github.com/artsy/palette/pull/1075) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@17.7.2`, `@artsy/palette@18.7.2`
   - chore(deps): update dep typescript from 4.4.4 to v4.5.2 [#1074](https://github.com/artsy/palette/pull/1074) ([@renovate-bot](https://github.com/renovate-bot))
@@ -1895,7 +1961,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Nov 12 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.7.1`
   - feat(pill): supports pill with icons [#1073](https://github.com/artsy/palette/pull/1073) ([@dzucconi](https://github.com/dzucconi))
@@ -1908,7 +1974,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Nov 11 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.7.0`
   - feat(button): improves support for icon buttons [#1071](https://github.com/artsy/palette/pull/1071) ([@dzucconi](https://github.com/dzucconi))
@@ -1921,12 +1987,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Nov 11 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.6.1`
   - fix(tabs): avoids scrolling on mount [#1070](https://github.com/artsy/palette/pull/1070) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): bump axios from 0.21.1 to 0.21.4 [#1069](https://github.com/artsy/palette/pull/1069) ([@dependabot[bot]](https://github.com/dependabot[bot]))
 
@@ -1943,12 +2009,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Nov 03 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.6.0`
   - fix(tabs): add scrollIntoView for active tab [#1066](https://github.com/artsy/palette/pull/1066) ([@tam-kis](https://github.com/tam-kis))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): bump tar from 4.4.15 to 4.4.19 [#1028](https://github.com/artsy/palette/pull/1028) ([@dependabot[bot]](https://github.com/dependabot[bot]))
 
@@ -1961,7 +2027,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Oct 28 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.5.0`
   - feat(toasts): supports retracting toasts [#1065](https://github.com/artsy/palette/pull/1065) ([@dzucconi](https://github.com/dzucconi))
@@ -1974,7 +2040,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Oct 25 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.4.2`
   - fix(autocompleteinput): improves select ux [#1063](https://github.com/artsy/palette/pull/1063) ([@dzucconi](https://github.com/dzucconi))
@@ -1988,7 +2054,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Oct 21 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.4.1`
   - fix(autocomplete): display options if they are present regardless of query [#1062](https://github.com/artsy/palette/pull/1062) ([@dzucconi](https://github.com/dzucconi))
@@ -2001,7 +2067,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Oct 20 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.4.0`
   - feat: implements password input [#1061](https://github.com/artsy/palette/pull/1061) ([@dzucconi](https://github.com/dzucconi))
@@ -2014,12 +2080,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Oct 18 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.3.0`
   - feat: implements toasts [#1060](https://github.com/artsy/palette/pull/1060) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@17.3.0`, `@artsy/palette@18.3.0`
   - chore(deps): update dep typescript from 4.4.3 to v4.4.4 [#1058](https://github.com/artsy/palette/pull/1058) ([@renovate-bot](https://github.com/renovate-bot))
@@ -2038,12 +2104,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Oct 13 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.2.0`
   - feat(icons): adds pinterest, tumblr icons [#1059](https://github.com/artsy/palette/pull/1059) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): update auto orb from 1.4.0 to v2 [#1056](https://github.com/artsy/palette/pull/1056) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
 - `@artsy/palette-charts@17.2.0`, `@artsy/palette@18.2.0`
@@ -2059,7 +2125,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Oct 08 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@18.1.1`
   - fix(labeledinput): fixes height when title/description are present [#1057](https://github.com/artsy/palette/pull/1057) ([@dzucconi](https://github.com/dzucconi))
@@ -2072,7 +2138,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Oct 07 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@18.1.0`
   - docs(types): Improve DX on Button/Text variants [#1055](https://github.com/artsy/palette/pull/1055) ([@araujobarret](https://github.com/araujobarret))
@@ -2085,12 +2151,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Oct 06 2021)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@18.0.0`
   - [breaking change] feat(cards): migrates to v3 [#1053](https://github.com/artsy/palette/pull/1053) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - chore(deps): update cimg/python docker tag to v3.10 [#1052](https://github.com/artsy/palette/pull/1052) ([@renovate-bot](https://github.com/renovate-bot))
 
@@ -2103,7 +2169,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Oct 05 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@17.8.0`
   - feat(tabs): supports autoscrolling on tab selection [#1051](https://github.com/artsy/palette/pull/1051) ([@dzucconi](https://github.com/dzucconi))
@@ -2116,12 +2182,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Oct 04 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@17.7.6`
   - fix(horizontaloverflow): ensures internal heights match external [#1049](https://github.com/artsy/palette/pull/1049) ([@dzucconi](https://github.com/dzucconi))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Update Typography.mdx ([@dzucconi](https://github.com/dzucconi))
 
@@ -2133,12 +2199,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Sep 29 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@17.7.5`
   - fix(shelf): when shelf contents change; keep the scrollbar in sync [#1048](https://github.com/artsy/palette/pull/1048) ([@dzucconi](https://github.com/dzucconi))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Update how-palette-works.mdx ([@damassi](https://github.com/damassi))
 
@@ -2151,7 +2217,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Sep 24 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@17.7.4`
   - Deprecate <Link> [#1047](https://github.com/artsy/palette/pull/1047) ([@damassi](https://github.com/damassi))
@@ -2164,7 +2230,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Sep 22 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@17.7.3`
   - fix(hooks): improves focus lock and mutation observer hooks [#1045](https://github.com/artsy/palette/pull/1045) ([@dzucconi](https://github.com/dzucconi))
@@ -2177,7 +2243,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Sep 21 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@17.7.2`
   - fix(modalbase): keeps maxheight in sync [#1044](https://github.com/artsy/palette/pull/1044) ([@dzucconi](https://github.com/dzucconi))
@@ -2192,12 +2258,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Sep 21 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@17.7.1`
   - fix(button): ensures submit buttons are same font-weight [#1042](https://github.com/artsy/palette/pull/1042) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@17.7.1`
   - chore: migrates to eslint [#1043](https://github.com/artsy/palette/pull/1043) ([@dzucconi](https://github.com/dzucconi))
@@ -2210,7 +2276,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Sep 21 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@17.7.0`
   - feat(pill): filter pill hover state [#1041](https://github.com/artsy/palette/pull/1041) ([@tr-ann](https://github.com/tr-ann))
@@ -2223,7 +2289,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Sep 16 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@17.6.0`
   - feat(ReadMore): Added Read less functionality [#1036](https://github.com/artsy/palette/pull/1036) ([@anastasiapyzhik](https://github.com/anastasiapyzhik))
@@ -2236,7 +2302,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Sep 15 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@17.5.0`
   - feat(pill): updates pill variants to match current specs [#1035](https://github.com/artsy/palette/pull/1035) ([@dzucconi](https://github.com/dzucconi))
@@ -2249,12 +2315,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Sep 15 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@17.4.0`
   - feat: extracts horizontal overflow component from base tabs [#1034](https://github.com/artsy/palette/pull/1034) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@16.4.0`, `@artsy/palette@17.4.0`
   - chore(deps): update dep typescript from 4.4.2 to v4.4.3 [#1033](https://github.com/artsy/palette/pull/1033) ([@renovate-bot](https://github.com/renovate-bot))
@@ -2268,7 +2334,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Sep 07 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@17.3.0`
   - feat(autocompleteinput): adds loading indicator [#1032](https://github.com/artsy/palette/pull/1032) ([@dzucconi](https://github.com/dzucconi))
@@ -2281,7 +2347,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Sep 01 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@17.2.2`
   - change modal close to onMouseDown [#1030](https://github.com/artsy/palette/pull/1030) ([@laurabeth](https://github.com/laurabeth))
@@ -2294,12 +2360,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Sep 01 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@17.2.1`
   - fix(tabs): loosens up tab types so as to support conditional children [#1029](https://github.com/artsy/palette/pull/1029) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette-charts@16.2.1`, `@artsy/palette@17.2.1`
   - chore(deps): update dep typescript to v4.4.2 [#1026](https://github.com/artsy/palette/pull/1026) ([@renovate-bot](https://github.com/renovate-bot))
@@ -2313,26 +2379,26 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Aug 31 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - docs: Update main README [#1023](https://github.com/artsy/palette/pull/1023) ([@damassi](https://github.com/damassi))
 - `@artsy/palette@17.2.0`
   - feat(autocomplete): implements autocomplete [#1027](https://github.com/artsy/palette/pull/1027) ([@dzucconi](https://github.com/dzucconi))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Update a11y.mdx ([@damassi](https://github.com/damassi))
 - Update a11y.mdx ([@dzucconi](https://github.com/dzucconi))
 - Update README.md ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@17.2.0`
   - chore(chromatic): adds delay [#1025](https://github.com/artsy/palette/pull/1025) ([@dzucconi](https://github.com/dzucconi))
 - `@artsy/palette@17.2.0`
   - chore: Enable TypeScript strict mode [#1024](https://github.com/artsy/palette/pull/1024) ([@damassi](https://github.com/damassi) [@dzucconi](https://github.com/dzucconi))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - docs: Add development guide [#1022](https://github.com/artsy/palette/pull/1022) ([@damassi](https://github.com/damassi))
 
@@ -2345,7 +2411,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Aug 20 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@17.1.0`
   - feat(multiselect): implements multi-select [#1012](https://github.com/artsy/palette/pull/1012) ([@dzucconi](https://github.com/dzucconi))
@@ -2358,7 +2424,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Aug 19 2021)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@17.0.0`
   - chore(image): removes responsive image; cleans up types [#1019](https://github.com/artsy/palette/pull/1019) ([@dzucconi](https://github.com/dzucconi))
@@ -2371,7 +2437,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Aug 19 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@16.0.1`
   - fix(pill): fixes multi-line pills [#1020](https://github.com/artsy/palette/pull/1020) ([@dzucconi](https://github.com/dzucconi))
@@ -2384,7 +2450,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Aug 12 2021)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette-charts@15.0.0`, `@artsy/palette@16.0.0`
   - feature: Palette Chart Lib [#1016](https://github.com/artsy/palette/pull/1016) ([@icirellik](https://github.com/icirellik))
@@ -2397,7 +2463,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Aug 12 2021)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@16.0.0`
   - feature: Palette Chart Lib [#1018](https://github.com/artsy/palette/pull/1016) ([@icirellik](https://github.com/icirellik))
@@ -2408,7 +2474,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Aug 12 2021)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@15.0.0`
   - chore: removes slider and related components [#1018](https://github.com/artsy/palette/pull/1018) ([@dzucconi](https://github.com/dzucconi))
@@ -2421,7 +2487,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Aug 11 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - docs: Add a how palette works section [#1011](https://github.com/artsy/palette/pull/1011) ([@damassi](https://github.com/damassi))
 - docs: More updates [#1010](https://github.com/artsy/palette/pull/1010) ([@damassi](https://github.com/damassi))
@@ -2430,12 +2496,12 @@ To migrate to this version, replace the following props on`Spacer`:
 - `@artsy/palette@14.55.0`
   - docs: More docs [#1013](https://github.com/artsy/palette/pull/1013) ([@damassi](https://github.com/damassi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - chore: checks in lockfile [#1017](https://github.com/artsy/palette/pull/1017) ([@dzucconi](https://github.com/dzucconi))
 - Update ThemeProviderV3.mdx ([@damassi](https://github.com/damassi))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Update ThemeProviderV2.mdx ([@damassi](https://github.com/damassi))
 - Update Icons.mdx ([@damassi](https://github.com/damassi))
@@ -2445,7 +2511,7 @@ To migrate to this version, replace the following props on`Spacer`:
 - Update Spacing.mdx ([@damassi](https://github.com/damassi))
 - comment out toc links for now ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): update yarn orb from 5.1.3 to v6 [#1003](https://github.com/artsy/palette/pull/1003) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
 
@@ -2460,7 +2526,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Aug 06 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.54.1`
   - fix: changes default font to unica; cleans up [#1009](https://github.com/artsy/palette/pull/1009) ([@dzucconi](https://github.com/dzucconi))
@@ -2473,7 +2539,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Aug 06 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.54.0`
   - fix(text): exports text-transform type [#1008](https://github.com/artsy/palette/pull/1008) ([@dzucconi](https://github.com/dzucconi))
@@ -2486,11 +2552,11 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Aug 06 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - feat: [palette-docs] Add table of contents to sidebar [#1005](https://github.com/artsy/palette/pull/1005) ([@damassi](https://github.com/damassi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.53.0`
   - fix(text): increases text styles specificity [#1007](https://github.com/artsy/palette/pull/1007) ([@dzucconi](https://github.com/dzucconi))
@@ -2504,14 +2570,14 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Aug 05 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - chore: docs for algolia docsearch [#1001](https://github.com/artsy/palette/pull/1001) ([@pepopowitz](https://github.com/pepopowitz))
 - Light cleanup [#1002](https://github.com/artsy/palette/pull/1002) ([@damassi](https://github.com/damassi))
 - `@artsy/palette-tokens@2.5.0`, `@artsy/palette@14.52.0`
   - [palette-docs] Upgrade Palette to latest version of Gatsby; some light cleanup [#1004](https://github.com/artsy/palette/pull/1004) ([@damassi](https://github.com/damassi))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Update Input.mdx ([@damassi](https://github.com/damassi))
 - Update Radio.mdx ([@damassi](https://github.com/damassi))
@@ -2525,7 +2591,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Aug 04 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - docs: Cleanup - fix headers [#1000](https://github.com/artsy/palette/pull/1000) ([@damassi](https://github.com/damassi))
 - ci: Use s3-orb to deploy docs [#999](https://github.com/artsy/palette/pull/999) ([@damassi](https://github.com/damassi))
@@ -2534,7 +2600,7 @@ To migrate to this version, replace the following props on`Spacer`:
 - `@artsy/palette@14.51.0`
   - feat: implements dropdown [#986](https://github.com/artsy/palette/pull/986) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): bump tar from 4.4.13 to 4.4.15 [#997](https://github.com/artsy/palette/pull/997) ([@dependabot[bot]](https://github.com/dependabot[bot]))
 - chore(deps): bump prismjs from 1.23.0 to 1.24.0 [#958](https://github.com/artsy/palette/pull/958) ([@dependabot[bot]](https://github.com/dependabot[bot]))
@@ -2553,13 +2619,13 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Aug 03 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - Migrate docs to Palette v3 [#993](https://github.com/artsy/palette/pull/993) ([@damassi](https://github.com/damassi))
 - `@artsy/palette@14.50.0`
   - feat(input): supports inputs with custom heights [#994](https://github.com/artsy/palette/pull/994) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.50.0`
   - fix(labeledinput): correctly threads custom heights [#995](https://github.com/artsy/palette/pull/995) ([@dzucconi](https://github.com/dzucconi))
@@ -2573,7 +2639,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Aug 02 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.49.0`
   - [GRO-462] Add EarnMoreIcon to icon list [#991](https://github.com/artsy/palette/pull/991) (tanjiemcmeans@tanjiemcmeans-c02fqa2jmd6r.myfiosgateway.com [@TMcMeans](https://github.com/TMcMeans))
@@ -2587,7 +2653,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Aug 02 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette-tokens@2.2.0`, `@artsy/palette@14.48.0`
   - chore(space,color): deprecates space & color functions [#992](https://github.com/artsy/palette/pull/992) ([@dzucconi](https://github.com/dzucconi))
@@ -2600,7 +2666,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jul 30 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.47.2`
   - Input/TextArea refinements [#990](https://github.com/artsy/palette/pull/990) ([@dzucconi](https://github.com/dzucconi))
@@ -2613,7 +2679,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jul 30 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.47.1`
   - fix(textarea): passes default value [#989](https://github.com/artsy/palette/pull/989) ([@dzucconi](https://github.com/dzucconi))
@@ -2626,7 +2692,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jul 30 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.47.0`
   - feat(textarea): supports v3 [#988](https://github.com/artsy/palette/pull/988) ([@dzucconi](https://github.com/dzucconi))
@@ -2639,7 +2705,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jul 29 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.46.0`
   - feat: Export v2/v3 theme constants [#987](https://github.com/artsy/palette/pull/987) ([@damassi](https://github.com/damassi))
@@ -2652,12 +2718,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Jul 26 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.45.1`
   - fix(PX-4059): prevent link click if there is no next or prev page [#984](https://github.com/artsy/palette/pull/984) (kiry.zubarau@artsymail.com [@kiryl-zubarau](https://github.com/kiryl-zubarau))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - chore(deps): update auto orb from 1.3.2 to v1.4.0 [#985](https://github.com/artsy/palette/pull/985) ([@renovate-bot](https://github.com/renovate-bot))
 - chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 [#928](https://github.com/artsy/palette/pull/928) ([@dependabot[bot]](https://github.com/dependabot[bot]))
@@ -2680,7 +2746,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jul 21 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - fix: storybook compile [#981](https://github.com/artsy/palette/pull/981) ([@damassi](https://github.com/damassi))
 - `@artsy/palette@14.45.0`
@@ -2688,7 +2754,7 @@ To migrate to this version, replace the following props on`Spacer`:
 - `@artsy/palette@14.45.0`
   - feat(hooks): exports hooks [#979](https://github.com/artsy/palette/pull/979) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.45.0`
   - fix: Fix missing TextVariant export [#980](https://github.com/artsy/palette/pull/980) ([@damassi](https://github.com/damassi))
@@ -2702,7 +2768,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jul 21 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.44.1`
   - fix(image): supports native img props [#978](https://github.com/artsy/palette/pull/978) ([@dzucconi](https://github.com/dzucconi))
@@ -2719,7 +2785,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Jul 19 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.44.0`
   - fix: Fix CI deploys [#974](https://github.com/artsy/palette/pull/974) ([@damassi](https://github.com/damassi))
@@ -2734,7 +2800,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Jul 13 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.43.1`
   - fix(useposition): silences uselayouteffect ssr warning [#970](https://github.com/artsy/palette/pull/970) ([@dzucconi](https://github.com/dzucconi))
@@ -2747,7 +2813,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jul 09 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.43.0`
   - fix(PX-4310): get page count information from Swiper and Carousel [#969](https://github.com/artsy/palette/pull/969) (kiry.zubarau@artsymail.com [@kiryl-zubarau](https://github.com/kiryl-zubarau))
@@ -2761,12 +2827,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jul 01 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.42.0`
   - chore(chromatic): updates chromatic [#968](https://github.com/artsy/palette/pull/968) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.42.0`
   - chore(storybook): changes default theme to v3 [#966](https://github.com/artsy/palette/pull/966) ([@dzucconi](https://github.com/dzucconi))
@@ -2781,7 +2847,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jul 01 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.41.2`
   - fix(tabs): attempts to fix unstyled tabs in force [#965](https://github.com/artsy/palette/pull/965) ([@dzucconi](https://github.com/dzucconi))
@@ -2794,7 +2860,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 30 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.41.1`
   - fix(swiper,carousel): loosens children type [#964](https://github.com/artsy/palette/pull/964) ([@dzucconi](https://github.com/dzucconi))
@@ -2807,7 +2873,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 30 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.41.0`
   - feat(text): adds line-clamp [#963](https://github.com/artsy/palette/pull/963) ([@dzucconi](https://github.com/dzucconi))
@@ -2820,7 +2886,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 30 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.40.0`
   - feat(shelf): exports shelf nav buttons; improves feedback [#962](https://github.com/artsy/palette/pull/962) ([@dzucconi](https://github.com/dzucconi))
@@ -2833,7 +2899,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 30 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.39.0`
   - fix(progressdots): supports click [#961](https://github.com/artsy/palette/pull/961) ([@dzucconi](https://github.com/dzucconi))
@@ -2846,7 +2912,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Jun 29 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.38.2`
   - fix(carousel,swiper): supports conditional children [#960](https://github.com/artsy/palette/pull/960) ([@dzucconi](https://github.com/dzucconi))
@@ -2859,7 +2925,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Jun 29 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.38.1`
   - fix(join): supports nested children [#959](https://github.com/artsy/palette/pull/959) ([@dzucconi](https://github.com/dzucconi))
@@ -2872,7 +2938,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jun 25 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - Remove me from renovate.json [#955](https://github.com/artsy/palette/pull/955) ([@zephraph](https://github.com/zephraph))
 - Remove me as point person [#954](https://github.com/artsy/palette/pull/954) ([@zephraph](https://github.com/zephraph))
@@ -2888,12 +2954,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Jun 21 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.37.0`
   - feat(placeholder): implements placeholder [#951](https://github.com/artsy/palette/pull/951) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.37.0`
   - fix(skeleton): removes placeholder; updates skeleton [#953](https://github.com/artsy/palette/pull/953) ([@dzucconi](https://github.com/dzucconi))
@@ -2906,7 +2972,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jun 17 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.36.1`
   - fix(image,skeleton): optimizes skeleton animations [#950](https://github.com/artsy/palette/pull/950) ([@dzucconi](https://github.com/dzucconi))
@@ -2919,7 +2985,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jun 17 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.36.0`
   - Some small cleanup [#942](https://github.com/artsy/palette/pull/942) ([@pvinis](https://github.com/pvinis))
@@ -2932,7 +2998,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jun 11 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.35.2`
   - fix(tooltip): avoids blowing away child props [#949](https://github.com/artsy/palette/pull/949) ([@dzucconi](https://github.com/dzucconi))
@@ -2945,7 +3011,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jun 11 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.35.1`
   - fix(popover): skips focus management on initial mount [#948](https://github.com/artsy/palette/pull/948) ([@dzucconi](https://github.com/dzucconi))
@@ -2958,7 +3024,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jun 11 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.35.0`
   - Tooltip/Popover positioning [#947](https://github.com/artsy/palette/pull/947) ([@dzucconi](https://github.com/dzucconi))
@@ -2971,7 +3037,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Jun 07 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.34.0`
   - feat(button): supports `as` prop [#946](https://github.com/artsy/palette/pull/946) ([@dzucconi](https://github.com/dzucconi))
@@ -2984,7 +3050,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jun 04 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.33.1`
   - fix(radio): allows for custom labels to occupy immediate container [#944](https://github.com/artsy/palette/pull/944) ([@dzucconi](https://github.com/dzucconi))
@@ -2997,7 +3063,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jun 04 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.33.0`
   - fix: images width [#943](https://github.com/artsy/palette/pull/943) (nastassia@wsa-231-72b.local)
@@ -3010,7 +3076,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 02 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.32.0`
   - add increase/decrease icons [#940](https://github.com/artsy/palette/pull/940) ([@pvinis](https://github.com/pvinis))
@@ -3023,7 +3089,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jun 02 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.31.0`
   - feat(tooltip): supports v3; supports keyboard focus [#939](https://github.com/artsy/palette/pull/939) ([@dzucconi](https://github.com/dzucconi))
@@ -3036,7 +3102,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu May 27 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.30.1`
   - fix(shelf): vertically centers arrows relative to rail [#937](https://github.com/artsy/palette/pull/937) ([@dzucconi](https://github.com/dzucconi))
@@ -3049,7 +3115,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed May 26 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.30.0`
   - feat(shelf): implements custom scrollbar [#935](https://github.com/artsy/palette/pull/935) ([@dzucconi](https://github.com/dzucconi))
@@ -3062,7 +3128,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 14 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.29.0`
   - fix(shelf): improves first page previous button navigation [#933](https://github.com/artsy/palette/pull/933) ([@dzucconi](https://github.com/dzucconi))
@@ -3075,7 +3141,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 14 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.28.3`
   - fix(select): vertically centers label [#932](https://github.com/artsy/palette/pull/932) ([@dzucconi](https://github.com/dzucconi))
@@ -3088,7 +3154,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed May 12 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.28.2`
   - Loosen tab types to allow null, undefined [#931](https://github.com/artsy/palette/pull/931) ([@zephraph](https://github.com/zephraph))
@@ -3101,7 +3167,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue May 11 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.28.1`
   - fix(button): improves vertical centering in some situations [#930](https://github.com/artsy/palette/pull/930) ([@dzucconi](https://github.com/dzucconi))
@@ -3114,7 +3180,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon May 10 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.28.0`
   - [v3] Supports EntityHeader, Avatar [#929](https://github.com/artsy/palette/pull/929) ([@dzucconi](https://github.com/dzucconi))
@@ -3127,7 +3193,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 07 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.27.1`
   - fix(shelf): smoother progress [#925](https://github.com/artsy/palette/pull/925) ([@dzucconi](https://github.com/dzucconi))
@@ -3140,7 +3206,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 07 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.27.0`
   - fix: [Shelf] Dont show arrows if on touch device [#923](https://github.com/artsy/palette/pull/923) ([@damassi](https://github.com/damassi))
@@ -3153,7 +3219,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 07 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.26.0`
   - feat: [Image] add maxHeight props [#922](https://github.com/artsy/palette/pull/922) ([@damassi](https://github.com/damassi))
@@ -3166,12 +3232,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri May 07 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.25.0`
   - fix: Increase scroll bar space [#921](https://github.com/artsy/palette/pull/921) ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@14.25.0`
   - feat: Fix Shelf stories [#920](https://github.com/artsy/palette/pull/920) ([@damassi](https://github.com/damassi))
@@ -3184,7 +3250,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu May 06 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.24.0`
   - feat: Add showProgress prop to Shelf [#919](https://github.com/artsy/palette/pull/919) ([@damassi](https://github.com/damassi))
@@ -3197,7 +3263,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu May 06 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.23.0`
   - feat: Add alignItems prop to shelf [#918](https://github.com/artsy/palette/pull/918) ([@damassi](https://github.com/damassi))
@@ -3210,7 +3276,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu May 06 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.22.0`
   - Shelf component [#917](https://github.com/artsy/palette/pull/917) ([@dzucconi](https://github.com/dzucconi))
@@ -3223,7 +3289,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Apr 28 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.21.1`
   - fix(expandable): bumps chevron over 10px in v3 [#914](https://github.com/artsy/palette/pull/914) ([@dzucconi](https://github.com/dzucconi))
@@ -3236,7 +3302,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Apr 26 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.21.0`
   - feat(types): exports ColumnSpan/Start type [#913](https://github.com/artsy/palette/pull/913) ([@dzucconi](https://github.com/dzucconi))
@@ -3249,7 +3315,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Apr 23 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.20.0`
   - feat(theme): allows theme to be easily swapped [#912](https://github.com/artsy/palette/pull/912) ([@dzucconi](https://github.com/dzucconi))
@@ -3262,7 +3328,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Apr 20 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.19.0`
   - Fixes unstyled text when using interpolation/fragments [#911](https://github.com/artsy/palette/pull/911) ([@dzucconi](https://github.com/dzucconi))
@@ -3275,7 +3341,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Apr 16 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.18.3`
   - fix(pagination): correctly disables next/prev [#910](https://github.com/artsy/palette/pull/910) ([@dzucconi](https://github.com/dzucconi))
@@ -3288,7 +3354,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Apr 16 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.18.2`
   - fix(pagination): removes extraneous padding [#909](https://github.com/artsy/palette/pull/909) ([@dzucconi](https://github.com/dzucconi))
@@ -3301,7 +3367,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Apr 16 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.18.1`
   - fix(pagination): fixes last page error [#908](https://github.com/artsy/palette/pull/908) ([@dzucconi](https://github.com/dzucconi))
@@ -3316,12 +3382,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Apr 15 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.18.0`
   - [v3] Pagination [#906](https://github.com/artsy/palette/pull/906) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@14.18.0`
   - chore(deps): update dep typescript from 4.2.3 to v4.2.4 [#904](https://github.com/artsy/palette/pull/904) ([@renovate-bot](https://github.com/renovate-bot))
@@ -3335,7 +3401,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Apr 08 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.17.1`
   - fix(button): updates v3 button styling [#905](https://github.com/artsy/palette/pull/905) ([@dzucconi](https://github.com/dzucconi))
@@ -3348,7 +3414,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Apr 02 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.17.0`
   - bugfix: Ensure read more only operates on strings [#903](https://github.com/artsy/palette/pull/903) ([@damassi](https://github.com/damassi))
@@ -3361,11 +3427,11 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Apr 02 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - Send out palette version [#902](https://github.com/artsy/palette/pull/902) ([@damassi](https://github.com/damassi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.16.0`
   - fix: protects against error on ssr [#901](https://github.com/artsy/palette/pull/901) ([@dzucconi](https://github.com/dzucconi))
@@ -3379,7 +3445,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Apr 01 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.15.0`
   - fix(theme): corrects media queries [#900](https://github.com/artsy/palette/pull/900) ([@dzucconi](https://github.com/dzucconi))
@@ -3392,12 +3458,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Apr 01 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.14.0`
   - feat(radio): implements v3 styles [#898](https://github.com/artsy/palette/pull/898) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.14.0`
   - fix(expandable): box props should apply to entire component [#899](https://github.com/artsy/palette/pull/899) ([@dzucconi](https://github.com/dzucconi))
@@ -3410,7 +3476,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Mar 30 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.13.0`
   - feat(checkbox): implements v3 styles [#897](https://github.com/artsy/palette/pull/897) ([@dzucconi](https://github.com/dzucconi))
@@ -3425,7 +3491,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Mar 25 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.12.1`
   - fix(select): adjusts padding to accommodate caret [#895](https://github.com/artsy/palette/pull/895) ([@dzucconi](https://github.com/dzucconi))
@@ -3440,7 +3506,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 24 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.12.0`
   - feat(labeledinput): supports ref [#893](https://github.com/artsy/palette/pull/893) ([@dzucconi](https://github.com/dzucconi))
@@ -3453,7 +3519,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 24 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.11.1`
   - fix(labeledinput): allows for clickable labels [#892](https://github.com/artsy/palette/pull/892) ([@dzucconi](https://github.com/dzucconi))
@@ -3466,7 +3532,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 24 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.11.0`
   - feat(helpers): exports shadow constants [#891](https://github.com/artsy/palette/pull/891) ([@dzucconi](https://github.com/dzucconi))
@@ -3479,7 +3545,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 24 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.10.0`
   - feat: Add CalendarIcon, WatchIcon [#890](https://github.com/artsy/palette/pull/890) ([@damassi](https://github.com/damassi))
@@ -3492,7 +3558,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Mar 23 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.9.0`
   - LabeledInput [#887](https://github.com/artsy/palette/pull/887) ([@dzucconi](https://github.com/dzucconi))
@@ -3505,16 +3571,16 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Mar 23 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - ci: Deploy storybooks via Circle orb [#888](https://github.com/artsy/palette/pull/888) ([@damassi](https://github.com/damassi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.8.0`
   - storybook: Rename helpers/controls > components [#889](https://github.com/artsy/palette/pull/889) ([@damassi](https://github.com/damassi))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Add damon as point person ([@damassi](https://github.com/damassi))
 - Update README with links to storybooks and docs ([@damassi](https://github.com/damassi))
@@ -3527,7 +3593,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Mar 22 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.7.3`
   - feat: add optional onClick prop to Toggle [#884](https://github.com/artsy/palette/pull/884) ([@mdole](https://github.com/mdole))
@@ -3540,7 +3606,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Mar 19 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.7.2`
   - fix(divider): resets default styling when presenting as hr [#886](https://github.com/artsy/palette/pull/886) ([@dzucconi](https://github.com/dzucconi))
@@ -3553,7 +3619,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Mar 19 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.7.1`
   - fix(inputs): sets font-family to sans [#885](https://github.com/artsy/palette/pull/885) ([@dzucconi](https://github.com/dzucconi))
@@ -3566,7 +3632,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Mar 19 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.7.0`
   - Deprecates Sans/Serif; mixes in textTransform to Text [#883](https://github.com/artsy/palette/pull/883) ([@dzucconi](https://github.com/dzucconi))
@@ -3579,7 +3645,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Mar 18 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.6.1`
   - fix(input): corrects input types [#882](https://github.com/artsy/palette/pull/882) ([@dzucconi](https://github.com/dzucconi))
@@ -3592,12 +3658,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 17 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.6.0`
   - [v3] Input [#881](https://github.com/artsy/palette/pull/881) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@14.6.0`
   - chore(stories): checks in input stories [#880](https://github.com/artsy/palette/pull/880) ([@dzucconi](https://github.com/dzucconi))
@@ -3610,7 +3676,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Mar 16 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.5.1`
   - fix(select): fix type signature for deprecated exports [#879](https://github.com/artsy/palette/pull/879) ([@dzucconi](https://github.com/dzucconi))
@@ -3623,7 +3689,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Mar 12 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.5.0`
   - [v3] Select [#878](https://github.com/artsy/palette/pull/878) ([@dzucconi](https://github.com/dzucconi))
@@ -3636,7 +3702,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Mar 12 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.4.0`
   - [v3] Sup, ProgressBar, CarouselBar, Progress dashes [#877](https://github.com/artsy/palette/pull/877) ([@dzucconi](https://github.com/dzucconi))
@@ -3649,7 +3715,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 10 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.3.0`
   - [v3] Tabs, Stepper [#876](https://github.com/artsy/palette/pull/876) ([@dzucconi](https://github.com/dzucconi))
@@ -3662,12 +3728,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 10 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@14.2.1`
   - refactor(tabs,stepper): refactors to utilize basetabs [#875](https://github.com/artsy/palette/pull/875) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@14.2.1`
   - chore(stories): adds tabs/stepper stories [#874](https://github.com/artsy/palette/pull/874) ([@dzucconi](https://github.com/dzucconi))
@@ -3680,7 +3746,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Mar 08 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.2.0`
   - feat(breadcrumbs): implements breadcrumbs component [#873](https://github.com/artsy/palette/pull/873) ([@dzucconi](https://github.com/dzucconi))
@@ -3693,12 +3759,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Sat Mar 06 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@14.1.0`
   - [v3] Pill [#872](https://github.com/artsy/palette/pull/872) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@14.1.0`
   - chore(deps): update dep typescript from 4.2.2 to v4.2.3 [#871](https://github.com/artsy/palette/pull/871) ([@renovate-bot](https://github.com/renovate-bot))
@@ -3712,7 +3778,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Mar 05 2021)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette@14.0.0`
   - [v3] Banner/Message [#869](https://github.com/artsy/palette/pull/869) ([@dzucconi](https://github.com/dzucconi))
@@ -3725,7 +3791,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Mar 04 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.36.1`
   - Avoids failing specs on unthemed components [#870](https://github.com/artsy/palette/pull/870) ([@dzucconi](https://github.com/dzucconi))
@@ -3738,12 +3804,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Mar 04 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.36.0`
   - V3 Theme [#865](https://github.com/artsy/palette/pull/865) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@13.36.0`
   - Pulling over stories from radio button [#868](https://github.com/artsy/palette/pull/868) ([@dzucconi](https://github.com/dzucconi))
@@ -3756,7 +3822,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Mar 03 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.35.2`
   - Revert "fix(a11y): makes radio / radio groups accessible" [#866](https://github.com/artsy/palette/pull/866) ([@dzucconi](https://github.com/dzucconi))
@@ -3769,7 +3835,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Mar 02 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.35.1`
   - fix(a11y): makes radio / radio groups accessible [#863](https://github.com/artsy/palette/pull/863) ([@dzucconi](https://github.com/dzucconi))
@@ -3782,12 +3848,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Feb 25 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.35.0`
   - fix: check for empty strings in join [#864](https://github.com/artsy/palette/pull/864) ([@MounirDhahri](https://github.com/MounirDhahri))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@13.35.0`
   - chore(deps): update dep typescript from 4.1.5 to v4.2.2 [#862](https://github.com/artsy/palette/pull/862) ([@renovate-bot](https://github.com/renovate-bot))
@@ -3801,12 +3867,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Feb 23 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.34.2`
   - fix(toggle): supports keyboard accessibility [#860](https://github.com/artsy/palette/pull/860) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@13.34.2`
   - chore(storybook): rewrites some stories with storybook-states [#859](https://github.com/artsy/palette/pull/859) ([@dzucconi](https://github.com/dzucconi))
@@ -3819,7 +3885,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Feb 18 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.34.1`
   - Change default Clickable type; minor checkbox fix [#858](https://github.com/artsy/palette/pull/858) ([@dzucconi](https://github.com/dzucconi))
@@ -3832,7 +3898,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Feb 18 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.34.0`
   - fix(checkbox): makes a11y updates without using button [#857](https://github.com/artsy/palette/pull/857) ([@dzucconi](https://github.com/dzucconi))
@@ -3845,7 +3911,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Feb 18 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.33.1`
   - Revert "fix(checkbox): makes checkbox accessible; supports box props" [#856](https://github.com/artsy/palette/pull/856) ([@dzucconi](https://github.com/dzucconi))
@@ -3858,12 +3924,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Feb 17 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.33.0`
   - fix(checkbox): makes checkbox accessible; supports box props [#855](https://github.com/artsy/palette/pull/855) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@13.33.0`
   - chore(checkbox): adds stories for checkbox [#854](https://github.com/artsy/palette/pull/854) ([@dzucconi](https://github.com/dzucconi))
@@ -3876,7 +3942,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Feb 16 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.32.1`
   - [storybook 6 upgrade]: Converts stories to CSF [#853](https://github.com/artsy/palette/pull/853) ([@dzucconi](https://github.com/dzucconi) [@damassi](https://github.com/damassi))
@@ -3890,7 +3956,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Feb 12 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.32.0`
   - feat: Add ability to pass in a component into Toggle label prop [#852](https://github.com/artsy/palette/pull/852) ([@annacarey](https://github.com/annacarey))
@@ -3903,12 +3969,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Feb 11 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.31.0`
   - Adds Money Icon [#851](https://github.com/artsy/palette/pull/851) ([@jo-rs](https://github.com/jo-rs))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@13.31.0`
   - Update dep typescript from 4.1.4 to v4.1.5 [#850](https://github.com/artsy/palette/pull/850) ([@renovate-bot](https://github.com/renovate-bot))
@@ -3924,7 +3990,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Feb 05 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette-tokens@1.5.0`
   - lowercase for better readability [#848](https://github.com/artsy/palette/pull/848) ([@pvinis](https://github.com/pvinis))
@@ -3937,7 +4003,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Feb 04 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette-tokens@1.4.0`
   - Use full 6 digits for hex colors [#847](https://github.com/artsy/palette/pull/847) ([@pvinis](https://github.com/pvinis))
@@ -3950,7 +4016,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Feb 03 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.30.0`
   - feat: Add chevronSize prop to Toggle component [#846](https://github.com/artsy/palette/pull/846) ([@annacarey](https://github.com/annacarey))
@@ -3963,7 +4029,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jan 21 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette-tokens@1.3.1`
   - Ensure the looser color type definition gets exported [#844](https://github.com/artsy/palette/pull/844) ([@zephraph](https://github.com/zephraph))
@@ -3976,12 +4042,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jan 21 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette-tokens@1.3.0`
   - Centralize some of the minor helpers w/ type updates [#843](https://github.com/artsy/palette/pull/843) ([@zephraph](https://github.com/zephraph))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - `@artsy/palette-tokens@1.3.0`
   - Export helpers from tokens package ([@zephraph](https://github.com/zephraph))
@@ -3994,7 +4060,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jan 15 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.29.1`
   - fix(button): ensure loading styles take precedence over hover [#842](https://github.com/artsy/palette/pull/842) ([@dzucconi](https://github.com/dzucconi))
@@ -4007,7 +4073,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jan 15 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.29.0`
   - fix(button): button updates [#841](https://github.com/artsy/palette/pull/841) ([@dzucconi](https://github.com/dzucconi))
@@ -4020,7 +4086,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Fri Jan 08 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.28.0`
   - feat(pagination): includes page number on next callback [#840](https://github.com/artsy/palette/pull/840) ([@dzucconi](https://github.com/dzucconi))
@@ -4033,12 +4099,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Jan 07 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.27.2`
   - fix: Populate pagination next/prev hrefs correctly [#839](https://github.com/artsy/palette/pull/839) ([@jonallured](https://github.com/jonallured))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@13.27.2`
   - Pin dependencies [#826](https://github.com/artsy/palette/pull/826) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
@@ -4056,12 +4122,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Jan 06 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.27.1`
   - Fix failing storybook tests by guarding getHref call [#838](https://github.com/artsy/palette/pull/838) ([@zephraph](https://github.com/zephraph))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update yarn orb from 4.0.2 to v5 [#811](https://github.com/artsy/palette/pull/811) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
 - `@artsy/palette@13.27.1`
@@ -4077,7 +4143,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Jan 05 2021)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.27.0`
   - refactor: Use links for pagination [#824](https://github.com/artsy/palette/pull/824) ([@jonallured](https://github.com/jonallured) [@damassi](https://github.com/damassi))
@@ -4091,7 +4157,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Jan 05 2021)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.26.4`
   - Add global styles for lists [#834](https://github.com/artsy/palette/pull/834) ([@eessex](https://github.com/eessex))
@@ -4104,7 +4170,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Dec 17 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.26.3`
   - feat: add circle fill icon [#833](https://github.com/artsy/palette/pull/833) ([@mdole](https://github.com/mdole))
@@ -4117,7 +4183,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Thu Dec 17 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.26.2`
   - fix(skeleton): implements appropriate scaling for multiline texts [#832](https://github.com/artsy/palette/pull/832) ([@dzucconi](https://github.com/dzucconi))
@@ -4130,7 +4196,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Dec 15 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.26.1`
   - fix(swiper): inlines default margins to simplify setting alternatives [#831](https://github.com/artsy/palette/pull/831) ([@dzucconi](https://github.com/dzucconi))
@@ -4143,7 +4209,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Dec 15 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.26.0`
   - fix(basetabs): support nested fragments [#830](https://github.com/artsy/palette/pull/830) ([@dzucconi](https://github.com/dzucconi))
@@ -4156,7 +4222,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Dec 14 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.25.1`
   - fix(tabs): converts back to anys [#829](https://github.com/artsy/palette/pull/829) ([@dzucconi](https://github.com/dzucconi))
@@ -4169,7 +4235,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Dec 14 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.25.0`
   - feat: implements base tabs [#821](https://github.com/artsy/palette/pull/821) ([@dzucconi](https://github.com/dzucconi))
@@ -4182,7 +4248,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Wed Dec 09 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.24.2`
   - feature: Development Dependencies [#825](https://github.com/artsy/palette/pull/825) ([@icirellik](https://github.com/icirellik))
@@ -4195,12 +4261,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Dec 07 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette@13.24.1`
   - chore(webfonts): update webfonts domain references [#823](https://github.com/artsy/palette/pull/823) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@13.24.1`
   - refactor: Reorganize pagination and improve tests [#822](https://github.com/artsy/palette/pull/822) ([@jonallured](https://github.com/jonallured))
@@ -4214,7 +4280,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Nov 30 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette@13.24.0`
   - feat: update message component [#820](https://github.com/artsy/palette/pull/820) ([@mdole](https://github.com/mdole))
@@ -4227,12 +4293,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Tue Nov 24 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette-tokens@1.1.0`, `@artsy/palette@13.23.0`
   - feat: update colors [#819](https://github.com/artsy/palette/pull/819) ([@mdole](https://github.com/mdole))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette@13.23.0`
   - Update dep typescript from 4.0.3 to v4.1.2 [#808](https://github.com/artsy/palette/pull/808) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
@@ -4247,7 +4313,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # (Mon Nov 23 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette-tokens@1.0.0`
   - Extract palette tokens into a separate package [#817](https://github.com/artsy/palette/pull/817) ([@zephraph](https://github.com/zephraph))
@@ -4260,7 +4326,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.22.0 (Fri Nov 20 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - fix: Use ResponsiveValue helper [#816](https://github.com/artsy/palette/pull/816) ([@damassi](https://github.com/damassi))
@@ -4273,7 +4339,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.21.0 (Fri Nov 20 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - fix: Fix type def [#815](https://github.com/artsy/palette/pull/815) ([@damassi](https://github.com/damassi))
@@ -4286,7 +4352,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.20.0 (Fri Nov 20 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - fix: [Text] update variant type to support array syntax [#814](https://github.com/artsy/palette/pull/814) ([@damassi](https://github.com/damassi))
@@ -4299,7 +4365,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.19.0 (Sat Nov 14 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add new icons for /consign2 [#813](https://github.com/artsy/palette/pull/813) ([@williardx](https://github.com/williardx))
@@ -4312,7 +4378,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.18.0 (Thu Nov 12 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - trivial: add target to MenuItem [#812](https://github.com/artsy/palette/pull/812) ([@eessex](https://github.com/eessex))
@@ -4325,7 +4391,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.17.0 (Mon Nov 09 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - feat: support boolean errors for Input [#810](https://github.com/artsy/palette/pull/810) ([@mdole](https://github.com/mdole))
@@ -4338,7 +4404,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.16.0 (Fri Oct 30 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Includes documentation on how to create a responsive image [#809](https://github.com/artsy/palette/pull/809) ([@dzucconi](https://github.com/dzucconi))
@@ -4351,12 +4417,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.15.0 (Mon Oct 26 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - feat: Add blue100 color [#807](https://github.com/artsy/palette/pull/807) ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Updates GridColumns documentation [#806](https://github.com/artsy/palette/pull/806) ([@dzucconi](https://github.com/dzucconi))
 
@@ -4369,7 +4435,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.14.0 (Mon Oct 26 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - docs: Add GridColumn docs [#804](https://github.com/artsy/palette/pull/804) ([@damassi](https://github.com/damassi))
 
@@ -4381,7 +4447,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.13.0 (Fri Oct 23 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - fix: All icon to be filled [#803](https://github.com/artsy/palette/pull/803) ([@damassi](https://github.com/damassi))
@@ -4394,7 +4460,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.12.0 (Fri Oct 23 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - feat: [Icons] Add TriangleDownIcon [#802](https://github.com/artsy/palette/pull/802) ([@damassi](https://github.com/damassi))
@@ -4407,7 +4473,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.11.0 (Tue Oct 20 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [PCI-3] Supports props based navigation in Swiper/Carousel [#799](https://github.com/artsy/palette/pull/799) ([@dzucconi](https://github.com/dzucconi))
@@ -4420,7 +4486,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.10.1 (Tue Oct 13 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Swiper and Carousel cells should have normal white-space [#797](https://github.com/artsy/palette/pull/797) ([@dzucconi](https://github.com/dzucconi))
@@ -4433,7 +4499,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.10.0 (Fri Oct 09 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - feat: add drag icon to icon library [#796](https://github.com/artsy/palette/pull/796) ([@mdole](https://github.com/mdole))
@@ -4446,7 +4512,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.9.1 (Thu Oct 08 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - GridColumns typing [#795](https://github.com/artsy/palette/pull/795) ([@dzucconi](https://github.com/dzucconi))
@@ -4459,7 +4525,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.9.0 (Thu Oct 08 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Implements GridColumns [#794](https://github.com/artsy/palette/pull/794) ([@dzucconi](https://github.com/dzucconi))
@@ -4472,7 +4538,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.8.0 (Tue Oct 06 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - style(FX-2320): Remove XS horizontal padding within tabs container [#793](https://github.com/artsy/palette/pull/793) ([@dblandin](https://github.com/dblandin))
@@ -4485,7 +4551,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.7.5 (Thu Oct 01 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [FX-2317] Fixes pagination arrow alignment [#791](https://github.com/artsy/palette/pull/791) ([@dzucconi](https://github.com/dzucconi))
@@ -4498,7 +4564,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.7.4 (Thu Oct 01 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Converts ReadMore class component to functional component [#790](https://github.com/artsy/palette/pull/790) ([@dzucconi](https://github.com/dzucconi))
@@ -4511,7 +4577,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.7.3 (Thu Sep 24 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Only calls onChange when the active index actually changes [#789](https://github.com/artsy/palette/pull/789) ([@dzucconi](https://github.com/dzucconi))
@@ -4524,12 +4590,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.7.2 (Wed Sep 23 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Ensures consistent typography in EntityHeaders [#788](https://github.com/artsy/palette/pull/788) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Removes primitives indirection [#787](https://github.com/artsy/palette/pull/787) ([@dzucconi](https://github.com/dzucconi))
@@ -4542,7 +4608,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.7.1 (Tue Sep 22 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Removed white background from XCircleIcon [#786](https://github.com/artsy/palette/pull/786) ([@lilyfromseattle](https://github.com/lilyfromseattle))
@@ -4555,7 +4621,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.7.0 (Tue Sep 22 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [FX-2245] ReadMore styling [#782](https://github.com/artsy/palette/pull/782) ([@dzucconi](https://github.com/dzucconi))
@@ -4568,7 +4634,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.6.0 (Tue Sep 22 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Sets default Text variant to `"text"` [#785](https://github.com/artsy/palette/pull/785) ([@dzucconi](https://github.com/dzucconi))
@@ -4581,7 +4647,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.5.0 (Mon Sep 21 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add receipt and pending icon [#784](https://github.com/artsy/palette/pull/784) ([@lilyfromseattle](https://github.com/lilyfromseattle))
@@ -4594,12 +4660,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.4.1 (Mon Sep 21 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fixes horizontal margin overrides [#783](https://github.com/artsy/palette/pull/783) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Update dep typescript from 3.7.5 to v4 [#758](https://github.com/artsy/palette/pull/758) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
@@ -4617,7 +4683,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.4.0 (Tue Sep 15 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Exposes text variants under theme [#778](https://github.com/artsy/palette/pull/778) ([@dzucconi](https://github.com/dzucconi))
@@ -4630,7 +4696,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.3.0 (Mon Sep 14 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Cleans up Cards; support all image attributes [#776](https://github.com/artsy/palette/pull/776) ([@dzucconi](https://github.com/dzucconi))
@@ -4643,7 +4709,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.2.0 (Mon Sep 14 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add 1.5 and 5 to our spacing units [#777](https://github.com/artsy/palette/pull/777) ([@zephraph](https://github.com/zephraph))
@@ -4656,7 +4722,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.1.0 (Thu Sep 03 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [Carousel/Swiper] Allows structural components to be injected [#767](https://github.com/artsy/palette/pull/767) ([@dzucconi](https://github.com/dzucconi))
@@ -4669,7 +4735,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v13.0.0 (Thu Sep 03 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - [MX-444] Remove iOS components [#766](https://github.com/artsy/palette/pull/766) ([@MounirDhahri](https://github.com/MounirDhahri))
@@ -4682,7 +4748,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.5.0 (Tue Sep 01 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Move paginateCarousel Rename to Original File [#765](https://github.com/artsy/palette/pull/765) ([@icirellik](https://github.com/icirellik))
@@ -4695,7 +4761,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.4.3 (Mon Aug 31 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds support for `srcSet` [#764](https://github.com/artsy/palette/pull/764) ([@dzucconi](https://github.com/dzucconi))
@@ -4708,7 +4774,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.4.2 (Mon Aug 31 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Pass through done prop on SkeletonText [#763](https://github.com/artsy/palette/pull/763) ([@dzucconi](https://github.com/dzucconi))
@@ -4721,7 +4787,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.4.1 (Thu Aug 27 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Updates carousel arrow sizing and color [#762](https://github.com/artsy/palette/pull/762) ([@dzucconi](https://github.com/dzucconi))
@@ -4734,7 +4800,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.4.0 (Thu Aug 27 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [FX-2175] Swiper, ProgressDots, custom navigation Carousel buttons [#761](https://github.com/artsy/palette/pull/761) ([@dzucconi](https://github.com/dzucconi))
@@ -4747,7 +4813,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.3.0 (Tue Aug 25 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [FX-2175] Carousel [#760](https://github.com/artsy/palette/pull/760) ([@dzucconi](https://github.com/dzucconi))
@@ -4760,7 +4826,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.2.0 (Mon Aug 24 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Chore - Cleanup Dependency Cycles [#759](https://github.com/artsy/palette/pull/759) ([@icirellik](https://github.com/icirellik))
@@ -4773,7 +4839,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.1.0 (Fri Aug 14 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Updates avatar size and typography for entity header small variant [#757](https://github.com/artsy/palette/pull/757) ([@sweir27](https://github.com/sweir27))
@@ -4786,12 +4852,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.0.2 (Thu Aug 13 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Removes lodash [#755](https://github.com/artsy/palette/pull/755) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dep @types/debounce from ^1.2.0 to 1.2.0 [#756](https://github.com/artsy/palette/pull/756) ([@renovate-bot](https://github.com/renovate-bot))
@@ -4805,7 +4871,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.0.1 (Wed Aug 05 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds remaining block-level elements that can come from rendered Markdown [#752](https://github.com/artsy/palette/pull/752) ([@dzucconi](https://github.com/dzucconi))
@@ -4818,7 +4884,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v12.0.0 (Mon Aug 03 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - Reverts serif removal, migrates HTML to new typography [#751](https://github.com/artsy/palette/pull/751) ([@dzucconi](https://github.com/dzucconi))
@@ -4831,7 +4897,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.15.0 (Fri Jul 31 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Implements ResponsiveBox [#747](https://github.com/artsy/palette/pull/747) ([@dzucconi](https://github.com/dzucconi))
@@ -4844,7 +4910,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.14.0 (Wed Jul 29 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - [Docs] Remove WIP from SelectSmall [#746](https://github.com/artsy/palette/pull/746) ([@damassi](https://github.com/damassi))
 
@@ -4856,7 +4922,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.13.1 (Tue Jul 28 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Removes shadow on iOS [#744](https://github.com/artsy/palette/pull/744) ([@dzucconi](https://github.com/dzucconi))
@@ -4869,12 +4935,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.13.0 (Thu Jul 23 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Implements Skeleton [#741](https://github.com/artsy/palette/pull/741) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update Typography docs [#742](https://github.com/artsy/palette/pull/742) ([@damassi](https://github.com/damassi))
 - Improves Typography documentation [#740](https://github.com/artsy/palette/pull/740) ([@dzucconi](https://github.com/dzucconi))
@@ -4888,7 +4954,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.12.0 (Wed Jul 22 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - [palette-docs] Fixes mysterious error [#739](https://github.com/artsy/palette/pull/739) ([@dzucconi](https://github.com/dzucconi))
 
@@ -4900,7 +4966,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.11.1 (Wed Jul 22 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Breakpoints aliasing [#738](https://github.com/artsy/palette/pull/738) ([@dzucconi](https://github.com/dzucconi))
@@ -4913,7 +4979,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.11.0 (Tue Jul 21 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Implements utility for breaking apart layout props [#737](https://github.com/artsy/palette/pull/737) ([@dzucconi](https://github.com/dzucconi))
@@ -4926,14 +4992,14 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.10.0 (Mon Jul 20 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Text extends Box [#736](https://github.com/artsy/palette/pull/736) ([@dzucconi](https://github.com/dzucconi))
 - `@artsy/palette`
   - Removes serif from Text [#734](https://github.com/artsy/palette/pull/734) ([@dzucconi](https://github.com/dzucconi))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Regenerate lock file ([@damassi](https://github.com/damassi))
 
@@ -4946,7 +5012,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.9.0 (Fri Jul 17 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - GALL-2970 Add web version of medium card [#731](https://github.com/artsy/palette/pull/731) ([@ansor4](https://github.com/ansor4))
@@ -4959,7 +5025,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.8.1 (Wed Jul 15 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Upgrades styled-bootstrap-grid; removes overflow: hidden [#716](https://github.com/artsy/palette/pull/716) ([@dzucconi](https://github.com/dzucconi))
@@ -4972,11 +5038,11 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.8.0 (Tue Jul 14 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - addinging some grammer :p [#728](https://github.com/artsy/palette/pull/728) ([@pvinis](https://github.com/pvinis))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Upping the diffThreshold a bit more for BarChart [#729](https://github.com/artsy/palette/pull/729) ([@pvinis](https://github.com/pvinis))
@@ -4992,7 +5058,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.7.0 (Tue Jul 07 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [Part of GALL-2970] - adding a small card to web view [#723](https://github.com/artsy/palette/pull/723) ([@oxaudo](https://github.com/oxaudo))
@@ -5005,7 +5071,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.6.2 (Tue Jul 07 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Removes theme from config [#725](https://github.com/artsy/palette/pull/725) ([@dzucconi](https://github.com/dzucconi))
@@ -5018,7 +5084,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.6.1 (Tue Jul 07 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Removes blanket focus disable [#724](https://github.com/artsy/palette/pull/724) ([@dzucconi](https://github.com/dzucconi))
@@ -5031,7 +5097,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.6.0 (Thu Jul 02 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Supports a small entity header design via "smallVariant" prop [#722](https://github.com/artsy/palette/pull/722) ([@ashleyjelks](https://github.com/ashleyjelks))
@@ -5044,7 +5110,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.5.0 (Wed Jul 01 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add new BriefcaseIcon to palette system [#721](https://github.com/artsy/palette/pull/721) ([@jpotts244](https://github.com/jpotts244))
@@ -5057,7 +5123,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.4.0 (Tue Jun 30 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [FX-2067] Implements Text.ios [#719](https://github.com/artsy/palette/pull/719) ([@dzucconi](https://github.com/dzucconi))
@@ -5070,12 +5136,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.3.0 (Mon Jun 29 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add cards from viewing rooms [#717](https://github.com/artsy/palette/pull/717) ([@pvinis](https://github.com/pvinis))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Bumps react-lazy-load-image-component [#718](https://github.com/artsy/palette/pull/718) ([@dzucconi](https://github.com/dzucconi))
@@ -5089,7 +5155,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.2.0 (Fri Jun 26 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [web] Implements new typographic styles [#714](https://github.com/artsy/palette/pull/714) ([@dzucconi](https://github.com/dzucconi))
@@ -5102,7 +5168,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.1.1 (Wed Jun 24 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Disables knobs to remove dependency on emotion typings [#715](https://github.com/artsy/palette/pull/715) ([@dzucconi](https://github.com/dzucconi))
@@ -5115,12 +5181,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.1.0 (Mon Jun 22 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Remove margin on Toggle component [#712](https://github.com/artsy/palette/pull/712) ([@williardx](https://github.com/williardx))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dependencies [#699](https://github.com/artsy/palette/pull/699) ([@renovate-bot](https://github.com/renovate-bot))
@@ -5137,7 +5203,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.0.2 (Tue Jun 16 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - BorderBox should support custom padding [#711](https://github.com/artsy/palette/pull/711) ([@oxaudo](https://github.com/oxaudo))
@@ -5150,7 +5216,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.0.1 (Mon Jun 15 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fixes avatars in React Native [#710](https://github.com/artsy/palette/pull/710) ([@dzucconi](https://github.com/dzucconi))
@@ -5163,7 +5229,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v11.0.0 (Mon Jun 15 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - Unifies Box/Flex [#707](https://github.com/artsy/palette/pull/707) ([@dzucconi](https://github.com/dzucconi))
@@ -5176,7 +5242,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v10.1.0 (Sat Jun 06 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - allow customizing border color for BorderBox [#708](https://github.com/artsy/palette/pull/708) ([@oxaudo](https://github.com/oxaudo))
@@ -5189,7 +5255,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v10.0.0 (Wed Jun 03 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - Upgrades to styled-system v5 [#705](https://github.com/artsy/palette/pull/705) ([@dzucconi](https://github.com/dzucconi))
@@ -5202,7 +5268,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.13.0 (Mon Jun 01 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Update avatar component to use Sans [#706](https://github.com/artsy/palette/pull/706) ([@xtina-starr](https://github.com/xtina-starr))
@@ -5215,7 +5281,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.12.0 (Fri May 29 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Clickable [#703](https://github.com/artsy/palette/pull/703) ([@dzucconi](https://github.com/dzucconi))
@@ -5228,7 +5294,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.11.0 (Fri May 29 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - adding `endash` and a `range` helper [#702](https://github.com/artsy/palette/pull/702) ([@pvinis](https://github.com/pvinis))
@@ -5241,7 +5307,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.10.0 (Thu May 28 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Update Modal to use Sans title [#700](https://github.com/artsy/palette/pull/700) ([@dblandin](https://github.com/dblandin))
@@ -5254,7 +5320,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.9.0 (Wed May 27 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [FX-1936] Implements ModalBase (take II) [#693](https://github.com/artsy/palette/pull/693) ([@dzucconi](https://github.com/dzucconi))
@@ -5267,12 +5333,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.8.1 (Wed May 27 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fixes mixed-in classnames coming from styled-components [#697](https://github.com/artsy/palette/pull/697) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Adjusts Chromatic settings [#694](https://github.com/artsy/palette/pull/694) ([@dzucconi](https://github.com/dzucconi))
@@ -5285,7 +5351,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.8.0 (Tue May 26 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Use Sans Instead of Serif in EntityHeader component [#692](https://github.com/artsy/palette/pull/692) ([@ashleyjelks](https://github.com/ashleyjelks))
@@ -5298,7 +5364,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.7.0 (Thu May 21 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add disabledtext to radiogroup [#689](https://github.com/artsy/palette/pull/689) ([@pvinis](https://github.com/pvinis))
@@ -5311,12 +5377,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.6.0 (Thu May 21 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Adds HTML.ios.tsx [#691](https://github.com/artsy/palette/pull/691) ([@dzucconi](https://github.com/dzucconi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update auto orb from 1.3.1 to v1.3.2 [#682](https://github.com/artsy/palette/pull/682) ([@renovate-bot](https://github.com/renovate-bot))
 
@@ -5329,7 +5395,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.5.0 (Wed May 20 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Adds HTML component [#690](https://github.com/artsy/palette/pull/690) ([@dzucconi](https://github.com/dzucconi))
@@ -5342,7 +5408,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.4.0 (Tue May 19 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Export BorderBoxProps in top-level package [#688](https://github.com/artsy/palette/pull/688) ([@dblandin](https://github.com/dblandin))
@@ -5355,7 +5421,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.3.0 (Tue May 19 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [CSGN-203] Add PaymentIcon [#687](https://github.com/artsy/palette/pull/687) ([@pepopowitz](https://github.com/pepopowitz))
@@ -5368,7 +5434,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.2.2 (Tue May 19 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - No unstable_trackIn in eigen [#685](https://github.com/artsy/palette/pull/685) ([@ds300](https://github.com/ds300))
@@ -5381,7 +5447,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.2.1 (Tue May 19 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - `@artsy/palette`
   - Update tsconfig.json ([@damassi](https://github.com/damassi))
@@ -5394,7 +5460,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.2.0 (Tue May 19 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Update the Banner component to work well with a content that takes more space [#686](https://github.com/artsy/palette/pull/686) ([@yuki24](https://github.com/yuki24))
@@ -5407,7 +5473,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.1.0 (Sat May 16 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [COM-16] - add unstable_trackIn as a prop to Sans and Serif [#684](https://github.com/artsy/palette/pull/684) ([@oxaudo](https://github.com/oxaudo))
@@ -5420,7 +5486,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.0.1 (Wed May 13 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Modal] Do not fire external `onClose` callback on first render [#683](https://github.com/artsy/palette/pull/683) ([@dblandin](https://github.com/dblandin))
@@ -5433,7 +5499,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v9.0.0 (Wed May 13 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - Remove Modal `forcedScroll` prop / Default `overflow` to `auto` [#680](https://github.com/artsy/palette/pull/680) ([@dblandin](https://github.com/dblandin))
@@ -5446,7 +5512,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.2.6 (Wed May 13 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - `@artsy/palette`
   - Update Theme.tsx ([@damassi](https://github.com/damassi))
@@ -5459,12 +5525,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.2.5 (Wed May 13 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - `@artsy/palette`
   - Update Theme.tsx ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update auto orb from 1.2.0 to v1.3.1 [#676](https://github.com/artsy/palette/pull/676) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
 
@@ -5478,7 +5544,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.2.4 (Tue May 12 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Mixes in missing flex-related functions [#681](https://github.com/artsy/palette/pull/681) ([@dzucconi](https://github.com/dzucconi))
@@ -5491,7 +5557,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.2.3 (Sat May 09 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [ProgressBar] Make transition customizable [#679](https://github.com/artsy/palette/pull/679) ([@damassi](https://github.com/damassi))
@@ -5504,7 +5570,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.2.2 (Fri May 08 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Updates Palette to use new Eigen repo structure [#678](https://github.com/artsy/palette/pull/678) ([@ashfurrow](https://github.com/ashfurrow))
@@ -5517,7 +5583,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.2.1 (Mon Apr 27 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [FX-1907] make background color darker for legibility with light text colors [#673](https://github.com/artsy/palette/pull/673) ([@xtina-starr](https://github.com/xtina-starr))
@@ -5530,7 +5596,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.2.0 (Wed Apr 22 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [Grid] Add maxWidth prop [#672](https://github.com/artsy/palette/pull/672) ([@damassi](https://github.com/damassi))
@@ -5543,12 +5609,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.1.3 (Fri Apr 17 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Update menu component style props [#671](https://github.com/artsy/palette/pull/671) ([@xtina-starr](https://github.com/xtina-starr))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update auto orb from 1.1.0 to v1.2.0 [#669](https://github.com/artsy/palette/pull/669) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
 
@@ -5562,10 +5628,10 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.1.2 (Fri Apr 17 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
-  -  [#670](https://github.com/artsy/palette/pull/670) ([@willanderson](https://github.com/willanderson) [@zephraph](https://github.com/zephraph))
+  - [#670](https://github.com/artsy/palette/pull/670) ([@willanderson](https://github.com/willanderson) [@zephraph](https://github.com/zephraph))
 
 #### Authors: 2
 
@@ -5576,10 +5642,10 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.1.1 (Wed Apr 15 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
-  -  [#668](https://github.com/artsy/palette/pull/668) ([@willanderson](https://github.com/willanderson) [@zephraph](https://github.com/zephraph))
+  - [#668](https://github.com/artsy/palette/pull/668) ([@willanderson](https://github.com/willanderson) [@zephraph](https://github.com/zephraph))
 
 #### Authors: 2
 
@@ -5590,7 +5656,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.1.0 (Sun Apr 12 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Allow titles to be modifiable for SVGs [#666](https://github.com/artsy/palette/pull/666) ([@zephraph](https://github.com/zephraph))
@@ -5603,7 +5669,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v8.0.0 (Fri Apr 10 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - [Deletion] Remove page loader [#665](https://github.com/artsy/palette/pull/665) ([@damassi](https://github.com/damassi))
@@ -5616,12 +5682,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.8.1 (Fri Apr 10 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [FX-1889] expand menu component to work with new nav DropDownMenu in reaction [#664](https://github.com/artsy/palette/pull/664) ([@xtina-starr](https://github.com/xtina-starr))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dep @types/react-lazy-load-image-component from ^1.3.0 to 1.3.0 [#661](https://github.com/artsy/palette/pull/661) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
@@ -5636,7 +5702,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.8.0 (Sat Apr 04 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Allow `Input` to accept refs [#663](https://github.com/artsy/palette/pull/663) ([@zephraph](https://github.com/zephraph))
@@ -5649,7 +5715,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.7.0 (Sat Apr 04 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add top to flex [#662](https://github.com/artsy/palette/pull/662) ([@zephraph](https://github.com/zephraph))
@@ -5662,7 +5728,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.6.0 (Sun Mar 29 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add fallback image support to avatar [#660](https://github.com/artsy/palette/pull/660) ([@zephraph](https://github.com/zephraph))
@@ -5675,7 +5741,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.5.1 (Thu Mar 26 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add missing `flexShrink` to Flex component [#659](https://github.com/artsy/palette/pull/659) ([@zephraph](https://github.com/zephraph))
@@ -5688,7 +5754,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.5.0 (Thu Mar 26 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Allow the Artsy logo to be scaled [#658](https://github.com/artsy/palette/pull/658) ([@zephraph](https://github.com/zephraph))
@@ -5701,7 +5767,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.4.2 (Wed Mar 25 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adjust left/right padding on small buttons for mWeb (to match iOS styling) [#657](https://github.com/artsy/palette/pull/657) ([@lilyfromseattle](https://github.com/lilyfromseattle))
@@ -5714,12 +5780,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.4.1 (Tue Mar 24 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - changed casing of fillRule and clipRule for no artwork icon [#656](https://github.com/artsy/palette/pull/656) ([@lilyfromseattle](https://github.com/lilyfromseattle))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Use a stable image for CSSGrid story. [#655](https://github.com/artsy/palette/pull/655) ([@pepopowitz](https://github.com/pepopowitz))
@@ -5733,12 +5799,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.4.0 (Mon Mar 23 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add the ability to have a secondary action on the toggle [#654](https://github.com/artsy/palette/pull/654) ([@zephraph](https://github.com/zephraph))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update yarn orb to v4.0.2 [#646](https://github.com/artsy/palette/pull/646) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
 
@@ -5752,7 +5818,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.3.0 (Thu Mar 19 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add name prop to TextArea [#653](https://github.com/artsy/palette/pull/653) ([@pepopowitz](https://github.com/pepopowitz))
@@ -5765,12 +5831,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.2.0 (Wed Mar 18 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Added no artwork icon [#652](https://github.com/artsy/palette/pull/652) ([@lilyfromseattle](https://github.com/lilyfromseattle))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - Add code snippets to <Banner> docs [#651](https://github.com/artsy/palette/pull/651) ([@damassi](https://github.com/damassi))
 
@@ -5783,7 +5849,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.1.4 (Wed Mar 11 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Update update [#650](https://github.com/artsy/palette/pull/650) ([@damassi](https://github.com/damassi))
 
@@ -5795,11 +5861,11 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.1.3 (Mon Mar 09 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Move docsearch CSS to beginning of head so that our custom styles override it [#649](https://github.com/artsy/palette/pull/649) ([@pepopowitz](https://github.com/pepopowitz))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update auto orb to v1.1.0 [#648](https://github.com/artsy/palette/pull/648) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
 
@@ -5813,12 +5879,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.1.2 (Sun Mar 01 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Spinner] Remove fade [#647](https://github.com/artsy/palette/pull/647) ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Re-add acl permissions to avoid publishing private assets [#645](https://github.com/artsy/palette/pull/645) ([@zephraph](https://github.com/zephraph))
 - Disable acl to bypass requiring the addition of extra permissions [#644](https://github.com/artsy/palette/pull/644) ([@zephraph](https://github.com/zephraph))
@@ -5833,7 +5899,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.1.1 (Mon Feb 24 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Incorporate Algolia-based search [#642](https://github.com/artsy/palette/pull/642) ([@pepopowitz](https://github.com/pepopowitz))
 
@@ -5845,17 +5911,17 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.1.0 (Fri Feb 21 2020)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [Spinner] Adds delay prop for visibility [#640](https://github.com/artsy/palette/pull/640) ([@damassi](https://github.com/damassi))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Small dropdown arrow is misaligned [#641](https://github.com/artsy/palette/pull/641) ([@lilyfromseattle](https://github.com/lilyfromseattle))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update yarn orb to v4 [#638](https://github.com/artsy/palette/pull/638) ([@renovate-bot](https://github.com/renovate-bot) [@zephraph](https://github.com/zephraph) [@renovate[bot]](https://github.com/renovate[bot]))
 - Update yarn orb to v3 [#636](https://github.com/artsy/palette/pull/636) ([@renovate-bot](https://github.com/renovate-bot) [@zephraph](https://github.com/zephraph) [@renovate[bot]](https://github.com/renovate[bot]))
@@ -5874,7 +5940,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v7.0.0 (Wed Feb 12 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - @damassi => Revert "@zephraph => [Package] Update styled-components to v5" [#634](https://github.com/artsy/palette/pull/634) ([@mzikherman](https://github.com/mzikherman))
@@ -5887,12 +5953,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v6.0.0 (Tue Feb 11 2020)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - @zephraph => [Package] Update styled-components to v5 [#630](https://github.com/artsy/palette/pull/630) ([@mzikherman](https://github.com/mzikherman))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Deploy docs to s3 on master build [#631](https://github.com/artsy/palette/pull/631) ([@zephraph](https://github.com/zephraph))
 - [Docs] Add gatsby-plugin-s3 for deploying app to S3 bucket [#629](https://github.com/artsy/palette/pull/629) ([@mzikherman](https://github.com/mzikherman))
@@ -5906,7 +5972,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.16 (Tue Jan 21 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fix lazy load double download issue by updating lib [#628](https://github.com/artsy/palette/pull/628) ([@zephraph](https://github.com/zephraph))
@@ -5919,12 +5985,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.15 (Mon Jan 20 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - add XCircleIcon [#627](https://github.com/artsy/palette/pull/627) ([@ds300](https://github.com/ds300))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Update dep typescript from 3.7.2 to v3.7.5 [#617](https://github.com/artsy/palette/pull/617) ([@renovate-bot](https://github.com/renovate-bot))
@@ -5938,7 +6004,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.14 (Wed Jan 15 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [MX-144] Updates Settings icon #trivial [#625](https://github.com/artsy/palette/pull/625) ([@ashfurrow](https://github.com/ashfurrow))
@@ -5951,7 +6017,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.13 (Fri Jan 03 2020)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Upgrade `react-lazy-load-image-component` off of beta [#624](https://github.com/artsy/palette/pull/624) ([@zephraph](https://github.com/zephraph))
@@ -5964,7 +6030,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.12 (Mon Dec 23 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - @mzikherman => [Modal] Add option to disable forcing scrollbars for smaller content [#623](https://github.com/artsy/palette/pull/623) ([@mzikherman](https://github.com/mzikherman))
@@ -5977,7 +6043,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.7 (Mon Dec 09 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Ensure typechecks run across scripts [#621](https://github.com/artsy/palette/pull/621) ([@zephraph](https://github.com/zephraph))
@@ -5988,7 +6054,7 @@ To migrate to this version, replace the following props on`Spacer`:
 - `@artsy/palette`
   - Fix SSR issue by updating image lazy loading lib [#618](https://github.com/artsy/palette/pull/618) ([@zephraph](https://github.com/zephraph))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update typescript to 3.7+ [#615](https://github.com/artsy/palette/pull/615) ([@zephraph](https://github.com/zephraph))
 - `@artsy/palette`
@@ -6003,7 +6069,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.7 (Mon Dec 09 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add className type to typography components [#619](https://github.com/artsy/palette/pull/619) ([@zephraph](https://github.com/zephraph))
@@ -6012,7 +6078,7 @@ To migrate to this version, replace the following props on`Spacer`:
 - `@artsy/palette`
   - Fix SSR issue by updating image lazy loading lib [#618](https://github.com/artsy/palette/pull/618) ([@zephraph](https://github.com/zephraph))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dep typescript from ^3.7.2 to 3.7.2 [#616](https://github.com/artsy/palette/pull/616) ([@renovate-bot](https://github.com/renovate-bot))
@@ -6028,7 +6094,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.7 (Mon Dec 09 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add className type to typography components [#619](https://github.com/artsy/palette/pull/619) ([@zephraph](https://github.com/zephraph))
@@ -6037,7 +6103,7 @@ To migrate to this version, replace the following props on`Spacer`:
 - `@artsy/palette`
   - Fix SSR issue by updating image lazy loading lib [#618](https://github.com/artsy/palette/pull/618) ([@zephraph](https://github.com/zephraph))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update typescript to 3.7+ [#615](https://github.com/artsy/palette/pull/615) ([@zephraph](https://github.com/zephraph))
 - `@artsy/palette`
@@ -6052,12 +6118,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.7 (Mon Dec 09 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fix SSR issue by updating image lazy loading lib [#618](https://github.com/artsy/palette/pull/618) ([@zephraph](https://github.com/zephraph))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dep typescript from ^3.7.2 to 3.7.2 [#616](https://github.com/artsy/palette/pull/616) ([@renovate-bot](https://github.com/renovate-bot))
@@ -6073,12 +6139,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.7 (Fri Dec 06 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fix SSR issue by updating image lazy loading lib [#618](https://github.com/artsy/palette/pull/618) ([@zephraph](https://github.com/zephraph))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dep typescript from ^3.7.2 to 3.7.2 [#616](https://github.com/artsy/palette/pull/616) ([@renovate-bot](https://github.com/renovate-bot))
@@ -6094,7 +6160,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.6 (Wed Nov 06 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - want the Box to support minWidth [#613](https://github.com/artsy/palette/pull/613) ([@oxaudo](https://github.com/oxaudo))
@@ -6107,7 +6173,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.5 (Mon Nov 04 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds Tags container animation [#610](https://github.com/artsy/palette/pull/610) ([@sepans](https://github.com/sepans))
@@ -6120,7 +6186,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.4 (Thu Oct 31 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Removes extra fragment. [#612](https://github.com/artsy/palette/pull/612) ([@sepans](https://github.com/sepans))
@@ -6133,13 +6199,11 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.3 (Tue Oct 29 2019)
 
-
-
 ---
 
 # v5.1.2 (Tue Oct 29 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Make Tags cross platform [#611](https://github.com/artsy/palette/pull/611) ([@ds300](https://github.com/ds300))
@@ -6152,7 +6216,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.1 (Mon Oct 28 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add maxWidth and minWidth to selects [#609](https://github.com/artsy/palette/pull/609) ([@mdole](https://github.com/mdole))
@@ -6165,7 +6229,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.1.0 (Thu Oct 24 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [PURCHASE-1577] Tag component [#608](https://github.com/artsy/palette/pull/608) ([@sepans](https://github.com/sepans))
@@ -6178,7 +6242,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v5.0.0 (Mon Oct 21 2019)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - `@artsy/palette`
   - Rename `Tag` -> `CleanTag` [#607](https://github.com/artsy/palette/pull/607) ([@sepans](https://github.com/sepans))
@@ -6191,7 +6255,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.18.0 (Wed Oct 16 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Make all icons emission compatible [#605](https://github.com/artsy/palette/pull/605) ([@zephraph](https://github.com/zephraph))
@@ -6204,7 +6268,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.16 (Mon Oct 07 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Allow attributes to be passed to checkbox for testing [#603](https://github.com/artsy/palette/pull/603) ([@zephraph](https://github.com/zephraph))
@@ -6217,7 +6281,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.15 (Fri Oct 04 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Export the Option interface [#602](https://github.com/artsy/palette/pull/602) ([@jonallured](https://github.com/jonallured))
@@ -6230,13 +6294,11 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.14 (Fri Oct 04 2019)
 
-
-
 ---
 
 # v4.17.13 (Fri Oct 04 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Improve selects [#600](https://github.com/artsy/palette/pull/600) ([@jonallured](https://github.com/jonallured))
@@ -6252,7 +6314,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.12 (Thu Oct 03 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Minor clean up. [#599](https://github.com/artsy/palette/pull/599) ([@oxaudo](https://github.com/oxaudo))
@@ -6265,7 +6327,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.11 (Thu Oct 03 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add dialog to palette [#597](https://github.com/artsy/palette/pull/597) ([@oxaudo](https://github.com/oxaudo))
@@ -6278,7 +6340,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.10 (Wed Oct 02 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - SelectSmall updates [#596](https://github.com/artsy/palette/pull/596) ([@mdole](https://github.com/mdole))
@@ -6291,12 +6353,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.9 (Tue Oct 01 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Slider] Fix handles [#598](https://github.com/artsy/palette/pull/598) ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Algolia updates [#595](https://github.com/artsy/palette/pull/595) ([@zephraph](https://github.com/zephraph))
 - Remove luc as pont person 😭 [#594](https://github.com/artsy/palette/pull/594) ([@zephraph](https://github.com/zephraph))
@@ -6312,7 +6374,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.8 (Mon Sep 23 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [PreloadBar] Change to black and fix size #trivial [#591](https://github.com/artsy/palette/pull/591) ([@damassi](https://github.com/damassi))
@@ -6325,12 +6387,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.7 (Tue Sep 17 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - PURCHASE-1492: added BellFillIcon and BellIcon for ios [#590](https://github.com/artsy/palette/pull/590) ([@lilyfromseattle](https://github.com/lilyfromseattle))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Add artsy footer [#589](https://github.com/artsy/palette/pull/589) ([@zephraph](https://github.com/zephraph))
 
@@ -6343,7 +6405,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.6 (Fri Sep 13 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - @jonallured => [Button] Export shape of props [#587](https://github.com/artsy/palette/pull/587) ([@mzikherman](https://github.com/mzikherman))
@@ -6356,7 +6418,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.5 (Fri Sep 13 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Final modal spacing fixes [#588](https://github.com/artsy/palette/pull/588) ([@ds300](https://github.com/ds300))
@@ -6369,7 +6431,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.4 (Thu Sep 12 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Allow override of button type [#583](https://github.com/artsy/palette/pull/583) ([@jonallured](https://github.com/jonallured))
@@ -6382,7 +6444,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.3 (Wed Sep 11 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Improve modal padding [#582](https://github.com/artsy/palette/pull/582) ([@ds300](https://github.com/ds300))
@@ -6395,7 +6457,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.2 (Tue Sep 10 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Modal] - Checks if wrapper is clicked before closing [#581](https://github.com/artsy/palette/pull/581) ([@kierangillen](https://github.com/kierangillen))
@@ -6408,7 +6470,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.1 (Tue Sep 10 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [PageLoader] Cleanup [#580](https://github.com/artsy/palette/pull/580) ([@damassi](https://github.com/damassi))
@@ -6421,7 +6483,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.17.0 (Fri Sep 06 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [PageLoader] Add PageLoader component [#577](https://github.com/artsy/palette/pull/577) ([@damassi](https://github.com/damassi))
@@ -6434,7 +6496,7 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.16.4 (Fri Sep 06 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - PURCHASE-1473 - Adds hideCloseXButton prop and allow for closing from wrapper [#579](https://github.com/artsy/palette/pull/579) ([@kierangillen](https://github.com/kierangillen))
@@ -6447,12 +6509,12 @@ To migrate to this version, replace the following props on`Spacer`:
 
 # v4.16.3 (Mon Aug 26 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds new icons CertificateIcon & VerifiedIcon [#574](https://github.com/artsy/palette/pull/574) ([@kierangillen](https://github.com/kierangillen))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Add modal examples to Storybook [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https://github.com/dblandin))
@@ -6471,7 +6533,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.16.2 (Mon Aug 19 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds ios Close and Check Circle Icons [#569](https://github.com/artsy/palette/pull/569) ([@kierangillen](https://github.com/kierangillen))
@@ -6484,7 +6546,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.16.1 (Sun Aug 18 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [RadioGroup] Fix defaultValue selection #trivial [#568](https://github.com/artsy/palette/pull/568) ([@damassi](https://github.com/damassi))
@@ -6497,7 +6559,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.16.0 (Fri Aug 16 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - [ReadMore] Add disabled prop [#567](https://github.com/artsy/palette/pull/567) ([@damassi](https://github.com/damassi))
@@ -6510,7 +6572,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.15.1 (Fri Aug 16 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds fontsize props to TimeRemaining [#566](https://github.com/artsy/palette/pull/566) ([@kierangillen](https://github.com/kierangillen))
@@ -6523,7 +6585,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.15.0 (Thu Aug 15 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - New CSSGrid element [#563](https://github.com/artsy/palette/pull/563) ([@pepopowitz](https://github.com/pepopowitz))
@@ -6536,7 +6598,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.48 (Thu Aug 15 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Creates TimeRemaing.ios.tsx and updates TimeRemaining API [#564](https://github.com/artsy/palette/pull/564) ([@kierangillen](https://github.com/kierangillen))
@@ -6549,12 +6611,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.47 (Thu Aug 15 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Small CSS adjustments to modal for scroll [#565](https://github.com/artsy/palette/pull/565) ([@kierangillen](https://github.com/kierangillen) [@erikdstock](https://github.com/erikdstock))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dep mock-raf from ^1.0.1 to 1.0.1 [#560](https://github.com/artsy/palette/pull/560) ([@renovate-bot](https://github.com/renovate-bot))
@@ -6569,7 +6631,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.46 (Tue Aug 06 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [EntityHeader] Fix interface definition #trivial [#562](https://github.com/artsy/palette/pull/562) ([@damassi](https://github.com/damassi))
@@ -6582,12 +6644,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.45 (Tue Aug 06 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [EntityHeader] Add onClick handler #trivial [#561](https://github.com/artsy/palette/pull/561) ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Update dep @artsy/auto-config from 1.0.0 to v1.0.1 [#559](https://github.com/artsy/palette/pull/559) ([@renovate-bot](https://github.com/renovate-bot))
@@ -6601,19 +6663,15 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.44 (Mon Aug 05 2019)
 
-
-
 ---
 
 # v4.14.43 (Fri Aug 02 2019)
-
-
 
 ---
 
 # v4.14.42 (Fri Aug 02 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fixes entityheader sizes [#557](https://github.com/artsy/palette/pull/557) ([@kierangillen](https://github.com/kierangillen))
@@ -6626,24 +6684,20 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.41 (Fri Aug 02 2019)
 
-
-
 ---
 
 # v4.14.40 (Wed Jul 31 2019)
-
-
 
 ---
 
 # v4.14.39 (Wed Jul 31 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - PURCHASE-1361 Fixes button breaking viewport [#546](https://github.com/artsy/palette/pull/546) ([@kierangillen](https://github.com/kierangillen) [@ds300](https://github.com/ds300))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update Component Spec template to include web Zeplin link [#553](https://github.com/artsy/palette/pull/553) ([@dblandin](https://github.com/dblandin))
 
@@ -6657,7 +6711,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.38 (Mon Jul 29 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Updates button to not always render longestText [#548](https://github.com/artsy/palette/pull/548) ([@kierangillen](https://github.com/kierangillen))
@@ -6670,7 +6724,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.37 (Fri Jul 26 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Modal improvements [#547](https://github.com/artsy/palette/pull/547) ([@kierangillen](https://github.com/kierangillen))
@@ -6685,7 +6739,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.36 (Wed Jul 24 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Adds WIP to modal [#545](https://github.com/artsy/palette/pull/545) ([@kierangillen](https://github.com/kierangillen))
 
@@ -6697,13 +6751,11 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.35 (Tue Jul 23 2019)
 
-
-
 ---
 
 # v4.14.34 (Tue Jul 23 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - PURCHASE-1019 - Adds modal component [#540](https://github.com/artsy/palette/pull/540) ([@kierangillen](https://github.com/kierangillen))
@@ -6716,13 +6768,11 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.33 (Tue Jul 23 2019)
 
-
-
 ---
 
 # v4.14.32 (Mon Jul 22 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Minor chart fixes [#542](https://github.com/artsy/palette/pull/542) ([@sepans](https://github.com/sepans))
@@ -6735,12 +6785,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.31 (Mon Jul 22 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Bar chart zero state [#541](https://github.com/artsy/palette/pull/541) ([@sepans](https://github.com/sepans))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update yarn orb to v2 [#539](https://github.com/artsy/palette/pull/539) ([@renovate-bot](https://github.com/renovate-bot))
 
@@ -6753,7 +6803,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.30 (Sat Jul 13 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add close icon ios version [#538](https://github.com/artsy/palette/pull/538) ([@ds300](https://github.com/ds300))
@@ -6766,7 +6816,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.29 (Fri Jul 12 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Update to process docs [#531](https://github.com/artsy/palette/pull/531) ([@l2succes](https://github.com/l2succes))
 
@@ -6778,7 +6828,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.28 (Thu Jul 11 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds longestText prop to Button component [#536](https://github.com/artsy/palette/pull/536) ([@kierangillen](https://github.com/kierangillen))
@@ -6791,7 +6841,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.27 (Tue Jul 09 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds ArrowRightIcon.ios [#534](https://github.com/artsy/palette/pull/534) ([@sweir27](https://github.com/sweir27))
@@ -6804,13 +6854,11 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.26 (Mon Jul 08 2019)
 
-
-
 ---
 
 # v4.14.25 (Wed Jul 03 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fixes justify on Tabs [#532](https://github.com/artsy/palette/pull/532) ([@kierangillen](https://github.com/kierangillen))
@@ -6823,7 +6871,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.24 (Mon Jul 01 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds width to tabsPadding [#529](https://github.com/artsy/palette/pull/529) ([@kierangillen](https://github.com/kierangillen))
@@ -6836,7 +6884,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.23 (Thu Jun 27 2019)
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Adds padding to small button [#526](https://github.com/artsy/palette/pull/526) ([@kierangillen](https://github.com/kierangillen))
@@ -6849,7 +6897,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.22 (Mon Jun 24 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Adds note about Zeppelin plugin [#524](https://github.com/artsy/palette/pull/524) ([@ashfurrow](https://github.com/ashfurrow))
 
@@ -6861,7 +6909,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.21 (Fri Jun 21 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add prop to make button full width [#523](https://github.com/artsy/palette/pull/523) ([@lilyfromseattle](https://github.com/lilyfromseattle) 34651588+peril-staging[bot]@users.noreply.github.com)
@@ -6875,7 +6923,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.20 (Wed Jun 19 2019)
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Fixes typo [#520](https://github.com/artsy/palette/pull/520) ([@kierangillen](https://github.com/kierangillen))
@@ -6888,7 +6936,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.19 (Wed Jun 19 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fix donut chart animation bug [#519](https://github.com/artsy/palette/pull/519) ([@sepans](https://github.com/sepans))
@@ -6901,7 +6949,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.18 (Mon Jun 17 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Adds LineChart props type export [#517](https://github.com/artsy/palette/pull/517) ([@sepans](https://github.com/sepans))
@@ -6914,14 +6962,14 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.17 (Sat Jun 15 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fix import path [#516](https://github.com/artsy/palette/pull/516) ([@damassi](https://github.com/damassi))
 - `@artsy/palette`
   - Button & Spinner Component for React Native [#515](https://github.com/artsy/palette/pull/515) ([@l2succes](https://github.com/l2succes))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - Adds repos consuming palette to readme [#513](https://github.com/artsy/palette/pull/513) ([@kierangillen](https://github.com/kierangillen))
 - Update Inputs “Input” [#468](https://github.com/artsy/palette/pull/468) ([@owendodd](https://github.com/owendodd))
@@ -6939,12 +6987,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.16 (Thu Jun 13 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Moves luxon to dependency [#512](https://github.com/artsy/palette/pull/512) ([@kierangillen](https://github.com/kierangillen))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - Create Home “naming” [#474](https://github.com/artsy/palette/pull/474) ([@nicoleyeo](https://github.com/nicoleyeo))
 - Update Home “process” [#479](https://github.com/artsy/palette/pull/479) ([@nicoleyeo](https://github.com/nicoleyeo))
@@ -6958,7 +7006,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.15 (Thu Jun 13 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - PURCHASE-1060/PURCHASE-1059: iOs Entity Header palette component [#509](https://github.com/artsy/palette/pull/509) ([@lilyfromseattle](https://github.com/lilyfromseattle) [@ds300](https://github.com/ds300))
@@ -6972,7 +7020,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.14 (Thu Jun 13 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Lib] Upgrade react-spring@8.0.23 [#511](https://github.com/artsy/palette/pull/511) ([@damassi](https://github.com/damassi))
@@ -6981,7 +7029,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 - `@artsy/palette`
   - Allow any 1.x version of luxon [#508](https://github.com/artsy/palette/pull/508) ([@kierangillen](https://github.com/kierangillen))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Pin dependencies [#507](https://github.com/artsy/palette/pull/507) ([@renovate-bot](https://github.com/renovate-bot))
 
@@ -6996,13 +7044,11 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.13 (Mon Jun 10 2019)
 
-
-
 ---
 
 # v4.14.12 (Mon Jun 10 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Donut chart [#495](https://github.com/artsy/palette/pull/495) ([@sepans](https://github.com/sepans))
@@ -7015,16 +7061,14 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.11 (Fri Jun 07 2019)
 
-
-
 ---
 
 # v4.14.10 (Fri Jun 07 2019)
 
-#### ⚠️  Pushed to master
+#### ⚠️ Pushed to master
 
 - `@artsy/palette`
-  - Update README.md  (damassi.pappas@gmail.com)
+  - Update README.md (damassi.pappas@gmail.com)
 
 #### Authors: 1
 
@@ -7034,7 +7078,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.9 (Fri Jun 07 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Date Components] Move luxon components to v2 [#504](https://github.com/artsy/palette/pull/504) ([@damassi](https://github.com/damassi))
@@ -7047,7 +7091,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.8 (Fri Jun 07 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Menu] Make width adjustable [#503](https://github.com/artsy/palette/pull/503) ([@damassi](https://github.com/damassi))
@@ -7060,7 +7104,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.7 (Thu Jun 06 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Updates to Luxon logic [#502](https://github.com/artsy/palette/pull/502) ([@kierangillen](https://github.com/kierangillen))
@@ -7073,12 +7117,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.6 (Thu Jun 06 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Small fix in StaticCountdownTimer hour logic [#501](https://github.com/artsy/palette/pull/501) ([@kierangillen](https://github.com/kierangillen))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dep @types/luxon from ^1.15.1 to 1.15.1 [#500](https://github.com/artsy/palette/pull/500) ([@renovate-bot](https://github.com/renovate-bot))
@@ -7092,18 +7136,16 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.5 (Thu Jun 06 2019)
 
-
-
 ---
 
 # v4.14.4 (Wed Jun 05 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Fix error when all linechart values are zero [#496](https://github.com/artsy/palette/pull/496) ([@sepans](https://github.com/sepans))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Add react-native-svg to peerDependencies [#494](https://github.com/artsy/palette/pull/494) ([@pepopowitz](https://github.com/pepopowitz))
@@ -7120,25 +7162,19 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.14.3 (Tue Jun 04 2019)
 
-
-
 ---
 
 # v4.14.2 (Mon Jun 03 2019)
-
-
 
 ---
 
 # v4.14.1 (Mon Jun 03 2019)
 
-
-
 ---
 
 # v4.14.0 (Sun Jun 02 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Support order for Flex [#488](https://github.com/artsy/palette/pull/488) ([@starsirius](https://github.com/starsirius))
@@ -7151,7 +7187,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.13.5 (Sat Jun 01 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Debug] Test deploy [#487](https://github.com/artsy/palette/pull/487) ([@damassi](https://github.com/damassi))
@@ -7164,7 +7200,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.13.4 (Sat Jun 01 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [ReactNative] Create more stub components [#486](https://github.com/artsy/palette/pull/486) ([@damassi](https://github.com/damassi))
@@ -7177,7 +7213,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.13.3 (Fri May 31 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Docs] Add docs around required palette structure [#484](https://github.com/artsy/palette/pull/484) ([@damassi](https://github.com/damassi))
@@ -7190,7 +7226,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.13.2 (Thu May 30 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Two more stubs [#481](https://github.com/artsy/palette/pull/481) ([@damassi](https://github.com/damassi))
@@ -7203,7 +7239,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.13.1 (Thu May 30 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add missing component .ios.tsx stubs [#480](https://github.com/artsy/palette/pull/480) ([@damassi](https://github.com/damassi))
@@ -7216,7 +7252,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.13.0 (Wed May 29 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `@artsy/palette`
   - Add the ability to prevent right-click on <Image> elements [#473](https://github.com/artsy/palette/pull/473) ([@pepopowitz](https://github.com/pepopowitz))
@@ -7229,7 +7265,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.12.9 (Wed May 29 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - remove unused SmallSelect and remove margin/padding on label for SelectSmall [#478](https://github.com/artsy/palette/pull/478) ([@oxaudo](https://github.com/oxaudo))
@@ -7242,7 +7278,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.12.8 (Tue May 28 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Link] Add styled-system position mixin [#477](https://github.com/artsy/palette/pull/477) ([@damassi](https://github.com/damassi))
@@ -7255,7 +7291,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.12.7 (Tue May 28 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Link] Add styled-system display mixin [#476](https://github.com/artsy/palette/pull/476) ([@damassi](https://github.com/damassi))
@@ -7268,12 +7304,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.12.6 (Tue May 28 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - rename MiniSelect to SelectSmall and create separate entry for it in docs [#475](https://github.com/artsy/palette/pull/475) ([@oxaudo](https://github.com/oxaudo))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `@artsy/palette`
   - Pin dependencies [#470](https://github.com/artsy/palette/pull/470) ([@renovate-bot](https://github.com/renovate-bot))
@@ -7287,7 +7323,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.12.5 (Thu May 23 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Add identifier_field to fix page creation errors [#471](https://github.com/artsy/palette/pull/471) ([@zephraph](https://github.com/zephraph))
 
@@ -7299,7 +7335,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.12.4 (Thu May 23 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - Add a MiniSelect as a select component [#467](https://github.com/artsy/palette/pull/467) ([@oxaudo](https://github.com/oxaudo))
@@ -7312,19 +7348,15 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.12.3 (Thu May 23 2019)
 
-
-
 ---
 
 # v4.12.2 (Tue May 21 2019)
-
-
 
 ---
 
 # v4.12.1 (Tue May 21 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `@artsy/palette`
   - [Menu] Fix drop shadow [#466](https://github.com/artsy/palette/pull/466) ([@damassi](https://github.com/damassi))
@@ -7337,7 +7369,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.12.0 (Fri May 17 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette-docs`, `palette`
   - X Axis labels for bar chart [#392](https://github.com/artsy/palette/pull/392) ([@sepans](https://github.com/sepans))
@@ -7350,7 +7382,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.9 (Fri May 10 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Updates slider disabled styling and allows for disabledText [#463](https://github.com/artsy/palette/pull/463) ([@kierangillen](https://github.com/kierangillen))
@@ -7363,7 +7395,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.8 (Fri May 10 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Passes disabled to Slider [#462](https://github.com/artsy/palette/pull/462) ([@kierangillen](https://github.com/kierangillen))
@@ -7376,7 +7408,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.7 (Fri May 10 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - [Menu] Add onClick event type to interface [#461](https://github.com/artsy/palette/pull/461) ([@damassi](https://github.com/damassi))
@@ -7389,14 +7421,14 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.6 (Tue May 07 2019)
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update dep @artsy/auto-config from 0.1.0 to v0.1.2 [#458](https://github.com/artsy/palette/pull/458) ([@renovate-bot](https://github.com/renovate-bot))
 - Use lib workflow [#457](https://github.com/artsy/palette/pull/457) ([@zephraph](https://github.com/zephraph))
 - `palette`
   - Update dep @artsy/auto-config from 0.1.2 to v1 [#459](https://github.com/artsy/palette/pull/459) ([@renovate-bot](https://github.com/renovate-bot))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette-docs`, `palette`
   - Pass disabled prop down to button DOM element [#460](https://github.com/artsy/palette/pull/460) ([@anandaroop](https://github.com/anandaroop))
@@ -7411,12 +7443,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.5 (Sat May 04 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette-docs`
   - Fix some urls in the documentation [#456](https://github.com/artsy/palette/pull/456) ([@anandaroop](https://github.com/anandaroop))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - `palette-docs`
   - Update Buttons “Button” [#454](https://github.com/artsy/palette/pull/454) ([@nicoleyeo](https://github.com/nicoleyeo))
@@ -7430,7 +7462,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.4 (Wed May 01 2019)
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Revert to old renovate setup [#451](https://github.com/artsy/palette/pull/451) ([@zephraph](https://github.com/zephraph))
 - Stop spamming Luc with renovate assignees [#450](https://github.com/artsy/palette/pull/450) ([@zephraph](https://github.com/zephraph))
@@ -7461,18 +7493,16 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.3 (Tue Apr 30 2019)
 
-
-
 ---
 
 # v4.11.2 (Tue Apr 30 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette-docs`
   - Update dependency @mdx-js/tag to ^0.20.0 [#411](https://github.com/artsy/palette/pull/411) ([@renovate-bot](https://github.com/renovate-bot))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update dependency @babel/core to v7.4.4 [#407](https://github.com/artsy/palette/pull/407) ([@renovate-bot](https://github.com/renovate-bot))
 - `palette`
@@ -7491,12 +7521,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.1 (Tue Apr 30 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - [Toolchain] Add @storybook/viewport plugin [#405](https://github.com/artsy/palette/pull/405) ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update to use the @artsy:lib renovate workflow [#400](https://github.com/artsy/palette/pull/400) ([@zephraph](https://github.com/zephraph))
 - Auto approve chromatic results on master [#399](https://github.com/artsy/palette/pull/399) ([@zephraph](https://github.com/zephraph))
@@ -7504,7 +7534,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
   - Update dep husky from 1.3.1 to v2 [#403](https://github.com/artsy/palette/pull/403) ([@renovate-bot](https://github.com/renovate-bot))
   - Pin dependencies [#402](https://github.com/artsy/palette/pull/402) ([@renovate-bot](https://github.com/renovate-bot))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - `palette-docs`
   - Automatically generated. Merged on Netlify CMS. [#404](https://github.com/artsy/palette/pull/404) ([@damassi](https://github.com/damassi))
@@ -7519,7 +7549,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.11.0 (Fri Apr 26 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette`
   - Add storybooks, visual testing with chromatic [#398](https://github.com/artsy/palette/pull/398) ([@zephraph](https://github.com/zephraph))
@@ -7532,7 +7562,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.10.4 (Fri Apr 26 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - only apply cursor pointer to bar if it has onclick [#393](https://github.com/artsy/palette/pull/393) ([@lilyfromseattle](https://github.com/lilyfromseattle))
@@ -7545,13 +7575,11 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.10.3 (Thu Apr 25 2019)
 
-
-
 ---
 
 # v4.10.2 (Wed Apr 24 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - [Menu] Fix drop shadow color [#396](https://github.com/artsy/palette/pull/396) ([@damassi](https://github.com/damassi))
@@ -7564,10 +7592,10 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.10.1 (Tue Apr 23 2019)
 
-#### ⚠️  Pushed to master
+#### ⚠️ Pushed to master
 
 - `palette`
-  - Fix duplicate import  ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
+  - Fix duplicate import ([@damassi.pappas@gmail.com](https://github.com/damassi.pappas@gmail.com))
 
 #### Authors: 1
 
@@ -7577,7 +7605,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.10.0 (Mon Apr 22 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette`
   - Update moment-timezone for smaller payload size [#391](https://github.com/artsy/palette/pull/391) ([@zephraph](https://github.com/zephraph))
@@ -7590,7 +7618,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.9.5 (Mon Apr 22 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette-docs`
   - fixes ColorComponent admin display and tweaks styling [#390](https://github.com/artsy/palette/pull/390) ([@mdole](https://github.com/mdole))
@@ -7603,12 +7631,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.9.4 (Fri Apr 19 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Tooltip related changes [#389](https://github.com/artsy/palette/pull/389) ([@lilyfromseattle](https://github.com/lilyfromseattle))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - `palette-docs`
   - Automatically generated. Merged on Netlify CMS. [#381](https://github.com/artsy/palette/pull/381) ([@nicoleyeo](https://github.com/nicoleyeo))
@@ -7622,7 +7650,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.9.3 (Thu Apr 18 2019)
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - `palette-docs`
   - Automatically generated. Merged on Netlify CMS. [#383](https://github.com/artsy/palette/pull/383) ([@deliciousnachos](https://github.com/deliciousnachos))
@@ -7635,12 +7663,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.9.2 (Thu Apr 18 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - added onHover to barchart bars [#386](https://github.com/artsy/palette/pull/386) ([@lilyfromseattle](https://github.com/lilyfromseattle))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - Update Tokens “Color” [#379](https://github.com/artsy/palette/pull/379) ([@owendodd](https://github.com/owendodd))
 - `palette-docs`
@@ -7658,7 +7686,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.9.1 (Wed Apr 17 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette-docs`
   - creates a docs-only <ColorComponent> to allow display of separate colors [#377](https://github.com/artsy/palette/pull/377) ([@mdole](https://github.com/mdole))
@@ -7671,7 +7699,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.9.0 (Tue Apr 16 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette`
   - Generate stylesheet [#376](https://github.com/artsy/palette/pull/376) ([@zephraph](https://github.com/zephraph))
@@ -7684,7 +7712,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.8.2 (Mon Apr 15 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - export Bar.tsx from index [#375](https://github.com/artsy/palette/pull/375) ([@lilyfromseattle](https://github.com/lilyfromseattle))
@@ -7697,7 +7725,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.8.1 (Mon Apr 15 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - exported BarBox for reaction tests [#374](https://github.com/artsy/palette/pull/374) ([@lilyfromseattle](https://github.com/lilyfromseattle))
@@ -7710,7 +7738,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.8.0 (Tue Apr 09 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette`
   - Add background to <Flex> [#365](https://github.com/artsy/palette/pull/365) ([@yuki24](https://github.com/yuki24))
@@ -7723,13 +7751,11 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.7.5 (Tue Apr 09 2019)
 
-
-
 ---
 
 # v4.7.4 (Mon Apr 08 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Resolve issue where some images didn't load when lazy loading [#372](https://github.com/artsy/palette/pull/372) ([@zephraph](https://github.com/zephraph))
@@ -7742,7 +7768,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.7.3 (Mon Apr 08 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Change the color of Chevron icon [#367](https://github.com/artsy/palette/pull/367) ([@ashkan18](https://github.com/ashkan18) [@ds300](https://github.com/ds300))
@@ -7756,7 +7782,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.7.2 (Sun Apr 07 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Remove test files from published package [#371](https://github.com/artsy/palette/pull/371) ([@ds300](https://github.com/ds300))
@@ -7769,7 +7795,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.7.1 (Fri Apr 05 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette-docs`, `palette`
   - [BarChart] Constrain highlight label position [#366](https://github.com/artsy/palette/pull/366) ([@ds300](https://github.com/ds300))
@@ -7782,7 +7808,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.7.0 (Fri Apr 05 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette`
   - Add a safer way to remove extraneous props [#370](https://github.com/artsy/palette/pull/370) ([@zephraph](https://github.com/zephraph))
@@ -7795,12 +7821,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.6.2 (Thu Apr 04 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - If the artwork's highlighted bin is empty, default to showing a minimum-height bar [#364](https://github.com/artsy/palette/pull/364) ([@lilyfromseattle](https://github.com/lilyfromseattle))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - Automatically generated. Merged on Netlify CMS. [#363](https://github.com/artsy/palette/pull/363) ([@zephraph](https://github.com/zephraph))
 
@@ -7813,7 +7839,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.6.1 (Tue Apr 02 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Update viewBox of NoImageIcon to fix centering [#362](https://github.com/artsy/palette/pull/362) ([@dblandin](https://github.com/dblandin))
@@ -7826,7 +7852,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.6.0 (Mon Apr 01 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette`
   - Add NoImage, Page, and Tag icons [#361](https://github.com/artsy/palette/pull/361) ([@dblandin](https://github.com/dblandin))
@@ -7839,7 +7865,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.5.6 (Sat Mar 30 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Don't strip width and height props from images [#360](https://github.com/artsy/palette/pull/360) ([@zephraph](https://github.com/zephraph))
@@ -7852,13 +7878,11 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.5.5 (Fri Mar 29 2019)
 
-
-
 ---
 
 # v4.5.4 (Fri Mar 29 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Remove extraneous attributes from Image component [#355](https://github.com/artsy/palette/pull/355) ([@zephraph](https://github.com/zephraph))
@@ -7872,7 +7896,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.5.3 (Fri Mar 29 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Deal with warnings [#353](https://github.com/artsy/palette/pull/353) ([@jonallured](https://github.com/jonallured))
@@ -7885,7 +7909,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.5.2 (Wed Mar 27 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Add test to RadioGroup [#352](https://github.com/artsy/palette/pull/352) ([@damassi](https://github.com/damassi))
@@ -7898,7 +7922,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.5.1 (Wed Mar 27 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Fix debounce [#351](https://github.com/artsy/palette/pull/351) ([@damassi](https://github.com/damassi))
@@ -7911,7 +7935,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.5.0 (Wed Mar 27 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette-docs`, `palette`
   - [RadioGroup] Add deselectable option [#350](https://github.com/artsy/palette/pull/350) ([@damassi](https://github.com/damassi))
@@ -7924,12 +7948,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.4.2 (Mon Mar 25 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette-docs`, `palette`
   - Fix web Collapse component [#345](https://github.com/artsy/palette/pull/345) ([@ds300](https://github.com/ds300))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - Automatically generated. Merged on Netlify CMS. [#340](https://github.com/artsy/palette/pull/340) ([@zephraph](https://github.com/zephraph))
 - `palette-docs`
@@ -7945,12 +7969,12 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.4.1 (Fri Mar 22 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - [Box] Add minHeight prop [#342](https://github.com/artsy/palette/pull/342) ([@damassi](https://github.com/damassi))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - `palette-docs`
   - Automatically generated. Merged on Netlify CMS. [#341](https://github.com/artsy/palette/pull/341) ([@damassi](https://github.com/damassi))
@@ -7963,7 +7987,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.4.0 (Thu Mar 21 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette-docs`, `palette`
   - Add Input to palette [#339](https://github.com/artsy/palette/pull/339) ([@jonallured](https://github.com/jonallured))
@@ -7976,7 +8000,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.3.2 (Thu Mar 21 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Ensure image fills placeholder container [#338](https://github.com/artsy/palette/pull/338) ([@zephraph](https://github.com/zephraph))
@@ -7989,11 +8013,11 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.3.1 (Wed Mar 20 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Go back to auto-release step in orb [#337](https://github.com/artsy/palette/pull/337) ([@zephraph](https://github.com/zephraph))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - `palette-docs`
   - Correct CMS path to admin resources [#336](https://github.com/artsy/palette/pull/336) ([@zephraph](https://github.com/zephraph))
@@ -8006,7 +8030,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.3.0 (Wed Mar 20 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette-docs`, `palette`
   - Create LazyImage component, allow avatar to be lazy [#334](https://github.com/artsy/palette/pull/334) ([@zephraph](https://github.com/zephraph))
@@ -8019,7 +8043,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.2.1 (Tue Mar 19 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Add CSS reset for headings (h1-h6) to global styles [#333](https://github.com/artsy/palette/pull/333) ([@pepopowitz](https://github.com/pepopowitz))
@@ -8032,7 +8056,7 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.2.0 (Tue Mar 19 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - `palette-docs`, `palette`
   - adds required prop to textarea [#335](https://github.com/artsy/palette/pull/335) ([@mdole](https://github.com/mdole))
@@ -8045,18 +8069,16 @@ examples. [#571](https://github.com/artsy/palette/pull/571) ([@dblandin](https:/
 
 # v4.1.3 (Mon Mar 18 2019)
 
-
-
 ---
 
 # v4.1.2 (Thu Mar 14 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - `palette`
   - Fix <Toggle> icon size [#332](https://github.com/artsy/palette/pull/332) ([@damassi](https://github.com/damassi))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Update yarn orb to v0.2.0 [#331](https://github.com/artsy/palette/pull/331) ([@renovate-bot](https://github.com/renovate-bot))
 - [ci setup] consolidate changelogs [#330](https://github.com/artsy/palette/pull/330) ([@ds300](https://github.com/ds300))
