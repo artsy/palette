@@ -105,7 +105,10 @@ export const TextArea: React.ForwardRefExoticComponent<
           />
 
           {!!title && (
-            <StyledLabel htmlFor={inputProps.name}>{title}</StyledLabel>
+            <StyledLabel htmlFor={inputProps.name}>
+              {title}
+              <span />
+            </StyledLabel>
           )}
         </Box>
 
@@ -210,13 +213,24 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
 `
 const StyledLabel = styled.label`
   position: absolute;
-  top: 24px;
+  top: 25px;
   left: 6px;
   padding: 0 5px;
-  background-color: ${themeGet("colors.white100")};
+  background-color: transparent;
   transform: translateY(-50%);
   transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
   transition-property: color, transform, padding, font-size;
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
+
+  & > span {
+    background-color: ${themeGet("colors.white100")};
+    height: 2px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+  }
 `

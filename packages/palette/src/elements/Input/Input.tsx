@@ -93,6 +93,7 @@ export const Input: React.ForwardRefExoticComponent<
           {!!title && (
             <StyledLabel prefixOffset={prefixOffset} htmlFor={inputName}>
               {title}
+              <span />
             </StyledLabel>
           )}
 
@@ -213,12 +214,23 @@ const StyledLabel = styled.label<StyledInputProps>`
   top: 50%;
   left: 5px;
   padding: 0 5px;
-  background-color: ${themeGet("colors.white100")};
+  background-color: transparent;
   transform: translateY(-50%);
   transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
   transition-property: color, transform, padding, font-size;
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
+
+  & > span {
+    background-color: ${themeGet("colors.white100")};
+    height: 2px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+  }
 
   ${({ prefixOffset }) =>
     !!prefixOffset &&

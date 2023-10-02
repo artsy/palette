@@ -89,7 +89,12 @@ export const Select: ForwardRefExoticComponent<
             })}
           </select>
 
-          {!!title && <StyledLabel htmlFor={id}>{title}</StyledLabel>}
+          {!!title && (
+            <StyledLabel htmlFor={id}>
+              {title}
+              <span />
+            </StyledLabel>
+          )}
         </Container>
 
         {required && !(error && typeof error === "string") && (
@@ -220,6 +225,17 @@ const StyledLabel = styled.label`
   transform: translateY(-50%);
   transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
   transision-property: color, font-size, transform;
-  background-color: ${themeGet("colors.white100")};
+  background-color: transparent;
   font-family: ${themeGet("fonts.sans")};
+
+  & > span {
+    background-color: ${themeGet("colors.white100")};
+    height: 2px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+  }
 `
