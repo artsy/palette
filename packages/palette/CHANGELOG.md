@@ -1,3 +1,22 @@
+# v36.1.2 (Thu Oct 05 2023)
+
+#### 🐛  Bug Fix
+
+- fix(pill): forwards ref to pill [#1319](https://github.com/artsy/palette/pull/1319) ([@dzucconi](https://github.com/dzucconi))
+- fix(pill): forwards ref to pill ([@dzucconi](https://github.com/dzucconi))
+- (chore): add NODE_OPTIONS env var for storybook script ([@TMcMeans](https://github.com/TMcMeans))
+
+#### 🏠  Internal
+
+- chore: add NODE_OPTIONS env var to storybook start script [#1318](https://github.com/artsy/palette/pull/1318) ([@TMcMeans](https://github.com/TMcMeans))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- TanjieM ([@TMcMeans](https://github.com/TMcMeans))
+
+---
+
 # v36.1.1 (Tue Sep 19 2023)
 
 #### 🐛  Bug Fix
