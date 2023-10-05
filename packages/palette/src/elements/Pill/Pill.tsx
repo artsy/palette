@@ -1,5 +1,5 @@
 import { themeGet } from "@styled-system/theme-get"
-import React from "react"
+import React, { forwardRef } from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
 import CloseIcon from "@artsy/icons/CloseIcon"
@@ -73,12 +73,15 @@ export type PillProps = ClickableProps & {
  * It may be used for things like active filters, search states,
  * or to denote an profile entity (possibly in the context of a card).
  */
-export const Pill: React.FC<PillProps> = ({ children, Icon, ...rest }) => {
+export const Pill = forwardRef<
+  HTMLAnchorElement & HTMLButtonElement,
+  PillProps
+>(({ children, Icon, ...rest }, forwardedRef) => {
   const variant =
     rest.variant === "profile" && rest.compact ? "gray" : rest.variant
 
   return (
-    <Container {...rest} variant={variant}>
+    <Container ref={forwardedRef as any} {...rest} variant={variant}>
       {rest.variant === "profile" && rest.src && !rest.compact && (
         <Thumbnail
           {...(rest.src
@@ -114,7 +117,9 @@ export const Pill: React.FC<PillProps> = ({ children, Icon, ...rest }) => {
       )}
     </Container>
   )
-}
+})
+
+Pill.displayName = "Pill"
 
 Pill.defaultProps = {
   variant: "default",

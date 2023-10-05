@@ -7,6 +7,7 @@ import { Box } from "../Box"
 import { Join } from "../Join"
 import GraphIcon from "@artsy/icons/GraphIcon"
 import styled from "styled-components"
+import { Popover } from "../Popover"
 
 export default {
   title: "Components/Pill",
@@ -181,5 +182,19 @@ export const ProfileVariant = () => {
     >
       <Pill src="https://picsum.photos/seed/isa/60/60">Isa Genzken</Pill>
     </States>
+  )
+}
+
+export const PillWithPopover = () => {
+  return (
+    <>
+      <Popover placement="bottom" popover={<>Content</>}>
+        {({ anchorRef, onVisible }) => (
+          <Pill ref={anchorRef as any} onClick={() => onVisible()}>
+            Example
+          </Pill>
+        )}
+      </Popover>
+    </>
   )
 }
