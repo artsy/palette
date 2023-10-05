@@ -223,13 +223,16 @@ const StyledLabel = styled.label<StyledInputProps>`
 
   & > span {
     background-color: ${themeGet("colors.white100")};
-    height: 2px;
+    height: 100%;
     width: 100%;
     display: block;
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
     z-index: -1;
+    transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+    transition-property: height, top;
+    transition-delay: 0.1s;
   }
 
   ${({ prefixOffset }) =>
