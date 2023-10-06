@@ -1,3 +1,16 @@
+# v36.1.3 (Fri Oct 06 2023)
+
+#### 🐛  Bug Fix
+
+- fix(pill): corrects x icon behavior [#1320](https://github.com/artsy/palette/pull/1320) ([@dzucconi](https://github.com/dzucconi))
+- fix(pill): corrects x icon behavior ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v36.1.2 (Thu Oct 05 2023)
 
 #### 🐛  Bug Fix
