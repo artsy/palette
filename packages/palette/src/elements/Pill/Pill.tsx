@@ -111,7 +111,8 @@ export const Pill = forwardRef<
         )}
       </Text>
 
-      {((rest.variant === "filter" && !rest.disabled) ||
+      {((rest.variant === "gray" && rest.selected) ||
+        (rest.variant === "filter" && rest.selected) ||
         (rest.variant === "profile" && rest.selected)) && (
         <CloseIcon fill="currentColor" ml={0.5} width={15} height={15} />
       )}
