@@ -32,6 +32,11 @@ export const TEXTAREA_STATES: Record<State, any> = {
       color: ${themeGet("colors.blue100")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   hover: css`
@@ -58,6 +63,11 @@ export const TEXTAREA_STATES: Record<State, any> = {
       color: ${themeGet("colors.blue100")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   completed: css`
@@ -68,6 +78,11 @@ export const TEXTAREA_STATES: Record<State, any> = {
       color: ${themeGet("colors.black60")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   disabled: css`
@@ -83,6 +98,11 @@ export const TEXTAREA_STATES: Record<State, any> = {
       color: ${themeGet("colors.black30")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
 
     &:placeholder-shown + label {
@@ -96,6 +116,11 @@ export const TEXTAREA_STATES: Record<State, any> = {
       color: ${themeGet("colors.red100")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
 }

@@ -257,7 +257,10 @@ export const PhoneInput: React.ForwardRefExoticComponent<
             {...inputProps}
           />
 
-          <StyledLabel htmlFor={inputName}>Phone Number</StyledLabel>
+          <StyledLabel htmlFor={inputName}>
+            Phone Number
+            <span />
+          </StyledLabel>
         </ContainerBox>
 
         {isDropdownVisible && (
@@ -473,11 +476,22 @@ const StyledLabel = styled.label`
   top: 0;
   left: 5px;
   padding: 0 5px;
-  background-color: ${themeGet("colors.white100")};
+  background-color: transparent;
   transform: translateY(-50%);
   transition: color 0.25s;
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
   font-size: ${themeGet("textVariants.xs.fontSize")};
   color: ${themeGet("colors.black60")};
+
+  & > span {
+    background-color: ${themeGet("colors.white100")};
+    height: 2px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+  }
 `

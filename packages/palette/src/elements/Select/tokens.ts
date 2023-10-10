@@ -17,6 +17,11 @@ export const SELECT_STATES: Record<State, any> = {
     &:not(:has(option[value=""]:checked)) + label {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   focus: css`
@@ -28,6 +33,11 @@ export const SELECT_STATES: Record<State, any> = {
       color: ${themeGet("colors.blue100")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
 
     &:has(option[value=""]:checked) + label {
@@ -59,6 +69,11 @@ export const SELECT_STATES: Record<State, any> = {
     &:not(:has(option[value=""]:checked)) + label {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   disabled: css`
@@ -74,6 +89,11 @@ export const SELECT_STATES: Record<State, any> = {
     &:not(:has(option[value=""]:checked)) + label {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   error: css`
