@@ -90,7 +90,12 @@ export const Select: ForwardRefExoticComponent<
             })}
           </select>
 
-          {!!title && <StyledLabel htmlFor={id}>{title}</StyledLabel>}
+          {!!title && (
+            <StyledLabel htmlFor={id}>
+              {title}
+              <span />
+            </StyledLabel>
+          )}
         </Container>
 
         {required && !(error && typeof error === "string") && (
@@ -219,8 +224,22 @@ const StyledLabel = styled.label`
   padding: 0 5px;
   pointer-events: none;
   transform: translateY(-50%);
-  transition: ${FORM_ELEMENT_TRANSITION};
-  transition-property: color, font-size, transform;
-  background-color: ${themeGet("colors.white100")};
+  transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+  transision-property: color, font-size, transform;
+  background-color: transparent;
   font-family: ${themeGet("fonts.sans")};
+
+  & > span {
+    background-color: ${themeGet("colors.white100")};
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+    transition-property: height, top;
+    transition-delay: 0.1s;
+  }
 `
