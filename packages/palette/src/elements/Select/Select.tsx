@@ -1,11 +1,17 @@
+import THEME from "@artsy/palette-tokens"
 import { themeGet } from "@styled-system/theme-get"
-import React, { forwardRef, ForwardRefExoticComponent, Ref } from "react"
+import React, {
+  forwardRef,
+  ForwardRefExoticComponent,
+  Ref,
+  useState,
+} from "react"
 import styled, { css } from "styled-components"
+import { RequiredField } from "../../shared/RequiredField"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
-import { SELECT_STATES } from "./tokens"
 import { Tooltip } from "../Tooltip"
-import { RequiredField } from "../../shared/RequiredField"
+import { SELECT_STATES } from "./tokens"
 
 export interface Option {
   value: string
@@ -51,6 +57,50 @@ export const Select: ForwardRefExoticComponent<
     ref
   ) => {
     const [boxProps, selectProps] = splitBoxProps(rest)
+    // due to :has not available in Firefox yet, we need to add the styles to the label using JS
+    const [selectedOption, setSelectedOption] = useState(selected)
+    const [isFocused, setIsFocused] = useState(false)
+    const [isHovered, setIsHovered] = useState(false)
+
+    // if there is no selected option (or is it empty)
+    // and the select is not focused
+    // and the title prop is present
+    const selectStyle = !isFocused &&
+      !selectedOption &&
+      !!title && {
+        color: "transparent",
+      }
+
+    // if there is a selected option
+    // and the select is not focused
+    // and the title prop is present
+    const labelSpanStyle = !isFocused &&
+      !!selectedOption &&
+      !!title && {
+        height: 2,
+        top: "50%",
+      }
+
+    // if the selected option is not empty
+    const labelStyleSelected = selectedOption && {
+      transform: "translateY(-150%)",
+      fontSize: THEME.textVariants.xs.fontSize,
+    }
+
+    // if the select is focused and there is no selected option (or it is empty)
+    const labelStyleFocused = isFocused &&
+      !selectedOption && {
+        textDecoration: "underline",
+      }
+
+    // if the select is hovered and there is no selected option (or it is empty)
+    // and the select is not disabled
+    const labelStyleHovered = isHovered &&
+      !selectedOption &&
+      !disabled && {
+        textDecoration: "underline",
+        color: THEME.colors.blue100,
+      }
 
     return (
       <Box width="100%" {...boxProps}>
@@ -68,6 +118,10 @@ export const Select: ForwardRefExoticComponent<
           error={error!}
           focus={!!focus}
           title={title}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         >
           <select
             ref={ref as any}
@@ -77,7 +131,9 @@ export const Select: ForwardRefExoticComponent<
             value={selected}
             onChange={(event) => {
               onSelect && onSelect(event.target.value)
+              setSelectedOption(event.target.value)
             }}
+            style={{ ...selectProps.style, ...selectStyle }}
             {...selectProps}
           >
             {options.map(({ value, text }) => {
@@ -90,9 +146,17 @@ export const Select: ForwardRefExoticComponent<
           </select>
 
           {!!title && (
-            <StyledLabel htmlFor={id}>
+            <StyledLabel
+              htmlFor={id}
+              style={{
+                ...labelStyleSelected,
+                ...labelStyleFocused,
+                ...labelStyleHovered,
+              }}
+            >
               {title}
-              <span />
+
+              <span style={{ ...labelSpanStyle }} />
             </StyledLabel>
           )}
         </Container>
