@@ -10,9 +10,7 @@ import { Box, BoxProps } from "../Box"
 import { Checkbox } from "../Checkbox"
 import { Clickable } from "../Clickable"
 import { caretMixin, Option } from "../Select"
-import { Sup } from "../Sup"
 import { Text } from "../Text"
-import { height as systemHeight } from "styled-system"
 
 export interface MultiSelectProps extends BoxProps {
   complete?: boolean
@@ -26,10 +24,9 @@ export interface MultiSelectProps extends BoxProps {
   required?: boolean
   title?: string
   onSelect?: (selection: Option[]) => void
-  prefixOffset?: number
-  suffixOffset?: number
 }
 
+/** A drop-down multi-select menu */
 export const MultiSelect: React.FC<MultiSelectProps> = ({
   complete,
   description,
@@ -42,13 +39,10 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
   required,
   title,
   onSelect,
-  prefixOffset,
-  suffixOffset,
   ...rest
 }) => {
   const [visible, setVisible] = useState(false)
   const [selection, setSelection] = useState<Option[]>([])
-  const borderLabel = visible || selection.length > 0
 
   // Yields focus back and forth between popover and anchor
   useUpdateEffect(() => {
@@ -106,7 +100,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
 
   return (
     <>
-      {/* {(title || description) && (
+      {(title || description) && (
         <>
           {title && (
             <Text variant="xs">
@@ -125,7 +119,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
             </Text>
           )}
         </>
-      )} */}
+      )}
 
       <Container
         ref={anchorRef as any}
@@ -135,21 +129,9 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
         error={error}
         focus={focus || visible}
         hover={hover}
-        prefixOffset={prefixOffset}
-        suffixOffset={suffixOffset}
         {...rest}
       >
-        {
-          <StyledLabel
-            prefixOffset={prefixOffset}
-            htmlFor={name}
-            titleMode={borderLabel}
-          >
-            {title}
-          </StyledLabel>
-        }
-
-        {selection.length > 0 && (
+        {/* {selection.length > 0 && (
           <Text variant="sm" lineHeight={1}>
             {name}
 
@@ -157,7 +139,8 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
               <Sup color="brand">&nbsp;{selection.length}</Sup>
             )}
           </Text>
-        )}
+        )} */}
+        {!!title && <StyledLabel htmlFor={name}>{title}</StyledLabel>}
       </Container>
 
       {visible && (
@@ -232,27 +215,14 @@ const STATES = {
 
 type ContainerProps = Pick<
   MultiSelectProps,
-  | "complete"
-  | "disabled"
-  | "error"
-  | "hover"
-  | "focus"
-  | "prefixOffset"
-  | "suffixOffset"
+  "complete" | "disabled" | "error" | "hover" | "focus"
 >
 
 const Container = styled(Clickable)<ContainerProps>`
-  width: 100%;
-  padding: 0 24px ${themeGet("space.1")};
-  height: 50px;
-  /* appearance: none;
-  line-height: 1; */
-  border: 1px solid;
-  border-radius: 3px;
-  transition: border-color 0.25s, color 0.25s;
-  font-family: ${themeGet("fonts.sans")};
-  /* ${systemHeight}; */
   position: relative;
+  width: 100%;
+
+  // in the case of styling the select box???
 
   ${(props) => {
     return css`
@@ -262,15 +232,7 @@ const Container = styled(Clickable)<ContainerProps>`
       ${props.focus && STATES.focus}
       ${props.disabled && STATES.disabled}
       ${props.error && STATES.error}
-      ${!!props.prefixOffset &&
-      css`
-        padding-left: ${props.prefixOffset}px;
-      `}
-      ${!!props.suffixOffset &&
-      css`
-        padding-right: ${props.suffixOffset}px;
-      `}
-
+    
       &:hover {
         ${STATES.hover}
       }
@@ -288,28 +250,16 @@ const Container = styled(Clickable)<ContainerProps>`
 
   ${caretMixin}
 `
-type StyledLabelProps = Pick<MultiSelectProps, "prefixOffset"> & {
-  titleMode: boolean
-}
 
-const StyledLabel = styled.label<StyledLabelProps>`
+const StyledLabel = styled.label`
   position: absolute;
-  ${(props) => (props.titleMode ? "top: 0;" : "top: 50%;")};
-  ${(props) => (props.titleMode ? "left: 0" : "left: 5px;")};
-  /* top: 50%;
-  left: 5px; */
+  top: 50%;
+  left: 5px;
   padding: 0 5px;
-  background-color: ${themeGet("colors.white100")};
+  pointer-events: none;
   transform: translateY(-50%);
   transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
-  transition-property: color, transform, padding, font-size, top, left;
+  transition-property: color, font-size, transform;
+  background-color: ${themeGet("colors.white100")};
   font-family: ${themeGet("fonts.sans")};
-  pointer-events: none;
-  color: red;
-
-  ${({ prefixOffset }) =>
-    !!prefixOffset &&
-    css`
-      padding-left: ${prefixOffset - 5}px;
-    `}
 `
