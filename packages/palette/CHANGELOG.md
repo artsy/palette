@@ -1,3 +1,16 @@
+# v36.2.0 (Tue Oct 17 2023)
+
+#### 🐛  Bug Fix
+
+- fix(pill): corrects selected state [#1324](https://github.com/artsy/palette/pull/1324) ([@dzucconi](https://github.com/dzucconi))
+- fix(pill): corrects selected state ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v36.1.3 (Fri Oct 06 2023)
 
 #### 🐛  Bug Fix

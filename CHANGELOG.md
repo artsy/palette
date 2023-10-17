@@ -1,3 +1,21 @@
+# (Tue Oct 17 2023)
+
+#### 🚀  Enhancement
+
+- chore(deps): update cimg/python docker tag to v3.12 [#1321](https://github.com/artsy/palette/pull/1321) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.2.0`
+  - fix(pill): corrects selected state [#1324](https://github.com/artsy/palette/pull/1324) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Oct 06 2023)
 
 #### 🐛  Bug Fix
