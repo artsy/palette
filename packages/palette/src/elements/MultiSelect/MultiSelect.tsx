@@ -11,6 +11,8 @@ import { Checkbox } from "../Checkbox"
 import { caretMixin, Option } from "../Select"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
+import { Clickable } from "../Clickable"
+import { RequiredField } from "../../shared/RequiredField"
 
 export interface MultiSelectProps extends BoxProps {
   complete?: boolean
@@ -24,6 +26,7 @@ export interface MultiSelectProps extends BoxProps {
   required?: boolean
   title?: string
   onSelect?: (selection: Option[]) => void
+  visible?: boolean
 }
 
 /** A drop-down multi-select menu */
@@ -116,45 +119,50 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
         disabled={!!disabled}
         error={error}
         focus={!!focus}
-        hover={hover}
+        hover={!!hover}
         title={title}
+        visible={visible}
+        required={required}
         mt={title || description ? 0.5 : 0}
         {...rest}
       >
         <Text variant="sm" lineHeight={1}>
-          {name}
+          {selection.length > 0 ? `${selection.length} selected` : name}
         </Text>
 
-        {visible && (
-          <Options
-            tabIndex={0}
-            ref={tooltipRef as any}
-            zIndex={1}
-            bg="white100"
-            width={width}
-          >
-            {options.map((option) => {
-              return (
-                <Checkbox
-                  key={option.value}
-                  height={50}
-                  px={1}
-                  selected={selection.includes(option)}
-                  onSelect={handleSelect(option)}
-                >
-                  {option.text}
-                </Checkbox>
-              )
-            })}
-          </Options>
-        )}
-
-        {/* htmlFor={name}?? not sure if this matches id*/}
         {!!title && <StyledLabel htmlFor={name}>{title}</StyledLabel>}
       </Container>
 
+      {visible && (
+        <Options
+          tabIndex={0}
+          ref={tooltipRef as any}
+          zIndex={1}
+          bg="white100"
+          width={width}
+        >
+          {options.map((option) => {
+            return (
+              <Checkbox
+                key={option.value}
+                height={50}
+                px={1}
+                selected={selection.includes(option)}
+                onSelect={handleSelect(option)}
+              >
+                {option.text}
+              </Checkbox>
+            )
+          })}
+        </Options>
+      )}
+
+      {required && !(error && typeof error === "string") && (
+        <RequiredField mt={0.5} ml={1} />
+      )}
+
       {error && typeof error === "string" && (
-        <Text variant="xs" mt={0.5} color="red100">
+        <Text variant="xs" mt={0.5} ml={1} color="red100">
           {error}
         </Text>
       )}
@@ -179,14 +187,9 @@ const MULTISELECT_STATES = {
     color: ${themeGet("colors.black100")};
     border-color: ${themeGet("colors.black30")};
 
-    label {
+    & > label {
       color: ${themeGet("colors.black60")};
       font-size: ${themeGet("textVariants.sm-display.fontSize")};
-    }
-
-    &:not(:has(option[value=""]:checked)) label {
-      transform: translateY(-150%);
-      font-size: ${themeGet("textVariants.xs.fontSize")};
     }
   `,
   focus: css`
@@ -194,16 +197,10 @@ const MULTISELECT_STATES = {
     border-color: ${themeGet("colors.blue100")};
     text-decoration: underline;
 
-    label {
+    & > label {
       color: ${themeGet("colors.blue100")};
-      transform: translateY(-150%);
+      transform: translateY(-250%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
-      /* background-color: yellow;
-      color: red; */
-    }
-
-    &:has(option[value=""]:checked) label {
-      text-decoration: underline;
     }
   `,
   hover: css`
@@ -211,25 +208,17 @@ const MULTISELECT_STATES = {
     border-color: ${themeGet("colors.black60")};
     text-decoration: underline;
 
-    label {
-      color: ${themeGet("colors.black60")};
-    }
-
-    &:has(option[value=""]:checked):not(:disabled) label {
+    & > label {
       color: ${themeGet("colors.blue100")};
-      text-decoration: underline;
     }
   `,
   completed: css`
     border-color: ${themeGet("colors.black60")};
     text-decoration: none;
 
-    label {
+    & > label {
       color: ${themeGet("colors.black60")};
-    }
-
-    &:not(:has(option[value=""]:checked)) label {
-      transform: translateY(-150%);
+      transform: translateY(-250%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
     }
   `,
@@ -238,21 +227,16 @@ const MULTISELECT_STATES = {
     border-color: ${themeGet("colors.black30")};
     text-decoration: none;
 
-    label {
+    & > label {
       color: ${themeGet("colors.black30")};
       text-decoration: none;
-    }
-
-    &:not(:has(option[value=""]:checked)) label {
-      transform: translateY(-150%);
-      font-size: ${themeGet("textVariants.xs.fontSize")};
     }
   `,
   error: css`
     color: ${themeGet("colors.black100")};
     border-color: ${themeGet("colors.red100")};
 
-    label {
+    & > label {
       color: ${themeGet("colors.red100")};
     }
   `,
@@ -260,10 +244,10 @@ const MULTISELECT_STATES = {
 
 type ContainerProps = Pick<
   MultiSelectProps,
-  "complete" | "disabled" | "error" | "hover" | "focus"
+  "complete" | "disabled" | "error" | "hover" | "focus" | "visible"
 >
 
-const Container = styled(Box)<ContainerProps>`
+const Container = styled(Clickable)<ContainerProps>`
   position: relative;
   width: 100%;
   /* 24px = space.1 + 4px-wide caret + space.1 */
@@ -289,25 +273,11 @@ const Container = styled(Box)<ContainerProps>`
         ${MULTISELECT_STATES.hover}
       }
 
-      &:focus {
-        ${MULTISELECT_STATES.focus}
-      }
+      ${props.visible && MULTISELECT_STATES.focus}
 
       &:disabled {
         cursor: default;
         ${MULTISELECT_STATES.disabled}
-      }
-
-      &:not(:has(option[value=""]:checked)):not(:focus) {
-        ${!(props.disabled || props.focus) && MULTISELECT_STATES.completed}
-        ${props.error && MULTISELECT_STATES.error}
-      }
-
-      &:not(:focus):has(option[value=""]:checked) {
-        ${props.title &&
-        css`
-          color: transparent;
-        `}
       }
     `
   }}
@@ -323,7 +293,8 @@ const StyledLabel = styled.label`
   pointer-events: none;
   transform: translateY(-50%);
   transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
-  transition-property: color, font-size, transform;
+  /* transition-property: color, font-size, transform; */
+  transition-property: color, transform, padding, font-size;
   background-color: ${themeGet("colors.white100")};
   font-family: ${themeGet("fonts.sans")};
 `
