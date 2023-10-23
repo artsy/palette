@@ -42,6 +42,8 @@ export type PillProps = ClickableProps & {
   selected?: boolean
   /** Optional icon slot */
   Icon?: React.FunctionComponent<BoxProps & { fill?: ResponsiveValue<string> }>
+  /** Optional: Icon positioning */
+  iconPosition?: "left" | "right"
 } & (
     | {
         variant?: Extract<
@@ -76,7 +78,7 @@ export type PillProps = ClickableProps & {
 export const Pill = forwardRef<
   HTMLAnchorElement & HTMLButtonElement,
   PillProps
->(({ children, Icon, ...rest }, forwardedRef) => {
+>(({ children, Icon, iconPosition = "left", ...rest }, forwardedRef) => {
   const variant =
     rest.variant === "profile" && rest.compact ? "gray" : rest.variant
 
@@ -95,7 +97,9 @@ export const Pill = forwardRef<
         />
       )}
 
-      {Icon && <Icon fill="currentColor" ml={-0.5} mr={0.5} />}
+      {Icon && iconPosition === "left" && (
+        <Icon fill="currentColor" ml={-0.5} mr={0.5} />
+      )}
 
       <Text
         variant={rest.variant === "search" ? ["xs", "sm-display"] : "xs"}
@@ -110,6 +114,10 @@ export const Pill = forwardRef<
           </>
         )}
       </Text>
+
+      {Icon && iconPosition === "right" && (
+        <Icon fill="currentColor" ml={0.5} mr={-0.5} />
+      )}
 
       {((rest.variant === "gray" && rest.selected) ||
         (rest.variant === "filter" && rest.selected) ||
