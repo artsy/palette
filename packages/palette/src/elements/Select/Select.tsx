@@ -1,4 +1,3 @@
-import THEME from "@artsy/palette-tokens"
 import { themeGet } from "@styled-system/theme-get"
 import React, {
   forwardRef,
@@ -62,46 +61,6 @@ export const Select: ForwardRefExoticComponent<
     const [isFocused, setIsFocused] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
 
-    // if there is no selected option (or is it empty)
-    // and the select is not focused
-    // and the title prop is present
-    const selectStyle = !isFocused &&
-      !selectedOption &&
-      !!title && {
-        color: "transparent",
-      }
-
-    // if there is a selected option
-    // and the select is not focused
-    // and the title prop is present
-    const labelSpanStyle = !isFocused &&
-      !!selectedOption &&
-      !!title && {
-        height: 2,
-        top: "50%",
-      }
-
-    // if the selected option is not empty
-    const labelStyleSelected = selectedOption && {
-      transform: "translateY(-150%)",
-      fontSize: THEME.textVariants.xs.fontSize,
-    }
-
-    // if the select is focused and there is no selected option (or it is empty)
-    const labelStyleFocused = isFocused &&
-      !selectedOption && {
-        textDecoration: "underline",
-      }
-
-    // if the select is hovered and there is no selected option (or it is empty)
-    // and the select is not disabled
-    const labelStyleHovered = isHovered &&
-      !selectedOption &&
-      !disabled && {
-        textDecoration: "underline",
-        color: THEME.colors.blue100,
-      }
-
     return (
       <Box width="100%" {...boxProps}>
         {!!description && (
@@ -114,14 +73,15 @@ export const Select: ForwardRefExoticComponent<
 
         <Container
           disabled={!!disabled}
-          hover={!!hover}
+          hover={!!hover || isHovered}
           error={error!}
-          focus={!!focus}
+          focus={!!focus || isFocused}
           title={title}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          optionSelected={!!selectedOption}
         >
           <select
             ref={ref as any}
@@ -133,7 +93,6 @@ export const Select: ForwardRefExoticComponent<
               onSelect && onSelect(event.target.value)
               setSelectedOption(event.target.value)
             }}
-            style={{ ...selectProps.style, ...selectStyle }}
             {...selectProps}
           >
             {options.map(({ value, text }) => {
@@ -146,17 +105,10 @@ export const Select: ForwardRefExoticComponent<
           </select>
 
           {!!title && (
-            <StyledLabel
-              htmlFor={id}
-              style={{
-                ...labelStyleSelected,
-                ...labelStyleFocused,
-                ...labelStyleHovered,
-              }}
-            >
+            <StyledLabel htmlFor={id}>
               {title}
 
-              <span style={{ ...labelSpanStyle }} />
+              <span />
             </StyledLabel>
           )}
         </Container>
@@ -221,7 +173,8 @@ export const caretMixin = css`
 
 type ContainerProps = Required<
   Pick<SelectProps, "disabled" | "error" | "hover" | "focus">
->
+  // adding optionSelected here to use it locally without adding it to the Select's props
+> & { optionSelected: boolean }
 
 const Container = styled(Box)<ContainerProps>`
   position: relative;
@@ -262,10 +215,18 @@ const Container = styled(Box)<ContainerProps>`
           ${SELECT_STATES.disabled}
         }
 
-        &:not(:has(option[value=""]:checked)):not(:focus) {
+        &:not(:focus):not(:has(option[value=""]:checked)) {
           ${!(props.disabled || props.focus) && SELECT_STATES.completed}
           ${props.error && SELECT_STATES.error}
         }
+
+        // Firefox polyfill for :has
+        ${!props.focus &&
+        !!props.optionSelected &&
+        css`
+          ${!(props.disabled || props.focus) && SELECT_STATES.completed}
+          ${props.error && SELECT_STATES.error}
+        `}
 
         &:not(:focus):has(option[value=""]:checked) {
           ${props.title &&
@@ -273,6 +234,14 @@ const Container = styled(Box)<ContainerProps>`
             color: transparent;
           `}
         }
+
+        // Firefox polyfill for :has
+        ${!props.focus &&
+        !props.optionSelected &&
+        props.title &&
+        css`
+          color: transparent;
+        `}
       `
     }};
   }
