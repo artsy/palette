@@ -6,6 +6,7 @@ import { Pill, PillProps, PillVariant, PILL_VARIANT_NAMES } from "./Pill"
 import { Box } from "../Box"
 import { Join } from "../Join"
 import GraphIcon from "@artsy/icons/GraphIcon"
+import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
 import styled from "styled-components"
 import { Popover } from "../Popover"
 
@@ -132,6 +133,11 @@ export const PillWithIcon = () => {
   return (
     <States<PillProps>
       states={[
+        {
+          iconPosition: "right",
+          Icon: ChevronSmallDownIcon,
+          variant: "default",
+        },
         {},
         { focus: true },
         { hover: true },
