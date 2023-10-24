@@ -2,7 +2,7 @@ import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
-import { DROP_SHADOW } from "../../helpers"
+import { DROP_SHADOW, FORM_ELEMENT_TRANSITION } from "../../helpers"
 import { useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { useWidthOf } from "../../utils/useWidthOf"
@@ -229,8 +229,7 @@ const StyledLabel = styled.label`
   padding: 0 5px;
   pointer-events: none;
   transform: translateY(-50%);
-  transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
-  /* transition-property: color, font-size, transform; */
+  transition: ${FORM_ELEMENT_TRANSITION};
   transition-property: color, transform, padding, font-size;
   background-color: ${themeGet("colors.white100")};
   font-family: ${themeGet("fonts.sans")};

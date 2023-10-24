@@ -7,6 +7,7 @@ import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { INPUT_STATES } from "./tokens"
+import { FORM_ELEMENT_TRANSITION } from "../../helpers"
 
 export interface InputProps
   extends BoxProps,
@@ -215,7 +216,7 @@ const StyledLabel = styled.label<StyledInputProps>`
   padding: 0 5px;
   background-color: ${themeGet("colors.white100")};
   transform: translateY(-50%);
-  transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+  transition: ${FORM_ELEMENT_TRANSITION};
   transition-property: color, transform, padding, font-size;
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
