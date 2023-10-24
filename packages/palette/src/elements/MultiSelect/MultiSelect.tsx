@@ -8,10 +8,12 @@ import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { useWidthOf } from "../../utils/useWidthOf"
 import { Box, BoxProps } from "../Box"
 import { Checkbox } from "../Checkbox"
-import { Clickable } from "../Clickable"
 import { caretMixin, Option } from "../Select"
-import { Sup } from "../Sup"
 import { Text } from "../Text"
+import { Tooltip } from "../Tooltip"
+import { Clickable } from "../Clickable"
+import { RequiredField } from "../../shared/RequiredField"
+import { MULTISELECT_STATES } from "./tokens"
 
 export interface MultiSelectProps extends BoxProps {
   complete?: boolean
@@ -25,8 +27,10 @@ export interface MultiSelectProps extends BoxProps {
   required?: boolean
   title?: string
   onSelect?: (selection: Option[]) => void
+  visible?: boolean
 }
 
+/** A drop-down multi-select menu */
 export const MultiSelect: React.FC<MultiSelectProps> = ({
   complete,
   description,
@@ -99,46 +103,32 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
   }
 
   return (
-    <>
-      {(title || description) && (
-        <>
-          {title && (
-            <Text variant="xs">
-              {title}
-              {required && (
-                <Box as="span" color="brand">
-                  *
-                </Box>
-              )}
-            </Text>
-          )}
-
-          {description && (
-            <Text variant="xs" color="black60">
-              {description}
-            </Text>
-          )}
-        </>
+    <Box width="100%" {...rest}>
+      {!!description && (
+        <Tooltip pointer content={description} placement="top-end">
+          <Text variant="xs" color="black60" textAlign="right">
+            <u>What is this?</u>
+          </Text>
+        </Tooltip>
       )}
 
       <Container
         ref={anchorRef as any}
         onClick={onVisible}
         complete={complete || selection.length > 0}
-        disabled={disabled}
+        disabled={!!disabled}
         error={error}
-        focus={focus || visible}
-        hover={hover}
-        mt={title || description ? 0.5 : 0}
+        focus={!!focus}
+        hover={!!hover}
+        title={title}
+        visible={visible}
         {...rest}
       >
         <Text variant="sm" lineHeight={1}>
-          {name}
-
-          {selection.length > 0 && (
-            <Sup color="brand">&nbsp;{selection.length}</Sup>
-          )}
+          {selection.length > 0 ? `${selection.length} selected` : name}
         </Text>
+
+        {!!title && <StyledLabel htmlFor={name}>{title}</StyledLabel>}
       </Container>
 
       {visible && (
@@ -165,12 +155,16 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
         </Options>
       )}
 
+      {required && !(error && typeof error === "string") && (
+        <RequiredField mt={0.5} ml={1} />
+      )}
+
       {error && typeof error === "string" && (
-        <Text variant="xs" mt={0.5} color="red100">
+        <Text variant="xs" mt={0.5} ml={1} color="red100">
           {error}
         </Text>
       )}
-    </>
+    </Box>
   )
 }
 
@@ -184,71 +178,60 @@ const Options = styled(Box)`
   -webkit-overflow-scrolling: touch;
 `
 
-const STATES = {
-  default: css`
-    color: ${themeGet("colors.black60")};
-    border-color: ${themeGet("colors.black30")};
-  `,
-  complete: css`
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black60")};
-  `,
-  focus: css`
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black60")};
-  `,
-  hover: css`
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black60")};
-  `,
-  disabled: css`
-    color: ${themeGet("colors.black30")};
-    border-color: ${themeGet("colors.black30")};
-  `,
-  error: css`
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.red100")};
-  `,
-}
-
 type ContainerProps = Pick<
   MultiSelectProps,
-  "complete" | "disabled" | "error" | "hover" | "focus"
+  "complete" | "disabled" | "error" | "hover" | "focus" | "visible"
 >
 
 const Container = styled(Clickable)<ContainerProps>`
   position: relative;
   width: 100%;
-  height: 50px;
-  border: 0;
-  border-bottom: 1px solid;
   /* 24px = space.1 + 4px-wide caret + space.1 */
-  padding: 0 24px 0 ${themeGet("space.1")};
-  transition: background-color 0.25s, border-color 0.25s;
+  padding: 16px 24px 16px ${themeGet("space.1")};
+  font-family: ${themeGet("fonts.sans")};
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: ${themeGet("colors.black30")};
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.25s, background-color 0.25s, border-color 0.25s;
+  background-color: ${themeGet("colors.white100")};
 
   ${(props) => {
     return css`
-      ${STATES.default}
-      ${props.complete && STATES.complete}
-      ${props.hover && STATES.hover}
-      ${props.focus && STATES.focus}
-      ${props.disabled && STATES.disabled}
-      ${props.error && STATES.error}
-
+      ${MULTISELECT_STATES.default}
+      ${props.complete && MULTISELECT_STATES.completed}
+      ${props.hover && MULTISELECT_STATES.hover}
+      ${props.focus && MULTISELECT_STATES.focus}
+      ${props.disabled && MULTISELECT_STATES.disabled}
+      ${props.error && MULTISELECT_STATES.error}
+    
       &:hover {
-        ${STATES.hover}
+        ${MULTISELECT_STATES.hover}
       }
 
-      &:focus {
-        ${STATES.focus}
-      }
+      ${props.visible && MULTISELECT_STATES.focus}
 
       &:disabled {
         cursor: default;
-        ${STATES.disabled}
+        ${MULTISELECT_STATES.disabled}
       }
     `
   }}
 
   ${caretMixin}
+`
+
+const StyledLabel = styled.label`
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+  /* transition-property: color, font-size, transform; */
+  transition-property: color, transform, padding, font-size;
+  background-color: ${themeGet("colors.white100")};
+  font-family: ${themeGet("fonts.sans")};
 `
