@@ -6,7 +6,7 @@ import { DROP_SHADOW } from "../../helpers"
 import { useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { useWidthOf } from "../../utils/useWidthOf"
-import { Box, BoxProps, splitBoxProps } from "../Box"
+import { Box, BoxProps } from "../Box"
 import { Checkbox } from "../Checkbox"
 import { caretMixin, Option } from "../Select"
 import { Text } from "../Text"
@@ -47,7 +47,6 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
 }) => {
   const [visible, setVisible] = useState(false)
   const [selection, setSelection] = useState<Option[]>([])
-  const [boxProps] = splitBoxProps(rest)
 
   // Yields focus back and forth between popover and anchor
   useUpdateEffect(() => {
@@ -104,7 +103,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
   }
 
   return (
-    <Box width="100%" {...boxProps}>
+    <Box width="100%" {...rest}>
       {!!description && (
         <Tooltip pointer content={description} placement="top-end">
           <Text variant="xs" color="black60" textAlign="right">
