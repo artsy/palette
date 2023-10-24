@@ -6,7 +6,6 @@ import React, {
   useState,
 } from "react"
 import styled, { css } from "styled-components"
-import { RequiredField } from "../../shared/RequiredField"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
