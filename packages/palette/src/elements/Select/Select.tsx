@@ -1,12 +1,18 @@
 import { themeGet } from "@styled-system/theme-get"
-import React, { forwardRef, ForwardRefExoticComponent, Ref } from "react"
+import React, {
+  forwardRef,
+  ForwardRefExoticComponent,
+  Ref,
+  useState,
+} from "react"
 import styled, { css } from "styled-components"
+import { RequiredField } from "../../shared/RequiredField"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
-import { SELECT_STATES } from "./tokens"
 import { Tooltip } from "../Tooltip"
 import { RequiredField } from "../../shared/RequiredField"
 import { FORM_ELEMENT_TRANSITION } from "../../helpers"
+import { SELECT_STATES } from "./tokens"
 
 export interface Option {
   value: string
@@ -52,6 +58,10 @@ export const Select: ForwardRefExoticComponent<
     ref
   ) => {
     const [boxProps, selectProps] = splitBoxProps(rest)
+    // due to :has not available in Firefox yet, we need to add the styles to the label using JS
+    const [selectedOption, setSelectedOption] = useState(selected)
+    const [isFocused, setIsFocused] = useState(false)
+    const [isHovered, setIsHovered] = useState(false)
 
     return (
       <Box width="100%" {...boxProps}>
@@ -65,10 +75,15 @@ export const Select: ForwardRefExoticComponent<
 
         <Container
           disabled={!!disabled}
-          hover={!!hover}
+          hover={!!hover || isHovered}
           error={error!}
-          focus={!!focus}
+          focus={!!focus || isFocused}
           title={title}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          optionSelected={!!selectedOption}
         >
           <select
             ref={ref as any}
@@ -78,6 +93,7 @@ export const Select: ForwardRefExoticComponent<
             value={selected}
             onChange={(event) => {
               onSelect && onSelect(event.target.value)
+              setSelectedOption(event.target.value)
             }}
             {...selectProps}
           >
@@ -90,7 +106,13 @@ export const Select: ForwardRefExoticComponent<
             })}
           </select>
 
-          {!!title && <StyledLabel htmlFor={id}>{title}</StyledLabel>}
+          {!!title && (
+            <StyledLabel htmlFor={id}>
+              {title}
+
+              <span />
+            </StyledLabel>
+          )}
         </Container>
 
         {required && !(error && typeof error === "string") && (
@@ -153,7 +175,8 @@ export const caretMixin = css`
 
 type ContainerProps = Required<
   Pick<SelectProps, "disabled" | "error" | "hover" | "focus">
->
+  // adding optionSelected here to use it locally without adding it to the Select's props
+> & { optionSelected: boolean }
 
 const Container = styled(Box)<ContainerProps>`
   position: relative;
@@ -194,10 +217,18 @@ const Container = styled(Box)<ContainerProps>`
           ${SELECT_STATES.disabled}
         }
 
-        &:not(:has(option[value=""]:checked)):not(:focus) {
+        &:not(:focus):not(:has(option[value=""]:checked)) {
           ${!(props.disabled || props.focus) && SELECT_STATES.completed}
           ${props.error && SELECT_STATES.error}
         }
+
+        // Firefox polyfill for :has
+        ${!props.focus &&
+        !!props.optionSelected &&
+        css`
+          ${!(props.disabled || props.focus) && SELECT_STATES.completed}
+          ${props.error && SELECT_STATES.error}
+        `}
 
         &:not(:focus):has(option[value=""]:checked) {
           ${props.title &&
@@ -205,6 +236,14 @@ const Container = styled(Box)<ContainerProps>`
             color: transparent;
           `}
         }
+
+        // Firefox polyfill for :has
+        ${!props.focus &&
+        !props.optionSelected &&
+        props.title &&
+        css`
+          color: transparent;
+        `}
       `
     }};
   }
@@ -223,4 +262,18 @@ const StyledLabel = styled.label`
   transition-property: color, font-size, transform;
   background-color: ${themeGet("colors.white100")};
   font-family: ${themeGet("fonts.sans")};
+
+  & > span {
+    background-color: ${themeGet("colors.white100")};
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+    transition-property: height, top;
+    transition-delay: 0.1s;
+  }
 `

@@ -17,7 +17,27 @@ export const SELECT_STATES: Record<State, any> = {
     &:not(:has(option[value=""]:checked)) + label {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
+
+    // Firefox polyfill for :has
+    ${({ optionSelected }) =>
+      optionSelected &&
+      css`
+        + label {
+          transform: translateY(-150%);
+          font-size: ${themeGet("textVariants.xs.fontSize")};
+
+          & > span {
+            height: 2px;
+            top: 50%;
+          }
+        }
+      `}
   `,
   focus: css`
     color: ${themeGet("colors.black100")};
@@ -28,11 +48,25 @@ export const SELECT_STATES: Record<State, any> = {
       color: ${themeGet("colors.blue100")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
 
     &:has(option[value=""]:checked) + label {
       text-decoration: underline;
     }
+
+    // Firefox polyfill for :has
+    ${({ optionSelected }) =>
+      !optionSelected &&
+      css`
+        + label {
+          text-decoration: underline;
+        }
+      `}
   `,
   hover: css`
     color: ${themeGet("colors.blue100")};
@@ -47,6 +81,17 @@ export const SELECT_STATES: Record<State, any> = {
       color: ${themeGet("colors.blue100")};
       text-decoration: underline;
     }
+
+    // Firefox polyfill for :has
+    ${({ optionSelected, disabled }) =>
+      !optionSelected &&
+      !disabled &&
+      css`
+        + label {
+          color: ${themeGet("colors.blue100")};
+          text-decoration: underline;
+        }
+      `}
   `,
   completed: css`
     border-color: ${themeGet("colors.black60")};
@@ -59,7 +104,26 @@ export const SELECT_STATES: Record<State, any> = {
     &:not(:has(option[value=""]:checked)) + label {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
+
+    // Firefox polyfill for :has
+    ${({ optionSelected }) =>
+      optionSelected &&
+      css`
+        + label {
+          transform: translateY(-150%);
+          font-size: ${themeGet("textVariants.xs.fontSize")};
+    
+          & > span {
+            height: 2px;
+            top: 50%;
+          }
+      `}
   `,
   disabled: css`
     color: ${themeGet("colors.black30")};
@@ -74,7 +138,26 @@ export const SELECT_STATES: Record<State, any> = {
     &:not(:has(option[value=""]:checked)) + label {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
+
+    // Firefox polyfill for :has
+    ${({ optionSelected }) =>
+      optionSelected &&
+      css`
+        + label {
+          transform: translateY(-150%);
+          font-size: ${themeGet("textVariants.xs.fontSize")};
+    
+          & > span {
+            height: 2px;
+            top: 50%;
+          }
+      `}
   `,
   error: css`
     color: ${themeGet("colors.black100")};

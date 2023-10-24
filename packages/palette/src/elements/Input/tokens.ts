@@ -31,6 +31,11 @@ export const INPUT_STATES: Record<State, any> = {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
       padding: 0 5px;
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   hover: css`
@@ -58,6 +63,11 @@ export const INPUT_STATES: Record<State, any> = {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
       padding: 0 5px;
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   completed: css`
@@ -69,6 +79,11 @@ export const INPUT_STATES: Record<State, any> = {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
       padding: 0 5px;
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
   disabled: css`
@@ -88,6 +103,11 @@ export const INPUT_STATES: Record<State, any> = {
       color: ${themeGet("colors.black30")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
 
     &:placeholder-shown + label {
@@ -102,6 +122,11 @@ export const INPUT_STATES: Record<State, any> = {
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
       padding: 0 5px;
+
+      & > span {
+        height: 2px;
+        top: 50%;
+      }
     }
   `,
 }

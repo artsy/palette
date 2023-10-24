@@ -33,7 +33,7 @@ export const Default = () => {
         { title: "Sort", error: "Something went wrong." },
         { title: "Sort", disabled: true },
         { title: "Sort", required: true },
-        { selected: "lastValue" },
+        { selected: "year" },
         { title: "Pick something", required: true, id: "pick" },
         { title: "Pick something", description: "This matters a lot." },
       ]}
