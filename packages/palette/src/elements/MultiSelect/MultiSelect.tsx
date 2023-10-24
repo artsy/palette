@@ -13,6 +13,7 @@ import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { Clickable } from "../Clickable"
 import { RequiredField } from "../../shared/RequiredField"
+import { MULTISELECT_STATES } from "./tokens"
 
 export interface MultiSelectProps extends BoxProps {
   complete?: boolean
@@ -122,8 +123,6 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
         hover={!!hover}
         title={title}
         visible={visible}
-        required={required}
-        mt={title || description ? 0.5 : 0}
         {...rest}
       >
         <Text variant="sm" lineHeight={1}>
@@ -180,68 +179,6 @@ const Options = styled(Box)`
   -webkit-overflow-scrolling: touch;
 `
 
-const MULTISELECT_STATES = {
-  default: css`
-    height: 50px;
-    font-size: ${themeGet("textVariants.sm-display.fontSize")};
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black30")};
-
-    & > label {
-      color: ${themeGet("colors.black60")};
-      font-size: ${themeGet("textVariants.sm-display.fontSize")};
-    }
-  `,
-  focus: css`
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.blue100")};
-    text-decoration: underline;
-
-    & > label {
-      color: ${themeGet("colors.blue100")};
-      transform: translateY(-250%);
-      font-size: ${themeGet("textVariants.xs.fontSize")};
-    }
-  `,
-  hover: css`
-    color: ${themeGet("colors.blue100")};
-    border-color: ${themeGet("colors.black60")};
-    text-decoration: underline;
-
-    & > label {
-      color: ${themeGet("colors.blue100")};
-    }
-  `,
-  completed: css`
-    border-color: ${themeGet("colors.black60")};
-    text-decoration: none;
-
-    & > label {
-      color: ${themeGet("colors.black60")};
-      transform: translateY(-250%);
-      font-size: ${themeGet("textVariants.xs.fontSize")};
-    }
-  `,
-  disabled: css`
-    color: ${themeGet("colors.black30")};
-    border-color: ${themeGet("colors.black30")};
-    text-decoration: none;
-
-    & > label {
-      color: ${themeGet("colors.black30")};
-      text-decoration: none;
-    }
-  `,
-  error: css`
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.red100")};
-
-    & > label {
-      color: ${themeGet("colors.red100")};
-    }
-  `,
-}
-
 type ContainerProps = Pick<
   MultiSelectProps,
   "complete" | "disabled" | "error" | "hover" | "focus" | "visible"
@@ -259,6 +196,7 @@ const Container = styled(Clickable)<ContainerProps>`
   cursor: pointer;
   line-height: 1;
   transition: color 0.25s, background-color 0.25s, border-color 0.25s;
+  background-color: ${themeGet("colors.white100")};
 
   ${(props) => {
     return css`
