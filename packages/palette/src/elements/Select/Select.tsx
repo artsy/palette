@@ -11,6 +11,7 @@ import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { SELECT_STATES } from "./tokens"
+import { FORM_ELEMENT_TRANSITION } from "../../helpers"
 
 export interface Option {
   value: string
@@ -256,8 +257,8 @@ const StyledLabel = styled.label`
   padding: 0 5px;
   pointer-events: none;
   transform: translateY(-50%);
-  transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
-  transision-property: color, font-size, transform;
+  transition: ${FORM_ELEMENT_TRANSITION};
+  transition-property: color, font-size, transform;
   background-color: transparent;
   font-family: ${themeGet("fonts.sans")};
 
