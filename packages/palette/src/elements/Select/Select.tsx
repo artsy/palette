@@ -260,7 +260,7 @@ const StyledLabel = styled.label`
   transform: translateY(-50%);
   transition: ${FORM_ELEMENT_TRANSITION};
   transition-property: color, font-size, transform;
-  background-color: ${themeGet("colors.white100")};
+  background-color: transparent;
   font-family: ${themeGet("fonts.sans")};
 
   & > span {
