@@ -459,12 +459,6 @@ const StyledInput = styled.input`
   border-color: ${themeGet("colors.black30")};
   ${systemHeight}
 
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 100px ${themeGet("colors.white100")} inset;
-  }
-
   ::placeholder {
     color: ${themeGet("colors.black60")};
     transition: color 0.25s;
