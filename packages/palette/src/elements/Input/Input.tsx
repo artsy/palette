@@ -225,7 +225,7 @@ const StyledLabel = styled.label<StyledInputProps>`
     top: 0;
     left: 0;
     z-index: -1;
-    transition: 0.25s cubic-bezier(0.64, 0.05, 0.36, 1);
+    transition: ${FORM_ELEMENT_TRANSITION};
     transition-property: height, top;
     transition-delay: 0.1s;
   }
