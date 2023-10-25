@@ -6,11 +6,12 @@ import React, {
   useState,
 } from "react"
 import styled, { css } from "styled-components"
+import { FORM_ELEMENT_TRANSITION } from "../../helpers"
+import { RequiredField } from "../../shared/RequiredField"
 import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { SELECT_STATES } from "./tokens"
-import { FORM_ELEMENT_TRANSITION } from "../../helpers"
 
 export interface Option {
   value: string
