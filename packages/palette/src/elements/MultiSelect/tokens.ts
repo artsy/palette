@@ -32,6 +32,12 @@ export const MULTISELECT_STATES: Record<State, any> = {
 
     & > label {
       color: ${themeGet("colors.blue100")};
+
+      ${({ complete }) =>
+        !complete &&
+        css`
+          text-decoration: underline;
+        `})}
     }
   `,
   completed: css`

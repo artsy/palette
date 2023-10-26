@@ -241,7 +241,7 @@ const Container = styled(Box)<ContainerProps>`
         !props.optionSelected &&
         props.title &&
         css`
-          color: transparent;
+          color: transparent !important;
         `}
       `
     }};

@@ -216,6 +216,14 @@ const Container = styled(Clickable)<ContainerProps>`
         cursor: default;
         ${MULTISELECT_STATES.disabled}
       }
+
+      // Hide text behind title when it's visible
+      ${props.title &&
+      !props.complete &&
+      !props.visible &&
+      css`
+        color: transparent !important;
+      `}
     `
   }}
 
