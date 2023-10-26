@@ -52,13 +52,15 @@ export const Select: ForwardRefExoticComponent<
       selected,
       title,
       onSelect,
+      onChange,
+      value,
       ...rest
     },
     ref
   ) => {
     const [boxProps, selectProps] = splitBoxProps(rest)
     // due to :has not available in Firefox yet, we need to add the styles to the label using JS
-    const [selectedOption, setSelectedOption] = useState(selected)
+    const [selectedOption, setSelectedOption] = useState(selected || value)
     const [isFocused, setIsFocused] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
 
@@ -92,6 +94,7 @@ export const Select: ForwardRefExoticComponent<
             value={selected}
             onChange={(event) => {
               onSelect && onSelect(event.target.value)
+              onChange && onChange(event)
               setSelectedOption(event.target.value)
             }}
             {...selectProps}
