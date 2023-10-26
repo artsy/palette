@@ -2,6 +2,7 @@ import type { MutableRefObject } from "react"
 import { useEffect } from "react"
 
 type UseMutationObserver = {
+  active?: boolean
   onMutate: MutationCallback
   options?: MutationObserverInit
 } & (
@@ -13,6 +14,7 @@ type UseMutationObserver = {
  * Accepts a ref and calls the `onMutate` callback when mutations are observed.
  */
 export const useMutationObserver = ({
+  active = true,
   onMutate,
   options = {
     attributes: true,
@@ -23,7 +25,7 @@ export const useMutationObserver = ({
   ...rest
 }: UseMutationObserver) => {
   useEffect(() => {
-    if (typeof MutationObserver === "undefined") {
+    if (!active || typeof MutationObserver === "undefined") {
       return
     }
 
@@ -40,5 +42,5 @@ export const useMutationObserver = ({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onMutate, options])
+  }, [onMutate, options, active])
 }
