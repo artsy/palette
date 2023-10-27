@@ -5,11 +5,13 @@ import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
 import { useLatest } from "./useLatest"
 
 type UseResizeObserver<T extends HTMLElement> = {
+  active?: boolean
   target: React.RefObject<T> | T | null
   onResize: UseResizeObserverCallback
 }
 
 export const useResizeObserver = <T extends HTMLElement>({
+  active = true,
   target,
   onResize,
 }: UseResizeObserver<T>) => {
@@ -17,7 +19,7 @@ export const useResizeObserver = <T extends HTMLElement>({
   const storedCallback = useLatest(onResize)
 
   useIsomorphicLayoutEffect(() => {
-    if (!resizeObserver) return
+    if (!active || !resizeObserver) return
 
     let didUnsubscribe = false
 

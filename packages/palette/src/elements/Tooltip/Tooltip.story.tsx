@@ -10,6 +10,7 @@ import { Input } from "../Input"
 import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
+import { Stack } from "../Stack"
 
 const CONTENT = "Lorem ipsum dolor sit amet consectetur adipisicing elit?"
 
@@ -227,4 +228,40 @@ export const PointerCentering = () => {
       </Tooltip>
     </>
   )
+}
+
+export const StressTest = () => {
+  return (
+    <Stack gap={1}>
+      {Array.from({ length: 3000 }).map((_, i) => {
+        return (
+          <Tooltip
+            key={i}
+            content={CONTENT}
+            pointer
+            variant="defaultDark"
+            placement="right"
+          >
+            <Text
+              variant="xs"
+              textAlign="center"
+              width={40}
+              height={40}
+              mx="auto"
+              bg="black10"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {i}
+            </Text>
+          </Tooltip>
+        )
+      })}
+    </Stack>
+  )
+}
+
+StressTest.story = {
+  parameters: { chromatic: { disable: true } },
 }
