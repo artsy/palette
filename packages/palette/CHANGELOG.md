@@ -1,3 +1,17 @@
+# v36.3.1 (Fri Oct 27 2023)
+
+#### 🐛  Bug Fix
+
+- fix(dia-240): optimize tooltip when inactive [#1329](https://github.com/artsy/palette/pull/1329) ([@dzucconi](https://github.com/dzucconi))
+- chore(tooltip): adds stress test story ([@dzucconi](https://github.com/dzucconi))
+- fix: optimizes inactive instances ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v36.3.0 (Mon Oct 23 2023)
 
 #### 🚀  Enhancement

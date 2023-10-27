@@ -1,3 +1,16 @@
+# (Fri Oct 27 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.3.1`
+  - fix(dia-240): optimize tooltip when inactive [#1329](https://github.com/artsy/palette/pull/1329) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Oct 23 2023)
 
 #### 🚀  Enhancement
