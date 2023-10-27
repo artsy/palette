@@ -54,8 +54,6 @@ export const Input: React.ForwardRefExoticComponent<
     const [boxProps, inputProps] = splitBoxProps(rest)
     const [charCount, setCharCount] = React.useState(0)
 
-    const inputName = inputProps.name || "palette-input"
-
     const countChars = (e: React.ChangeEvent<HTMLInputElement>) => {
       setCharCount(e.target.value.length)
     }
@@ -79,20 +77,22 @@ export const Input: React.ForwardRefExoticComponent<
             error={!!error}
             required={required}
             height={(height ?? 50) as any}
-            name={inputName}
+            name={inputProps.name}
             title={title}
             suffixOffset={suffixOffset}
             prefixOffset={prefixOffset}
             onChange={(e) => {
               inputProps.onChange?.(e)
-              if (inputProps.maxLength) countChars(e)
+              if (inputProps.maxLength) {
+                countChars(e)
+              }
             }}
             placeholder={inputProps.placeholder || " "}
             {...inputProps}
           />
 
           {!!title && (
-            <StyledLabel prefixOffset={prefixOffset} htmlFor={inputName}>
+            <StyledLabel prefixOffset={prefixOffset} htmlFor={inputProps.name}>
               {title}
               <span />
             </StyledLabel>

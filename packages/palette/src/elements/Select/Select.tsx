@@ -91,7 +91,7 @@ export const Select: ForwardRefExoticComponent<
             id={id}
             disabled={disabled}
             name={name}
-            value={selected}
+            value={selected || value}
             onChange={(event) => {
               onSelect && onSelect(event.target.value)
               onChange && onChange(event)
