@@ -1,3 +1,16 @@
+# (Mon Oct 30 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.3.2`
+  - fix(button): offsets icon for padding balance [#1330](https://github.com/artsy/palette/pull/1330) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Oct 27 2023)
 
 #### 🐛  Bug Fix
