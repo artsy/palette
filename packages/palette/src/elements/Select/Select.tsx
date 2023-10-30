@@ -224,13 +224,14 @@ const Container = styled(Box)<ContainerProps>`
           ${props.error && SELECT_STATES.error}
         }
 
-        // Firefox polyfill for :has
-        ${!props.focus &&
-        !!props.optionSelected &&
-        css`
-          ${!(props.disabled || props.focus) && SELECT_STATES.completed}
-          ${props.error && SELECT_STATES.error}
-        `}
+        &:not(:focus) {
+          // Firefox polyfill for :has
+          ${!!props.optionSelected &&
+          css`
+            ${!(props.disabled || props.focus) && SELECT_STATES.completed}
+            ${props.error && SELECT_STATES.error}
+          `}
+        }
 
         &:not(:focus):has(option[value=""]:checked) {
           ${props.title &&
@@ -239,13 +240,14 @@ const Container = styled(Box)<ContainerProps>`
           `}
         }
 
-        // Firefox polyfill for :has
-        ${!props.focus &&
-        !props.optionSelected &&
-        props.title &&
-        css`
-          color: transparent !important;
-        `}
+        &:not(:focus) {
+          // Firefox polyfill for :has
+          ${props.title &&
+          !props.optionSelected &&
+          css`
+            color: transparent;
+          `}
+        }
       `
     }};
   }

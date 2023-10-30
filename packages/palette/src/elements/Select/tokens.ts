@@ -118,11 +118,12 @@ export const SELECT_STATES: Record<State, any> = {
         + label {
           transform: translateY(-150%);
           font-size: ${themeGet("textVariants.xs.fontSize")};
-    
+
           & > span {
             height: 2px;
             top: 50%;
           }
+        }
       `}
   `,
   disabled: css`
@@ -152,11 +153,12 @@ export const SELECT_STATES: Record<State, any> = {
         + label {
           transform: translateY(-150%);
           font-size: ${themeGet("textVariants.xs.fontSize")};
-    
+
           & > span {
             height: 2px;
             top: 50%;
           }
+        }
       `}
   `,
   error: css`

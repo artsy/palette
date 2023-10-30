@@ -37,7 +37,7 @@ export const MULTISELECT_STATES: Record<State, any> = {
         !complete &&
         css`
           text-decoration: underline;
-        `})}
+        `}
     }
   `,
   completed: css`
