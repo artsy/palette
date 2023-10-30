@@ -1,3 +1,92 @@
+# (Mon Oct 30 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.3.2`
+  - fix(button): offsets icon for padding balance [#1330](https://github.com/artsy/palette/pull/1330) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Oct 27 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.3.1`
+  - fix(dia-240): optimize tooltip when inactive [#1329](https://github.com/artsy/palette/pull/1329) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Mon Oct 23 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@36.3.0`
+  - feat(pill): supports right side icon positioning [#1325](https://github.com/artsy/palette/pull/1325) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Oct 17 2023)
+
+#### 🚀  Enhancement
+
+- chore(deps): update cimg/python docker tag to v3.12 [#1321](https://github.com/artsy/palette/pull/1321) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.2.0`
+  - fix(pill): corrects selected state [#1324](https://github.com/artsy/palette/pull/1324) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Oct 06 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.1.3`
+  - fix(pill): corrects x icon behavior [#1320](https://github.com/artsy/palette/pull/1320) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Oct 05 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@36.1.2`
+  - fix(pill): forwards ref to pill [#1319](https://github.com/artsy/palette/pull/1319) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@36.1.2`
+  - chore: add NODE_OPTIONS env var to storybook start script [#1318](https://github.com/artsy/palette/pull/1318) ([@TMcMeans](https://github.com/TMcMeans))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- TanjieM ([@TMcMeans](https://github.com/TMcMeans))
+
+---
+
 # (Tue Sep 19 2023)
 
 #### 🐛  Bug Fix

@@ -72,16 +72,16 @@ export const usePosition = ({
   }
 
   // Re-position when there's any change to the tooltip
-  useMutationObserver({ ref: tooltipRef, onMutate: update })
+  useMutationObserver({ ref: tooltipRef, onMutate: update, active })
 
   // Re-position when there's any change to the anchor's size
-  useResizeObserver({ target: anchorRef, onResize: update })
+  useResizeObserver({ target: anchorRef, onResize: update, active })
 
   // Listen to changes on key
   useIsomorphicLayoutEffect(update, [key])
 
   useIsomorphicLayoutEffect(() => {
-    if (!tooltipRef.current || !anchorRef.current) return
+    if (!active || !tooltipRef.current || !anchorRef.current) return
 
     const { current: tooltip } = tooltipRef
     const { current: anchor } = anchorRef
@@ -91,15 +91,12 @@ export const usePosition = ({
     tooltip.style.left = "0"
 
     const handleScroll = () => {
-      if (!active) return
       setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
     }
 
-    if (active) {
-      document.addEventListener("scroll", handleScroll, {
-        passive: true,
-      })
-    }
+    document.addEventListener("scroll", handleScroll, {
+      passive: true,
+    })
 
     const handleResize = () => {
       setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))

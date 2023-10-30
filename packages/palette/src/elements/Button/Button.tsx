@@ -99,11 +99,16 @@ export const Button: React.ForwardRefExoticComponent<
           width="100%"
         >
           {!success && Icon && (
-            <Icon fill="currentColor" mr={0.5} aria-hidden="true" />
+            <Icon fill="currentColor" mr={0.5} ml={-0.5} aria-hidden="true" />
           )}
 
           {success && (
-            <CheckmarkIcon fill="currentColor" mr={0.5} aria-hidden="true" />
+            <CheckmarkIcon
+              fill="currentColor"
+              mr={0.5}
+              ml={-0.5}
+              aria-hidden="true"
+            />
           )}
 
           {children}

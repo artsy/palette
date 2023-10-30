@@ -199,7 +199,7 @@ export const PILL_VARIANTS: Record<
       border-color: ${themeGet("colors.blue100")};
       color: ${themeGet("colors.black100")};
       background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.blue100")};
+      border-color: ${themeGet("colors.black5")};
     `,
     disabled: css`
       background-color: ${themeGet("colors.black5")};
@@ -239,7 +239,7 @@ export const PILL_VARIANTS: Record<
       border-color: ${themeGet("colors.blue100")};
       color: ${themeGet("colors.black100")};
       background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.blue100")};
+      border-color: ${themeGet("colors.black5")};
     `,
     disabled: css`
       background-color: ${themeGet("colors.black5")};

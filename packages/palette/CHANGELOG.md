@@ -1,3 +1,91 @@
+# v36.3.2 (Mon Oct 30 2023)
+
+#### 🐛  Bug Fix
+
+- fix(button): offsets icon for padding balance [#1330](https://github.com/artsy/palette/pull/1330) ([@dzucconi](https://github.com/dzucconi))
+- fix(button): offsets icon for padding balance ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v36.3.1 (Fri Oct 27 2023)
+
+#### 🐛  Bug Fix
+
+- fix(dia-240): optimize tooltip when inactive [#1329](https://github.com/artsy/palette/pull/1329) ([@dzucconi](https://github.com/dzucconi))
+- chore(tooltip): adds stress test story ([@dzucconi](https://github.com/dzucconi))
+- fix: optimizes inactive instances ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v36.3.0 (Mon Oct 23 2023)
+
+#### 🚀  Enhancement
+
+- feat(pill): supports right side icon positioning [#1325](https://github.com/artsy/palette/pull/1325) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(pill): supports right side icon positioning ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v36.2.0 (Tue Oct 17 2023)
+
+#### 🐛  Bug Fix
+
+- fix(pill): corrects selected state [#1324](https://github.com/artsy/palette/pull/1324) ([@dzucconi](https://github.com/dzucconi))
+- fix(pill): corrects selected state ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v36.1.3 (Fri Oct 06 2023)
+
+#### 🐛  Bug Fix
+
+- fix(pill): corrects x icon behavior [#1320](https://github.com/artsy/palette/pull/1320) ([@dzucconi](https://github.com/dzucconi))
+- fix(pill): corrects x icon behavior ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v36.1.2 (Thu Oct 05 2023)
+
+#### 🐛  Bug Fix
+
+- fix(pill): forwards ref to pill [#1319](https://github.com/artsy/palette/pull/1319) ([@dzucconi](https://github.com/dzucconi))
+- fix(pill): forwards ref to pill ([@dzucconi](https://github.com/dzucconi))
+- (chore): add NODE_OPTIONS env var for storybook script ([@TMcMeans](https://github.com/TMcMeans))
+
+#### 🏠  Internal
+
+- chore: add NODE_OPTIONS env var to storybook start script [#1318](https://github.com/artsy/palette/pull/1318) ([@TMcMeans](https://github.com/TMcMeans))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- TanjieM ([@TMcMeans](https://github.com/TMcMeans))
+
+---
+
 # v36.1.1 (Tue Sep 19 2023)
 
 #### 🐛  Bug Fix
