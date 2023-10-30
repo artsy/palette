@@ -23,8 +23,7 @@ export interface InputProps
   hover?: boolean
   required?: boolean
   title?: string
-  prefixOffset?: number
-  suffixOffset?: number
+  labelOffset?: number
   showCounter?: boolean
 }
 
@@ -44,8 +43,7 @@ export const Input: React.ForwardRefExoticComponent<
       hover,
       title,
       height,
-      prefixOffset,
-      suffixOffset,
+      labelOffset,
       showCounter,
       ...rest
     },
@@ -79,8 +77,7 @@ export const Input: React.ForwardRefExoticComponent<
             height={(height ?? 50) as any}
             name={inputProps.name}
             title={title}
-            suffixOffset={suffixOffset}
-            prefixOffset={prefixOffset}
+            labelOffset={labelOffset}
             onChange={(e) => {
               inputProps.onChange?.(e)
               if (inputProps.maxLength) {
@@ -92,7 +89,7 @@ export const Input: React.ForwardRefExoticComponent<
           />
 
           {!!title && (
-            <StyledLabel prefixOffset={prefixOffset} htmlFor={inputProps.name}>
+            <StyledLabel labelOffset={labelOffset} htmlFor={inputProps.name}>
               {title}
               <span />
             </StyledLabel>
@@ -128,14 +125,7 @@ Input.displayName = "Input"
 
 type StyledInputProps = Pick<
   InputProps,
-  | "disabled"
-  | "error"
-  | "hover"
-  | "focus"
-  | "active"
-  | "title"
-  | "suffixOffset"
-  | "prefixOffset"
+  "disabled" | "error" | "hover" | "focus" | "active" | "title" | "labelOffset"
 >
 
 const StyledInput = styled.input<StyledInputProps>`
@@ -161,14 +151,6 @@ const StyledInput = styled.input<StyledInputProps>`
       ${props.active && INPUT_STATES.active}
       ${props.disabled && INPUT_STATES.disabled}
       ${props.error && INPUT_STATES.error}
-      ${!!props.prefixOffset &&
-      css`
-        padding-left: ${props.prefixOffset}px;
-      `}
-      ${!!props.suffixOffset &&
-      css`
-        padding-right: ${props.suffixOffset}px;
-      `}
 
       &:hover {
         ${INPUT_STATES.hover}
@@ -230,9 +212,9 @@ const StyledLabel = styled.label<StyledInputProps>`
     transition-delay: 0.1s;
   }
 
-  ${({ prefixOffset }) =>
-    !!prefixOffset &&
+  ${({ labelOffset }) =>
+    !!labelOffset &&
     css`
-      padding-left: ${prefixOffset - 5}px;
+      padding-left: ${labelOffset - 5}px;
     `}
 `

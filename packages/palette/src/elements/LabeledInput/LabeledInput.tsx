@@ -33,7 +33,8 @@ export const LabeledInput: React.ForwardRefExoticComponent<
         <Input
           ref={forwardedRef}
           height={height}
-          {...{ [isPrefix ? "prefixOffset" : "suffixOffset"]: offset + 15 }}
+          labelOffset={isPrefix ? offset + 15 : undefined}
+          style={{ [isPrefix ? "paddingLeft" : "paddingRight"]: offset + 15 }}
           {...inputProps}
         >
           <Box
