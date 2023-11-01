@@ -7,6 +7,8 @@ import { Text } from "../Text"
 import { Dropdown, DropdownProps } from "./Dropdown"
 import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
+import { Pill } from "../Pill"
+import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
 
 export default {
   title: "Components/Dropdown",
@@ -224,5 +226,32 @@ export const OpenDropdownByClick = () => {
         }}
       </Dropdown>
     </Flex>
+  )
+}
+
+export const FilterExample = () => {
+  return (
+    <Dropdown
+      dropdown={
+        <Box p={1}>
+          <Text variant="xs">Example content</Text>
+        </Box>
+      }
+      placement="bottom-start"
+      openDropdownByClick
+    >
+      {({ anchorRef, anchorProps }) => {
+        return (
+          <Pill
+            ref={anchorRef as any}
+            Icon={ChevronSmallDownIcon}
+            iconPosition="right"
+            {...anchorProps}
+          >
+            Example
+          </Pill>
+        )
+      }}
+    </Dropdown>
   )
 }
