@@ -300,7 +300,7 @@ export const PhoneInput: React.ForwardRefExoticComponent<
         )}
 
         {required && !(error && typeof error === "string") && (
-          <RequiredField mt={0.5} ml={1} />
+          <RequiredField mt={0.5} ml={1} disabled={disabled} />
         )}
 
         {error && typeof error === "string" && (
