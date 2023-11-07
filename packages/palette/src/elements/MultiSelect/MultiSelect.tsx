@@ -113,6 +113,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
       )}
 
       <Container
+        mt={!!title && !description ? 1 : 0}
         ref={anchorRef as any}
         onClick={onVisible}
         complete={complete || selection.length > 0}

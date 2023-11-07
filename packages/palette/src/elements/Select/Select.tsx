@@ -75,6 +75,7 @@ export const Select: ForwardRefExoticComponent<
         )}
 
         <Container
+          mt={!!title && !description ? 1 : 0}
           disabled={!!disabled}
           hover={!!hover || isHovered}
           error={error!}
