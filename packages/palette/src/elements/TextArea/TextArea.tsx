@@ -115,7 +115,7 @@ export const TextArea: React.ForwardRefExoticComponent<
 
         {(required || characterLimit) && !(error && typeof error === "string") && (
           <Box display="flex" mt={0.5} mx={1}>
-            {required && <RequiredField flex={1} />}
+            {required && <RequiredField flex={1} disabled={disabled} />}
 
             {typeof characterLimit !== "undefined" && (
               <Text

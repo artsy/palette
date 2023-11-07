@@ -101,7 +101,7 @@ export const Input: React.ForwardRefExoticComponent<
         {(required || (inputProps?.maxLength && showCounter)) &&
           !(error && typeof error === "string") && (
             <Box display="flex" mt={0.5} mx={1}>
-              {required && <RequiredField flex={1} />}
+              {required && <RequiredField disabled={disabled} flex={1} />}
 
               {!!inputProps?.maxLength && showCounter && (
                 <Text flex={1} variant="xs" color="black60" textAlign="right">
