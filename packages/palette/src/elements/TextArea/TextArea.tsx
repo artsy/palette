@@ -90,7 +90,7 @@ export const TextArea: React.ForwardRefExoticComponent<
           </Tooltip>
         )}
 
-        <Box position="relative">
+        <Box position="relative" mt={!!title && !description ? 1 : 0}>
           <StyledTextArea
             ref={ref as any}
             disabled={disabled}

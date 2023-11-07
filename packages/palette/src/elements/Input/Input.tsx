@@ -66,7 +66,7 @@ export const Input: React.ForwardRefExoticComponent<
           </Tooltip>
         )}
 
-        <Box position="relative">
+        <Box position="relative" mt={!!title && !description ? 1 : 0}>
           <StyledInput
             ref={ref as any}
             disabled={disabled}
