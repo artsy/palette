@@ -5,3 +5,4 @@ export type State =
   | "error"
   | "focus"
   | "hover"
+  | "completed"

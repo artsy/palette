@@ -17,7 +17,7 @@ describe("Select", () => {
   describe("Select", () => {
     it("renders the options provided", () => {
       const props = { options }
-      const wrapper = mount(<Select variant="default" {...props} />)
+      const wrapper = mount(<Select {...props} />)
       expect(wrapper.find("option").length).toEqual(2)
     })
 
@@ -28,7 +28,8 @@ describe("Select", () => {
         options,
         title: "This is the title",
       }
-      const wrapper = mount(<Select variant="default" {...props} />)
+      const wrapper = mount(<Select {...props} />)
+      expect(wrapper.text()).toContain("What is this?")
       expect(wrapper.text()).toContain("This is the description")
       expect(wrapper.text()).toContain("This is the error")
       expect(wrapper.text()).toContain("This is the title")
@@ -40,14 +41,14 @@ describe("Select", () => {
         required: true,
         title: "This is the title",
       }
-      const wrapper = mount(<Select variant="default" {...props} />)
-      expect(wrapper.text()).toContain("*")
+      const wrapper = mount(<Select {...props} />)
+      expect(wrapper.text()).toContain("*Required")
     })
 
     it("passes the name attr down to the raw node", () => {
       const name = "some_rails_thing"
       const props = { name, options }
-      const wrapper = mount(<Select variant="default" {...props} />)
+      const wrapper = mount(<Select {...props} />)
       expect(wrapper.find("select").prop("name")).toEqual(name)
     })
   })
@@ -55,7 +56,7 @@ describe("Select", () => {
   describe("SelectSmall", () => {
     it("renders proper options with correct selected one", () => {
       const wrapper = mount(
-        <Select variant="inline" options={options} selected="secondOption" />
+        <Select options={options} selected="secondOption" />
       )
 
       expect(wrapper.find("option").length).toBe(2)
@@ -64,19 +65,15 @@ describe("Select", () => {
 
     it("triggers callback on change", () => {
       const spy = jest.fn()
-      const wrapper = mount(
-        <Select variant="inline" options={options} onSelect={spy} />
-      )
+      const wrapper = mount(<Select options={options} onSelect={spy} />)
       wrapper.find("option").at(1).simulate("change")
       expect(spy).toHaveBeenCalled()
     })
 
     it("supports title attribute and renders it properly", () => {
-      const wrapper = mount(
-        <Select variant="inline" options={options} title="Sort:" />
-      )
+      const wrapper = mount(<Select options={options} title="Sort" />)
 
-      expect(wrapper.html()).toContain("Sort:")
+      expect(wrapper.html()).toContain("Sort")
     })
   })
 })
