@@ -1,3 +1,46 @@
+# (Thu Nov 09 2023)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette@37.0.0`
+  - feat(CX-3348): Update Input components [#1250](https://github.com/artsy/palette/pull/1250) ([@MrSltun](https://github.com/MrSltun) [@MounirDhahri](https://github.com/MounirDhahri) [@araujobarret](https://github.com/araujobarret) [@artsyit](https://github.com/artsyit) [@dzucconi](https://github.com/dzucconi) [@damassi](https://github.com/damassi) [@TMcMeans](https://github.com/TMcMeans))
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@37.0.0`
+  - fix: Add `value` & `onChange` to Select [#1328](https://github.com/artsy/palette/pull/1328) ([@MrSltun](https://github.com/MrSltun))
+  - fix: Hide placeholder text for select elements [#1327](https://github.com/artsy/palette/pull/1327) ([@MrSltun](https://github.com/MrSltun))
+  - fix(EMI-1373): Fix Select issues with Firefox [#1322](https://github.com/artsy/palette/pull/1322) ([@MrSltun](https://github.com/MrSltun))
+  - fix(EMI-1372): Fix Autofill background issue in the new inputs [#1317](https://github.com/artsy/palette/pull/1317) ([@MrSltun](https://github.com/MrSltun))
+  - feat(Drawer): export Drawer element [#1300](https://github.com/artsy/palette/pull/1300) ([@araujobarret](https://github.com/araujobarret))
+  - feat(NX-3251): add drawer element [#1295](https://github.com/artsy/palette/pull/1295) ([@araujobarret](https://github.com/araujobarret))
+  - feat(CX-3669): Update Select component [#1293](https://github.com/artsy/palette/pull/1293) ([@MrSltun](https://github.com/MrSltun))
+  - feat(CX-3394): Update text area component [#1290](https://github.com/artsy/palette/pull/1290) ([@MrSltun](https://github.com/MrSltun))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@37.0.0`
+  - fix(EMI-1561): Update "*required" color when the element is disabled [#1333](https://github.com/artsy/palette/pull/1333) ([@MrSltun](https://github.com/MrSltun))
+  - fix(EMI-1560): Add margin-top to elements when the title is present [#1334](https://github.com/artsy/palette/pull/1334) ([@MrSltun](https://github.com/MrSltun))
+  - feat(CX-3339): New phone input component [#1281](https://github.com/artsy/palette/pull/1281) ([@MrSltun](https://github.com/MrSltun))
+
+#### 🏠  Internal
+
+- `@artsy/palette@37.0.0`
+  - chore(dropdown): adds story conforming to filter ui pattern [#1332](https://github.com/artsy/palette/pull/1332) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 7
+
+- Artsy ([@artsyit](https://github.com/artsyit))
+- Carlos ([@araujobarret](https://github.com/araujobarret))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Mounir Dhahri ([@MounirDhahri](https://github.com/MounirDhahri))
+- Sultan Al-Maari ([@MrSltun](https://github.com/MrSltun))
+- TanjieM ([@TMcMeans](https://github.com/TMcMeans))
+
+---
+
 # (Mon Oct 30 2023)
 
 #### 🐛  Bug Fix

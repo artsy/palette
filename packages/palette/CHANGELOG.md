@@ -1,3 +1,100 @@
+# v37.0.0 (Thu Nov 09 2023)
+
+#### 💥  Breaking Change
+
+- feat(CX-3348): Update Input components [#1250](https://github.com/artsy/palette/pull/1250) ([@MrSltun](https://github.com/MrSltun) [@MounirDhahri](https://github.com/MounirDhahri) [@araujobarret](https://github.com/araujobarret) [@artsyit](https://github.com/artsyit) [@dzucconi](https://github.com/dzucconi) [@damassi](https://github.com/damassi) [@TMcMeans](https://github.com/TMcMeans))
+
+#### 🚀  Enhancement
+
+- fix: Add `value` & `onChange` to Select [#1328](https://github.com/artsy/palette/pull/1328) ([@MrSltun](https://github.com/MrSltun))
+- fix: Hide placeholder text for select elements [#1327](https://github.com/artsy/palette/pull/1327) ([@MrSltun](https://github.com/MrSltun))
+- fix(EMI-1373): Fix Select issues with Firefox [#1322](https://github.com/artsy/palette/pull/1322) ([@MrSltun](https://github.com/MrSltun))
+- fix(EMI-1372): Fix Autofill background issue in the new inputs [#1317](https://github.com/artsy/palette/pull/1317) ([@MrSltun](https://github.com/MrSltun))
+- feat(Drawer): export Drawer element [#1300](https://github.com/artsy/palette/pull/1300) ([@araujobarret](https://github.com/araujobarret))
+- feat(NX-3251): add drawer element [#1295](https://github.com/artsy/palette/pull/1295) ([@araujobarret](https://github.com/araujobarret))
+- feat(CX-3669): Update Select component [#1293](https://github.com/artsy/palette/pull/1293) ([@MrSltun](https://github.com/MrSltun))
+- feat(CX-3394): Update text area component [#1290](https://github.com/artsy/palette/pull/1290) ([@MrSltun](https://github.com/MrSltun))
+
+#### 🐛  Bug Fix
+
+- fix(EMI-1561): Update "*required" color when the element is disabled [#1333](https://github.com/artsy/palette/pull/1333) ([@MrSltun](https://github.com/MrSltun))
+- fix(EMI-1560): Add margin-top to elements when the title is present [#1334](https://github.com/artsy/palette/pull/1334) ([@MrSltun](https://github.com/MrSltun))
+- fix: add margin-top to elements when the title is present ([@MrSltun](https://github.com/MrSltun))
+- chore(dropdown): adds story conforming to filter ui pattern ([@dzucconi](https://github.com/dzucconi))
+- Merge branch 'main' of github.com:artsy/palette into mrsltun/CX-3330/new-input-component ([@MrSltun](https://github.com/MrSltun))
+- remove `suffixOffset` and rename `prefixOffset` to `labelOffset` ([@MrSltun](https://github.com/MrSltun))
+- refactor firefox polyfills + minor fixes ([@MrSltun](https://github.com/MrSltun))
+- drop using default input name ([@MrSltun](https://github.com/MrSltun))
+- Add onChange handler and value to Select element ([@MrSltun](https://github.com/MrSltun))
+- Hide text behind title when title is visible ([@MrSltun](https://github.com/MrSltun))
+- undo changelog changes in the pr ([@MrSltun](https://github.com/MrSltun))
+- update version in "package.json"s ([@MrSltun](https://github.com/MrSltun))
+- use FORM_ELEMENT_TRANSITION everywhere ([@MrSltun](https://github.com/MrSltun))
+- remove webkit-autofill hack from inputs ([@MrSltun](https://github.com/MrSltun))
+- add RequiredField to Select ([@MrSltun](https://github.com/MrSltun))
+- fix rebase ([@damassi](https://github.com/damassi))
+- Update packages/palette/src/elements/Select/Select.tsx ([@damassi](https://github.com/damassi))
+- (refactor): extract CSS transition to const and export for form elements ([@TMcMeans](https://github.com/TMcMeans))
+- (fix) spread rest props on outer box ([@TMcMeans](https://github.com/TMcMeans))
+- extract states to a tokens file ([@TMcMeans](https://github.com/TMcMeans))
+- refactor to get animation to work ([@TMcMeans](https://github.com/TMcMeans))
+- add label styling on states ([@TMcMeans](https://github.com/TMcMeans))
+- change approach to styling the container ([@TMcMeans](https://github.com/TMcMeans))
+- [WIP dont merge] feat(EMI-1371): update multiselect components to match input ([@TMcMeans](https://github.com/TMcMeans))
+- Bump independent versions \[skip ci\] ([@artsyit](https://github.com/artsyit))
+- Update CHANGELOG.md \[skip ci\] ([@artsyit](https://github.com/artsyit))
+- feat(autocompleteinput): exposes ref to the underlying input ([@dzucconi](https://github.com/dzucconi))
+- chore: removes deprecated modal and dialog ([@dzucconi](https://github.com/dzucconi))
+- fix(drawer): fix out position ([@damassi](https://github.com/damassi))
+- fix(drawer): update transition a bit more ([@damassi](https://github.com/damassi))
+- chore(drawer): smooth out animation ([@damassi](https://github.com/damassi))
+- feat(autocomplete): allows configuration of clamp/flip ([@dzucconi](https://github.com/dzucconi))
+- update keyboard accessibility for phone input ([@MrSltun](https://github.com/MrSltun))
+- update dropdown search input bottom padding ([@MrSltun](https://github.com/MrSltun))
+- fix: show proper elements outline in PhoneInput ([@MounirDhahri](https://github.com/MounirDhahri))
+- animate label on focus for Select element ([@MrSltun](https://github.com/MrSltun))
+- fix phone input modal positioning ([@MrSltun](https://github.com/MrSltun))
+- remove padding top from input 🤷 ([@MrSltun](https://github.com/MrSltun))
+- update input top padding to 0.5 ([@MrSltun](https://github.com/MrSltun))
+- add padding top to input when title is available ([@MrSltun](https://github.com/MrSltun))
+- apply auto fill background on phone input ([@MrSltun](https://github.com/MrSltun))
+- update autofill background hack to use colors.white100 ([@MrSltun](https://github.com/MrSltun))
+- fix autofill background ([@MrSltun](https://github.com/MrSltun))
+- fix no placeholder label animation issue ([@MrSltun](https://github.com/MrSltun))
+- fix outline issue with phone number input [CX-3710] ([@MrSltun](https://github.com/MrSltun))
+- revert disabled state css fix, organize imports in Input.tsx ([@MrSltun](https://github.com/MrSltun))
+- fix disabled state css ([@MrSltun](https://github.com/MrSltun))
+- add elements values, remove unused onChange, update style ([@MrSltun](https://github.com/MrSltun))
+- export PhoneInput element ([@MrSltun](https://github.com/MrSltun))
+- feat(CX-3339): New phone input component [#1281](https://github.com/artsy/palette/pull/1281) ([@MrSltun](https://github.com/MrSltun))
+- update tests ([@MrSltun](https://github.com/MrSltun))
+- fix: refactor showing counter logic ([@MrSltun](https://github.com/MrSltun))
+- fix: refactor label style to fix different width titles ([@MrSltun](https://github.com/MrSltun))
+- fix: refactor LabelledInput to allow prefix label ([@MrSltun](https://github.com/MrSltun))
+- feat: add input prefix variant ([@MrSltun](https://github.com/MrSltun))
+- feat: add character counter ([@MrSltun](https://github.com/MrSltun))
+- fix the label showing at the top when there is no placeholder ([@MrSltun](https://github.com/MrSltun))
+- fix: address comments ([@MrSltun](https://github.com/MrSltun))
+- fix: update tests ([@MrSltun](https://github.com/MrSltun))
+- feat: update description and title ([@MrSltun](https://github.com/MrSltun))
+- feat: add base input ([@MrSltun](https://github.com/MrSltun))
+
+#### 🏠  Internal
+
+- chore(dropdown): adds story conforming to filter ui pattern [#1332](https://github.com/artsy/palette/pull/1332) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 7
+
+- Artsy ([@artsyit](https://github.com/artsyit))
+- Carlos ([@araujobarret](https://github.com/araujobarret))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Mounir Dhahri ([@MounirDhahri](https://github.com/MounirDhahri))
+- Sultan Al-Maari ([@MrSltun](https://github.com/MrSltun))
+- TanjieM ([@TMcMeans](https://github.com/TMcMeans))
+
+---
+
 # v36.3.2 (Mon Oct 30 2023)
 
 #### 🐛  Bug Fix

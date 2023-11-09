@@ -1,3 +1,20 @@
+# v36.0.0 (Thu Nov 09 2023)
+
+#### 🐛  Bug Fix
+
+- Merge branch 'main' of github.com:artsy/palette into mrsltun/CX-3330/new-input-component ([@MrSltun](https://github.com/MrSltun))
+- undo changelog changes in the pr ([@MrSltun](https://github.com/MrSltun))
+- update version in "package.json"s ([@MrSltun](https://github.com/MrSltun))
+- Bump independent versions \[skip ci\] ([@artsyit](https://github.com/artsyit))
+- Update CHANGELOG.md \[skip ci\] ([@artsyit](https://github.com/artsyit))
+
+#### Authors: 2
+
+- Artsy ([@artsyit](https://github.com/artsyit))
+- Sultan Al-Maari ([@MrSltun](https://github.com/MrSltun))
+
+---
+
 # v35.1.1 (Tue Sep 19 2023)
 
 #### 🐛  Bug Fix
