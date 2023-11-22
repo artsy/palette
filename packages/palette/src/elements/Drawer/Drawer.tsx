@@ -4,6 +4,7 @@ import { Flex } from "../Flex"
 import styled, { css } from "styled-components"
 import { zIndex } from "styled-system"
 import { FocusOn } from "react-focus-on"
+import { usePortal } from "../../utils/usePortal"
 
 export interface DrawerProps {
   open: boolean
@@ -19,7 +20,9 @@ export const Drawer: FC<DrawerProps> = ({
   open,
   onClose,
 }) => {
-  return (
+  const { createPortal } = usePortal()
+
+  return createPortal(
     <Container
       zIndex={zIndex}
       anchor={anchor}
