@@ -1,3 +1,16 @@
+# v37.0.1 (Wed Nov 22 2023)
+
+#### 🐛  Bug Fix
+
+- fix(drawer): renders using portal [#1335](https://github.com/artsy/palette/pull/1335) ([@dzucconi](https://github.com/dzucconi))
+- fix(drawer): renders using portal ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v37.0.0 (Thu Nov 09 2023)
 
 #### 💥  Breaking Change
