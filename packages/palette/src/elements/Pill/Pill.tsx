@@ -11,23 +11,24 @@ import { BoxProps } from "../Box"
 import { ResponsiveValue } from "styled-system"
 
 export const PILL_VARIANT_NAMES = [
-  "default",
-  "search",
-  "filter",
-  "profile",
   "badge",
+  "dotted",
+  "default",
+  "filter",
   "gray",
+  "profile",
+  "search",
 ] as const
 
 export type PillVariant = typeof PILL_VARIANT_NAMES[number]
 
 export type PillState =
-  | "default"
-  | "hover"
-  | "focus"
   | "active"
-  | "selected"
+  | "default"
   | "disabled"
+  | "focus"
+  | "hover"
+  | "selected"
 
 /** PillProps */
 export type PillProps = ClickableProps & {
@@ -48,7 +49,7 @@ export type PillProps = ClickableProps & {
     | {
         variant?: Extract<
           PillVariant,
-          "default" | "search" | "badge" | "filter" | "gray"
+          "badge" | "default" | "dotted" | "filter" | "gray" | "search"
         >
       }
     | {
