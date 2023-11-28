@@ -1,3 +1,16 @@
+# (Tue Nov 28 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@37.0.2`
+  - fix(range): correctly sets width when within drawer [#1337](https://github.com/artsy/palette/pull/1337) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Nov 22 2023)
 
 #### 🐛  Bug Fix
