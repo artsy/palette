@@ -52,15 +52,12 @@ export const Range: React.FC<RangeProps> = ({
   }
 
   useEffect(() => {
-    if (!maxRef.current) return
-    setMaxWidth(maxRef.current.offsetWidth)
-  }, [])
-
-  useEffect(() => {
     const handleResize = () => {
       if (!maxRef.current) return
       setMaxWidth(maxRef.current.offsetWidth)
     }
+
+    requestAnimationFrame(handleResize)
 
     window.addEventListener("resize", handleResize, { passive: true })
 
