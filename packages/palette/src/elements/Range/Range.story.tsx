@@ -8,6 +8,8 @@ import { LabeledInput } from "../LabeledInput"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Text } from "../Text"
+import { Drawer } from "../Drawer"
+import { Button } from "../Button"
 
 export default {
   title: "Components/Range",
@@ -41,6 +43,36 @@ export const WithinModal = () => {
       </Box>
     </ModalBase>
   )
+}
+
+export const WithinDrawer = () => {
+  const [open, setOpen] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setOpen(true)
+        }}
+      >
+        Open
+      </Button>
+
+      <Drawer
+        open={open}
+        onClose={() => {
+          setOpen(false)
+        }}
+      >
+        <Box width={400} p={2}>
+          <Range min={0} max={5000} step={10} onChange={action("onChange")} />
+        </Box>
+      </Drawer>
+    </>
+  )
+}
+
+WithinDrawer.story = {
+  parameters: { chromatic: { disable: true } },
 }
 
 export const InContext = () => {
