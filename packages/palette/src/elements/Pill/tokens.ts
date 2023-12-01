@@ -48,76 +48,7 @@ export const PILL_VARIANTS: Record<
     ...DEFAULT_STATES,
     default: css`
       ${DEFAULT_STATES.default}
-
       border-style: dashed;
-
-      ${Sup} {
-        color: ${themeGet("colors.blue100")};
-        transition: color 0.25s ease;
-        display: none;
-      }
-
-      @media (min-width: ${themeGet("breakpoints.0")}) {
-        height: 40px;
-        border-radius: 20px;
-        ${Sup} {
-          display: inline;
-        }
-      }
-    `,
-    focus: css`
-      ${DEFAULT_STATES.focus}
-      text-decoration: none;
-      border-style: dashed;
-      border-color: ${themeGet("colors.black10")};
-
-      span {
-        text-decoration: underline;
-      }
-    `,
-    hover: css`
-      ${DEFAULT_STATES.hover}
-      text-decoration: none;
-      border-style: dashed;
-      border-color: ${themeGet("colors.black10")};
-
-      span {
-        text-decoration: underline;
-      }
-
-      ${Sup} {
-        color: ${themeGet("colors.blue100")};
-      }
-    `,
-    active: css`
-      ${DEFAULT_STATES.active}
-      text-decoration: none;
-      border-style: dashed;
-      border-color: ${themeGet("colors.white100")};
-
-      span {
-        text-decoration: underline;
-      }
-
-      ${Sup} {
-        color: ${themeGet("colors.white100")};
-      }
-    `,
-    selected: css`
-      ${DEFAULT_STATES.selected}
-      border-style: dashed;
-      border-color: ${themeGet("colors.white100")};
-
-      ${Sup} {
-        color: ${themeGet("colors.white100")};
-      }
-    `,
-    disabled: css`
-      ${DEFAULT_STATES.disabled}
-
-      ${Sup} {
-        color: ${themeGet("colors.black60")};
-      }
     `,
   },
 
