@@ -44,6 +44,14 @@ export const PILL_VARIANTS: Record<
   PillVariant,
   Record<PillState, FlattenInterpolation<any>[]>
 > = {
+  dotted: {
+    ...DEFAULT_STATES,
+    default: css`
+      ${DEFAULT_STATES.default}
+      border-style: dashed;
+    `,
+  },
+
   default: DEFAULT_STATES,
 
   search: {

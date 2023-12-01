@@ -156,6 +156,7 @@ export const PillWithIcon = () => {
         { variant: "filter", active: true },
         { variant: "filter", selected: true },
         { variant: "filter", disabled: true },
+        { variant: "dotted" },
       ]}
     >
       <Pill variant="badge" Icon={GraphIcon}>
