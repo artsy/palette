@@ -1,3 +1,15 @@
+# v37.1.0 (Fri Dec 01 2023)
+
+#### 🚀  Enhancement
+
+- chore: support dotted pill [#1336](https://github.com/artsy/palette/pull/1336) ([@MounirDhahri](https://github.com/MounirDhahri))
+
+#### Authors: 1
+
+- Mounir Dhahri ([@MounirDhahri](https://github.com/MounirDhahri))
+
+---
+
 # v37.0.2 (Tue Nov 28 2023)
 
 #### 🐛  Bug Fix
