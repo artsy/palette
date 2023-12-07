@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Clickable, ClickableProps } from "./Clickable"
+import styled from "styled-components"
 
 export default {
   title: "Components/Clickable",
