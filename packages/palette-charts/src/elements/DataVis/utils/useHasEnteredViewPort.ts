@@ -1,24 +1,26 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 /**
  * Returns true when component enters viewport
  * @param ref reference to component
  */
 export const useHasEnteredViewport = (ref: React.RefObject<HTMLElement>) => {
+
   const [hasEntered, setHasEntered] = useState(false)
+
+  let observer: IntersectionObserver = null
+
+  if (typeof window !== "undefined"){
+    observer = useMemo(() => new IntersectionObserver(
+        ([entry]) => setHasEntered(entry.isIntersecting)
+      ), [ref])
+  }
+
+
   useEffect(() => {
-    const handleScroll = () => {
-      const rect = ref.current.getBoundingClientRect()
-      if (rect.top <= window.innerHeight - rect.height) {
-        setHasEntered(true)
-        window.removeEventListener("scroll", handleScroll)
-      }
-    }
-    window.addEventListener("scroll", handleScroll)
-    window.dispatchEvent(new Event("scroll"))
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
+    observer.observe(ref.current)
+    return () => observer.disconnect()
   }, [])
+
   return hasEntered
 }
