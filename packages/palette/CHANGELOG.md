@@ -1,3 +1,16 @@
+# v37.2.0 (Tue Dec 12 2023)
+
+#### 🚀  Enhancement
+
+- chore(palette-charts): Send out latest palette-charts release [#1341](https://github.com/artsy/palette/pull/1341) ([@jo-rs](https://github.com/jo-rs) [@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Joel Rosenblatt ([@jo-rs](https://github.com/jo-rs))
+
+---
+
 # v37.1.0 (Fri Dec 01 2023)
 
 #### 🚀  Enhancement

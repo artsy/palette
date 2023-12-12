@@ -1,3 +1,19 @@
+# (Tue Dec 12 2023)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette-charts@36.2.0`, `@artsy/palette@37.2.0`
+  - chore(palette-charts): Send out latest palette-charts release [#1341](https://github.com/artsy/palette/pull/1341) ([@jo-rs](https://github.com/jo-rs) [@damassi](https://github.com/damassi))
+- `@artsy/palette-charts@36.2.0`
+  - chore: Switch useHasEnteredViewport to use IntersectionObserver instead of unreliable logic [#1339](https://github.com/artsy/palette/pull/1339) ([@jo-rs](https://github.com/jo-rs))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Joel Rosenblatt ([@jo-rs](https://github.com/jo-rs))
+
+---
+
 # (Fri Dec 01 2023)
 
 #### 🚀  Enhancement

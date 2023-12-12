@@ -1,3 +1,17 @@
+# v36.2.0 (Tue Dec 12 2023)
+
+#### 🚀  Enhancement
+
+- chore(palette-charts): Send out latest palette-charts release [#1341](https://github.com/artsy/palette/pull/1341) ([@jo-rs](https://github.com/jo-rs) [@damassi](https://github.com/damassi))
+- chore: Switch useHasEnteredViewport to use IntersectionObserver instead of unreliable logic [#1339](https://github.com/artsy/palette/pull/1339) ([@jo-rs](https://github.com/jo-rs))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Joel Rosenblatt ([@jo-rs](https://github.com/jo-rs))
+
+---
+
 # v36.0.0 (Thu Nov 09 2023)
 
 #### 🐛  Bug Fix
