@@ -3,6 +3,8 @@ import { States } from "storybook-states"
 import styled from "styled-components"
 import { Button } from "../Button"
 import { Input, InputProps } from "./Input"
+import { useMaskito } from "@maskito/react"
+import { maskitoNumberOptionsGenerator } from "@maskito/kit"
 
 export default {
   title: "Components/Input",
@@ -78,4 +80,17 @@ export const Required = () => {
 
 export const CustomHeight = () => {
   return <Input height={40} placeholder="Input is 40px in height" />
+}
+
+export const MaskedInput = () => {
+  const inputRef = useMaskito({
+    options: maskitoNumberOptionsGenerator({
+      decimalSeparator: ".",
+      thousandSeparator: ",",
+      precision: 2,
+      prefix: "$",
+    }),
+  })
+
+  return <Input ref={inputRef} placeholder="$USD" />
 }
