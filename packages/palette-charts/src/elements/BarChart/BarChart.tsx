@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
-import { useHasEnteredViewport } from "../DataVis/utils/useHasEnteredViewPort"
+import { useIntersectionObserver } from "../DataVis/useIntersectionObserver"
 import { Bar } from "./Bar"
 
 const ChartContainer = styled(Flex)`
@@ -65,15 +65,22 @@ export interface BarChartProps {
  * @param props props
  */
 export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
-  const wrapperRef = useRef<HTMLDivElement>(null)
   const highlightLabelRef = useRef<HTMLDivElement>(null)
+  const [hasEnteredViewport, setHasEnteredViewport] = useState(false)
+
+  const { ref: wrapperRef } = useIntersectionObserver({
+    once: true,
+    options: { threshold: 0.2 },
+    onIntersection: () => {
+      setHasEnteredViewport(true)
+    },
+  })
 
   useHighlightLabelPositionConstraints(
-    wrapperRef.current,
+    wrapperRef.current as HTMLDivElement,
     highlightLabelRef.current
   )
 
-  const hasEnteredViewport = useHasEnteredViewport(wrapperRef)
   const [minHeight, setMinHeight] = useState(0)
   const maxValue = Math.max(...bars.map(({ value }) => value))
   const allZero = bars.every((item) => item.value === 0)

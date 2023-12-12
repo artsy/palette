@@ -1,9 +1,12 @@
 import { Flex, Text, Theme } from "@artsy/palette"
 import { mount } from "enzyme"
 import "jest-styled-components"
-import React from "react"
+import React, { createRef } from "react"
 import { BarChart, BarChartProps } from "../BarChart"
+import { useIntersectionObserver } from "../DataVis/useIntersectionObserver"
 import { Bar } from "./Bar"
+
+jest.mock("../DataVis/useIntersectionObserver")
 
 const mockBars = [
   { value: 100, axisLabelX: "x axis label" },
@@ -35,6 +38,14 @@ const mockBars = [
 ]
 
 describe("BarChart", () => {
+  const mockUseIntersectionObserver = useIntersectionObserver as jest.Mock
+
+  beforeAll(() => {
+    mockUseIntersectionObserver.mockImplementation(() => ({
+      ref: createRef(),
+    }))
+  })
+
   const getWrapper = (props: Partial<BarChartProps> = {}) => {
     return mount(
       <Theme>
