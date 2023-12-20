@@ -143,6 +143,51 @@ Placement.story = {
   parameters: { chromatic: { disable: true } },
 }
 
+export const InternalScrollContainer = () => {
+  const Overlay: React.FC = ({ children }) => {
+    return (
+      <Popover
+        popover={
+          <>
+            <Text variant="xs" fontWeight="bold">
+              New filters
+            </Text>
+            <Text variant="xs">
+              Choose artist and alert criteria to accurately narrow your
+              results.
+            </Text>
+          </>
+        }
+        width={250}
+        variant="defaultDark"
+        pointer
+        visible
+        ignoreClickOutside
+        manageFocus={false}
+      >
+        {({ anchorRef }) => {
+          return <Box ref={anchorRef as any}>{children}</Box>
+        }}
+      </Popover>
+    )
+  }
+
+  return (
+    <Box overflow="auto" height="90vh">
+      <Box overflowY="scroll" height="300vh" border="1px solid green">
+        <Overlay>
+          <Box mt={200}>hi</Box>
+        </Overlay>
+        <Box mt={900}>hey</Box>
+      </Box>
+    </Box>
+  )
+}
+
+InternalScrollContainer.story = {
+  parameters: { chromatic: { disable: true } },
+}
+
 export const ManageFocus = () => {
   return (
     <States<Partial<PopoverProps>>
