@@ -1,3 +1,16 @@
+# v37.2.2 (Thu Dec 21 2023)
+
+#### 🐛  Bug Fix
+
+- Revert "fix(useposition): handles scrolling within divs" [#1344](https://github.com/artsy/palette/pull/1344) ([@dzucconi](https://github.com/dzucconi))
+- Revert "fix(useposition): handles scrolling within divs (#1343)" ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v37.2.1 (Thu Dec 21 2023)
 
 #### 🐛  Bug Fix
