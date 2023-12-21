@@ -1,3 +1,17 @@
+# (Thu Dec 21 2023)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@37.2.1`
+  - fix(useposition): handles scrolling within divs [#1343](https://github.com/artsy/palette/pull/1343) ([@damassi](https://github.com/damassi) [@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Dec 12 2023)
 
 #### 🚀  Enhancement
