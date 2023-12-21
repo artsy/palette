@@ -68,19 +68,7 @@ export const usePosition = ({
     const { current: tooltip } = tooltipRef
     const { current: anchor } = anchorRef
 
-    const scrollableParents = getScrollableParents(anchor)
-
-    setState(
-      placeTooltip({
-        anchor,
-        tooltip,
-        position,
-        offset,
-        flip,
-        clamp,
-        scrollableParents,
-      })
-    )
+    setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
   }
 
   // Re-position when there's any change to the tooltip
@@ -102,56 +90,25 @@ export const usePosition = ({
     tooltip.style.top = "0"
     tooltip.style.left = "0"
 
-    const handle = () => {
-      setState(
-        placeTooltip({
-          anchor,
-          tooltip,
-          position,
-          offset,
-          flip,
-          clamp,
-          scrollableParents,
-        })
-      )
+    const handleScroll = () => {
+      setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
     }
 
-    const scrollableParents = getScrollableParents(anchor)
-    const handlers = scrollableParents.map((scrollableParent) => {
-      return {
-        scrollableParent,
-        handlerScroll: () => {
-          setState(
-            placeTooltip({
-              anchor,
-              tooltip,
-              position,
-              offset,
-              flip,
-              clamp,
-              scrollableParents,
-            })
-          )
-        },
-      }
+    document.addEventListener("scroll", handleScroll, {
+      passive: true,
     })
 
-    handlers.forEach(({ scrollableParent, handlerScroll }) => {
-      scrollableParent.addEventListener("scroll", handlerScroll, {
-        passive: true,
-      })
-    })
+    const handleResize = () => {
+      setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
+    }
 
-    window.addEventListener("resize", handle, { passive: true })
+    window.addEventListener("resize", handleResize, { passive: true })
 
-    // Initialize
-    handle()
+    setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
 
     return () => {
-      window.removeEventListener("resize", handle)
-      handlers.forEach(({ scrollableParent, handlerScroll }) => {
-        scrollableParent.removeEventListener("scroll", handlerScroll)
-      })
+      document.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
     }
   }, [active, tooltipRef, anchorRef, position])
 
@@ -169,9 +126,9 @@ interface PlaceTooltip {
   tooltip: HTMLElement
   position: Position
   offset?: number
+  boundaryRect?: DOMRect
   flip?: boolean
   clamp?: boolean
-  scrollableParents: Array<HTMLElement | Document>
 }
 
 export const placeTooltip = ({
@@ -179,9 +136,9 @@ export const placeTooltip = ({
   tooltip,
   position,
   offset = 0,
+  boundaryRect = getDocumentBoundingRect(),
   flip = true,
   clamp = true,
-  scrollableParents,
 }: PlaceTooltip) => {
   const elementRect = anchor.getBoundingClientRect()
   const tooltipRect = tooltip.getBoundingClientRect()
@@ -191,13 +148,11 @@ export const placeTooltip = ({
   // Flip to avoid edges
   const isFlipped =
     flip &&
-    scrollableParents.some((scrollableParent) => {
-      return shouldFlip({
-        targetPosition,
-        position,
-        boundaryRect: getBoundingRect(scrollableParent),
-        tooltipRect,
-      })
+    shouldFlip({
+      targetPosition,
+      position,
+      boundaryRect,
+      tooltipRect,
     })
 
   if (isFlipped) {
@@ -207,32 +162,20 @@ export const placeTooltip = ({
 
   // Clamp position within boundary
   if (clamp) {
-    scrollableParents.forEach((scrollableParent) => {
-      const boundaryRect = getBoundingRect(scrollableParent)
-
-      targetPosition.x = Math.max(boundaryRect.left, targetPosition.x)
-      targetPosition.x = Math.min(
-        boundaryRect.right - tooltipRect.width,
-        targetPosition.x
-      )
-      targetPosition.y = Math.max(boundaryRect.top, targetPosition.y)
-      targetPosition.y = Math.min(
-        boundaryRect.bottom - tooltipRect.height,
-        targetPosition.y
-      )
-    })
+    targetPosition.x = Math.max(boundaryRect.left, targetPosition.x)
+    targetPosition.x = Math.min(
+      boundaryRect.right - tooltipRect.width,
+      targetPosition.x
+    )
+    targetPosition.y = Math.max(boundaryRect.top, targetPosition.y)
+    targetPosition.y = Math.min(
+      boundaryRect.bottom - tooltipRect.height,
+      targetPosition.y
+    )
   }
 
   // Should hide entirely if it scrolls out of view
-  let shouldHide = false
-  for (const scrollableParent of scrollableParents) {
-    const boundaryRect = getBoundingRect(scrollableParent)
-    if (!isWithin(elementRect, boundaryRect)) {
-      shouldHide = true
-      break
-    }
-  }
-
+  const shouldHide = !isWithin(elementRect, boundaryRect)
   tooltip.style.display = shouldHide ? "none" : "block"
 
   tooltip.style.transform = translateWithOffset(
@@ -380,6 +323,20 @@ const getOppositePosition = (position: Position) => {
   }
 }
 
+export const getDocumentBoundingRect = () => {
+  const width = document.body.clientWidth
+  const height = document.body.clientHeight
+
+  return {
+    top: 0,
+    left: 0,
+    right: width,
+    bottom: height,
+    width,
+    height,
+  } as DOMRect
+}
+
 interface ShouldFlip {
   targetPosition: TargetPosition
   position: Position
@@ -420,61 +377,4 @@ const isWithin = (elementRect: DOMRect, boundaryRect: DOMRect) => {
     boundaryRect.bottom > elementRect.top &&
     boundaryRect.right > elementRect.left
   )
-}
-
-const getScrollableParents = (element: HTMLElement) => {
-  let parent = element.parentElement
-  const scrollableParents: Array<HTMLElement | Document> = []
-
-  while (parent) {
-    const computedStyle = getComputedStyle(parent)
-    if (
-      isOverflowSet(computedStyle.overflow) ||
-      isOverflowSet(computedStyle.overflowY) ||
-      isOverflowSet(computedStyle.overflowX)
-    ) {
-      scrollableParents.push(parent)
-    }
-    parent = parent.parentElement
-  }
-
-  scrollableParents.push(document)
-
-  return scrollableParents
-}
-
-const isOverflowSet = (overflowValue: string) => {
-  return (
-    overflowValue === "auto" ||
-    overflowValue === "hidden" ||
-    overflowValue === "scroll" ||
-    overflowValue === "overlay"
-  )
-}
-
-const isDocument = (element: HTMLElement | Document): element is Document => {
-  return element.ownerDocument === null
-}
-
-export const getDocumentBoundingRect = () => {
-  const width = document.body.clientWidth
-  const height = document.body.clientHeight
-
-  return {
-    top: 0,
-    left: 0,
-    right: width,
-    bottom: height,
-    width,
-    height,
-    x: 0,
-    y: 0,
-    toJSON: () => null,
-  }
-}
-
-export const getBoundingRect = (element: HTMLElement | Document): DOMRect => {
-  return isDocument(element)
-    ? getDocumentBoundingRect()
-    : element.getBoundingClientRect()
 }

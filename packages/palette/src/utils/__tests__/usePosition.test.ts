@@ -34,12 +34,19 @@ describe("placeTooltip", () => {
       style: {},
     } as HTMLElement
 
+    const boundaryRect = {
+      top: 0,
+      right: 500,
+      bottom: 600,
+      left: 0,
+    } as DOMRect
+
     placeTooltip({
       anchor,
       tooltip,
       position: "top",
       offset: 0,
-      scrollableParents: [],
+      boundaryRect,
     })
 
     expect(tooltip.style.display).toEqual("block")

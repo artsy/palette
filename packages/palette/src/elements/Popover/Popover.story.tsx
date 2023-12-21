@@ -8,7 +8,6 @@ import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 import { Popover, PopoverProps } from "./Popover"
-import { Pill } from "../Pill"
 
 const CONTENT =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eius autem aliquid cumque, mollitia incidunt totam. Id ut quae hic in quisquam, cupiditate iure nobis, provident minus voluptatem tenetur consequatur."
@@ -141,57 +140,6 @@ export const Placement = () => {
 }
 
 Placement.story = {
-  parameters: { chromatic: { disable: true } },
-}
-
-const ExamplePopover: React.FC = ({ children }) => {
-  return (
-    <Popover
-      popover={
-        <>
-          <Text variant="xs" fontWeight="bold">
-            New filters
-          </Text>
-          <Text variant="xs">
-            Choose artist and alert criteria to accurately narrow your results.
-          </Text>
-        </>
-      }
-      width={250}
-      variant="defaultDark"
-      pointer
-      visible
-      ignoreClickOutside
-      manageFocus={false}
-    >
-      {({ anchorRef }) => {
-        return (
-          <Box ref={anchorRef as any} m="auto">
-            {children}
-          </Box>
-        )
-      }}
-    </Popover>
-  )
-}
-
-export const InternalScrollContainer = () => {
-  return (
-    <Box overflow="auto" height="100%">
-      <Box height="300vh" border="1px dotted" borderColor="black60" p={2}>
-        <Spacer y={12} />
-
-        <Box textAlign="center">
-          <ExamplePopover>
-            <Pill>Popover should remain anchored to this element</Pill>
-          </ExamplePopover>
-        </Box>
-      </Box>
-    </Box>
-  )
-}
-
-InternalScrollContainer.story = {
   parameters: { chromatic: { disable: true } },
 }
 
