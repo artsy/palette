@@ -119,6 +119,8 @@
   "dependencies": {
     "@artsy/icons": "^3.2.2",
     "@artsy/palette-tokens": "^5.0.0",
+    "@floating-ui/dom": "^1.5.3",
+    "@floating-ui/react": "^0.26.4",
     "@seznam/compose-react-refs": "^1.0.6",
     "@styled-system/theme-get": "^5.1.2",
     "lodash": "^4.17.21",

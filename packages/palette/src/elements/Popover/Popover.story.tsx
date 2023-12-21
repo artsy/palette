@@ -235,3 +235,63 @@ export const PopoverActions = () => {
     </States>
   )
 }
+
+export const NewEngine = () => {
+  return (
+    <Flex width="100%" justifyContent="center" mt={200}>
+      <Popover
+        placement="right-end"
+        visible
+        pointer
+        popover={({ onHide, onDismiss }) => {
+          return (
+            <>
+              <Text variant="xs" width={300}>
+                {CONTENT}
+              </Text>
+
+              <Spacer y={2} />
+
+              <Flex>
+                <Button
+                  flex={1}
+                  size="small"
+                  variant="secondaryBlack"
+                  onClick={onHide}
+                >
+                  Hide
+                </Button>
+
+                <Spacer x={1} />
+
+                <Button
+                  flex={1}
+                  size="small"
+                  variant="secondaryBlack"
+                  onClick={onDismiss}
+                >
+                  Dismiss
+                </Button>
+              </Flex>
+            </>
+          )
+        }}
+      >
+        {({ onVisible, refs }) => {
+          return (
+            <Box textAlign="center" ref={refs.setReference as any}>
+              <Button
+                ref={refs.setFloating}
+                variant="secondaryBlack"
+                size="small"
+                onClick={onVisible}
+              >
+                Click to display popover
+              </Button>
+            </Box>
+          )
+        }}
+      </Popover>
+    </Flex>
+  )
+}

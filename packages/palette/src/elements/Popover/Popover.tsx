@@ -9,6 +9,9 @@ import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
 import { Pointer } from "../Pointer"
 
+import { useFloating, autoUpdate, UseFloatingReturn } from "@floating-ui/react"
+import { offset as positionOffset } from "@floating-ui/dom"
+
 export const POPOVER_VARIANTS = {
   defaultLight: {
     backgroundColor: "white100",
@@ -31,6 +34,8 @@ export interface PopoverActions {
   onDismiss(): void
   /** Pass ref to element you want the popover to be anchored to */
   anchorRef: React.MutableRefObject<HTMLElement>
+  /** New @floating-ui engine */
+  refs: UseFloatingReturn["refs"]
 }
 
 export interface PopoverProps extends BoxProps {
@@ -134,6 +139,17 @@ export const Popover: React.FC<PopoverProps> = ({
     active: visible,
   })
 
+  const { refs, floatingStyles } = useFloating({
+    placement,
+    middleware: [positionOffset(offset)],
+    transform: true,
+    whileElementsMounted: autoUpdate,
+    strategy: "fixed",
+    open: visible,
+  })
+
+  refs.setFloating
+
   useClickOutside({
     ref: tooltipRef,
     onClickOutside: handleHide,
@@ -146,6 +162,7 @@ export const Popover: React.FC<PopoverProps> = ({
   return (
     <>
       {children({
+        refs,
         anchorRef: anchorRef as any,
         onVisible,
         onHide: handleHide,
@@ -161,6 +178,7 @@ export const Popover: React.FC<PopoverProps> = ({
             display="inline-block"
             position="relative"
             variant={variant}
+            style={floatingStyles}
           >
             {pointer && (
               <Pointer
