@@ -33,7 +33,7 @@ workflows:
             - yarn/workflow-queue
       - yarn/run:
           name: visual-test
-          script: visual-test
+          script: visual-test --auto-accept-changes
           requires:
             - yarn/workflow-queue
           filters:
