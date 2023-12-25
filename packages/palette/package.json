@@ -119,6 +119,9 @@
   "dependencies": {
     "@artsy/icons": "^3.2.2",
     "@artsy/palette-tokens": "^5.0.0",
+    "@maskito/core": "^1.9.0",
+    "@maskito/kit": "^1.9.0",
+    "@maskito/react": "^1.9.0",
     "@seznam/compose-react-refs": "^1.0.6",
     "@styled-system/theme-get": "^5.1.2",
     "lodash": "^4.17.21",
