@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { zIndex as systemZIndex, ZIndexProps } from "styled-system"
-import { usePortal } from "../../utils/usePortal"
 import { Flex, FlexProps } from "../Flex"
 import { FocusOn } from "react-focus-on"
+import { Portal } from "../Portal"
 
 const Focus = styled(FocusOn)`
   width: 100%;
@@ -129,18 +129,18 @@ export const _ModalBase: React.FC<ModalBaseProps> = ({
     }
   }, [])
 
-  const { createPortal } = usePortal()
-
-  return createPortal(
-    <Container zIndex={zIndex} {...rest}>
-      <Focus ref={focusEl as any}>
-        <Backdrop ref={backdropEl as any} onMouseDown={handleMouseDown}>
-          <Dialog maxHeight={maxHeight} {...dialogProps}>
-            {children}
-          </Dialog>
-        </Backdrop>
-      </Focus>
-    </Container>
+  return (
+    <Portal>
+      <Container zIndex={zIndex} {...rest}>
+        <Focus ref={focusEl as any}>
+          <Backdrop ref={backdropEl as any} onMouseDown={handleMouseDown}>
+            <Dialog maxHeight={maxHeight} {...dialogProps}>
+              {children}
+            </Dialog>
+          </Backdrop>
+        </Focus>
+      </Container>
+    </Portal>
   )
 }
 

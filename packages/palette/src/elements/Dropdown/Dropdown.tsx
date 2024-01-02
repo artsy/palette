@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import { FLAT_SHADOW } from "../../helpers"
 import { Position, usePosition } from "../../utils"
-import { usePortal } from "../../utils/usePortal"
 import { Box, BoxProps } from "../Box"
 import { FocusOn } from "react-focus-on"
+import { Portal } from "../Portal"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -225,8 +225,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
         }),
   }
 
-  const { createPortal } = usePortal()
-
   return (
     <>
       {children({
@@ -238,8 +236,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
         visible,
       })}
 
-      {(visible || keepInDOM) &&
-        createPortal(
+      {(visible || keepInDOM) && (
+        <Portal>
           <Container
             aria-label="Press escape to close"
             tabIndex={0}
@@ -283,7 +281,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
               </FocusOn>
             </Panel>
           </Container>
-        )}
+        </Portal>
+      )}
     </>
   )
 }

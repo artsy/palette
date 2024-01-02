@@ -3,11 +3,12 @@ import styled from "styled-components"
 import { variant } from "styled-system"
 import { DROP_SHADOW } from "../../helpers"
 import CloseIcon from "@artsy/icons/CloseIcon"
-import { Position, useClickOutside, usePortal, usePosition } from "../../utils"
+import { Position, useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
 import { Pointer } from "../Pointer"
+import { Portal } from "../Portal"
 
 export const POPOVER_VARIANTS = {
   defaultLight: {
@@ -141,8 +142,6 @@ export const Popover: React.FC<PopoverProps> = ({
     type: "click",
   })
 
-  const { createPortal } = usePortal()
-
   return (
     <>
       {children({
@@ -152,8 +151,8 @@ export const Popover: React.FC<PopoverProps> = ({
         onDismiss: handleDismiss,
       })}
 
-      {visible &&
-        createPortal(
+      {visible && (
+        <Portal>
           <Tip
             tabIndex={0}
             ref={tooltipRef as any}
@@ -198,7 +197,8 @@ export const Popover: React.FC<PopoverProps> = ({
                 : popover}
             </Panel>
           </Tip>
-        )}
+        </Portal>
+      )}
     </>
   )
 }

@@ -4,7 +4,7 @@ import { Flex } from "../Flex"
 import styled, { css } from "styled-components"
 import { zIndex } from "styled-system"
 import { FocusOn } from "react-focus-on"
-import { usePortal } from "../../utils/usePortal"
+import { Portal } from "../Portal"
 
 export interface DrawerProps {
   open: boolean
@@ -20,53 +20,53 @@ export const Drawer: FC<DrawerProps> = ({
   open,
   onClose,
 }) => {
-  const { createPortal } = usePortal()
-
-  return createPortal(
-    <Container
-      zIndex={zIndex}
-      anchor={anchor}
-      style={{
-        pointerEvents: open ? "auto" : "none",
-        transform: open ? "translateX(0)" : "none",
-      }}
-    >
-      <Focus onClickOutside={onClose} enabled={open} onEscapeKey={onClose}>
-        <Content
-          backgroundColor="white100"
-          height="100%"
-          width={["100%", "auto"]}
-          overflowX="hidden"
-          overflowY="scroll"
-          anchor={anchor}
-          zIndex={zIndex}
-          transition={
-            open
-              ? "transform .6s cubic-bezier(0.190, 1.000, 0.220, 1.000)" // easeOutExpo
-              : "transform 1s cubic-bezier(0.075, 0.820, 0.165, 1.000)" // easeOutCirc
-          }
-          style={{
-            transform: open
-              ? "translateX(0)"
-              : `translateX(${anchor === "left" ? "-110%" : "110%"})`,
-          }}
-        >
-          {children}
-        </Content>
-      </Focus>
-
-      <Overlay
-        backgroundColor="black100"
-        height="100%"
-        display={["none", "flex"]}
-        onClick={onClose}
-        data-testid="drawer-overlay"
-        width="inherit"
+  return (
+    <Portal>
+      <Container
+        zIndex={zIndex}
+        anchor={anchor}
         style={{
-          opacity: open ? "0.5" : "0",
+          pointerEvents: open ? "auto" : "none",
+          transform: open ? "translateX(0)" : "none",
         }}
-      />
-    </Container>
+      >
+        <Focus onClickOutside={onClose} enabled={open} onEscapeKey={onClose}>
+          <Content
+            backgroundColor="white100"
+            height="100%"
+            width={["100%", "auto"]}
+            overflowX="hidden"
+            overflowY="scroll"
+            anchor={anchor}
+            zIndex={zIndex}
+            transition={
+              open
+                ? "transform .6s cubic-bezier(0.190, 1.000, 0.220, 1.000)" // easeOutExpo
+                : "transform 1s cubic-bezier(0.075, 0.820, 0.165, 1.000)" // easeOutCirc
+            }
+            style={{
+              transform: open
+                ? "translateX(0)"
+                : `translateX(${anchor === "left" ? "-110%" : "110%"})`,
+            }}
+          >
+            {children}
+          </Content>
+        </Focus>
+
+        <Overlay
+          backgroundColor="black100"
+          height="100%"
+          display={["none", "flex"]}
+          onClick={onClose}
+          data-testid="drawer-overlay"
+          width="inherit"
+          style={{
+            opacity: open ? "0.5" : "0",
+          }}
+        />
+      </Container>
+    </Portal>
   )
 }
 
