@@ -1,3 +1,34 @@
+# (Tue Jan 02 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@37.2.3`
+  - fix(useportal): makes safe for ssr [#1349](https://github.com/artsy/palette/pull/1349) ([@dzucconi](https://github.com/dzucconi))
+
+#### ⚠️ Pushed to `main`
+
+- chore(visual-test): auto accept changes ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- Bump word-wrap from 1.2.3 to 1.2.5 [#1346](https://github.com/artsy/palette/pull/1346) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump semver from 5.7.1 to 5.7.2 [#1347](https://github.com/artsy/palette/pull/1347) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @babel/traverse from 7.21.4 to 7.23.6 [#1348](https://github.com/artsy/palette/pull/1348) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump decode-uri-component from 0.2.0 to 0.2.2 [#1233](https://github.com/artsy/palette/pull/1233) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump loader-utils from 1.4.0 to 1.4.2 [#1223](https://github.com/artsy/palette/pull/1223) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump deep-object-diff from 1.1.7 to 1.1.9 [#1222](https://github.com/artsy/palette/pull/1222) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- `@artsy/palette-charts@36.2.3`, `@artsy/palette@37.2.3`
+  - chore(deps): update dep @artsy/auto-config from 1.1.0 to v1.2.0 [#1141](https://github.com/artsy/palette/pull/1141) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 4
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Dec 21 2023)
 
 #### 🐛  Bug Fix

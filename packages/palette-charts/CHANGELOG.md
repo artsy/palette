@@ -1,3 +1,23 @@
+# v36.2.3 (Tue Jan 02 2024)
+
+#### 🐛  Bug Fix
+
+- chore(deps): update dep @artsy/auto-config from 1.1.0 to v1.2.0 ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### 🏠  Internal
+
+- chore(deps): bump decode-uri-component from 0.2.0 to 0.2.2 [#1233](https://github.com/artsy/palette/pull/1233) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump loader-utils from 1.4.0 to 1.4.2 [#1223](https://github.com/artsy/palette/pull/1223) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump deep-object-diff from 1.1.7 to 1.1.9 [#1222](https://github.com/artsy/palette/pull/1222) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): update dep @artsy/auto-config from 1.1.0 to v1.2.0 [#1141](https://github.com/artsy/palette/pull/1141) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- [@renovate[bot]](https://github.com/renovate[bot])
+
+---
+
 # v36.2.0 (Tue Dec 12 2023)
 
 #### 🚀  Enhancement
