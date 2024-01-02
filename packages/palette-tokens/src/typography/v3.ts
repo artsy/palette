@@ -21,6 +21,7 @@ export const TEXT_VARIANT_NAMES = [
   "sm",
   "sm-display",
   "xs",
+  "xxs",
   "bq",
 ] as const;
 
@@ -69,6 +70,10 @@ export const TEXT_VARIANTS: Record<
   xs: {
     fontSize: "13px",
     lineHeight: "20px",
+  },
+  xxs: {
+    fontSize: "11px",
+    lineHeight: "14px",
   },
   bq: {
     fontSize: "50px",
