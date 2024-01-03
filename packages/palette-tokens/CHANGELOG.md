@@ -1,3 +1,19 @@
+# v5.1.0 (Wed Jan 03 2024)
+
+#### 🚀  Enhancement
+
+- feat(text): adds xxs tokens [#1350](https://github.com/artsy/palette/pull/1350) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(text): adds xxs tokens ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v5.0.0 (Wed May 10 2023)
 
 #### 💥  Breaking Change
