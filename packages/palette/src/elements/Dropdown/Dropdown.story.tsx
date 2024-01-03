@@ -255,3 +255,37 @@ export const FilterExample = () => {
     </Dropdown>
   )
 }
+
+export const StickyExample = () => {
+  return (
+    <div style={{ height: "100vh", overflow: "scroll" }}>
+      <div style={{ height: "10vh" }} />
+      <div style={{ position: "sticky", top: 0, zIndex: 1 }}>
+        <Dropdown
+          dropdown={
+            <Box p={1}>
+              <Text variant="xs">Example content</Text>
+            </Box>
+          }
+          placement="bottom-start"
+          openDropdownByClick
+        >
+          {({ anchorRef, anchorProps }) => {
+            return (
+              <Pill
+                ref={anchorRef as any}
+                Icon={ChevronSmallDownIcon}
+                iconPosition="right"
+                {...anchorProps}
+              >
+                Example
+              </Pill>
+            )
+          }}
+        </Dropdown>
+      </div>
+
+      <div style={{ height: "200vh" }} />
+    </div>
+  )
+}
