@@ -123,7 +123,7 @@ const Container = styled(Box)<{
         `}
       }
 
-      &:focus {
+      &:focus-visible {
         ${CHECKBOX_STATES.focus}
 
         // Check
