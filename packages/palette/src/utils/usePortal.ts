@@ -1,11 +1,8 @@
 import React, { useEffect, useRef, useCallback } from "react"
 import { createPortal as __createPortal__ } from "react-dom"
-import { useDidMount } from "./useDidMount"
 
 export const usePortal = () => {
   const appendEl = useRef<HTMLDivElement | null>(null)
-
-  const isMounted = useDidMount()
 
   useEffect(() => {
     const el = appendEl.current ?? document.createElement("div")
@@ -24,7 +21,7 @@ export const usePortal = () => {
 
   const createPortal = useCallback(
     (children: React.ReactNode): React.ReactPortal | null => {
-      if (!isMounted) return null
+      if (typeof window === "undefined") return null
 
       // May execute before effect runs and appendEl is set
       const el = appendEl.current ?? document.createElement("div")
@@ -32,7 +29,7 @@ export const usePortal = () => {
 
       return __createPortal__(children, el)
     },
-    [isMounted]
+    []
   )
 
   return { createPortal }
