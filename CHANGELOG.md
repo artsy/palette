@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@37.3.2`
+  - fix(checkbox): moves focus state onto focus-visible [#1353](https://github.com/artsy/palette/pull/1353) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Fri Jan 05 2024)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@37.3.1`
   - Revert "fix(useportal): makes safe for ssr" [#1352](https://github.com/artsy/palette/pull/1352) ([@dzucconi](https://github.com/dzucconi))
 

@@ -1,3 +1,16 @@
+# v37.3.2 (Fri Jan 05 2024)
+
+#### 🐛  Bug Fix
+
+- fix(checkbox): moves focus state onto focus-visible [#1353](https://github.com/artsy/palette/pull/1353) ([@dzucconi](https://github.com/dzucconi))
+- fix(checkbox): moves focus state onto focus-visible ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v37.3.1 (Fri Jan 05 2024)
 
 #### 🐛  Bug Fix
