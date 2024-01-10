@@ -11,6 +11,7 @@ import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
 import { Stack } from "../Stack"
+import { Column, GridColumns } from "../GridColumns"
 
 const CONTENT = "Lorem ipsum dolor sit amet consectetur adipisicing elit?"
 
@@ -264,4 +265,19 @@ export const StressTest = () => {
 
 StressTest.story = {
   parameters: { chromatic: { disable: true } },
+}
+
+export const PositioningBug = () => {
+  return (
+    <GridColumns>
+      <Column span={9}>Example left-column content</Column>
+      <Column span={3} display="flex" flexDirection="column" gap={2}>
+        <Tooltip content="Example content">
+          <Button size="small">Example tooltip trigger</Button>
+        </Tooltip>
+
+        <Text variant="xs">There should not be a horizontal scrollbar</Text>
+      </Column>
+    </GridColumns>
+  )
 }
