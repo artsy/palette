@@ -79,7 +79,7 @@ export const Button: React.ForwardRefExoticComponent<
         ref={composeRefs(ref, forwardedRef) as any}
         onClick={handleClick}
         size={size}
-        loading={loading}
+        $loading={loading}
         success={success}
         tabIndex={loading ? -1 : 0}
         display="inline-flex"
@@ -127,8 +127,10 @@ Button.defaultProps = {
 
 type ContainerProps = Pick<
   ButtonProps,
-  "active" | "disabled" | "focus" | "hover" | "loading" | "size" | "success"
->
+  "active" | "disabled" | "focus" | "hover" | "size" | "success"
+> & {
+  $loading?: boolean
+}
 
 export const buttonMixin = css`
   cursor: pointer;
@@ -169,7 +171,7 @@ const Container = styled.button<ContainerProps & ButtonProps>`
       `
     }
 
-    if (props.loading) {
+    if (props.$loading) {
       return css`
         cursor: auto;
         transition: none;
