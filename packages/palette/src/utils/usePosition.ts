@@ -63,7 +63,7 @@ export const usePosition = ({
   const anchorRef = useRef<HTMLElement | null>(null)
 
   const update = () => {
-    if (!tooltipRef.current || !anchorRef.current) return
+    if (!active || !tooltipRef.current || !anchorRef.current) return
 
     const { current: tooltip } = tooltipRef
     const { current: anchor } = anchorRef
