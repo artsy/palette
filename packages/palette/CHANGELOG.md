@@ -1,3 +1,16 @@
+# v37.3.4 (Wed Jan 10 2024)
+
+#### 🐛  Bug Fix
+
+- fix(tooltip): correctly handles positioning edge case by skipping when inactive [#1356](https://github.com/artsy/palette/pull/1356) ([@dzucconi](https://github.com/dzucconi))
+- fix(tooltip): correctly handles positioning edge case by skipping when inactive ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v37.3.3 (Wed Jan 10 2024)
 
 #### 🐛  Bug Fix

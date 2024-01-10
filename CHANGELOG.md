@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@37.3.4`
+  - fix(tooltip): correctly handles positioning edge case by skipping when inactive [#1356](https://github.com/artsy/palette/pull/1356) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Jan 10 2024)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@37.3.3`
   - fix(button): avoids passing the loading prop to the underlying dom node [#1355](https://github.com/artsy/palette/pull/1355) ([@dzucconi](https://github.com/dzucconi))
 
