@@ -2,7 +2,7 @@ import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
-import { DROP_SHADOW, FORM_ELEMENT_TRANSITION } from "../../helpers"
+import { FORM_ELEMENT_TRANSITION } from "../../helpers"
 import { useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { useWidthOf } from "../../utils/useWidthOf"
@@ -174,7 +174,7 @@ const Options = styled(Box)`
   z-index: 1;
   max-height: 300px;
   text-align: left;
-  box-shadow: ${DROP_SHADOW};
+  box-shadow: ${themeGet("colors.dropShadow")};
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 `

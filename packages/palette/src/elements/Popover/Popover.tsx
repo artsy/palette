@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
-import { DROP_SHADOW } from "../../helpers"
 import CloseIcon from "@artsy/icons/CloseIcon"
 import { Position, useClickOutside, usePortal, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { Box, BoxProps } from "../Box"
 import { Clickable } from "../Clickable"
 import { Pointer } from "../Pointer"
+import { themeGet } from "@styled-system/theme-get"
 
 export const POPOVER_VARIANTS = {
   defaultLight: {
@@ -207,7 +207,7 @@ const Tip = styled(Box)<{ variant?: PopoverVariant }>`
   position: fixed;
   text-align: left;
   transition: opacity 250ms ease-out;
-  box-shadow: ${DROP_SHADOW};
+  box-shadow: ${themeGet("colors.dropShadow")};
   ${variant({ variants: POPOVER_VARIANTS })}
 `
 

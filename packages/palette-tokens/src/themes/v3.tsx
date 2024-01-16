@@ -33,6 +33,73 @@ const BREAKPOINTS_SCALE = Object.assign(
   breakpoints
 );
 
+const COLORS = {
+  /** Suitable for text on black10 and lighter */
+  black100: "#000000",
+  /** Suitable for text on black10 and lighter */
+  black60: "#707070",
+  /** Background only */
+  black30: "#C2C2C2",
+  /** Background only */
+  black15: "#D8D8D8",
+  /** Background only */
+  black10: "#E7E7E7",
+  /** Suitable for text on black60 and darker */
+  black5: "#F7F7F7",
+  /** Suitable for text on black60 and darker */
+  white100: "#FFFFFF",
+
+  /** Suitable for text on black10 and lighter */
+  blue200: "#050e3e",
+  /** Suitable for text on black10 and lighter */
+  blue150: "#0A1C7B",
+  /** Suitable for text on black10 and lighter */
+  blue100: "#1023D7",
+  /** Alias of blue100 */
+  brand: "#1023D7",
+  /** Background only */
+  blue15: "#cacdec",
+  /** Background only */
+  blue10: "#E6E7F5",
+
+  /** Hover/down state and suitable for text on green10 */
+  green150: "#003728",
+  /** Suitable for text on green10, black10 and lighter */
+  green100: "#00674A",
+  /** Background only */
+  green10: "#E8EFE2",
+
+  /** Hover/down state and suitable for text on yellow10 */
+  yellow150: "#A47A0F",
+  /** Suitable for text on black10 and lighter */
+  yellow100: "#E2B929",
+  /** Background only */
+  yellow10: "#FFFAE9",
+
+  /** Hover/down state and suitable for text on orange10 */
+  orange150: "#A8501C",
+  /** Suitable for text on black10 and lighter */
+  orange100: "#DA6722",
+  /** Background only */
+  orange10: "#FCF7F3",
+
+  /** Hover/down state and suitable for text on red10 */
+  red150: "#510B0B",
+  /** Suitable for text on red10, black10, and lighter */
+  red100: "#C82400",
+  /** Background only */
+  red10: "#F4E4E3",
+
+  /** Shadows */
+  dropShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.1)",
+  innerShadow: "1px 1px 2px 0 rgba(0, 0, 0, 0.1) inset",
+  flatShadow: "0 1px 1px 0 rgba(0, 0, 0, 0.05)",
+  /** Shadow to drop under text to improve legibility when over images */
+  textShadow: "0 0 15px rgba(0, 0, 0, 0.25)",
+};
+
+export type Colors = typeof COLORS;
+
 /**
  * All of the config for the Artsy theming system, based on the
  * design system from our design team
@@ -42,59 +109,7 @@ export const THEME = {
 
   breakpoints: BREAKPOINTS_SCALE,
 
-  colors: {
-    /** Suitable for text on black10 and lighter */
-    black100: "#000000",
-    /** Suitable for text on black10 and lighter */
-    black60: "#707070",
-    /** Background only */
-    black30: "#C2C2C2",
-    /** Background only */
-    black15: "#D8D8D8",
-    /** Background only */
-    black10: "#E7E7E7",
-    /** Suitable for text on black60 and darker */
-    black5: "#F7F7F7",
-    /** Suitable for text on black60 and darker */
-    white100: "#FFFFFF",
-
-    /** Suitable for text on black10 and lighter */
-    blue150: "#0A1C7B",
-    /** Suitable for text on black10 and lighter */
-    blue100: "#1023D7",
-    /** Alias of blue100 */
-    brand: "#1023D7",
-    /** Background only */
-    blue10: "#E6E7F5",
-
-    /** Hover/down state and suitable for text on green10 */
-    green150: "#003728",
-    /** Suitable for text on green10, black10 and lighter */
-    green100: "#00674A",
-    /** Background only */
-    green10: "#E8EFE2",
-
-    /** Hover/down state and suitable for text on yellow10 */
-    yellow150: "#A47A0F",
-    /** Suitable for text on black10 and lighter */
-    yellow100: "#E2B929",
-    /** Background only */
-    yellow10: "#FFFAE9",
-
-    /** Hover/down state and suitable for text on orange10 */
-    orange150: "#A8501C",
-    /** Suitable for text on black10 and lighter */
-    orange100: "#DA6722",
-    /** Background only */
-    orange10: "#FCF7F3",
-
-    /** Hover/down state and suitable for text on red10 */
-    red150: "#510B0B",
-    /** Suitable for text on red10, black10, and lighter */
-    red100: "#C82400",
-    /** Background only */
-    red10: "#F4E4E3",
-  },
+  colors: COLORS,
 
   fonts: TEXT_FONTS,
 

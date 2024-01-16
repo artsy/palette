@@ -6,20 +6,28 @@ import {
   ThemeContext,
   ThemeProvider,
 } from "styled-components"
-import { Theme as TTheme, THEME } from "./themes"
+import { THEME, Theme as TTheme } from "./themes"
 
 export * from "@artsy/palette-tokens/dist/themes/v3"
+import { THEME_DARK } from "@artsy/palette-tokens/dist/themes/v3Dark"
 export { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
+
+const THEMES = {
+  light: THEME,
+  dark: THEME_DARK,
+}
 
 interface ThemeProps {
   children?: React.ReactNode
+  theme?: "light" | "dark"
 }
 
 /**
  * A wrapper component for passing down the Artsy theme context
  */
-export const Theme: React.FC<ThemeProps> = ({ children }) => {
-  return <ThemeProvider theme={THEME}>{children}</ThemeProvider>
+export const Theme: React.FC<ThemeProps> = ({ children, theme = "light" }) => {
+  const selectedTheme = THEMES[theme]
+  return <ThemeProvider theme={selectedTheme}>{children}</ThemeProvider>
 }
 
 /** Returns the current theme */

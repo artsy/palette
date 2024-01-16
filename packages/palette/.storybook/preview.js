@@ -3,17 +3,20 @@ import { Theme } from "../src/Theme"
 import { injectGlobalStyles } from "../src/helpers/injectGlobalStyles"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { breakpoints } from "../src/Theme"
+import { StylesProvider } from "storybook-states"
 
 const { GlobalStyles } = injectGlobalStyles()
 
 export const decorators = [
   (Story) => {
     return (
-      <Theme theme="v3">
-        <>
+      <Theme theme="light">
+        <StylesProvider
+          styles={{ statePropsActive: { color: "currentColor" } }}
+        >
           <GlobalStyles />
           <Story />
-        </>
+        </StylesProvider>
       </Theme>
     )
   },

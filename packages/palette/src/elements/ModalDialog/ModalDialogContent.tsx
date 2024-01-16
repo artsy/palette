@@ -1,6 +1,5 @@
 import React, { FC } from "react"
 import { Clickable, ClickableProps } from "../Clickable"
-import { DROP_SHADOW } from "../../helpers/shadow"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
@@ -10,6 +9,7 @@ import { useSentinelVisibility } from "../../utils/useSentinelVisibility"
 import { Spacer } from "../Spacer"
 import styled from "styled-components"
 import { themeGet } from "@styled-system/theme-get"
+import { useTheme } from "../../Theme"
 
 export interface ModalDialogContentProps
   extends BoxProps,
@@ -45,8 +45,15 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
     isSentinelVisible: isAtBottom,
   } = useSentinelVisibility()
 
+  const { theme } = useTheme()
+
   return (
-    <Flex bg="white100" m={2} style={{ boxShadow: DROP_SHADOW }} {...rest}>
+    <Flex
+      bg="white100"
+      m={2}
+      style={{ boxShadow: theme.colors.dropShadow }}
+      {...rest}
+    >
       {leftPanel}
 
       <Flex flexDirection="column" overflow="hidden" width="100%">
@@ -55,7 +62,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
           zIndex={1}
           style={{
             transition: "box-shadow 250ms",
-            boxShadow: isAtTop ? DROP_SHADOW : undefined,
+            boxShadow: isAtTop ? theme.colors.dropShadow : undefined,
           }}
         >
           <Flex alignItems="flex-start" justifyContent="space-between">
@@ -102,7 +109,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
             p={2}
             style={{
               transition: "box-shadow 250ms",
-              boxShadow: isAtBottom ? DROP_SHADOW : undefined,
+              boxShadow: isAtBottom ? theme.colors.dropShadow : undefined,
             }}
           >
             {footer}

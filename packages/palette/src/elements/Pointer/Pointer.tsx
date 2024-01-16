@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useMemo, useState, useCallback } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
-import { DROP_SHADOW } from "../../helpers"
 import { Position } from "../../utils"
 import { useResizeObserver } from "../../utils/useResizeObserver"
 import { Box } from "../Box"
+import { themeGet } from "@styled-system/theme-get"
 
 const POINTER_VARIANTS = {
   defaultLight: {
@@ -189,7 +189,7 @@ const Container = styled(Box)<{ variant: PointerVariant }>`
     height: ${POINTER_SIZE}px;
     transform-origin: 0 0;
     transform: rotate(-45deg);
-    box-shadow: ${DROP_SHADOW};
+    box-shadow: ${themeGet("colors.dropShadow")};
     ${variant({ variants: POINTER_VARIANTS })}
   }
 `

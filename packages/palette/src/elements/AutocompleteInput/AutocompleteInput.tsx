@@ -10,7 +10,6 @@ import React, {
 import styled from "styled-components"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { Spinner } from "../Spinner"
-import { DROP_SHADOW } from "../../helpers"
 import SearchIcon from "@artsy/icons/SearchIcon"
 import CloseIcon from "@artsy/icons/CloseIcon"
 import { usePosition, useContainsFocus, useClickOutside } from "../../utils"
@@ -23,6 +22,7 @@ import { VisuallyHidden } from "../VisuallyHidden"
 import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 import { ResponsiveValue } from "styled-system"
+import { themeGet } from "@styled-system/theme-get"
 
 export interface AutocompleteFooterActions {
   /** Call to close dropdown */
@@ -419,7 +419,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 }
 
 const AutocompleteInputDropdown = styled(Box)`
-  box-shadow: ${DROP_SHADOW};
+  box-shadow: ${themeGet("colors.dropShadow")};
   z-index: 1;
 `
 
