@@ -207,7 +207,7 @@ const Tip = styled(Box)<{ variant?: PopoverVariant }>`
   position: fixed;
   text-align: left;
   transition: opacity 250ms ease-out;
-  box-shadow: ${themeGet("colors.dropShadow")};
+  box-shadow: ${themeGet("effects.dropShadow")};
   ${variant({ variants: POPOVER_VARIANTS })}
 `
 

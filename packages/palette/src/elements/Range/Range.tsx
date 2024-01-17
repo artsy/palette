@@ -155,7 +155,7 @@ const handleStyles = css`
   background-color: ${themeGet("colors.white100")};
   border-radius: 50%;
   border: 1px solid ${themeGet("colors.black10")};
-  box-shadow: ${themeGet("colors.flatShadow")};
+  box-shadow: ${themeGet("effects.flatShadow")};
 `
 
 const Slider = styled.input`

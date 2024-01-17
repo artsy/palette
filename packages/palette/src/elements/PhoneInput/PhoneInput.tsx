@@ -401,7 +401,7 @@ const SelectContainer = styled(Box)<{ disabled?: boolean }>`
 `
 
 const SelectDropdown = styled(Box)`
-  box-shadow: ${themeGet("colors.dropShadow")};
+  box-shadow: ${themeGet("effects.dropShadow")};
   z-index: 1;
   background: ${themeGet("colors.white100")};
 `

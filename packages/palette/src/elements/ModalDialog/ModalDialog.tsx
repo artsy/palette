@@ -6,6 +6,7 @@ import {
 } from "./ModalDialogContent"
 import { splitBoxProps } from "../Box"
 import { useDidMount } from "../../utils/useDidMount"
+import { useTheme } from "../../Theme"
 
 export type ModalDialogProps = ModalBaseProps &
   ModalDialogContentProps & {
@@ -28,13 +29,15 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
 
   const [{ width, ...boxProps }, modalProps] = splitBoxProps(rest)
 
+  const { theme } = useTheme()
+
   return (
     <ModalBase
       onClose={onClose}
       style={
         isMounted
           ? {
-              backgroundColor: "rgba(229, 229, 229, 0.5)",
+              backgroundColor: theme.effects.backdrop,
               transition: "background-color 250ms",
             }
           : { backgroundColor: "transparent" }

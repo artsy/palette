@@ -174,7 +174,7 @@ const Options = styled(Box)`
   z-index: 1;
   max-height: 300px;
   text-align: left;
-  box-shadow: ${themeGet("colors.dropShadow")};
+  box-shadow: ${themeGet("effects.dropShadow")};
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 `

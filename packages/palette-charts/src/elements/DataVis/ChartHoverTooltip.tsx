@@ -36,5 +36,5 @@ const HoverTooltipPositioner = styled(BaseTooltipPositioner)`
   z-index: 2;
   position: fixed;
   background-color: ${themeGet("colors.white100")};
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: ${themeGet("effects.dropShadow")};
 `

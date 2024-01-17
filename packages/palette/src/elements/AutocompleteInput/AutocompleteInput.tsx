@@ -419,7 +419,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 }
 
 const AutocompleteInputDropdown = styled(Box)`
-  box-shadow: ${themeGet("colors.dropShadow")};
+  box-shadow: ${themeGet("effects.dropShadow")};
   z-index: 1;
 `
 

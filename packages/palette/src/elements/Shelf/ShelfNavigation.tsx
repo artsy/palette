@@ -17,7 +17,7 @@ const STATES = {
   hover: css`
     outline: 0;
     color: ${themeGet("colors.black100")};
-    box-shadow: ${themeGet("colors.dropShadow")};
+    box-shadow: ${themeGet("effects.dropShadow")};
   `,
   focus: css`
     outline: 0;

@@ -189,7 +189,7 @@ const Container = styled(Box)<{ variant: PointerVariant }>`
     height: ${POINTER_SIZE}px;
     transform-origin: 0 0;
     transform: rotate(-45deg);
-    box-shadow: ${themeGet("colors.dropShadow")};
+    box-shadow: ${themeGet("effects.dropShadow")};
     ${variant({ variants: POINTER_VARIANTS })}
   }
 `

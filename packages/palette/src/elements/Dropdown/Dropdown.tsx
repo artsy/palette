@@ -296,5 +296,5 @@ const Container = styled(Box)<{ placement: Position } & BoxProps>`
 
 const Panel = styled(Box)`
   transition: opacity 250ms ease-out, transform 250ms ease-out;
-  box-shadow: ${themeGet("colors.flatShadow")};
+  box-shadow: ${themeGet("effects.flatShadow")};
 `

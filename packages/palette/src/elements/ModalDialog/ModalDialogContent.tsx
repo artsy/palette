@@ -51,7 +51,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
     <Flex
       bg="white100"
       m={2}
-      style={{ boxShadow: theme.colors.dropShadow }}
+      style={{ boxShadow: theme.effects.dropShadow }}
       {...rest}
     >
       {leftPanel}
@@ -62,7 +62,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
           zIndex={1}
           style={{
             transition: "box-shadow 250ms",
-            boxShadow: isAtTop ? theme.colors.dropShadow : undefined,
+            boxShadow: isAtTop ? theme.effects.dropShadow : undefined,
           }}
         >
           <Flex alignItems="flex-start" justifyContent="space-between">
@@ -109,7 +109,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
             p={2}
             style={{
               transition: "box-shadow 250ms",
-              boxShadow: isAtBottom ? theme.colors.dropShadow : undefined,
+              boxShadow: isAtBottom ? theme.effects.dropShadow : undefined,
             }}
           >
             {footer}

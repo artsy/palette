@@ -89,16 +89,26 @@ const COLORS = {
   red100: "#C82400",
   /** Background only */
   red10: "#F4E4E3",
+};
 
-  /** Shadows */
+export type Colors = typeof COLORS;
+
+const EFFECTS = {
   dropShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.1)",
   innerShadow: "1px 1px 2px 0 rgba(0, 0, 0, 0.1) inset",
   flatShadow: "0 1px 1px 0 rgba(0, 0, 0, 0.05)",
   /** Shadow to drop under text to improve legibility when over images */
   textShadow: "0 0 15px rgba(0, 0, 0, 0.25)",
+  /** Overlay to improve legibility of text */
+  overlayGradient: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25))",
+  /** Fade right edge */
+  fadeRight:
+    "linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)",
+  /** Translucent gray for dialog backdrops */
+  backdrop: "rgba(229, 229, 229, 0.5)",
 };
 
-export type Colors = typeof COLORS;
+export type Effects = typeof EFFECTS;
 
 /**
  * All of the config for the Artsy theming system, based on the
@@ -106,11 +116,10 @@ export type Colors = typeof COLORS;
  */
 export const THEME = {
   id: "v3",
-
+  name: "light",
   breakpoints: BREAKPOINTS_SCALE,
-
   colors: COLORS,
-
+  effects: EFFECTS,
   fonts: TEXT_FONTS,
 
   // prettier-ignore

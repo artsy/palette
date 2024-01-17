@@ -25,11 +25,6 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   const { theme } = useTheme()
 
-  const background =
-    theme.id === "v3"
-      ? "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6))"
-      : "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6))"
-
   return (
     <Box maxWidth={280} {...rest}>
       <ResponsiveBox aspectWidth={280} aspectHeight={370} maxWidth="100%">
@@ -47,7 +42,7 @@ export const Card: React.FC<CardProps> = ({
           height="100%"
           top={0}
           left={0}
-          background={background}
+          background={theme.effects.overlayGradient}
         />
 
         <Box
@@ -56,7 +51,7 @@ export const Card: React.FC<CardProps> = ({
           left={0}
           width="100%"
           p={2}
-          style={{ textShadow: theme.colors.textShadow }}
+          style={{ textShadow: theme.effects.textShadow }}
         >
           {status && (
             <Text variant="xs" color="white100">

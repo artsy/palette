@@ -1,4 +1,4 @@
-import { Colors, THEME as THEME_LIGHT } from "./v3";
+import { Colors, Effects, THEME as THEME_LIGHT } from "./v3";
 
 const COLORS: Colors = {
   /** Suitable for text on black10 and lighter */
@@ -56,17 +56,28 @@ const COLORS: Colors = {
   red100: "#ff5b37",
   /** Background only */
   red10: "#1c0c0b",
+};
 
-  /** Shadows */
+const EFFECTS: Effects = {
   dropShadow: "0 2px 10px 0 rgba(255, 255, 255, 0.25)",
   innerShadow: "1px 1px 2px 0 rgba(255, 255, 255, 0.1) inset",
   flatShadow: "0 1px 1px 0 rgba(255, 255, 255, 0.05)",
   /** Shadow to drop under text to improve legibility when over images */
   textShadow: "0 0 15px rgba(255, 255, 255, 0.25)",
+  /** Overlay to improve legibility of text */
+  overlayGradient:
+    "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25))",
+  /** Fade right edge */
+  fadeRight:
+    "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)",
+  /** Translucent gray for dialog backdrops */
+  backdrop: "rgba(26, 26, 26, 0.5)",
 };
 
 export const THEME_DARK = {
   ...THEME_LIGHT,
   id: "v3Dark",
+  name: "dark",
   colors: COLORS,
+  effects: EFFECTS,
 };
