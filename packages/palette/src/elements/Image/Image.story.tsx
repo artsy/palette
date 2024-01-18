@@ -89,7 +89,7 @@ export const ImageSrcSetBlurHash = () => {
   )
 }
 
-ImageWSrcSet.story = {
+ImageSrcSetBlurHash.story = {
   name: "Image + srcSet + BlurHash",
 }
 
@@ -106,6 +106,6 @@ export const ImageLazyLoadSrcSetBlurHash = () => {
   )
 }
 
-ImageWSrcSet.story = {
+ImageLazyLoadSrcSetBlurHash.story = {
   name: "Image + lazyLoad + srcSet + BlurHash",
 }
