@@ -70,7 +70,17 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   } = props
 
   if (preload) {
-    return <ImageComponent {...props} />
+    return (
+      <SkeletonImage
+        width={width}
+        height={height}
+        borderRadius={borderRadius}
+        blurhash={hideBlurhash ? undefined : blurhash}
+        {...containerProps}
+      >
+        <ImageComponent onLoad={() => setHideBlurhash(true)} {...props} />
+      </SkeletonImage>
+    )
   }
 
   const handleLoad = () => {
