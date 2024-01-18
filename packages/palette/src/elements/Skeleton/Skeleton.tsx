@@ -95,7 +95,7 @@ export const SkeletonImage: React.FC<SkeletonProps & { blurhash?: string }> = ({
             right: 0,
             width: "100%",
             height: "100%",
-            zIndex: -1,
+            zIndex: 99,
           }}
         />
       )}
