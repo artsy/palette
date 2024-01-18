@@ -76,3 +76,20 @@ export const ImageLazyLoadSrcSet = () => {
 ImageLazyLoadSrcSet.story = {
   name: "Image + lazyLoad + srcSet",
 }
+
+export const ImageLazyLoadSrcSetBlurHash = () => {
+  return (
+    <Image
+      lazyLoad
+      width="300px"
+      height="200px"
+      blurhash="LWF$66t6IUV@?wR*NFoKb_oJaeW;"
+      src="https://picsum.photos/seed/example/300/200"
+      srcSet="https://picsum.photos/seed/example/300/200 1x, https://picsum.photos/seed/example/600/400 2x"
+    />
+  )
+}
+
+ImageWSrcSet.story = {
+  name: "Image + lazyLoad + srcSet + BlurHash",
+}

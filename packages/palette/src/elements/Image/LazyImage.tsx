@@ -8,7 +8,7 @@ import {
   WidthProps,
 } from "styled-system"
 import { CleanTag, omitProps } from "../CleanTag"
-import { SkeletonBox } from "../Skeleton"
+import { SkeletonBox, SkeletonImage } from "../Skeleton"
 import { ImageProps } from "./Image"
 import { BaseImage as Image } from "./Image"
 
@@ -52,6 +52,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   ...props
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false)
+  const [hideBlurhash, setHideBlurhash] = useState(false)
 
   const {
     src,
@@ -64,6 +65,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     borderRadius,
     style,
     onError,
+    blurhash,
     ...containerProps
   } = props
 
@@ -71,7 +73,45 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     return <ImageComponent {...props} />
   }
 
-  const handleLoad = () => setImageLoaded(true)
+  const handleLoad = () => {
+    setImageLoaded(true)
+    setTimeout(() => {
+      setHideBlurhash(true)
+    }, 500)
+  }
+
+  if (blurhash) {
+    return (
+      <SkeletonImage
+        width={width}
+        height={height}
+        borderRadius={borderRadius}
+        blurhash={hideBlurhash ? undefined : blurhash}
+        {...containerProps}
+      >
+        <InnerLazyImage
+          omitFromProps={imagePropsToOmit}
+          onError={onError}
+          src={src}
+          srcSet={srcSet}
+          title={title}
+          alt={alt}
+          aria-label={ariaLabel}
+          borderRadius={borderRadius}
+          width="100%"
+          height="100%"
+          style={{
+            ...style,
+            opacity: isImageLoaded ? "1" : "0",
+          }}
+          onLoad={handleLoad}
+        />
+        <noscript>
+          <ImageComponent {...props} />
+        </noscript>
+      </SkeletonImage>
+    )
+  }
 
   return (
     <SkeletonBox

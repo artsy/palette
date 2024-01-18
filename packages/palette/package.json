@@ -41,7 +41,8 @@
   "peerDependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "styled-components": "^4"
+    "styled-components": "^4",
+    "blurhash": "^2.0.5"
   },
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
@@ -121,8 +122,10 @@
     "@artsy/palette-tokens": "^5.1.0",
     "@seznam/compose-react-refs": "^1.0.6",
     "@styled-system/theme-get": "^5.1.2",
+    "blurhash": "^2.0.5",
     "lodash": "^4.17.21",
     "proportional-scale": "^4.0.0",
+    "react-blurhash": "^0.3.0",
     "react-focus-on": "^3.7.0",
     "react-lazy-load-image-component": "1.5.5",
     "styled-system": "^5.1.5",

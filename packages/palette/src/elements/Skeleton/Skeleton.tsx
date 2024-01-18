@@ -1,5 +1,6 @@
 import { themeGet } from "@styled-system/theme-get"
 import React from "react"
+import { BlurhashCanvas } from "react-blurhash"
 import styled, { keyframes, StyledComponentClass } from "styled-components"
 import { border, BorderProps } from "styled-system"
 import { splitProps } from "../../utils/splitProps"
@@ -72,6 +73,34 @@ export const Skeleton: React.FC<SkeletonProps> = ({ children, ...rest }) => {
       {children}
 
       <SkeletonFade position="absolute" top={0} right={0} bottom={0} left={0} />
+    </Box>
+  )
+}
+
+export const SkeletonImage: React.FC<SkeletonProps & { blurhash?: string }> = ({
+  children,
+  blurhash,
+  ...rest
+}) => {
+  return (
+    <Box position="relative" {...rest}>
+      {!!blurhash && (
+        <BlurhashCanvas
+          hash={blurhash}
+          style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: -1,
+          }}
+        />
+      )}
+
+      {children}
     </Box>
   )
 }

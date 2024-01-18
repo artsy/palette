@@ -27,6 +27,7 @@ export interface ImageProps
   lazyLoad?: boolean
   /** Flag indicating that right clicks should be prevented */
   preventRightClick?: boolean
+  blurhash?: string
 }
 
 // @ts-expect-error  MIGRATE_STRICT_MODE
