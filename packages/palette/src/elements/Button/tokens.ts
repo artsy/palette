@@ -86,8 +86,8 @@ export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
       textDecoration: "underline",
     },
     active: {
-      backgroundColor: "#050e3e", // Unique color to this state
-      borderColor: "#050e3e", // Unique color to this state
+      backgroundColor: "blue200",
+      borderColor: "blue200",
       color: "white100",
       textDecoration: "underline",
     },
@@ -186,8 +186,8 @@ export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
       textDecoration: "underline",
     },
     active: {
-      backgroundColor: "#cacdec", // Unique color to this state
-      borderColor: "#cacdec", // Unique color to this state
+      backgroundColor: "blue15",
+      borderColor: "blue15",
       color: "blue100",
       textDecoration: "underline",
     },

@@ -151,6 +151,7 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
   appearance: none;
   display: block;
   width: 100%;
+  background-color: ${themeGet("colors.white100")};
   padding: ${themeGet("space.1")};
   resize: vertical;
   transition: border-color 0.25s, color 0.25s;

@@ -2,7 +2,6 @@ import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
-import { DROP_SHADOW } from "../../helpers"
 import ChevronLeftIcon from "@artsy/icons/ChevronLeftIcon"
 import ChevronRightIcon from "@artsy/icons/ChevronRightIcon"
 import { Clickable, ClickableProps } from "../Clickable"
@@ -18,7 +17,7 @@ const STATES = {
   hover: css`
     outline: 0;
     color: ${themeGet("colors.black100")};
-    box-shadow: ${DROP_SHADOW};
+    box-shadow: ${themeGet("effects.dropShadow")};
   `,
   focus: css`
     outline: 0;

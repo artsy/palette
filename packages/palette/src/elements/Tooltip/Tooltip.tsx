@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
-import { DROP_SHADOW, isText } from "../../helpers"
+import { isText } from "../../helpers"
 import { Position, usePosition } from "../../utils/usePosition"
 import { Box, BoxProps } from "../Box"
 import { Pointer } from "../Pointer"
 import { Text } from "../Text"
+import { themeGet } from "@styled-system/theme-get"
 
 export const TOOLTIP_VARIANTS = {
   defaultLight: {
@@ -120,7 +121,7 @@ const Tip = styled(Box)<{ variant?: TooltipVariant }>`
   position: absolute;
   transition: opacity 250ms ease-out;
   text-align: left;
-  box-shadow: ${DROP_SHADOW};
+  box-shadow: ${themeGet("effects.dropShadow")};
   cursor: default;
   pointer-events: none;
   ${variant({ variants: TOOLTIP_VARIANTS })}

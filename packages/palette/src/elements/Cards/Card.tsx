@@ -3,7 +3,7 @@ import { Image, ImageProps } from "../Image"
 import { Box, BoxProps } from "../Box"
 import { Text } from "../Text"
 import { ResponsiveBox } from "../ResponsiveBox"
-import { TEXT_SHADOW } from "../../helpers"
+import { useTheme } from "../../Theme"
 
 export interface CardProps extends BoxProps {
   image: string | ImageProps
@@ -23,6 +23,8 @@ export const Card: React.FC<CardProps> = ({
   status,
   ...rest
 }) => {
+  const { theme } = useTheme()
+
   return (
     <Box maxWidth={280} {...rest}>
       <ResponsiveBox aspectWidth={280} aspectHeight={370} maxWidth="100%">
@@ -40,7 +42,7 @@ export const Card: React.FC<CardProps> = ({
           height="100%"
           top={0}
           left={0}
-          background="linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6))"
+          background={theme.effects.overlayGradient}
         />
 
         <Box
@@ -49,7 +51,7 @@ export const Card: React.FC<CardProps> = ({
           left={0}
           width="100%"
           p={2}
-          style={{ textShadow: TEXT_SHADOW }}
+          style={{ textShadow: theme.effects.textShadow }}
         >
           {status && (
             <Text variant="xs" color="white100">

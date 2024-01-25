@@ -122,10 +122,7 @@ export const ChangeDimensions = () => {
   }, [])
 
   return (
-    <Dropdown
-      placement="top"
-      dropdown={<Box height={height} width={300} bg="rgba(0, 0, 0, 0.5)" />}
-    >
+    <Dropdown placement="top" dropdown={<Box height={height} width={300} />}>
       {({ anchorRef, anchorProps }) => {
         return (
           <Button

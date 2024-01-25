@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
-import { FLAT_SHADOW } from "../../helpers"
 import { Position, usePosition } from "../../utils"
 import { usePortal } from "../../utils/usePortal"
 import { Box, BoxProps } from "../Box"
 import { FocusOn } from "react-focus-on"
+import { themeGet } from "@styled-system/theme-get"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -296,5 +296,5 @@ const Container = styled(Box)<{ placement: Position } & BoxProps>`
 
 const Panel = styled(Box)`
   transition: opacity 250ms ease-out, transform 250ms ease-out;
-  box-shadow: ${FLAT_SHADOW};
+  box-shadow: ${themeGet("effects.flatShadow")};
 `

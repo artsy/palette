@@ -3,7 +3,6 @@ import { themeGet } from "@styled-system/theme-get"
 import React, { createRef, useCallback, useMemo, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
-import { DROP_SHADOW } from "../../helpers"
 import { useContainsFocus, usePosition, useWidthOf } from "../../utils"
 import { Box, splitBoxProps } from "../Box"
 import { Input, InputProps } from "../Input"
@@ -402,7 +401,7 @@ const SelectContainer = styled(Box)<{ disabled?: boolean }>`
 `
 
 const SelectDropdown = styled(Box)`
-  box-shadow: ${DROP_SHADOW};
+  box-shadow: ${themeGet("effects.dropShadow")};
   z-index: 1;
   background: ${themeGet("colors.white100")};
 `

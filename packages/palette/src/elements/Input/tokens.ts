@@ -4,6 +4,7 @@ import { State } from "./types"
 
 export const INPUT_STATES: Record<State, any> = {
   default: css`
+    background-color: ${themeGet("colors.white100")};
     font-size: ${themeGet("textVariants.sm-display.fontSize")};
     color: ${themeGet("colors.black100")};
     border-color: ${themeGet("colors.black30")};

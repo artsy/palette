@@ -54,11 +54,7 @@ export const Toast: React.FC<ToastProps> = ({
         <Text variant="sm-display">{message}</Text>
 
         {action && (
-          <Clickable
-            onClick={action.onClick}
-            textDecoration="underline"
-            color="rgba(255, 255, 255, 0.9)"
-          >
+          <Clickable onClick={action.onClick} textDecoration="underline">
             <Text variant="xs">{action.label}</Text>
           </Clickable>
         )}

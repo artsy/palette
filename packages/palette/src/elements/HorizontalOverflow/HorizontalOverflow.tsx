@@ -33,12 +33,7 @@ const Overlay = styled(Box)<{ atEnd: boolean }>`
     width: ${themeGet("space.6")};
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 1) 100%
-    );
-
+    background: ${themeGet("effects.fadeRight")};
     /* Hide when scrolled all the way over */
     transition: opacity 250ms;
     opacity: ${({ atEnd }) => (atEnd ? 0 : 1)};

@@ -2,7 +2,6 @@ import { themeGet } from "@styled-system/theme-get"
 import * as React from "react"
 import { useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
-import { FLAT_SHADOW } from "../../helpers"
 import { useUpdateEffect } from "../../utils"
 import { remapValue } from "../../utils/remapValue"
 import { Box, BoxProps } from "../Box"
@@ -156,7 +155,7 @@ const handleStyles = css`
   background-color: ${themeGet("colors.white100")};
   border-radius: 50%;
   border: 1px solid ${themeGet("colors.black10")};
-  box-shadow: ${FLAT_SHADOW};
+  box-shadow: ${themeGet("effects.flatShadow")};
 `
 
 const Slider = styled.input`

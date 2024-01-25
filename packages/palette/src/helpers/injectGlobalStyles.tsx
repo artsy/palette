@@ -35,6 +35,8 @@ export function injectGlobalStyles<P>(
       font-family: ${themeGet("fonts.sans")};
       font-size: ${themeGet("textVariants.sm.fontSize")};
       line-height: ${themeGet("textVariants.sm.lineHeight")};
+      background-color: ${themeGet("colors.white100")};
+      color: ${themeGet("colors.black100")};
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
