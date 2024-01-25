@@ -11,6 +11,7 @@ import { CleanTag, omitProps } from "../CleanTag"
 import { SkeletonBox } from "../Skeleton"
 import { ImageProps } from "./Image"
 import { BaseImage as Image } from "./Image"
+import { Box } from "../Box"
 
 const imagePropsToOmit = omitProps.filter(
   (prop) => prop !== "width" && prop !== "height"
@@ -64,6 +65,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     borderRadius,
     style,
     onError,
+    placeHolderURL,
     ...containerProps
   } = props
 
@@ -73,11 +75,23 @@ export const LazyImage: React.FC<LazyImageProps> = ({
 
   const handleLoad = () => setImageLoaded(true)
 
+  // If there is a placeholder, use a regular Box to avoid a grey background.
+  const Wrapper = placeHolderURL ? Box : SkeletonBox
+
+  const placeHolderStyle = placeHolderURL
+    ? {
+        backgroundImage: `url(${placeHolderURL})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }
+    : {}
+
   return (
-    <SkeletonBox
+    <Wrapper
       width={width}
       height={height}
       borderRadius={borderRadius}
+      {...placeHolderStyle}
       {...containerProps}
     >
       <InnerLazyImage
@@ -94,12 +108,13 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         style={{
           ...style,
           opacity: isImageLoaded ? "1" : "0",
+          display: placeHolderURL ? "block" : undefined, // Avoids the placeholder image showing underneath the image
         }}
         onLoad={handleLoad}
       />
       <noscript>
         <ImageComponent {...props} />
       </noscript>
-    </SkeletonBox>
+    </Wrapper>
   )
 }
