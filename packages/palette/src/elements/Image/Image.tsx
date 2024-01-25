@@ -27,6 +27,9 @@ export interface ImageProps
   lazyLoad?: boolean
   /** Flag indicating that right clicks should be prevented */
   preventRightClick?: boolean
+  /** Currently, this is used by clients for BlurHash data,
+      decoded and represented as a data URL */
+  placeHolderURL?: string
 }
 
 // @ts-expect-error  MIGRATE_STRICT_MODE
