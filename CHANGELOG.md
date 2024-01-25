@@ -1,3 +1,21 @@
+# (Thu Jan 25 2024)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette-charts@37.0.0`, `@artsy/palette-tokens@6.0.0`, `@artsy/palette@38.0.0`
+  - feat(theme): roughs in a dark theme [#1357](https://github.com/artsy/palette/pull/1357) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- chore(deps): update auto orb from 2.1.0 to v2.2.0 [#1360](https://github.com/artsy/palette/pull/1360) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Jan 10 2024)
 
 #### 🐛  Bug Fix

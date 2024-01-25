@@ -1,3 +1,19 @@
+# v37.0.0 (Thu Jan 25 2024)
+
+#### 💥  Breaking Change
+
+- feat(theme): roughs in a dark theme [#1357](https://github.com/artsy/palette/pull/1357) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- refactor(theme): moves shadows/gradients into effects key ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v36.3.2 (Fri Jan 05 2024)
 
 #### 🐛  Bug Fix
