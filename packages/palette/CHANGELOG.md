@@ -1,3 +1,19 @@
+# v38.1.0 (Thu Jan 25 2024)
+
+#### 🚀  Enhancement
+
+- feat: add support for placeHolderURL to Image [#1359](https://github.com/artsy/palette/pull/1359) ([@mzikherman](https://github.com/mzikherman))
+
+#### 🐛  Bug Fix
+
+- feat: add placeHolderURL support to Image ([@mzikherman](https://github.com/mzikherman))
+
+#### Authors: 1
+
+- Matt Zikherman ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # v38.0.0 (Thu Jan 25 2024)
 
 #### 💥  Breaking Change

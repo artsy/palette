@@ -1,5 +1,18 @@
 # (Thu Jan 25 2024)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.1.0`
+  - feat: add support for placeHolderURL to Image [#1359](https://github.com/artsy/palette/pull/1359) ([@mzikherman](https://github.com/mzikherman))
+
+#### Authors: 1
+
+- Matt Zikherman ([@mzikherman](https://github.com/mzikherman))
+
+---
+
+# (Thu Jan 25 2024)
+
 #### 💥  Breaking Change
 
 - `@artsy/palette-charts@37.0.0`, `@artsy/palette-tokens@6.0.0`, `@artsy/palette@38.0.0`
