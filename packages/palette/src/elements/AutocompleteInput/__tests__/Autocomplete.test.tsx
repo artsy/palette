@@ -100,7 +100,7 @@ describe("Autocomplete", () => {
     expect(wrapper.html()).toContain('aria-expanded="true"')
 
     act(() => {
-      wrapper.find("button").at(1).simulate("mousedown")
+      wrapper.find("button").at(1).simulate("click")
       jest.runAllTimers()
     })
 
