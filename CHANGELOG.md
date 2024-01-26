@@ -1,3 +1,16 @@
+# (Fri Jan 26 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.1.1`
+  - fix: fixes long press on AutocompleteInputOption [#1361](https://github.com/artsy/palette/pull/1361) ([@nickskalkin](https://github.com/nickskalkin))
+
+#### Authors: 1
+
+- Nikita Skalkin ([@nickskalkin](https://github.com/nickskalkin))
+
+---
+
 # (Thu Jan 25 2024)
 
 #### 🚀  Enhancement
