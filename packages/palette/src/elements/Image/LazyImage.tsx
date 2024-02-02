@@ -108,7 +108,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         style={{
           ...style,
           opacity: isImageLoaded ? "1" : "0",
-          display: placeHolderURL ? "block" : undefined, // Avoids the placeholder image showing underneath the image
+          display: placeHolderURL ? "block" : style?.display, // Avoids the placeholder image showing underneath the image
         }}
         onLoad={handleLoad}
       />
