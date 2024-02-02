@@ -1,3 +1,16 @@
+# v38.1.2 (Fri Feb 02 2024)
+
+#### 🐛  Bug Fix
+
+- fix(image): prevents ovewriting display style prop [#1362](https://github.com/artsy/palette/pull/1362) ([@dzucconi](https://github.com/dzucconi))
+- fix(image): prevents ovewriting display style prop ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v38.1.1 (Fri Jan 26 2024)
 
 #### 🐛  Bug Fix
