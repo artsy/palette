@@ -13,4 +13,4 @@ then
     exit
 fi
 
-yarn concurrently 'yarn watch' 'nodemon -w dist --exec "yalc push --changed" --delay 1'
+yarn concurrently 'yarn watch' 'nodemon -w dist --exec "yalc push --changed --sig" --delay 1'
