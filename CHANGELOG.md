@@ -1,3 +1,18 @@
+# (Thu Feb 15 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.1.3`
+  - fix(dropdown): only manage focus when keyboard navigating [#1364](https://github.com/artsy/palette/pull/1364) ([@dzucconi](https://github.com/dzucconi))
+  - fix(yalc): Make sure yalc properly syncs changes to Force [#1363](https://github.com/artsy/palette/pull/1363) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Feb 02 2024)
 
 #### 🐛  Bug Fix
