@@ -211,6 +211,18 @@ export const Dropdown: React.FC<DropdownProps> = ({
     }
   }, [placement, isFlipped, offset])
 
+  const pointerRef = useRef(false)
+
+  const handlePointerVisible = () => {
+    pointerRef.current = true
+    onVisible()
+  }
+
+  const handlePointerHide = () => {
+    pointerRef.current = false
+    onHide()
+  }
+
   const anchorProps: React.HTMLAttributes<HTMLElement> = {
     "aria-expanded": visible,
     "aria-haspopup": true,
@@ -219,13 +231,15 @@ export const Dropdown: React.FC<DropdownProps> = ({
           onClick: onToggleVisibility,
         }
       : {
-          onMouseEnter: onVisible,
-          onMouseLeave: onHide,
+          onMouseEnter: handlePointerVisible,
+          onMouseLeave: handlePointerHide,
           onClick: onVisible,
         }),
   }
 
   const { createPortal } = usePortal()
+
+  const isPointer = !openDropdownByClick && pointerRef.current
 
   return (
     <>
@@ -276,7 +290,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
                     }
               }
             >
-              <FocusOn noIsolation enabled={visible} onClickOutside={onHide}>
+              <FocusOn
+                noIsolation
+                enabled={visible && !isPointer}
+                onClickOutside={onHide}
+              >
                 {typeof dropdown === "function"
                   ? dropdown({ onVisible, onHide, setVisible, visible })
                   : dropdown}
