@@ -1,3 +1,16 @@
+# v38.1.4 (Wed Feb 28 2024)
+
+#### 🐛  Bug Fix
+
+- fix(tooltip): prevent parent from altering font-styles [#1366](https://github.com/artsy/palette/pull/1366) ([@dzucconi](https://github.com/dzucconi))
+- fix(tooltip): prevent parent from altering font-styles ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v38.1.3 (Thu Feb 15 2024)
 
 #### 🐛  Bug Fix
