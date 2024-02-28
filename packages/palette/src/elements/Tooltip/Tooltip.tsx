@@ -124,6 +124,8 @@ const Tip = styled(Box)<{ variant?: TooltipVariant }>`
   box-shadow: ${themeGet("effects.dropShadow")};
   cursor: default;
   pointer-events: none;
+  font-weight: normal;
+  font-style: normal;
   ${variant({ variants: TOOLTIP_VARIANTS })}
 `
 
