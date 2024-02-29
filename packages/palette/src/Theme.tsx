@@ -17,6 +17,8 @@ const THEMES = {
   dark: THEME_DARK,
 }
 
+const DEFAULT_THEME = THEME
+
 interface ThemeProps {
   children?: React.ReactNode
   theme?: "light" | "dark"
@@ -32,6 +34,6 @@ export const Theme: React.FC<ThemeProps> = ({ children, theme = "light" }) => {
 
 /** Returns the current theme */
 export const useTheme = <T extends TTheme>() => {
-  const theme: T = useContext(ThemeContext)
+  const theme: T = useContext(ThemeContext) || DEFAULT_THEME
   return { theme }
 }
