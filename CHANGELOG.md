@@ -1,3 +1,16 @@
+# (Thu Feb 29 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.1.5`
+  - fix(theme): returns the default theme if none is provided [#1367](https://github.com/artsy/palette/pull/1367) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Feb 28 2024)
 
 #### 🐛  Bug Fix
