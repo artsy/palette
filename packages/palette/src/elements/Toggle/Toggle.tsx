@@ -11,12 +11,8 @@ export interface ToggleProps
   disabled?: boolean
   /** Select the toggle on render */
   selected?: boolean
-  /** Show an error indicator */
-  error?: boolean
   /** Used to force the toggle into the visual hover state */
   hover?: boolean
-  /** Forces focus state */
-  focus?: boolean
   /** Callback when selected */
   onSelect?: (selected: boolean) => void
 }
@@ -25,7 +21,6 @@ export interface ToggleProps
 export const Toggle: React.FC<ToggleProps> = ({
   selected = false,
   disabled,
-  focus,
   onSelect,
   onClick,
   ...rest
@@ -59,7 +54,6 @@ export const Toggle: React.FC<ToggleProps> = ({
       role="toggle"
       aria-checked={selected}
       selected={selected}
-      focus={focus}
       disabled={disabled}
       {...rest}
     >
@@ -86,9 +80,7 @@ const Switch = styled(Box)<{ selected: boolean }>`
 const Container = styled(Box)<{
   selected: boolean
   hover?: boolean
-  focus?: boolean
   disabled?: boolean
-  error?: boolean
 }>`
   user-select: none;
   border-radius: 100px;
@@ -98,25 +90,11 @@ const Container = styled(Box)<{
   ${(props) => {
     return css`
       ${props.selected ? TOGGLE_STATES.selected : TOGGLE_STATES.default}
-      ${props.focus && TOGGLE_STATES.focus}
       ${props.hover && TOGGLE_STATES.hover}
-      ${props.disabled && TOGGLE_STATES.disabled}
-      ${props.error && TOGGLE_STATES.error}
-
-      &:hover {
-        ${!props.error &&
-        css`
-          ${TOGGLE_STATES.hover}
-        `}
-      }
-
-      &:focus {
-        ${TOGGLE_STATES.focus}
-      }
-
-      &:disabled {
-        ${TOGGLE_STATES.disabled}
-      }
+      ${props.disabled &&
+      (props.selected
+        ? TOGGLE_STATES.disabled.selected
+        : TOGGLE_STATES.disabled.default)}
     `
   }}
 `

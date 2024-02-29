@@ -18,16 +18,17 @@ export const TOGGLE_STATES = {
   selected: css`
     background-color: ${themeGet("colors.blue100")};
   `,
-  focus: css`
-    /* color: ${themeGet("colors.black100")}; */
-  `,
   hover: css`
     cursor: pointer;
   `,
-  disabled: css`
-    pointer-events: none;
-  `,
-  error: css`
-    /* color: ${themeGet("colors.red100")}; */
-  `,
+  disabled: {
+    default: css`
+      background-color: ${themeGet("colors.black10")};
+      pointer-events: none;
+    `,
+    selected: css`
+      background-color: ${themeGet("colors.blue10")};
+      pointer-events: none;
+    `,
+  },
 } as const
