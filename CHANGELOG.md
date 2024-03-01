@@ -1,3 +1,16 @@
+# (Fri Mar 01 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.2.0`
+  - feat(read-more): Add `inlineReadMoreLink` prop [#1368](https://github.com/artsy/palette/pull/1368) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Thu Feb 29 2024)
 
 #### 🐛  Bug Fix

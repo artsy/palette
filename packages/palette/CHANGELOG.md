@@ -1,3 +1,19 @@
+# v38.2.0 (Fri Mar 01 2024)
+
+#### 🚀  Enhancement
+
+- feat(read-more): Add `inlineReadMoreLink` prop [#1368](https://github.com/artsy/palette/pull/1368) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat(read-more): Add `inlineReadMoreLink` prop ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v38.1.5 (Thu Feb 29 2024)
 
 #### 🐛  Bug Fix
