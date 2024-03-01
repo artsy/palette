@@ -8,6 +8,7 @@ import { Box } from "../Box"
 export interface ReadMoreProps {
   content: string
   disabled?: boolean
+  inlineReadMoreLink?: boolean
   isExpanded?: boolean
   maxChars?: number
   onReadLessClicked?: () => void
@@ -18,6 +19,7 @@ export interface ReadMoreProps {
 export const ReadMore: React.FC<ReadMoreProps> = ({
   content: expandedHTML,
   disabled,
+  inlineReadMoreLink = true,
   isExpanded,
   maxChars = Infinity,
   onReadLessClicked,
@@ -70,7 +72,14 @@ export const ReadMore: React.FC<ReadMoreProps> = ({
         </>
       ) : (
         <Clickable onClick={handleClick}>
-          <span dangerouslySetInnerHTML={{ __html: truncatedHTML }} />{" "}
+          {inlineReadMoreLink ? (
+            <>
+              <span dangerouslySetInnerHTML={{ __html: truncatedHTML }} />{" "}
+            </>
+          ) : (
+            <Box dangerouslySetInnerHTML={{ __html: truncatedHTML }} />
+          )}
+
           <Text
             as="span"
             variant="xs"
