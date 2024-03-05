@@ -32,7 +32,7 @@ export const Toggle: React.FC<ToggleProps> = ({
       onSelect(!selected)
     }
 
-    if (onClick !== undefined) {
+    if (onClick) {
       onClick(event)
     }
   }
