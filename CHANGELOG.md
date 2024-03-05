@@ -1,3 +1,16 @@
+# (Tue Mar 05 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.3.0`
+  - feat(EMI-1718): add toggle component [#1369](https://github.com/artsy/palette/pull/1369) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Fri Mar 01 2024)
 
 #### 🚀  Enhancement
