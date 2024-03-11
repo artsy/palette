@@ -1,3 +1,15 @@
+# v38.4.0 (Mon Mar 11 2024)
+
+#### 🚀  Enhancement
+
+- fix: export toggle [#1370](https://github.com/artsy/palette/pull/1370) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v38.3.0 (Tue Mar 05 2024)
 
 #### 🚀  Enhancement
