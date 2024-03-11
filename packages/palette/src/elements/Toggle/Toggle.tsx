@@ -86,6 +86,7 @@ const Container = styled(Box)<{
   border-radius: 100px;
   width: 51px;
   height: 31px;
+  flex-shrink: 0;
 
   ${(props) => {
     return css`
