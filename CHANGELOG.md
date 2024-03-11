@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@38.5.0`
+  - fix: toggle flex shrink [#1371](https://github.com/artsy/palette/pull/1371) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# (Mon Mar 11 2024)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@38.4.0`
   - fix: export toggle [#1370](https://github.com/artsy/palette/pull/1370) ([@rquartararo](https://github.com/rquartararo))
 
