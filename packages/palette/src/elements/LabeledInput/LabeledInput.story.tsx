@@ -41,6 +41,15 @@ export const Default = () => {
           placeholder: "Start typing...",
           name: "offer",
         },
+        {
+          label: "USD",
+          variant: "suffix",
+          title: "Your offer",
+          placeholder: "Start typing...",
+          name: "offer",
+          showCounter: true,
+          maxLength: 40,
+        },
       ]}
     >
       <LabeledInput label="$" />
