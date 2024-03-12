@@ -1,3 +1,16 @@
+# (Tue Mar 12 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.6.0`
+  - fix: input counter issue on Input [#1372](https://github.com/artsy/palette/pull/1372) ([@MrSltun](https://github.com/MrSltun))
+
+#### Authors: 1
+
+- Sultan Al-Maari ([@MrSltun](https://github.com/MrSltun))
+
+---
+
 # (Mon Mar 11 2024)
 
 #### 🚀  Enhancement
