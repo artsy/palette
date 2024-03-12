@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { States } from "storybook-states"
 import styled from "styled-components"
 import { Button } from "../Button"
@@ -73,6 +73,21 @@ export const Required = () => {
 
       <Button mt={1}>Submit</Button>
     </form>
+  )
+}
+
+export const WithState = () => {
+  const [value, setValue] = useState("")
+
+  return (
+    <Input
+      title="Example"
+      value={value}
+      onChange={(e) => setValue(e.currentTarget.value)}
+      placeholder="Start typing…"
+      maxLength={50}
+      showCounter
+    />
   )
 }
 

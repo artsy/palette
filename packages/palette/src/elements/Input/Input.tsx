@@ -1,5 +1,5 @@
 import { themeGet } from "@styled-system/theme-get"
-import React from "react"
+import React, { useCallback } from "react"
 import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
 import { RequiredField } from "../../shared/RequiredField"
@@ -45,16 +45,23 @@ export const Input: React.ForwardRefExoticComponent<
       height,
       labelOffset,
       showCounter,
+      defaultValue = "",
+      onChange,
       ...rest
     },
     ref
   ) => {
     const [boxProps, inputProps] = splitBoxProps(rest)
-    const [charCount, setCharCount] = React.useState(0)
+    const [value, setValue] = React.useState(inputProps.value || defaultValue)
 
-    const countChars = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setCharCount(e.target.value.length)
-    }
+    const handleChange = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const nextValue = event.currentTarget.value
+        setValue(nextValue)
+        onChange?.(event)
+      },
+      [onChange]
+    )
 
     return (
       <Box width="100%" className={className} {...boxProps}>
@@ -78,12 +85,8 @@ export const Input: React.ForwardRefExoticComponent<
             name={inputProps.name}
             title={title}
             labelOffset={labelOffset}
-            onChange={(e) => {
-              inputProps.onChange?.(e)
-              if (inputProps.maxLength) {
-                countChars(e)
-              }
-            }}
+            defaultValue={defaultValue}
+            onChange={handleChange}
             placeholder={inputProps.placeholder || " "}
             {...inputProps}
           />
@@ -105,7 +108,7 @@ export const Input: React.ForwardRefExoticComponent<
 
               {!!inputProps?.maxLength && showCounter && (
                 <Text flex={1} variant="xs" color="black60" textAlign="right">
-                  {charCount}/{inputProps.maxLength}
+                  {String(value).length}/{inputProps.maxLength}
                 </Text>
               )}
             </Box>
