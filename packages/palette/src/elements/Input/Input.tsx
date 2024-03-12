@@ -47,13 +47,12 @@ export const Input: React.ForwardRefExoticComponent<
       showCounter,
       defaultValue = "",
       onChange,
-      value: inputValue,
       ...rest
     },
     ref
   ) => {
     const [boxProps, inputProps] = splitBoxProps(rest)
-    const [value, setValue] = React.useState(inputValue || defaultValue)
+    const [value, setValue] = React.useState(inputProps.value || defaultValue)
 
     const handleChange = useCallback(
       (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,7 +86,6 @@ export const Input: React.ForwardRefExoticComponent<
             title={title}
             labelOffset={labelOffset}
             defaultValue={defaultValue}
-            value={value}
             onChange={handleChange}
             placeholder={inputProps.placeholder || " "}
             {...inputProps}
