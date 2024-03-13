@@ -1,3 +1,16 @@
+# (Wed Mar 13 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.7.0`
+  - fix: revert slow-click fix from 1361 [#1373](https://github.com/artsy/palette/pull/1373) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # (Tue Mar 12 2024)
 
 #### 🚀  Enhancement
