@@ -186,7 +186,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     dispatch({ type: "OPEN" })
   }
 
-  const handleInputOptionClick = (option: T, i: number) => () => {
+  const handleMouseDown = (option: T, i: number) => () => {
     handleSelect(option, i)
     resetUI()
   }
@@ -382,7 +382,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
                   aria-selected={i === index}
                   aria-posinset={i + 1}
                   aria-setsize={options.length}
-                  onClick={handleInputOptionClick(option, i)}
+                  onMouseDown={handleMouseDown(option, i)}
                   onMouseEnter={handleMouseEnter(i)}
                   selected={i === index}
                   tabIndex={-1}
