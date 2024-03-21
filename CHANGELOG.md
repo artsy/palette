@@ -1,3 +1,16 @@
+# (Thu Mar 21 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.7.1`
+  - fix(EMI-1755): fix toggle hover [#1375](https://github.com/artsy/palette/pull/1375) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Wed Mar 13 2024)
 
 #### 🚀  Enhancement
