@@ -21,6 +21,7 @@ export interface ToggleProps
 export const Toggle: React.FC<ToggleProps> = ({
   selected = false,
   disabled,
+  hover,
   onSelect,
   onClick,
   ...rest
@@ -55,6 +56,7 @@ export const Toggle: React.FC<ToggleProps> = ({
       aria-checked={selected}
       selected={selected}
       disabled={disabled}
+      hover={hover}
       {...rest}
     >
       <Switch selected={selected} />
@@ -96,6 +98,10 @@ const Container = styled(Box)<{
       (props.selected
         ? TOGGLE_STATES.disabled.selected
         : TOGGLE_STATES.disabled.default)}
+
+      &:hover {
+        ${TOGGLE_STATES.hover}
+      }
     `
   }}
 `
