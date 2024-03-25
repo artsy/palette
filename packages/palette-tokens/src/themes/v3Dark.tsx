@@ -4,30 +4,30 @@ const COLORS: Colors = {
   /** Suitable for text on black10 and lighter */
   black100: "#ffffff",
   /** Suitable for text on black10 and lighter */
-  black60: "#8f8f8f",
+  black60: "#7d7d7d",
   /** Background only */
-  black30: "#3d3d3d",
+  black30: "#4d4d4d",
   /** Background only */
-  black15: "#272727",
+  black15: "#404040",
   /** Background only */
-  black10: "#181818",
+  black10: "#333333",
   /** Suitable for text on black60 and darker */
-  black5: "#080808",
+  black5: "#1a1a1a",
   /** Suitable for text on black60 and darker */
   white100: "#000000",
 
   /** Suitable for text on black10 and lighter */
-  blue200: "#c1cafa",
+  blue200: "#d3d9fd",
   /** Suitable for text on black10 and lighter */
-  blue150: "#8496f5",
+  blue150: "#a2b1fb",
   /** Suitable for text on black10 and lighter */
-  blue100: "#283bef",
+  blue100: "#707eff",
   /** Alias of blue100 */
-  brand: "#283bef",
+  brand: "#707eff",
   /** Background only */
-  blue15: "#131635",
+  blue15: "#474d8a",
   /** Background only */
-  blue10: "#0a0b19",
+  blue10: "#31335e",
 
   /** Hover/down state and suitable for text on green10 */
   green150: "#c8fff0",
@@ -41,21 +41,21 @@ const COLORS: Colors = {
   /** Suitable for text on black10 and lighter */
   yellow100: "#d6ad1d",
   /** Background only */
-  yellow10: "#161100",
+  yellow10: "#2b2203",
 
   /** Hover/down state and suitable for text on orange10 */
   orange150: "#e38b57",
   /** Suitable for text on black10 and lighter */
   orange100: "#dd6a25",
   /** Background only */
-  orange10: "#0c0703",
+  orange10: "#2b1d12",
 
   /** Hover/down state and suitable for text on red10 */
   red150: "#f4aeae",
   /** Suitable for text on red10, black10, and lighter */
   red100: "#ff5b37",
   /** Background only */
-  red10: "#1c0c0b",
+  red10: "#533332",
 };
 
 const EFFECTS: Effects = {

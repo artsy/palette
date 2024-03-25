@@ -1,10 +1,11 @@
-import React from "react"
+import React, { FC, useMemo, useState } from "react"
 import {
   Banner,
   Box,
   Breadcrumbs,
   Button,
   BUTTON_VARIANT_NAMES,
+  Clickable,
   Column,
   GridColumns,
   Input,
@@ -15,14 +16,19 @@ import {
   Select,
   Separator,
   Spacer,
+  Stack,
   Step,
   Stepper,
   Tab,
   Tabs,
   Text,
 } from "../elements"
-import { useTheme } from "../Theme"
+import { THEME, useTheme } from "../Theme"
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
+import { THEME_DARK } from "@artsy/palette-tokens/dist/themes/v3Dark"
+import CheckmarkFillIcon from "@artsy/icons/CheckmarkFillIcon"
+import CloseFillIcon from "@artsy/icons/CloseFillIcon"
+import { debounce } from "lodash"
 
 export default {
   title: "Theme",
@@ -921,5 +927,168 @@ export const Inputs = () => {
         </Column>
       </GridColumns>
     </>
+  )
+}
+
+const contrastRatio = (hexColor1: string, hexColor2: string): number => {
+  // Convert hex color to RGB
+  const hexToRgb = (hex: string) => {
+    const r = parseInt(hex.slice(1, 3), 16)
+    const g = parseInt(hex.slice(3, 5), 16)
+    const b = parseInt(hex.slice(5, 7), 16)
+    return [r, g, b]
+  }
+
+  // Calculate relative luminance
+  const getLuminance = (rgb: number[]) => {
+    const a = rgb.map(function (v) {
+      v /= 255
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)
+    })
+    return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722
+  }
+
+  const rgb1 = hexToRgb(hexColor1)
+  const rgb2 = hexToRgb(hexColor2)
+  const luminance1 = getLuminance(rgb1)
+  const luminance2 = getLuminance(rgb2)
+
+  // Calculate contrast ratio
+  const ratio =
+    (Math.max(luminance1, luminance2) + 0.05) /
+    (Math.min(luminance1, luminance2) + 0.05)
+  return parseFloat(ratio.toFixed(2)) // Round to two decimal places for readability
+}
+
+export const ContrastRatios = () => {
+  return (
+    <>
+      <Text variant="xxl">Contrast Ratios</Text>
+
+      <Separator color="black30" my={12} />
+
+      <GridColumns>
+        {[THEME, THEME_DARK].map((theme) => {
+          return (
+            <Column key={theme.name} span={6}>
+              <Stack gap={6}>
+                <Text variant="lg-display">{theme.name}</Text>
+
+                <Stack gap={1}>
+                  {Object.entries(theme.colors).map(([name, value]) => {
+                    return (
+                      <ContrastRatioSwatch
+                        key={name}
+                        name={name}
+                        value={value}
+                        theme={theme}
+                      />
+                    )
+                  })}
+                </Stack>
+              </Stack>
+            </Column>
+          )
+        })}
+      </GridColumns>
+    </>
+  )
+}
+
+const ContrastRatioSwatch: FC<{
+  name: string
+  value: string
+  theme: typeof THEME
+}> = ({ name, value: _value, theme }) => {
+  const [value, setValue] = useState(_value)
+  const debouncedSetValue = useMemo(() => {
+    return debounce(setValue, 500)
+  }, [])
+
+  const numerator = contrastRatio(value, theme.colors.white100)
+
+  return (
+    <Stack
+      key={value}
+      gap={1}
+      flexDirection="row"
+      flex={1}
+      bg={theme.colors.white100}
+      color={value}
+      alignItems="center"
+      justifyContent="space-between"
+      px={2}
+      py={1}
+      borderRadius={5}
+    >
+      <Stack
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        gap={1}
+      >
+        <input
+          type="color"
+          value={value}
+          onChange={(e) => {
+            debouncedSetValue(e.target.value)
+            navigator.clipboard.writeText(e.target.value)
+          }}
+        />
+
+        <Clickable
+          onClick={() => {
+            setValue(_value)
+          }}
+        >
+          <Text key={value} variant="lg-display">
+            {name} = {numerator}:1
+          </Text>
+        </Clickable>
+      </Stack>
+
+      <Stack
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        gap={0.5}
+      >
+        {numerator > 4.5 ? (
+          <CheckmarkFillIcon
+            fill="green100"
+            bg="white100"
+            style={{
+              borderRadius: "50%",
+            }}
+          />
+        ) : (
+          <CloseFillIcon
+            fill="red100"
+            bg="white100"
+            style={{
+              borderRadius: "50%",
+            }}
+          />
+        )}
+
+        {numerator > 3 ? (
+          <CheckmarkFillIcon
+            fill="green100"
+            bg="white100"
+            style={{
+              borderRadius: "50%",
+            }}
+          />
+        ) : (
+          <CloseFillIcon
+            fill="red100"
+            bg="white100"
+            style={{
+              borderRadius: "50%",
+            }}
+          />
+        )}
+      </Stack>
+    </Stack>
   )
 }
