@@ -1,3 +1,16 @@
+# (Mon Mar 25 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette-tokens@6.0.1`, `@artsy/palette@38.7.2`
+  - Tweaks dark theme [#1376](https://github.com/artsy/palette/pull/1376) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Mar 21 2024)
 
 #### 🐛  Bug Fix

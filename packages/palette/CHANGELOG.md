@@ -1,3 +1,16 @@
+# v38.7.2 (Mon Mar 25 2024)
+
+#### 🐛  Bug Fix
+
+- Tweaks dark theme [#1376](https://github.com/artsy/palette/pull/1376) ([@dzucconi](https://github.com/dzucconi))
+- chore(theme): renders contrast ratios ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v38.7.1 (Thu Mar 21 2024)
 
 #### 🐛  Bug Fix
