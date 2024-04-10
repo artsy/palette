@@ -1,10 +1,11 @@
-import React from "react"
+import React, { FC } from "react"
 import ChevronLeftIcon from "@artsy/icons/ChevronLeftIcon"
 import ChevronRightIcon from "@artsy/icons/ChevronRightIcon"
 import { Flex, FlexProps } from "../Flex"
 import { Text } from "../Text"
 import styled from "styled-components"
-import { boxMixin, BoxProps } from "../Box"
+import { Box, boxMixin, BoxProps } from "../Box"
+import { SkeletonBox } from "../Skeleton"
 
 interface PageCursor {
   cursor: string
@@ -58,16 +59,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   const nextPage = (previous?.page || 0) + 2
 
   return (
-    <Text
-      as="nav"
-      aria-label="Pagination"
-      display="flex"
-      variant="sm"
-      lineHeight={1}
-      alignItems="center"
-      justifyContent="space-between"
-      {...rest}
-    >
+    <PaginationContainer {...rest}>
       <NextPrevButton
         data-testid="prev"
         aria-label="Previous"
@@ -126,7 +118,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
         <ChevronRightIcon ml={0.5} height={12} width={12} />
       </NextPrevButton>
-    </Text>
+    </PaginationContainer>
   )
 }
 
@@ -171,7 +163,7 @@ const Page: React.FC<PageProps> = ({
 export interface NextPrevButtonProps extends BoxProps {
   disabled: boolean
   getHref?: (page: number) => string
-  onClick: (event: React.MouseEvent) => void
+  onClick?: (event: React.MouseEvent) => void
   page?: number
 }
 
@@ -222,5 +214,38 @@ const NextPrevButton: React.FC<NextPrevButtonProps> = ({
     >
       {children}
     </PageLink>
+  )
+}
+
+const PaginationContainer = styled(Text).attrs({
+  as: "nav",
+  "aria-label": "Pagination",
+  variant: "sm",
+})`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1;
+`
+
+export const PaginationSkeleton: FC = () => {
+  return (
+    <PaginationContainer aria-hidden>
+      <NextPrevButton disabled pr={0.5}>
+        <ChevronLeftIcon mr={0.5} height={12} width={12} />
+
+        <span>Prev</span>
+      </NextPrevButton>
+
+      <SkeletonBox width={100}>
+        <Box opacity={0}>0</Box>
+      </SkeletonBox>
+
+      <NextPrevButton disabled pl={0.5}>
+        <span>Next</span>
+
+        <ChevronRightIcon ml={0.5} height={12} width={12} />
+      </NextPrevButton>
+    </PaginationContainer>
   )
 }

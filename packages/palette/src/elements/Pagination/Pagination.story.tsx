@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions"
 import React from "react"
 import { States } from "storybook-states"
-import { Pagination, PaginationProps } from "./Pagination"
+import { Pagination, PaginationProps, PaginationSkeleton } from "./Pagination"
 
 export default {
   title: "Components/Pagination",
@@ -46,4 +46,12 @@ export const Default = () => {
 
 Default.story = {
   name: "Pagination",
+}
+
+export const Skeleton = () => {
+  return (
+    <States>
+      <PaginationSkeleton />
+    </States>
+  )
 }
