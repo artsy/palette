@@ -1,3 +1,16 @@
+# (Wed Apr 10 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.8.0`
+  - feat(pagination): adds pagination skeleton [#1378](https://github.com/artsy/palette/pull/1378) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Mar 25 2024)
 
 #### 🐛  Bug Fix
