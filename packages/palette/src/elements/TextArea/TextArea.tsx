@@ -16,6 +16,7 @@ export interface TextAreaProps
     > {
   active?: boolean
   characterLimit?: number
+  characterLimitHelper?: boolean
   defaultValue?: string
   description?: React.ReactNode
   required?: boolean
@@ -43,6 +44,7 @@ export const TextArea: React.ForwardRefExoticComponent<
       focus,
       hover,
       characterLimit,
+      characterLimitHelper,
       title,
       description,
       defaultValue = "",
@@ -63,6 +65,13 @@ export const TextArea: React.ForwardRefExoticComponent<
       [characterLimit]
     )
 
+    const characterLimitReached = useCallback(
+      (text: string) => {
+        return Boolean(characterLimit && text.length >= characterLimit)
+      },
+      [characterLimit]
+    )
+
     const handleChange = useCallback(
       (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const nextValue = event.currentTarget.value
@@ -79,6 +88,11 @@ export const TextArea: React.ForwardRefExoticComponent<
       () => Boolean(error || characterLimitExceeded(value)),
       [characterLimitExceeded, error, value]
     )
+
+    const showCharacterLimitReached =
+      characterLimitHelper &&
+      typeof characterLimit !== "undefined" &&
+      characterLimitReached(value)
 
     return (
       <Box width="100%" {...boxProps}>
@@ -115,7 +129,15 @@ export const TextArea: React.ForwardRefExoticComponent<
 
         {(required || characterLimit) && !(error && typeof error === "string") && (
           <Box display="flex" mt={0.5} mx={1}>
-            {required && <RequiredField flex={1} disabled={disabled} />}
+            {required && !showCharacterLimitReached && (
+              <RequiredField flex={1} disabled={disabled} />
+            )}
+
+            {showCharacterLimitReached && (
+              <Text flex={1} variant="xs" color="black60" textAlign="left">
+                Character limit reached
+              </Text>
+            )}
 
             {typeof characterLimit !== "undefined" && (
               <Text
