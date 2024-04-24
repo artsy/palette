@@ -164,4 +164,18 @@ describe("TextArea", () => {
     const wrapper = getWrapper({ name: "my-input" })
     expect(wrapper.find("textarea[name='my-input']")).toHaveLength(1)
   })
+
+  it("displays character limit helper text when character limit is reached", () => {
+    const wrapper = getWrapper({
+      characterLimit: 5,
+      characterLimitHelper: true,
+    })
+    expect(wrapper.text()).toContain("0/5")
+    expect(wrapper.text()).not.toContain("Character limit reached")
+
+    simulateTyping(wrapper, "hello")
+
+    expect(wrapper.text()).toContain("5/5")
+    expect(wrapper.text()).toContain("Character limit reached")
+  })
 })

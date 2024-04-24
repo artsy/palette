@@ -21,6 +21,11 @@ export const Default = () => {
         { title: "Note" },
         { title: "Note", required: true },
         { characterLimit: 10 },
+        {
+          characterLimit: 10,
+          characterLimitHelper: true,
+          required: true,
+        },
         { characterLimit: 10, defaultValue: "hello" },
         { characterLimit: 10, defaultValue: "hello world" },
         { name: "my-text-area" },
