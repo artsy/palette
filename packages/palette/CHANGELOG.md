@@ -1,3 +1,19 @@
+# v38.9.0 (Wed Apr 24 2024)
+
+#### 🚀  Enhancement
+
+- feat(EMI-1813): TextArea character limit helper text [#1379](https://github.com/artsy/palette/pull/1379) ([@rquartararo](https://github.com/rquartararo))
+
+#### 🐛  Bug Fix
+
+- add character limit helper text ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v38.8.0 (Wed Apr 10 2024)
 
 #### 🚀  Enhancement
