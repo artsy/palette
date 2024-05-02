@@ -1,3 +1,16 @@
+# (Thu May 02 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.9.1`
+  - fix(avatar): hides broken image if avatar load fails [#1380](https://github.com/artsy/palette/pull/1380) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Apr 24 2024)
 
 #### 🚀  Enhancement
