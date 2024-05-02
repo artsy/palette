@@ -1,5 +1,5 @@
 import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
-import React from "react"
+import React, { useState } from "react"
 import { splitBoxProps } from "../Box"
 import { Flex, FlexProps } from "../Flex"
 import { Image, ImageProps } from "../Image"
@@ -49,6 +49,8 @@ export const Avatar: React.FC<AvatarProps> = ({
   lazyLoad = false,
   ...rest
 }) => {
+  const [mode, setMode] = useState<"OK" | "Error">("OK")
+
   const [boxProps, imageProps] = splitBoxProps(rest)
 
   const { diameter, variant } = TOKENS[size] ?? TOKENS.sm
@@ -77,7 +79,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         </Text>
       )}
 
-      {src && (
+      {src && mode !== "Error" && (
         <Flex position="absolute" top={0} left={0} width="100%" height="100%">
           <Image
             src={src}
@@ -85,6 +87,9 @@ export const Avatar: React.FC<AvatarProps> = ({
             height="100%"
             lazyLoad={lazyLoad}
             alt={initials ?? ""}
+            onError={() => {
+              setMode("Error")
+            }}
             {...imageProps}
           />
         </Flex>
