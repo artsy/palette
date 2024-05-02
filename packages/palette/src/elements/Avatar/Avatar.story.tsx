@@ -40,3 +40,18 @@ export const WithImage = () => {
     </States>
   )
 }
+
+export const WithBrokenImage = () => {
+  return (
+    <States<AvatarProps>
+      states={[{ size: "md" }, { size: "md", lazyLoad: true }]}
+    >
+      <Avatar
+        size="xs"
+        src="https://example.com/broken.jpg"
+        srcSet="https://example.com/broken.jpg 1x, https://example.com/broken.jpg 2x"
+        initials="TK"
+      />
+    </States>
+  )
+}
