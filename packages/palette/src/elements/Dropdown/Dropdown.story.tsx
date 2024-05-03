@@ -252,3 +252,35 @@ export const FilterExample = () => {
     </Dropdown>
   )
 }
+
+export const OverflowingContent = () => {
+  const dropdown = (
+    <Text variant="sm-display">
+      {new Array(100).fill(null).map((_, i) => (
+        <Clickable key={i} display="block" width="100%" py={1} px={2}>
+          Item {i}
+        </Clickable>
+      ))}
+    </Text>
+  )
+
+  return (
+    <Flex>
+      <Dropdown dropdown={dropdown} openDropdownByClick>
+        {({ anchorRef, anchorProps }) => {
+          return (
+            <Button
+              ref={anchorRef}
+              variant="secondaryBlack"
+              size="small"
+              mr={1}
+              {...anchorProps}
+            >
+              Click to display dropdown
+            </Button>
+          )
+        }}
+      </Dropdown>
+    </Flex>
+  )
+}
