@@ -1,3 +1,16 @@
+# (Fri May 03 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.9.2`
+  - feat(dropdown): handles potentially overflowing content [#1381](https://github.com/artsy/palette/pull/1381) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu May 02 2024)
 
 #### 🐛  Bug Fix
