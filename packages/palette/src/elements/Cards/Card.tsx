@@ -6,7 +6,7 @@ import { ResponsiveBox } from "../ResponsiveBox"
 import { useTheme } from "../../Theme"
 
 export interface CardProps extends BoxProps {
-  image: string | ImageProps
+  image: string | ImageProps | null | undefined
   title?: string | null
   subtitle?: string | null
   status?: string | null
