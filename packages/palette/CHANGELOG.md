@@ -1,3 +1,19 @@
+# v38.10.0 (Mon May 06 2024)
+
+#### 🚀  Enhancement
+
+- chore: allow null | undefined for image prop in Card [#1382](https://github.com/artsy/palette/pull/1382) ([@mzikherman](https://github.com/mzikherman))
+
+#### 🐛  Bug Fix
+
+- chore: allow null | undefined for image prop in Card ([@mzikherman](https://github.com/mzikherman))
+
+#### Authors: 1
+
+- Matt Zikherman ([@mzikherman](https://github.com/mzikherman))
+
+---
+
 # v38.9.2 (Fri May 03 2024)
 
 #### 🐛  Bug Fix
