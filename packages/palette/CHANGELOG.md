@@ -1,3 +1,16 @@
+# v38.10.1 (Wed May 15 2024)
+
+#### 🐛  Bug Fix
+
+- fix(modaldialog): passes in z-index correctly [#1383](https://github.com/artsy/palette/pull/1383) ([@dzucconi](https://github.com/dzucconi))
+- fix(modaldialog): passes in zindex correctly ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v38.10.0 (Mon May 06 2024)
 
 #### 🚀  Enhancement
