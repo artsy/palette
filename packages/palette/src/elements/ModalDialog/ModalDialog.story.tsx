@@ -118,6 +118,10 @@ export const Default = () => {
           ),
           footer: <Button width="100%">Confirm</Button>,
         },
+        {
+          title: "With custom z-index",
+          zIndex: 1000,
+        },
       ]}
     >
       {(props) => <Demo {...props} />}

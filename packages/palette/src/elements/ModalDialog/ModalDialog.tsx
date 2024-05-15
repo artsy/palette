@@ -23,6 +23,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
   rightPanel,
   title,
   header,
+  zIndex,
   ...rest
 }) => {
   const isMounted = useDidMount({ clearCallStack: true })
@@ -43,6 +44,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
           : { backgroundColor: "transparent" }
       }
       dialogProps={{ width: width ?? 480 }}
+      zIndex={zIndex}
       {...modalProps}
     >
       <ModalDialogContent
