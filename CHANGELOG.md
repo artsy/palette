@@ -1,3 +1,16 @@
+# (Wed May 29 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.11.0`
+  - feat(theme): sets global selection color [#1384](https://github.com/artsy/palette/pull/1384) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed May 15 2024)
 
 #### 🐛  Bug Fix
