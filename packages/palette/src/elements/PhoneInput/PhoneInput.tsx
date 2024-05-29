@@ -445,6 +445,7 @@ const SelectOption = styled(Box)<{ selected?: boolean }>`
 
 const StyledInput = styled.input`
   width: 100%;
+  background-color: ${themeGet("colors.white100")};
   padding: 0 ${themeGet("space.1")};
   appearance: none;
   outline: none;

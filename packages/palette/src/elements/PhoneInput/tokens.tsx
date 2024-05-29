@@ -49,12 +49,12 @@ export const PHONE_INPUT_STATES = {
   hover: css`
     > div,
     > input {
-      border-color: ${themeGet("colors.black100")};
+      border-color: ${themeGet("colors.black60")};
     }
 
     > input::placeholder,
     > label {
-      color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.black60")};
     }
   `,
   completed: css`
