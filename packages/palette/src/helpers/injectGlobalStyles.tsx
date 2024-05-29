@@ -19,6 +19,11 @@ export function injectGlobalStyles<P>(
       box-sizing: inherit;
     }
 
+    ::selection {
+      background-color: ${themeGet("colors.blue15")};
+      color: ${themeGet("colors.black100")};
+    }
+
     html,
     body,
     #root {
