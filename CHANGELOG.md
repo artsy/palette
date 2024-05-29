@@ -1,5 +1,18 @@
 # (Wed May 29 2024)
 
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.12.0`
+  - feat(EMI-1904): add onClose prop to banner [#1386](https://github.com/artsy/palette/pull/1386) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# (Wed May 29 2024)
+
 #### 🐛  Bug Fix
 
 - `@artsy/palette@38.11.1`
