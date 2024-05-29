@@ -11,17 +11,22 @@ export type BannerVariant = keyof typeof BANNER_VARIANTS
 export interface BannerProps extends FlexProps {
   variant?: BannerVariant
   dismissable?: boolean
+  onClose?: () => void
 }
 
 /** A banner */
 export const Banner: React.FC<BannerProps> = ({
   dismissable = false,
+  onClose,
   children,
   ...rest
 }) => {
   const [dismissed, setDismissed] = useState(false)
 
   const handleClick = () => {
+    if (onClose) {
+      onClose()
+    }
     setDismissed(true)
   }
 

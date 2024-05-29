@@ -32,4 +32,15 @@ describe("Button", () => {
     wrapper.find("Clickable").simulate("click")
     expect(wrapper.find("Clickable")).toHaveLength(0)
   })
+
+  it("calls 'onClose' when dismissed", () => {
+    const onClose = jest.fn()
+    const wrapper = mount(
+      <Banner dismissable onClose={onClose}>
+        There was an error.
+      </Banner>
+    )
+    wrapper.find("Clickable").simulate("click")
+    expect(onClose).toHaveBeenCalled()
+  })
 })
