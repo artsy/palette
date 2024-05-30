@@ -1,3 +1,16 @@
+# (Thu May 30 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette-tokens@6.0.2`, `@artsy/palette@38.12.1`
+  - fix: improves contrast ratio of black60 in dark mode; default message variant [#1388](https://github.com/artsy/palette/pull/1388) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed May 29 2024)
 
 #### 🚀  Enhancement

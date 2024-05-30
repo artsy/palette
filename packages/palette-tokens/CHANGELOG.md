@@ -1,3 +1,16 @@
+# v6.0.2 (Thu May 30 2024)
+
+#### 🐛  Bug Fix
+
+- fix: improves contrast ratio of black60 in dark mode; default message variant [#1388](https://github.com/artsy/palette/pull/1388) ([@dzucconi](https://github.com/dzucconi))
+- fix(v3dark): increases contrast for black60 ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v6.0.1 (Mon Mar 25 2024)
 
 #### 🐛  Bug Fix

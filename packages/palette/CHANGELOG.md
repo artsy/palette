@@ -1,3 +1,16 @@
+# v38.12.1 (Thu May 30 2024)
+
+#### 🐛  Bug Fix
+
+- fix: improves contrast ratio of black60 in dark mode; default message variant [#1388](https://github.com/artsy/palette/pull/1388) ([@dzucconi](https://github.com/dzucconi))
+- fix(message): fixes message background to match figma spec ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v38.12.0 (Wed May 29 2024)
 
 #### 🚀  Enhancement
