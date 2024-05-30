@@ -6,7 +6,7 @@ import { Text } from "../Text"
 
 export const MESSAGE_VARIANTS = {
   default: {
-    backgroundColor: "black10",
+    backgroundColor: "black5",
     color: "black100",
   },
   info: {
