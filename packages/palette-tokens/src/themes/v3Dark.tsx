@@ -3,8 +3,8 @@ import { Colors, Effects, THEME as THEME_LIGHT } from "./v3";
 const COLORS: Colors = {
   /** Suitable for text on black10 and lighter */
   black100: "#ffffff",
-  /** Suitable for text on black10 and lighter */
-  black60: "#7d7d7d",
+  /** Suitable for text on black5 and lighter */
+  black60: "#949494",
   /** Background only */
   black30: "#4d4d4d",
   /** Background only */
