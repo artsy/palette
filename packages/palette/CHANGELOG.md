@@ -1,3 +1,17 @@
+# v38.12.2 (Tue Jun 04 2024)
+
+#### 🐛  Bug Fix
+
+- fix(theme): improves legibility for overlays [#1389](https://github.com/artsy/palette/pull/1389) ([@dzucconi](https://github.com/dzucconi))
+- fix(drawer): uses themed backdrop ([@dzucconi](https://github.com/dzucconi))
+- fix(theme): improves legibility for overlays ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v38.12.1 (Thu May 30 2024)
 
 #### 🐛  Bug Fix

@@ -1,3 +1,16 @@
+# v6.0.3 (Tue Jun 04 2024)
+
+#### 🐛  Bug Fix
+
+- fix(theme): improves legibility for overlays [#1389](https://github.com/artsy/palette/pull/1389) ([@dzucconi](https://github.com/dzucconi))
+- fix(theme): improves legibility for overlays ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v6.0.2 (Thu May 30 2024)
 
 #### 🐛  Bug Fix
