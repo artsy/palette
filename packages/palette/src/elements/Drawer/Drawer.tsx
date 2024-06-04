@@ -5,6 +5,7 @@ import styled, { css } from "styled-components"
 import { zIndex } from "styled-system"
 import { FocusOn } from "react-focus-on"
 import { usePortal } from "../../utils/usePortal"
+import { themeGet } from "@styled-system/theme-get"
 
 export interface DrawerProps {
   open: boolean
@@ -56,14 +57,12 @@ export const Drawer: FC<DrawerProps> = ({
       </Focus>
 
       <Overlay
-        backgroundColor="black100"
-        height="100%"
         display={["none", "flex"]}
         onClick={onClose}
         data-testid="drawer-overlay"
         width="inherit"
         style={{
-          opacity: open ? "0.5" : "0",
+          opacity: open ? 1 : 0,
         }}
       />
     </Container>
@@ -89,6 +88,8 @@ const Content = styled(Box)<
 `
 
 const Overlay = styled(Box)`
+  height: 100%;
+  background: ${themeGet("effects.backdrop")};
   transition: opacity 150ms linear 50ms;
 `
 

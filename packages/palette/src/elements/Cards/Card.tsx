@@ -10,6 +10,8 @@ export interface CardProps extends BoxProps {
   title?: string | null
   subtitle?: string | null
   status?: string | null
+  aspectWidth?: number
+  aspectHeight?: number
 }
 
 /**
@@ -21,13 +23,22 @@ export const Card: React.FC<CardProps> = ({
   title,
   subtitle,
   status,
+  maxWidth = 280,
+  aspectWidth = 280,
+  aspectHeight = 370,
   ...rest
 }) => {
   const { theme } = useTheme()
 
+  const hasInfo = title || subtitle || status
+
   return (
-    <Box maxWidth={280} {...rest}>
-      <ResponsiveBox aspectWidth={280} aspectHeight={370} maxWidth="100%">
+    <Box maxWidth={maxWidth} {...rest}>
+      <ResponsiveBox
+        aspectWidth={aspectWidth}
+        aspectHeight={aspectHeight}
+        maxWidth="100%"
+      >
         <Image
           alt=""
           height="100%"
@@ -36,14 +47,16 @@ export const Card: React.FC<CardProps> = ({
           {...(typeof image === "string" ? { src: image } : image)}
         />
 
-        <Box
-          position="absolute"
-          width="100%"
-          height="100%"
-          top={0}
-          left={0}
-          background={theme.effects.overlayGradient}
-        />
+        {hasInfo && (
+          <Box
+            position="absolute"
+            width="100%"
+            height="50%"
+            bottom={0}
+            left={0}
+            background={theme.effects.overlayGradient}
+          />
+        )}
 
         <Box
           position="absolute"
@@ -59,9 +72,11 @@ export const Card: React.FC<CardProps> = ({
             </Text>
           )}
 
-          <Text variant="sm-display" color="white100">
-            {title}
-          </Text>
+          {title && (
+            <Text variant="sm-display" color="white100">
+              {title}
+            </Text>
+          )}
 
           {subtitle && (
             <Text variant="sm-display" color="black15">

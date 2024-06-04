@@ -63,10 +63,29 @@ const EFFECTS: Effects = {
   innerShadow: "1px 1px 2px 0 rgba(255, 255, 255, 0.1) inset",
   flatShadow: "0 1px 1px 0 rgba(255, 255, 255, 0.05)",
   /** Shadow to drop under text to improve legibility when over images */
-  textShadow: "0 0 15px rgba(255, 255, 255, 0.25)",
+  textShadow: "0 0 15px rgba(255, 255, 255, 0.5)",
   /** Overlay to improve legibility of text */
-  overlayGradient:
-    "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25))",
+  overlayGradient: `
+    linear-gradient(
+      to bottom,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsla(0, 0%, 100%, 0.01) 8.1%,
+      hsla(0, 0%, 100%, 0.036) 15.5%,
+      hsla(0, 0%, 100%, 0.078) 22.5%,
+      hsla(0, 0%, 100%, 0.132) 29%,
+      hsla(0, 0%, 100%, 0.194) 35.3%,
+      hsla(0, 0%, 100%, 0.264) 41.2%,
+      hsla(0, 0%, 100%, 0.338) 47.1%,
+      hsla(0, 0%, 100%, 0.412) 52.9%,
+      hsla(0, 0%, 100%, 0.486) 58.8%,
+      hsla(0, 0%, 100%, 0.556) 64.7%,
+      hsla(0, 0%, 100%, 0.618) 71%,
+      hsla(0, 0%, 100%, 0.672) 77.5%,
+      hsla(0, 0%, 100%, 0.714) 84.5%,
+      hsla(0, 0%, 100%, 0.74) 91.9%,
+      hsla(0, 0%, 100%, 0.75) 100%
+    );
+`,
   /** Fade right edge */
   fadeRight:
     "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)",

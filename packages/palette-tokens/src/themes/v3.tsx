@@ -100,7 +100,27 @@ const EFFECTS = {
   /** Shadow to drop under text to improve legibility when over images */
   textShadow: "0 0 15px rgba(0, 0, 0, 0.25)",
   /** Overlay to improve legibility of text */
-  overlayGradient: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25))",
+  overlayGradient: `
+    linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.006) 8.1%,
+      hsla(0, 0%, 0%, 0.024) 15.5%,
+      hsla(0, 0%, 0%, 0.052) 22.5%,
+      hsla(0, 0%, 0%, 0.088) 29%,
+      hsla(0, 0%, 0%, 0.13) 35.3%,
+      hsla(0, 0%, 0%, 0.176) 41.2%,
+      hsla(0, 0%, 0%, 0.225) 47.1%,
+      hsla(0, 0%, 0%, 0.275) 52.9%,
+      hsla(0, 0%, 0%, 0.324) 58.8%,
+      hsla(0, 0%, 0%, 0.37) 64.7%,
+      hsla(0, 0%, 0%, 0.412) 71%,
+      hsla(0, 0%, 0%, 0.448) 77.5%,
+      hsla(0, 0%, 0%, 0.476) 84.5%,
+      hsla(0, 0%, 0%, 0.494) 91.9%,
+      hsla(0, 0%, 0%, 0.5) 100%
+    );
+  `,
   /** Fade right edge */
   fadeRight:
     "linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)",
