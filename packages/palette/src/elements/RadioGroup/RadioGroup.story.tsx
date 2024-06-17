@@ -65,7 +65,7 @@ WithDefaultValue.story = {
 export const OtherTypes = () => {
   return (
     <States<Partial<RadioGroupProps<boolean | undefined>>>>
-      <RadioGroup onSelect={action("onSelect")}>
+      <RadioGroup defaultValue={false} onSelect={action("onSelect")}>
         <Radio value={true} label="Yes" />
 
         <Spacer y={0.5} />

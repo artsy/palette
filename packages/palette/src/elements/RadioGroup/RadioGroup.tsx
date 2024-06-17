@@ -32,7 +32,7 @@ export class RadioGroup<T> extends React.Component<
   RadioGroupState<T>
 > {
   state = {
-    selectedOption: this.props.defaultValue || null,
+    selectedOption: this.props.defaultValue ?? null,
   }
 
   componentDidUpdate(prevProps) {
