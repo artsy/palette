@@ -10,7 +10,7 @@ export default {
 
 export const Default = () => {
   return (
-    <States<Partial<RadioGroupProps>>
+    <States<Partial<RadioGroupProps<string>>>
       states={[{}, { defaultValue: "Aural" }, { deselectable: true }]}
     >
       <RadioGroup onSelect={action("onSelect")}>

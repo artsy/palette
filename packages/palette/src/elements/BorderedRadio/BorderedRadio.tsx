@@ -2,7 +2,7 @@ import { themeGet } from "@styled-system/theme-get"
 import styled from "styled-components"
 import { Radio, RadioProps } from "../Radio"
 
-export type BorderedRadioProps = RadioProps
+export type BorderedRadioProps<T = any> = RadioProps<T>
 
 /** A radio button with a border */
 export const BorderedRadio = styled(Radio)<BorderedRadioProps>`

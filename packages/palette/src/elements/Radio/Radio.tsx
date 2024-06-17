@@ -6,7 +6,7 @@ import { Text } from "../Text"
 import { RadioDot } from "./RadioDot"
 import { RADIO_DOT_STATES, RADIO_STATES, RADIO_SIZES } from "./tokens"
 
-export interface RadioProps
+export interface RadioProps<T>
   extends FlexProps,
     Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect"> {
   /** Disable interactions */
@@ -20,7 +20,7 @@ export interface RadioProps
   /** Forces focus state */
   focus?: boolean
   /** Value of radio button */
-  value?: string
+  value?: T
   /** Name of the radio button */
   name?: string
   /** The label content, if not specified the children will be used  */
@@ -28,11 +28,11 @@ export interface RadioProps
   /** The radio size, if not specified, "sm" will be used  */
   size?: keyof typeof RADIO_SIZES
   /** Callback when selected */
-  onSelect?: (selected: { selected: boolean; value: string }) => void
+  onSelect?: (selected: { selected: boolean; value: T }) => void
 }
 
 /** A Radio button */
-export const Radio: React.FC<RadioProps> = ({
+export const Radio = <T,>({
   children,
   disabled,
   hover,
@@ -44,7 +44,7 @@ export const Radio: React.FC<RadioProps> = ({
   size = "sm",
   onSelect,
   ...rest
-}) => {
+}: RadioProps<T>) => {
   const handleClick = () => {
     onSelect && onSelect({ selected: !selected, value: value! })
   }

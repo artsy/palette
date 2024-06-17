@@ -10,7 +10,7 @@ export default {
 
 export const Default = () => {
   return (
-    <States<RadioProps>
+    <States<RadioProps<string>>
       states={[
         {},
         { selected: true },
