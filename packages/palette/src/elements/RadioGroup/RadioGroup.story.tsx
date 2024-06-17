@@ -13,7 +13,7 @@ export default {
 
 export const Default = () => {
   return (
-    <States<Partial<RadioGroupProps>>
+    <States<Partial<RadioGroupProps<string>>>
       states={[
         {},
         { defaultValue: "Aural" },
@@ -60,4 +60,18 @@ export const WithDefaultValue = () => {
 
 WithDefaultValue.story = {
   name: "With default value",
+}
+
+export const OtherTypes = () => {
+  return (
+    <States<Partial<RadioGroupProps<boolean | undefined>>>>
+      <RadioGroup onSelect={action("onSelect")}>
+        <Radio value={true} label="Yes" />
+
+        <Spacer y={0.5} />
+
+        <Radio value={false} label="No" />
+      </RadioGroup>
+    </States>
+  )
 }

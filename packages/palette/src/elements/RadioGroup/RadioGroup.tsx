@@ -3,7 +3,7 @@ import { Flex, FlexProps } from "../Flex"
 import { RadioProps } from "../Radio"
 import { Text } from "../Text"
 
-export interface RadioGroupProps extends FlexProps {
+export interface RadioGroupProps<T> extends FlexProps {
   /** Ability to deselect the selection */
   deselectable?: boolean
   /** Disable interactions */
@@ -11,25 +11,25 @@ export interface RadioGroupProps extends FlexProps {
   /** Text to display when disabled */
   disabledText?: string
   /** Callback when selected */
-  onSelect?: (selectedOption: string) => void
+  onSelect?: (selectedOption: T) => void
   /** Default value of radio button */
-  defaultValue?: string
+  defaultValue?: T
   /** Child <Radio /> elements */
   children:
-    | Array<React.ReactElement<RadioProps>>
-    | React.ReactElement<RadioProps>
+    | Array<React.ReactElement<RadioProps<T>>>
+    | React.ReactElement<RadioProps<T>>
 }
 
-interface RadioGroupState {
-  selectedOption: string | null
+interface RadioGroupState<T> {
+  selectedOption: T | null
 }
 
 /**
  * A stateful collection of Radio buttons
  */
-export class RadioGroup extends React.Component<
-  RadioGroupProps,
-  RadioGroupState
+export class RadioGroup<T> extends React.Component<
+  RadioGroupProps<T>,
+  RadioGroupState<T>
 > {
   state = {
     selectedOption: this.props.defaultValue || null,
@@ -69,7 +69,7 @@ export class RadioGroup extends React.Component<
   renderRadioButtons() {
     return React.Children.map(
       this.props.children,
-      (child: React.ReactElement<RadioProps>) => {
+      (child: React.ReactElement<RadioProps<T>>) => {
         return React.cloneElement(child, {
           disabled:
             child.props.disabled !== undefined
