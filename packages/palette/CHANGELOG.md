@@ -1,3 +1,19 @@
+# v38.13.0 (Mon Jun 17 2024)
+
+#### 🚀  Enhancement
+
+- feat(radio): supports generic type [#1390](https://github.com/artsy/palette/pull/1390) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(radio): supports generic type ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v38.12.2 (Tue Jun 04 2024)
 
 #### 🐛  Bug Fix
