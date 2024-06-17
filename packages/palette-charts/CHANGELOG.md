@@ -1,3 +1,15 @@
+# v37.13.1 (Mon Jun 17 2024)
+
+#### 🐛  Bug Fix
+
+- fix(radiogroup): supports default value of false [#1391](https://github.com/artsy/palette/pull/1391) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v37.12.1 (Thu May 30 2024)
 
 #### 🐛  Bug Fix
