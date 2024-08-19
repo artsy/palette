@@ -136,7 +136,7 @@ const Close = styled(Clickable)`
   color: ${themeGet("colors.black100")};
 
   &:focus,
-  &.focus-visible {
+  &:focus-visible {
     outline: none;
     color: ${themeGet("colors.black60")};
   }

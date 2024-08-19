@@ -13,10 +13,8 @@ const Example: React.FC<
     bodyChildren?: JSX.Element
     /** Simulates an input being added after render */
     defer?: boolean
-    /** Simulates an input being mutated by an external entity */
-    focusVisible?: boolean
   }
-> = ({ bodyChildren, dialogChildren, defer, focusVisible, ...rest } = {}) => {
+> = ({ bodyChildren, dialogChildren, defer, ...rest } = {}) => {
   const [open, setOpen] = useState(false)
   const label = open ? "opened" : "open"
   const handleClose = () => setOpen(false)
@@ -30,18 +28,6 @@ const Example: React.FC<
       }, 1000)
     }
   }, [defer, open])
-
-  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-    if (!focusVisible) return
-
-    const el = event.currentTarget
-
-    document.querySelectorAll("input").forEach((input) => {
-      input.classList.remove("focus-visible")
-    })
-
-    el.classList.add("focus-visible")
-  }
 
   return (
     <>
@@ -67,18 +53,10 @@ const Example: React.FC<
                   <Button variant="primaryWhite" onClick={handleClose}>
                     Or click here to close.
                   </Button>
-                  <Input
-                    placeholder="Just an example for focusing"
-                    onFocus={handleFocus}
-                  />
-                  <Input
-                    placeholder="Just an example for focusing"
-                    onFocus={handleFocus}
-                  />
+                  <Input placeholder="Just an example for focusing" />
+                  <Input placeholder="Just an example for focusing" />
                   {dialogChildren}
-                  {deferred && (
-                    <Input placeholder="Deferred input" onFocus={handleFocus} />
-                  )}
+                  {deferred && <Input placeholder="Deferred input" />}
                 </Join>
               </Text>
             </Box>
@@ -97,10 +75,6 @@ export const Default = () => {
 
 export const DeferredFocusables = () => {
   return <Example defer />
-}
-
-export const SimulateFocusVisible = () => {
-  return <Example focusVisible />
 }
 
 export const Fullscreen = () => {
