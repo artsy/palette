@@ -28,7 +28,7 @@ import { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 import { THEME_DARK } from "@artsy/palette-tokens/dist/themes/v3Dark"
 import CheckmarkFillIcon from "@artsy/icons/CheckmarkFillIcon"
 import CloseFillIcon from "@artsy/icons/CloseFillIcon"
-import { debounce } from "lodash"
+import { debounce } from "es-toolkit"
 
 export default {
   title: "Theme",

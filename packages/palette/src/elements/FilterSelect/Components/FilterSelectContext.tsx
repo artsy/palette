@@ -1,4 +1,3 @@
-import { reject } from "lodash"
 import React, {
   createContext,
   useContext,
@@ -95,9 +94,9 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
 
       let selectedItems
       if (isFound) {
-        selectedItems = reject(state.selectedItems, {
-          value: action.payload.item.value,
-        })
+        selectedItems = state.selectedItems.filter(
+          (item) => item.value !== action.payload.item.value
+        )
       } else {
         selectedItems = state.multiselect
           ? [...state.selectedItems, action.payload.item]

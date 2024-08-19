@@ -1,4 +1,4 @@
-import { intersection, orderBy, uniqBy } from "lodash"
+import { intersection, orderBy, uniqBy } from "es-toolkit"
 import * as React from "react"
 import { ShowMore } from "../ShowMore"
 import { Flex } from "../Flex"
@@ -6,6 +6,7 @@ import { FilterSelectResultItem } from "./Components/FilterSelectResultItem"
 import {
   FilterSelectContextProvider,
   FilterSelectState,
+  Items,
   useFilterSelectContext,
 } from "./Components/FilterSelectContext"
 import { FilterInput } from "./Components/FilterInput"
@@ -54,12 +55,12 @@ const _FilterSelect: React.FC = () => {
     return null
   }
 
-  const orderItems = (items) => orderBy(items, order[0], order[1])
+  const orderItems = (items: Items) => orderBy([...items], order[0], order[1])
   const itemsOrdered = orderItems(items)
   const filterdItemsOrdered = orderItems(filteredItems)
   const itemsSorted = multiselect
     ? // Move selected items to the top
-      uniqBy(selectedItems.concat(itemsOrdered), "value")
+      uniqBy(selectedItems.concat(itemsOrdered), (x) => x.value)
     : itemsOrdered
   const expanded = isBelowTheFoldSelected(selectedItems, itemsSorted)
   const showNoResults = filteredItems.length === 0 && query !== ""
