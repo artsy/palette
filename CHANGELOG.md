@@ -1,3 +1,16 @@
+# (Mon Aug 19 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.13.2`
+  - fix: drops minor focus-visible polyfill handling [#1394](https://github.com/artsy/palette/pull/1394) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Jun 17 2024)
 
 #### 🐛  Bug Fix
