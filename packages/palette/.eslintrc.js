@@ -36,5 +36,12 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/prop-types": 0,
+    "no-restricted-imports": [
+      "error",
+      {
+        name: "lodash",
+        message: "Please use `es-toolkit` instead.",
+      },
+    ],
   },
 }
