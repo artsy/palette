@@ -1,3 +1,16 @@
+# (Mon Aug 26 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.13.3`
+  - fix: replaces lodash with es-toolkit [#1395](https://github.com/artsy/palette/pull/1395) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Aug 19 2024)
 
 #### 🐛  Bug Fix
