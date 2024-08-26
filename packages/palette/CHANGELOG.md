@@ -1,3 +1,16 @@
+# v38.13.4 (Mon Aug 26 2024)
+
+#### 🐛  Bug Fix
+
+- fix: moves focus-visible styling into global styles [#1396](https://github.com/artsy/palette/pull/1396) ([@dzucconi](https://github.com/dzucconi))
+- fix: moves focus-visible styling into global styles ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v38.13.3 (Mon Aug 26 2024)
 
 #### 🐛  Bug Fix
