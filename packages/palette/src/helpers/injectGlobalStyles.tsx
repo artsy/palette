@@ -19,6 +19,14 @@ export function injectGlobalStyles<P>(
       box-sizing: inherit;
     }
 
+    &:focus {
+      outline: 0;
+    }
+
+    &:focus-visible {
+      outline: 1px solid ${themeGet("colors.blue100")};
+    }
+
     ::selection {
       background-color: ${themeGet("colors.blue15")};
       color: ${themeGet("colors.black100")};
