@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, isValidElement } from "react"
 import { Clickable, ClickableProps } from "../Clickable"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
@@ -13,14 +13,14 @@ import { useTheme } from "../../Theme"
 
 export interface ModalDialogContentProps
   extends BoxProps,
-    React.HTMLAttributes<HTMLDivElement> {
+    Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   children: React.ReactNode
   footer?: React.ReactNode
   hasLogo?: boolean
   leftPanel?: React.ReactNode
   onClose: () => void
   rightPanel?: React.ReactNode
-  title?: string
+  title?: React.ReactNode
   header?: React.ReactNode
 }
 
@@ -65,25 +65,29 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
             boxShadow: isAtTop ? theme.effects.dropShadow : undefined,
           }}
         >
-          <Flex alignItems="flex-start" justifyContent="space-between">
-            {(title || hasLogo) && (
-              <Box m={2}>
-                {hasLogo && (
-                  <ArtsyLogoIcon display="block" width={75} height={26} />
-                )}
+          {isValidElement(title) ? (
+            title
+          ) : (
+            <Flex alignItems="flex-start" justifyContent="space-between">
+              {(title || hasLogo) && (
+                <Box m={2}>
+                  {hasLogo && (
+                    <ArtsyLogoIcon display="block" width={75} height={26} />
+                  )}
 
-                {hasLogo && title && <Spacer y={2} />}
+                  {hasLogo && title && <Spacer y={2} />}
 
-                {title && (
-                  <Text variant="lg-display" lineClamp={6} hyphenate>
-                    {title}
-                  </Text>
-                )}
-              </Box>
-            )}
+                  {title && (
+                    <Text variant="lg-display" lineClamp={6} hyphenate>
+                      {title}
+                    </Text>
+                  )}
+                </Box>
+              )}
 
-            <ModalClose onClick={onClose} />
-          </Flex>
+              <ModalClose onClick={onClose} />
+            </Flex>
+          )}
 
           {header && (
             <Box px={2} pb={2}>

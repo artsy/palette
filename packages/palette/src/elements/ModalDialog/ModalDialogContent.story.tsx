@@ -10,6 +10,10 @@ import { Button } from "../Button"
 import { Input } from "../Input"
 import { Join } from "../Join"
 import { Spacer } from "../Spacer"
+import { Box } from "../Box"
+import ChevronLeftIcon from "@artsy/icons/ChevronLeftIcon"
+import ArtsyLogoIcon from "@artsy/icons/ArtsyLogoIcon"
+import CloseIcon from "@artsy/icons/CloseIcon"
 
 export default {
   title: "Components/ModalDialogContent",
@@ -72,6 +76,20 @@ export const Default = () => {
             "Modal Title with a longer title or headline text that runs on for mutliple lines",
           hasLogo: true,
           footer: <Button width="100%">Confirm</Button>,
+        },
+        {
+          title: (
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              p={2}
+            >
+              <ChevronLeftIcon />
+              <ArtsyLogoIcon height={30} />
+              <CloseIcon />
+            </Box>
+          ),
         },
       ]}
     >
