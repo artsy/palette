@@ -1,3 +1,16 @@
+# (Tue Sep 03 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@38.14.0`
+  - feat(modaldialog): supports fully custom title components [#1397](https://github.com/artsy/palette/pull/1397) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Aug 26 2024)
 
 #### 🐛  Bug Fix
