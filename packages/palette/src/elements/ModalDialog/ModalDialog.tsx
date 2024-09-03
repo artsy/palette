@@ -8,7 +8,7 @@ import { splitBoxProps } from "../Box"
 import { useDidMount } from "../../utils/useDidMount"
 import { useTheme } from "../../Theme"
 
-export type ModalDialogProps = ModalBaseProps &
+export type ModalDialogProps = Omit<ModalBaseProps, "title"> &
   ModalDialogContentProps & {
     leftPanel?: React.ReactNode
     rightPanel?: React.ReactNode

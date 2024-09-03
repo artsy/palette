@@ -122,6 +122,9 @@ export const Default = () => {
           title: "With custom z-index",
           zIndex: 1000,
         },
+        {
+          title: <Box bg="red">Custom title</Box>,
+        },
       ]}
     >
       {(props) => <Demo {...props} />}
