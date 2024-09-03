@@ -1,5 +1,18 @@
 # (Tue Sep 03 2024)
 
+#### 🐛  Bug Fix
+
+- `@artsy/palette@38.14.1`
+  - fix(modaldialog): corrects type for title [#1398](https://github.com/artsy/palette/pull/1398) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Tue Sep 03 2024)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette@38.14.0`
