@@ -123,6 +123,7 @@ const Container = styled(Flex)<{
   hover?: boolean
   focus?: boolean
   selected?: boolean
+  as?: React.ElementType
 }>`
   ${(props) => {
     return css`

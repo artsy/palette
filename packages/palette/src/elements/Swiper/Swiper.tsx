@@ -30,7 +30,7 @@ const Container = styled(Box)`
 export type SwiperRailProps = BoxProps
 
 /** A `SwiperRail` slides back and forth within the viewport */
-export const SwiperRail = styled(Box)`
+export const SwiperRail = styled(Box)<{ as?: React.ElementType }>`
   width: 100%;
   height: 100%;
   margin: 0;
@@ -47,7 +47,7 @@ SwiperRail.defaultProps = {
 export type SwiperCellProps = BoxProps
 
 /** A `SwiperCell` wraps a single child in the carousel */
-export const SwiperCell = styled(Box)`
+export const SwiperCell = styled(Box)<{ as?: React.ElementType }>`
   white-space: normal;
 `
 

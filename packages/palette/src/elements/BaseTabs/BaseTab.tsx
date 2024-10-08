@@ -1,24 +1,18 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import { Clickable, ClickableProps } from "../Clickable"
+import { Clickable } from "../Clickable"
 import { Text, TextProps } from "../Text"
 import { STATES } from "./tokens"
 
 /**
  * Utilize as="a" or as={Component} to alter functionality
  */
-export type BaseTabProps = TextProps & {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type BaseTabProps<C extends React.ComponentType = any> = TextProps & {
   active?: boolean
   focus?: boolean
   hover?: boolean
-} & (
-    | // Default:
-    { as?: keyof JSX.IntrinsicElements | React.ComponentType }
-    // When displaying as an anchor tag, accept anchor props:
-    | ({ as: "a" } & React.AnchorHTMLAttributes<HTMLAnchorElement>)
-    // When displaying as an anchor tag, accept anchor props:
-    | ({ as: typeof Clickable } & ClickableProps)
-  )
+} & React.ComponentPropsWithoutRef<C> & { as?: C }
 
 /**
  * Extends `Text`. Should always be nested within a `BaseTabs` container.

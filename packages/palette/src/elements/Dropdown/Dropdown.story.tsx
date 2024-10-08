@@ -26,33 +26,15 @@ export const Default = () => {
         visible
         dropdown={
           <Box width={300} p={2}>
-            <Text
-              as="a"
-              display="block"
-              variant="sm"
-              // @ts-expect-error  MIGRATE_STRICT_MODE
-              href="#"
-            >
+            <Text as="a" display="block" variant="sm" href="#">
               One
             </Text>
 
-            <Text
-              as="a"
-              display="block"
-              variant="sm"
-              // @ts-expect-error  MIGRATE_STRICT_MODE
-              href="#"
-            >
+            <Text as="a" display="block" variant="sm" href="#">
               Two
             </Text>
 
-            <Text
-              as="a"
-              display="block"
-              variant="sm"
-              // @ts-expect-error  MIGRATE_STRICT_MODE
-              href="#"
-            >
+            <Text as="a" display="block" variant="sm" href="#">
               Three
             </Text>
           </Box>
