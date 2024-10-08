@@ -1,9 +1,9 @@
 version: 2.1
 
 orbs:
-  yarn: artsy/yarn@6.4.0
   auto: artsy/auto@2.2.0
   aws-s3: circleci/aws-s3@2.0.0
+  node: circleci/node@6.1.0
 
 jobs:
   deploy-storybook:
@@ -18,32 +18,38 @@ jobs:
 workflows:
   build_and_verify:
     jobs:
-      - yarn/workflow-queue
-      - yarn/update-cache:
-          requires:
-            - yarn/workflow-queue
-      - yarn/lint:
-          requires:
-            - yarn/workflow-queue
-      - yarn/type-check:
-          requires:
-            - yarn/workflow-queue
-      - yarn/test:
-          requires:
-            - yarn/workflow-queue
-      - yarn/run:
+      - node/run:
+          name: lint
+          pkg-manager: yarn
+          yarn-run: lint
+          version: 18.15.0
+
+      - node/run:
+          name: type-check
+          pkg-manager: yarn
+          yarn-run: type-check
+          version: 18.15.0
+
+      - node/run:
+          name: test
+          pkg-manager: yarn
+          yarn-run: test
+          version: 18.15.0
+
+      - node/run:
           name: visual-test
-          script: visual-test --auto-accept-changes
-          requires:
-            - yarn/workflow-queue
+          pkg-manager: yarn
+          yarn-run: visual-test
+          version: 18.15.0
           filters:
             branches:
               ignore: main
-      - yarn/run:
-          name: visual-test-master
-          script: visual-test --auto-accept-changes
-          requires:
-            - yarn/workflow-queue
+
+      - node/run:
+          name: visual-test-main
+          pkg-manager: yarn
+          yarn-run: visual-test
+          version: 18.15.0
           filters:
             branches:
               only: main
@@ -55,10 +61,9 @@ workflows:
             branches:
               ignore: main
           requires:
-            - yarn/test
-            - yarn/lint
-            - yarn/type-check
-            - yarn/update-cache
+            - test
+            - lint
+            - type-check
 
       # Releases
       - auto/publish:
@@ -67,15 +72,14 @@ workflows:
             branches:
               only: main
           requires:
-            - yarn/test
-            - yarn/lint
-            - yarn/type-check
-            - yarn/update-cache
+            - test
+            - lint
+            - type-check
 
       # Docs / Storybooks
-      - yarn/run:
+      - node/run:
           name: build-storybook
-          script: "build-storybook"
+          yarn-run: "build-storybook"
           post-steps:
             - persist_to_workspace:
                 root: .
@@ -84,6 +88,7 @@ workflows:
           filters:
             branches:
               only: main
+
       - deploy-storybook:
           context: static-sites-uploader
           requires:
