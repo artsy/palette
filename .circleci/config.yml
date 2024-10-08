@@ -60,6 +60,7 @@ workflows:
           filters:
             branches:
               ignore: main
+          node-version: "16.10.0"
           requires:
             - test
             - lint
@@ -71,6 +72,7 @@ workflows:
           filters:
             branches:
               only: main
+          node-version: "16.10.0"
           requires:
             - test
             - lint
