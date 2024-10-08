@@ -40,7 +40,7 @@ workflows:
           name: visual-test
           pkg-manager: yarn
           yarn-run: visual-test
-          version: 18.15.0
+          version: "16.10.0"
           filters:
             branches:
               ignore: main
@@ -49,7 +49,7 @@ workflows:
           name: visual-test-main
           pkg-manager: yarn
           yarn-run: visual-test
-          version: 18.15.0
+          version: "16.10.0"
           filters:
             branches:
               only: main
