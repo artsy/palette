@@ -88,7 +88,7 @@ const COLORS = {
   /** Suitable for text on red10, black10, and lighter */
   red100: "#BB392D",
   /** Background only */
-  red10: "#F4E4E3",
+  red10: "#FEF2EF",
 };
 
 export type Colors = typeof COLORS;
