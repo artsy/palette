@@ -120,7 +120,7 @@ const BarAxisLabelContainer = styled.div<AxisContainerProps>`
   flex: ${({ last }) => (last ? 0 : 1)};
   min-height: ${space(2)}px;
   position: relative;
-  ${media.xs`
+  ${media.xs<AxisContainerProps>`
     display: ${({ first, last }) => (first || last ? "auto" : "none")};;
   `};
 `

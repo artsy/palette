@@ -5,7 +5,7 @@ import React, {
   Ref,
   useState,
 } from "react"
-import styled, { css } from "styled-components"
+import styled, { css, ExecutionContext } from "styled-components"
 import { FORM_ELEMENT_TRANSITION } from "../../helpers"
 import { RequiredField } from "../../shared/RequiredField"
 import { Box, BoxProps, splitBoxProps } from "../Box"
@@ -153,6 +153,10 @@ const resetMixin = css`
   }
 `
 
+interface CaretProps extends ExecutionContext {
+  disabled?: boolean
+}
+
 /** Creates a small caret */
 export const caretMixin = css`
   &::after {
@@ -168,7 +172,7 @@ export const caretMixin = css`
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 4px solid
-      ${({ disabled }) => {
+      ${({ disabled }: CaretProps) => {
         return disabled
           ? themeGet("colors.black10")
           : themeGet("colors.black100")
