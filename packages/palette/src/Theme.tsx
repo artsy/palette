@@ -1,11 +1,5 @@
 import React, { useContext } from "react"
-import {
-  // FIXME: Upgrading styled-components types to get `ThemeContext` breaks many other typings.
-  // Notably: `Icon` and `Sans|Serif`
-  // @ts-expect-error  MIGRATE_STRICT_MODE
-  ThemeContext,
-  ThemeProvider,
-} from "styled-components"
+import { ThemeContext, ThemeProvider } from "styled-components"
 import { THEME, Theme as TTheme } from "./themes"
 
 export * from "@artsy/palette-tokens/dist/themes/v3"
@@ -34,6 +28,6 @@ export const Theme: React.FC<ThemeProps> = ({ children, theme = "light" }) => {
 
 /** Returns the current theme */
 export const useTheme = <T extends TTheme>() => {
-  const theme: T = useContext(ThemeContext) || DEFAULT_THEME
+  const theme: T = (useContext(ThemeContext) || DEFAULT_THEME) as T
   return { theme }
 }

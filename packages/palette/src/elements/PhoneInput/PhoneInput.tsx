@@ -1,7 +1,7 @@
 import composeRefs from "@seznam/compose-react-refs"
 import { themeGet } from "@styled-system/theme-get"
 import React, { createRef, useCallback, useMemo, useRef, useState } from "react"
-import styled, { css } from "styled-components"
+import styled, { css, ExecutionContext } from "styled-components"
 import { height as systemHeight } from "styled-system"
 import { useContainsFocus, usePosition, useWidthOf } from "../../utils"
 import { Box, splitBoxProps } from "../Box"
@@ -314,6 +314,10 @@ export const PhoneInput: React.ForwardRefExoticComponent<
 
 PhoneInput.displayName = "PhoneInput"
 
+interface CaretProps extends ExecutionContext {
+  disabled?: boolean
+}
+
 const caretMixin = css`
   &::after {
     content: "";
@@ -328,7 +332,7 @@ const caretMixin = css`
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 4px solid
-      ${({ disabled }) => {
+      ${({ disabled }: CaretProps) => {
         return disabled
           ? themeGet("colors.black10")
           : themeGet("colors.black60")

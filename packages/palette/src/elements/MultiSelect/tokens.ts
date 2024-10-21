@@ -1,6 +1,10 @@
 import { themeGet } from "@styled-system/theme-get"
-import { css } from "styled-components"
+import { css, ExecutionContext } from "styled-components"
 import { State } from "../Select/types"
+
+interface MultiSelectProps extends ExecutionContext {
+  complete?: boolean
+}
 
 export const MULTISELECT_STATES: Record<State, any> = {
   default: css`
@@ -33,7 +37,7 @@ export const MULTISELECT_STATES: Record<State, any> = {
     & > label {
       color: ${themeGet("colors.blue100")};
 
-      ${({ complete }) =>
+      ${({ complete }: MultiSelectProps) =>
         !complete &&
         css`
           text-decoration: underline;

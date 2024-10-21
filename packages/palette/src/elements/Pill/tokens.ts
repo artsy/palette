@@ -1,5 +1,5 @@
 import { themeGet } from "@styled-system/theme-get"
-import { css, FlattenInterpolation } from "styled-components"
+import { css, Interpolation } from "styled-components"
 import { Sup } from "../Sup"
 import { PillState, PillVariant } from "./Pill"
 
@@ -42,7 +42,7 @@ const DEFAULT_STATES = {
 
 export const PILL_VARIANTS: Record<
   PillVariant,
-  Record<PillState, FlattenInterpolation<any>[]>
+  Record<PillState, Interpolation<any>[]>
 > = {
   dotted: {
     ...DEFAULT_STATES,

@@ -15,7 +15,7 @@ interface BarBoxProps {
 }
 
 // the actual visible bit of the bar
-const BarBox = styled(Box)`
+const BarBox = styled(Box)<BarBoxProps>`
   transition: height 0.8s ease;
   position: relative;
   background: ${(props: BarBoxProps) =>
@@ -26,7 +26,7 @@ const BarBox = styled(Box)`
     margin-right: 0;
   }
   flex: 1;
-  cursor: ${props => ((props as any).onClick ? "pointer" : "default")};
+  cursor: ${(props) => ((props as any).onClick ? "pointer" : "default")};
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
   @media (min-width: ${breakpoints.sm}) {
@@ -176,7 +176,7 @@ export const Bar = ({
         <HighlightLabel
           innerRef={highlightLabelRef}
           opacity={hasEnteredViewport ? 1 : 0}
-          onMeasureHighlightLabel={labelHeight =>
+          onMeasureHighlightLabel={(labelHeight) =>
             onMeasureHeight(labelHeight + finalBarHeight)
           }
         >

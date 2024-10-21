@@ -114,13 +114,7 @@ AsClickable.story = {
 export const AsRouterLink = () => {
   return (
     <BaseTabs>
-      <BaseTab
-        // @ts-expect-error  MIGRATE_STRICT_MODE
-        as={RouterLink}
-        to="#example"
-        activeClassName="active"
-        garbage
-      >
+      <BaseTab as={RouterLink} to="#example" activeClassName="active" garbage>
         Example
       </BaseTab>
     </BaseTabs>

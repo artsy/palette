@@ -1,6 +1,11 @@
 import { themeGet } from "@styled-system/theme-get"
-import { css } from "styled-components"
+import { css, ExecutionContext } from "styled-components"
 import { State } from "./types"
+
+interface SelectProps extends ExecutionContext {
+  optionSelected?: boolean
+  disabled?: boolean
+}
 
 export const SELECT_STATES: Record<State, any> = {
   default: css`
@@ -25,7 +30,7 @@ export const SELECT_STATES: Record<State, any> = {
     }
 
     // Firefox polyfill for :has
-    ${({ optionSelected }) =>
+    ${({ optionSelected }: SelectProps) =>
       optionSelected &&
       css`
         + label {
@@ -60,7 +65,7 @@ export const SELECT_STATES: Record<State, any> = {
     }
 
     // Firefox polyfill for :has
-    ${({ optionSelected }) =>
+    ${({ optionSelected }: SelectProps) =>
       !optionSelected &&
       css`
         + label {
@@ -83,7 +88,7 @@ export const SELECT_STATES: Record<State, any> = {
     }
 
     // Firefox polyfill for :has
-    ${({ optionSelected, disabled }) =>
+    ${({ optionSelected, disabled }: SelectProps) =>
       !optionSelected &&
       !disabled &&
       css`
@@ -112,7 +117,7 @@ export const SELECT_STATES: Record<State, any> = {
     }
 
     // Firefox polyfill for :has
-    ${({ optionSelected }) =>
+    ${({ optionSelected }: SelectProps) =>
       optionSelected &&
       css`
         + label {
@@ -147,7 +152,7 @@ export const SELECT_STATES: Record<State, any> = {
     }
 
     // Firefox polyfill for :has
-    ${({ optionSelected }) =>
+    ${({ optionSelected }: SelectProps) =>
       optionSelected &&
       css`
         + label {
