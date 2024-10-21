@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette-tokens",
-  "version": "6.0.3",
+  "version": "6.1.0",
   "description": "The design tokens for Artsy's palette",
   "keywords": [
     "design",
