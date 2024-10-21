@@ -1,3 +1,18 @@
+# (Mon Oct 21 2024)
+
+#### 🚀  Enhancement
+
+- chore(deps): update cimg/python docker tag to v3.13 [#1401](https://github.com/artsy/palette/pull/1401) ([@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette-tokens@6.1.0`
+  - fix: Update color red100 and red10 [#1400](https://github.com/artsy/palette/pull/1400) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # (Tue Sep 03 2024)
 
 #### 🐛  Bug Fix

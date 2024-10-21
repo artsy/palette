@@ -1,3 +1,15 @@
+# v6.1.0 (Mon Oct 21 2024)
+
+#### 🚀  Enhancement
+
+- fix: Update color red100 and red10 [#1400](https://github.com/artsy/palette/pull/1400) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # v6.0.3 (Tue Jun 04 2024)
 
 #### 🐛  Bug Fix
