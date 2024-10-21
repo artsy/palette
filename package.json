@@ -2,7 +2,7 @@
   "name": "palette",
   "private": true,
   "scripts": {
-    "build-storybook": "yarn compile-palette && yarn workspace @artsy/palette build-storybook",
+    "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && yarn compile-palette && yarn workspace @artsy/palette build-storybook",
     "compile-palette": "lerna run compile",
     "lint": "lerna run lint",
     "start": "yarn compile-palette && concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' ",

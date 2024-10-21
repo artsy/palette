@@ -81,6 +81,7 @@ workflows:
       # Docs / Storybooks
       - node/run:
           name: build-storybook
+          pkg-manager: yarn
           yarn-run: "build-storybook"
           post-steps:
             - persist_to_workspace:
