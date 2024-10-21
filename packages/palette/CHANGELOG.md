@@ -1,3 +1,19 @@
+# v39.0.1 (Mon Oct 21 2024)
+
+#### 🐛  Bug Fix
+
+- fix(stackable-box): Fix css specificity on borders [#1404](https://github.com/artsy/palette/pull/1404) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- ci(storybook): Fix storybook compiles on merge [#1403](https://github.com/artsy/palette/pull/1403) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v39.0.0 (Mon Oct 21 2024)
 
 #### 💥  Breaking Change

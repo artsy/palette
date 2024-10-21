@@ -1,3 +1,15 @@
+# v38.0.1 (Mon Oct 21 2024)
+
+#### 🏠  Internal
+
+- ci(storybook): Fix storybook compiles on merge [#1403](https://github.com/artsy/palette/pull/1403) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v38.0.0 (Mon Oct 21 2024)
 
 #### 💥  Breaking Change
