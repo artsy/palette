@@ -86,9 +86,9 @@ const COLORS = {
   /** Hover/down state and suitable for text on red10 */
   red150: "#510B0B",
   /** Suitable for text on red10, black10, and lighter */
-  red100: "#C82400",
+  red100: "#BB392D",
   /** Background only */
-  red10: "#F4E4E3",
+  red10: "#FEF2EF",
 };
 
 export type Colors = typeof COLORS;
