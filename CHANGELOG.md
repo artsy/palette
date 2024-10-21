@@ -1,5 +1,23 @@
 # (Mon Oct 21 2024)
 
+#### 💥  Breaking Change
+
+- `@artsy/palette-charts@38.0.0`, `@artsy/palette@39.0.0`
+  - chore(styled-components): upgrade to v6 [#1399](https://github.com/artsy/palette/pull/1399) ([@damassi](https://github.com/damassi))
+
+#### 🏠  Internal
+
+- chore(deps): update dep node from 6.1.0 to v6.3.0 [#1402](https://github.com/artsy/palette/pull/1402) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# (Mon Oct 21 2024)
+
 #### 🚀  Enhancement
 
 - chore(deps): update cimg/python docker tag to v3.13 [#1401](https://github.com/artsy/palette/pull/1401) ([@renovate[bot]](https://github.com/renovate[bot]))

@@ -1,3 +1,20 @@
+# v39.0.0 (Mon Oct 21 2024)
+
+#### 💥  Breaking Change
+
+- chore(styled-components): upgrade to v6 [#1399](https://github.com/artsy/palette/pull/1399) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- chore(types): fix types ([@damassi](https://github.com/damassi))
+- lib(styled-components): upgrade to v6 ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v38.14.1 (Tue Sep 03 2024)
 
 #### 🐛  Bug Fix

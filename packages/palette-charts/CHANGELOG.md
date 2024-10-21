@@ -1,3 +1,20 @@
+# v38.0.0 (Mon Oct 21 2024)
+
+#### 💥  Breaking Change
+
+- chore(styled-components): upgrade to v6 [#1399](https://github.com/artsy/palette/pull/1399) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- ci(chromatic): downgrade node version ([@damassi](https://github.com/damassi))
+- chore(types): fix types ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v37.14.1 (Tue Sep 03 2024)
 
 #### 🐛  Bug Fix
