@@ -13,13 +13,13 @@ export const Default = () => {
     <States<InputProps>
       states={[
         {},
+        { title: "Your offer", name: "offer" },
         { focus: true },
         { hover: true },
         { active: true },
         { error: "Something went wrong." },
         { disabled: true },
         { disabled: true, value: "Example value" },
-        { title: "Your offer", name: "offer" },
         { title: "Your offer with a big title", name: "offer-big-title" },
         {
           title: "Your offer with a really really long title",

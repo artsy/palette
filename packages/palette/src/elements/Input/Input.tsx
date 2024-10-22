@@ -168,6 +168,11 @@ const StyledInput = styled.input<StyledInputProps>`
         outline: none;
         ${INPUT_STATES.focus}
 
+        &::placeholder {
+          transition: ${FORM_ELEMENT_TRANSITION};
+          opacity: 1;
+        }
+
         :not(:placeholder-shown) {
           ${INPUT_STATES.active}
           ${props.error && INPUT_STATES.error}
@@ -181,7 +186,8 @@ const StyledInput = styled.input<StyledInputProps>`
 
       ${props.title &&
       css`
-        ::placeholder {
+        &::placeholder {
+          transition: ${FORM_ELEMENT_TRANSITION};
           opacity: 0;
         }
       `}
