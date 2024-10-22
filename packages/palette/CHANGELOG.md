@@ -1,3 +1,16 @@
+# v39.0.3 (Tue Oct 22 2024)
+
+#### 🐛  Bug Fix
+
+- fix(bordered-radio): more border specificity fixes [#1406](https://github.com/artsy/palette/pull/1406) ([@damassi](https://github.com/damassi))
+- fix(bordered-radio): more border specificity fixes ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v39.0.2 (Tue Oct 22 2024)
 
 #### 🐛  Bug Fix
