@@ -11,16 +11,16 @@ export const BorderedRadio = styled(Radio)<BorderedRadioProps>`
   border: 1px solid ${themeGet("colors.black10")};
   transition: background-color 0.25s;
 
-  :hover:not(:disabled) {
+  &:hover:not(:disabled) {
     background-color: ${themeGet("colors.black5")};
   }
 
-  :not(:first-child) {
+  &:not(:first-child) {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
 
-  :not(:last-child) {
+  &:not(:last-child) {
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
