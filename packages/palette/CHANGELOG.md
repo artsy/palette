@@ -1,3 +1,16 @@
+# v39.0.2 (Tue Oct 22 2024)
+
+#### 🐛  Bug Fix
+
+- fix(input): Fix placeholder visibility [#1405](https://github.com/artsy/palette/pull/1405) ([@damassi](https://github.com/damassi))
+- fix(input): fix placeholder visibility ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v39.0.1 (Mon Oct 21 2024)
 
 #### 🐛  Bug Fix
