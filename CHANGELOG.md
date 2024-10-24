@@ -1,3 +1,16 @@
+# (Thu Oct 24 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@39.0.4`
+  - fix(textarea): Fix placeholder visibility [#1407](https://github.com/artsy/palette/pull/1407) ([@leamotta](https://github.com/leamotta))
+
+#### Authors: 1
+
+- [@leamotta](https://github.com/leamotta)
+
+---
+
 # (Tue Oct 22 2024)
 
 #### 🐛  Bug Fix
