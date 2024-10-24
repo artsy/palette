@@ -182,7 +182,7 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
   border-radius: 3px;
   font-family: ${themeGet("fonts.sans")};
 
-  ::placeholder {
+  &::placeholder {
     transition: color 0.25s, opacity 0.25s;
   }
 
@@ -212,6 +212,10 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
           ${!!props.placeholder && TEXTAREA_STATES.active}
           ${props.error && TEXTAREA_STATES.error}
         }
+
+        &::placeholder {
+          opacity: 1;
+        }
       }
 
       &:disabled {
@@ -221,7 +225,7 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
 
       ${props.title &&
       css`
-        ::placeholder {
+        &::placeholder {
           opacity: 0;
         }
       `}
