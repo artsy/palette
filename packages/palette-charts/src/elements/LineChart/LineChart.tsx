@@ -62,7 +62,7 @@ export const LineChart: React.FC<React.PropsWithChildren<LineChartProps>> = ({
                     last={i === points.length - 1}
                   >
                     <AxisLabelX color="black60" variant="xs">
-                      {axisLabelX}
+                      {axisLabelX as any}
                     </AxisLabelX>
                   </BarAxisLabelContainer>
                 ))}

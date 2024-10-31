@@ -32,7 +32,7 @@ export const coerceTooltipWithoutPadding = (
 export interface ChartTooltipProps extends FlexProps {
   title: React.ReactNode
   description: React.ReactNode
-  noPadding: boolean
+  noPadding?: boolean
 }
 
 // tslint:disable-next-line:completed-docs
