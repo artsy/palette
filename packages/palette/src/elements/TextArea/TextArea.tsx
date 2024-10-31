@@ -34,9 +34,7 @@ export interface TextAreaChange {
 }
 
 /** TextArea */
-export const TextArea: React.ForwardRefExoticComponent<
-  TextAreaProps & { ref?: React.Ref<HTMLTextAreaElement> }
-> = React.forwardRef(
+export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
     {
       error,

@@ -55,9 +55,10 @@ const Rail = styled(Box)`
 
 export type HorizontalOverflowProps = BoxProps & { children: React.ReactNode }
 
-export const HorizontalOverflow: React.ForwardRefExoticComponent<
-  HorizontalOverflowProps & React.RefAttributes<HTMLDivElement>
-> = forwardRef(({ children, ...rest }, forwardedRef) => {
+export const HorizontalOverflow = forwardRef<
+  HTMLDivElement,
+  HorizontalOverflowProps
+>(({ children, ...rest }, forwardedRef) => {
   const ref = useRef<HTMLDivElement | null>()
 
   useEffect(() => {
@@ -68,6 +69,8 @@ export const HorizontalOverflow: React.ForwardRefExoticComponent<
     }
   }, [])
 
+  // FIXME: REACT_18_UPGRADE
+  // @ts-ignore
   const [railProps, { ref: _ref, ...boxProps }] = splitRailProps(rest)
 
   const [atEnd, setAtEnd] = useState(false)

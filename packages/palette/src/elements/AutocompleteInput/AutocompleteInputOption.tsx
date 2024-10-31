@@ -8,9 +8,10 @@ export interface AutocompleteInputOptionProps extends ClickableProps {
   selected: boolean
 }
 
-export const AutocompleteInputOption: React.ForwardRefExoticComponent<
-  AutocompleteInputOptionProps & { ref?: React.Ref<HTMLButtonElement> }
-> = forwardRef(({ children, selected, ...rest }, forwardedRef) => {
+export const AutocompleteInputOption = forwardRef<
+  HTMLButtonElement,
+  AutocompleteInputOptionProps
+>(({ children, selected, ...rest }, forwardedRef) => {
   const ref = useRef<HTMLButtonElement | null>(null)
 
   useEffect(() => {

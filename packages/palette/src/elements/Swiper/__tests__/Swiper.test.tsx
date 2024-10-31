@@ -1,7 +1,7 @@
 import { mount } from "enzyme"
-import React from "react"
+import React, { forwardRef, PropsWithChildren } from "react"
 import { Box } from "../../Box"
-import { Swiper } from "../Swiper"
+import { Swiper, SwiperCellProps } from "../Swiper"
 
 describe("Swiper", () => {
   it("renders correctly", () => {
@@ -46,20 +46,24 @@ describe("Swiper", () => {
     const html: any = wrapper.html()
 
     expect(html).toContain("I have 3 beautiful children")
-    expect(html.match(/\<li\s/g).length).toBe(3)
+    expect(html.match(/<li\s/g).length).toBe(3)
   })
 
   it("accepts a customizable Cell", () => {
+    const Cell = forwardRef<any, PropsWithChildren<SwiperCellProps>>(
+      ({ children, ...rest }, ref) => {
+        return (
+          <Box ref={ref as any} {...rest}>
+            beautiful number {children}
+          </Box>
+        )
+      }
+    )
+
+    Cell.displayName = "Cell"
+
     const wrapper = mount(
-      <Swiper
-        Cell={React.forwardRef(({ children, ...rest }, ref) => {
-          return (
-            <Box ref={ref as any} {...rest}>
-              beautiful number {children}
-            </Box>
-          )
-        })}
-      >
+      <Swiper Cell={Cell}>
         <>1</>
         <>2</>
         <>3</>

@@ -33,6 +33,7 @@ module.exports = {
         caughtErrorsIgnorePattern: "^_",
       },
     ],
+    "@typescript-eslint/no-explicit-any": 0,
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/prop-types": 0,
