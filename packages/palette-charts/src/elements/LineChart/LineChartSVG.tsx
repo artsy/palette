@@ -19,7 +19,7 @@ interface LineChartSVGProps {
 /**
  * Component rendering the SVG part of the line chart (e.g line and points)
  */
-export const LineChartSVG: React.FC<LineChartSVGProps> = ({
+export const LineChartSVG: React.FC<React.PropsWithChildren<LineChartSVGProps>> = ({
   width,
   height,
   margin,
