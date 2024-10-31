@@ -5,7 +5,7 @@ export interface AutocompleteInputOptionLabelProps extends TextProps {
   text: string
 }
 
-export const AutocompleteInputOptionLabel: React.FC<AutocompleteInputOptionLabelProps> = ({
+export const AutocompleteInputOptionLabel: React.FC<React.PropsWithChildren<AutocompleteInputOptionLabelProps>> = ({
   text,
   ...rest
 }) => {

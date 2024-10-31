@@ -1,7 +1,7 @@
 import React from "react"
 import { Text, TextProps } from "../elements"
 
-export const RequiredField: React.FC<TextProps & { disabled?: boolean }> = (
+export const RequiredField: React.FC<React.PropsWithChildren<TextProps & { disabled?: boolean }>> = (
   props
 ) => {
   return (

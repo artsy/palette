@@ -3,7 +3,7 @@ import { Checkbox } from "../../Checkbox"
 import { Item, useFilterSelectContext } from "./FilterSelectContext"
 import { Radio } from "../../Radio"
 
-export const FilterSelectResultItem: React.FC<Item> = (props) => {
+export const FilterSelectResultItem: React.FC<React.PropsWithChildren<Item>> = (props) => {
   const {
     renderItemLabel,
     selectedItems,

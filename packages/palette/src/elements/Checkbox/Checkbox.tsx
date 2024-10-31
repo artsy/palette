@@ -25,7 +25,7 @@ export interface CheckboxProps
 }
 
 /** A checkbox */
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<React.PropsWithChildren<CheckboxProps>> = ({
   selected = false,
   children,
   error,

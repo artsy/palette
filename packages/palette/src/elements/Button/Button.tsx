@@ -38,7 +38,7 @@ export interface ButtonProps
   /** Forces success state */
   success?: boolean
   /** Optional icon slot */
-  Icon?: React.FunctionComponent<BoxProps & { fill?: ResponsiveValue<string> }>
+  Icon?: React.FunctionComponent<React.PropsWithChildren<BoxProps & { fill?: ResponsiveValue<string> }>>
 }
 
 export const Button: React.ForwardRefExoticComponent<

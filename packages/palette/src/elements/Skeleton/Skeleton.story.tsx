@@ -54,7 +54,7 @@ export const _SkeletonText = () => {
   )
 }
 
-const ExampleArtworkSkeleton: React.FC<{ i: number }> = ({ i }) => {
+const ExampleArtworkSkeleton: React.FC<React.PropsWithChildren<{ i: number }>> = ({ i }) => {
   return (
     <>
       <SkeletonBox width={200} height={[200, 300, 250, 275][i % 4]} />

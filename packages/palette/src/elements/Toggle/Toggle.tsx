@@ -18,7 +18,7 @@ export interface ToggleProps
 }
 
 /** A toggle */
-export const Toggle: React.FC<ToggleProps> = ({
+export const Toggle: React.FC<React.PropsWithChildren<ToggleProps>> = ({
   selected = false,
   disabled,
   hover,

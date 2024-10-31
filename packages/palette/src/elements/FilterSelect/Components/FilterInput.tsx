@@ -9,7 +9,7 @@ import { useFilterSelectContext } from "./FilterSelectContext"
 
 export type FilterInputProps = InputProps
 
-export const FilterInput: React.FC<InputProps> = (props) => {
+export const FilterInput: React.FC<React.PropsWithChildren<InputProps>> = (props) => {
   const { query, setQuery, placeholder } = useFilterSelectContext()
   const ref = useRef<HTMLInputElement | null>(null)
 
@@ -23,28 +23,28 @@ export const FilterInput: React.FC<InputProps> = (props) => {
   }
 
   return (
-    <LabeledInput
+    (<LabeledInput
       ref={ref}
       role="search"
       label={
         query !== "" ? (
           // Active state
-          <Clickable
+          (<Clickable
             display="flex"
             onClick={handleClick}
             aria-label="Clear search input"
           >
             <CloseStrokeIcon />
-          </Clickable>
+          </Clickable>)
         ) : (
           // Resting state
-          <SearchIcon style={{ pointerEvents: "none" }} />
+          (<SearchIcon style={{ pointerEvents: "none" }} />)
         )
       }
       onChange={handleChange}
       value={query}
       placeholder={placeholder}
       {...props}
-    />
-  )
+    />)
+  );
 }

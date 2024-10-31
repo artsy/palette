@@ -18,7 +18,7 @@ export interface RangeProps extends BoxProps {
   onChange?: (range: [number, number]) => void
 }
 
-export const Range: React.FC<RangeProps> = ({
+export const Range: React.FC<React.PropsWithChildren<RangeProps>> = ({
   ariaLabels,
   min,
   max,

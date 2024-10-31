@@ -17,7 +17,7 @@ import { useUpdateEffect } from "../../utils"
 
 export type FilterSelectProps = Partial<FilterSelectState>
 
-export const FilterSelect: React.FC<FilterSelectProps> = (props) => {
+export const FilterSelect: React.FC<React.PropsWithChildren<FilterSelectProps>> = (props) => {
   return (
     <FilterSelectContextProvider {...props}>
       <_FilterSelect />
@@ -25,7 +25,7 @@ export const FilterSelect: React.FC<FilterSelectProps> = (props) => {
   )
 }
 
-const _FilterSelect: React.FC = () => {
+const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
   const {
     filteredItems,
     initialItemsToShow,

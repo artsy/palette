@@ -10,7 +10,7 @@ export interface ToastsProps extends BoxProps {
   limit?: number
 }
 
-export const Toasts: React.FC<ToastsProps> = ({ limit = 5, ...rest }) => {
+export const Toasts: React.FC<React.PropsWithChildren<ToastsProps>> = ({ limit = 5, ...rest }) => {
   const { toasts } = useToasts()
 
   return (

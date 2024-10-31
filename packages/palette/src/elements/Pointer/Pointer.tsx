@@ -28,7 +28,7 @@ export interface PointerProps {
 /**
  * Internal-use component for displaying a triangular pointer to an anchor node
  */
-export const Pointer: FC<PointerProps> = ({
+export const Pointer: FC<React.PropsWithChildren<PointerProps>> = ({
   anchorRef,
   tooltipRef,
   isFlipped,

@@ -47,7 +47,7 @@ export interface DropdownProps extends BoxProps {
  * A `Dropdown` is a small modal-type element which is anchored, and can be
  * positioned relative to, another element and designed to be transitioned in on hover or on click.
  */
-export const Dropdown: React.FC<DropdownProps> = ({
+export const Dropdown: React.FC<React.PropsWithChildren<DropdownProps>> = ({
   placement = "top",
   visible: _visible = false,
   keepInDOM,

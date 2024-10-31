@@ -36,7 +36,7 @@ export interface TooltipProps extends BoxProps {
 /**
  * A tooltip
  */
-export const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   children,
   content,
   width = 230,

@@ -12,9 +12,9 @@ const NonBlankFunction = () => {
   return <Text variant="sm-display">Non-blank Function</Text>
 }
 
-const BlankFC: React.FC = () => null
+const BlankFC: React.FC<React.PropsWithChildren<unknown>> = () => null
 
-const NonBlankFC: React.FC = () => (
+const NonBlankFC: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Text variant="sm-display">Non-blank Functional component</Text>
 )
 

@@ -57,7 +57,7 @@ export interface PopoverProps extends BoxProps {
  * A `Popover` is a small modal-type element which is anchored, and can be
  * positioned relative to, another element.
  */
-export const Popover: React.FC<PopoverProps> = ({
+export const Popover: React.FC<React.PropsWithChildren<PopoverProps>> = ({
   children,
   ignoreClickOutside = false,
   manageFocus = true,

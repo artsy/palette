@@ -25,7 +25,7 @@ interface JoinProps {
  * <SomeComponent/>
  * <child3/>
  */
-export const Join: React.FC<JoinProps> = ({ separator, children }) => {
+export const Join: React.FC<React.PropsWithChildren<JoinProps>> = ({ separator, children }) => {
   const elements = flattenChildren(children)
 
   return (

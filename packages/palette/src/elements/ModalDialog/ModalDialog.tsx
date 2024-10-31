@@ -14,7 +14,7 @@ export type ModalDialogProps = Omit<ModalBaseProps, "title"> &
     rightPanel?: React.ReactNode
   }
 
-export const ModalDialog: React.FC<ModalDialogProps> = ({
+export const ModalDialog: React.FC<React.PropsWithChildren<ModalDialogProps>> = ({
   children,
   footer,
   hasLogo,

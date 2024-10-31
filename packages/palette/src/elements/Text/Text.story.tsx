@@ -28,10 +28,10 @@ const Table = styled.table`
   }
 `
 
-const Specification: React.FC<{
+const Specification: React.FC<React.PropsWithChildren<{
   size?: "small" | "large" | "default"
   treatment: any
-}> = ({ size, treatment }) => {
+}>> = ({ size, treatment }) => {
   const textColor =
     {
       small: ["purple100", "black60"] as Color[],

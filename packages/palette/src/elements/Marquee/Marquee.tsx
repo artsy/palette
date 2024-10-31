@@ -58,7 +58,7 @@ export interface MarqueeProps extends BoxProps {
   divider?: boolean
 }
 
-export const Marquee: React.FC<MarqueeProps> = ({
+export const Marquee: React.FC<React.PropsWithChildren<MarqueeProps>> = ({
   marqueeText,
   divider = true,
   speed = "10s",

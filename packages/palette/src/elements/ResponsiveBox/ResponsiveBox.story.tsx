@@ -10,7 +10,7 @@ import {
   ResponsiveBoxProps,
 } from "./ResponsiveBox"
 
-const Measure: React.FC<ResponsiveBoxProps> = (props) => {
+const Measure: React.FC<React.PropsWithChildren<ResponsiveBoxProps>> = (props) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   const ref = useRef<null | HTMLDivElement>(null)
@@ -119,7 +119,7 @@ const Masonry = styled(Box)`
 
 export const ColumnsWithResponsiveImages = () => {
   return (
-    <Masonry>
+    (<Masonry>
       {new Array(12).fill(0).map((_, i) => {
         const orientation = i % 3 === 0 ? "portrait" : "landscape"
         const width = orientation === "portrait" ? 200 : 300
@@ -127,7 +127,7 @@ export const ColumnsWithResponsiveImages = () => {
 
         return (
           // Simply being wrapped in an extra `Box` causes a image loading bug in Chrome
-          <Box key={i}>
+          (<Box key={i}>
             <ResponsiveBox
               aspectWidth={width}
               aspectHeight={height}
@@ -145,9 +145,9 @@ export const ColumnsWithResponsiveImages = () => {
                 }/${height * 2} 2x`}
               />
             </ResponsiveBox>
-          </Box>
-        )
+          </Box>)
+        );
       })}
-    </Masonry>
-  )
+    </Masonry>)
+  );
 }

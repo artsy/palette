@@ -42,7 +42,7 @@ export interface SpinnerProps
 }
 
 /** Generic Spinner component */
-export const Spinner: React.FC<SpinnerProps> = ({ delay, color, ...rest }) => {
+export const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({ delay, color, ...rest }) => {
   const [show, setShow] = useState(delay === 0)
 
   useEffect(() => {

@@ -31,7 +31,7 @@ const SkeletonTextOverlay = styled(SkeletonBox)`
 /**
  * Allows you to create boxes the exact dimensions of a given piece of text
  */
-export const SkeletonText: React.FC<SkeletonTextProps> = ({
+export const SkeletonText: React.FC<React.PropsWithChildren<SkeletonTextProps>> = ({
   children,
   ...rest
 }) => {
@@ -64,7 +64,7 @@ export type SkeletonProps = BoxProps
 /**
  * Animated wrapper for Skeletons
  */
-export const Skeleton: React.FC<SkeletonProps> = ({ children, ...rest }) => {
+export const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> = ({ children, ...rest }) => {
   return (
     <Box position="relative" {...rest}>
       {children}

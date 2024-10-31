@@ -10,7 +10,7 @@ export interface ProgressBarProps extends BoxProps {
 }
 
 /** ProgressBar */
-export const ProgressBar: React.FC<ProgressBarProps> = ({
+export const ProgressBar: React.FC<React.PropsWithChildren<ProgressBarProps>> = ({
   percentComplete,
   highlight = "brand",
   showBackground = true,

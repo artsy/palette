@@ -31,7 +31,7 @@ export interface MultiSelectProps extends BoxProps {
 }
 
 /** A drop-down multi-select menu */
-export const MultiSelect: React.FC<MultiSelectProps> = ({
+export const MultiSelect: React.FC<React.PropsWithChildren<MultiSelectProps>> = ({
   complete,
   description,
   disabled,

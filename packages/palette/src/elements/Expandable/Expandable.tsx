@@ -17,7 +17,7 @@ export interface ExpandableProps extends ClickableProps {
 /**
  * A toggleable component used to show / hide content
  */
-export const Expandable: React.FC<ExpandableProps> = ({
+export const Expandable: React.FC<React.PropsWithChildren<ExpandableProps>> = ({
   label,
   expanded: defaultExpanded,
   children,

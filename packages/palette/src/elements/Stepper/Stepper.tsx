@@ -15,7 +15,7 @@ export interface StepperProps extends TabsProps {
 }
 
 /** Stepper */
-export const Stepper: React.FC<StepperProps> = ({
+export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
   currentStepIndex,
   disableNavigation,
   initialTabIndex = 0,
@@ -78,7 +78,7 @@ export type StepProps = TabProps
  * An individual step.
  * Does nothing on its own; props are dealt with inside of Steps.
  */
-export const Step: React.FC<StepProps> = ({ children }) => <>{children}</>
+export const Step: React.FC<React.PropsWithChildren<StepProps>> = ({ children }) => <>{children}</>
 
 Stepper.defaultProps = {
   mb: 2,

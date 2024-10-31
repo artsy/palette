@@ -45,7 +45,7 @@ export type ResponsiveBoxProps = Omit<BoxProps, "maxWidth" | "maxHeight"> &
   ResponsiveBoxMaxDimensions
 
 /** ResponsiveBox */
-export const ResponsiveBox: React.FC<ResponsiveBoxProps> = ({
+export const ResponsiveBox: React.FC<React.PropsWithChildren<ResponsiveBoxProps>> = ({
   aspectWidth,
   aspectHeight,
   children,

@@ -995,11 +995,11 @@ export const ContrastRatios = () => {
   )
 }
 
-const ContrastRatioSwatch: FC<{
+const ContrastRatioSwatch: FC<React.PropsWithChildren<{
   name: string
   value: string
   theme: typeof THEME
-}> = ({ name, value: _value, theme }) => {
+}>> = ({ name, value: _value, theme }) => {
   const [value, setValue] = useState(_value)
   const debouncedSetValue = useMemo(() => {
     return debounce(setValue, 500)

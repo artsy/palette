@@ -14,7 +14,7 @@ interface ShelfScrollBarProps extends BoxProps {
 /**
  * A synthetic scrollbar
  */
-export const ShelfScrollBar: React.FC<ShelfScrollBarProps> = React.memo(
+export const ShelfScrollBar: React.FC<React.PropsWithChildren<ShelfScrollBarProps>> = React.memo(
   ({ viewport, ...rest }) => {
     const [
       { scrollLeft, scrollWidth, clientWidth },

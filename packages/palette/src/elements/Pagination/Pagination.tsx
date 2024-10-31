@@ -38,7 +38,7 @@ export interface PaginationProps extends FlexProps {
 }
 
 /** Pagination */
-export const Pagination: React.FC<PaginationProps> = ({
+export const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   getHref,
   hasNextPage,
   onClick,
@@ -128,7 +128,7 @@ interface PageProps extends BoxProps {
   pageCursor: PageCursor
 }
 
-const Page: React.FC<PageProps> = ({
+const Page: React.FC<React.PropsWithChildren<PageProps>> = ({
   getHref,
   onClick,
   pageCursor: { cursor, isCurrent, page },
@@ -167,7 +167,7 @@ export interface NextPrevButtonProps extends BoxProps {
   page?: number
 }
 
-const NextPrevButton: React.FC<NextPrevButtonProps> = ({
+const NextPrevButton: React.FC<React.PropsWithChildren<NextPrevButtonProps>> = ({
   disabled,
   getHref,
   onClick,
@@ -228,7 +228,7 @@ const PaginationContainer = styled(Text).attrs({
   line-height: 1;
 `
 
-export const PaginationSkeleton: FC = () => {
+export const PaginationSkeleton: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <PaginationContainer aria-hidden>
       <NextPrevButton disabled pr={0.5}>

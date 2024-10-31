@@ -42,7 +42,7 @@ const TOKENS = {
 }
 
 /** An circular Avatar component containing an image or initials */
-export const Avatar: React.FC<AvatarProps> = ({
+export const Avatar: React.FC<React.PropsWithChildren<AvatarProps>> = ({
   src,
   initials,
   size = "md",

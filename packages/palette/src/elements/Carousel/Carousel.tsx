@@ -79,9 +79,9 @@ const Viewport = styled(Box)`
 export interface CarouselProps extends BoxProps {
   initialIndex?: number
   children: React.ReactNode
-  Next?: typeof CarouselNext | React.FC<CarouselNavigationProps>
-  Previous?: typeof CarouselPrevious | React.FC<CarouselNavigationProps>
-  Rail?: typeof CarouselRail | React.FC<CarouselRailProps>
+  Next?: typeof CarouselNext | React.FC<React.PropsWithChildren<CarouselNavigationProps>>
+  Previous?: typeof CarouselPrevious | React.FC<React.PropsWithChildren<CarouselNavigationProps>>
+  Rail?: typeof CarouselRail | React.FC<React.PropsWithChildren<CarouselRailProps>>
   /**
    * If providing a custom `Cell` you must forward a ref so
    * that cell widths can be calculated.
@@ -98,7 +98,7 @@ export interface CarouselProps extends BoxProps {
  * of the viewport, it presents navigation arrows and allows a user to page
  * through them.
  */
-export const Carousel: React.FC<CarouselProps> = ({
+export const Carousel: React.FC<React.PropsWithChildren<CarouselProps>> = ({
   initialIndex = 0,
   children,
   Previous = CarouselPrevious,

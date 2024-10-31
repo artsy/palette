@@ -26,7 +26,7 @@ export interface LabelProps extends BoxProps {
   children: React.ReactNode
 }
 
-export const Label: React.FC<LabelProps> = ({ children, ...rest }) => {
+export const Label: React.FC<React.PropsWithChildren<LabelProps>> = ({ children, ...rest }) => {
   return (
     <Container display="inline-flex" maxWidth="100%" {...rest}>
       <Text variant="xs" px={0.5} overflowEllipsis>
