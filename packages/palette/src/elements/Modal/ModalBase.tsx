@@ -4,6 +4,7 @@ import { zIndex as systemZIndex, ZIndexProps } from "styled-system"
 import { usePortal } from "../../utils/usePortal"
 import { Flex, FlexProps } from "../Flex"
 import { FocusOn } from "react-focus-on"
+import { useDidMount } from "../../utils"
 
 const Focus = styled(FocusOn)`
   width: 100%;
@@ -60,8 +61,12 @@ export const DEFAULT_MODAL_Z_INDEX = 9999
  * Low-level modal that has no opinions about layout/overlay
  * Modals content using a portal, locks scroll.
  */
-export const ModalBase: React.FC<React.PropsWithChildren<ModalBaseProps>> = (props) => {
-  if (typeof window === "undefined") {
+export const ModalBase: React.FC<React.PropsWithChildren<ModalBaseProps>> = (
+  props
+) => {
+  const isClient = useDidMount()
+
+  if (!isClient) {
     return null
   }
   return <_ModalBase {...props} />
