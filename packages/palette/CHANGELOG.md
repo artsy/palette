@@ -1,3 +1,19 @@
+# v39.1.0 (Thu Nov 14 2024)
+
+#### 🚀  Enhancement
+
+- feat: adds option to disable transitions [#1409](https://github.com/artsy/palette/pull/1409) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat: adds option to disable transitions ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v39.0.4 (Thu Oct 24 2024)
 
 #### 🐛  Bug Fix

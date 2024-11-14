@@ -1,3 +1,16 @@
+# (Thu Nov 14 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@39.1.0`
+  - feat: adds option to disable transitions [#1409](https://github.com/artsy/palette/pull/1409) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Oct 24 2024)
 
 #### 🐛  Bug Fix
