@@ -266,3 +266,39 @@ export const OverflowingContent = () => {
     </Flex>
   )
 }
+
+export const DisabledTransition = () => {
+  const dropdown = (
+    <Text variant="sm-display">
+      <Clickable display="block" width="100%" py={1} px={2}>
+        First
+      </Clickable>
+      <Clickable display="block" width="100%" py={1} px={2}>
+        Second
+      </Clickable>
+      <Clickable display="block" width="100%" py={1} px={2}>
+        Third
+      </Clickable>
+    </Text>
+  )
+
+  return (
+    <Flex>
+      <Dropdown dropdown={dropdown} openDropdownByClick transition={false}>
+        {({ anchorRef, anchorProps }) => {
+          return (
+            <Button
+              ref={anchorRef}
+              variant="secondaryBlack"
+              size="small"
+              mr={1}
+              {...anchorProps}
+            >
+              Click for non-animated dropdown
+            </Button>
+          )
+        }}
+      </Dropdown>
+    </Flex>
+  )
+}
