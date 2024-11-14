@@ -25,6 +25,8 @@ export interface DropdownProps extends BoxProps {
   placement?: Position
   /** Intially visible by default? */
   visible?: boolean
+  /** Whether or not we should animate the dropdown transition */
+  transition?: boolean
   dropdown:
     | React.ReactNode
     | ((
@@ -53,6 +55,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   offset = 10,
   dropdown,
   openDropdownByClick,
+  transition: _transition = true,
   ...rest
 }) => {
   const [visible, setVisible] = useState(false)
@@ -279,6 +282,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
               bg="white100"
               border="1px solid"
               borderColor="black10"
+              transition={_transition}
               style={
                 transition
                   ? // In
@@ -312,8 +316,9 @@ const Container = styled(Box)<{ placement: Position } & BoxProps>`
   outline: 0;
 `
 
-const Panel = styled(Box)`
-  transition: opacity 250ms ease-out, transform 250ms ease-out;
+const Panel = styled(Box)<{ transition: boolean }>`
+  transition: ${({ transition }) =>
+    transition ? "opacity 250ms ease-out, transform 250ms ease-out" : "none"};
   box-shadow: ${themeGet("effects.flatShadow")};
   > div {
     max-height: 100vh;
