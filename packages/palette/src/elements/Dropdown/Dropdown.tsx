@@ -68,6 +68,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const onVisible = () => {
+    if (!_transition) {
+      setVisible(true)
+      return
+    }
+
     timeoutRef.current && clearTimeout(timeoutRef.current)
     timeoutRef.current = setTimeout(() => {
       setVisible(true)
@@ -75,6 +80,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
   }
 
   const onHide = () => {
+    if (!_transition) {
+      setVisible(false)
+      return
+    }
+
     timeoutRef.current && clearTimeout(timeoutRef.current)
     timeoutRef.current = setTimeout(() => {
       if (activeRef.current) return
