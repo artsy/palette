@@ -1,3 +1,16 @@
+# v39.1.1 (Fri Nov 15 2024)
+
+#### 🐛  Bug Fix
+
+- fix: Removes delay when not transitioning [#1410](https://github.com/artsy/palette/pull/1410) ([@dzucconi](https://github.com/dzucconi))
+- Removes delay when not transitioning ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v39.1.0 (Thu Nov 14 2024)
 
 #### 🚀  Enhancement
