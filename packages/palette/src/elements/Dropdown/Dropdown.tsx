@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react"
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import { Position, usePosition } from "../../utils"
 import { usePortal } from "../../utils/usePortal"
@@ -67,30 +67,35 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  // We need to keep the pointer state in sync with the visibility state, else we
+  // wind up with focus isolation out of sync.
+  const setVisibility = useCallback(
+    ({
+      visible,
+      isPointer = false,
+    }: {
+      visible: boolean
+      isPointer?: boolean
+    }) => {
+      const delay = _transition ? (visible ? 50 : 150) : visible ? 1 : 50
+
+      timeoutRef.current && clearTimeout(timeoutRef.current)
+      timeoutRef.current = setTimeout(() => {
+        if (!visible && activeRef.current) return
+        pointerRef.current = isPointer
+        setVisible(visible)
+      }, delay)
+    },
+    [_transition]
+  )
+
   const onVisible = () => {
-    if (!_transition) {
-      setVisible(true)
-      return
-    }
-
-    timeoutRef.current && clearTimeout(timeoutRef.current)
-    timeoutRef.current = setTimeout(() => {
-      setVisible(true)
-    }, 50)
+    setVisibility({ visible: true })
   }
 
-  const onHide = () => {
-    if (!_transition) {
-      setVisible(false)
-      return
-    }
-
-    timeoutRef.current && clearTimeout(timeoutRef.current)
-    timeoutRef.current = setTimeout(() => {
-      if (activeRef.current) return
-      setVisible(false)
-    }, 150)
-  }
+  const onHide = useCallback(() => {
+    setVisibility({ visible: false })
+  }, [setVisibility])
 
   const onToggleVisibility = () => {
     if (visible) {
@@ -159,7 +164,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       document.removeEventListener("keyup", handleKeyUp)
       document.removeEventListener("click", handleClick)
     }
-  }, [panelRef, openDropdownByClick])
+  }, [panelRef, openDropdownByClick, onHide])
 
   const activeRef = useRef(false)
 
@@ -227,13 +232,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const pointerRef = useRef(false)
 
   const handlePointerVisible = () => {
-    pointerRef.current = true
-    onVisible()
+    setVisibility({ visible: true, isPointer: true })
   }
 
   const handlePointerHide = () => {
-    pointerRef.current = false
-    onHide()
+    setVisibility({ visible: false, isPointer: false })
   }
 
   const anchorProps: React.HTMLAttributes<HTMLElement> = {
@@ -253,6 +256,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const { createPortal } = usePortal()
 
   const isPointer = !openDropdownByClick && pointerRef.current
+  const focusEnabled = visible && !isPointer
 
   return (
     <>
@@ -306,7 +310,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
             >
               <FocusOn
                 noIsolation
-                enabled={visible && !isPointer}
+                enabled={focusEnabled}
                 onClickOutside={onHide}
               >
                 {typeof dropdown === "function"
