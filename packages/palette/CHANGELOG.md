@@ -1,3 +1,15 @@
+# v40.0.0 (Tue Nov 19 2024)
+
+#### 💥  Breaking Change
+
+- chore(react-18): Upgrade libs to React 18 [#1408](https://github.com/artsy/palette/pull/1408) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v39.1.2 (Tue Nov 19 2024)
 
 #### 🐛  Bug Fix
