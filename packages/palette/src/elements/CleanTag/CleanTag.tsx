@@ -61,7 +61,7 @@ export const omit = (obj: object = {}, keys: string[]) => {
   return next
 }
 
-type ComponentSpecifier = string | FunctionComponent<any> | ComponentClass<any>
+type ComponentSpecifier = string | FunctionComponent<React.PropsWithChildren<any>> | ComponentClass<any>
 
 export interface TagProps {
   omitFromProps?: string[]

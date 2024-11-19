@@ -13,7 +13,7 @@ export interface CheckProps {
 }
 
 /** Toggeable check mark */
-export const Check: React.FC<CheckProps> = ({
+export const Check: React.FC<React.PropsWithChildren<CheckProps>> = ({
   disabled,
   selected,
   ...rest

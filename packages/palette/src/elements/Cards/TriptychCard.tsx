@@ -24,7 +24,7 @@ export const isArrayOfStrings = (images: Images): images is string[] =>
  * at the bottom.
  */
 
-export const TriptychCard: React.FC<TriptychCardProps> = ({
+export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> = ({
   images,
   title,
   subtitle,

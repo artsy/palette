@@ -4,7 +4,7 @@ import { Drawer } from "../Drawer"
 import { Button } from "../../Button"
 import { Text } from "../../Text"
 
-const DrawerContent: React.FC = () => {
+const DrawerContent: React.FC<React.PropsWithChildren<unknown>> = () => {
   const [open, setOpen] = React.useState(false)
 
   return (

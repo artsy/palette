@@ -14,7 +14,7 @@ export interface DrawerProps {
   onClose?(): void
 }
 
-export const Drawer: FC<DrawerProps> = ({
+export const Drawer: FC<React.PropsWithChildren<DrawerProps>> = ({
   children,
   anchor = "right",
   zIndex = DEFAULT_DRAWER_Z_INDEX,

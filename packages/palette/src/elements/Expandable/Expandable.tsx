@@ -7,17 +7,22 @@ import { Clickable, ClickableProps } from "../Clickable"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 
-export interface ExpandableProps extends ClickableProps {
+type ChildrenFunction = (props: {
+  setExpanded: React.Dispatch<React.SetStateAction<boolean | undefined>>
+  expanded: boolean
+}) => React.ReactNode
+
+export interface ExpandableProps extends Omit<ClickableProps, "children"> {
   label?: string | JSX.Element
   expanded?: boolean
-  children: React.ReactNode
+  children: React.ReactNode | ChildrenFunction
   onToggle?: (isExpanded: boolean) => void
 }
 
 /**
  * A toggleable component used to show / hide content
  */
-export const Expandable: React.FC<ExpandableProps> = ({
+export const Expandable = ({
   label,
   expanded: defaultExpanded,
   children,
@@ -26,7 +31,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
   onToggle,
   borderColor = "black60",
   ...rest
-}) => {
+}: ExpandableProps) => {
   const [expanded, setExpanded] = useState(defaultExpanded)
 
   const [boxProps, clickableProps] = splitBoxProps(rest)
@@ -88,7 +93,7 @@ export const Expandable: React.FC<ExpandableProps> = ({
 
       {expanded &&
         (typeof children === "function"
-          ? children({ setExpanded, expanded })
+          ? (children as ChildrenFunction)({ setExpanded, expanded })
           : children)}
     </Box>
   )

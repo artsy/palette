@@ -15,7 +15,7 @@ export interface BannerProps extends FlexProps {
 }
 
 /** A banner */
-export const Banner: React.FC<BannerProps> = ({
+export const Banner: React.FC<React.PropsWithChildren<BannerProps>> = ({
   dismissable = false,
   onClose,
   children,

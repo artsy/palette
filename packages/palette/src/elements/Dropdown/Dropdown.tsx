@@ -21,7 +21,11 @@ export interface DropdownActions {
   visible: boolean
 }
 
-export interface DropdownProps extends BoxProps {
+type Children =
+  | React.ReactNode
+  | ((dropdownActions: DropdownActions) => React.ReactNode)
+
+export interface DropdownProps extends Omit<BoxProps, "children"> {
   placement?: Position
   /** Intially visible by default? */
   visible?: boolean
@@ -40,14 +44,14 @@ export interface DropdownProps extends BoxProps {
   /** Should the dropdown panel always be present in the DOM (vs removed when invisible) */
   keepInDOM?: boolean
   openDropdownByClick?: boolean
-  children: (dropdownActions: DropdownActions) => JSX.Element
+  children: Children
 }
 
 /**
  * A `Dropdown` is a small modal-type element which is anchored, and can be
  * positioned relative to, another element and designed to be transitioned in on hover or on click.
  */
-export const Dropdown: React.FC<DropdownProps> = ({
+export const Dropdown = ({
   placement = "top",
   visible: _visible = false,
   keepInDOM,
@@ -57,7 +61,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   openDropdownByClick,
   transition: _transition = true,
   ...rest
-}) => {
+}: DropdownProps) => {
   const [visible, setVisible] = useState(false)
 
   // If prop updates/set initial visibility.
@@ -260,7 +264,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <>
-      {children({
+      {(children as any)?.({
         anchorRef: anchorRef as any,
         anchorProps,
         onVisible,
@@ -314,7 +318,12 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 onClickOutside={onHide}
               >
                 {typeof dropdown === "function"
-                  ? dropdown({ onVisible, onHide, setVisible, visible })
+                  ? (dropdown as any)({
+                      onVisible,
+                      onHide,
+                      setVisible,
+                      visible,
+                    })
                   : dropdown}
               </FocusOn>
             </Panel>

@@ -56,7 +56,7 @@ Container.defaultProps = {
  * If `html` prop is passed; it's set as innerHTML, otherwise contents are wrapped
  * with default HTML styling.
  */
-export const HTML: React.FC<HTMLProps> = (props) => {
+export const HTML: React.FC<React.PropsWithChildren<HTMLProps>> = (props) => {
   if ("html" in props) {
     const { html, ...htmlRest } = props
     return (

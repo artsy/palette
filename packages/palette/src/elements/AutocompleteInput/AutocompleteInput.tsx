@@ -74,7 +74,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   flip?: boolean
   footer?:
     | React.ReactNode
-    | ((dropdownActions: AutocompleteFooterActions) => void)
+    | ((dropdownActions: AutocompleteFooterActions) => React.ReactNode)
   /** Ref to the input; workaround generics */
   forwardRef?: React.Ref<HTMLInputElement>
   /** on <enter> when no option is selected */

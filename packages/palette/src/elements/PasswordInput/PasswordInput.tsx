@@ -9,7 +9,7 @@ export interface PasswordInputProps extends InputProps {
   defaultVisibility?: boolean
 }
 
-export const PasswordInput: React.FC<PasswordInputProps> = ({
+export const PasswordInput: React.FC<React.PropsWithChildren<PasswordInputProps>> = ({
   defaultVisibility = false,
   ...rest
 }) => {

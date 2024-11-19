@@ -73,7 +73,7 @@ const Arrow = styled(Clickable)<ShelfNavigationProps>`
 /**
  * Default next button
  */
-export const ShelfNext: React.FC<ShelfNavigationProps> = (props) => {
+export const ShelfNext: React.FC<React.PropsWithChildren<ShelfNavigationProps>> = (props) => {
   return (
     <Arrow {...props}>
       <ChevronRightIcon width={15} height={15} />
@@ -84,7 +84,7 @@ export const ShelfNext: React.FC<ShelfNavigationProps> = (props) => {
 /**
  * Default previous button
  */
-export const ShelfPrevious: React.FC<ShelfNavigationProps> = (props) => {
+export const ShelfPrevious: React.FC<React.PropsWithChildren<ShelfNavigationProps>> = (props) => {
   return (
     <Arrow {...props}>
       <ChevronLeftIcon width={15} height={15} />

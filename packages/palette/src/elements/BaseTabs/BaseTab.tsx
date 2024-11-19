@@ -8,7 +8,7 @@ import { STATES } from "./tokens"
  * Utilize as="a" or as={Component} to alter functionality
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type BaseTabProps<C extends React.ComponentType = any> = TextProps & {
+export type BaseTabProps<C extends React.ComponentType<React.PropsWithChildren<unknown>> = any> = TextProps & {
   active?: boolean
   focus?: boolean
   hover?: boolean

@@ -50,7 +50,7 @@ const Container = styled(Flex)<MessageProps>`
  * comments within flows. Additionally, they can be used to highlight particular
  * messaging within a specific section of a page or screen.
  */
-export const Message: React.FC<MessageProps> = ({
+export const Message: React.FC<React.PropsWithChildren<MessageProps>> = ({
   children,
   title,
   variant,

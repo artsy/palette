@@ -1,6 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
-import { Box } from "../../Box"
+import { Box, BoxProps } from "../../Box"
 import { Carousel } from "../Carousel"
 
 jest.mock("../paginate", () => ({
@@ -106,20 +106,24 @@ describe("Carousel", () => {
 
     expect(html).toContain("I have 3 beautiful children")
     // @ts-expect-error  MIGRATE_STRICT_MODE
-    expect(html.match(/\<li\s/g).length).toBe(3)
+    expect(html.match(/<li\s/g).length).toBe(3)
   })
 
   it("accepts a customizable Cell", () => {
+    const Cell = React.forwardRef<any, React.PropsWithChildren<BoxProps>>(
+      ({ children, ...rest }, ref) => {
+        return (
+          <Box ref={ref as any} {...rest}>
+            beautiful number {children}
+          </Box>
+        )
+      }
+    )
+
+    Cell.displayName = "Cell"
+
     const wrapper = mount(
-      <Carousel
-        Cell={React.forwardRef(({ children, ...rest }, ref) => {
-          return (
-            <Box ref={ref as any} {...rest}>
-              beautiful number {children}
-            </Box>
-          )
-        })}
-      >
+      <Carousel Cell={Cell}>
         <>1</>
         <>2</>
         <>3</>

@@ -3,7 +3,7 @@ import { ProgressBar, ProgressBarProps } from "../ProgressBar"
 
 export type CarouselBarProps = ProgressBarProps
 
-export const CarouselBar: React.FC<CarouselBarProps> = (props) => {
+export const CarouselBar: React.FC<React.PropsWithChildren<CarouselBarProps>> = (props) => {
   return (
     <ProgressBar
       height="1px"

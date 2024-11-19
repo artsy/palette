@@ -24,7 +24,7 @@ export interface ModalDialogContentProps
   header?: React.ReactNode
 }
 
-export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
+export const ModalDialogContent: React.FC<React.PropsWithChildren<ModalDialogContentProps>> = ({
   children,
   footer,
   hasLogo,
@@ -128,7 +128,7 @@ export const ModalDialogContent: React.FC<ModalDialogContentProps> = ({
 
 export type ModalCloseProps = ClickableProps
 
-export const ModalClose: FC<ModalCloseProps> = (props) => {
+export const ModalClose: FC<React.PropsWithChildren<ModalCloseProps>> = (props) => {
   return (
     <Close p={2} ml="auto" aria-label="Close" {...props}>
       <CloseIcon fill="currentColor" display="block" />

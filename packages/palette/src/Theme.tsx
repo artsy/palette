@@ -21,7 +21,7 @@ interface ThemeProps {
 /**
  * A wrapper component for passing down the Artsy theme context
  */
-export const Theme: React.FC<ThemeProps> = ({ children, theme = "light" }) => {
+export const Theme: React.FC<React.PropsWithChildren<ThemeProps>> = ({ children, theme = "light" }) => {
   const selectedTheme = THEMES[theme]
   return <ThemeProvider theme={selectedTheme}>{children}</ThemeProvider>
 }

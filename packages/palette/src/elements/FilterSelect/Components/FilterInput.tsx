@@ -9,7 +9,9 @@ import { useFilterSelectContext } from "./FilterSelectContext"
 
 export type FilterInputProps = InputProps
 
-export const FilterInput: React.FC<InputProps> = (props) => {
+export const FilterInput: React.FC<React.PropsWithChildren<InputProps>> = (
+  props
+) => {
   const { query, setQuery, placeholder } = useFilterSelectContext()
   const ref = useRef<HTMLInputElement | null>(null)
 

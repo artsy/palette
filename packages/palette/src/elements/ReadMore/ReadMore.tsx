@@ -16,7 +16,7 @@ export interface ReadMoreProps {
 }
 
 /** ReadMore */
-export const ReadMore: React.FC<ReadMoreProps> = ({
+export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
   content: expandedHTML,
   disabled,
   inlineReadMoreLink = true,

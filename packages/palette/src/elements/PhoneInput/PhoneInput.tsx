@@ -40,9 +40,7 @@ export interface PhoneInputProps extends Omit<InputProps, "onSelect"> {
   inputValue?: string
 }
 
-export const PhoneInput: React.ForwardRefExoticComponent<
-  PhoneInputProps & { ref?: React.Ref<HTMLInputElement> }
-> = React.forwardRef(
+export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
   (
     {
       className,

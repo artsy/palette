@@ -41,7 +41,7 @@ export type ColumnProps = CellProps & {
  * A column sits within the GridColumns and spans the columns,
  * sitting between gutters.
  */
-export const Column: React.FC<ColumnProps> = ({
+export const Column: React.FC<React.PropsWithChildren<ColumnProps>> = ({
   span,
   start,
   wrap,
@@ -59,7 +59,7 @@ export const Column: React.FC<ColumnProps> = ({
   )
 }
 
-const ColumnWrap: React.FC<{ gridColumnValue: string[] }> = ({
+const ColumnWrap: React.FC<React.PropsWithChildren<{ gridColumnValue: string[] }>> = ({
   gridColumnValue,
 }) => {
   return (

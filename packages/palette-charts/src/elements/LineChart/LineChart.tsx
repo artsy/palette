@@ -19,7 +19,7 @@ export interface LineChartProps extends ChartProps {
  * LineChart is a component that displays some data points connected by lines.
  * Useful for visualizing a time series, etc.
  */
-export const LineChart: React.FC<LineChartProps> = ({
+export const LineChart: React.FC<React.PropsWithChildren<LineChartProps>> = ({
   points,
   height = DEFAULT_HEIGHT,
 }: LineChartProps) => {
@@ -62,7 +62,7 @@ export const LineChart: React.FC<LineChartProps> = ({
                     last={i === points.length - 1}
                   >
                     <AxisLabelX color="black60" variant="xs">
-                      {axisLabelX}
+                      {axisLabelX as any}
                     </AxisLabelX>
                   </BarAxisLabelContainer>
                 ))}
@@ -82,7 +82,7 @@ interface HoverHandlerProps {
   setHoverIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
-const HoverHandler: React.FC<HoverHandlerProps> = ({
+const HoverHandler: React.FC<React.PropsWithChildren<HoverHandlerProps>> = ({
   children,
   index,
   hoverIndex,

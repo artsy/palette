@@ -23,7 +23,7 @@ export interface DonutChartProps extends ChartProps {
  * DonutChart is a component that displays data points with donut shaped arcs.
  * Good for illustrating numerical proportions.
  */
-export const DonutChart: React.FC<DonutChartProps> = ({
+export const DonutChart: React.FC<React.PropsWithChildren<DonutChartProps>> = ({
   points,
   margin = space(2), // FIXME: This whole
 }) => {

@@ -10,7 +10,7 @@ export default {
   },
 }
 
-const Layout: React.FC<{ anchor: "left" | "right" }> = ({ anchor }) => {
+const Layout: React.FC<React.PropsWithChildren<{ anchor: "left" | "right" }>> = ({ anchor }) => {
   const [open, setOpen] = useState(false)
 
   return (

@@ -24,7 +24,7 @@ export interface EntityHeaderProps extends FlexProps {
  * @deprecated: Use EntityHeader fragment container patterns within Force instead
  */
 
-export const EntityHeader: React.FC<EntityHeaderProps> = ({
+export const EntityHeader: React.FC<React.PropsWithChildren<EntityHeaderProps>> = ({
   name,
   href,
   meta,

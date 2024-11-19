@@ -30,7 +30,7 @@ export type ShelfProps = BoxProps & {
 /**
  * A Shelf is a new kind of carousel...
  */
-export const Shelf: React.FC<ShelfProps> = ({
+export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   alignItems = "flex-end",
   showProgress = true,
   snap = "none",

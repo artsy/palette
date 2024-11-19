@@ -47,7 +47,7 @@ interface LazyImageProps
 }
 
 /** LazyImage */
-export const LazyImage: React.FC<LazyImageProps> = ({
+export const LazyImage: React.FC<React.PropsWithChildren<LazyImageProps>> = ({
   preload = false,
   imageComponent: ImageComponent = Image,
   ...props

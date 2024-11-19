@@ -8,7 +8,7 @@ import { BaseTabProps } from "./BaseTab"
 import { BaseTabsProps } from "./BaseTabs"
 
 // Fake `RouterLink`
-const RouterLink: React.FC<{ to: string }> = ({ to, children, ...rest }) => {
+const RouterLink: React.FC<React.PropsWithChildren<{ to: string }>> = ({ to, children, ...rest }) => {
   return (
     <a href={to} {...rest}>
       {children}

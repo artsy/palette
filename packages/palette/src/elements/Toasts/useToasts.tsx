@@ -59,7 +59,7 @@ export const ToastsContext = createContext<{
   },
 })
 
-export const ToastsProvider: React.FC = ({ children }) => {
+export const ToastsProvider: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, { toasts: [] })
 
   const activeToasts = useRef<

@@ -136,9 +136,7 @@ const initialState: FilterSelectState = {
 
 const FilterSelectContext = createContext<FilterSelectContextProps>({} as any)
 
-export const FilterSelectContextProvider: React.FC<
-  Partial<FilterSelectState>
-> = ({ children, ...props }) => {
+export const FilterSelectContextProvider: React.FC<React.PropsWithChildren<Partial<FilterSelectState>>> = ({ children, ...props }) => {
   const [state, dispatch] = useReducer(filterSelectReducer, {
     ...initialState,
     ...props,

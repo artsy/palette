@@ -109,7 +109,7 @@ export const useTabs = ({
 }
 
 /** A tab bar navigation component */
-export const Tabs: React.FC<TabsProps> = ({
+export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
   children,
   initialTabIndex = 0,
   onChange,
@@ -164,4 +164,4 @@ export interface TabProps {
  * An individual tab.
  * Does nothing on its own; props are dealt with inside of Tabs.
  */
-export const Tab: React.FC<TabProps> = ({ children }) => <>{children}</>
+export const Tab: React.FC<React.PropsWithChildren<TabProps>> = ({ children }) => <>{children}</>

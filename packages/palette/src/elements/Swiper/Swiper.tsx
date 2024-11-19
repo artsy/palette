@@ -58,7 +58,7 @@ export type SwiperProps = BoxProps & {
   initialIndex?: number
   snap?: ScrollSnapAlign
   children: React.ReactNode
-  Rail?: typeof SwiperRail | React.FC<SwiperRailProps>
+  Rail?: typeof SwiperRail | React.FC<React.PropsWithChildren<SwiperRailProps>>
   /**
    * If providing a custom `Cell` you must forward a ref so
    * that cell widths can be calculated.
@@ -74,7 +74,7 @@ export type SwiperProps = BoxProps & {
  * horizontal rail and when the width exceeds the width of the viewport, allows
  * for horitonzal swiping (or scrolling) with the option to snap to elements.
  */
-export const Swiper: React.FC<SwiperProps> = ({
+export const Swiper: React.FC<React.PropsWithChildren<SwiperProps>> = ({
   initialIndex = 0,
   children,
   snap = "none",

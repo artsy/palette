@@ -20,7 +20,7 @@ export interface ToastProps extends BoxProps {
   variant?: ToastVariant
 }
 
-export const Toast: React.FC<ToastProps> = ({
+export const Toast: React.FC<React.PropsWithChildren<ToastProps>> = ({
   id,
   action,
   description,

@@ -1,3 +1,4 @@
+import { useDidMount } from "@artsy/palette"
 import { RefObject, useEffect, useRef, useState } from "react"
 
 interface UseIntersectionObserverProperties {
@@ -19,6 +20,8 @@ export const useIntersectionObserver = ({
   onIntersection,
   onOffIntersection,
 }: UseIntersectionObserverProperties) => {
+  const isClient = useDidMount()
+
   const ref = useRef<HTMLElement | null>(null)
 
   const handleIntersect = (entries: IntersectionObserverEntry[]) => {
@@ -51,9 +54,7 @@ export const useIntersectionObserver = ({
   }
 
   const [observer] = useState(() =>
-    isClientSide
-      ? new IntersectionObserver(handleIntersect, options)
-      : undefined
+    isClient ? new IntersectionObserver(handleIntersect, options) : undefined
   )
 
   useEffect(() => {
@@ -68,5 +69,3 @@ export const useIntersectionObserver = ({
 
   return { ref }
 }
-
-const isClientSide = typeof window !== "undefined"

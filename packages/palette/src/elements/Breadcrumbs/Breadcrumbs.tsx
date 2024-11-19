@@ -39,7 +39,7 @@ export type BreadcrumbsProps = BoxProps
  * a website or web application. Breadcrumbs are often placed horizontally
  * before a page's main content.
  */
-export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+export const Breadcrumbs: React.FC<React.PropsWithChildren<BreadcrumbsProps>> = ({
   children,
   ...rest
 }) => {

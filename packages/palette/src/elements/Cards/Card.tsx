@@ -18,7 +18,7 @@ export interface CardProps extends BoxProps {
  * `Card` is a card with one image one tall image, and text for title
  * and subtitle at the bottom.
  */
-export const Card: React.FC<CardProps> = ({
+export const Card: React.FC<React.PropsWithChildren<CardProps>> = ({
   image,
   title,
   subtitle,

@@ -1,10 +1,5 @@
 import { themeGet } from "@styled-system/theme-get"
-import React, {
-  forwardRef,
-  ForwardRefExoticComponent,
-  Ref,
-  useState,
-} from "react"
+import React, { forwardRef, useState } from "react"
 import styled, { css, ExecutionContext } from "styled-components"
 import { FORM_ELEMENT_TRANSITION } from "../../helpers"
 import { RequiredField } from "../../shared/RequiredField"
@@ -35,9 +30,7 @@ export interface SelectProps
 }
 
 /** A drop-down select menu */
-export const Select: ForwardRefExoticComponent<
-  SelectProps & { ref?: Ref<HTMLElement> }
-> = forwardRef(
+export const Select = forwardRef<HTMLElement, SelectProps>(
   (
     {
       description,
