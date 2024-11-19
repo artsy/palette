@@ -42,7 +42,13 @@ export interface SpinnerProps
 }
 
 /** Generic Spinner component */
-export const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({ delay, color, ...rest }) => {
+export const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
+  position = "absolute",
+  delay = 0,
+  size = "large",
+  color = "black100",
+  ...rest
+}) => {
   const [show, setShow] = useState(delay === 0)
 
   useEffect(() => {
@@ -57,7 +63,14 @@ export const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({ delay
 
   if (!show) return null
 
-  return <Bar bg={color ?? "currentColor"} {...rest} />
+  return (
+    <Bar
+      bg={color ?? "currentColor"}
+      size={size}
+      position={position}
+      {...rest}
+    />
+  )
 }
 
 const spin = keyframes`
@@ -70,13 +83,5 @@ const Bar = styled(Box)`
   animation: ${spin} 1s infinite linear;
   ${variant({ variants: SPINNER_VARIANTS, prop: "size" })}
 `
-
-Spinner.defaultProps = {
-  // TODO: Remove `position`
-  position: "absolute",
-  delay: 0,
-  size: "large",
-  color: "black100",
-}
 
 Spinner.displayName = "Spinner"

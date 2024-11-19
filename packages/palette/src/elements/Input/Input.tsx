@@ -83,7 +83,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             name={inputProps.name}
             title={title}
             labelOffset={labelOffset}
-            defaultValue={defaultValue}
+            defaultValue={defaultValue || undefined}
             onChange={handleChange}
             placeholder={inputProps.placeholder || " "}
             {...inputProps}
