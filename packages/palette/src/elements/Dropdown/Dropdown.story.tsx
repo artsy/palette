@@ -268,37 +268,41 @@ export const OverflowingContent = () => {
 }
 
 export const DisabledTransition = () => {
-  const dropdown = (
-    <Text variant="sm-display">
-      <Clickable display="block" width="100%" py={1} px={2}>
-        First
-      </Clickable>
-      <Clickable display="block" width="100%" py={1} px={2}>
-        Second
-      </Clickable>
-      <Clickable display="block" width="100%" py={1} px={2}>
-        Third
-      </Clickable>
-    </Text>
-  )
-
   return (
     <Flex>
-      <Dropdown dropdown={dropdown} openDropdownByClick transition={false}>
-        {({ anchorRef, anchorProps }) => {
-          return (
-            <Button
-              ref={anchorRef}
-              variant="secondaryBlack"
-              size="small"
-              mr={1}
-              {...anchorProps}
-            >
-              Click for non-animated dropdown
-            </Button>
-          )
-        }}
-      </Dropdown>
+      {[1, 2, 3].map((num) => {
+        const dropdown = (
+          <Text variant="sm-display" width="100vw" bg={`color-b${num}00`} p={2}>
+            <Clickable display="block" width="100%" py={1} px={2}>
+              Panel {num}: First Item
+            </Clickable>
+            <Clickable display="block" width="100%" py={1} px={2}>
+              Panel {num}: Second Item
+            </Clickable>
+            <Clickable display="block" width="100%" py={1} px={2}>
+              Panel {num}: Third Item
+            </Clickable>
+          </Text>
+        )
+
+        return (
+          <Dropdown key={num} dropdown={dropdown} transition={false}>
+            {({ anchorRef, anchorProps }) => {
+              return (
+                <Button
+                  ref={anchorRef}
+                  variant="secondaryBlack"
+                  size="small"
+                  mr={1}
+                  {...anchorProps}
+                >
+                  Hover for dropdown {num}
+                </Button>
+              )
+            }}
+          </Dropdown>
+        )
+      })}
     </Flex>
   )
 }
