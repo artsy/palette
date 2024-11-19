@@ -1,3 +1,16 @@
+# (Tue Nov 19 2024)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@39.1.2`
+  - fix(dropdown): keeps pointer state in sync with visibility [#1411](https://github.com/artsy/palette/pull/1411) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Nov 15 2024)
 
 #### 🐛  Bug Fix
