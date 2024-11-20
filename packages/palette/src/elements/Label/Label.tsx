@@ -26,9 +26,18 @@ export interface LabelProps extends BoxProps {
   children: React.ReactNode
 }
 
-export const Label: React.FC<React.PropsWithChildren<LabelProps>> = ({ children, ...rest }) => {
+export const Label: React.FC<React.PropsWithChildren<LabelProps>> = ({
+  children,
+  variant = "light",
+  ...rest
+}) => {
   return (
-    <Container display="inline-flex" maxWidth="100%" {...rest}>
+    <Container
+      display="inline-flex"
+      maxWidth="100%"
+      variant={variant}
+      {...rest}
+    >
       <Text variant="xs" px={0.5} overflowEllipsis>
         {children}
       </Text>
@@ -36,10 +45,6 @@ export const Label: React.FC<React.PropsWithChildren<LabelProps>> = ({ children,
   )
 }
 
-Label.defaultProps = {
-  variant: "light",
-}
-
-const Container = styled(Box)`
+const Container = styled(Box)<{ variant: LabelVariant }>`
   ${variant({ variants: LABEL_VARIANTS })}
 `

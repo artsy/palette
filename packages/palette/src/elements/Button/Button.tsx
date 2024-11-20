@@ -53,6 +53,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       onClick,
       alignItems = "center",
       justifyContent = "center",
+      variant = "primaryBlack",
       Icon,
       ...rest
     },
@@ -85,6 +86,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
         display="inline-flex"
         alignItems={alignItems}
         justifyContent={justifyContent}
+        variant={variant}
         {...rest}
       >
         {loading && <Spinner size={size} color="currentColor" />}
@@ -119,11 +121,6 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
 )
 
 Button.displayName = "Button"
-
-Button.defaultProps = {
-  size: "large",
-  variant: "primaryBlack",
-}
 
 type ContainerProps = Pick<
   ButtonProps,

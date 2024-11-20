@@ -17,6 +17,7 @@ export interface BannerProps extends FlexProps {
 /** A banner */
 export const Banner: React.FC<React.PropsWithChildren<BannerProps>> = ({
   dismissable = false,
+  variant = "defaultLight",
   onClose,
   children,
   ...rest
@@ -33,7 +34,7 @@ export const Banner: React.FC<React.PropsWithChildren<BannerProps>> = ({
   if (dismissed) return null
 
   return (
-    <Container position="relative" py={1} px={4} {...rest}>
+    <Container position="relative" py={1} px={4} variant={variant} {...rest}>
       <Text
         variant="xs"
         display="flex"
@@ -64,10 +65,6 @@ export const Banner: React.FC<React.PropsWithChildren<BannerProps>> = ({
   )
 }
 
-Banner.defaultProps = {
-  variant: "defaultLight",
-}
-
 export const BANNER_VARIANTS = {
   defaultLight: {
     backgroundColor: "black10",
@@ -91,6 +88,6 @@ export const BANNER_VARIANTS = {
   },
 }
 
-const Container = styled(Flex)`
+const Container = styled(Flex)<{ variant: BannerVariant }>`
   ${variant({ variants: BANNER_VARIANTS })}
 `

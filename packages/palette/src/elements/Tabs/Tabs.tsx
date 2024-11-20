@@ -112,6 +112,7 @@ export const useTabs = ({
 export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
   children,
   initialTabIndex = 0,
+  mb = 2,
   onChange,
   ...rest
 }) => {
@@ -123,7 +124,7 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
 
   return (
     <>
-      <BaseTabs ref={ref} {...rest}>
+      <BaseTabs ref={ref} mb={mb} {...rest}>
         {tabs.map((tab, i) => {
           return (
             <Clickable
@@ -146,10 +147,6 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
   )
 }
 
-Tabs.defaultProps = {
-  mb: 2,
-}
-
 export interface TabProps {
   /** Display name of the Tab */
   name: string | JSX.Element
@@ -164,4 +161,6 @@ export interface TabProps {
  * An individual tab.
  * Does nothing on its own; props are dealt with inside of Tabs.
  */
-export const Tab: React.FC<React.PropsWithChildren<TabProps>> = ({ children }) => <>{children}</>
+export const Tab: React.FC<React.PropsWithChildren<TabProps>> = ({
+  children,
+}) => <>{children}</>
