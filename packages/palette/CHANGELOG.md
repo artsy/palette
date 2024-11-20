@@ -1,3 +1,15 @@
+# v40.1.0 (Wed Nov 20 2024)
+
+#### 🚀  Enhancement
+
+- chore(react): Fix deprecations [#1412](https://github.com/artsy/palette/pull/1412) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v40.0.0 (Tue Nov 19 2024)
 
 #### 💥  Breaking Change
