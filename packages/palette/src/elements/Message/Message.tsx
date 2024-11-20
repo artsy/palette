@@ -53,7 +53,7 @@ const Container = styled(Flex)<MessageProps>`
 export const Message: React.FC<React.PropsWithChildren<MessageProps>> = ({
   children,
   title,
-  variant,
+  variant = "default",
   ...rest
 }) => {
   const color = variant === "default" ? "black60" : "black100"
@@ -69,8 +69,4 @@ export const Message: React.FC<React.PropsWithChildren<MessageProps>> = ({
       </Text>
     </Container>
   )
-}
-
-Message.defaultProps = {
-  variant: "default",
 }

@@ -29,7 +29,7 @@ const move = (props) => keyframes`
   }
 `
 
-const Container = styled(Box)`
+const Container = styled(Box)<{ variant: keyof typeof VARIANTS }>`
   ${variant({ variants: VARIANTS })}
   width: 100%;
   overflow-x: hidden;
@@ -62,6 +62,7 @@ export const Marquee: React.FC<React.PropsWithChildren<MarqueeProps>> = ({
   marqueeText,
   divider = true,
   speed = "10s",
+  variant = "defaultDark",
   color,
   ...rest
 }) => {
@@ -84,7 +85,12 @@ export const Marquee: React.FC<React.PropsWithChildren<MarqueeProps>> = ({
   }, [])
 
   return (
-    <Container ref={containerEl as any} backgroundColor={color} {...rest}>
+    <Container
+      ref={containerEl as any}
+      backgroundColor={color}
+      variant={variant}
+      {...rest}
+    >
       <Inner speed={speed} offset={offset}>
         {Array.from(Array(amount)).map((_, i) => (
           <Item key={i} ref={childEl as any}>
@@ -103,8 +109,4 @@ export const Marquee: React.FC<React.PropsWithChildren<MarqueeProps>> = ({
       </Inner>
     </Container>
   )
-}
-
-Marquee.defaultProps = {
-  variant: "defaultDark",
 }

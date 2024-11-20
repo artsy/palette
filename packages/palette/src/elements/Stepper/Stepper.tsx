@@ -20,6 +20,7 @@ export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
   disableNavigation,
   initialTabIndex = 0,
   children,
+  mb = 2,
   ...rest
 }) => {
   const { tabs, activeTab, activeTabIndex, handleClick, ref } = useTabs({
@@ -29,7 +30,7 @@ export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
 
   return (
     <>
-      <BaseTabs ref={ref} fill {...rest}>
+      <BaseTabs ref={ref} fill mb={mb} {...rest}>
         {tabs.map((tab, i) => {
           return (
             <BaseTab
@@ -78,8 +79,6 @@ export type StepProps = TabProps
  * An individual step.
  * Does nothing on its own; props are dealt with inside of Steps.
  */
-export const Step: React.FC<React.PropsWithChildren<StepProps>> = ({ children }) => <>{children}</>
-
-Stepper.defaultProps = {
-  mb: 2,
-}
+export const Step: React.FC<React.PropsWithChildren<StepProps>> = ({
+  children,
+}) => <>{children}</>

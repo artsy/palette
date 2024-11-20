@@ -32,7 +32,9 @@ export type PillState =
 
 /** PillProps */
 export type PillProps = ClickableProps & {
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<React.PropsWithChildren<unknown>>
+  as?:
+    | keyof JSX.IntrinsicElements
+    | React.ComponentType<React.PropsWithChildren<unknown>>
   /** Forces focus state */
   focus?: boolean
   /** Forces hover state */
@@ -42,7 +44,9 @@ export type PillProps = ClickableProps & {
   /** Forces selected state. Use this state to denote the selected state */
   selected?: boolean
   /** Optional icon slot */
-  Icon?: React.FunctionComponent<React.PropsWithChildren<BoxProps & { fill?: ResponsiveValue<string> }>>
+  Icon?: React.FunctionComponent<
+    React.PropsWithChildren<BoxProps & { fill?: ResponsiveValue<string> }>
+  >
   /** Optional: Icon positioning */
   iconPosition?: "left" | "right"
 } & (
@@ -81,7 +85,9 @@ export const Pill = forwardRef<
   PillProps
 >(({ children, Icon, iconPosition = "left", ...rest }, forwardedRef) => {
   const variant =
-    rest.variant === "profile" && rest.compact ? "gray" : rest.variant
+    rest.variant === "profile" && rest.compact
+      ? "gray"
+      : rest.variant ?? "default"
 
   return (
     <Container ref={forwardedRef as any} {...rest} variant={variant}>
