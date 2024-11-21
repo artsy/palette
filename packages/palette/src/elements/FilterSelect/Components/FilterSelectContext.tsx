@@ -60,6 +60,7 @@ type Action =
   | { type: "SET_QUERY"; payload: { query: string } }
   | { type: "TOGGLE_SELECTED_ITEM"; payload: { item: Item } }
   | { type: "SET_SELECTED_ITEMS"; payload: { items: Items } }
+  | { type: "SET_ITEMS"; payload: { items: Items } }
 
 const filterSelectReducer = (state: FilterSelectState, action: Action) => {
   switch (action.type) {
@@ -117,6 +118,15 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
         selectedItems: items,
       }
     }
+
+    case "SET_ITEMS": {
+      const { items } = action.payload
+
+      return {
+        ...state,
+        items,
+      }
+    }
   }
 }
 
@@ -165,6 +175,12 @@ export const FilterSelectContextProvider: React.FC<React.PropsWithChildren<Parti
         },
       })
     },
+    setItems: (items) => {
+      dispatch({
+        type: "SET_ITEMS",
+        payload: { items },
+      })
+    },
   }
 
   useUpdateEffect(() => {
@@ -173,6 +189,12 @@ export const FilterSelectContextProvider: React.FC<React.PropsWithChildren<Parti
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.selectedItems?.length])
+
+  useUpdateEffect(() => {
+    if (props.items) {
+      contextValue.setItems(props.items)
+    }
+  }, [props.items, contextValue])
 
   useLayoutEffect(() => {
     if (props.query?.length) {
