@@ -86,7 +86,9 @@ const COLORS = {
   /** Hover/down state and suitable for text on red10 */
   red150: "#510B0B",
   /** Suitable for text on red10, black10, and lighter */
-  red100: "#BB392D",
+  red100: "#D71023",
+  /** Suitable for importance/urgency indicators */
+  red50: "#FF1023",
   /** Background only */
   red10: "#FEF2EF",
 };
