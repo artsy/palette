@@ -51,11 +51,13 @@ const COLORS: Colors = {
   orange10: "#2b1d12",
 
   /** Hover/down state and suitable for text on red10 */
-  red150: "#f4aeae",
+  red150: "#f9d2d2",
   /** Suitable for text on red10, black10, and lighter */
-  red100: "#ff5b37",
+  red100: "#f68e98",
+  /** Suitable for importance/urgency indicators */
+  red50: "#d60012",
   /** Background only */
-  red10: "#533332",
+  red10: "#561406",
 };
 
 const EFFECTS: Effects = {
