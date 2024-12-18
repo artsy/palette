@@ -1,3 +1,22 @@
+# (Wed Dec 18 2024)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette-tokens@6.2.0`
+  - feat: adjust and expand red palette [#1415](https://github.com/artsy/palette/pull/1415) ([@anandaroop](https://github.com/anandaroop))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette-charts@39.2.0`
+  - fix(bar-chart): Fix init [#1414](https://github.com/artsy/palette/pull/1414) ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Wed Nov 20 2024)
 
 #### 🚀  Enhancement

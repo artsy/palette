@@ -1,3 +1,16 @@
+# v39.2.0 (Wed Dec 18 2024)
+
+#### 🐛  Bug Fix
+
+- fix(bar-chart): Fix init [#1414](https://github.com/artsy/palette/pull/1414) ([@damassi](https://github.com/damassi))
+- fix(bar-chart): fix init ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v39.0.0 (Tue Nov 19 2024)
 
 #### 💥  Breaking Change

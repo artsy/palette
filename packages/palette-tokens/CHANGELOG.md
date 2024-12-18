@@ -1,3 +1,15 @@
+# v6.2.0 (Wed Dec 18 2024)
+
+#### 🚀  Enhancement
+
+- feat: adjust and expand red palette [#1415](https://github.com/artsy/palette/pull/1415) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # v6.1.0 (Mon Oct 21 2024)
 
 #### 🚀  Enhancement
