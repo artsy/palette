@@ -102,6 +102,24 @@ describe("FilterSelect", () => {
     expect(text).not.toContain("Item 2")
   })
 
+  it("filters items that provide custom searchable text", () => {
+    const wrapper = getWrapper({
+      query: "Three",
+      searchableText: (item) => {
+        const lookup = {
+          "Item 1": "Item One",
+          "Item 2": "Item Two",
+          "Item 3": "Item Three",
+        }
+        return `${item.label}; ${lookup[item.label]}`
+      },
+    })
+    const text = wrapper.text()
+    expect(text).toContain("Item 3")
+    expect(text).not.toContain("Item 1")
+    expect(text).not.toContain("Item 2")
+  })
+
   it("clears filters items", () => {
     const wrapper = getWrapper({ query: "Item 3", initialItemsToShow: 3 })
     let text = wrapper.text()

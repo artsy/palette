@@ -35,6 +35,7 @@ interface FilterSelectContextProps {
   placeholder: string
   query: string
   renderItemLabel?: (item: any) => string
+  searchableText?: (item: Item) => string
   selectedItems: Items
   toggleSelectedItem: (item: Item) => void
   setQuery: (query: string) => void
@@ -52,6 +53,7 @@ export type FilterSelectState = Pick<
   | "order"
   | "placeholder"
   | "renderItemLabel"
+  | "searchableText"
   | "query"
   | "selectedItems"
 >
@@ -65,6 +67,7 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
   switch (action.type) {
     case "SET_QUERY": {
       const { query } = action.payload
+      const { items, searchableText } = state
 
       if (query === "") {
         return {
@@ -75,8 +78,9 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
         }
       }
 
-      const filteredItems = state.items.filter(({ label: name }) => {
-        return name.toLowerCase().includes(query.toLowerCase())
+      const filteredItems = items.filter((item) => {
+        const text = searchableText?.(item) ?? item.label
+        return text.toLowerCase().includes(query.toLowerCase())
       })
 
       return {
@@ -136,7 +140,9 @@ const initialState: FilterSelectState = {
 
 const FilterSelectContext = createContext<FilterSelectContextProps>({} as any)
 
-export const FilterSelectContextProvider: React.FC<React.PropsWithChildren<Partial<FilterSelectState>>> = ({ children, ...props }) => {
+export const FilterSelectContextProvider: React.FC<
+  React.PropsWithChildren<Partial<FilterSelectState>>
+> = ({ children, ...props }) => {
   const [state, dispatch] = useReducer(filterSelectReducer, {
     ...initialState,
     ...props,

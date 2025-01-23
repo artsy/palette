@@ -17,7 +17,9 @@ import { useUpdateEffect } from "../../utils"
 
 export type FilterSelectProps = Partial<FilterSelectState>
 
-export const FilterSelect: React.FC<React.PropsWithChildren<FilterSelectProps>> = (props) => {
+export const FilterSelect: React.FC<
+  React.PropsWithChildren<FilterSelectProps>
+> = (props) => {
   return (
     <FilterSelectContextProvider {...props}>
       <_FilterSelect />
