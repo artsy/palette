@@ -127,7 +127,13 @@ describe("FilterSelect", () => {
     expect(text).not.toContain("Item 1")
     expect(text).not.toContain("Item 2")
 
-    wrapper.find("FilterInput Clickable").simulate("click")
+    const clearSearchInput = wrapper.findWhere(
+      (node) =>
+        node.type() === "button" &&
+        node.prop("aria-label") === "Clear search input"
+    )
+
+    clearSearchInput.simulate("click")
     wrapper.update()
 
     text = wrapper.text()
@@ -146,6 +152,44 @@ describe("FilterSelect", () => {
     expect(text).toContain("Item 3")
     expect(text).not.toContain("Item 1")
     expect(text).not.toContain("Item 2")
+  })
+
+  it("allows select-all and clear-all on filtered items", () => {
+    const wrapper = getWrapper({
+      multiselect: true,
+      enableSelectAll: true,
+    })
+
+    function getCheckedOptions() {
+      return wrapper.findWhere(
+        (node) =>
+          node.type() === "div" &&
+          node.prop("role") === "checkbox" &&
+          node.prop("aria-checked") === true
+      )
+    }
+
+    // no "Select all" initially
+    expect(wrapper.text()).not.toContain("Select all")
+
+    // "Select all" does not appear after un-successful filtering
+    simulateTyping(wrapper, "nope no matches here")
+    expect(wrapper.text()).not.toContain("Select all")
+
+    // "Select all" does appear after successful filtering
+    simulateTyping(wrapper, "item")
+    expect(wrapper.text()).toContain("Select all")
+
+    // "Select all" checks all filtered options
+    expect(getCheckedOptions().length).toEqual(0)
+    wrapper.find("button.selectAll").simulate("click")
+    wrapper.update()
+    expect(getCheckedOptions().length).toBe(6)
+
+    // "Clear" unchecks all filtered options
+    wrapper.find("button.clear").simulate("click")
+    wrapper.update()
+    expect(getCheckedOptions().length).toBe(0)
   })
 
   it("hides items under the fold", () => {

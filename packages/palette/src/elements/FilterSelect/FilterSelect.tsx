@@ -14,6 +14,9 @@ import { VisuallyHidden } from "../VisuallyHidden"
 import { Text } from "../Text"
 import { INITIAL_ITEMS_TO_SHOW } from "../ShowMore"
 import { useUpdateEffect } from "../../utils"
+import { Box } from "../Box"
+import { Clickable } from "../Clickable"
+import { Stack } from "../Stack"
 
 export type FilterSelectProps = Partial<FilterSelectState>
 
@@ -29,6 +32,7 @@ export const FilterSelect: React.FC<
 
 const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
   const {
+    enableSelectAll,
     filteredItems,
     initialItemsToShow,
     isFiltered,
@@ -39,6 +43,12 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
     query,
     selectedItems,
   } = useFilterSelectContext()
+
+  if (!multiselect && enableSelectAll) {
+    throw new Error(
+      "FilterSelect: enableSelectAll is only available with multiselect mode."
+    )
+  }
 
   // Dispatch change event
   useUpdateEffect(() => {
@@ -66,6 +76,7 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
     : itemsOrdered
   const expanded = isBelowTheFoldSelected(selectedItems, itemsSorted)
   const showNoResults = filteredItems.length === 0 && query !== ""
+  const showSelectAll = multiselect && enableSelectAll && !showNoResults
 
   return (
     <Flex flexDirection="column">
@@ -82,9 +93,12 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
       {showNoResults && <Text variant="sm">No results.</Text>}
 
       {isFiltered ? (
-        filterdItemsOrdered.map((item) => (
-          <FilterSelectResultItem key={item.value} {...item} />
-        ))
+        <>
+          {showSelectAll && <SelectAll />}
+          {filterdItemsOrdered.map((item) => (
+            <FilterSelectResultItem key={item.value} {...item} />
+          ))}
+        </>
       ) : (
         <ShowMore
           expanded={expanded}
@@ -110,4 +124,38 @@ export const isBelowTheFoldSelected = (selectedItems, resultsSorted) => {
     .map(({ value }) => value)
   const isSelected = intersection(selected, results).length > 0
   return isSelected
+}
+
+const SelectAll: React.FC = () => {
+  const {
+    filteredItems,
+    selectedItems,
+    setSelectedItems,
+  } = useFilterSelectContext()
+
+  const isClearDisabled = selectedItems.length === 0
+
+  return (
+    <Box my={1}>
+      <Stack gap={2} flexDirection={"row"}>
+        <Clickable
+          data-testid="filterSelect-selectAll"
+          className="selectAll"
+          onClick={() => setSelectedItems(filteredItems)}
+        >
+          Select all
+        </Clickable>
+
+        <Clickable
+          data-testid="filterSelect-clear"
+          className="clear"
+          onClick={() => setSelectedItems([])}
+          disabled={isClearDisabled}
+          color={isClearDisabled ? "black60" : "black100"}
+        >
+          Clear
+        </Clickable>
+      </Stack>
+    </Box>
+  )
 }

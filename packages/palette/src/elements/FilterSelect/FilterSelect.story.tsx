@@ -18,9 +18,10 @@ export const Default = () => {
         // checkboxes
         { multiselect: true },
 
-        // checkboxes with searchable hidden text
+        // checkboxes with searchable hidden text and quick select-all
         {
           multiselect: true,
+          enableSelectAll: true,
           searchableText: (item) => {
             const extraSearchTerms =
               item.country === "American" ? "USA; Yankee; Murican" : ""

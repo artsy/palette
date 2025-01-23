@@ -32,6 +32,7 @@ export const FilterInput: React.FC<React.PropsWithChildren<InputProps>> = (
         query !== "" ? (
           // Active state
           <Clickable
+            className="clearSearchInput"
             display="flex"
             onClick={handleClick}
             aria-label="Clear search input"

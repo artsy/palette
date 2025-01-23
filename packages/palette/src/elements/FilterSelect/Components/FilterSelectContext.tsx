@@ -26,6 +26,7 @@ export interface FilterSelectChangeState {
 
 interface FilterSelectContextProps {
   items: Items
+  enableSelectAll?: boolean
   filteredItems: Items
   initialItemsToShow: number
   isFiltered: boolean
@@ -44,6 +45,7 @@ interface FilterSelectContextProps {
 
 export type FilterSelectState = Pick<
   FilterSelectContextProps,
+  | "enableSelectAll"
   | "filteredItems"
   | "initialItemsToShow"
   | "items"
