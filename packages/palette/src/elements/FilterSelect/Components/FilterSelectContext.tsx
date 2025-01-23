@@ -25,11 +25,11 @@ export interface FilterSelectChangeState {
 }
 
 interface FilterSelectContextProps {
-  items: Items
   enableSelectAll?: boolean
   filteredItems: Items
   initialItemsToShow: number
   isFiltered: boolean
+  items: Items
   multiselect: boolean
   onChange: (state: FilterSelectChangeState) => void
   order: [string[], Array<"asc" | "desc">] // See: https://lodash.com/docs/4.17.15#orderBy
@@ -38,9 +38,9 @@ interface FilterSelectContextProps {
   renderItemLabel?: (item: any) => string
   searchableText?: (item: Item) => string
   selectedItems: Items
-  toggleSelectedItem: (item: Item) => void
   setQuery: (query: string) => void
   setSelectedItems: (items: Items) => void
+  toggleSelectedItem: (item: Item) => void
 }
 
 export type FilterSelectState = Pick<
@@ -48,15 +48,15 @@ export type FilterSelectState = Pick<
   | "enableSelectAll"
   | "filteredItems"
   | "initialItemsToShow"
-  | "items"
   | "isFiltered"
+  | "items"
   | "multiselect"
   | "onChange"
   | "order"
   | "placeholder"
+  | "query"
   | "renderItemLabel"
   | "searchableText"
-  | "query"
   | "selectedItems"
 >
 

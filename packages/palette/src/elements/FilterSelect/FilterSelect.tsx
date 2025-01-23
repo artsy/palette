@@ -69,7 +69,7 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
 
   const orderItems = (items: Items) => orderBy([...items], order[0], order[1])
   const itemsOrdered = orderItems(items)
-  const filterdItemsOrdered = orderItems(filteredItems)
+  const filteredItemsOrdered = orderItems(filteredItems)
   const itemsSorted = multiselect
     ? // Move selected items to the top
       uniqBy(selectedItems.concat(itemsOrdered), (x) => x.value)
@@ -95,7 +95,7 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
       {isFiltered ? (
         <>
           {showSelectAll && <SelectAll />}
-          {filterdItemsOrdered.map((item) => (
+          {filteredItemsOrdered.map((item) => (
             <FilterSelectResultItem key={item.value} {...item} />
           ))}
         </>
