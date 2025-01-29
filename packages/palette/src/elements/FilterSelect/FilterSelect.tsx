@@ -142,18 +142,20 @@ const SelectAll: React.FC = () => {
           data-testid="filterSelect-selectAll"
           className="selectAll"
           onClick={() => setSelectedItems(filteredItems)}
+          textDecoration={"underline"}
         >
-          Select all
+          <Text variant="xs">Select all</Text>
         </Clickable>
 
         <Clickable
           data-testid="filterSelect-clear"
           className="clear"
           onClick={() => setSelectedItems([])}
+          textDecoration={"underline"}
           disabled={isClearDisabled}
           color={isClearDisabled ? "black60" : "black100"}
         >
-          Clear
+          <Text variant="xs">Clear</Text>
         </Clickable>
       </Stack>
     </Box>
