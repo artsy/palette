@@ -14,10 +14,15 @@ import { VisuallyHidden } from "../VisuallyHidden"
 import { Text } from "../Text"
 import { INITIAL_ITEMS_TO_SHOW } from "../ShowMore"
 import { useUpdateEffect } from "../../utils"
+import { Box } from "../Box"
+import { Clickable } from "../Clickable"
+import { Stack } from "../Stack"
 
 export type FilterSelectProps = Partial<FilterSelectState>
 
-export const FilterSelect: React.FC<React.PropsWithChildren<FilterSelectProps>> = (props) => {
+export const FilterSelect: React.FC<
+  React.PropsWithChildren<FilterSelectProps>
+> = (props) => {
   return (
     <FilterSelectContextProvider {...props}>
       <_FilterSelect />
@@ -27,6 +32,7 @@ export const FilterSelect: React.FC<React.PropsWithChildren<FilterSelectProps>> 
 
 const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
   const {
+    enableSelectAll,
     filteredItems,
     initialItemsToShow,
     isFiltered,
@@ -37,6 +43,12 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
     query,
     selectedItems,
   } = useFilterSelectContext()
+
+  if (!multiselect && enableSelectAll) {
+    console.error(
+      "FilterSelect: enableSelectAll is only available with multiselect mode."
+    )
+  }
 
   // Dispatch change event
   useUpdateEffect(() => {
@@ -57,13 +69,14 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
 
   const orderItems = (items: Items) => orderBy([...items], order[0], order[1])
   const itemsOrdered = orderItems(items)
-  const filterdItemsOrdered = orderItems(filteredItems)
+  const filteredItemsOrdered = orderItems(filteredItems)
   const itemsSorted = multiselect
     ? // Move selected items to the top
       uniqBy(selectedItems.concat(itemsOrdered), (x) => x.value)
     : itemsOrdered
   const expanded = isBelowTheFoldSelected(selectedItems, itemsSorted)
   const showNoResults = filteredItems.length === 0 && query !== ""
+  const showSelectAll = multiselect && enableSelectAll && !showNoResults
 
   return (
     <Flex flexDirection="column">
@@ -80,15 +93,18 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
       {showNoResults && <Text variant="sm">No results.</Text>}
 
       {isFiltered ? (
-        filterdItemsOrdered.map((item) => (
-          <FilterSelectResultItem key={item.value} {...item} />
-        ))
+        <>
+          {showSelectAll && <SelectAll />}
+          {filteredItemsOrdered.map((item) => (
+            <FilterSelectResultItem key={item.value} {...item} />
+          ))}
+        </>
       ) : (
         <ShowMore
           expanded={expanded}
           initial={initialItemsToShow}
           variant={"xs"}
-          textDecoration={"underline"}
+          textDecoration="underline"
           mt={1}
           textAlign="left"
         >
@@ -108,4 +124,51 @@ export const isBelowTheFoldSelected = (selectedItems, resultsSorted) => {
     .map(({ value }) => value)
   const isSelected = intersection(selected, results).length > 0
   return isSelected
+}
+
+const SelectAll: React.FC = () => {
+  const {
+    items,
+    filteredItems,
+    onSelectAll,
+    query,
+    selectedItems,
+    setSelectedItems,
+  } = useFilterSelectContext()
+
+  const isClearDisabled = selectedItems.length === 0
+
+  return (
+    <Box my={1}>
+      <Stack gap={2} flexDirection={"row"}>
+        <Clickable
+          data-testid="filterSelect-selectAll"
+          className="selectAll"
+          onClick={() => {
+            setSelectedItems(filteredItems)
+            onSelectAll?.({
+              items,
+              filteredItems,
+              selectedItems: filteredItems,
+              query,
+            })
+          }}
+          textDecoration="underline"
+        >
+          <Text variant="xs">Select all</Text>
+        </Clickable>
+
+        <Clickable
+          data-testid="filterSelect-clear"
+          className="clear"
+          onClick={() => setSelectedItems([])}
+          textDecoration="underline"
+          disabled={isClearDisabled}
+          color={isClearDisabled ? "black60" : "black100"}
+        >
+          <Text variant="xs">Clear</Text>
+        </Clickable>
+      </Stack>
+    </Box>
+  )
 }

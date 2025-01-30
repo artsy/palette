@@ -25,34 +25,40 @@ export interface FilterSelectChangeState {
 }
 
 interface FilterSelectContextProps {
-  items: Items
+  enableSelectAll?: boolean
   filteredItems: Items
   initialItemsToShow: number
   isFiltered: boolean
+  items: Items
   multiselect: boolean
   onChange: (state: FilterSelectChangeState) => void
+  onSelectAll?: (state: FilterSelectChangeState) => void
   order: [string[], Array<"asc" | "desc">] // See: https://lodash.com/docs/4.17.15#orderBy
   placeholder: string
   query: string
   renderItemLabel?: (item: any) => string
+  searchableText?: (item: Item) => string
   selectedItems: Items
-  toggleSelectedItem: (item: Item) => void
   setQuery: (query: string) => void
   setSelectedItems: (items: Items) => void
+  toggleSelectedItem: (item: Item) => void
 }
 
 export type FilterSelectState = Pick<
   FilterSelectContextProps,
+  | "enableSelectAll"
   | "filteredItems"
   | "initialItemsToShow"
-  | "items"
   | "isFiltered"
+  | "items"
   | "multiselect"
   | "onChange"
+  | "onSelectAll"
   | "order"
   | "placeholder"
-  | "renderItemLabel"
   | "query"
+  | "renderItemLabel"
+  | "searchableText"
   | "selectedItems"
 >
 
@@ -65,6 +71,7 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
   switch (action.type) {
     case "SET_QUERY": {
       const { query } = action.payload
+      const { items, searchableText } = state
 
       if (query === "") {
         return {
@@ -75,8 +82,9 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
         }
       }
 
-      const filteredItems = state.items.filter(({ label: name }) => {
-        return name.toLowerCase().includes(query.toLowerCase())
+      const filteredItems = items.filter((item) => {
+        const text = searchableText?.(item) ?? item.label
+        return text.toLowerCase().includes(query.toLowerCase())
       })
 
       return {
@@ -136,7 +144,9 @@ const initialState: FilterSelectState = {
 
 const FilterSelectContext = createContext<FilterSelectContextProps>({} as any)
 
-export const FilterSelectContextProvider: React.FC<React.PropsWithChildren<Partial<FilterSelectState>>> = ({ children, ...props }) => {
+export const FilterSelectContextProvider: React.FC<
+  React.PropsWithChildren<Partial<FilterSelectState>>
+> = ({ children, ...props }) => {
   const [state, dispatch] = useReducer(filterSelectReducer, {
     ...initialState,
     ...props,

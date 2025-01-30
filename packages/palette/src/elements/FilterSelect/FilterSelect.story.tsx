@@ -11,7 +11,25 @@ export default {
 export const Default = () => {
   return (
     <States<FilterSelectProps>
-      states={[{ multiselect: true }, { multiselect: false }]}
+      states={[
+        // radio
+        { multiselect: false },
+
+        // checkboxes
+        { multiselect: true },
+
+        // checkboxes with searchable hidden text and quick select-all
+        {
+          multiselect: true,
+          enableSelectAll: true,
+          onSelectAll: (state) => console.log("onSelectAll", state),
+          searchableText: (item) => {
+            const extraSearchTerms =
+              item.country === "American" ? "USA; Yankee; Murican" : ""
+            return `${item.label}; ${item.country}; ${extraSearchTerms}`
+          },
+        },
+      ]}
     >
       <FilterSelect
         placeholder="Filter by artist name"
