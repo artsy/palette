@@ -45,7 +45,7 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
   } = useFilterSelectContext()
 
   if (!multiselect && enableSelectAll) {
-    throw new Error(
+    console.error(
       "FilterSelect: enableSelectAll is only available with multiselect mode."
     )
   }
@@ -104,7 +104,7 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
           expanded={expanded}
           initial={initialItemsToShow}
           variant={"xs"}
-          textDecoration={"underline"}
+          textDecoration="underline"
           mt={1}
           textAlign="left"
         >
@@ -153,7 +153,7 @@ const SelectAll: React.FC = () => {
               query,
             })
           }}
-          textDecoration={"underline"}
+          textDecoration="underline"
         >
           <Text variant="xs">Select all</Text>
         </Clickable>
@@ -162,7 +162,7 @@ const SelectAll: React.FC = () => {
           data-testid="filterSelect-clear"
           className="clear"
           onClick={() => setSelectedItems([])}
-          textDecoration={"underline"}
+          textDecoration="underline"
           disabled={isClearDisabled}
           color={isClearDisabled ? "black60" : "black100"}
         >
