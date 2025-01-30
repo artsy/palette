@@ -22,6 +22,7 @@ export const Default = () => {
         {
           multiselect: true,
           enableSelectAll: true,
+          onSelectAll: (state) => console.log("onSelectAll", state),
           searchableText: (item) => {
             const extraSearchTerms =
               item.country === "American" ? "USA; Yankee; Murican" : ""

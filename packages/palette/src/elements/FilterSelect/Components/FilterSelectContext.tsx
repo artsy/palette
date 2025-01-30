@@ -32,6 +32,7 @@ interface FilterSelectContextProps {
   items: Items
   multiselect: boolean
   onChange: (state: FilterSelectChangeState) => void
+  onSelectAll?: (state: FilterSelectChangeState) => void
   order: [string[], Array<"asc" | "desc">] // See: https://lodash.com/docs/4.17.15#orderBy
   placeholder: string
   query: string
@@ -52,6 +53,7 @@ export type FilterSelectState = Pick<
   | "items"
   | "multiselect"
   | "onChange"
+  | "onSelectAll"
   | "order"
   | "placeholder"
   | "query"

@@ -128,7 +128,10 @@ export const isBelowTheFoldSelected = (selectedItems, resultsSorted) => {
 
 const SelectAll: React.FC = () => {
   const {
+    items,
     filteredItems,
+    onSelectAll,
+    query,
     selectedItems,
     setSelectedItems,
   } = useFilterSelectContext()
@@ -141,7 +144,15 @@ const SelectAll: React.FC = () => {
         <Clickable
           data-testid="filterSelect-selectAll"
           className="selectAll"
-          onClick={() => setSelectedItems(filteredItems)}
+          onClick={() => {
+            setSelectedItems(filteredItems)
+            onSelectAll?.({
+              items,
+              filteredItems,
+              selectedItems: filteredItems,
+              query,
+            })
+          }}
           textDecoration={"underline"}
         >
           <Text variant="xs">Select all</Text>

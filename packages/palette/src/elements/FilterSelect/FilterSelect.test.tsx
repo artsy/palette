@@ -192,6 +192,24 @@ describe("FilterSelect", () => {
     expect(getCheckedOptions().length).toBe(0)
   })
 
+  it("invokes onSelectAll when select-all is clicked", () => {
+    const spy = jest.fn()
+    const wrapper = getWrapper({
+      multiselect: true,
+      enableSelectAll: true,
+      onSelectAll: spy,
+    })
+    simulateTyping(wrapper, "item")
+
+    wrapper.find("button.selectAll").simulate("click")
+    expect(spy).toHaveBeenCalledWith({
+      items: defaultProps.items,
+      filteredItems: defaultProps.items,
+      selectedItems: defaultProps.items,
+      query: "item",
+    })
+  })
+
   it("hides items under the fold", () => {
     const wrapper = getWrapper({ initialItemsToShow: 1 })
     const text = wrapper.text()
