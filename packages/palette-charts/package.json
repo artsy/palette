@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
+    "@artsy/palette": "^40",
     "@babel/cli": "7.12.16",
     "@babel/core": "7.12.16",
     "@babel/plugin-proposal-class-properties": "7.12.13",
