@@ -1,3 +1,20 @@
+# v39.3.0 (Fri Jan 31 2025)
+
+#### 🐛  Bug Fix
+
+- ci: test deploy 1 [#1419](https://github.com/artsy/palette/pull/1419) ([@damassi](https://github.com/damassi))
+- chore: Move shared deps to peerDeps [#1416](https://github.com/artsy/palette/pull/1416) ([@damassi](https://github.com/damassi))
+
+#### ⚠️ Pushed to `main`
+
+- bump: palette-charts@39.2.1 ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v39.2.0 (Wed Dec 18 2024)
 
 #### 🐛  Bug Fix

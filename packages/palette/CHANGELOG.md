@@ -1,3 +1,16 @@
+# v40.4.0 (Fri Jan 31 2025)
+
+#### 🚀  Enhancement
+
+- chore: bump @artsy/palette to v40.3.0 [#1418](https://github.com/artsy/palette/pull/1418) ([@anandaroop](https://github.com/anandaroop))
+- feat(FilterSelect): enable additional searchable text and quick select-all [#1417](https://github.com/artsy/palette/pull/1417) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # v40.1.0 (Wed Nov 20 2024)
 
 #### 🚀  Enhancement

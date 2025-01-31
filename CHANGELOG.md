@@ -1,3 +1,29 @@
+# (Fri Jan 31 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@40.4.0`
+  - chore: bump @artsy/palette to v40.3.0 [#1418](https://github.com/artsy/palette/pull/1418) ([@anandaroop](https://github.com/anandaroop))
+  - feat(FilterSelect): enable additional searchable text and quick select-all [#1417](https://github.com/artsy/palette/pull/1417) ([@anandaroop](https://github.com/anandaroop))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette-charts@39.3.0`
+  - ci: test deploy 1 [#1419](https://github.com/artsy/palette/pull/1419) ([@damassi](https://github.com/damassi))
+  - chore: Move shared deps to peerDeps [#1416](https://github.com/artsy/palette/pull/1416) ([@damassi](https://github.com/damassi))
+
+#### ⚠️ Pushed to `main`
+
+- `@artsy/palette-charts@39.3.0`
+  - bump: palette-charts@39.2.1 ([@damassi](https://github.com/damassi))
+
+#### Authors: 2
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Wed Dec 18 2024)
 
 #### 🚀  Enhancement
