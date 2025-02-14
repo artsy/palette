@@ -1,3 +1,15 @@
+# v40.5.0 (Fri Feb 14 2025)
+
+#### 🚀  Enhancement
+
+- feat(dropdown): ability to assign zIndex to dropdown [#1420](https://github.com/artsy/palette/pull/1420) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v40.4.0 (Fri Jan 31 2025)
 
 #### 🚀  Enhancement

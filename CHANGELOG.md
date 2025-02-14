@@ -1,3 +1,16 @@
+# (Fri Feb 14 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@40.5.0`
+  - feat(dropdown): ability to assign zIndex to dropdown [#1420](https://github.com/artsy/palette/pull/1420) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Fri Jan 31 2025)
 
 #### 🚀  Enhancement
