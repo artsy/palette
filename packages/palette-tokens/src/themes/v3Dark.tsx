@@ -3,8 +3,6 @@ import { Colors, Effects, THEME as THEME_LIGHT } from "./v3";
 const COLORS: Colors = {
   /** Suitable for text on black10 and lighter */
   black100: "#ffffff",
-  /** Suitable as a background color on dark mode */
-  black90: "#121212",
   /** Suitable for text on black5 and lighter */
   black60: "#949494",
   /** Background only */
@@ -16,25 +14,25 @@ const COLORS: Colors = {
   /** Suitable for text on black60 and darker */
   black5: "#1a1a1a",
   /** Suitable for text on black60 and darker */
-  white100: "#000000",
+  white100: "#121212",
 
   /** Suitable for text on black10 and lighter */
   blue200: "#d3d9fd",
   /** Suitable for text on black10 and lighter */
   blue150: "#a2b1fb",
   /** Suitable for text on black10 and lighter */
-  blue100: "#707eff",
+  blue100: "#0f77ff",
   /** Alias of blue100 */
   brand: "#707eff",
   /** Background only */
   blue15: "#474d8a",
   /** Background only */
-  blue10: "#31335e",
+  blue10: "#e6e7f5",
 
   /** Hover/down state and suitable for text on green10 */
   green150: "#c8fff0",
   /** Suitable for text on green10, black10 and lighter */
-  green100: "#98ffe2",
+  green100: "#019f73",
   /** Background only */
   green10: "#161d10",
 
@@ -55,7 +53,7 @@ const COLORS: Colors = {
   /** Hover/down state and suitable for text on red10 */
   red150: "#f9d2d2",
   /** Suitable for text on red10, black10, and lighter */
-  red100: "#f68e98",
+  red100: "#e44738",
   /** Suitable for importance/urgency indicators */
   red50: "#d60012",
   /** Background only */
