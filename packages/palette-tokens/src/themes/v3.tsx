@@ -36,6 +36,8 @@ const BREAKPOINTS_SCALE = Object.assign(
 const COLORS = {
   /** Suitable for text on black10 and lighter */
   black100: "#000000",
+  /** Suitable as a background color on dark mode */
+  black90: "#121212",
   /** Suitable for text on black5 and lighter */
   black60: "#707070",
   /** Background only */
