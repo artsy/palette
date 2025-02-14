@@ -39,14 +39,14 @@ const COLORS: Colors = {
   /** Hover/down state and suitable for text on yellow10 */
   yellow150: "#f0c65b",
   /** Suitable for text on black10 and lighter */
-  yellow100: "#d6ad1d",
+  yellow100: "#e2b929",
   /** Background only */
   yellow10: "#2b2203",
 
   /** Hover/down state and suitable for text on orange10 */
   orange150: "#e38b57",
   /** Suitable for text on black10 and lighter */
-  orange100: "#dd6a25",
+  orange100: "#da6722",
   /** Background only */
   orange10: "#2b1d12",
 
