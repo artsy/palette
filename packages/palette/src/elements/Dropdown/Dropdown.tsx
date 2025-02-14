@@ -39,6 +39,8 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
           "onHide" | "onVisible" | "setVisible" | "visible"
         >
       ) => void)
+  /** Custom zIndex to assign to the dropdown panel */
+  dropdownZIndex?: number
   /** Distance in pixels from anchor */
   offset?: number
   /** Should the dropdown panel always be present in the DOM (vs removed when invisible) */
@@ -58,6 +60,7 @@ export const Dropdown = ({
   children,
   offset = 10,
   dropdown,
+  dropdownZIndex = 1,
   openDropdownByClick,
   transition: _transition = true,
   ...rest
@@ -279,7 +282,7 @@ export const Dropdown = ({
             aria-label="Press escape to close"
             tabIndex={0}
             ref={panelRef as any}
-            zIndex={1}
+            zIndex={dropdownZIndex}
             display="inline-block"
             placement={placement}
             style={{
