@@ -1,3 +1,15 @@
+# v6.3.0 (Fri Feb 14 2025)
+
+#### 🚀  Enhancement
+
+- chore: update dark mode values [#1421](https://github.com/artsy/palette/pull/1421) ([@MounirDhahri](https://github.com/MounirDhahri))
+
+#### Authors: 1
+
+- Mounir Dhahri ([@MounirDhahri](https://github.com/MounirDhahri))
+
+---
+
 # v6.2.0 (Wed Dec 18 2024)
 
 #### 🚀  Enhancement

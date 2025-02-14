@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette-tokens@6.3.0`
+  - chore: update dark mode values [#1421](https://github.com/artsy/palette/pull/1421) ([@MounirDhahri](https://github.com/MounirDhahri))
+
+#### Authors: 1
+
+- Mounir Dhahri ([@MounirDhahri](https://github.com/MounirDhahri))
+
+---
+
+# (Fri Feb 14 2025)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@40.5.0`
   - feat(dropdown): ability to assign zIndex to dropdown [#1420](https://github.com/artsy/palette/pull/1420) ([@damassi](https://github.com/damassi))
 
