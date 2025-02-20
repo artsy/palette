@@ -20,8 +20,8 @@ const imagePropsToOmit = omitProps.filter(
 // @ts-expect-error  MIGRATE_STRICT_MODE
 const InnerLazyImage = styled(CleanTag.as(LazyLoadImage))<
   ImageProps & {
-    onLoad: () => void
-    onError?: (event: React.SyntheticEvent<any, Event>) => void
+    onLoad: (event: React.SyntheticEvent<HTMLImageElement>) => void
+    onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void
   }
 >`
   width: 100%;
@@ -50,70 +50,78 @@ interface LazyImageProps
 export const LazyImage: React.FC<React.PropsWithChildren<LazyImageProps>> = ({
   preload = false,
   imageComponent: ImageComponent = Image,
-  ...props
+  src,
+  srcSet,
+  title,
+  alt,
+  ["aria-label"]: ariaLabel,
+  width,
+  height,
+  borderRadius,
+  style,
+  onError,
+  onLoad,
+  placeHolderURL,
+  ...rest
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false)
 
-  const {
-    src,
-    srcSet,
-    title,
-    alt,
-    ["aria-label"]: ariaLabel,
-    width,
-    height,
-    borderRadius,
-    style,
-    onError,
-    placeHolderURL,
-    ...containerProps
-  } = props
-
-  if (preload) {
-    return <ImageComponent {...props} />
+  const handleLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    setImageLoaded(true)
+    onLoad?.(event)
   }
-
-  const handleLoad = () => setImageLoaded(true)
 
   // If there is a placeholder, use a regular Box to avoid a grey background.
   const Wrapper = placeHolderURL ? Box : SkeletonBox
 
-  const placeHolderStyle = placeHolderURL
-    ? {
-        backgroundImage: `url(${placeHolderURL})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }
-    : {}
+  const imageProps = {
+    ["aria-label"]: ariaLabel,
+    alt,
+    borderRadius,
+    height: "100%",
+    omitFromProps: imagePropsToOmit,
+    onError,
+    onLoad: handleLoad,
+    src,
+    srcSet,
+    style: {
+      ...style,
+      opacity: isImageLoaded ? "1" : "0",
+      // Avoids the placeholder image showing underneath the image
+      display: placeHolderURL ? "block" : style?.display,
+    },
+    title,
+    width: "100%",
+  }
+
+  const containerProps = {
+    borderRadius,
+    height,
+    width,
+    ...(placeHolderURL
+      ? {
+          backgroundImage: `url(${placeHolderURL})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }
+      : {}),
+    ...rest,
+  }
+
+  if (preload) {
+    return (
+      <Wrapper {...containerProps}>
+        <ImageComponent {...imageProps} />
+      </Wrapper>
+    )
+  }
 
   return (
-    <Wrapper
-      width={width}
-      height={height}
-      borderRadius={borderRadius}
-      {...placeHolderStyle}
-      {...containerProps}
-    >
-      <InnerLazyImage
-        omitFromProps={imagePropsToOmit}
-        onError={onError}
-        src={src}
-        srcSet={srcSet}
-        title={title}
-        alt={alt}
-        aria-label={ariaLabel}
-        borderRadius={borderRadius}
-        width="100%"
-        height="100%"
-        style={{
-          ...style,
-          opacity: isImageLoaded ? "1" : "0",
-          display: placeHolderURL ? "block" : style?.display, // Avoids the placeholder image showing underneath the image
-        }}
-        onLoad={handleLoad}
-      />
+    <Wrapper {...containerProps}>
+      <InnerLazyImage {...imageProps} />
+
       <noscript>
-        <ImageComponent {...props} />
+        <ImageComponent {...imageProps} />
       </noscript>
     </Wrapper>
   )
