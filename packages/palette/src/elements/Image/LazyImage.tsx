@@ -1,4 +1,12 @@
-import React, { CSSProperties, useState } from "react"
+import React, {
+  CSSProperties,
+  useState,
+  useRef,
+  useEffect,
+  forwardRef,
+  useCallback,
+  useMemo,
+} from "react"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import styled from "styled-components"
 import {
@@ -46,6 +54,19 @@ interface LazyImageProps
   onError?: (event: React.SyntheticEvent<any, Event>) => void
 }
 
+// Create a forwarded ref version of the image component
+const createForwardedImageComponent = (ImageComponent: any) => {
+  const ForwardedComponent = forwardRef<HTMLImageElement, any>((props, ref) => (
+    <ImageComponent {...props} ref={ref} />
+  ))
+
+  ForwardedComponent.displayName = `ForwardedImageComponent(${
+    ImageComponent.displayName || ImageComponent.name || "Component"
+  })`
+
+  return ForwardedComponent
+}
+
 /** LazyImage */
 export const LazyImage: React.FC<React.PropsWithChildren<LazyImageProps>> = ({
   preload = false,
@@ -65,11 +86,27 @@ export const LazyImage: React.FC<React.PropsWithChildren<LazyImageProps>> = ({
   ...rest
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
+  const ForwardedImageComponent = useMemo(
+    () => createForwardedImageComponent(ImageComponent),
+    [ImageComponent]
+  )
 
-  const handleLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    setImageLoaded(true)
-    onLoad?.(event)
-  }
+  const handleLoad = useCallback(
+    (event: React.SyntheticEvent<HTMLImageElement>) => {
+      setImageLoaded(true)
+      onLoad?.(event)
+    },
+    [onLoad]
+  )
+
+  useEffect(() => {
+    if (preload && imgRef.current?.complete) {
+      handleLoad({
+        currentTarget: imgRef.current,
+      } as React.SyntheticEvent<HTMLImageElement>)
+    }
+  }, [handleLoad, preload])
 
   // If there is a placeholder, use a regular Box to avoid a grey background.
   const Wrapper = placeHolderURL ? Box : SkeletonBox
@@ -111,7 +148,7 @@ export const LazyImage: React.FC<React.PropsWithChildren<LazyImageProps>> = ({
   if (preload) {
     return (
       <Wrapper {...containerProps}>
-        <ImageComponent {...imageProps} />
+        <ForwardedImageComponent {...imageProps} ref={imgRef} />
       </Wrapper>
     )
   }
