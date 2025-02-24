@@ -10,7 +10,7 @@ export interface EntityHeaderProps extends FlexProps {
   /** @deprecated: use `image` instead */
   imageUrl?: string
   /** Pass props to the underlying `Image` in `Avatar` */
-  image?: Partial<ImageProps>
+  image?: Omit<Partial<ImageProps>, "size">
   initials?: string
   meta?: string
   name: string
@@ -24,7 +24,9 @@ export interface EntityHeaderProps extends FlexProps {
  * @deprecated: Use EntityHeader fragment container patterns within Force instead
  */
 
-export const EntityHeader: React.FC<React.PropsWithChildren<EntityHeaderProps>> = ({
+export const EntityHeader: React.FC<
+  React.PropsWithChildren<EntityHeaderProps>
+> = ({
   name,
   href,
   meta,
@@ -48,7 +50,7 @@ export const EntityHeader: React.FC<React.PropsWithChildren<EntityHeaderProps>> 
               size={smallVariant ? "xxs" : "xs"}
               src={imageUrl}
               initials={initials}
-              {...image}
+              {...(image ?? {})}
             />
           </Flex>
         )}
