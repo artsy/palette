@@ -35,49 +35,72 @@ export const Image: React.FC<ImageProps> = ({
 
   const [boxProps, imageProps] = splitBoxProps(rest)
 
-  return (
-    <Box
-      className={className} // When using styled-components, pass the className prop to the Box component
-      position="relative"
-      width={width}
-      height={height}
-      {...boxProps}
-      bg={placeHolderURL ? undefined : "black10"}
-      style={{
-        ...style,
-        ...(placeHolderURL && {
-          backgroundImage: `url(${placeHolderURL})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }),
-      }}
-    >
+  // Common image props
+  const commonImgProps = {
+    ref: imageRef as any,
+    loading: lazyLoad ? ("lazy" as const) : undefined,
+    onLoad: (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+      setMode("Ready")
+      onLoad?.(event)
+    },
+    onContextMenu: preventRightClick ? (e) => e.preventDefault() : undefined,
+    ...imageProps,
+  }
+
+  // Common lazy loading style
+  const lazyLoadStyle = lazyLoad
+    ? {
+        transition: "opacity 0.2s ease-in-out",
+        opacity: mode === "Ready" ? 1 : 0,
+      }
+    : {}
+
+  // If there's a placeholder URL or lazy loading is enabled, use a wrapper container
+  if (placeHolderURL || lazyLoad) {
+    return (
       <Box
-        as="img"
-        ref={imageRef as any}
-        position="absolute"
-        top={0}
-        left={0}
-        width="100%"
-        height="100%"
-        display="block"
-        loading={lazyLoad ? "lazy" : undefined}
-        onLoad={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {
-          setMode("Ready")
-          onLoad?.(event)
-        }}
-        onContextMenu={
-          preventRightClick ? (e) => e.preventDefault() : undefined
-        }
+        className={className}
+        position="relative"
+        width={width}
+        height={height}
+        bg={lazyLoad && !placeHolderURL ? "black10" : undefined}
+        {...boxProps}
         style={{
-          objectFit: "cover",
-          ...(lazyLoad && {
-            transition: "opacity 0.2s ease-in-out",
-            opacity: mode === "Ready" ? 1 : 0,
+          ...(placeHolderURL && {
+            backgroundImage: `url(${placeHolderURL})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }),
         }}
-        {...imageProps}
-      />
-    </Box>
+      >
+        <Box
+          as="img"
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          display="block"
+          style={{ ...lazyLoadStyle, ...style }}
+          {...commonImgProps}
+        />
+      </Box>
+    )
+  }
+
+  // If no placeholder and no lazy loading, render a direct img element
+  return (
+    <Box
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      as="img"
+      className={className}
+      width={width}
+      height={height}
+      display="block"
+      style={style}
+      {...boxProps}
+      {...commonImgProps}
+    />
   )
 }
