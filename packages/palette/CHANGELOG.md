@@ -1,3 +1,17 @@
+# v40.6.1 (Wed Feb 26 2025)
+
+#### 🐛  Bug Fix
+
+- feat(image): implements a native image component [#1423](https://github.com/artsy/palette/pull/1423) ([@dzucconi](https://github.com/dzucconi))
+- fix(image): refactors to match original behavior ([@dzucconi](https://github.com/dzucconi))
+- feat(image): implements a native image component ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v40.5.0 (Fri Feb 14 2025)
 
 #### 🚀  Enhancement
