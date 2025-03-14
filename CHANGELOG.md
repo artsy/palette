@@ -1,3 +1,16 @@
+# (Fri Mar 14 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@40.7.0`
+  - feat(box): add boxShadow and pointerEvents [#1424](https://github.com/artsy/palette/pull/1424) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Wed Feb 26 2025)
 
 #### 🐛  Bug Fix
