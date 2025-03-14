@@ -1,9 +1,11 @@
-import styled from "styled-components"
+import styled, { CSSProperties } from "styled-components"
 import {
   background,
   BackgroundProps,
   border,
   BorderProps,
+  boxShadow,
+  BoxShadowProps,
   color,
   ColorProps,
   compose,
@@ -31,9 +33,17 @@ const gap = system({
   },
 })
 
+export const pointerEvents = system({
+  pointerEvents: {
+    property: "pointerEvents",
+    scale: "pointerEvents", // Optional if you're using a theme scale
+  },
+})
+
 export interface BoxProps
   extends BackgroundProps,
     BorderProps,
+    BoxShadowProps,
     Omit<ColorProps, "color">,
     FlexboxProps,
     GridAreaProps,
@@ -42,6 +52,7 @@ export interface BoxProps
     SpaceProps,
     TextAlignProps {
   gap?: ResponsiveValue<string | number>
+  pointerEvents?: ResponsiveValue<CSSProperties["pointerEvents"]>
 }
 
 /**
@@ -50,14 +61,16 @@ export interface BoxProps
 export const boxMixin = compose(
   background,
   border,
+  boxShadow,
   color,
   flexbox,
+  gap,
   gridArea,
   layout,
+  pointerEvents,
   position,
   space,
-  textAlign,
-  gap
+  textAlign
 )
 
 /**
