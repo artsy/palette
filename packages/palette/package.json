@@ -2,15 +2,27 @@
   "name": "@artsy/palette",
   "version": "40.6.1",
   "description": "Design system library for react components",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "babel src --source-maps --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ --out-dir dist",
+    "compile": "yarn compile:esm && yarn compile:cjs",
+    "compile:esm": "babel src --source-maps --extensions \".ts,.tsx\" --ignore \"src/**/__tests__/**/*,src/**/__stories__/**/*\" --out-dir dist",
+    "compile:cjs": "babel src --source-maps --extensions \".ts,.tsx\" --ignore \"src/**/__tests__/**/*,src/**/__stories__/**/*\" --out-dir dist --out-file-extension .cjs --presets=@babel/env",
     "prepack": "yarn generate-tokens && yarn generate-styles",
     "generate-tokens": "ts-node scripts/generate-tokens.ts",
     "generate-styles": "ts-node scripts/generate-styles.ts",

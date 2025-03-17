@@ -7,7 +7,9 @@
       {
         "targets": {
           "browsers": ["last 2 versions"]
-        }
+        },
+        "modules": false,
+        "loose": true
       }
     ]
   ],
@@ -23,5 +25,19 @@
         "root": ["./src"]
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  }
 }
