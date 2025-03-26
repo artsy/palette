@@ -23,7 +23,7 @@ export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
   mb = 2,
   ...rest
 }) => {
-  const { tabs, activeTab, activeTabIndex, handleClick, ref } = useTabs({
+  const { tabs, activeTabIndex, handleClick, ref } = useTabs({
     children,
     initialTabIndex,
   })
@@ -67,7 +67,7 @@ export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
         })}
       </BaseTabs>
 
-      {activeTab.current.child}
+      {tabs[activeTabIndex].child}
     </>
   )
 }
