@@ -1,3 +1,16 @@
+# (Wed Mar 26 2025)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@40.7.1`
+  - fix(tabs): prevents stale rendering of tabs [#1425](https://github.com/artsy/palette/pull/1425) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Mar 14 2025)
 
 #### 🚀  Enhancement
