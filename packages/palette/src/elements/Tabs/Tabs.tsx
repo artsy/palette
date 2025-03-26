@@ -54,16 +54,10 @@ export const useTabs = ({
   const previousInitialTabIndex = usePrevious(initialTabIndex)
   const [activeTabIndex, setActiveTabIndex] = useState<number>(initialTabIndex)
 
-  // Wraps active tab in a ref to prevent re-rendering.
-  // This means that we need to update the active tab before the index state change
-  // to catch the re-render.
-  const activeTab = useRef(tabs[activeTabIndex])
-
   // If the `initialTabIndex` changes; update the active one
   useUpdateEffect(() => {
     // Only update if the `initialTabIndex` has changed externally
     if (initialTabIndex === previousInitialTabIndex) return
-    activeTab.current = tabs[initialTabIndex]
     setActiveTabIndex(initialTabIndex)
   }, [initialTabIndex, tabs])
 
@@ -73,7 +67,7 @@ export const useTabs = ({
   // Scroll to active tab when `activeTabIndex` changes
   useEffect(() => {
     if (!ref.current) return
-    const tab = activeTab.current.ref.current
+    const tab = tabs[activeTabIndex].ref.current
     if (!tab) return
     const position = tab.offsetLeft
     ref.current.scrollTo?.({ left: position, behavior: "smooth" })
@@ -84,7 +78,6 @@ export const useTabs = ({
       return () => {
         if (index === activeTabIndex) return
 
-        activeTab.current = tabs[index]
         setActiveTabIndex(index)
 
         if (!onChange) return
@@ -100,7 +93,6 @@ export const useTabs = ({
   )
 
   return {
-    activeTab,
     activeTabIndex,
     handleClick,
     ref,
@@ -116,7 +108,7 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
   onChange,
   ...rest
 }) => {
-  const { tabs, activeTab, activeTabIndex, handleClick, ref } = useTabs({
+  const { tabs, activeTabIndex, handleClick, ref } = useTabs({
     children,
     initialTabIndex,
     onChange,
@@ -142,7 +134,7 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
         })}
       </BaseTabs>
 
-      {activeTab.current.child}
+      {tabs[activeTabIndex].child}
     </>
   )
 }

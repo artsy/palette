@@ -6,6 +6,7 @@ import { Tab, Tabs, TabsProps } from "./"
 import { Box } from "../Box"
 import { useCursor } from "use-cursor"
 import { Button } from "../Button"
+import { Input } from "../Input"
 
 export default {
   title: "Components/Tabs",
@@ -211,5 +212,24 @@ export const Cached = () => {
         <Tab name="Third">Third — count: {count}</Tab>
       </Tabs>
     </>
+  )
+}
+
+export const WithInputs = () => {
+  const [value, setValue] = useState("")
+  const [value2, setValue2] = useState("")
+
+  return (
+    <Tabs>
+      <Tab name="First">
+        <pre>{JSON.stringify({ value })}</pre>
+        <Input value={value} onChange={(e) => setValue(e.target.value)} />
+      </Tab>
+
+      <Tab name="Second">
+        <pre>{JSON.stringify({ value2 })}</pre>
+        <Input value={value2} onChange={(e) => setValue2(e.target.value)} />
+      </Tab>
+    </Tabs>
   )
 }
