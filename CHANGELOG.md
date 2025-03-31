@@ -1,3 +1,16 @@
+# (Mon Mar 31 2025)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette-charts@39.6.2`, `@artsy/palette@40.7.2`
+  - chore: removes no longer needed dep [#1426](https://github.com/artsy/palette/pull/1426) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Mar 26 2025)
 
 #### 🐛  Bug Fix

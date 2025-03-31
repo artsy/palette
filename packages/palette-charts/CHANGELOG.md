@@ -1,3 +1,16 @@
+# v39.6.2 (Mon Mar 31 2025)
+
+#### 🐛  Bug Fix
+
+- chore: removes no longer needed dep [#1426](https://github.com/artsy/palette/pull/1426) ([@dzucconi](https://github.com/dzucconi))
+- chore: removes no longer needed dep ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v39.3.0 (Fri Jan 31 2025)
 
 #### 🐛  Bug Fix
