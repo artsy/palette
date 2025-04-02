@@ -47,6 +47,8 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
   keepInDOM?: boolean
   openDropdownByClick?: boolean
   children: Children
+  /** Optionally disable flipping (default: `true`) */
+  flip?: boolean
 }
 
 /**
@@ -63,6 +65,7 @@ export const Dropdown = ({
   dropdownZIndex = 1,
   openDropdownByClick,
   transition: _transition = true,
+  flip = true,
   ...rest
 }: DropdownProps) => {
   const [visible, setVisible] = useState(false)
@@ -120,6 +123,7 @@ export const Dropdown = ({
     position: placement,
     offset: 0,
     active: visible,
+    flip,
   })
 
   useEffect(() => {

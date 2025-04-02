@@ -248,7 +248,12 @@ export const OverflowingContent = () => {
 
   return (
     <Flex>
-      <Dropdown dropdown={dropdown} openDropdownByClick>
+      <Dropdown
+        dropdown={dropdown}
+        openDropdownByClick
+        flip={false}
+        placement="bottom"
+      >
         {({ anchorRef, anchorProps }) => {
           return (
             <Button
