@@ -378,3 +378,68 @@ const isWithin = (elementRect: DOMRect, boundaryRect: DOMRect) => {
     boundaryRect.right > elementRect.left
   )
 }
+
+/**
+ * Calculate the maximum height available for a tooltip based on its placement and viewport constraints.
+ */
+export const calculateMaxHeight = ({
+  anchorRect,
+  position,
+  offset = 0,
+}: {
+  anchorRect: DOMRect
+  position: Position
+  offset?: number
+}): number => {
+  const viewportHeight = window.innerHeight
+
+  // Ensure a reasonable minimum height
+  const minimumHeight = 50
+
+  // Use a smaller viewport padding to avoid excessive constraints
+  const viewportPadding = Math.min(offset, 10)
+
+  let availableHeight: number
+  let topEdgeDistance: number
+  let bottomEdgeDistance: number
+
+  switch (position) {
+    case "top-start":
+    case "top":
+    case "top-end":
+      // Space from top of anchor to top of viewport
+      availableHeight = anchorRect.top - viewportPadding
+      break
+    case "bottom-start":
+    case "bottom":
+    case "bottom-end":
+      // Space from bottom of anchor to bottom of viewport
+      availableHeight = viewportHeight - anchorRect.bottom - viewportPadding
+      break
+    case "left-start":
+    case "left":
+    case "left-end":
+    case "right-start":
+    case "right":
+    case "right-end":
+      // For side placements, use the more generous of the two calculations
+      topEdgeDistance = anchorRect.top - viewportPadding
+      bottomEdgeDistance =
+        viewportHeight -
+        Math.max(anchorRect.top, anchorRect.bottom) -
+        viewportPadding
+      // Allow a reasonable height for side placements
+      availableHeight = Math.max(
+        topEdgeDistance + anchorRect.height,
+        bottomEdgeDistance + anchorRect.height,
+        minimumHeight
+      )
+      break
+    default:
+      // Default to viewport height minus minimal padding
+      availableHeight = viewportHeight - viewportPadding * 2
+  }
+
+  // Ensure we always return at least the minimum height
+  return Math.max(minimumHeight, availableHeight)
+}
