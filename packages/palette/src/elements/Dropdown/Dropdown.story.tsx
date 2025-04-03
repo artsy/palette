@@ -9,6 +9,7 @@ import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Pill } from "../Pill"
 import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
+import { Spacer } from "../Spacer"
 
 export default {
   title: "Components/Dropdown",
@@ -247,13 +248,12 @@ export const OverflowingContent = () => {
   )
 
   return (
-    <Flex>
-      <Dropdown
-        dropdown={dropdown}
-        openDropdownByClick
-        flip={false}
-        placement="bottom"
-      >
+    <>
+      <Box height={200} bg="black10" />
+
+      <Spacer y={2} />
+
+      <Dropdown dropdown={dropdown} openDropdownByClick placement="bottom">
         {({ anchorRef, anchorProps }) => {
           return (
             <Button
@@ -268,7 +268,11 @@ export const OverflowingContent = () => {
           )
         }}
       </Dropdown>
-    </Flex>
+
+      <Spacer y={2} />
+
+      <Box height={5000} bg="black10" />
+    </>
   )
 }
 
