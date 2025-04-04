@@ -247,27 +247,47 @@ export const OverflowingContent = () => {
     </Text>
   )
 
+  const [placement, setPlacement] = useState<Position>("bottom")
+
   return (
     <>
       <Box height={200} bg="black10" />
 
       <Spacer y={2} />
 
-      <Dropdown dropdown={dropdown} openDropdownByClick placement="bottom">
-        {({ anchorRef, anchorProps }) => {
-          return (
-            <Button
-              ref={anchorRef}
-              variant="secondaryBlack"
-              size="small"
-              mr={1}
-              {...anchorProps}
-            >
-              Click to display dropdown
-            </Button>
-          )
-        }}
-      </Dropdown>
+      {["bottom", "top", "left", "right"].map((p) => {
+        return (
+          <Pill
+            key={p}
+            size="small"
+            mr={1}
+            mb={1}
+            selected={placement === p}
+            onClick={() => setPlacement(p as Position)}
+          >
+            {p}
+          </Pill>
+        )
+      })}
+
+      <Spacer y={2} />
+
+      <Flex alignItems="center" justifyContent="center">
+        <Dropdown dropdown={dropdown} openDropdownByClick placement={placement}>
+          {({ anchorRef, anchorProps }) => {
+            return (
+              <Button
+                ref={anchorRef}
+                variant="secondaryBlack"
+                size="small"
+                {...anchorProps}
+              >
+                Click to display dropdown
+              </Button>
+            )
+          }}
+        </Dropdown>
+      </Flex>
 
       <Spacer y={2} />
 

@@ -41,6 +41,7 @@ export const usePosition = ({
   active = true,
   flip = true,
   clamp = true,
+  padding = 0,
 }: {
   /** Listen to changes on this value */
   key?: string | number | boolean
@@ -54,6 +55,8 @@ export const usePosition = ({
   flip?: boolean
   /** Optionally disable clamping (default: `true`) */
   clamp?: boolean
+  /** Add boundary padding (default: `0`) used when clamping */
+  padding?: number
 }) => {
   const [state, setState] = useState<ReturnType<typeof placeTooltip>>({
     isFlipped: false,
@@ -68,7 +71,9 @@ export const usePosition = ({
     const { current: tooltip } = tooltipRef
     const { current: anchor } = anchorRef
 
-    setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
+    setState(
+      placeTooltip({ anchor, tooltip, position, offset, flip, clamp, padding })
+    )
   }
 
   // Re-position when there's any change to the tooltip
@@ -91,7 +96,17 @@ export const usePosition = ({
     tooltip.style.left = "0"
 
     const handleScroll = () => {
-      setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
+      setState(
+        placeTooltip({
+          anchor,
+          tooltip,
+          position,
+          offset,
+          flip,
+          clamp,
+          padding,
+        })
+      )
     }
 
     document.addEventListener("scroll", handleScroll, {
@@ -99,12 +114,24 @@ export const usePosition = ({
     })
 
     const handleResize = () => {
-      setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
+      setState(
+        placeTooltip({
+          anchor,
+          tooltip,
+          position,
+          offset,
+          flip,
+          clamp,
+          padding,
+        })
+      )
     }
 
     window.addEventListener("resize", handleResize, { passive: true })
 
-    setState(placeTooltip({ anchor, tooltip, position, offset, flip, clamp }))
+    setState(
+      placeTooltip({ anchor, tooltip, position, offset, flip, clamp, padding })
+    )
 
     return () => {
       document.removeEventListener("scroll", handleScroll)
@@ -129,6 +156,7 @@ interface PlaceTooltip {
   boundaryRect?: DOMRect
   flip?: boolean
   clamp?: boolean
+  padding?: number
 }
 
 export const placeTooltip = ({
@@ -139,11 +167,16 @@ export const placeTooltip = ({
   boundaryRect = getDocumentBoundingRect(),
   flip = true,
   clamp = true,
+  padding = 0,
 }: PlaceTooltip) => {
   const elementRect = anchor.getBoundingClientRect()
   const tooltipRect = tooltip.getBoundingClientRect()
 
-  let targetPosition = getPosition(elementRect, tooltipRect, position)
+  let targetPosition = getPosition({
+    elementRect,
+    tooltipRect,
+    position,
+  })
 
   // Flip to avoid edges
   const isFlipped =
@@ -157,7 +190,7 @@ export const placeTooltip = ({
 
   if (isFlipped) {
     position = getOppositePosition(position)
-    targetPosition = getPosition(elementRect, tooltipRect, position)
+    targetPosition = getPosition({ elementRect, tooltipRect, position })
   }
 
   // Clamp position within boundary
@@ -172,6 +205,26 @@ export const placeTooltip = ({
       boundaryRect.bottom - tooltipRect.height,
       targetPosition.y
     )
+
+    // Apply padding to boundary
+    switch (position) {
+      case "top-start":
+      case "top":
+      case "top-end":
+      case "bottom-start":
+      case "bottom":
+      case "bottom-end":
+        targetPosition.x = targetPosition.x - padding
+        break
+      case "left-start":
+      case "left":
+      case "left-end":
+      case "right-start":
+      case "right":
+      case "right-end":
+        targetPosition.y = targetPosition.y + padding
+        break
+    }
   }
 
   // Should hide entirely if it scrolls out of view
@@ -187,17 +240,22 @@ export const placeTooltip = ({
   return { isFlipped }
 }
 
-export const getPosition = (
+export const getPosition = ({
+  elementRect,
+  tooltipRect,
+  position,
+}: {
   elementRect: Pick<
     DOMRect,
     "width" | "height" | "top" | "right" | "bottom" | "left"
-  >,
-  tooltipRect: Pick<DOMRect, "width" | "height">,
+  >
+  tooltipRect: Pick<DOMRect, "width" | "height">
   position: Position
-): TargetPosition => {
+}): TargetPosition => {
   let x: number
   let y: number
 
+  // X position
   switch (position) {
     case "top-start":
     case "bottom-start":
@@ -225,6 +283,7 @@ export const getPosition = (
       break
   }
 
+  // Y position
   switch (position) {
     case "left-start":
     case "right-start":
@@ -393,53 +452,26 @@ export const calculateMaxHeight = ({
 }): number => {
   const viewportHeight = window.innerHeight
 
-  // Ensure a reasonable minimum height
-  const minimumHeight = 50
-
-  // Use a smaller viewport padding to avoid excessive constraints
-  const viewportPadding = Math.min(offset, 10)
-
-  let availableHeight: number
-  let topEdgeDistance: number
-  let bottomEdgeDistance: number
-
   switch (position) {
     case "top-start":
     case "top":
     case "top-end":
       // Space from top of anchor to top of viewport
-      availableHeight = anchorRect.top - viewportPadding
-      break
+      return anchorRect.top - offset * 2
     case "bottom-start":
     case "bottom":
     case "bottom-end":
       // Space from bottom of anchor to bottom of viewport
-      availableHeight = viewportHeight - anchorRect.bottom - viewportPadding
-      break
+      return viewportHeight - anchorRect.bottom - offset * 2
     case "left-start":
     case "left":
     case "left-end":
     case "right-start":
     case "right":
     case "right-end":
-      // For side placements, use the more generous of the two calculations
-      topEdgeDistance = anchorRect.top - viewportPadding
-      bottomEdgeDistance =
-        viewportHeight -
-        Math.max(anchorRect.top, anchorRect.bottom) -
-        viewportPadding
-      // Allow a reasonable height for side placements
-      availableHeight = Math.max(
-        topEdgeDistance + anchorRect.height,
-        bottomEdgeDistance + anchorRect.height,
-        minimumHeight
-      )
-      break
+      // For side placements, use the entire viewport height
+      return viewportHeight - offset * 2
     default:
-      // Default to viewport height minus minimal padding
-      availableHeight = viewportHeight - viewportPadding * 2
+      return viewportHeight
   }
-
-  // Ensure we always return at least the minimum height
-  return Math.max(minimumHeight, availableHeight)
 }
