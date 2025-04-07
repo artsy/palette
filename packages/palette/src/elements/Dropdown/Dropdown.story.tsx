@@ -9,6 +9,7 @@ import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Pill } from "../Pill"
 import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
+import { Spacer } from "../Spacer"
 
 export default {
   title: "Components/Dropdown",
@@ -246,24 +247,52 @@ export const OverflowingContent = () => {
     </Text>
   )
 
+  const [placement, setPlacement] = useState<Position>("bottom")
+
   return (
-    <Flex>
-      <Dropdown dropdown={dropdown} openDropdownByClick>
-        {({ anchorRef, anchorProps }) => {
-          return (
-            <Button
-              ref={anchorRef}
-              variant="secondaryBlack"
-              size="small"
-              mr={1}
-              {...anchorProps}
-            >
-              Click to display dropdown
-            </Button>
-          )
-        }}
-      </Dropdown>
-    </Flex>
+    <>
+      <Box height={200} bg="black10" />
+
+      <Spacer y={2} />
+
+      {["bottom", "top", "left", "right"].map((p) => {
+        return (
+          <Pill
+            key={p}
+            size="small"
+            mr={1}
+            mb={1}
+            selected={placement === p}
+            onClick={() => setPlacement(p as Position)}
+          >
+            {p}
+          </Pill>
+        )
+      })}
+
+      <Spacer y={2} />
+
+      <Flex alignItems="center" justifyContent="center">
+        <Dropdown dropdown={dropdown} openDropdownByClick placement={placement}>
+          {({ anchorRef, anchorProps }) => {
+            return (
+              <Button
+                ref={anchorRef}
+                variant="secondaryBlack"
+                size="small"
+                {...anchorProps}
+              >
+                Click to display dropdown
+              </Button>
+            )
+          }}
+        </Dropdown>
+      </Flex>
+
+      <Spacer y={2} />
+
+      <Box height={5000} bg="black10" />
+    </>
   )
 }
 

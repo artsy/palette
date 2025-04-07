@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
-import { Position, usePosition } from "../../utils"
+import { calculateMaxHeight, Position, usePosition } from "../../utils"
 import { usePortal } from "../../utils/usePortal"
 import { Box, BoxProps } from "../Box"
 import { FocusOn } from "react-focus-on"
 import { themeGet } from "@styled-system/theme-get"
+import { debounce } from "es-toolkit"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -47,6 +48,8 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
   keepInDOM?: boolean
   openDropdownByClick?: boolean
   children: Children
+  /** Optionally disable flipping (default: `true`) */
+  flip?: boolean
 }
 
 /**
@@ -63,6 +66,7 @@ export const Dropdown = ({
   dropdownZIndex = 1,
   openDropdownByClick,
   transition: _transition = true,
+  flip = true,
   ...rest
 }: DropdownProps) => {
   const [visible, setVisible] = useState(false)
@@ -120,6 +124,8 @@ export const Dropdown = ({
     position: placement,
     offset: 0,
     active: visible,
+    flip,
+    padding: offset,
   })
 
   useEffect(() => {
@@ -265,6 +271,31 @@ export const Dropdown = ({
   const isPointer = !openDropdownByClick && pointerRef.current
   const focusEnabled = visible && !isPointer
 
+  const [maxHeight, setMaxHeight] = useState(0)
+
+  useEffect(() => {
+    const calculate = debounce(() => {
+      if (!anchorRef.current) return
+
+      const nextMaxHeight = calculateMaxHeight({
+        anchorRect: anchorRef.current.getBoundingClientRect(),
+        position: placement,
+        offset,
+      })
+
+      setMaxHeight(nextMaxHeight)
+    }, 500)
+
+    window.addEventListener("resize", calculate, { passive: true })
+    window.addEventListener("scroll", calculate, { passive: true })
+    calculate()
+
+    return () => {
+      window.removeEventListener("resize", calculate)
+      window.removeEventListener("scroll", calculate)
+    }
+  }, [anchorRef, offset, placement, visible])
+
   return (
     <>
       {(children as any)?.({
@@ -296,14 +327,13 @@ export const Dropdown = ({
                   onMouseEnter: handleMouseEnter,
                   onMouseLeave: handleMouseLeave,
                 })}
+            maxHeight={maxHeight + offset}
             {...padding}
             {...rest}
           >
             <Panel
-              bg="white100"
-              border="1px solid"
-              borderColor="black10"
               transition={_transition}
+              maxHeight={maxHeight}
               style={
                 transition
                   ? // In
@@ -342,12 +372,14 @@ const Container = styled(Box)<{ placement: Position } & BoxProps>`
   outline: 0;
 `
 
-const Panel = styled(Box)<{ transition: boolean }>`
+const Panel = styled(Box)<{ transition: boolean; maxHeight: number }>`
   transition: ${({ transition }) =>
     transition ? "opacity 250ms ease-out, transform 250ms ease-out" : "none"};
-  box-shadow: ${themeGet("effects.flatShadow")};
   > div {
-    max-height: 100vh;
+    max-height: ${({ maxHeight }) => (maxHeight ? `${maxHeight}px` : "100vh")};
+    box-shadow: ${themeGet("effects.flatShadow")};
+    background-color: ${themeGet("colors.white100")};
+    border: 1px solid ${themeGet("colors.black10")};
     overflow-y: auto;
   }
 `
