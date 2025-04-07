@@ -1,3 +1,16 @@
+# (Mon Apr 07 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@40.8.0`
+  - feat(dia-1259): implements fitting for dropdowns [#1427](https://github.com/artsy/palette/pull/1427) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Mon Mar 31 2025)
 
 #### 🐛  Bug Fix

@@ -1,3 +1,22 @@
+# v40.8.0 (Mon Apr 07 2025)
+
+#### 🚀  Enhancement
+
+- feat(dia-1259): implements fitting for dropdowns [#1427](https://github.com/artsy/palette/pull/1427) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(dropdown): implements fitting ([@dzucconi](https://github.com/dzucconi))
+- chore(dropdown): ensures story manifests issue ([@dzucconi](https://github.com/dzucconi))
+- feat: adds a max height util ([@dzucconi](https://github.com/dzucconi))
+- feat(dropdown): supports flip option ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v40.7.2 (Mon Mar 31 2025)
 
 #### 🐛  Bug Fix
