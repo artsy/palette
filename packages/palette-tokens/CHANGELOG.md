@@ -1,3 +1,15 @@
+# v6.4.0 (Thu Apr 10 2025)
+
+#### 🚀  Enhancement
+
+- fix: Update v3Dark blue10 [#1429](https://github.com/artsy/palette/pull/1429) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # v6.3.0 (Fri Feb 14 2025)
 
 #### 🚀  Enhancement
