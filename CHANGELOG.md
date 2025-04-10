@@ -2,6 +2,23 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette-tokens@6.5.0`
+  - fix: Update v3Dark black60 and black30 [#1430](https://github.com/artsy/palette/pull/1430) ([@olerichter00](https://github.com/olerichter00))
+
+#### 🏠  Internal
+
+- chore: Update local development docs to use `yarn lerna` instead of `lerna` [#1431](https://github.com/artsy/palette/pull/1431) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
+# (Thu Apr 10 2025)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette-tokens@6.4.0`
   - fix: Update v3Dark blue10 [#1429](https://github.com/artsy/palette/pull/1429) ([@olerichter00](https://github.com/olerichter00))
 

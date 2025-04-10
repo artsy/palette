@@ -1,3 +1,15 @@
+# v6.5.0 (Thu Apr 10 2025)
+
+#### 🚀  Enhancement
+
+- fix: Update v3Dark black60 and black30 [#1430](https://github.com/artsy/palette/pull/1430) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # v6.4.0 (Thu Apr 10 2025)
 
 #### 🚀  Enhancement
