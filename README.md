@@ -31,7 +31,7 @@ If you'd like to add a new component to Palette please raise the need in our `#d
 In the project root run the following:
 
 ```sh
-$ lerna bootstrap
+$ yarn lerna bootstrap
 $ yarn storybook
 ```
 
