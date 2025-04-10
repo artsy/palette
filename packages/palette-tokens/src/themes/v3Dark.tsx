@@ -27,7 +27,7 @@ const COLORS: Colors = {
   /** Background only */
   blue15: "#474d8a",
   /** Background only */
-  blue10: "#e6e7f5",
+  blue10: "#31335e",
 
   /** Hover/down state and suitable for text on green10 */
   green150: "#c8fff0",
