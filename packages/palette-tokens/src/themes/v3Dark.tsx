@@ -4,9 +4,9 @@ const COLORS: Colors = {
   /** Suitable for text on black10 and lighter */
   black100: "#ffffff",
   /** Suitable for text on black5 and lighter */
-  black60: "#949494",
+  black60: "#C2C2C2",
   /** Background only */
-  black30: "#4d4d4d",
+  black30: "#707070",
   /** Background only */
   black15: "#404040",
   /** Background only */
