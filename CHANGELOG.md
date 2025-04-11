@@ -1,3 +1,16 @@
+# (Fri Apr 11 2025)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@40.10.1`
+  - fix(popover): prevents layout thrashing at specific zoom levels [#1432](https://github.com/artsy/palette/pull/1432) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Apr 10 2025)
 
 #### 🚀  Enhancement
