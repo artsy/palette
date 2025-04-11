@@ -71,9 +71,19 @@ export const usePosition = ({
     const { current: tooltip } = tooltipRef
     const { current: anchor } = anchorRef
 
-    setState(
-      placeTooltip({ anchor, tooltip, position, offset, flip, clamp, padding })
-    )
+    requestAnimationFrame(() => {
+      setState(
+        placeTooltip({
+          anchor,
+          tooltip,
+          position,
+          offset,
+          flip,
+          clamp,
+          padding,
+        })
+      )
+    })
   }
 
   // Re-position when there's any change to the tooltip
@@ -96,17 +106,19 @@ export const usePosition = ({
     tooltip.style.left = "0"
 
     const handleScroll = () => {
-      setState(
-        placeTooltip({
-          anchor,
-          tooltip,
-          position,
-          offset,
-          flip,
-          clamp,
-          padding,
-        })
-      )
+      requestAnimationFrame(() => {
+        setState(
+          placeTooltip({
+            anchor,
+            tooltip,
+            position,
+            offset,
+            flip,
+            clamp,
+            padding,
+          })
+        )
+      })
     }
 
     document.addEventListener("scroll", handleScroll, {
@@ -114,17 +126,19 @@ export const usePosition = ({
     })
 
     const handleResize = () => {
-      setState(
-        placeTooltip({
-          anchor,
-          tooltip,
-          position,
-          offset,
-          flip,
-          clamp,
-          padding,
-        })
-      )
+      requestAnimationFrame(() => {
+        setState(
+          placeTooltip({
+            anchor,
+            tooltip,
+            position,
+            offset,
+            flip,
+            clamp,
+            padding,
+          })
+        )
+      })
     }
 
     window.addEventListener("resize", handleResize, { passive: true })
