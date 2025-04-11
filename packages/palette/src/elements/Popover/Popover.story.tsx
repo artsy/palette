@@ -235,3 +235,67 @@ export const PopoverActions = () => {
     </States>
   )
 }
+
+export const CrashAtSpecificZoomLevels = () => {
+  return (
+    <>
+      <Box height={100}>Zoom to 90% in Chrome, click, then scroll.</Box>
+
+      <Box height={2000} bg="black5">
+        <Box height={200} />
+
+        <Popover
+          placement="top"
+          popover={({ onHide, onDismiss }) => {
+            return (
+              <>
+                <Text variant="xs" width={300}>
+                  {CONTENT}
+                </Text>
+
+                <Spacer y={2} />
+
+                <Flex>
+                  <Button
+                    flex={1}
+                    size="small"
+                    variant="secondaryBlack"
+                    onClick={onHide}
+                  >
+                    Hide
+                  </Button>
+
+                  <Spacer x={1} />
+
+                  <Button
+                    flex={1}
+                    size="small"
+                    variant="secondaryBlack"
+                    onClick={onDismiss}
+                  >
+                    Dismiss
+                  </Button>
+                </Flex>
+              </>
+            )
+          }}
+        >
+          {({ onVisible, anchorRef }) => {
+            return (
+              <Box textAlign="center">
+                <Button
+                  ref={anchorRef}
+                  variant="secondaryBlack"
+                  size="small"
+                  onClick={onVisible}
+                >
+                  Click to display popover
+                </Button>
+              </Box>
+            )
+          }}
+        </Popover>
+      </Box>
+    </>
+  )
+}
