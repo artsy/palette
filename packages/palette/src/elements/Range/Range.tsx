@@ -128,7 +128,7 @@ const Track = styled(Flex)`
     right: 0;
     top: 50%;
     margin-top: -1px;
-    background-color: ${themeGet("colors.black30")};
+    background-color: ${themeGet("colors.mono30")};
   }
 `
 
@@ -152,9 +152,9 @@ const handleStyles = css`
   cursor: grab;
   width: ${RANGE_HANDLE_SIZE}px;
   height: ${RANGE_HANDLE_SIZE}px;
-  background-color: ${themeGet("colors.white100")};
+  background-color: ${themeGet("colors.mono0")};
   border-radius: 50%;
-  border: 1px solid ${themeGet("colors.black10")};
+  border: 1px solid ${themeGet("colors.mono10")};
   box-shadow: ${themeGet("effects.flatShadow")};
 `
 
@@ -188,12 +188,12 @@ const Slider = styled.input`
   &:active {
     &::-webkit-slider-thumb {
       box-shadow: none;
-      background-color: ${themeGet("colors.black5")};
+      background-color: ${themeGet("colors.mono5")};
     }
 
     &::-moz-range-thumb {
       box-shadow: none;
-      background-color: ${themeGet("colors.black5")};
+      background-color: ${themeGet("colors.mono5")};
     }
   }
 `

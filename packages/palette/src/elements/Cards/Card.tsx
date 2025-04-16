@@ -67,19 +67,19 @@ export const Card: React.FC<React.PropsWithChildren<CardProps>> = ({
           style={{ textShadow: theme.effects.textShadow }}
         >
           {status && (
-            <Text variant="xs" color="white100">
+            <Text variant="xs" color="mono0">
               {status}
             </Text>
           )}
 
           {title && (
-            <Text variant="sm-display" color="white100">
+            <Text variant="sm-display" color="mono0">
               {title}
             </Text>
           )}
 
           {subtitle && (
-            <Text variant="sm-display" color="black15">
+            <Text variant="sm-display" color="mono15">
               {subtitle}
             </Text>
           )}

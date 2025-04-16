@@ -36,7 +36,7 @@ export const Skip = React.forwardRef(
       <Container
         ref={forwardedRef as any}
         display="block"
-        bg="black10"
+        bg="mono10"
         {...rest}
       >
         <Text p={1} variant="sm">

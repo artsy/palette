@@ -11,11 +11,11 @@ export const SELECT_STATES: Record<State, any> = {
   default: css`
     height: 50px;
     font-size: ${themeGet("textVariants.sm-display.fontSize")};
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black30")};
+    color: ${themeGet("colors.mono100")};
+    border-color: ${themeGet("colors.mono30")};
 
     + label {
-      color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.mono60")};
       font-size: ${themeGet("textVariants.sm-display.fontSize")};
     }
 
@@ -45,7 +45,7 @@ export const SELECT_STATES: Record<State, any> = {
       `}
   `,
   focus: css`
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     border-color: ${themeGet("colors.blue100")};
     text-decoration: underline;
 
@@ -75,11 +75,11 @@ export const SELECT_STATES: Record<State, any> = {
   `,
   hover: css`
     color: ${themeGet("colors.blue100")};
-    border-color: ${themeGet("colors.black60")};
+    border-color: ${themeGet("colors.mono60")};
     text-decoration: underline;
 
     + label {
-      color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.mono60")};
     }
 
     &:has(option[value=""]:checked):not(:disabled) + label {
@@ -99,11 +99,11 @@ export const SELECT_STATES: Record<State, any> = {
       `}
   `,
   completed: css`
-    border-color: ${themeGet("colors.black60")};
+    border-color: ${themeGet("colors.mono60")};
     text-decoration: none;
 
     + label {
-      color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.mono60")};
     }
 
     &:not(:has(option[value=""]:checked)) + label {
@@ -132,12 +132,12 @@ export const SELECT_STATES: Record<State, any> = {
       `}
   `,
   disabled: css`
-    color: ${themeGet("colors.black30")};
-    border-color: ${themeGet("colors.black30")};
+    color: ${themeGet("colors.mono30")};
+    border-color: ${themeGet("colors.mono30")};
     text-decoration: none;
 
     + label {
-      color: ${themeGet("colors.black30")};
+      color: ${themeGet("colors.mono30")};
       text-decoration: none;
     }
 
@@ -167,7 +167,7 @@ export const SELECT_STATES: Record<State, any> = {
       `}
   `,
   error: css`
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     border-color: ${themeGet("colors.red100")};
 
     + label {

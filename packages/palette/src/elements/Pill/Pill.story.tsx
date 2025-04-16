@@ -29,8 +29,8 @@ export const Variants = () => {
           p={1}
           overflowX="auto"
           {...(["primaryWhite", "secondaryWhite"].includes(`${props.variant}`)
-            ? { bg: "black100", color: "white100" }
-            : { bg: "white100", color: "black100" })}
+            ? { bg: "mono100", color: "mono0" }
+            : { bg: "mono0", color: "mono100" })}
         >
           <Flex>
             <Join separator={<Spacer x={2} />}>

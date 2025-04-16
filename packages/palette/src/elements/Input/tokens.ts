@@ -4,26 +4,26 @@ import { State } from "./types"
 
 export const INPUT_STATES: Record<State, any> = {
   default: css`
-    background-color: ${themeGet("colors.white100")};
+    background-color: ${themeGet("colors.mono0")};
     font-size: ${themeGet("textVariants.sm-display.fontSize")};
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black30")};
+    color: ${themeGet("colors.mono100")};
+    border-color: ${themeGet("colors.mono30")};
 
     ::placeholder {
-      color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.mono60")};
     }
 
     & + label {
-      color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.mono60")};
       font-size: ${themeGet("textVariants.sm-display.fontSize")};
     }
   `,
   focus: css`
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     border-color: ${themeGet("colors.blue100")};
 
     ::placeholder {
-      color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.mono60")};
       opacity: 1;
     }
 
@@ -40,23 +40,23 @@ export const INPUT_STATES: Record<State, any> = {
     }
   `,
   hover: css`
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black60")};
+    color: ${themeGet("colors.mono100")};
+    border-color: ${themeGet("colors.mono60")};
 
     ::placeholder {
-      color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.mono100")};
     }
 
     & + label {
-      color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.mono100")};
     }
   `,
   active: css`
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     border-color: ${themeGet("colors.blue100")};
 
     ::placeholder {
-      color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.mono100")};
     }
 
     & + label {
@@ -72,8 +72,8 @@ export const INPUT_STATES: Record<State, any> = {
     }
   `,
   completed: css`
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black60")};
+    color: ${themeGet("colors.mono100")};
+    border-color: ${themeGet("colors.mono60")};
 
     & + label {
       color: ${themeGet("colors.blue60")};
@@ -88,20 +88,20 @@ export const INPUT_STATES: Record<State, any> = {
     }
   `,
   disabled: css`
-    color: ${themeGet("colors.black30")};
-    border-color: ${themeGet("colors.black30")};
+    color: ${themeGet("colors.mono30")};
+    border-color: ${themeGet("colors.mono30")};
     background-color: transparent;
     /* For Safari: */
-    -webkit-text-fill-color: ${themeGet("colors.black30")};
+    -webkit-text-fill-color: ${themeGet("colors.mono30")};
     /* For iOS */
     opacity: 1;
 
     ::placeholder {
-      color: ${themeGet("colors.black30")};
+      color: ${themeGet("colors.mono30")};
     }
 
     &:not(:placeholder-shown) + label {
-      color: ${themeGet("colors.black30")};
+      color: ${themeGet("colors.mono30")};
       transform: translateY(-150%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
 
@@ -112,7 +112,7 @@ export const INPUT_STATES: Record<State, any> = {
     }
 
     &:placeholder-shown + label {
-      color: ${themeGet("colors.black30")};
+      color: ${themeGet("colors.mono30")};
     }
   `,
   error: css`

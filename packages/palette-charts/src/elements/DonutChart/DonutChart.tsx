@@ -12,7 +12,7 @@ import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { ChartProps } from "../DataVis/utils/SharedTypes"
 import { useWrapperWidth } from "../DataVis/utils/useWrapperWidth"
 
-const colors: Color[] = ["black10", "black30", "black60"]
+const colors: Color[] = ["mono10", "mono30", "mono60"]
 const MIN_CHART_SIZE = 30
 
 export interface DonutChartProps extends ChartProps {
@@ -80,7 +80,7 @@ export const DonutChart: React.FC<React.PropsWithChildren<DonutChartProps>> = ({
           y={y + centerY}
           center={centerX}
         >
-          <Text color="black60" variant="xs">
+          <Text color="mono60" variant="xs">
             {coerceTooltipWithoutPadding(axisLabelX)}
           </Text>
         </DonutLabelContainer>
@@ -92,7 +92,7 @@ export const DonutChart: React.FC<React.PropsWithChildren<DonutChartProps>> = ({
     <path
       key="zero-state"
       stroke="none"
-      fill={color("black5")}
+      fill={color("mono5")}
       d={arc(zeroState as any)}
     />
   ))

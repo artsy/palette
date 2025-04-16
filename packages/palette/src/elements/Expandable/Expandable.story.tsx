@@ -59,9 +59,9 @@ export const Default = () => {
 
 export const ConfigurableColors = () => {
   return (
-    <Box color="white100" bg="black100">
+    <Box color="mono0" bg="mono100">
       <States<Partial<ExpandableProps>> states={[{}, { expanded: true }]}>
-        <Expandable label="Example" maxWidth={350} borderColor="black30">
+        <Expandable label="Example" maxWidth={350} borderColor="mono30">
           <Text>Expanded content</Text>
         </Expandable>
       </States>

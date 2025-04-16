@@ -6,16 +6,16 @@ import { Box, BoxProps } from "../Box"
 
 export const LABEL_VARIANTS = {
   light: {
-    backgroundColor: "black10",
-    color: "black100",
+    backgroundColor: "mono10",
+    color: "mono100",
   },
   dark: {
-    backgroundColor: "black100",
-    color: "white100",
+    backgroundColor: "mono100",
+    color: "mono0",
   },
   brand: {
     backgroundColor: "blue100",
-    color: "white100",
+    color: "mono0",
   },
 }
 

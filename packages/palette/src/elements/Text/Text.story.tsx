@@ -12,7 +12,7 @@ import { Text, TextProps } from "./Text"
 
 const Table = styled.table`
   width: 100%;
-  border: 1px solid ${themeGet("colors.black10")};
+  border: 1px solid ${themeGet("colors.mono10")};
   border-collapse: collapse;
 
   > thead > tr > th {
@@ -22,21 +22,23 @@ const Table = styled.table`
 
   > thead > tr > th,
   > tbody > tr > td {
-    border-bottom: 1px solid ${themeGet("colors.black10")};
-    border-left: 1px solid ${themeGet("colors.black10")};
+    border-bottom: 1px solid ${themeGet("colors.mono10")};
+    border-left: 1px solid ${themeGet("colors.mono10")};
     padding: ${themeGet("space.1")};
   }
 `
 
-const Specification: React.FC<React.PropsWithChildren<{
-  size?: "small" | "large" | "default"
-  treatment: any
-}>> = ({ size, treatment }) => {
+const Specification: React.FC<
+  React.PropsWithChildren<{
+    size?: "small" | "large" | "default"
+    treatment: any
+  }>
+> = ({ size, treatment }) => {
   const textColor =
     {
-      small: ["purple100", "black60"] as Color[],
-      large: ["black60", "purple100"] as Color[],
-    }[size || "small"] || "black60"
+      small: ["purple100", "mono60"] as Color[],
+      large: ["mono60", "purple100"] as Color[],
+    }[size || "small"] || "mono60"
 
   return (
     <>

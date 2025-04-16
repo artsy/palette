@@ -8,7 +8,11 @@ import { BaseTabProps } from "./BaseTab"
 import { BaseTabsProps } from "./BaseTabs"
 
 // Fake `RouterLink`
-const RouterLink: React.FC<React.PropsWithChildren<{ to: string }>> = ({ to, children, ...rest }) => {
+const RouterLink: React.FC<React.PropsWithChildren<{ to: string }>> = ({
+  to,
+  children,
+  ...rest
+}) => {
   return (
     <a href={to} {...rest}>
       {children}
@@ -188,10 +192,10 @@ export const Fill = () => {
 
 export const BreakingOutOfContainerMargin = () => {
   return (
-    <Box m={6} bg="black10">
+    <Box m={6} bg="mono10">
       <BaseTabs mx={-6} px={6}>
         <BaseTab active>
-          Rail border should extend past black10 background
+          Rail border should extend past mono10 background
         </BaseTab>
       </BaseTabs>
     </Box>

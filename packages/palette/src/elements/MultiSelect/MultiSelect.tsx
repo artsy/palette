@@ -31,7 +31,9 @@ export interface MultiSelectProps extends BoxProps {
 }
 
 /** A drop-down multi-select menu */
-export const MultiSelect: React.FC<React.PropsWithChildren<MultiSelectProps>> = ({
+export const MultiSelect: React.FC<
+  React.PropsWithChildren<MultiSelectProps>
+> = ({
   complete,
   description,
   disabled,
@@ -106,7 +108,7 @@ export const MultiSelect: React.FC<React.PropsWithChildren<MultiSelectProps>> = 
     <Box width="100%" {...rest}>
       {!!description && (
         <Tooltip pointer content={description} placement="top-end">
-          <Text variant="xs" color="black60" textAlign="right">
+          <Text variant="xs" color="mono60" textAlign="right">
             <u>What is this?</u>
           </Text>
         </Tooltip>
@@ -137,7 +139,7 @@ export const MultiSelect: React.FC<React.PropsWithChildren<MultiSelectProps>> = 
           tabIndex={0}
           ref={tooltipRef as any}
           zIndex={1}
-          bg="white100"
+          bg="mono0"
           width={width}
         >
           {options.map((option) => {
@@ -192,11 +194,11 @@ const Container = styled(Clickable)<ContainerProps>`
   font-family: ${themeGet("fonts.sans")};
   border: 1px solid;
   border-radius: 3px;
-  border-color: ${themeGet("colors.black30")};
+  border-color: ${themeGet("colors.mono30")};
   cursor: pointer;
   line-height: 1;
   transition: color 0.25s, background-color 0.25s, border-color 0.25s;
-  background-color: ${themeGet("colors.white100")};
+  background-color: ${themeGet("colors.mono0")};
 
   ${(props) => {
     return css`
@@ -240,6 +242,6 @@ const StyledLabel = styled.label`
   transform: translateY(-50%);
   transition: ${FORM_ELEMENT_TRANSITION};
   transition-property: color, transform, padding, font-size;
-  background-color: ${themeGet("colors.white100")};
+  background-color: ${themeGet("colors.mono0")};
   font-family: ${themeGet("fonts.sans")};
 `

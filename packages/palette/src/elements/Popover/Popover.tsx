@@ -11,12 +11,12 @@ import { themeGet } from "@styled-system/theme-get"
 
 export const POPOVER_VARIANTS = {
   defaultLight: {
-    backgroundColor: "white100",
-    color: "black100",
+    backgroundColor: "mono0",
+    color: "mono100",
   },
   defaultDark: {
-    backgroundColor: "black100",
-    color: "white100",
+    backgroundColor: "mono100",
+    color: "mono0",
   },
 }
 

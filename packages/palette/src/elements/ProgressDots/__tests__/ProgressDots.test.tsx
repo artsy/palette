@@ -14,7 +14,7 @@ describe("ProgressDots", () => {
     expect(wrapper.find("Indicator").length).toBe(10)
 
     // Activates the correct dot
-    expect(wrapper.find("Indicator").at(3).prop("bg")).toEqual("black100")
+    expect(wrapper.find("Indicator").at(3).prop("bg")).toEqual("mono100")
 
     // Announces the page
     expect(wrapper.html()).toContain("Page 4 of 10")

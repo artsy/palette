@@ -11,7 +11,7 @@ export const Default = () => {
     <States<SeparatorProps>
       states={[
         {},
-        { color: "black30" },
+        { color: "mono30" },
         { borderColor: "red100" },
         { borderWidth: 5, my: 2 },
       ]}

@@ -6,8 +6,8 @@ import { Text } from "../Text"
 
 export const MESSAGE_VARIANTS = {
   default: {
-    backgroundColor: "black5",
-    color: "black100",
+    backgroundColor: "mono5",
+    color: "mono100",
   },
   info: {
     backgroundColor: "blue10",
@@ -56,7 +56,7 @@ export const Message: React.FC<React.PropsWithChildren<MessageProps>> = ({
   variant = "default",
   ...rest
 }) => {
-  const color = variant === "default" ? "black60" : "black100"
+  const color = variant === "default" ? "mono60" : "mono100"
 
   return (
     <Container p={2} variant={variant} {...rest}>

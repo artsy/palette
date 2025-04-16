@@ -24,13 +24,9 @@ export const isArrayOfStrings = (images: Images): images is string[] =>
  * at the bottom.
  */
 
-export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> = ({
-  images,
-  title,
-  subtitle,
-  status,
-  ...rest
-}) => {
+export const TriptychCard: React.FC<
+  React.PropsWithChildren<TriptychCardProps>
+> = ({ images, title, subtitle, status, ...rest }) => {
   const imgs: ImageProps[] = (isArrayOfStrings(images)
     ? images.map((src) => ({ src }))
     : images
@@ -48,9 +44,9 @@ export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> 
                     aspectWidth={3}
                     aspectHeight={2}
                     maxWidth="100%"
-                    bg="black10"
+                    bg="mono10"
                     borderRight="1px solid"
-                    borderColor="white100"
+                    borderColor="mono0"
                   >
                     <Image
                       alt=""
@@ -69,9 +65,9 @@ export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> 
                       aspectWidth={1}
                       aspectHeight={1}
                       maxWidth="100%"
-                      bg="black10"
+                      bg="mono10"
                       borderRight="1px solid"
-                      borderColor="white100"
+                      borderColor="mono0"
                     >
                       <Image
                         alt=""
@@ -87,9 +83,9 @@ export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> 
                         aspectWidth={1}
                         aspectHeight={2}
                         maxWidth="100%"
-                        bg="black10"
+                        bg="mono10"
                         borderLeft="1px solid"
-                        borderColor="white100"
+                        borderColor="mono0"
                       >
                         <Image
                           alt=""
@@ -109,9 +105,9 @@ export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> 
                       aspectWidth={1}
                       aspectHeight={1}
                       maxWidth="100%"
-                      bg="black10"
+                      bg="mono10"
                       borderRight="1px solid"
-                      borderColor="white100"
+                      borderColor="mono0"
                     >
                       <Image
                         alt=""
@@ -127,10 +123,10 @@ export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> 
                         aspectWidth={1}
                         aspectHeight={1}
                         maxWidth="100%"
-                        bg="black10"
+                        bg="mono10"
                         borderLeft="1px solid"
                         borderBottom="1px solid"
-                        borderColor="white100"
+                        borderColor="mono0"
                       >
                         <Image
                           alt=""
@@ -145,10 +141,10 @@ export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> 
                         aspectWidth={1}
                         aspectHeight={1}
                         maxWidth="100%"
-                        bg="black10"
+                        bg="mono10"
                         borderLeft="1px solid"
                         borderTop="1px solid"
-                        borderColor="white100"
+                        borderColor="mono0"
                       >
                         <Image
                           alt=""
@@ -171,7 +167,7 @@ export const TriptychCard: React.FC<React.PropsWithChildren<TriptychCardProps>> 
       <Text variant="sm-display">{title}</Text>
 
       {subtitle && (
-        <Text variant="sm-display" color="black60">
+        <Text variant="sm-display" color="mono60">
           {subtitle}
         </Text>
       )}

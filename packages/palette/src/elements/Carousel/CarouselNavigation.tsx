@@ -27,7 +27,7 @@ const Arrow = styled(Clickable)`
   &:hover,
   &:focus {
     outline: 0;
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
   }
 
   &:disabled {
@@ -42,7 +42,7 @@ const Arrow = styled(Clickable)`
 Arrow.defaultProps = {
   width: ARROW_WIDTH.map((value) => space(value)),
   height: "100%",
-  color: "black60",
+  color: "mono60",
 }
 
 /**

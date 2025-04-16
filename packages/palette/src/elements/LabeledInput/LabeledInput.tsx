@@ -48,7 +48,7 @@ export const LabeledInput = React.forwardRef<
           {...{ [isPrefix ? "left" : "right"]: 1 }}
         >
           {isText ? (
-            <Text variant="sm-display" color="black60" lineHeight={1}>
+            <Text variant="sm-display" color="mono60" lineHeight={1}>
               {label}
             </Text>
           ) : (

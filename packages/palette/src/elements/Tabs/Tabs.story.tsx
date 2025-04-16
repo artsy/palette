@@ -152,7 +152,7 @@ export const InitialAutoScroll = () => {
 
   return (
     <>
-      <Box bg="black10" height={1000} p={2}>
+      <Box bg="mono10" height={1000} p={2}>
         The vertical scroll of this page should be at the top.
         <br />
         Scroll down to see the tabs.
@@ -180,7 +180,7 @@ export const InitialAutoScroll = () => {
         </Tab>
       </Tabs>
 
-      <Box bg="black10" height={1000} />
+      <Box bg="mono10" height={1000} />
     </>
   )
 }

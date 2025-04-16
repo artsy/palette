@@ -126,7 +126,7 @@ export const Placement = () => {
                   p={1}
                   maxWidth="50%"
                   mx="auto"
-                  bg="black10"
+                  bg="mono10"
                 >
                   {JSON.stringify(props)}
                 </Text>
@@ -241,7 +241,7 @@ export const CrashAtSpecificZoomLevels = () => {
     <>
       <Box height={100}>Zoom to 90% in Chrome, click, then scroll.</Box>
 
-      <Box height={2000} bg="black5">
+      <Box height={2000} bg="mono5">
         <Box height={200} />
 
         <Popover

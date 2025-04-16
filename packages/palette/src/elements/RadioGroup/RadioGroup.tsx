@@ -103,7 +103,7 @@ export class RadioGroup<T> extends React.Component<
     return (
       <Flex flexDirection="column" {...rest}>
         {disabled && disabledText && (
-          <Text variant="xs" mb={1} color="black60">
+          <Text variant="xs" mb={1} color="mono60">
             {disabledText}
           </Text>
         )}

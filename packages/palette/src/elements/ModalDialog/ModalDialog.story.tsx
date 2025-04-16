@@ -65,8 +65,8 @@ export const Default = () => {
           width: 800,
           title: "With Left Panel",
           leftPanel: (
-            <Box bg="black100" width={300} flexShrink={0} p={1}>
-              <Text variant="xs" color="white100">
+            <Box bg="mono100" width={300} flexShrink={0} p={1}>
+              <Text variant="xs" color="mono0">
                 Some custom content on the left
               </Text>
             </Box>
@@ -76,8 +76,8 @@ export const Default = () => {
           width: 800,
           title: "With Right Panel",
           rightPanel: (
-            <Box bg="black100" width={300} flexShrink={0} p={1}>
-              <Text variant="xs" color="white100">
+            <Box bg="mono100" width={300} flexShrink={0} p={1}>
+              <Text variant="xs" color="mono0">
                 Some custom content on the left
               </Text>
             </Box>
@@ -87,15 +87,15 @@ export const Default = () => {
           width: "100%",
           title: "With Left and Right Panels",
           leftPanel: (
-            <Box bg="black100" width={300} flexShrink={0} p={1}>
-              <Text variant="xs" color="white100">
+            <Box bg="mono100" width={300} flexShrink={0} p={1}>
+              <Text variant="xs" color="mono0">
                 Some custom content on the left
               </Text>
             </Box>
           ),
           rightPanel: (
-            <Box bg="black100" width={300} flexShrink={0} p={1}>
-              <Text variant="xs" color="white100">
+            <Box bg="mono100" width={300} flexShrink={0} p={1}>
+              <Text variant="xs" color="mono0">
                 Some custom content on the left
               </Text>
             </Box>
@@ -104,7 +104,7 @@ export const Default = () => {
         {
           title: "With Header",
           header: (
-            <Box bg="black10" p={2} textAlign="center">
+            <Box bg="mono10" p={2} textAlign="center">
               <Text variant="xs">Header Content</Text>
             </Box>
           ),
@@ -112,7 +112,7 @@ export const Default = () => {
         {
           title: "With Header and Footer",
           header: (
-            <Box bg="black10" p={2} textAlign="center">
+            <Box bg="mono10" p={2} textAlign="center">
               <Text variant="xs">Header Content</Text>
             </Box>
           ),

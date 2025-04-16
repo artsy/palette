@@ -65,7 +65,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <Box width="100%" className={className} {...boxProps}>
         {!!description && (
           <Tooltip pointer content={description} placement="top-end">
-            <Text variant="xs" color="black60" textAlign="right">
+            <Text variant="xs" color="mono60" textAlign="right">
               <u>What is this?</u>
             </Text>
           </Tooltip>
@@ -105,7 +105,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               {required && <RequiredField disabled={disabled} flex={1} />}
 
               {!!inputProps?.maxLength && showCounter && (
-                <Text flex={1} variant="xs" color="black60" textAlign="right">
+                <Text flex={1} variant="xs" color="mono60" textAlign="right">
                   {String(value).length}/{inputProps.maxLength}
                 </Text>
               )}
@@ -206,7 +206,7 @@ const StyledLabel = styled.label<StyledInputProps>`
   pointer-events: none;
 
   & > span {
-    background-color: ${themeGet("colors.white100")};
+    background-color: ${themeGet("colors.mono0")};
     height: 100%;
     width: 100%;
     display: block;

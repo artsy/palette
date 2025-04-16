@@ -30,7 +30,9 @@ export interface ProgressDotsProps extends BoxProps {
 /**
  * Renders an `amount` of dots and announces progress when updated
  */
-export const ProgressDots: React.FC<React.PropsWithChildren<ProgressDotsProps>> = ({
+export const ProgressDots: React.FC<
+  React.PropsWithChildren<ProgressDotsProps>
+> = ({
   activeIndex,
   amount,
   variant: indicatorVariant = "dot",
@@ -52,7 +54,7 @@ export const ProgressDots: React.FC<React.PropsWithChildren<ProgressDotsProps>> 
             <Indicator
               key={i}
               variant={indicatorVariant}
-              bg={i === activeIndex ? "black100" : "black30"}
+              bg={i === activeIndex ? "mono100" : "mono30"}
               mx={0.5}
             />
           )

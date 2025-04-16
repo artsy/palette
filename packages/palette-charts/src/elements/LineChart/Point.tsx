@@ -22,7 +22,7 @@ export const Point = ({
       cy={cy}
       r="4"
       opacity={opacity}
-      fill={hovered ? color("black30") : color("black10")}
+      fill={hovered ? color("mono30") : color("mono10")}
     />
   )
 }

@@ -96,7 +96,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       <Box width="100%" {...boxProps}>
         {!!description && (
           <Tooltip pointer content={description} placement="top-end">
-            <Text variant="xs" color="black60" textAlign="right">
+            <Text variant="xs" color="mono60" textAlign="right">
               <u>What is this?</u>
             </Text>
           </Tooltip>
@@ -132,7 +132,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
             )}
 
             {showCharacterLimitReached && (
-              <Text flex={1} variant="xs" color="black60" textAlign="left">
+              <Text flex={1} variant="xs" color="mono60" textAlign="left">
                 Character limit reached
               </Text>
             )}
@@ -141,7 +141,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
               <Text
                 flex={1}
                 variant="xs"
-                color={characterLimitExceeded(value) ? "red100" : "black60"}
+                color={characterLimitExceeded(value) ? "red100" : "mono60"}
                 textAlign="right"
               >
                 {value.length}/{characterLimit}
@@ -171,7 +171,7 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
   appearance: none;
   display: block;
   width: 100%;
-  background-color: ${themeGet("colors.white100")};
+  background-color: ${themeGet("colors.mono0")};
   padding: ${themeGet("space.1")};
   resize: vertical;
   transition: border-color 0.25s, color 0.25s;
@@ -243,7 +243,7 @@ const StyledLabel = styled.label`
   pointer-events: none;
 
   & > span {
-    background-color: ${themeGet("colors.white100")};
+    background-color: ${themeGet("colors.mono0")};
     height: 100%;
     width: 100%;
     display: block;

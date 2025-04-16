@@ -43,7 +43,7 @@ export const Theme = () => {
         Theme
       </Text>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Box as="pre" my={0}>
         {JSON.stringify(theme, null, 2)}
@@ -69,16 +69,16 @@ export const Colors = () => {
         other.
       </Text>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
-      <Text variant="sm" color="black60">
+      <Text variant="sm" color="mono60">
         <GridColumns>
           <Column span={6}>Color Value</Column>
           <Column span={6}>Hex Value</Column>
         </GridColumns>
       </Text>
 
-      <Separator color="black30" my={6} />
+      <Separator color="mono30" my={6} />
 
       {colors.map(([name, value]) => {
         return (
@@ -91,7 +91,7 @@ export const Colors = () => {
             </Column>
 
             <Column span={6} display="flex" alignItems="center">
-              <Text variant="sm" color="black60">
+              <Text variant="sm" color="mono60">
                 color:&nbsp;
               </Text>
               <Text variant="sm">{value}</Text>
@@ -116,7 +116,7 @@ export const Spacing = () => {
         Spacing
       </Text>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Join separator={<Spacer y={2} />}>
         {spacing.map((key) => {
@@ -126,7 +126,7 @@ export const Spacing = () => {
             <Box key={key}>
               <Text variant="lg-display">{key}</Text>
               <Text variant="xs">{px}px</Text>
-              <Box width={px} height={1} bg="black60" />
+              <Box width={px} height={1} bg="mono60" />
             </Box>
           )
         })}
@@ -142,31 +142,31 @@ export const Grid = () => {
     <>
       <Text variant="xxl">Desktop</Text>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <GridColumns my={12} width="100%" height={800}>
         {Array.from(Array(12)).map((_, i) => (
-          <Column key={i} span={[1]} bg="black10" height="100%" />
+          <Column key={i} span={[1]} bg="mono10" height="100%" />
         ))}
       </GridColumns>
 
-      <Separator my={12} color="black30" />
+      <Separator my={12} color="mono30" />
 
       <Text variant="xxl">Tablet</Text>
 
       <GridColumns my={12} width={theme.breakpoints.sm} height={800} mx="auto">
         {Array.from(Array(12)).map((_, i) => (
-          <Column key={i} span={[1]} bg="black10" height="100%" />
+          <Column key={i} span={[1]} bg="mono10" height="100%" />
         ))}
       </GridColumns>
 
-      <Separator my={12} color="black30" />
+      <Separator my={12} color="mono30" />
 
       <Text variant="xxl">Mobile</Text>
 
       <GridColumns my={12} width={480} gridColumnGap={1} height={800} mx="auto">
         {Array.from(Array(12)).map((_, i) => (
-          <Column key={i} span={[1]} bg="black10" height="100%" />
+          <Column key={i} span={[1]} bg="mono10" height="100%" />
         ))}
       </GridColumns>
     </>
@@ -184,18 +184,18 @@ export const Typography = () => {
         Type Scale
       </Text>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
-      <Text variant="sm" color="black60">
+      <Text variant="sm" color="mono60">
         <GridColumns>
           <Column span={6}>Size</Column>
           <Column span={6}>Details</Column>
         </GridColumns>
       </Text>
 
-      <Separator my={4} color="black30" />
+      <Separator my={4} color="mono30" />
 
-      <Join separator={<Separator my={4} color="black30" />}>
+      <Join separator={<Separator my={4} color="mono30" />}>
         {treatments.map((name) => {
           return (
             <GridColumns key={name}>
@@ -218,7 +218,7 @@ export const Typography = () => {
                   ([key, value]) => {
                     return (
                       <Text key={key} variant="sm">
-                        <Box as="span" color="black60">
+                        <Box as="span" color="mono60">
                           {key}:
                         </Box>{" "}
                         {value}
@@ -242,9 +242,9 @@ export const Buttons = () => {
         Buttons
       </Text>
 
-      <Separator my={12} color="black30" />
+      <Separator my={12} color="mono30" />
 
-      <Text variant="sm" color="black60">
+      <Text variant="sm" color="mono60">
         <GridColumns>
           <Column span={2}>Default</Column>
           <Column span={2}>Focus</Column>
@@ -254,7 +254,7 @@ export const Buttons = () => {
         </GridColumns>
       </Text>
 
-      <Separator my={4} color="black30" />
+      <Separator my={4} color="mono30" />
 
       <Text variant="lg-display" my={6}>
         Large - 50px
@@ -348,7 +348,7 @@ export const Components = () => {
     <>
       <Text variant="xxl">Components</Text>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Text variant="xxl" my={6}>
         Messages
@@ -390,7 +390,7 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Message>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Text variant="xxl" my={6}>
         Banners
@@ -441,13 +441,13 @@ export const Components = () => {
         risus aliquam. Vestibulum sollicitudin eget tellus ac venenatis.
       </Banner>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Text variant="xxl" my={4}>
         Pills
       </Text>
 
-      <Text variant="sm" color="black60">
+      <Text variant="sm" color="mono60">
         <GridColumns>
           <Column span={3}>Default</Column>
           <Column span={3}>Focus</Column>
@@ -456,7 +456,7 @@ export const Components = () => {
         </GridColumns>
       </Text>
 
-      <Separator color="black30" my={6} />
+      <Separator color="mono30" my={6} />
 
       <GridColumns gridRowGap={6}>
         {PILL_VARIANT_NAMES.map((variant) => {
@@ -490,7 +490,7 @@ export const Components = () => {
         })}
       </GridColumns>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Text variant="xxl" my={6}>
         Navigational Tabs
@@ -538,7 +538,7 @@ export const Components = () => {
         <Tab name="Default 05" />
       </Tabs>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Text variant="xxl" my={6}>
         Content Tabs
@@ -586,7 +586,7 @@ export const Components = () => {
         <Tab name="Default 05" />
       </Tabs>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Text variant="xxl" my={6}>
         Steps
@@ -625,7 +625,7 @@ export const Components = () => {
         <Step name="Default 05" />
       </Stepper>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Text variant="xxl" my={6}>
         Breadcrumbs
@@ -652,13 +652,13 @@ export const Inputs = () => {
     <>
       <Text variant="xxl">Inputs & Selections</Text>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <Text variant="xxl" my={6}>
         Inputs
       </Text>
 
-      <Text variant="sm" color="black60">
+      <Text variant="sm" color="mono60">
         <GridColumns>
           <Column span={2}>Default</Column>
 
@@ -676,7 +676,7 @@ export const Inputs = () => {
         </GridColumns>
       </Text>
 
-      <Separator color="black30" my={6} />
+      <Separator color="mono30" my={6} />
 
       <Text my={6} variant="lg-display">
         No Title
@@ -807,7 +807,7 @@ export const Inputs = () => {
         Selects
       </Text>
 
-      <Text variant="sm" color="black60">
+      <Text variant="sm" color="mono60">
         <GridColumns>
           <Column span={2}>Default</Column>
 
@@ -823,7 +823,7 @@ export const Inputs = () => {
         </GridColumns>
       </Text>
 
-      <Separator color="black30" my={6} />
+      <Separator color="mono30" my={6} />
 
       <Text my={6} variant="lg-display">
         No Title
@@ -965,7 +965,7 @@ export const ContrastRatios = () => {
     <>
       <Text variant="xxl">Contrast Ratios</Text>
 
-      <Separator color="black30" my={12} />
+      <Separator color="mono30" my={12} />
 
       <GridColumns>
         {[THEME, THEME_DARK].map((theme) => {
@@ -995,17 +995,19 @@ export const ContrastRatios = () => {
   )
 }
 
-const ContrastRatioSwatch: FC<React.PropsWithChildren<{
-  name: string
-  value: string
-  theme: typeof THEME
-}>> = ({ name, value: _value, theme }) => {
+const ContrastRatioSwatch: FC<
+  React.PropsWithChildren<{
+    name: string
+    value: string
+    theme: typeof THEME
+  }>
+> = ({ name, value: _value, theme }) => {
   const [value, setValue] = useState(_value)
   const debouncedSetValue = useMemo(() => {
     return debounce(setValue, 500)
   }, [])
 
-  const numerator = contrastRatio(value, theme.colors.white100)
+  const numerator = contrastRatio(value, theme.colors.mono0)
 
   return (
     <Stack
@@ -1013,7 +1015,7 @@ const ContrastRatioSwatch: FC<React.PropsWithChildren<{
       gap={1}
       flexDirection="row"
       flex={1}
-      bg={theme.colors.white100}
+      bg={theme.colors.mono0}
       color={value}
       alignItems="center"
       justifyContent="space-between"
@@ -1056,7 +1058,7 @@ const ContrastRatioSwatch: FC<React.PropsWithChildren<{
         {numerator > 4.5 ? (
           <CheckmarkFillIcon
             fill="green100"
-            bg="white100"
+            bg="mono0"
             style={{
               borderRadius: "50%",
             }}
@@ -1064,7 +1066,7 @@ const ContrastRatioSwatch: FC<React.PropsWithChildren<{
         ) : (
           <CloseFillIcon
             fill="red100"
-            bg="white100"
+            bg="mono0"
             style={{
               borderRadius: "50%",
             }}
@@ -1074,7 +1076,7 @@ const ContrastRatioSwatch: FC<React.PropsWithChildren<{
         {numerator > 3 ? (
           <CheckmarkFillIcon
             fill="green100"
-            bg="white100"
+            bg="mono0"
             style={{
               borderRadius: "50%",
             }}
@@ -1082,7 +1084,7 @@ const ContrastRatioSwatch: FC<React.PropsWithChildren<{
         ) : (
           <CloseFillIcon
             fill="red100"
-            bg="white100"
+            bg="mono0"
             style={{
               borderRadius: "50%",
             }}

@@ -67,7 +67,7 @@ export const EntityHeader: React.FC<
           </Text>
 
           {meta && (
-            <Text variant="xs" color="black60">
+            <Text variant="xs" color="mono60">
               {meta}
             </Text>
           )}

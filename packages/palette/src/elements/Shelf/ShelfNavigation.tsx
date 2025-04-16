@@ -16,12 +16,12 @@ export interface ShelfNavigationProps extends ClickableProps {
 const STATES = {
   hover: css`
     outline: 0;
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     box-shadow: ${themeGet("effects.dropShadow")};
   `,
   focus: css`
     outline: 0;
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     border-color: ${themeGet("colors.brand")};
   `,
   disabled: css`
@@ -40,9 +40,9 @@ const Arrow = styled(Clickable)<ShelfNavigationProps>`
   user-select: none;
   transition: opacity 250ms, color 250ms, border-color 250ms,
     box-shadow 0.25s ease;
-  color: ${themeGet("colors.black60")};
-  background-color: ${themeGet("colors.white100")};
-  border: 1px solid ${themeGet("colors.black5")};
+  color: ${themeGet("colors.mono60")};
+  background-color: ${themeGet("colors.mono0")};
+  border: 1px solid ${themeGet("colors.mono5")};
   border-radius: 50%;
   pointer-events: auto;
 
@@ -73,7 +73,9 @@ const Arrow = styled(Clickable)<ShelfNavigationProps>`
 /**
  * Default next button
  */
-export const ShelfNext: React.FC<React.PropsWithChildren<ShelfNavigationProps>> = (props) => {
+export const ShelfNext: React.FC<
+  React.PropsWithChildren<ShelfNavigationProps>
+> = (props) => {
   return (
     <Arrow {...props}>
       <ChevronRightIcon width={15} height={15} />
@@ -84,7 +86,9 @@ export const ShelfNext: React.FC<React.PropsWithChildren<ShelfNavigationProps>> 
 /**
  * Default previous button
  */
-export const ShelfPrevious: React.FC<React.PropsWithChildren<ShelfNavigationProps>> = (props) => {
+export const ShelfPrevious: React.FC<
+  React.PropsWithChildren<ShelfNavigationProps>
+> = (props) => {
   return (
     <Arrow {...props}>
       <ChevronLeftIcon width={15} height={15} />

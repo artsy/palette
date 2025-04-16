@@ -331,9 +331,7 @@ const caretMixin = css`
     border-right: 4px solid transparent;
     border-top: 4px solid
       ${({ disabled }: CaretProps) => {
-        return disabled
-          ? themeGet("colors.black10")
-          : themeGet("colors.black60")
+        return disabled ? themeGet("colors.mono10") : themeGet("colors.mono60")
       }};
   }
 `
@@ -391,13 +389,13 @@ const SelectContainer = styled(Box)<{ disabled?: boolean }>`
   padding: 0 24px 0 ${themeGet("space.1")};
   font-family: ${themeGet("fonts.sans")};
   border-radius: 3px 0 0 3px;
-  border-color: ${themeGet("colors.black30")};
+  border-color: ${themeGet("colors.mono30")};
   cursor: pointer;
   line-height: 1;
   transition: color 0.25s, border-color 0.25s;
   height: 50px;
   font-size: ${themeGet("textVariants.sm-display.fontSize")};
-  color: ${themeGet("colors.black100")};
+  color: ${themeGet("colors.mono100")};
 
   ${caretMixin}
 `
@@ -405,7 +403,7 @@ const SelectContainer = styled(Box)<{ disabled?: boolean }>`
 const SelectDropdown = styled(Box)`
   box-shadow: ${themeGet("effects.dropShadow")};
   z-index: 1;
-  background: ${themeGet("colors.white100")};
+  background: ${themeGet("colors.mono0")};
 `
 
 const SelectOptions = styled(Box)`
@@ -423,7 +421,7 @@ const SelectOption = styled(Box)<{ selected?: boolean }>`
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: ${themeGet("colors.black60")};
+  color: ${themeGet("colors.mono60")};
   transition: color 0.25s, text-decoration 0.25s;
 
   &:hover {
@@ -433,21 +431,21 @@ const SelectOption = styled(Box)<{ selected?: boolean }>`
 
   &:focus,
   &:active {
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     text-decoration: none;
   }
 
   ${(props) =>
     props.selected &&
     css`
-      color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.mono100")};
       text-decoration: none;
     `}
 `
 
 const StyledInput = styled.input`
   width: 100%;
-  background-color: ${themeGet("colors.white100")};
+  background-color: ${themeGet("colors.mono0")};
   padding: 0 ${themeGet("space.1")};
   appearance: none;
   outline: none;
@@ -457,12 +455,12 @@ const StyledInput = styled.input`
   transition: color 0.25s, border-color 0.25s;
   font-family: ${themeGet("fonts.sans")};
   font-size: ${themeGet("textVariants.sm-display.fontSize")};
-  color: ${themeGet("colors.black100")};
-  border-color: ${themeGet("colors.black30")};
+  color: ${themeGet("colors.mono100")};
+  border-color: ${themeGet("colors.mono30")};
   ${systemHeight}
 
   ::placeholder {
-    color: ${themeGet("colors.black60")};
+    color: ${themeGet("colors.mono60")};
     transition: color 0.25s;
   }
 `
@@ -478,10 +476,10 @@ const StyledLabel = styled.label`
   font-family: ${themeGet("fonts.sans")};
   pointer-events: none;
   font-size: ${themeGet("textVariants.xs.fontSize")};
-  color: ${themeGet("colors.black60")};
+  color: ${themeGet("colors.mono60")};
 
   & > span {
-    background-color: ${themeGet("colors.white100")};
+    background-color: ${themeGet("colors.mono0")};
     height: 2px;
     width: 100%;
     display: block;

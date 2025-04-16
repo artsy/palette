@@ -13,7 +13,7 @@ export const SWITCH_STATES = {
 
 export const TOGGLE_STATES = {
   default: css`
-    background-color: ${themeGet("colors.black30")};
+    background-color: ${themeGet("colors.mono30")};
   `,
   selected: css`
     background-color: ${themeGet("colors.blue100")};
@@ -23,7 +23,7 @@ export const TOGGLE_STATES = {
   `,
   disabled: {
     default: css`
-      background-color: ${themeGet("colors.black10")};
+      background-color: ${themeGet("colors.mono10")};
       pointer-events: none;
     `,
     selected: css`

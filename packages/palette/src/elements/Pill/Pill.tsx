@@ -148,7 +148,7 @@ const Container = styled(Clickable)<PillProps>`
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  border: 1px solid ${themeGet("colors.black15")};
+  border: 1px solid ${themeGet("colors.mono15")};
   transition: color 0.25s ease, border-color 0.25s ease,
     background-color 0.25s ease, box-shadow 0.25s ease;
 
@@ -192,6 +192,6 @@ const Thumbnail = styled.img`
   width: 30px;
   height: 30px;
   margin-right: ${themeGet("space.1")};
-  background-color: ${themeGet("colors.black30")};
+  background-color: ${themeGet("colors.mono30")};
   margin-left: -${themeGet("space.1")};
 `

@@ -28,7 +28,7 @@ export const Default = () => {
       states={[
         {
           children: (
-            <Text variant="sm" bg="black10">
+            <Text variant="sm" bg="mono10">
               Content shorter than width
             </Text>
           ),

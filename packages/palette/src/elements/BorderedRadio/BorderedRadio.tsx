@@ -8,11 +8,11 @@ export type BorderedRadioProps<T = any> = RadioProps<T>
 export const BorderedRadio = styled(Radio)<BorderedRadioProps>`
   padding: ${themeGet("space.2")};
   border-radius: 2px;
-  border: 1px solid ${themeGet("colors.black10")};
+  border: 1px solid ${themeGet("colors.mono10")};
   transition: background-color 0.25s;
 
   &:hover:not(:disabled) {
-    background-color: ${themeGet("colors.black5")};
+    background-color: ${themeGet("colors.mono5")};
   }
 
   &:not(:first-child) {

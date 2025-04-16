@@ -19,13 +19,9 @@ interface LineChartSVGProps {
 /**
  * Component rendering the SVG part of the line chart (e.g line and points)
  */
-export const LineChartSVG: React.FC<React.PropsWithChildren<LineChartSVGProps>> = ({
-  width,
-  height,
-  margin,
-  points,
-  hoverIndex,
-}: LineChartSVGProps) => {
+export const LineChartSVG: React.FC<
+  React.PropsWithChildren<LineChartSVGProps>
+> = ({ width, height, margin, points, hoverIndex }: LineChartSVGProps) => {
   const values = points.map((d) => d.value)
   const maxValue = Math.max(...points.map(({ value }) => value))
 
@@ -45,7 +41,7 @@ export const LineChartSVG: React.FC<React.PropsWithChildren<LineChartSVGProps>> 
   return (
     <Svg width={width} height={height}>
       <g transform={`translate(0, ${margin})`}>
-        <line stroke={color("black10")} x1="0" x2={width} y1={h} y2={h} />
+        <line stroke={color("mono10")} x1="0" x2={width} y1={h} y2={h} />
         <g transform={`translate(${margin}, 0)`}>
           <>
             <Line path={line(interpolatedValues as any)} />

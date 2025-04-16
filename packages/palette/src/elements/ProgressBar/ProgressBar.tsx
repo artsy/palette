@@ -10,7 +10,9 @@ export interface ProgressBarProps extends BoxProps {
 }
 
 /** ProgressBar */
-export const ProgressBar: React.FC<React.PropsWithChildren<ProgressBarProps>> = ({
+export const ProgressBar: React.FC<
+  React.PropsWithChildren<ProgressBarProps>
+> = ({
   percentComplete,
   highlight = "brand",
   showBackground = true,
@@ -29,7 +31,7 @@ export const ProgressBar: React.FC<React.PropsWithChildren<ProgressBarProps>> = 
       overflow="hidden"
       mt={0.5}
       mb={1}
-      bg={showBackground ? "black30" : "transparent"}
+      bg={showBackground ? "mono30" : "transparent"}
       {...rest}
     >
       <Box
