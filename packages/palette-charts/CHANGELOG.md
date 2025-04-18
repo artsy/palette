@@ -1,3 +1,19 @@
+# v40.0.0 (Fri Apr 18 2025)
+
+#### 💥  Breaking Change
+
+- feat(theme): black/white become mono [#1433](https://github.com/artsy/palette/pull/1433) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(theme): black/white become mono ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v39.6.2 (Mon Mar 31 2025)
 
 #### 🐛  Bug Fix

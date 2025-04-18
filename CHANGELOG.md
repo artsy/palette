@@ -1,3 +1,16 @@
+# (Fri Apr 18 2025)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette-charts@40.0.0`, `@artsy/palette-tokens@7.0.0`, `@artsy/palette@41.0.0`
+  - feat(theme): black/white become mono [#1433](https://github.com/artsy/palette/pull/1433) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Apr 11 2025)
 
 #### 🐛  Bug Fix
