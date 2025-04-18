@@ -55,7 +55,7 @@ export const Default = () => {
           renderOption: (option) => (
             <Box px={2} py={1}>
               <Text variant="sm-display">{option.text}</Text>
-              <Text variant="xs" color="black60">
+              <Text variant="xs" color="mono60">
                 {option.subtitle}
               </Text>
             </Box>
@@ -71,7 +71,7 @@ export const Default = () => {
             })),
           ],
           footer: (
-            <Box px={2} py={1} bg="black10">
+            <Box px={2} py={1} bg="mono10">
               <Text variant="xs">Footer</Text>
             </Box>
           ),
@@ -79,7 +79,7 @@ export const Default = () => {
         {
           options: [OPTIONS[0], OPTIONS[1]],
           footer: (
-            <Box px={2} py={1} bg="black10">
+            <Box px={2} py={1} bg="mono10">
               <Text variant="xs">Footer</Text>
             </Box>
           ),
@@ -87,12 +87,12 @@ export const Default = () => {
         {
           options: [OPTIONS[0], OPTIONS[1]],
           header: (
-            <Box px={2} py={1} bg="black10">
+            <Box px={2} py={1} bg="mono10">
               <Text variant="xs">Header</Text>
             </Box>
           ),
           footer: (
-            <Box px={2} py={1} bg="black10">
+            <Box px={2} py={1} bg="mono10">
               <Text variant="xs">Footer</Text>
             </Box>
           ),
@@ -107,7 +107,7 @@ export const Default = () => {
             })),
           ],
           header: (
-            <Box px={2} py={1} bg="black10">
+            <Box px={2} py={1} bg="mono10">
               <Text variant="xs">Header</Text>
             </Box>
           ),
@@ -161,7 +161,7 @@ export const Demo = () => {
             px={2}
             py={1}
             {...(displayQuery
-              ? { borderBottom: "1px solid", borderColor: "black10" }
+              ? { borderBottom: "1px solid", borderColor: "mono10" }
               : {})}
           >
             <Text variant="sm-display">
@@ -171,7 +171,7 @@ export const Demo = () => {
             </Text>
 
             {"subtitle" in option && (
-              <Text variant="xs" color="black60">
+              <Text variant="xs" color="mono60">
                 {option.subtitle}
               </Text>
             )}

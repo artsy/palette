@@ -3,11 +3,13 @@ import { ProgressBar, ProgressBarProps } from "../ProgressBar"
 
 export type CarouselBarProps = ProgressBarProps
 
-export const CarouselBar: React.FC<React.PropsWithChildren<CarouselBarProps>> = (props) => {
+export const CarouselBar: React.FC<
+  React.PropsWithChildren<CarouselBarProps>
+> = (props) => {
   return (
     <ProgressBar
       height="1px"
-      highlight="black100"
+      highlight="mono100"
       mt={0}
       mb={0}
       transition="transform 250ms"

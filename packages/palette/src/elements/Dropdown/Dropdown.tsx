@@ -378,8 +378,8 @@ const Panel = styled(Box)<{ transition: boolean; maxHeight: number }>`
   > div {
     max-height: ${({ maxHeight }) => (maxHeight ? `${maxHeight}px` : "100vh")};
     box-shadow: ${themeGet("effects.flatShadow")};
-    background-color: ${themeGet("colors.white100")};
-    border: 1px solid ${themeGet("colors.black10")};
+    background-color: ${themeGet("colors.mono0")};
+    border: 1px solid ${themeGet("colors.mono10")};
     overflow-y: auto;
   }
 `

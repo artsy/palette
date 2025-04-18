@@ -27,11 +27,11 @@ export const Default = () => {
         if (y) {
           return (
             <_Spacer>
-              <Box height={2} width={100} bg="black60" />
+              <Box height={2} width={100} bg="mono60" />
 
               <Spacer y={y} />
 
-              <Box height={2} width={100} bg="black60" />
+              <Box height={2} width={100} bg="mono60" />
             </_Spacer>
           )
         }
@@ -39,11 +39,11 @@ export const Default = () => {
         return (
           <_Spacer>
             <Box display="flex">
-              <Box height={100} width={2} bg="black60" />
+              <Box height={100} width={2} bg="mono60" />
 
               <Spacer x={x} />
 
-              <Box height={100} width={2} bg="black60" />
+              <Box height={100} width={2} bg="mono60" />
             </Box>
           </_Spacer>
         )

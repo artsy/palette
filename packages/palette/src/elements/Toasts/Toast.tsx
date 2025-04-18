@@ -37,8 +37,8 @@ export const Toast: React.FC<React.PropsWithChildren<ToastProps>> = ({
       width="100%"
       px={2}
       py={1}
-      bg="black100"
-      color="white100"
+      bg="mono100"
+      color="mono0"
       role="button"
       tabIndex={0}
       onClick={handleClick}
@@ -67,20 +67,20 @@ export const Toast: React.FC<React.PropsWithChildren<ToastProps>> = ({
 
 export const TOAST_VARIANTS = {
   message: {
-    backgroundColor: "black100",
-    color: "white100",
+    backgroundColor: "mono100",
+    color: "mono0",
   },
   alert: {
     backgroundColor: "blue100",
-    color: "white100",
+    color: "mono0",
   },
   success: {
     backgroundColor: "green100",
-    color: "white100",
+    color: "mono0",
   },
   error: {
     backgroundColor: "red100",
-    color: "white100",
+    color: "mono0",
   },
 }
 

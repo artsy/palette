@@ -21,10 +21,10 @@ export const Default = () => {
         { children: <Text variant="sm-display">Not overflowing</Text> },
       ]}
     >
-      <HorizontalOverflow bg="black10" p={2}>
+      <HorizontalOverflow bg="mono10" p={2}>
         <Join separator={<Spacer x={2} />}>
           {Array.from(Array(50)).map((_, i) => (
-            <Text key={i} variant="sm-display" color="black100" mr={2}>
+            <Text key={i} variant="sm-display" color="mono100" mr={2}>
               Example #{i}
             </Text>
           ))}
@@ -43,7 +43,7 @@ export const FillHeightCenteredContent = () => {
             <Text
               key={i}
               variant="sm-display"
-              color="black100"
+              color="mono100"
               display="flex"
               alignItems="center"
             >

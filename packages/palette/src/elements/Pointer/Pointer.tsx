@@ -8,10 +8,10 @@ import { themeGet } from "@styled-system/theme-get"
 
 const POINTER_VARIANTS = {
   defaultLight: {
-    backgroundColor: "white100",
+    backgroundColor: "mono0",
   },
   defaultDark: {
-    backgroundColor: "black100",
+    backgroundColor: "mono100",
   },
 }
 

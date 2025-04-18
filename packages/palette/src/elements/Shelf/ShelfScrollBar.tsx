@@ -14,123 +14,123 @@ interface ShelfScrollBarProps extends BoxProps {
 /**
  * A synthetic scrollbar
  */
-export const ShelfScrollBar: React.FC<React.PropsWithChildren<ShelfScrollBarProps>> = React.memo(
-  ({ viewport, ...rest }) => {
-    const [
-      { scrollLeft, scrollWidth, clientWidth },
-      setScrollState,
-    ] = useState<ScrollState>({
-      scrollLeft: viewport?.scrollLeft ?? 0,
-      scrollWidth: viewport?.scrollWidth ?? 1,
-      clientWidth: viewport?.clientWidth ?? 1,
-    })
+export const ShelfScrollBar: React.FC<
+  React.PropsWithChildren<ShelfScrollBarProps>
+> = React.memo(({ viewport, ...rest }) => {
+  const [
+    { scrollLeft, scrollWidth, clientWidth },
+    setScrollState,
+  ] = useState<ScrollState>({
+    scrollLeft: viewport?.scrollLeft ?? 0,
+    scrollWidth: viewport?.scrollWidth ?? 1,
+    clientWidth: viewport?.clientWidth ?? 1,
+  })
 
-    const trackRef = useRef<HTMLDivElement | null>(null)
-    const thumbRef = useRef<HTMLButtonElement | null>(null)
+  const trackRef = useRef<HTMLDivElement | null>(null)
+  const thumbRef = useRef<HTMLButtonElement | null>(null)
 
-    const trackWidth = trackRef.current?.clientWidth ?? 1
+  const trackWidth = trackRef.current?.clientWidth ?? 1
 
-    const {
-      progress,
-      requiresScrolling,
-      thumbOffset,
-      thumbWidth,
-    } = buildScrollBar({ trackWidth, scrollLeft, scrollWidth, clientWidth })
+  const {
+    progress,
+    requiresScrolling,
+    thumbOffset,
+    thumbWidth,
+  } = buildScrollBar({ trackWidth, scrollLeft, scrollWidth, clientWidth })
 
-    // Update scrollState on scroll and resize
-    useEffect(() => {
-      if (!viewport) return
+  // Update scrollState on scroll and resize
+  useEffect(() => {
+    if (!viewport) return
 
-      const updateScrollState = () => {
-        setScrollState({
-          scrollLeft: viewport?.scrollLeft ?? 0,
-          scrollWidth: viewport?.scrollWidth ?? 1,
-          clientWidth: viewport?.clientWidth ?? 1,
-        })
-      }
+    const updateScrollState = () => {
+      setScrollState({
+        scrollLeft: viewport?.scrollLeft ?? 0,
+        scrollWidth: viewport?.scrollWidth ?? 1,
+        clientWidth: viewport?.clientWidth ?? 1,
+      })
+    }
 
-      updateScrollState()
+    updateScrollState()
 
-      viewport.addEventListener("scroll", updateScrollState, { passive: true })
-      window.addEventListener("resize", updateScrollState)
+    viewport.addEventListener("scroll", updateScrollState, { passive: true })
+    window.addEventListener("resize", updateScrollState)
 
-      return () => {
-        viewport.removeEventListener("scroll", updateScrollState)
-        window.removeEventListener("resize", updateScrollState)
-      }
-    }, [viewport])
+    return () => {
+      viewport.removeEventListener("scroll", updateScrollState)
+      window.removeEventListener("resize", updateScrollState)
+    }
+  }, [viewport])
 
-    useMutationObserver({
-      element: viewport,
-      onMutate: (mutations) => {
-        // Check to see if any of the mutations has either added or removed nodes
-        const hasMeaningfullyMutated = mutations.some((mutation) => {
-          return (
-            mutation.addedNodes.length > 0 || mutation.removedNodes.length > 0
-          )
-        })
+  useMutationObserver({
+    element: viewport,
+    onMutate: (mutations) => {
+      // Check to see if any of the mutations has either added or removed nodes
+      const hasMeaningfullyMutated = mutations.some((mutation) => {
+        return (
+          mutation.addedNodes.length > 0 || mutation.removedNodes.length > 0
+        )
+      })
 
-        // Only update scroll state if something was added or removed
-        if (!hasMeaningfullyMutated) return
+      // Only update scroll state if something was added or removed
+      if (!hasMeaningfullyMutated) return
 
-        setScrollState({
-          scrollLeft: viewport?.scrollLeft ?? 0,
-          scrollWidth: viewport?.scrollWidth ?? 1,
-          clientWidth: viewport?.clientWidth ?? 1,
-        })
-      },
-    })
+      setScrollState({
+        scrollLeft: viewport?.scrollLeft ?? 0,
+        scrollWidth: viewport?.scrollWidth ?? 1,
+        clientWidth: viewport?.clientWidth ?? 1,
+      })
+    },
+  })
 
-    useDragScroll({
-      viewport,
-      thumbRef,
-      clientWidth,
-      scrollWidth,
-      scrollLeft,
-      trackWidth,
-    })
+  useDragScroll({
+    viewport,
+    thumbRef,
+    clientWidth,
+    scrollWidth,
+    scrollLeft,
+    trackWidth,
+  })
 
-    useClickScroll({
-      viewport,
-      thumbRef,
-      trackRef,
-      scrollWidth,
-      trackWidth,
-    })
+  useClickScroll({
+    viewport,
+    thumbRef,
+    trackRef,
+    scrollWidth,
+    trackWidth,
+  })
 
-    return (
-      <Track
-        ref={trackRef as any}
-        bg="black15"
-        role="scrollbar"
-        aria-orientation="vertical"
-        aria-valuemax={100}
-        aria-valuemin={0}
-        aria-valuenow={progress}
-        {...rest}
-      >
-        {/* Pads out hit area. Click events will propagate to underlying trackRef */}
-        <TrackHitArea />
+  return (
+    <Track
+      ref={trackRef as any}
+      bg="mono15"
+      role="scrollbar"
+      aria-orientation="vertical"
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={progress}
+      {...rest}
+    >
+      {/* Pads out hit area. Click events will propagate to underlying trackRef */}
+      <TrackHitArea />
 
-        {requiresScrolling && (
-          <Thumb
-            position="relative"
-            bg="black60"
-            height="100%"
-            borderRadius={3}
-            width={thumbWidth}
-            style={{
-              transform: `translateX(${thumbOffset}px)`,
-              backfaceVisibility: "hidden",
-            }}
-          >
-            <HitArea ref={thumbRef as any} tabIndex={-1} aria-label="Thumb" />
-          </Thumb>
-        )}
-      </Track>
-    )
-  }
-)
+      {requiresScrolling && (
+        <Thumb
+          position="relative"
+          bg="mono60"
+          height="100%"
+          borderRadius={3}
+          width={thumbWidth}
+          style={{
+            transform: `translateX(${thumbOffset}px)`,
+            backfaceVisibility: "hidden",
+          }}
+        >
+          <HitArea ref={thumbRef as any} tabIndex={-1} aria-label="Thumb" />
+        </Thumb>
+      )}
+    </Track>
+  )
+})
 
 ShelfScrollBar.displayName = "ShelfScrollBar"
 
@@ -170,7 +170,7 @@ const HitArea = styled(Clickable)`
     position: absolute;
     left: 0;
     width: 100%;
-    background-color: ${themeGet("colors.black100")};
+    background-color: ${themeGet("colors.mono100")};
     /*
      * Positioning this using top/bottom and translate each have cross-browser
      * issues in Safari. Using a hard-coded height/negative margin works on all browsers.

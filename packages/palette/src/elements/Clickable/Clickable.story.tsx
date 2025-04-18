@@ -26,7 +26,7 @@ export const Default = () => {
         },
         {
           bg: "red100",
-          color: "white100",
+          color: "mono0",
           m: 2,
           p: 1,
         },

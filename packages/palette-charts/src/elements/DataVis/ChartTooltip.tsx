@@ -62,7 +62,7 @@ export const ChartTooltip = ({
   >
     <Text variant="xs">{title}</Text>
 
-    <Text color="black60" variant="xs">
+    <Text color="mono60" variant="xs">
       {description}
     </Text>
   </ChartTooltipWrapper>

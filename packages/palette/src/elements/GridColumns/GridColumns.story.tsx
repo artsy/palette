@@ -49,7 +49,7 @@ export const RealWorldExample = () => {
           Featured content
         </Text>
 
-        <Box bg="black10" borderRadius={4} height={400} />
+        <Box bg="mono10" borderRadius={4} height={400} />
       </Column>
     </GridColumns>
   )
@@ -82,22 +82,22 @@ export const KitchenSink = () => {
         </Text>
       </Column>
 
-      <Column bg="black100" span={[6]}>
-        <Text color="white100">This remains 2-columns at all breakpoints</Text>
+      <Column bg="mono100" span={[6]}>
+        <Text color="mono0">This remains 2-columns at all breakpoints</Text>
       </Column>
 
-      <Column bg="black100" span={[6]}>
-        <Text color="white100">This remains 2-columns at all breakpoints</Text>
+      <Column bg="mono100" span={[6]}>
+        <Text color="mono0">This remains 2-columns at all breakpoints</Text>
       </Column>
 
-      <Column bg="black100" span={6}>
-        <Text color="white100">
+      <Column bg="mono100" span={6}>
+        <Text color="mono0">
           These are 2-columns at large breakpoints, and 1 at mobile
         </Text>
       </Column>
 
-      <Column bg="black100" span={6}>
-        <Text color="white100">
+      <Column bg="mono100" span={6}>
+        <Text color="mono0">
           These are 2-columns at large breakpoints, and 1 at mobile
         </Text>
       </Column>
@@ -106,14 +106,14 @@ export const KitchenSink = () => {
         start={[2, 3, 4]}
         span={[9, 6, 3]}
         height={300}
-        bg="black10"
+        bg="mono10"
         borderRadius={4}
       />
 
       <Column height={200} bg="purple100" span={[12, 6]} start={[1, 4]} wrap />
 
-      <Column bg="black100" start={4}>
-        <Text color="white100">{IPSUM}</Text>
+      <Column bg="mono100" start={4}>
+        <Text color="mono0">{IPSUM}</Text>
       </Column>
 
       <Column border="1px solid red" span={4} start={1}>
@@ -143,7 +143,7 @@ export const KitchenSink = () => {
       <Column bg="red" span={1} start={7} height={100} wrap />
 
       <Column gridColumn="3 / 9" bg="purple100">
-        <Text color="white100">A custom grid-column value</Text>
+        <Text color="mono0">A custom grid-column value</Text>
       </Column>
     </GridColumns>
   )
@@ -156,18 +156,18 @@ KitchenSink.story = {
 export const CustomGutters = () => {
   return (
     <GridColumns gridColumnGap={4} gridRowGap={1}>
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
-      <Column span={2} bg="black10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
+      <Column span={2} bg="mono10" height={100} />
     </GridColumns>
   )
 }

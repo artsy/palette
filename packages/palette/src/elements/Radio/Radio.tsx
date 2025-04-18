@@ -106,7 +106,7 @@ export const Radio = <T,>({
         </Flex>
 
         {isText(description) ? (
-          <Text variant={RADIO_SIZES[size].descriptionFontSize} color="black60">
+          <Text variant={RADIO_SIZES[size].descriptionFontSize} color="mono60">
             {description}
           </Text>
         ) : (

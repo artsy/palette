@@ -123,7 +123,7 @@ describe("BarChart", () => {
   xit("shows the highlighted bar in a different color", () => {
     const chart = getWrapper()
     const highlightedBar = chart.find(Bar).at(2)
-    expect(highlightedBar.debug()).toContain("black60")
+    expect(highlightedBar.debug()).toContain("mono60")
   })
 
   it("does not show hover labels by default", () => {

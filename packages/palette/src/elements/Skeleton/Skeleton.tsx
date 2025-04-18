@@ -9,9 +9,9 @@ import { Text, TextProps } from "../Text"
 /** SkeletonProps */
 export type SkeletonBoxProps = BoxProps
 
-/** A black10 Box */
+/** A mono10 Box */
 export const SkeletonBox = styled(Box)``
-SkeletonBox.defaultProps = { bg: "black10" }
+SkeletonBox.defaultProps = { bg: "mono10" }
 SkeletonBox.displayName = "SkeletonBox"
 
 const splitBorderProps = splitProps<BorderProps>(border)
@@ -31,10 +31,9 @@ const SkeletonTextOverlay = styled(SkeletonBox)`
 /**
  * Allows you to create boxes the exact dimensions of a given piece of text
  */
-export const SkeletonText: React.FC<React.PropsWithChildren<SkeletonTextProps>> = ({
-  children,
-  ...rest
-}) => {
+export const SkeletonText: React.FC<
+  React.PropsWithChildren<SkeletonTextProps>
+> = ({ children, ...rest }) => {
   const [borderProps, textProps] = splitBorderProps(rest)
 
   return (
@@ -55,7 +54,7 @@ const FADE_ANIMATION = keyframes`
 `
 
 const SkeletonFade = styled(Box)`
-  background-color: ${themeGet("colors.white100")};
+  background-color: ${themeGet("colors.mono0")};
   animation: ${FADE_ANIMATION} 2s ease-in-out infinite;
 `
 
@@ -64,7 +63,10 @@ export type SkeletonProps = BoxProps
 /**
  * Animated wrapper for Skeletons
  */
-export const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> = ({ children, ...rest }) => {
+export const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> = ({
+  children,
+  ...rest
+}) => {
   return (
     <Box position="relative" {...rest}>
       {children}

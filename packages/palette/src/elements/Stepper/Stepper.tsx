@@ -46,7 +46,7 @@ export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
             >
               <Flex alignItems="center" justifyContent="space-between" flex={1}>
                 <Flex alignItems="center">
-                  <Box color={i > currentStepIndex ? "black30" : undefined}>
+                  <Box color={i > currentStepIndex ? "mono30" : undefined}>
                     {tab.child.props.name}
                   </Box>
 
@@ -60,7 +60,7 @@ export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
                   )}
                 </Flex>
 
-                <ChevronRightIcon fill="black60" height={10} ml={1} />
+                <ChevronRightIcon fill="mono60" height={10} ml={1} />
               </Flex>
             </BaseTab>
           )

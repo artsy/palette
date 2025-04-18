@@ -19,7 +19,7 @@ const BarBox = styled(Box)<BarBoxProps>`
   transition: height 0.8s ease;
   position: relative;
   background: ${(props: BarBoxProps) =>
-    props.isHighlighted ? color("black60") : color("black10")};
+    props.isHighlighted ? color("mono60") : color("mono10")};
   margin-right: 2px;
   margin-bottom: -1px;
   :last-child {
@@ -32,7 +32,7 @@ const BarBox = styled(Box)<BarBoxProps>`
   @media (min-width: ${breakpoints.sm}) {
     :hover {
       background: ${(props: BarBoxProps) =>
-        props.isHighlighted ? color("black60") : color("black30")};
+        props.isHighlighted ? color("mono60") : color("mono30")};
     }
   }
 `
@@ -51,8 +51,8 @@ const HighlightLabelBox = styled(Flex)`
     display: none;
   `};
   position: relative;
-  background-color: ${color("white100")};
-  border: 1px solid ${color("black10")};
+  background-color: ${color("mono0")};
+  border: 1px solid ${color("mono10")};
   border-radius: 2px;
   text-align: center;
 `
@@ -69,7 +69,7 @@ const LabelLine = () => (
       fillRule="evenodd"
       clipRule="evenodd"
       d="M0.5 1.11111V0H1.5V1.11111H0.5ZM0.5 4.44444V2.22222H1.5V4.44444H0.5ZM0.5 7.77778V5.55556H1.5V7.77778H0.5ZM0.5 10V8.88889H1.5V10H0.5Z"
-      fill={color("black30")}
+      fill={color("mono30")}
     />
   </LabelLineSvg>
 )
@@ -115,7 +115,7 @@ const TriangleHighlight = styled.div`
   margin-bottom: ${TRIANGLE_BOTTOM_PADDING};
   border-left: ${TRIANGLE_HEIGHT}px solid transparent;
   border-right: ${TRIANGLE_HEIGHT}px solid transparent;
-  border-top: ${TRIANGLE_HEIGHT}px solid ${color("black60")};
+  border-top: ${TRIANGLE_HEIGHT}px solid ${color("mono60")};
 `
 
 /**

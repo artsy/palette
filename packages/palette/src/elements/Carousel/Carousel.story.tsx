@@ -32,9 +32,9 @@ const Demo = ({
               key={i}
               width={width}
               height={heights[i % heights.length]}
-              bg="black10"
+              bg="mono10"
               border="1px solid"
-              borderColor="black30"
+              borderColor="mono30"
               p={1}
               textAlign="center"
             >
@@ -164,7 +164,7 @@ export const CustomArrows = () => {
         <CarouselPrevious
           {...props}
           style={{ transform: "translateX(0)" }}
-          bg="black5"
+          bg="mono5"
           color="red100"
           height={300}
           opacity={0.75}
@@ -176,7 +176,7 @@ export const CustomArrows = () => {
           <CarouselNext
             {...props}
             style={{ transform: "translateX(0)" }}
-            bg="black5"
+            bg="mono5"
             color="red100"
             height={300}
             opacity={0.75}
@@ -223,27 +223,27 @@ export const CarouselWithText = () => {
   return (
     <Box mx={[2, 4]} my={2}>
       <Carousel>
-        <Text bg="black10" p={1} width={300}>
+        <Text bg="mono10" p={1} width={300}>
           {LOREM}
         </Text>
 
-        <Text bg="black10" p={1} width={300}>
+        <Text bg="mono10" p={1} width={300}>
           {LOREM}
         </Text>
 
-        <Text bg="black10" p={1} width={300}>
+        <Text bg="mono10" p={1} width={300}>
           {LOREM}
         </Text>
 
-        <Text bg="black10" p={1} width={300}>
+        <Text bg="mono10" p={1} width={300}>
           {LOREM}
         </Text>
 
-        <Text bg="black10" p={1} width={300}>
+        <Text bg="mono10" p={1} width={300}>
           {LOREM}
         </Text>
 
-        <Text bg="black10" p={1} width={300}>
+        <Text bg="mono10" p={1} width={300}>
           {LOREM}
         </Text>
       </Carousel>
@@ -287,31 +287,31 @@ export const ConditionalChildren = () => {
   return (
     <Box mx={[2, 4]} my={2}>
       <Carousel>
-        <Box bg="black10" width={300} height={300} p={2}>
+        <Box bg="mono10" width={300} height={300} p={2}>
           <Text variant="xs">1</Text>
         </Box>
 
-        <Box bg="black10" width={300} height={300} p={2}>
+        <Box bg="mono10" width={300} height={300} p={2}>
           <Text variant="xs">2</Text>
         </Box>
 
         {false && (
-          <Box bg="black10" width={300} height={300} p={2}>
+          <Box bg="mono10" width={300} height={300} p={2}>
             <Text variant="xs">3</Text>
           </Box>
         )}
 
         {true && (
-          <Box bg="black10" width={300} height={300} p={2}>
+          <Box bg="mono10" width={300} height={300} p={2}>
             <Text variant="xs">4</Text>
           </Box>
         )}
 
-        <Box bg="black10" width={300} height={300} p={2}>
+        <Box bg="mono10" width={300} height={300} p={2}>
           <Text variant="xs">5</Text>
         </Box>
 
-        <Box bg="black10" width={300} height={300} p={2}>
+        <Box bg="mono10" width={300} height={300} p={2}>
           <Text variant="xs">6</Text>
         </Box>
       </Carousel>

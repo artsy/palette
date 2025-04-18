@@ -18,7 +18,7 @@ export const Default = () => {
           label: (
             <Clickable
               onClick={action("onClick")}
-              bg="black60"
+              bg="mono60"
               width={18}
               height={18}
               borderRadius="50%"

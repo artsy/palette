@@ -6,35 +6,35 @@ const DEFAULT_PRIMARY_STATES = {
   focus: {
     backgroundColor: "blue100",
     borderColor: "blue100",
-    color: "white100",
+    color: "mono0",
     textDecoration: "underline",
   },
   hover: {
     backgroundColor: "blue100",
     borderColor: "blue100",
-    color: "white100",
+    color: "mono0",
     textDecoration: "underline",
   },
   active: {
     backgroundColor: "blue150",
     borderColor: "blue150",
-    color: "white100",
+    color: "mono0",
     textDecoration: "underline",
   },
   loading: {
     backgroundColor: "blue100",
     borderColor: "blue100",
-    color: "white100",
+    color: "mono0",
   },
   disabled: {
-    backgroundColor: "black30",
-    borderColor: "black30",
-    color: "white100",
+    backgroundColor: "mono30",
+    borderColor: "mono30",
+    color: "mono0",
   },
   success: {
     backgroundColor: "blue100",
     borderColor: "blue100",
-    color: "white100",
+    color: "mono0",
   },
 }
 
@@ -42,26 +42,26 @@ const DEFAULT_SECONDARY_STATES = {
   ...DEFAULT_PRIMARY_STATES,
   disabled: {
     backgroundColor: "transparent",
-    borderColor: "black30",
-    color: "black30",
+    borderColor: "mono30",
+    color: "mono30",
   },
 }
 
 export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
   primaryBlack: {
     default: {
-      backgroundColor: "black100",
-      borderColor: "black100",
-      color: "white100",
+      backgroundColor: "mono100",
+      borderColor: "mono100",
+      color: "mono0",
     },
     ...DEFAULT_PRIMARY_STATES,
   },
 
   primaryWhite: {
     default: {
-      backgroundColor: "white100",
-      borderColor: "white100",
-      color: "black100",
+      backgroundColor: "mono0",
+      borderColor: "mono0",
+      color: "mono100",
     },
     ...DEFAULT_PRIMARY_STATES,
   },
@@ -70,34 +70,34 @@ export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
     default: {
       backgroundColor: "blue100",
       borderColor: "blue100",
-      color: "white100",
+      color: "mono0",
     },
     ...DEFAULT_PRIMARY_STATES,
     focus: {
       backgroundColor: "blue150",
       borderColor: "blue150",
-      color: "white100",
+      color: "mono0",
       textDecoration: "underline",
     },
     hover: {
       backgroundColor: "blue150",
       borderColor: "blue150",
-      color: "white100",
+      color: "mono0",
       textDecoration: "underline",
     },
     active: {
       backgroundColor: "blue200",
       borderColor: "blue200",
-      color: "white100",
+      color: "mono0",
       textDecoration: "underline",
     },
   },
 
   primaryGray: {
     default: {
-      backgroundColor: "black10",
-      borderColor: "black10",
-      color: "black100",
+      backgroundColor: "mono10",
+      borderColor: "mono10",
+      color: "mono100",
     },
     ...DEFAULT_PRIMARY_STATES,
   },
@@ -105,8 +105,8 @@ export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
   secondaryBlack: {
     default: {
       backgroundColor: "transparent",
-      borderColor: "black100",
-      color: "black100",
+      borderColor: "mono100",
+      color: "mono100",
     },
     ...DEFAULT_SECONDARY_STATES,
   },
@@ -123,8 +123,8 @@ export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
   secondaryWhite: {
     default: {
       backgroundColor: "transparent",
-      borderColor: "white100",
-      color: "white100",
+      borderColor: "mono0",
+      color: "mono0",
     },
     ...DEFAULT_SECONDARY_STATES,
   },
@@ -133,37 +133,37 @@ export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
   secondaryNeutral: {
     default: {
       backgroundColor: "transparent",
-      borderColor: "black100",
-      color: "black100",
+      borderColor: "mono100",
+      color: "mono100",
     },
     ...DEFAULT_SECONDARY_STATES,
     focus: {
-      backgroundColor: "black10",
-      borderColor: "black10",
-      color: "black100",
+      backgroundColor: "mono10",
+      borderColor: "mono10",
+      color: "mono100",
       textDecoration: "underline",
     },
     hover: {
-      backgroundColor: "black100",
-      borderColor: "black100",
-      color: "white100",
+      backgroundColor: "mono100",
+      borderColor: "mono100",
+      color: "mono0",
       textDecoration: "underline",
     },
     active: {
-      backgroundColor: "black100",
-      borderColor: "black100",
-      color: "white100",
+      backgroundColor: "mono100",
+      borderColor: "mono100",
+      color: "mono0",
       textDecoration: "underline",
     },
     loading: {
-      backgroundColor: "black100",
-      borderColor: "black100",
-      color: "white100",
+      backgroundColor: "mono100",
+      borderColor: "mono100",
+      color: "mono0",
     },
     success: {
       backgroundColor: "transparent",
-      borderColor: "black100",
-      color: "black100",
+      borderColor: "mono100",
+      color: "mono100",
     },
   },
 
@@ -171,7 +171,7 @@ export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
     default: {
       backgroundColor: "transparent",
       borderColor: "transparent",
-      color: "black100",
+      color: "mono100",
     },
     focus: {
       backgroundColor: "blue10",
@@ -199,7 +199,7 @@ export const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonState, any>> = {
     disabled: {
       backgroundColor: "transparent",
       borderColor: "transparent",
-      color: "black30",
+      color: "mono30",
     },
     success: {
       backgroundColor: "transparent",

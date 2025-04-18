@@ -9,7 +9,7 @@ import { Text } from "../Text"
 
 const Li = styled(Text)`
   > a {
-    color: ${themeGet("colors.black60")};
+    color: ${themeGet("colors.mono60")};
     text-decoration: none;
 
     &:hover {
@@ -20,10 +20,10 @@ const Li = styled(Text)`
 
   &:last-of-type {
     > a {
-      color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.mono100")};
 
       &:hover {
-        color: ${themeGet("colors.black100")};
+        color: ${themeGet("colors.mono100")};
         text-decoration: none;
       }
     }
@@ -39,10 +39,9 @@ export type BreadcrumbsProps = BoxProps
  * a website or web application. Breadcrumbs are often placed horizontally
  * before a page's main content.
  */
-export const Breadcrumbs: React.FC<React.PropsWithChildren<BreadcrumbsProps>> = ({
-  children,
-  ...rest
-}) => {
+export const Breadcrumbs: React.FC<
+  React.PropsWithChildren<BreadcrumbsProps>
+> = ({ children, ...rest }) => {
   const cells = flattenChildren(children)
 
   return (
@@ -50,7 +49,7 @@ export const Breadcrumbs: React.FC<React.PropsWithChildren<BreadcrumbsProps>> = 
       <Flex as="ol">
         <Join
           separator={
-            <Text as="span" size="xs" color="black60" mx={1} aria-hidden="true">
+            <Text as="span" size="xs" color="mono60" mx={1} aria-hidden="true">
               /
             </Text>
           }

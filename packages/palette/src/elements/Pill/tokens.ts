@@ -10,32 +10,32 @@ const DEFAULT_STATES = {
     padding: 0 ${themeGet("space.2")};
   `,
   focus: css`
-    background-color: ${themeGet("colors.black5")};
-    border-color: ${themeGet("colors.black5")};
+    background-color: ${themeGet("colors.mono5")};
+    border-color: ${themeGet("colors.mono5")};
     color: ${themeGet("colors.blue100")};
     text-decoration: underline;
   `,
   hover: css`
-    background-color: ${themeGet("colors.black5")};
-    border-color: ${themeGet("colors.black5")};
+    background-color: ${themeGet("colors.mono5")};
+    border-color: ${themeGet("colors.mono5")};
     color: ${themeGet("colors.blue100")};
     text-decoration: underline;
   `,
   active: css`
     border-color: ${themeGet("colors.blue150")};
     background-color: ${themeGet("colors.blue150")};
-    color: ${themeGet("colors.white100")};
+    color: ${themeGet("colors.mono0")};
     text-decoration: underline;
   `,
   selected: css`
     border-color: ${themeGet("colors.blue100")};
     background-color: ${themeGet("colors.blue100")};
-    color: ${themeGet("colors.white100")};
+    color: ${themeGet("colors.mono0")};
   `,
   disabled: css`
-    background-color: ${themeGet("colors.black5")};
-    border-color: ${themeGet("colors.black5")};
-    color: ${themeGet("colors.black60")};
+    background-color: ${themeGet("colors.mono5")};
+    border-color: ${themeGet("colors.mono5")};
+    color: ${themeGet("colors.mono60")};
     text-decoration: none;
   `,
 }
@@ -103,21 +103,21 @@ export const PILL_VARIANTS: Record<
       }
 
       ${Sup} {
-        color: ${themeGet("colors.white100")};
+        color: ${themeGet("colors.mono0")};
       }
     `,
     selected: css`
       ${DEFAULT_STATES.selected}
 
       ${Sup} {
-        color: ${themeGet("colors.white100")};
+        color: ${themeGet("colors.mono0")};
       }
     `,
     disabled: css`
       ${DEFAULT_STATES.disabled}
 
       ${Sup} {
-        color: ${themeGet("colors.black60")};
+        color: ${themeGet("colors.mono60")};
       }
     `,
   },
@@ -144,7 +144,7 @@ export const PILL_VARIANTS: Record<
       /* Same as default state */
     `,
     disabled: css`
-      border-color: ${themeGet("colors.black60")};
+      border-color: ${themeGet("colors.mono60")};
     `,
   },
 
@@ -160,25 +160,25 @@ export const PILL_VARIANTS: Record<
     hover: css`
       background-color: ${themeGet("colors.blue100")};
       border-color: ${themeGet("colors.blue100")};
-      color: ${themeGet("colors.white100")};
+      color: ${themeGet("colors.mono0")};
       text-decoration: underline;
     `,
     focus: css`
       background-color: ${themeGet("colors.blue100")};
       border-color: ${themeGet("colors.blue100")};
-      color: ${themeGet("colors.white100")};
+      color: ${themeGet("colors.mono0")};
       text-decoration: underline;
     `,
     active: css`
       background-color: ${themeGet("colors.blue150")};
       border-color: ${themeGet("colors.blue150")};
-      color: ${themeGet("colors.white100")};
+      color: ${themeGet("colors.mono0")};
       text-decoration: underline;
     `,
     selected: css`
       background-color: ${themeGet("colors.blue150")};
       border-color: ${themeGet("colors.blue150")};
-      color: ${themeGet("colors.white100")};
+      color: ${themeGet("colors.mono0")};
       text-decoration: underline;
     `,
     disabled: css`
@@ -194,25 +194,25 @@ export const PILL_VARIANTS: Record<
       border-radius: 25px;
       height: 50px;
       padding: 0 ${themeGet("space.2")} 0 ${themeGet("space.2")};
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
     `,
     active: css`
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
-      color: ${themeGet("colors.black100")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
+      color: ${themeGet("colors.mono100")};
       text-decoration: underline;
     `,
     selected: css`
       border-color: ${themeGet("colors.blue100")};
-      color: ${themeGet("colors.black100")};
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
+      color: ${themeGet("colors.mono100")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
     `,
     disabled: css`
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
-      color: ${themeGet("colors.black60")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
+      color: ${themeGet("colors.mono60")};
     `,
   },
 
@@ -221,38 +221,38 @@ export const PILL_VARIANTS: Record<
       border-radius: 15px;
       height: 30px;
       padding: 0 15px;
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
-      color: ${themeGet("colors.black100")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
+      color: ${themeGet("colors.mono100")};
     `,
     hover: css`
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
       color: ${themeGet("colors.blue100")};
       text-decoration: underline;
     `,
     focus: css`
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
       color: ${themeGet("colors.blue100")};
       text-decoration: underline;
     `,
     active: css`
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
-      color: ${themeGet("colors.black100")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
+      color: ${themeGet("colors.mono100")};
       text-decoration: underline;
     `,
     selected: css`
       border-color: ${themeGet("colors.blue100")};
-      color: ${themeGet("colors.black100")};
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
+      color: ${themeGet("colors.mono100")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
     `,
     disabled: css`
-      background-color: ${themeGet("colors.black5")};
-      border-color: ${themeGet("colors.black5")};
-      color: ${themeGet("colors.black60")};
+      background-color: ${themeGet("colors.mono5")};
+      border-color: ${themeGet("colors.mono5")};
+      color: ${themeGet("colors.mono60")};
     `,
   },
 }

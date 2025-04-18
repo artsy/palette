@@ -78,7 +78,7 @@ export const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
         {first && (
           <>
             <Page onClick={onClick} pageCursor={first} getHref={getHref} />
-            <Flex alignItems="center" p={0.5} color="black60">
+            <Flex alignItems="center" p={0.5} color="mono60">
               …
             </Flex>
           </>
@@ -97,7 +97,7 @@ export const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
 
         {last && (
           <>
-            <Flex alignItems="center" p={0.5} color="black60">
+            <Flex alignItems="center" p={0.5} color="mono60">
               …
             </Flex>
 
@@ -151,8 +151,8 @@ const Page: React.FC<React.PropsWithChildren<PageProps>> = ({
       alignItems="center"
       p={0.5}
       {...(isCurrent
-        ? { color: "black100", "aria-current": "page" }
-        : { color: "black60" })}
+        ? { color: "mono100", "aria-current": "page" }
+        : { color: "mono60" })}
       {...rest}
     >
       {page}
@@ -167,14 +167,9 @@ export interface NextPrevButtonProps extends BoxProps {
   page?: number
 }
 
-const NextPrevButton: React.FC<React.PropsWithChildren<NextPrevButtonProps>> = ({
-  disabled,
-  getHref,
-  onClick,
-  page,
-  children,
-  ...rest
-}) => {
+const NextPrevButton: React.FC<
+  React.PropsWithChildren<NextPrevButtonProps>
+> = ({ disabled, getHref, onClick, page, children, ...rest }) => {
   const href =
     !disabled && page && typeof getHref !== "undefined" ? getHref(page) : ""
 
@@ -183,7 +178,7 @@ const NextPrevButton: React.FC<React.PropsWithChildren<NextPrevButtonProps>> = (
       <Flex
         display="flex"
         alignItems="center"
-        color="black30"
+        color="mono30"
         py={0.5}
         {...rest}
       >

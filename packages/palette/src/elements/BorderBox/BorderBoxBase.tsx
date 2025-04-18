@@ -15,6 +15,6 @@ export const BorderBoxBase = styled(Flex)<BorderBoxProps>`
 `
 
 BorderBoxBase.defaultProps = {
-  borderColor: "black10",
+  borderColor: "mono10",
   p: 2,
 }

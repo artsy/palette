@@ -10,16 +10,16 @@ export const MULTISELECT_STATES: Record<State, any> = {
   default: css`
     height: 50px;
     font-size: ${themeGet("textVariants.sm-display.fontSize")};
-    color: ${themeGet("colors.black100")};
-    border-color: ${themeGet("colors.black30")};
+    color: ${themeGet("colors.mono100")};
+    border-color: ${themeGet("colors.mono30")};
 
     & > label {
-      color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.mono60")};
       font-size: ${themeGet("textVariants.sm-display.fontSize")};
     }
   `,
   focus: css`
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     border-color: ${themeGet("colors.blue100")};
     text-decoration: underline;
 
@@ -31,7 +31,7 @@ export const MULTISELECT_STATES: Record<State, any> = {
   `,
   hover: css`
     color: ${themeGet("colors.blue100")};
-    border-color: ${themeGet("colors.black60")};
+    border-color: ${themeGet("colors.mono60")};
     text-decoration: underline;
 
     & > label {
@@ -45,27 +45,27 @@ export const MULTISELECT_STATES: Record<State, any> = {
     }
   `,
   completed: css`
-    border-color: ${themeGet("colors.black60")};
+    border-color: ${themeGet("colors.mono60")};
     text-decoration: none;
 
     & > label {
-      color: ${themeGet("colors.black60")};
+      color: ${themeGet("colors.mono60")};
       transform: translateY(-250%);
       font-size: ${themeGet("textVariants.xs.fontSize")};
     }
   `,
   disabled: css`
-    color: ${themeGet("colors.black30")};
-    border-color: ${themeGet("colors.black30")};
+    color: ${themeGet("colors.mono30")};
+    border-color: ${themeGet("colors.mono30")};
     text-decoration: none;
 
     & > label {
-      color: ${themeGet("colors.black30")};
+      color: ${themeGet("colors.mono30")};
       text-decoration: none;
     }
   `,
   error: css`
-    color: ${themeGet("colors.black100")};
+    color: ${themeGet("colors.mono100")};
     border-color: ${themeGet("colors.red100")};
 
     & > label {

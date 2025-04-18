@@ -63,7 +63,7 @@ export const Image: React.FC<ImageProps> = ({
         position="relative"
         width={width}
         height={height}
-        bg={lazyLoad && !placeHolderURL ? "black10" : undefined}
+        bg={lazyLoad && !placeHolderURL ? "mono10" : undefined}
         {...boxProps}
         style={{
           ...(placeHolderURL && {

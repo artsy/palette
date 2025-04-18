@@ -24,7 +24,9 @@ export interface ModalDialogContentProps
   header?: React.ReactNode
 }
 
-export const ModalDialogContent: React.FC<React.PropsWithChildren<ModalDialogContentProps>> = ({
+export const ModalDialogContent: React.FC<
+  React.PropsWithChildren<ModalDialogContentProps>
+> = ({
   children,
   footer,
   hasLogo,
@@ -49,7 +51,7 @@ export const ModalDialogContent: React.FC<React.PropsWithChildren<ModalDialogCon
 
   return (
     <Flex
-      bg="white100"
+      bg="mono0"
       m={2}
       style={{ boxShadow: theme.effects.dropShadow }}
       {...rest}
@@ -128,7 +130,9 @@ export const ModalDialogContent: React.FC<React.PropsWithChildren<ModalDialogCon
 
 export type ModalCloseProps = ClickableProps
 
-export const ModalClose: FC<React.PropsWithChildren<ModalCloseProps>> = (props) => {
+export const ModalClose: FC<React.PropsWithChildren<ModalCloseProps>> = (
+  props
+) => {
   return (
     <Close p={2} ml="auto" aria-label="Close" {...props}>
       <CloseIcon fill="currentColor" display="block" />
@@ -137,11 +141,11 @@ export const ModalClose: FC<React.PropsWithChildren<ModalCloseProps>> = (props) 
 }
 
 const Close = styled(Clickable)`
-  color: ${themeGet("colors.black100")};
+  color: ${themeGet("colors.mono100")};
 
   &:focus,
   &:focus-visible {
     outline: none;
-    color: ${themeGet("colors.black60")};
+    color: ${themeGet("colors.mono60")};
   }
 `

@@ -55,7 +55,7 @@ export const SplitLabel = () => {
       <Flex justifyContent="space-between" flex={1}>
         <Text variant="sm-display">Label</Text>
 
-        <Text variant="xs" color="black60">
+        <Text variant="xs" color="mono60">
           Subtitle
         </Text>
       </Flex>

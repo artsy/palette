@@ -29,7 +29,7 @@ export const Expandable = ({
   disabled,
   onClick,
   onToggle,
-  borderColor = "black60",
+  borderColor = "mono60",
   ...rest
 }: ExpandableProps) => {
   const [expanded, setExpanded] = useState(defaultExpanded)

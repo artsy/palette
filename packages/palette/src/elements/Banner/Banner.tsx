@@ -67,24 +67,24 @@ export const Banner: React.FC<React.PropsWithChildren<BannerProps>> = ({
 
 export const BANNER_VARIANTS = {
   defaultLight: {
-    backgroundColor: "black10",
-    color: "black100",
+    backgroundColor: "mono10",
+    color: "mono100",
   },
   defaultDark: {
-    backgroundColor: "black100",
-    color: "white100",
+    backgroundColor: "mono100",
+    color: "mono0",
   },
   success: {
     backgroundColor: "green100",
-    color: "white100",
+    color: "mono0",
   },
   error: {
     backgroundColor: "red100",
-    color: "white100",
+    color: "mono0",
   },
   brand: {
     backgroundColor: "brand",
-    color: "white100",
+    color: "mono0",
   },
 }
 

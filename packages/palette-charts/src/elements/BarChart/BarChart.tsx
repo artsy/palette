@@ -8,7 +8,7 @@ import { useIntersectionObserver } from "../DataVis/useIntersectionObserver"
 import { Bar } from "./Bar"
 
 const ChartContainer = styled(Flex)`
-  border-bottom: 1px solid ${themeGet("colors.black10")};
+  border-bottom: 1px solid ${themeGet("colors.mono10")};
 `
 
 function useHighlightLabelPositionConstraints(
@@ -124,11 +124,11 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
         </ChartContainer>
 
         <Flex justifyContent="space-between">
-          <Text color="black60" variant="xs">
+          <Text color="mono60" variant="xs">
             {minLabel}
           </Text>
 
-          <Text color="black60" variant="xs">
+          <Text color="mono60" variant="xs">
             {maxLabel}
           </Text>
         </Flex>
@@ -137,7 +137,7 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
           <Flex>
             {bars.map(({ axisLabelX }, i) => (
               <BarAxisLabelContainer key={i}>
-                <AxisLabelX color="black60" variant="xs">
+                <AxisLabelX color="mono60" variant="xs">
                   {axisLabelX}
                 </AxisLabelX>
               </BarAxisLabelContainer>

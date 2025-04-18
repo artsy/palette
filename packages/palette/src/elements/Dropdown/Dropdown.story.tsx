@@ -251,7 +251,7 @@ export const OverflowingContent = () => {
 
   return (
     <>
-      <Box height={200} bg="black10" />
+      <Box height={200} bg="mono10" />
 
       <Spacer y={2} />
 
@@ -291,7 +291,7 @@ export const OverflowingContent = () => {
 
       <Spacer y={2} />
 
-      <Box height={5000} bg="black10" />
+      <Box height={5000} bg="mono10" />
     </>
   )
 }

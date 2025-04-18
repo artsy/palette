@@ -28,11 +28,7 @@ export const AutocompleteInputOption = forwardRef<
   }, [selected])
 
   return (
-    <Container
-      ref={composeRefs(ref, forwardedRef) as any}
-      bg="white100"
-      {...rest}
-    >
+    <Container ref={composeRefs(ref, forwardedRef) as any} bg="mono0" {...rest}>
       {children}
     </Container>
   )
@@ -47,6 +43,6 @@ const Container = styled(Clickable)`
   &:focus,
   &:active {
     outline: 0;
-    background-color: ${themeGet("colors.black5")};
+    background-color: ${themeGet("colors.mono5")};
   }
 `

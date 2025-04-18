@@ -24,7 +24,7 @@ export const BaseTabs: React.ForwardRefExoticComponent<
     <HorizontalOverflow
       ref={forwardedRef}
       borderBottom="1px solid"
-      borderBottomColor="black10"
+      borderBottomColor="mono10"
       {...rest}
     >
       <Join separator={<></>}>

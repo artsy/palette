@@ -7,16 +7,16 @@ import { Text } from "../Text"
 
 const VARIANTS = {
   defaultLight: {
-    backgroundColor: "black10",
-    color: "black100",
+    backgroundColor: "mono10",
+    color: "mono100",
   },
   defaultDark: {
-    backgroundColor: "black10",
-    color: "black100",
+    backgroundColor: "mono10",
+    color: "mono100",
   },
   brand: {
-    backgroundColor: "black10",
-    color: "black100",
+    backgroundColor: "mono10",
+    color: "mono100",
   },
 }
 

@@ -32,5 +32,5 @@ export const Separator = styled.div<SeparatorProps>`
 
 Separator.defaultProps = {
   width: "100%",
-  color: "black10",
+  color: "mono10",
 }

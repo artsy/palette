@@ -346,10 +346,10 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
               alignItems="center"
               aria-label="Clear input"
             >
-              <CloseIcon fill="black60" aria-hidden />
+              <CloseIcon fill="mono60" aria-hidden />
             </Clickable>
           ) : (
-            <SearchIcon fill="black60" aria-hidden />
+            <SearchIcon fill="mono60" aria-hidden />
           )
         }
         value={staged?.text ?? state.query}

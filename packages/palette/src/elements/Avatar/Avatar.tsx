@@ -21,7 +21,7 @@ const LENGTHS = {
 
 const TOKENS = {
   fontWeight: "normal",
-  color: "black100",
+  color: "mono100",
   bg: "transparent",
   xxs: {
     diameter: 30,
@@ -60,7 +60,7 @@ export const Avatar: React.FC<React.PropsWithChildren<AvatarProps>> = ({
       size={diameter}
       bg={TOKENS.bg}
       border={src ? "transparent" : "1px solid"}
-      borderColor="black15"
+      borderColor="mono15"
       borderRadius="50%"
       alignItems="center"
       justifyContent="center"

@@ -6,5 +6,5 @@ import React from "react"
  * in a line chart.
  */
 export const Line = ({ path }: { path: string }) => {
-  return <path fill="none" stroke={color("black10")} d={path} />
+  return <path fill="none" stroke={color("mono10")} d={path} />
 }

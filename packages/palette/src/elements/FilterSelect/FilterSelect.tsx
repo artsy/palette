@@ -164,7 +164,7 @@ const SelectAll: React.FC = () => {
           onClick={() => setSelectedItems([])}
           textDecoration="underline"
           disabled={isClearDisabled}
-          color={isClearDisabled ? "black60" : "black100"}
+          color={isClearDisabled ? "mono60" : "mono100"}
         >
           <Text variant="xs">Clear</Text>
         </Clickable>

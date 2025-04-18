@@ -1,26 +1,26 @@
 import { Colors, Effects, THEME as THEME_LIGHT } from "./v3";
 
 const COLORS: Colors = {
-  /** Suitable for text on black10 and lighter */
-  black100: "#ffffff",
-  /** Suitable for text on black5 and lighter */
-  black60: "#C2C2C2",
+  /** Suitable for text on mono10 and lighter */
+  mono100: "#ffffff",
+  /** Suitable for text on mono5 and lighter */
+  mono60: "#C2C2C2",
   /** Background only */
-  black30: "#707070",
+  mono30: "#707070",
   /** Background only */
-  black15: "#404040",
+  mono15: "#404040",
   /** Background only */
-  black10: "#333333",
-  /** Suitable for text on black60 and darker */
-  black5: "#1a1a1a",
-  /** Suitable for text on black60 and darker */
-  white100: "#121212",
+  mono10: "#333333",
+  /** Suitable for text on mono60 and darker */
+  mono5: "#1a1a1a",
+  /** Suitable for text on mono60 and darker */
+  mono0: "#121212",
 
-  /** Suitable for text on black10 and lighter */
+  /** Suitable for text on mono10 and lighter */
   blue200: "#d3d9fd",
-  /** Suitable for text on black10 and lighter */
+  /** Suitable for text on mono10 and lighter */
   blue150: "#a2b1fb",
-  /** Suitable for text on black10 and lighter */
+  /** Suitable for text on mono10 and lighter */
   blue100: "#0f77ff",
   /** Alias of blue100 */
   brand: "#707eff",
@@ -31,28 +31,28 @@ const COLORS: Colors = {
 
   /** Hover/down state and suitable for text on green10 */
   green150: "#c8fff0",
-  /** Suitable for text on green10, black10 and lighter */
+  /** Suitable for text on green10, mono10 and lighter */
   green100: "#019f73",
   /** Background only */
   green10: "#161d10",
 
   /** Hover/down state and suitable for text on yellow10 */
   yellow150: "#f0c65b",
-  /** Suitable for text on black10 and lighter */
+  /** Suitable for text on mono10 and lighter */
   yellow100: "#e2b929",
   /** Background only */
   yellow10: "#2b2203",
 
   /** Hover/down state and suitable for text on orange10 */
   orange150: "#e38b57",
-  /** Suitable for text on black10 and lighter */
+  /** Suitable for text on mono10 and lighter */
   orange100: "#da6722",
   /** Background only */
   orange10: "#2b1d12",
 
   /** Hover/down state and suitable for text on red10 */
   red150: "#f9d2d2",
-  /** Suitable for text on red10, black10, and lighter */
+  /** Suitable for text on red10, mono10, and lighter */
   red100: "#e44738",
   /** Suitable for importance/urgency indicators */
   red50: "#d60012",

@@ -7,12 +7,16 @@ import { Join } from "../Join"
 import { Spacer } from "../Spacer"
 import { ModalBase, ModalBaseProps } from "./ModalBase"
 
-const Example: React.FC<React.PropsWithChildren<ModalBaseProps & {
-  dialogChildren?: JSX.Element
-  bodyChildren?: JSX.Element
-  /** Simulates an input being added after render */
-  defer?: boolean
-}>> = ({ bodyChildren, dialogChildren, defer, ...rest } = {}) => {
+const Example: React.FC<
+  React.PropsWithChildren<
+    ModalBaseProps & {
+      dialogChildren?: JSX.Element
+      bodyChildren?: JSX.Element
+      /** Simulates an input being added after render */
+      defer?: boolean
+    }
+  >
+> = ({ bodyChildren, dialogChildren, defer, ...rest } = {}) => {
   const [open, setOpen] = useState(false)
   const label = open ? "opened" : "open"
   const handleClose = () => setOpen(false)
@@ -45,7 +49,7 @@ const Example: React.FC<React.PropsWithChildren<ModalBaseProps & {
             style={{ border: "2px solid red" }}
           >
             <Box textAlign="center">
-              <Text variant="sm-display" color="white100">
+              <Text variant="sm-display" color="mono0">
                 <Join separator={<Spacer y={2} />}>
                   <>Some example content. Click outside to close.</>
                   <Button variant="primaryWhite" onClick={handleClose}>

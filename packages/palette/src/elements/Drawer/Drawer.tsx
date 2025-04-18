@@ -34,7 +34,7 @@ export const Drawer: FC<React.PropsWithChildren<DrawerProps>> = ({
     >
       <Focus onClickOutside={onClose} enabled={open} onEscapeKey={onClose}>
         <Content
-          backgroundColor="white100"
+          backgroundColor="mono0"
           height="100%"
           width={["100%", "auto"]}
           overflowX="hidden"

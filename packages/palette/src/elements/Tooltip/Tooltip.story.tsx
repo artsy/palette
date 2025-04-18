@@ -53,8 +53,8 @@ export const Default = () => {
             variant="xs"
             textAlign="center"
             p={1}
-            bg="black100"
-            color="white100"
+            bg="mono100"
+            color="mono0"
           >
             {children ?? "This text has a tooltip"}
           </Text>
@@ -73,8 +73,8 @@ export const _Clickable = () => {
             variant="xs"
             textAlign="center"
             p={1}
-            bg="black100"
-            color="white100"
+            bg="mono100"
+            color="mono0"
           >
             This text has a tooltip and is clickable
           </Text>
@@ -110,7 +110,7 @@ export const Placement = () => {
               p={1}
               maxWidth="50%"
               mx="auto"
-              bg="black10"
+              bg="mono10"
             >
               {JSON.stringify(props)}
             </Text>
@@ -202,7 +202,7 @@ export const PointerCentering = () => {
         placement={placement}
       >
         <Box
-          bg="black10"
+          bg="mono10"
           width={size}
           height={size}
           mx="auto"
@@ -249,7 +249,7 @@ export const StressTest = () => {
               width={40}
               height={40}
               mx="auto"
-              bg="black10"
+              bg="mono10"
               display="flex"
               alignItems="center"
               justifyContent="center"

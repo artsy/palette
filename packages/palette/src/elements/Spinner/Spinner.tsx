@@ -46,7 +46,7 @@ export const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
   position = "absolute",
   delay = 0,
   size = "large",
-  color = "black100",
+  color = "mono100",
   ...rest
 }) => {
   const [show, setShow] = useState(delay === 0)

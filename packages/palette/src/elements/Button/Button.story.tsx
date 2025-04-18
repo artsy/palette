@@ -63,8 +63,8 @@ export const Variants = () => {
           p={1}
           overflowX="auto"
           {...(["primaryWhite", "secondaryWhite"].includes(`${props.variant}`)
-            ? { bg: "black100", color: "white100" }
-            : { bg: "white100", color: "black100" })}
+            ? { bg: "mono100", color: "mono0" }
+            : { bg: "mono0", color: "mono100" })}
         >
           <Flex>
             <Join separator={<Spacer x={2} />}>
@@ -127,7 +127,7 @@ NativeButtonProps.story = {
 export const WithBoxProps = () => {
   return (
     <States>
-      <Box border="1px dotted" borderColor="black100">
+      <Box border="1px dotted" borderColor="mono100">
         <Button display="block" width="100%" my={2}>
           full width
         </Button>

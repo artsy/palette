@@ -30,7 +30,7 @@ export function injectGlobalStyles<P extends object>(
 
     ::selection {
       background-color: ${themeGet("colors.blue15")};
-      color: ${themeGet("colors.black100")};
+      color: ${themeGet("colors.mono100")};
     }
 
     html,
@@ -49,8 +49,8 @@ export function injectGlobalStyles<P extends object>(
       font-family: ${themeGet("fonts.sans")};
       font-size: ${themeGet("textVariants.sm.fontSize")};
       line-height: ${themeGet("textVariants.sm.lineHeight")};
-      background-color: ${themeGet("colors.white100")};
-      color: ${themeGet("colors.black100")};
+      background-color: ${themeGet("colors.mono0")};
+      color: ${themeGet("colors.mono100")};
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -63,11 +63,11 @@ export function injectGlobalStyles<P extends object>(
       text-decoration: underline;
 
       &:hover {
-        color: ${themeGet("colors.black100")};
+        color: ${themeGet("colors.mono100")};
       }
 
       &:active {
-        color: ${themeGet("colors.black100")};
+        color: ${themeGet("colors.mono100")};
       }
     }
 

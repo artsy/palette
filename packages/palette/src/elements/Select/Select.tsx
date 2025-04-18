@@ -61,7 +61,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
       <Box width="100%" {...boxProps}>
         {!!description && (
           <Tooltip pointer content={description} placement="top-end">
-            <Text variant="xs" color="black60" textAlign="right">
+            <Text variant="xs" color="mono60" textAlign="right">
               <u>What is this?</u>
             </Text>
           </Tooltip>
@@ -166,9 +166,7 @@ export const caretMixin = css`
     border-right: 4px solid transparent;
     border-top: 4px solid
       ${({ disabled }: CaretProps) => {
-        return disabled
-          ? themeGet("colors.black10")
-          : themeGet("colors.black100")
+        return disabled ? themeGet("colors.mono10") : themeGet("colors.mono100")
       }};
   }
 `
@@ -190,7 +188,7 @@ const Container = styled(Box)<ContainerProps>`
     font-family: ${themeGet("fonts.sans")};
     border: 1px solid;
     border-radius: 3px;
-    border-color: ${themeGet("colors.black30")};
+    border-color: ${themeGet("colors.mono30")};
     cursor: pointer;
     line-height: 1;
     transition: color 0.25s, background-color 0.25s, border-color 0.25s;
@@ -266,7 +264,7 @@ const StyledLabel = styled.label`
   font-family: ${themeGet("fonts.sans")};
 
   & > span {
-    background-color: ${themeGet("colors.white100")};
+    background-color: ${themeGet("colors.mono0")};
     height: 100%;
     width: 100%;
     display: block;
