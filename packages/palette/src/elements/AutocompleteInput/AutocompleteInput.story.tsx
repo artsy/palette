@@ -1,5 +1,5 @@
 import { action } from "@storybook/addon-actions"
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Text } from "../Text"
@@ -11,6 +11,7 @@ import {
 import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Button } from "../Button"
+import { HorizontalOverflow } from "../HorizontalOverflow"
 
 export default {
   title: "Components/AutocompleteInput",
@@ -292,5 +293,92 @@ export const ProgrammaticFocus = () => {
         Focus input
       </Button>
     </Flex>
+  )
+}
+
+export const InTableWithAutoFocus = () => {
+  const [currentCell, setCurrentCell] = useState<string | null>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
+  // Auto-focus when cell is clicked
+  useEffect(() => {
+    if (currentCell && inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [currentCell])
+
+  // Sample table data
+  const tableData = [
+    { id: "1", city: "New York", population: "8.4M", founded: "1624" },
+    { id: "2", city: "London", population: "8.9M", founded: "43 AD" },
+    { id: "3", city: "Tokyo", population: "13.9M", founded: "1457" },
+    { id: "4", city: "Paris", population: "2.2M", founded: "3 BC" },
+    { id: "5", city: "Berlin", population: "3.6M", founded: "1237" },
+  ]
+
+  return (
+    <HorizontalOverflow>
+      <Box minWidth="1200px">
+        {/* Make table wider than typical viewport */}
+        <Box as="table" width="100%" border="1px solid" borderColor="mono10">
+          <Box as="thead" bg="mono10">
+            <Box as="tr">
+              <Box as="th" p={2}>
+                ID
+              </Box>
+              <Box as="th" p={2}>
+                City
+              </Box>
+              <Box as="th" p={2}>
+                Population
+              </Box>
+              <Box as="th" p={2}>
+                Founded
+              </Box>
+              <Box as="th" p={2} width="300px">
+                Search Cities
+              </Box>
+            </Box>
+          </Box>
+          <Box as="tbody">
+            {tableData.map((row) => (
+              <Box
+                as="tr"
+                key={row.id}
+                borderTop="1px solid"
+                borderColor="mono10"
+              >
+                <Box as="td" p={2}>
+                  {row.id}
+                </Box>
+                <Box as="td" p={2}>
+                  {row.city}
+                </Box>
+                <Box as="td" p={2}>
+                  {row.population}
+                </Box>
+                <Box as="td" p={2}>
+                  {row.founded}
+                </Box>
+                <Box as="td" p={2} onClick={() => setCurrentCell(row.id)}>
+                  {currentCell === row.id ? (
+                    <AutocompleteInput
+                      forwardRef={inputRef}
+                      placeholder="Search cities..."
+                      options={CITIES}
+                      onSelect={action("onSelect")}
+                      onClose={() => setCurrentCell(null)}
+                      autoFocus={true}
+                    />
+                  ) : (
+                    <Text color="mono60">Click to search</Text>
+                  )}
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      </Box>
+    </HorizontalOverflow>
   )
 }
