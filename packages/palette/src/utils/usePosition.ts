@@ -143,9 +143,19 @@ export const usePosition = ({
 
     window.addEventListener("resize", handleResize, { passive: true })
 
-    setState(
-      placeTooltip({ anchor, tooltip, position, offset, flip, clamp, padding })
-    )
+    requestAnimationFrame(() => {
+      setState(
+        placeTooltip({
+          anchor,
+          tooltip,
+          position,
+          offset,
+          flip,
+          clamp,
+          padding,
+        })
+      )
+    })
 
     return () => {
       document.removeEventListener("scroll", handleScroll)
