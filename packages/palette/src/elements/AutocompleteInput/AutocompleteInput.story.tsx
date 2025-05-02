@@ -11,6 +11,7 @@ import {
 import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Button } from "../Button"
+import { Stack } from "../Stack"
 
 export default {
   title: "Components/AutocompleteInput",
@@ -292,5 +293,27 @@ export const ProgrammaticFocus = () => {
         Focus input
       </Button>
     </Flex>
+  )
+}
+
+export const OpenOnClick = () => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <Stack gap={2} width={300}>
+      {open ? (
+        <Button onClick={() => setOpen(false)}>Close</Button>
+      ) : (
+        <Button onClick={() => setOpen(true)}>Open</Button>
+      )}
+
+      {open && (
+        <AutocompleteInput
+          autoFocus
+          placeholder="Begin typing..."
+          options={CITIES}
+        />
+      )}
+    </Stack>
   )
 }
