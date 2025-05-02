@@ -1,3 +1,21 @@
+# v41.1.0 (Fri May 02 2025)
+
+#### 🚀  Enhancement
+
+- feat(storybooks): Add autofocus table example [#1434](https://github.com/artsy/palette/pull/1434) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- fix(dia-1305): fixes initial autocomplete render in safari [#1435](https://github.com/artsy/palette/pull/1435) ([@damassi](https://github.com/damassi) [@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): fixes initial render in safari ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v41.0.0 (Fri Apr 18 2025)
 
 #### 💥  Breaking Change
