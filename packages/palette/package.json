@@ -57,6 +57,7 @@
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
+    "@chromatic-com/storybook": "^3.2.6",
     "@storybook/addon-actions": "^8.6.12",
     "@storybook/addon-links": "^8.6.12",
     "@storybook/addon-viewport": "^8.6.12",
