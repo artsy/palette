@@ -1,3 +1,16 @@
+# v41.1.1 (Tue May 06 2025)
+
+#### 🐛  Bug Fix
+
+- fix(avatar): prevents avatar from deforming [#1436](https://github.com/artsy/palette/pull/1436) ([@dzucconi](https://github.com/dzucconi))
+- fix(avatar): prevents avatar from deforming ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v41.1.0 (Fri May 02 2025)
 
 #### 🚀  Enhancement
