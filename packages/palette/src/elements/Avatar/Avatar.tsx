@@ -66,6 +66,7 @@ export const Avatar: React.FC<React.PropsWithChildren<AvatarProps>> = ({
       justifyContent="center"
       position="relative"
       overflow="hidden"
+      flexShrink={0}
       {...boxProps}
     >
       {initials && (
