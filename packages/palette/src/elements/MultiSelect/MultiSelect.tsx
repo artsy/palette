@@ -1,18 +1,17 @@
 import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useState } from "react"
-import styled from "styled-components"
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
 import { FORM_ELEMENT_TRANSITION } from "../../helpers"
+import { RequiredField } from "../../shared/RequiredField"
 import { useClickOutside, usePosition } from "../../utils"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { useWidthOf } from "../../utils/useWidthOf"
 import { Box, BoxProps } from "../Box"
 import { Checkbox } from "../Checkbox"
+import { Clickable } from "../Clickable"
 import { caretMixin, Option } from "../Select"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
-import { Clickable } from "../Clickable"
-import { RequiredField } from "../../shared/RequiredField"
 import { MULTISELECT_STATES } from "./tokens"
 
 export interface MultiSelectProps extends BoxProps {
@@ -127,8 +126,10 @@ export const MultiSelect: React.FC<
         visible={visible}
         {...rest}
       >
-        <Text variant="sm" lineHeight={1}>
-          {selection.length > 0 ? `${selection.length} selected` : name}
+        <Text variant="sm" lineHeight={1} overflowEllipsis>
+          {selection.length > 0
+            ? selection.map((s) => s.text).join(", ")
+            : name}
         </Text>
 
         {!!title && <StyledLabel htmlFor={name}>{title}</StyledLabel>}
