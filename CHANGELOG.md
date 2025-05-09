@@ -1,3 +1,16 @@
+# (Fri May 09 2025)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@41.1.2`
+  - fix(image): prevents image collapse when lazyload without geometry [#1439](https://github.com/artsy/palette/pull/1439) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue May 06 2025)
 
 #### 🐛  Bug Fix
