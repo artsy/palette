@@ -133,3 +133,11 @@ export const WithCustomStyle = () => {
     </Box>
   )
 }
+
+export const EnsuresImageDoesNotCollapse = () => {
+  return (
+    <Box width={300} height={200} bg="red">
+      <Image src="https://picsum.photos/seed/example/300/200" lazyLoad />
+    </Box>
+  )
+}
