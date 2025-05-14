@@ -1,3 +1,16 @@
+# (Wed May 14 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@41.2.0`
+  - feat: Display selected options on MultiSelect [#1438](https://github.com/artsy/palette/pull/1438) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # (Fri May 09 2025)
 
 #### 🐛  Bug Fix
