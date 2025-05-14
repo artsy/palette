@@ -6,9 +6,15 @@ import { styleFn } from "styled-system"
  * the styled function.
  */
 export const splitProps = <T>(mixin: styleFn) => {
-  const re = new RegExp(`^(${mixin.propNames!.join("|")})$`)
+  if (!mixin.propNames) {
+    return
+  }
 
-  return <U>(props: U): [T, Omit<U, keyof T>] => {
+  const re = new RegExp(`^(${mixin.propNames.join("|")})$`)
+
+  return <U extends Record<string, unknown>>(
+    props: U
+  ): [T, Omit<U, keyof T>] => {
     const leftProps = {} as T
     const rightProps = {} as Omit<U, keyof T>
 
