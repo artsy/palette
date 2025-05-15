@@ -141,7 +141,7 @@ export const MultiSelect: React.FC<
       >
         <Text variant="sm" lineHeight={1} overflowEllipsis>
           {selection.length > 0
-            ? selection
+            ? [...selection]
                 .reverse()
                 .map((s) => s.text)
                 .join(", ")
