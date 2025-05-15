@@ -21,10 +21,14 @@ export interface MultiSelectProps extends BoxProps {
   error?: string | boolean
   focus?: boolean
   hover?: boolean
+  /** Initial values to be selected */
+  selected?: Option["value"][]
   name?: string
   options: Option[]
   required?: boolean
   title?: string
+  onBlur?: () => void
+  onFocus?: () => void
   onSelect?: (selection: Option[]) => void
   visible?: boolean
 }
@@ -39,15 +43,20 @@ export const MultiSelect: React.FC<
   error,
   focus,
   hover,
+  selected = [],
   name = "Select",
   options,
   required,
   title,
+  onBlur,
+  onFocus,
   onSelect,
   ...rest
 }) => {
+  const selectedOptions = valuesToOptions(selected, options)
+
   const [visible, setVisible] = useState(false)
-  const [selection, setSelection] = useState<Option[]>([])
+  const [selection, setSelection] = useState<Option[]>(selectedOptions || [])
 
   // Yields focus back and forth between popover and anchor
   useUpdateEffect(() => {
@@ -60,13 +69,17 @@ export const MultiSelect: React.FC<
     anchorRef.current.focus()
   }, [visible])
 
-  const onVisible = () => setVisible(true)
-  const onHide = () => setVisible(false)
+  const handleVisible = () => setVisible(true)
+  const handleHide = () => setVisible(false)
+
+  useEffect(() => {
+    visible ? onFocus?.() : onBlur?.()
+  }, [visible])
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        onHide()
+        handleHide()
       }
     }
 
@@ -86,7 +99,7 @@ export const MultiSelect: React.FC<
 
   useClickOutside({
     ref: tooltipRef,
-    onClickOutside: onHide,
+    onClickOutside: handleHide,
     when: visible,
     type: "click",
   })
@@ -116,7 +129,7 @@ export const MultiSelect: React.FC<
       <Container
         mt={!!title && !description ? 1 : 0}
         ref={anchorRef as any}
-        onClick={onVisible}
+        onClick={handleVisible}
         complete={complete || selection.length > 0}
         disabled={!!disabled}
         error={error}
@@ -175,6 +188,13 @@ export const MultiSelect: React.FC<
   )
 }
 
+const valuesToOptions = (
+  values: Option["value"][],
+  options: Option[]
+): Option[] => {
+  return options.filter((option) => values.includes(option.value))
+}
+
 const Options = styled(Box)`
   position: fixed;
   z-index: 1;
@@ -212,7 +232,7 @@ const Container = styled(Clickable)<ContainerProps>`
       ${props.focus && MULTISELECT_STATES.focus}
       ${props.disabled && MULTISELECT_STATES.disabled}
       ${props.error && MULTISELECT_STATES.error}
-    
+
       &:hover {
         ${MULTISELECT_STATES.hover}
       }

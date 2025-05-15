@@ -36,6 +36,24 @@ describe("MultiSelect", () => {
     expect(wrapper.html()).toContain("Two")
   })
 
+  it("pre-selects initial values.", () => {
+    const handleSelect = jest.fn()
+    const wrapper = getWrapper({
+      onSelect: handleSelect,
+      selected: ["two"],
+    })
+
+    wrapper.find("button").simulate("click")
+
+    wrapper.find('[role="checkbox"]').first().simulate("click")
+
+    expect(handleSelect).toBeCalledTimes(1)
+    expect(handleSelect).toHaveBeenLastCalledWith([
+      { text: "One", value: "one" },
+      { text: "Two", value: "two" },
+    ])
+  })
+
   it("selects options when clicked", () => {
     const handleSelect = jest.fn()
     const wrapper = getWrapper({ onSelect: handleSelect })
@@ -63,5 +81,14 @@ describe("MultiSelect", () => {
     expect(handleSelect).toHaveBeenLastCalledWith([
       { text: "One", value: "one" },
     ])
+  })
+
+  it("calls onVisible when opened", () => {
+    const handleFocus = jest.fn()
+    const wrapper = getWrapper({ onFocus: handleFocus })
+
+    wrapper.find("button").simulate("click")
+
+    expect(handleFocus).toBeCalledTimes(1)
   })
 })
