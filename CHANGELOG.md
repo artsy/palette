@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@41.4.0`
+  - fix: MultiSelect onBlur and onVisible [#1442](https://github.com/artsy/palette/pull/1442) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
+# (Fri May 16 2025)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@41.3.0`
   - feat: Add selected onFocus and onBlur props to MultiSelect [#1441](https://github.com/artsy/palette/pull/1441) ([@olerichter00](https://github.com/olerichter00))
 

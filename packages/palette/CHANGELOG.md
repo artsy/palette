@@ -1,3 +1,15 @@
+# v41.4.0 (Fri May 16 2025)
+
+#### 🚀  Enhancement
+
+- fix: MultiSelect onBlur and onVisible [#1442](https://github.com/artsy/palette/pull/1442) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # v41.3.0 (Fri May 16 2025)
 
 #### 🚀  Enhancement
