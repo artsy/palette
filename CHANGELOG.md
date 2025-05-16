@@ -1,3 +1,16 @@
+# (Fri May 16 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@41.3.0`
+  - feat: Add selected onFocus and onBlur props to MultiSelect [#1441](https://github.com/artsy/palette/pull/1441) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # (Wed May 14 2025)
 
 #### 🚀  Enhancement
