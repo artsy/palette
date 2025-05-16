@@ -69,12 +69,15 @@ export const MultiSelect: React.FC<
     anchorRef.current.focus()
   }, [visible])
 
-  const handleVisible = () => setVisible(true)
-  const handleHide = () => setVisible(false)
+  const handleVisible = () => {
+    setVisible(true)
+    onFocus?.()
+  }
 
-  useEffect(() => {
-    visible ? onFocus?.() : onBlur?.()
-  }, [visible])
+  const handleHide = () => {
+    setVisible(false)
+    onBlur?.()
+  }
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
