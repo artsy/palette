@@ -64,4 +64,13 @@ describe("MultiSelect", () => {
       { text: "One", value: "one" },
     ])
   })
+
+  it("calls onVisible when opened", () => {
+    const handleFocus = jest.fn()
+    const wrapper = getWrapper({ onFocus: handleFocus })
+
+    wrapper.find("button").simulate("click")
+
+    expect(handleFocus).toBeCalledTimes(1)
+  })
 })
