@@ -21,6 +21,8 @@ export interface MultiSelectProps extends BoxProps {
   error?: string | boolean
   focus?: boolean
   hover?: boolean
+  /** Whether the option dropdown is visible immediately (default: false) */
+  isVisible?: boolean
   /** Initial values to be selected */
   selected?: Option["value"][]
   name?: string
@@ -51,11 +53,12 @@ export const MultiSelect: React.FC<
   onBlur,
   onFocus,
   onSelect,
+  isVisible = false,
   ...rest
 }) => {
   const selectedOptions = valuesToOptions(selected, options)
 
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(isVisible)
   const [selection, setSelection] = useState<Option[]>(selectedOptions || [])
 
   // Yields focus back and forth between popover and anchor
@@ -91,7 +94,6 @@ export const MultiSelect: React.FC<
       document.removeEventListener("keydown", handleKeydown)
     }
   }, [])
-
   const { anchorRef, tooltipRef } = usePosition({
     position: "bottom",
     offset: 10,
