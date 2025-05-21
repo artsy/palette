@@ -21,8 +21,6 @@ export interface MultiSelectProps extends BoxProps {
   error?: string | boolean
   focus?: boolean
   hover?: boolean
-  /** Whether the option dropdown is visible immediately (default: false) */
-  isVisible?: boolean
   /** Initial values to be selected */
   selected?: Option["value"][]
   name?: string
@@ -32,6 +30,8 @@ export interface MultiSelectProps extends BoxProps {
   onBlur?: () => void
   onFocus?: () => void
   onSelect?: (selection: Option[]) => void
+  /** Whether the options dropdown opens immediately when rendered (default: false) */
+  open?: boolean
   visible?: boolean
 }
 
@@ -53,12 +53,12 @@ export const MultiSelect: React.FC<
   onBlur,
   onFocus,
   onSelect,
-  isVisible = false,
+  open = false,
   ...rest
 }) => {
   const selectedOptions = valuesToOptions(selected, options)
 
-  const [visible, setVisible] = useState(isVisible)
+  const [visible, setVisible] = useState(open)
   const [selection, setSelection] = useState<Option[]>(selectedOptions || [])
 
   // Yields focus back and forth between popover and anchor
