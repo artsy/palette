@@ -15,6 +15,8 @@ import { Tooltip } from "../Tooltip"
 import { MULTISELECT_STATES } from "./tokens"
 
 export interface MultiSelectProps extends BoxProps {
+  /** Whether to open the dropdown automatically on mount or render (default: false) */
+  autoOpen?: boolean
   complete?: boolean
   description?: string
   disabled?: boolean
@@ -30,8 +32,7 @@ export interface MultiSelectProps extends BoxProps {
   onBlur?: () => void
   onFocus?: () => void
   onSelect?: (selection: Option[]) => void
-  /** Whether the options dropdown opens immediately when rendered (default: false) */
-  open?: boolean
+
   visible?: boolean
 }
 
@@ -39,6 +40,7 @@ export interface MultiSelectProps extends BoxProps {
 export const MultiSelect: React.FC<
   React.PropsWithChildren<MultiSelectProps>
 > = ({
+  autoOpen = false,
   complete,
   description,
   disabled,
@@ -53,12 +55,11 @@ export const MultiSelect: React.FC<
   onBlur,
   onFocus,
   onSelect,
-  open = false,
   ...rest
 }) => {
   const selectedOptions = valuesToOptions(selected, options)
 
-  const [visible, setVisible] = useState(open)
+  const [visible, setVisible] = useState(autoOpen)
   const [selection, setSelection] = useState<Option[]>(selectedOptions || [])
 
   // Yields focus back and forth between popover and anchor
