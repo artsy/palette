@@ -1,3 +1,17 @@
+# (Thu May 22 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@41.5.0`
+  - feat: Add autoOpen prop to MultiSelect [#1443](https://github.com/artsy/palette/pull/1443) ([@olerichter00](https://github.com/olerichter00))
+  - fix: MultiSelect selected items check [#1444](https://github.com/artsy/palette/pull/1444) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # (Fri May 16 2025)
 
 #### 🚀  Enhancement
