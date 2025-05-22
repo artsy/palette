@@ -1,9 +1,9 @@
 {
   "presets": [
-    "@babel/typescript",
-    "@babel/react",
+    "@babel/preset-typescript",
+    "@babel/preset-react",
     [
-      "@babel/env",
+      "@babel/preset-env",
       {
         "targets": {
           "browsers": ["last 2 versions"]
@@ -22,6 +22,8 @@
         "extensions": [".ts", ".tsx"],
         "root": ["./src"]
       }
-    ]
+    ],
+    ["@babel/plugin-transform-private-property-in-object", { "loose": true }],
+    ["@babel/plugin-transform-private-methods", { "loose": true }]
   ]
 }
