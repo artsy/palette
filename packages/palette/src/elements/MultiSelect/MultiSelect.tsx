@@ -168,7 +168,7 @@ export const MultiSelect: React.FC<
                 key={option.value}
                 height={50}
                 px={1}
-                selected={selection.includes(option)}
+                selected={selection.map((o) => o.value).includes(option.value)}
                 onSelect={handleSelect(option)}
               >
                 {option.text}
