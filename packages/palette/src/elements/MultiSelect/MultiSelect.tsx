@@ -29,7 +29,7 @@ export interface MultiSelectProps extends BoxProps {
   options: Option[]
   required?: boolean
   title?: string
-  onBlur?: () => void
+  onBlur?: (selection: Option[]) => void
   onFocus?: () => void
   onSelect?: (selection: Option[]) => void
 
@@ -80,7 +80,7 @@ export const MultiSelect: React.FC<
 
   const handleHide = () => {
     setVisible(false)
-    onBlur?.()
+    onBlur?.(selection)
   }
 
   useEffect(() => {
