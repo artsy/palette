@@ -1,3 +1,15 @@
+# v41.6.0 (Thu May 22 2025)
+
+#### 🚀  Enhancement
+
+- feat: Return MultiSelect selection on blur [#1445](https://github.com/artsy/palette/pull/1445) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # v41.5.0 (Thu May 22 2025)
 
 #### 🚀  Enhancement
