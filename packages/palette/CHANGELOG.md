@@ -1,3 +1,15 @@
+# v41.7.0 (Fri May 30 2025)
+
+#### 🚀  Enhancement
+
+- fix: Set Drawer `transform` to `none` when opened for fixed children [#1446](https://github.com/artsy/palette/pull/1446) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # v41.6.0 (Thu May 22 2025)
 
 #### 🚀  Enhancement
