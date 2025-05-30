@@ -1,11 +1,11 @@
+import { themeGet } from "@styled-system/theme-get"
 import React, { FC } from "react"
-import { Box } from "../Box"
-import { Flex } from "../Flex"
+import { FocusOn } from "react-focus-on"
 import styled, { css } from "styled-components"
 import { zIndex } from "styled-system"
-import { FocusOn } from "react-focus-on"
 import { usePortal } from "../../utils/usePortal"
-import { themeGet } from "@styled-system/theme-get"
+import { Box } from "../Box"
+import { Flex } from "../Flex"
 
 export interface DrawerProps {
   open: boolean
@@ -48,7 +48,7 @@ export const Drawer: FC<React.PropsWithChildren<DrawerProps>> = ({
           }
           style={{
             transform: open
-              ? "translateX(0)"
+              ? "none"
               : `translateX(${anchor === "left" ? "-110%" : "110%"})`,
           }}
         >
