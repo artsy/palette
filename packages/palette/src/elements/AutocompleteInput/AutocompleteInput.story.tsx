@@ -12,6 +12,7 @@ import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Button } from "../Button"
 import { Stack } from "../Stack"
+import { Drawer } from "../Drawer"
 
 export default {
   title: "Components/AutocompleteInput",
@@ -315,5 +316,17 @@ export const OpenOnClick = () => {
         />
       )}
     </Stack>
+  )
+}
+
+export const InDrawer = () => {
+  return (
+    <Drawer open={true} anchor="right">
+      <AutocompleteInput
+        autoFocus
+        placeholder="Begin typing..."
+        options={CITIES}
+      />
+    </Drawer>
   )
 }
