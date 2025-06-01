@@ -6,11 +6,8 @@ import { styleFn } from "styled-system"
  * the styled function.
  */
 export const splitProps = <T>(mixin: styleFn) => {
-  if (!mixin.propNames) {
-    return
-  }
-
-  const re = new RegExp(`^(${mixin.propNames.join("|")})$`)
+  const propNames = mixin.propNames || []
+  const re = new RegExp(`^(${propNames.join("|")})$`)
 
   return <U extends Record<string, unknown>>(
     props: U
@@ -19,12 +16,11 @@ export const splitProps = <T>(mixin: styleFn) => {
     const rightProps = {} as Omit<U, keyof T>
 
     for (const key of Object.keys(props)) {
-      if (re.test(key)) {
+      if (propNames.length === 0 || re.test(key)) {
         leftProps[key] = props[key]
-        continue
+      } else {
+        rightProps[key] = props[key]
       }
-
-      rightProps[key] = props[key]
     }
 
     return [leftProps, rightProps]
