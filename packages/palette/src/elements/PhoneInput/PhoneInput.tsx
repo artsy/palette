@@ -255,7 +255,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
           />
 
           <StyledLabel htmlFor={inputName}>
-            Phone Number
+            Phone number
             <span />
           </StyledLabel>
         </ContainerBox>
