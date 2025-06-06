@@ -63,7 +63,7 @@ describe("PhoneInput", () => {
     )
 
     expect(wrapper.find("input").length).toEqual(1)
-    expect(wrapper.text()).toContain("Phone Number")
+    expect(wrapper.text()).toContain("Phone number")
   })
 
   it("returns a required phone input when provided", () => {
