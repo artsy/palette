@@ -1,3 +1,15 @@
+# v41.8.0 (Fri Jun 06 2025)
+
+#### 🚀  Enhancement
+
+- chore(EMI-2542): copy update for phone input label [#1448](https://github.com/artsy/palette/pull/1448) ([@erikdstock](https://github.com/erikdstock))
+
+#### Authors: 1
+
+- Erik ([@erikdstock](https://github.com/erikdstock))
+
+---
+
 # v41.7.0 (Fri May 30 2025)
 
 #### 🚀  Enhancement
