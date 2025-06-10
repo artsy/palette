@@ -1,20 +1,95 @@
-import React from "react"
-import { Theme } from "../src/Theme"
+import React, { useEffect, useCallback, useState } from "react"
+import { THEMES, Theme } from "../src/Theme"
 import { injectGlobalStyles } from "../src/helpers/injectGlobalStyles"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { breakpoints } from "../src/Theme"
 import { StylesProvider } from "storybook-states"
+import { Clickable } from "@artsy/palette"
 
 const { GlobalStyles } = injectGlobalStyles()
 
+const THEME_STORAGE_KEY = "storybook-theme"
+
+const getStoredTheme = () => {
+  if (typeof window === "undefined") return "light"
+  return localStorage.getItem(THEME_STORAGE_KEY) || "light"
+}
+
+const setStoredTheme = (theme) => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(THEME_STORAGE_KEY, theme)
+  }
+}
+
+// TODO: Replace with https://storybook.js.org/addons/storybook-dark-mode
+// once we upgrade Storybook
+const ThemeToggle = ({ theme, onToggle }) => (
+  <Clickable
+    onClick={onToggle}
+    position="fixed"
+    bottom={0}
+    right={0}
+    zIndex={1}
+    p={2}
+  >
+    {theme === "light" ? "🌑" : "☀️"}
+  </Clickable>
+)
+
 export const decorators = [
   (Story) => {
+    const [theme, setTheme] = useState(getStoredTheme)
+
+    const toggleTheme = useCallback(() => {
+      setTheme((prevTheme) => {
+        const nextTheme = prevTheme === "light" ? "dark" : "light"
+        setStoredTheme(nextTheme)
+        return nextTheme
+      })
+    }, [])
+
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (event.metaKey && event.key === "i") {
+          event.preventDefault()
+          toggleTheme()
+        }
+      }
+
+      document.addEventListener("keydown", handleKeyDown)
+      return () => document.removeEventListener("keydown", handleKeyDown)
+    }, [toggleTheme])
+
+    const { colors, space } = THEMES[theme]
+
     return (
-      <Theme theme="light">
+      <Theme theme={theme}>
         <StylesProvider
-          styles={{ statePropsActive: { color: "currentColor" } }}
+          styles={{
+            state: {
+              border: `1px dotted ${colors.mono15}`,
+              padding: space[1],
+              marginBottom: space[2],
+            },
+            stateProps: {
+              display: "block",
+              marginTop: space[0.5],
+              paddingTop: space[0.5],
+              fontFamily:
+                "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
+              fontSize: "0.8125rem",
+              color: colors.mono60,
+              borderTop: `1px dotted ${colors.mono15}`,
+            },
+            statePropsActive: {
+              color: "currentColor",
+            },
+          }}
         >
           <GlobalStyles />
+
+          <ThemeToggle theme={theme} onToggle={toggleTheme} />
+
           <Story />
         </StylesProvider>
       </Theme>
