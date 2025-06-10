@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react"
-import { Theme } from "../src/Theme"
+import { THEMES, Theme } from "../src/Theme"
 import { injectGlobalStyles } from "../src/helpers/injectGlobalStyles"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { breakpoints } from "../src/Theme"
@@ -42,9 +42,9 @@ export const decorators = [
 
     const toggleTheme = useCallback(() => {
       setTheme((prevTheme) => {
-        const newTheme = prevTheme === "light" ? "dark" : "light"
-        setStoredTheme(newTheme)
-        return newTheme
+        const nextTheme = prevTheme === "light" ? "dark" : "light"
+        setStoredTheme(nextTheme)
+        return nextTheme
       })
     }, [])
 
@@ -60,10 +60,31 @@ export const decorators = [
       return () => document.removeEventListener("keydown", handleKeyDown)
     }, [toggleTheme])
 
+    const { colors, space } = THEMES[theme]
+
     return (
       <Theme theme={theme}>
         <StylesProvider
-          styles={{ statePropsActive: { color: "currentColor" } }}
+          styles={{
+            state: {
+              border: `1px dotted ${colors.mono15}`,
+              padding: space[1],
+              marginBottom: space[2],
+            },
+            stateProps: {
+              display: "block",
+              marginTop: space[0.5],
+              paddingTop: space[0.5],
+              fontFamily:
+                "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
+              fontSize: "0.8125rem",
+              color: colors.mono60,
+              borderTop: `1px dotted ${colors.mono15}`,
+            },
+            statePropsActive: {
+              color: "currentColor",
+            },
+          }}
         >
           <GlobalStyles />
 
