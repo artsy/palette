@@ -1,3 +1,17 @@
+# v41.8.1 (Tue Jun 10 2025)
+
+#### 🐛  Bug Fix
+
+- fix(dia-1351): update palettes themed effects to match the lighter dark mode foreground color [#1449](https://github.com/artsy/palette/pull/1449) ([@dzucconi](https://github.com/dzucconi))
+- chore: cleans up states styling ([@dzucconi](https://github.com/dzucconi))
+- chore: implements a simple theme toggle ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v41.8.0 (Fri Jun 06 2025)
 
 #### 🚀  Enhancement

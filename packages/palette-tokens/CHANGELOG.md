@@ -1,3 +1,16 @@
+# v7.0.1 (Tue Jun 10 2025)
+
+#### 🐛  Bug Fix
+
+- fix(dia-1351): update palettes themed effects to match the lighter dark mode foreground color [#1449](https://github.com/artsy/palette/pull/1449) ([@dzucconi](https://github.com/dzucconi))
+- fix(theme): uses correct rgba for fade out ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v7.0.0 (Fri Apr 18 2025)
 
 #### 💥  Breaking Change
