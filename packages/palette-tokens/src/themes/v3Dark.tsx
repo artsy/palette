@@ -90,7 +90,7 @@ const EFFECTS: Effects = {
 `,
   /** Fade right edge */
   fadeRight:
-    "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)",
+    "linear-gradient(to right, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%)",
   /** Translucent gray for dialog backdrops */
   backdrop: "rgba(26, 26, 26, 0.5)",
 };
