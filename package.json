@@ -2,7 +2,7 @@
   "name": "palette",
   "private": true,
   "scripts": {
-    "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && yarn compile-palette && yarn workspace @artsy/palette build-storybook",
+    "build-storybook": "yarn compile-palette && yarn workspace @artsy/palette build-storybook",
     "compile-palette": "lerna run compile",
     "lint": "lerna run lint",
     "start": "yarn compile-palette && concurrently --raw --kill-others 'yarn workspace @artsy/palette watch' ",
@@ -24,7 +24,9 @@
   "resolutions": {
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "webpack": "5.52.1"
+    "webpack": "^5.88.0",
+    "storybook": "^8.6.12",
+    "chromatic": "^12.2.0"
   },
   "devDependencies": {
     "concurrently": "4.1.0",
