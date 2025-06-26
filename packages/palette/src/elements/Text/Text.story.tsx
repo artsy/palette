@@ -42,21 +42,23 @@ const Specification: React.FC<
 
   return (
     <>
-      {Object.entries(treatment).map(([property, value]) => {
-        return (
-          value && (
-            <Flex key={property}>
-              <Text variant="xs" textColor={textColor}>
-                {property}:&nbsp;
-              </Text>
+      {
+        Object.entries(treatment).map(([property, value]) => {
+          return (
+            value && (
+              <Flex key={property}>
+                <Text variant="xs" textColor={textColor}>
+                  {property}:&nbsp;
+                </Text>
 
-              <Text variant="xs" textColor={textColor}>
-                {value as any}
-              </Text>
-            </Flex>
+                <Text variant="xs" textColor={textColor}>
+                  {value as any}
+                </Text>
+              </Flex>
+            )
           )
-        )
-      })}
+        }) as React.ReactNode[]
+      }
     </>
   )
 }
