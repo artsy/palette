@@ -1,3 +1,21 @@
+# (Thu Jun 26 2025)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette@42.0.0`
+  - chore: migrate storybook to 8.0 [#1450](https://github.com/artsy/palette/pull/1450) ([@rquartararo](https://github.com/rquartararo))
+
+#### 🏠  Internal
+
+- chore(deps): update dep auto from 2.2.0 to v2.3.0 [#1451](https://github.com/artsy/palette/pull/1451) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Tue Jun 10 2025)
 
 #### 🐛  Bug Fix

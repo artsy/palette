@@ -1,3 +1,15 @@
+# v42.0.0 (Thu Jun 26 2025)
+
+#### 💥  Breaking Change
+
+- chore: migrate storybook to 8.0 [#1450](https://github.com/artsy/palette/pull/1450) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v41.8.1 (Tue Jun 10 2025)
 
 #### 🐛  Bug Fix
