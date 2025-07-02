@@ -26,7 +26,7 @@ const Measure: React.FC<React.PropsWithChildren<ResponsiveBoxProps>> = (
   }
 
   useEffect(() => {
-    check()
+    requestAnimationFrame(check)
     window.addEventListener("resize", check)
     return () => {
       window.removeEventListener("resize", check)
