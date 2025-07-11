@@ -57,7 +57,7 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
  * positioned relative to, another element and designed to be transitioned in on hover or on click.
  */
 export const Dropdown = ({
-  placement = "top",
+  placement = "bottom",
   visible: _visible = false,
   keepInDOM,
   children,
