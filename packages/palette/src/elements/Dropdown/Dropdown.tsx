@@ -194,9 +194,9 @@ export const Dropdown = ({
 
   // Wait for next tick so that animation runs
   useEffect(() => {
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       setTransition(visible)
-    }, 0)
+    })
   }, [visible])
 
   const translation = useMemo(() => {
