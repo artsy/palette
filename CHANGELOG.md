@@ -1,3 +1,21 @@
+# (Fri Jul 11 2025)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@42.0.1`
+  - fix(dia-1404): dropdown fixes [#1453](https://github.com/artsy/palette/pull/1453) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@42.0.1`
+  - fix(stories): prevents layout thrashing [#1452](https://github.com/artsy/palette/pull/1452) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Jun 26 2025)
 
 #### 💥  Breaking Change
