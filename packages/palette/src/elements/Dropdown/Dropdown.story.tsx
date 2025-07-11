@@ -105,7 +105,7 @@ export const ChangeDimensions = () => {
   }, [])
 
   return (
-    <Dropdown placement="top" dropdown={<Box height={height} width={300} />}>
+    <Dropdown placement="bottom" dropdown={<Box height={height} width={300} />}>
       {({ anchorRef, anchorProps }) => {
         return (
           <Button
@@ -139,7 +139,7 @@ export const FocusOrder = () => {
 
   return (
     <Flex>
-      <Dropdown dropdown={dropdown}>
+      <Dropdown dropdown={dropdown} placement="bottom">
         {({ anchorRef, anchorProps }) => {
           return (
             <Button
@@ -155,7 +155,7 @@ export const FocusOrder = () => {
         }}
       </Dropdown>
 
-      <Dropdown dropdown={dropdown}>
+      <Dropdown dropdown={dropdown} placement="bottom">
         {({ anchorRef, anchorProps }) => {
           return (
             <Button
@@ -315,7 +315,12 @@ export const DisabledTransition = () => {
         )
 
         return (
-          <Dropdown key={num} dropdown={dropdown} transition={false}>
+          <Dropdown
+            key={num}
+            dropdown={dropdown}
+            transition={false}
+            placement="bottom"
+          >
             {({ anchorRef, anchorProps }) => {
               return (
                 <Button

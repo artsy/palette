@@ -57,7 +57,7 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
  * positioned relative to, another element and designed to be transitioned in on hover or on click.
  */
 export const Dropdown = ({
-  placement = "top",
+  placement = "bottom",
   visible: _visible = false,
   keepInDOM,
   children,
@@ -194,9 +194,9 @@ export const Dropdown = ({
 
   // Wait for next tick so that animation runs
   useEffect(() => {
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       setTransition(visible)
-    }, 0)
+    })
   }, [visible])
 
   const translation = useMemo(() => {
@@ -350,14 +350,16 @@ export const Dropdown = ({
                 enabled={focusEnabled}
                 onClickOutside={onHide}
               >
-                {typeof dropdown === "function"
-                  ? (dropdown as any)({
-                      onVisible,
-                      onHide,
-                      setVisible,
-                      visible,
-                    })
-                  : dropdown}
+                <Pane maxHeight={maxHeight}>
+                  {typeof dropdown === "function"
+                    ? (dropdown as any)({
+                        onVisible,
+                        onHide,
+                        setVisible,
+                        visible,
+                      })
+                    : dropdown}
+                </Pane>
               </FocusOn>
             </Panel>
           </Container>
@@ -375,6 +377,9 @@ const Container = styled(Box)<{ placement: Position } & BoxProps>`
 const Panel = styled(Box)<{ transition: boolean; maxHeight: number }>`
   transition: ${({ transition }) =>
     transition ? "opacity 250ms ease-out, transform 250ms ease-out" : "none"};
+`
+
+const Pane = styled(Box)`
   > div {
     max-height: ${({ maxHeight }) => (maxHeight ? `${maxHeight}px` : "100vh")};
     box-shadow: ${themeGet("effects.flatShadow")};
