@@ -1,3 +1,17 @@
+# v42.0.2 (Mon Jul 14 2025)
+
+#### 🐛  Bug Fix
+
+- fix(dia-1408): fixes mouse/keyboard interaction in autocomplete selection [#1454](https://github.com/artsy/palette/pull/1454) ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): ensures we dont fire selections on scrolling ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): simplifies by relying on browser focus to scroll active element ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v42.0.1 (Fri Jul 11 2025)
 
 #### 🐛  Bug Fix

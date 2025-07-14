@@ -1,3 +1,16 @@
+# (Mon Jul 14 2025)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@42.0.2`
+  - fix(dia-1408): fixes mouse/keyboard interaction in autocomplete selection [#1454](https://github.com/artsy/palette/pull/1454) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Jul 11 2025)
 
 #### 🐛  Bug Fix
