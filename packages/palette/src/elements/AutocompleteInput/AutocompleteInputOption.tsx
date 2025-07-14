@@ -1,31 +1,16 @@
 import composeRefs from "@seznam/compose-react-refs"
 import { themeGet } from "@styled-system/theme-get"
-import React, { forwardRef, useEffect, useRef } from "react"
+import React, { forwardRef, useRef } from "react"
 import styled from "styled-components"
 import { Clickable, ClickableProps } from "../Clickable"
 
-export interface AutocompleteInputOptionProps extends ClickableProps {
-  selected: boolean
-}
+export type AutocompleteInputOptionProps = ClickableProps
 
 export const AutocompleteInputOption = forwardRef<
   HTMLButtonElement,
   AutocompleteInputOptionProps
->(({ children, selected, ...rest }, forwardedRef) => {
+>(({ children, ...rest }, forwardedRef) => {
   const ref = useRef<HTMLButtonElement | null>(null)
-
-  useEffect(() => {
-    if (!ref.current || !selected) return
-
-    // @ts-ignore
-    if (typeof ref.current.scrollIntoViewIfNeeded === "function") {
-      // @ts-ignore
-      ref.current.scrollIntoViewIfNeeded()
-      return
-    }
-
-    ref.current.scrollIntoView?.()
-  }, [selected])
 
   return (
     <Container ref={composeRefs(ref, forwardedRef) as any} bg="mono0" {...rest}>
