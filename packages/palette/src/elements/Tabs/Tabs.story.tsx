@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { action } from "storybook/actions"
 import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
 import { Sup } from "../Sup"

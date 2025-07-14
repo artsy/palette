@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { action } from "storybook/actions"
 import React, { useEffect, useState } from "react"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
