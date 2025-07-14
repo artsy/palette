@@ -195,8 +195,32 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     dispatch({ type: "OPEN" })
   }
 
+  // Records the latest mouse movement and, inside the `handleMouseEnter` callback,
+  // only treat the event as genuine if the mouse has moved very recently.
+  // Otherwise, the event is presumed to have been triggered by scrolling and is ignored.
+  const lastMouseMoveTimestamp = useRef<number>(0)
+
+  useEffect(() => {
+    if (!isDropdownVisible) return
+
+    const handleMouseMove = () => {
+      lastMouseMoveTimestamp.current = performance.now()
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+    }
+  }, [isDropdownVisible])
+
   const handleMouseEnter = (i: number) => () => {
-    set({ cursor: i, interactive: true })
+    const now = performance.now()
+
+    // 50ms mouse move window
+    if (now - lastMouseMoveTimestamp.current < 50) {
+      set({ cursor: i, interactive: true })
+    }
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -384,7 +408,6 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
                   aria-setsize={options.length}
                   onMouseDown={handleMouseDown(option, i)}
                   onMouseEnter={handleMouseEnter(i)}
-                  selected={i === index}
                   tabIndex={-1}
                 >
                   {renderOption(option, i)}
