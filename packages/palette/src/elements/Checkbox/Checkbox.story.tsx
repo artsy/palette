@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
@@ -49,7 +49,7 @@ export const Demo = () => {
         selected={isSelected}
         onSelect={(selected) => {
           setSelected(selected)
-          action("onClick")(selected)
+          fn()(selected)
         }}
       >
         Example

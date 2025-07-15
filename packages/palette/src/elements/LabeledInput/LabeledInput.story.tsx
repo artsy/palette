@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Clickable } from "../Clickable"
@@ -17,7 +17,7 @@ export const Default = () => {
           placeholder: "Clickable label",
           label: (
             <Clickable
-              onClick={action("onClick")}
+              onClick={fn()}
               bg="mono60"
               width={18}
               height={18}

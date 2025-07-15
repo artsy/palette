@@ -8,7 +8,6 @@ const config = {
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-viewport"),
-    getAbsolutePath("@storybook/addon-actions"),
   ],
 
   framework: {

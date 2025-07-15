@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
 import { Sup } from "../Sup"
@@ -17,7 +17,7 @@ export const Default = () => {
     <States<Partial<TabsProps>>
       states={[{}, { initialTabIndex: 2 }, { justifyContent: "center" }]}
     >
-      <Tabs onChange={action("onChange")}>
+      <Tabs onChange={fn()}>
         <Tab name="Overview">Overview panel</Tab>
         <Tab name="Works for sale">Works for sale panel</Tab>
         <Tab name="CV">CV panel</Tab>
@@ -65,7 +65,7 @@ export const WithData = () => {
 
 export const Counts = () => {
   return (
-    <Tabs onChange={action("onChange")}>
+    <Tabs onChange={fn()}>
       <Tab
         name={
           <>
@@ -94,7 +94,7 @@ export const Counts = () => {
 
 export const ConditionalTabs = () => {
   return (
-    <Tabs onChange={action("onChange")}>
+    <Tabs onChange={fn()}>
       <Tab name="First">First</Tab>
       {false && <Tab name="Second">Second</Tab>}
       <Tab name="Third">Third</Tab>
@@ -112,7 +112,7 @@ export const AutoScrolling = () => {
 
   return (
     <>
-      <Tabs initialTabIndex={initialTabIndex} onChange={action("onChange")}>
+      <Tabs initialTabIndex={initialTabIndex} onChange={fn()}>
         <Tab name="First">First</Tab>
         <Tab name="Second">Second</Tab>
         <Tab name="Third">Third</Tab>
@@ -160,7 +160,7 @@ export const InitialAutoScroll = () => {
         Render: #{key}
       </Box>
 
-      <Tabs onChange={action("onChange")} initialTabIndex={14}>
+      <Tabs onChange={fn()} initialTabIndex={14}>
         <Tab name="First">First</Tab>
         <Tab name="Second">Second</Tab>
         <Tab name="Third">Third</Tab>

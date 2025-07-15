@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { BaseTab, BaseTabs } from "../BaseTabs"
@@ -84,27 +84,27 @@ AsA.story = {
 export const AsClickable = () => {
   return (
     <BaseTabs>
-      <BaseTab as={Clickable} onClick={action("onClick")}>
+      <BaseTab as={Clickable} onClick={fn()}>
         Overview
       </BaseTab>
 
-      <BaseTab as={Clickable} onClick={action("onClick")}>
+      <BaseTab as={Clickable} onClick={fn()}>
         CV
       </BaseTab>
 
-      <BaseTab as={Clickable} onClick={action("onClick")} active>
+      <BaseTab as={Clickable} onClick={fn()} active>
         Shows
       </BaseTab>
 
-      <BaseTab as={Clickable} onClick={action("onClick")}>
+      <BaseTab as={Clickable} onClick={fn()}>
         Auction Results
       </BaseTab>
 
-      <BaseTab as={Clickable} onClick={action("onClick")}>
+      <BaseTab as={Clickable} onClick={fn()}>
         Articles
       </BaseTab>
 
-      <BaseTab as={Clickable} onClick={action("onClick")}>
+      <BaseTab as={Clickable} onClick={fn()}>
         Related Artists
       </BaseTab>
     </BaseTabs>

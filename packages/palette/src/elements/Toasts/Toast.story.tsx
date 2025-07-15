@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { Toast, ToastProps } from "./Toast"
@@ -15,7 +15,7 @@ export const Default = () => {
         { variant: "alert" },
         { variant: "success" },
         { variant: "error" },
-        { action: { label: "Undo", onClick: action("onClick") } },
+        { action: { label: "Undo", onClick: fn() } },
       ]}
     >
       <Toast

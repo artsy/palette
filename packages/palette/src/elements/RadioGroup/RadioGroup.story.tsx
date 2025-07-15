@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Spacer } from "../Spacer"
@@ -22,7 +22,7 @@ export const Default = () => {
         { disabled: true, disabledText: "Reason for disabled" },
       ]}
     >
-      <RadioGroup onSelect={action("onSelect")}>
+      <RadioGroup onSelect={fn()}>
         <Join separator={<Spacer y={0.5} />}>
           {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
             (value) => {
@@ -49,7 +49,7 @@ export const WithDefaultValue = () => {
         Toggle default value: {defaultValue}
       </Button>
 
-      <RadioGroup defaultValue={defaultValue} onSelect={action("onSelect")}>
+      <RadioGroup defaultValue={defaultValue} onSelect={fn()}>
         <Radio value="SHIP" label="Provide shipping address" />
         <Spacer y={0.5} />
         <Radio value="PICKUP" label="Arrange for pickup" />
@@ -65,7 +65,7 @@ WithDefaultValue.story = {
 export const OtherTypes = () => {
   return (
     <States<Partial<RadioGroupProps<boolean | undefined>>>>
-      <RadioGroup defaultValue={false} onSelect={action("onSelect")}>
+      <RadioGroup defaultValue={false} onSelect={fn()}>
         <Radio value={true} label="Yes" />
 
         <Spacer y={0.5} />

@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React, { useRef, useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
@@ -131,9 +131,9 @@ export const Default = () => {
       <AutocompleteInput
         placeholder="Search"
         options={OPTIONS}
-        onSelect={action("onSelect")}
-        onSubmit={action("onSubmit")}
-        onClose={action("onClose")}
+        onSelect={fn()}
+        onSubmit={fn()}
+        onClose={fn()}
       />
     </States>
   )
@@ -151,9 +151,9 @@ export const Demo = () => {
       placeholder="Begin typing..."
       options={[...(query ? [{ text: query, value: query }] : []), ...OPTIONS]}
       onChange={handleChange}
-      onSelect={action("onSelect")}
-      onSubmit={action("onSubmit")}
-      onClose={action("onClose")}
+      onSelect={fn()}
+      onSubmit={fn()}
+      onClose={fn()}
       renderOption={(option, i) => {
         const displayQuery = i === 0 && query !== ""
 
@@ -260,8 +260,8 @@ export const FilterDemo = () => {
         onChange={handleChange}
         onSelect={handleSelect}
         onClear={handleClear}
-        onSubmit={action("onSubmit")}
-        onClose={action("onClose")}
+        onSubmit={fn()}
+        onClose={fn()}
       />
 
       <Text variant="xs">

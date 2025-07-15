@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { Button } from "../Button"
@@ -40,7 +40,7 @@ export const Default = () => {
         },
       ]}
     >
-      <TextArea placeholder="Start typing..." onChange={action("onChange")} />
+      <TextArea placeholder="Start typing..." onChange={fn()} />
     </States>
   )
 }

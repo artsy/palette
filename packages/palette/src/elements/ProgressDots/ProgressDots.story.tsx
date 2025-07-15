@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import { ProgressDots, ProgressDotsProps } from "./ProgressDots"
@@ -23,7 +23,7 @@ export const Default = () => {
           variant: "dash",
           activeIndex: 0,
           amount: 5,
-          onClick: action("onClick"),
+          onClick: fn(),
         },
       ]}
     >

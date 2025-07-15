@@ -1,4 +1,4 @@
-import { action } from "storybook/actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { Clickable } from "../Clickable"
@@ -28,7 +28,7 @@ export const Default = () => {
                 textDecoration="underline"
                 onClick={(e) => {
                   e.stopPropagation()
-                  action("Secondary action")
+                  fn()
                 }}
               >
                 <Text variant="sm-display">Reset</Text>
@@ -50,7 +50,7 @@ export const Default = () => {
         { label: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
       ]}
     >
-      <Expandable label="Example" maxWidth={350} onToggle={action("onToggle")}>
+      <Expandable label="Example" maxWidth={350} onToggle={fn()}>
         <Text>Expanded content</Text>
       </Expandable>
     </States>
