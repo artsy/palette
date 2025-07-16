@@ -1,3 +1,16 @@
+# (Wed Jul 16 2025)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette@43.0.0`
+  - chore: migrate to storybook 9.0 [#1455](https://github.com/artsy/palette/pull/1455) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Mon Jul 14 2025)
 
 #### 🐛  Bug Fix
