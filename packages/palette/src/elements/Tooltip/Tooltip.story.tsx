@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import HelpIcon from "@artsy/icons/HelpIcon"
@@ -68,7 +68,7 @@ export const _Clickable = () => {
   return (
     <States<Partial<TooltipProps>> states={[{}]}>
       <Tooltip content={CONTENT}>
-        <Clickable onClick={action("onClick")}>
+        <Clickable onClick={fn()}>
           <Text
             variant="xs"
             textAlign="center"

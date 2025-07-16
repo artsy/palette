@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React, { useReducer } from "react"
 import { States } from "storybook-states"
 import { MultiSelect, MultiSelectProps } from "./MultiSelect"
@@ -37,7 +37,7 @@ export const Default = () => {
       <MultiSelect
         name="Medium"
         options={OPTIONS}
-        onSelect={action("onSelect")}
+        onSelect={fn()}
       />
     </States>
   )

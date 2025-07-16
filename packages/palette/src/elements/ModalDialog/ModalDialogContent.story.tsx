@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import {
@@ -93,7 +93,7 @@ export const Default = () => {
         },
       ]}
     >
-      <ModalDialogContent onClose={action("onClose")} maxHeight={400}>
+      <ModalDialogContent onClose={fn()} maxHeight={400}>
         <Join separator={<Spacer y={1} />}>
           <Text variant="sm">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque,

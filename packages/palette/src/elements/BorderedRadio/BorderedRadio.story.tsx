@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { RadioGroup, RadioGroupProps } from "../RadioGroup"
@@ -13,7 +13,7 @@ export const Default = () => {
     <States<Partial<RadioGroupProps<string>>>
       states={[{}, { defaultValue: "Aural" }, { deselectable: true }]}
     >
-      <RadioGroup onSelect={action("onSelect")}>
+      <RadioGroup onSelect={fn()}>
         {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
           (value) => {
             return (

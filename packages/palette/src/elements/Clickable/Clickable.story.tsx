@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
@@ -32,7 +32,7 @@ export const Default = () => {
         },
       ]}
     >
-      <Clickable onClick={action("onClick")}>Clickable</Clickable>
+      <Clickable onClick={fn()}>Clickable</Clickable>
     </States>
   )
 }

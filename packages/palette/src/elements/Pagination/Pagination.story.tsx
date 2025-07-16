@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { Pagination, PaginationProps, PaginationSkeleton } from "./Pagination"
@@ -33,11 +33,11 @@ export const Default = () => {
         pageCursors={EXAMPLE_PAGE_CURSORS}
         onClick={(cursor, page, event) => {
           event.preventDefault()
-          action("onClick")(cursor, page, event)
+          fn()(cursor, page, event)
         }}
         onNext={(event, ...rest) => {
           event.preventDefault()
-          action("onNext")(event, ...rest)
+          fn()(event, ...rest)
         }}
       />
     </States>

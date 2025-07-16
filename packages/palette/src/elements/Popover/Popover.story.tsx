@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { Position, POSITION } from "../../utils"
@@ -22,7 +22,7 @@ export const Default = () => {
       states={[
         {},
         { visible: true },
-        { onClose: action("onClose"), onDismiss: action("onDismiss") },
+        { onClose: fn(), onDismiss: fn() },
         {
           visible: true,
           popover: (

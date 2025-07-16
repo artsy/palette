@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { FilterSelect } from "./FilterSelect"
@@ -39,7 +39,7 @@ export const Default = () => {
           ["asc", "asc"],
         ]}
         renderItemLabel={(item) => `${item.label}, ${item.country}`}
-        onChange={action("onChange")}
+        onChange={fn()}
         items={[
           {
             label: "Barbara Kruger",

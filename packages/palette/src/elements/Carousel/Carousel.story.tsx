@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React, { useEffect, useState } from "react"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
@@ -25,7 +25,7 @@ const Demo = ({
 } & Omit<CarouselProps, "children">) => {
   return (
     <Box mx={[2, 4]} my={2}>
-      <Carousel onChange={action("onChange")} {...rest}>
+      <Carousel onChange={fn()} {...rest}>
         {widths.map((width, i) => {
           return (
             <Clickable

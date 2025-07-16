@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Box } from "../Box"
@@ -24,7 +24,7 @@ export const Default = () => {
         min={0}
         max={5000}
         step={10}
-        onChange={action("onChange")}
+        onChange={fn()}
         ariaLabels={["Min price", "Max price"]}
       />
     </States>
@@ -39,7 +39,7 @@ export const WithinModal = () => {
       dialogProps={{ width: 400, height: 400, bg: "mono5" }}
     >
       <Box width={400} height={400}>
-        <Range min={0} max={5000} step={10} onChange={action("onChange")} />
+        <Range min={0} max={5000} step={10} onChange={fn()} />
       </Box>
     </ModalBase>
   )
@@ -64,7 +64,7 @@ export const WithinDrawer = () => {
         }}
       >
         <Box width={400} p={2}>
-          <Range min={0} max={5000} step={10} onChange={action("onChange")} />
+          <Range min={0} max={5000} step={10} onChange={fn()} />
         </Box>
       </Drawer>
     </>

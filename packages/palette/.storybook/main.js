@@ -1,22 +1,26 @@
+import { createRequire } from "node:module"
+import { dirname, join } from "node:path"
+
+const require = createRequire(import.meta.url)
+
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: ["../src/**/*.story.@(tsx|mdx)"],
 
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-viewport",
-    "@storybook/addon-actions",
+    getAbsolutePath("@storybook/addon-links"),
+    getAbsolutePath("@storybook/addon-viewport"),
   ],
 
   framework: {
-    name: "@storybook/react-webpack5",
+    name: getAbsolutePath("@storybook/react-webpack5"),
     options: {},
   },
 
   core: {
     disableTelemetry: true,
     builder: {
-      name: "webpack5",
+      name: getAbsolutePath("@storybook/builder-webpack5"),
     },
   },
 
@@ -60,3 +64,7 @@ const config = {
 }
 
 export default config
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, "package.json")))
+}

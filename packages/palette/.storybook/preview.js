@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from "react"
 import { THEMES, Theme } from "../src/Theme"
 import { injectGlobalStyles } from "../src/helpers/injectGlobalStyles"
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
+import { INITIAL_VIEWPORTS } from "storybook/viewport"
 import { breakpoints } from "../src/Theme"
 import { StylesProvider } from "storybook-states"
 import { Clickable } from "@artsy/palette"

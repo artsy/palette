@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { fn } from "@storybook/test"
 import React, { useEffect, useState } from "react"
 import { States } from "storybook-states"
 import { Step, Stepper, StepperProps } from "./"
@@ -22,7 +22,7 @@ export const Default = () => {
     >
       {(props) => {
         return (
-          <Stepper onChange={action("onChange")} {...props}>
+          <Stepper onChange={fn()} {...props}>
             <Step name="Review">Review panel</Step>
             <Step name="Confirm">Confirm panel</Step>
             <Step name="Pay">Pay panel</Step>
