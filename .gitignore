@@ -1,6 +1,7 @@
 .DS_Store
 .awcache
 .cache-loader/
+.claude/settings.local.json
 .env
 .storybook/.DS_Store
 .storybook/manager.js
