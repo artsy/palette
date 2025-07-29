@@ -21,21 +21,6 @@ const setStoredTheme = (theme) => {
   }
 }
 
-// TODO: Replace with https://storybook.js.org/addons/storybook-dark-mode
-// once we upgrade Storybook
-const ThemeToggle = ({ theme, onToggle }) => (
-  <Clickable
-    onClick={onToggle}
-    position="fixed"
-    bottom={0}
-    right={0}
-    zIndex={1}
-    p={2}
-  >
-    {theme === "light" ? "🌑" : "☀️"}
-  </Clickable>
-)
-
 export const decorators = [
   (Story) => {
     const [theme, setTheme] = useState(getStoredTheme)
@@ -87,8 +72,6 @@ export const decorators = [
           }}
         >
           <GlobalStyles />
-
-          <ThemeToggle theme={theme} onToggle={toggleTheme} />
 
           <Story />
         </StylesProvider>
