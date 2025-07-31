@@ -1,4 +1,12 @@
-import { Box, breakpoints, color, Flex, media, space } from "@artsy/palette"
+import {
+  Box,
+  breakpoints,
+  Color,
+  Flex,
+  media,
+  space,
+} from "@artsy/palette"
+import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import {
@@ -12,14 +20,19 @@ const BAR_HEIGHT_RANGE = MAX_BAR_HEIGHT - MIN_BAR_HEIGHT
 
 interface BarBoxProps {
   isHighlighted?: boolean
+  primaryColor?: Color
+  hoverColor?: Color
+  highlightColor?: Color
 }
 
 // the actual visible bit of the bar
 const BarBox = styled(Box)<BarBoxProps>`
   transition: height 0.8s ease;
   position: relative;
-  background: ${(props: BarBoxProps) =>
-    props.isHighlighted ? color("mono60") : color("mono10")};
+  background: ${(props) => 
+    props.isHighlighted 
+      ? themeGet(`colors.${props.highlightColor || "mono60"}`)
+      : themeGet(`colors.${props.primaryColor || "mono10"}`)};
   margin-right: 2px;
   margin-bottom: -1px;
   :last-child {
@@ -29,10 +42,13 @@ const BarBox = styled(Box)<BarBoxProps>`
   cursor: ${(props) => ((props as any).onClick ? "pointer" : "default")};
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
+
   @media (min-width: ${breakpoints.sm}) {
-    :hover {
+    &:hover {
       background: ${(props: BarBoxProps) =>
-        props.isHighlighted ? color("mono60") : color("mono30")};
+        props.isHighlighted
+          ? themeGet(`colors.${props.highlightColor || "mono60"}`)
+          : themeGet(`colors.${props.hoverColor || "mono30"}`)};
     }
   }
 `
@@ -51,8 +67,8 @@ const HighlightLabelBox = styled(Flex)`
     display: none;
   `};
   position: relative;
-  background-color: ${color("mono0")};
-  border: 1px solid ${color("mono10")};
+  background-color: ${themeGet("colors.mono0")};
+  border: 1px solid ${themeGet("colors.mono10")};
   border-radius: 2px;
   text-align: center;
 `
@@ -69,7 +85,7 @@ const LabelLine = () => (
       fillRule="evenodd"
       clipRule="evenodd"
       d="M0.5 1.11111V0H1.5V1.11111H0.5ZM0.5 4.44444V2.22222H1.5V4.44444H0.5ZM0.5 7.77778V5.55556H1.5V7.77778H0.5ZM0.5 10V8.88889H1.5V10H0.5Z"
-      fill={color("mono30")}
+      fill={themeGet("colors.mono30")({})}
     />
   </LabelLineSvg>
 )
@@ -115,7 +131,7 @@ const TriangleHighlight = styled.div`
   margin-bottom: ${TRIANGLE_BOTTOM_PADDING};
   border-left: ${TRIANGLE_HEIGHT}px solid transparent;
   border-right: ${TRIANGLE_HEIGHT}px solid transparent;
-  border-top: ${TRIANGLE_HEIGHT}px solid ${color("mono60")};
+  border-top: ${TRIANGLE_HEIGHT}px solid ${themeGet("colors.mono60")};
 `
 
 /**
@@ -140,6 +156,9 @@ export const Bar = ({
   highlightLabelRef,
   onClick,
   onHover,
+  primaryColor,
+  hoverColor,
+  highlightColor,
 }: {
   heightPercent: number
   label: React.ReactNode
@@ -150,6 +169,9 @@ export const Bar = ({
   highlightLabelRef?: React.RefObject<HTMLDivElement>
   onClick?: any
   onHover?: any
+  primaryColor?: Color
+  hoverColor?: Color
+  highlightColor?: Color
 }) => {
   const [hover, setHover] = useState(false)
   // Before the bar has entered the view port it will have a height of 0
@@ -171,6 +193,9 @@ export const Bar = ({
       isHighlighted={Boolean(highlightLabel)}
       onClick={onClick}
       onMouseOver={onHover}
+      primaryColor={primaryColor}
+      hoverColor={hoverColor}
+      highlightColor={highlightColor}
     >
       {highlightLabel && (
         <HighlightLabel

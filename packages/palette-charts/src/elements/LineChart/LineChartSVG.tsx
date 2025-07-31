@@ -1,4 +1,4 @@
-import { color } from "@artsy/palette"
+import { Color, useTheme } from "@artsy/palette"
 import { interpolateArray } from "d3-interpolate"
 import { line as d3Line } from "d3-shape"
 import React from "react"
@@ -14,6 +14,8 @@ interface LineChartSVGProps {
   points: PointDescriptor[]
   hoverIndex: number
   hasEnteredViewport?: boolean
+  primaryColor?: Color
+  hoverColor?: Color
 }
 
 /**
@@ -21,7 +23,8 @@ interface LineChartSVGProps {
  */
 export const LineChartSVG: React.FC<
   React.PropsWithChildren<LineChartSVGProps>
-> = ({ width, height, margin, points, hoverIndex }: LineChartSVGProps) => {
+> = ({ width, height, margin, points, hoverIndex, primaryColor, hoverColor }: LineChartSVGProps) => {
+  const { theme } = useTheme()
   const values = points.map((d) => d.value)
   const maxValue = Math.max(...points.map(({ value }) => value))
 
@@ -41,10 +44,10 @@ export const LineChartSVG: React.FC<
   return (
     <Svg width={width} height={height}>
       <g transform={`translate(0, ${margin})`}>
-        <line stroke={color("mono10")} x1="0" x2={width} y1={h} y2={h} />
+        <line stroke={theme.colors.mono10} x1="0" x2={width} y1={h} y2={h} />
         <g transform={`translate(${margin}, 0)`}>
           <>
-            <Line path={line(interpolatedValues as any)} />
+            <Line path={line(interpolatedValues as any)} color={primaryColor} />
             {interpolatedValues.map((value, index) => {
               return (
                 <Point
@@ -53,6 +56,8 @@ export const LineChartSVG: React.FC<
                   opacity={1}
                   cx={displayXPosition(value, index)}
                   cy={displayYPosition(value)}
+                  primaryColor={primaryColor}
+                  hoverColor={hoverColor}
                 />
               )
             })}

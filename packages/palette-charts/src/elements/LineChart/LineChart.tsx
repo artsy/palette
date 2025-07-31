@@ -1,4 +1,4 @@
-import { Flex, media, space, Text } from "@artsy/palette"
+import { Color, Flex, media, space, Text } from "@artsy/palette"
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
@@ -13,6 +13,8 @@ const DEFAULT_HEIGHT = 87
 
 export interface LineChartProps extends ChartProps {
   height?: number
+  primaryColor?: Color
+  hoverColor?: Color
 }
 
 /**
@@ -22,6 +24,8 @@ export interface LineChartProps extends ChartProps {
 export const LineChart: React.FC<React.PropsWithChildren<LineChartProps>> = ({
   points,
   height = DEFAULT_HEIGHT,
+  primaryColor,
+  hoverColor,
 }: LineChartProps) => {
   const [hoverIndex, setHoverIndex] = useState(-1)
 
@@ -52,6 +56,8 @@ export const LineChart: React.FC<React.PropsWithChildren<LineChartProps>> = ({
               margin={margin}
               points={points}
               hoverIndex={hoverIndex}
+              primaryColor={primaryColor}
+              hoverColor={hoverColor}
             />
             {points.filter((bar) => bar.axisLabelX).length > 0 && (
               <Flex px="2" width={width}>

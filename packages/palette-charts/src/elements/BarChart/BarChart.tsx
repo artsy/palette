@@ -1,4 +1,4 @@
-import { Flex, Text } from "@artsy/palette"
+import { Color, Flex, Text } from "@artsy/palette"
 import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
@@ -58,13 +58,16 @@ export interface BarChartProps {
   bars: BarDescriptor[]
   minLabel: React.ReactNode
   maxLabel: React.ReactNode
+  primaryColor?: Color
+  hoverColor?: Color
+  highlightColor?: Color
 }
 /**
  * BarChart is a component which displays some bars of varying heights in a row.
  * Useful for histograms etc.
  * @param props props
  */
-export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
+export const BarChart = ({ bars, minLabel, maxLabel, primaryColor, hoverColor, highlightColor }: BarChartProps) => {
   const highlightLabelRef = useRef<HTMLDivElement>(null)
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false)
 
@@ -117,6 +120,9 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
                   onMeasureHeight={highlightLabel ? setMinHeight : null}
                   onClick={onClick}
                   onHover={onHover}
+                  primaryColor={primaryColor}
+                  hoverColor={hoverColor}
+                  highlightColor={highlightColor}
                 />
               )
             }

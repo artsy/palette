@@ -1,4 +1,4 @@
-import { color } from "@artsy/palette"
+import { Color, useTheme } from "@artsy/palette"
 import React from "react"
 
 /**
@@ -10,19 +10,27 @@ export const Point = ({
   cy,
   opacity,
   hovered,
+  primaryColor,
+  hoverColor,
 }: {
   cx: number
   cy: number
   opacity: number
   hovered: boolean
+  primaryColor?: Color
+  hoverColor?: Color
 }) => {
+  const { theme } = useTheme()
+  const defaultColor = theme.colors[primaryColor || "mono10"]
+  const hoveredColor = theme.colors[hoverColor || primaryColor || "mono30"]
+  
   return (
     <circle
       cx={cx}
       cy={cy}
       r="4"
       opacity={opacity}
-      fill={hovered ? color("mono30") : color("mono10")}
+      fill={hovered ? hoveredColor : defaultColor}
     />
   )
 }
