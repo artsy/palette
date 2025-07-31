@@ -1,7 +1,7 @@
 import { Flex, media, space, Text } from "@artsy/palette"
-import { ResponsiveValue } from "styled-system"
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
+import { ResponsiveValue } from "styled-system"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
 import { coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"

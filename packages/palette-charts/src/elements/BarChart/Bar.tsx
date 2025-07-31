@@ -1,6 +1,7 @@
 import { Box, breakpoints, color, Flex, media, space } from "@artsy/palette"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
+import { ResponsiveValue } from "styled-system"
 import {
   BaseTooltipPositioner,
   ChartHoverTooltip,
@@ -10,10 +11,11 @@ const MAX_BAR_HEIGHT = 80
 const MIN_BAR_HEIGHT = 10
 const BAR_HEIGHT_RANGE = MAX_BAR_HEIGHT - MIN_BAR_HEIGHT
 
+
 interface BarBoxProps {
   isHighlighted?: boolean
-  primaryColor?: string
-  hoverColor?: string
+  primaryColor?: ResponsiveValue<string>
+  hoverColor?: ResponsiveValue<string>
 }
 
 // the actual visible bit of the bar
@@ -162,8 +164,8 @@ export const Bar = ({
   highlightLabelRef?: React.RefObject<HTMLDivElement>
   onClick?: any
   onHover?: any
-  primaryColor?: string
-  hoverColor?: string
+  primaryColor?: ResponsiveValue<string>
+  hoverColor?: ResponsiveValue<string>
 }) => {
   const [hover, setHover] = useState(false)
   // Before the bar has entered the view port it will have a height of 0

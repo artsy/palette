@@ -5,8 +5,22 @@ export default {
   title: "Components/BarChart",
 }
 
+/** Default BarChart with standard colors */
 export const Default = () => {
   return <BarChart minLabel="$0" maxLabel="$30,000" bars={BARS} />
+}
+
+/** BarChart with custom primary and hover colors */
+export const WithCustomColors = () => {
+  return (
+    <BarChart 
+      minLabel="$0" 
+      maxLabel="$30,000" 
+      bars={BARS}
+      primaryColor="#3498db"
+      hoverColor="#e74c3c"
+    />
+  )
 }
 
 const BARS = [
