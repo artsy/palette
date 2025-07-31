@@ -1,4 +1,4 @@
-import { color, Color } from "@artsy/palette"
+import { Color, useTheme } from "@artsy/palette"
 import React from "react"
 
 /**
@@ -20,9 +20,10 @@ export const Point = ({
   primaryColor?: Color
   hoverColor?: Color
 }) => {
-  const defaultColor = color(primaryColor || "mono10")
-  const hoveredColor = color(hoverColor || primaryColor || "mono30")
-
+  const { theme } = useTheme()
+  const defaultColor = theme.colors[primaryColor || "mono10"]
+  const hoveredColor = theme.colors[hoverColor || primaryColor || "mono30"]
+  
   return (
     <circle
       cx={cx}

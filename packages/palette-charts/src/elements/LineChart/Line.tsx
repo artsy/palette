@@ -1,4 +1,5 @@
-import { color, Color } from "@artsy/palette"
+import { Color, useTheme } from "@artsy/palette"
+import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 
 /**
@@ -12,5 +13,8 @@ export const Line = ({
   path: string
   color?: Color
 }) => {
-  return <path fill="none" stroke={color(customColor || "mono10")} d={path} />
+  const { theme } = useTheme()
+  return (
+    <path fill="none" stroke={theme.colors[customColor || "mono10"]} d={path} />
+  )
 }

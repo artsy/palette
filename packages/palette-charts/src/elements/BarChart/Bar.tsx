@@ -1,12 +1,12 @@
 import {
   Box,
   breakpoints,
-  color,
   Color,
   Flex,
   media,
   space,
 } from "@artsy/palette"
+import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import {
@@ -31,8 +31,8 @@ const BarBox = styled(Box)<BarBoxProps>`
   position: relative;
   background: ${(props) => 
     props.isHighlighted 
-      ? color(props.highlightColor || "mono60")
-      : color(props.primaryColor || "mono10")};
+      ? themeGet(`colors.${props.highlightColor || "mono60"}`)
+      : themeGet(`colors.${props.primaryColor || "mono10"}`)};
   margin-right: 2px;
   margin-bottom: -1px;
   :last-child {
@@ -47,8 +47,8 @@ const BarBox = styled(Box)<BarBoxProps>`
     &:hover {
       background: ${(props: BarBoxProps) =>
         props.isHighlighted
-          ? color(props.highlightColor || "mono60")
-          : color(props.hoverColor || "mono30")};
+          ? themeGet(`colors.${props.highlightColor || "mono60"}`)
+          : themeGet(`colors.${props.hoverColor || "mono30"}`)};
     }
   }
 `
@@ -67,8 +67,8 @@ const HighlightLabelBox = styled(Flex)`
     display: none;
   `};
   position: relative;
-  background-color: ${color("mono0")};
-  border: 1px solid ${color("mono10")};
+  background-color: ${themeGet("colors.mono0")};
+  border: 1px solid ${themeGet("colors.mono10")};
   border-radius: 2px;
   text-align: center;
 `
@@ -85,7 +85,7 @@ const LabelLine = () => (
       fillRule="evenodd"
       clipRule="evenodd"
       d="M0.5 1.11111V0H1.5V1.11111H0.5ZM0.5 4.44444V2.22222H1.5V4.44444H0.5ZM0.5 7.77778V5.55556H1.5V7.77778H0.5ZM0.5 10V8.88889H1.5V10H0.5Z"
-      fill={color("mono30")}
+      fill={themeGet("colors.mono30")({})}
     />
   </LabelLineSvg>
 )
@@ -131,7 +131,7 @@ const TriangleHighlight = styled.div`
   margin-bottom: ${TRIANGLE_BOTTOM_PADDING};
   border-left: ${TRIANGLE_HEIGHT}px solid transparent;
   border-right: ${TRIANGLE_HEIGHT}px solid transparent;
-  border-top: ${TRIANGLE_HEIGHT}px solid ${color("mono60")};
+  border-top: ${TRIANGLE_HEIGHT}px solid ${themeGet("colors.mono60")};
 `
 
 /**
