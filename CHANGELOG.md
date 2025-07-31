@@ -1,3 +1,18 @@
+# (Thu Jul 31 2025)
+
+#### 🚀  Enhancement
+
+- chore: ignore .claude/settings.local.json folder [#1456](https://github.com/artsy/palette/pull/1456) ([@damassi](https://github.com/damassi))
+- `@artsy/palette-charts@42.1.0`, `@artsy/palette@43.1.0`
+  - feat: Adding color props for BarChart and LineChart [#1457](https://github.com/artsy/palette/pull/1457) ([@chr-tatu](https://github.com/chr-tatu))
+
+#### Authors: 2
+
+- Christian Tatu ([@chr-tatu](https://github.com/chr-tatu))
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Wed Jul 16 2025)
 
 #### 💥  Breaking Change

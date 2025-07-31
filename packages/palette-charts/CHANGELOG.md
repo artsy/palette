@@ -1,3 +1,15 @@
+# v42.1.0 (Thu Jul 31 2025)
+
+#### 🚀  Enhancement
+
+- feat: Adding color props for BarChart and LineChart [#1457](https://github.com/artsy/palette/pull/1457) ([@chr-tatu](https://github.com/chr-tatu))
+
+#### Authors: 1
+
+- Christian Tatu ([@chr-tatu](https://github.com/chr-tatu))
+
+---
+
 # v40.0.0 (Fri Apr 18 2025)
 
 #### 💥  Breaking Change
