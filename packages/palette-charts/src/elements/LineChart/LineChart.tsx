@@ -1,7 +1,6 @@
 import { Flex, media, space, Text } from "@artsy/palette"
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
-import { ResponsiveValue } from "styled-system"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
 import { coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
@@ -14,8 +13,8 @@ const DEFAULT_HEIGHT = 87
 
 export interface LineChartProps extends ChartProps {
   height?: number
-  primaryColor?: ResponsiveValue<string>
-  hoverColor?: ResponsiveValue<string>
+  primaryColor?: string
+  hoverColor?: string
 }
 
 /**
