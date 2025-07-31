@@ -2,7 +2,6 @@ import { Flex, Text } from "@artsy/palette"
 import { themeGet } from "@styled-system/theme-get"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { ResponsiveValue } from "styled-system"
 import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
 import { ProvideMousePosition } from "../DataVis/MousePositionContext"
 import { useIntersectionObserver } from "../DataVis/useIntersectionObserver"
@@ -59,8 +58,8 @@ export interface BarChartProps {
   bars: BarDescriptor[]
   minLabel: React.ReactNode
   maxLabel: React.ReactNode
-  primaryColor?: ResponsiveValue<string>
-  hoverColor?: ResponsiveValue<string>
+  primaryColor?: string
+  hoverColor?: string
 }
 /**
  * BarChart is a component which displays some bars of varying heights in a row.
