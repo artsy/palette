@@ -1,5 +1,4 @@
 import { Color, useTheme } from "@artsy/palette"
-import { themeGet } from "@styled-system/theme-get"
 import React from "react"
 
 /**
