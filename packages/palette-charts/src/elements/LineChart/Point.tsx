@@ -20,9 +20,9 @@ export const Point = ({
   primaryColor?: Color
   hoverColor?: Color
 }) => {
-  const defaultColor = primaryColor || color("mono10")
-  const hoveredColor = hoverColor || primaryColor || color("mono30")
-  
+  const defaultColor = color(primaryColor || "mono10")
+  const hoveredColor = color(hoverColor || primaryColor || "mono30")
+
   return (
     <circle
       cx={cx}
