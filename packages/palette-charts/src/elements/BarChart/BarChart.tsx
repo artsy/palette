@@ -60,13 +60,14 @@ export interface BarChartProps {
   maxLabel: React.ReactNode
   primaryColor?: string
   hoverColor?: string
+  highlightColor?: string
 }
 /**
  * BarChart is a component which displays some bars of varying heights in a row.
  * Useful for histograms etc.
  * @param props props
  */
-export const BarChart = ({ bars, minLabel, maxLabel, primaryColor, hoverColor }: BarChartProps) => {
+export const BarChart = ({ bars, minLabel, maxLabel, primaryColor, hoverColor, highlightColor }: BarChartProps) => {
   const highlightLabelRef = useRef<HTMLDivElement>(null)
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false)
 
@@ -121,6 +122,7 @@ export const BarChart = ({ bars, minLabel, maxLabel, primaryColor, hoverColor }:
                   onHover={onHover}
                   primaryColor={primaryColor}
                   hoverColor={hoverColor}
+                  highlightColor={highlightColor}
                 />
               )
             }
