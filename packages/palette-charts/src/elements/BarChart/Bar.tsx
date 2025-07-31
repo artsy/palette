@@ -12,14 +12,20 @@ const BAR_HEIGHT_RANGE = MAX_BAR_HEIGHT - MIN_BAR_HEIGHT
 
 interface BarBoxProps {
   isHighlighted?: boolean
+  primaryColor?: string
+  hoverColor?: string
 }
 
 // the actual visible bit of the bar
 const BarBox = styled(Box)<BarBoxProps>`
   transition: height 0.8s ease;
   position: relative;
-  background: ${(props: BarBoxProps) =>
-    props.isHighlighted ? color("mono60") : color("mono10")};
+  background: ${(props: BarBoxProps) => {
+    if (props.isHighlighted) {
+      return props.hoverColor || color("mono60")
+    }
+    return props.primaryColor || color("mono10")
+  }};
   margin-right: 2px;
   margin-bottom: -1px;
   :last-child {
@@ -31,8 +37,12 @@ const BarBox = styled(Box)<BarBoxProps>`
   border-top-right-radius: 1px;
   @media (min-width: ${breakpoints.sm}) {
     :hover {
-      background: ${(props: BarBoxProps) =>
-        props.isHighlighted ? color("mono60") : color("mono30")};
+      background: ${(props: BarBoxProps) => {
+        if (props.isHighlighted) {
+          return props.hoverColor || color("mono60")
+        }
+        return props.hoverColor || props.primaryColor || color("mono30")
+      }};
     }
   }
 `
@@ -140,6 +150,8 @@ export const Bar = ({
   highlightLabelRef,
   onClick,
   onHover,
+  primaryColor,
+  hoverColor,
 }: {
   heightPercent: number
   label: React.ReactNode
@@ -150,6 +162,8 @@ export const Bar = ({
   highlightLabelRef?: React.RefObject<HTMLDivElement>
   onClick?: any
   onHover?: any
+  primaryColor?: string
+  hoverColor?: string
 }) => {
   const [hover, setHover] = useState(false)
   // Before the bar has entered the view port it will have a height of 0
@@ -171,6 +185,8 @@ export const Bar = ({
       isHighlighted={Boolean(highlightLabel)}
       onClick={onClick}
       onMouseOver={onHover}
+      primaryColor={primaryColor}
+      hoverColor={hoverColor}
     >
       {highlightLabel && (
         <HighlightLabel

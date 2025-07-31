@@ -10,19 +10,26 @@ export const Point = ({
   cy,
   opacity,
   hovered,
+  primaryColor,
+  hoverColor,
 }: {
   cx: number
   cy: number
   opacity: number
   hovered: boolean
+  primaryColor?: string
+  hoverColor?: string
 }) => {
+  const defaultColor = primaryColor || color("mono10")
+  const hoveredColor = hoverColor || primaryColor || color("mono30")
+  
   return (
     <circle
       cx={cx}
       cy={cy}
       r="4"
       opacity={opacity}
-      fill={hovered ? color("mono30") : color("mono10")}
+      fill={hovered ? hoveredColor : defaultColor}
     />
   )
 }

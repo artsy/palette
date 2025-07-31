@@ -1,5 +1,6 @@
 import { Flex, Text } from "@artsy/palette"
 import { themeGet } from "@styled-system/theme-get"
+import { ResponsiveValue } from "styled-system"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { ChartTooltipProps, coerceTooltip } from "../DataVis/ChartTooltip"
@@ -58,13 +59,15 @@ export interface BarChartProps {
   bars: BarDescriptor[]
   minLabel: React.ReactNode
   maxLabel: React.ReactNode
+  primaryColor?: ResponsiveValue<string>
+  hoverColor?: ResponsiveValue<string>
 }
 /**
  * BarChart is a component which displays some bars of varying heights in a row.
  * Useful for histograms etc.
  * @param props props
  */
-export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
+export const BarChart = ({ bars, minLabel, maxLabel, primaryColor, hoverColor }: BarChartProps) => {
   const highlightLabelRef = useRef<HTMLDivElement>(null)
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false)
 
@@ -117,6 +120,8 @@ export const BarChart = ({ bars, minLabel, maxLabel }: BarChartProps) => {
                   onMeasureHeight={highlightLabel ? setMinHeight : null}
                   onClick={onClick}
                   onHover={onHover}
+                  primaryColor={primaryColor}
+                  hoverColor={hoverColor}
                 />
               )
             }
