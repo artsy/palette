@@ -1,4 +1,4 @@
-import { color } from "@artsy/palette"
+import { color, Color } from "@artsy/palette"
 import { interpolateArray } from "d3-interpolate"
 import { line as d3Line } from "d3-shape"
 import React from "react"
@@ -14,8 +14,8 @@ interface LineChartSVGProps {
   points: PointDescriptor[]
   hoverIndex: number
   hasEnteredViewport?: boolean
-  primaryColor?: string
-  hoverColor?: string
+  primaryColor?: Color
+  hoverColor?: Color
 }
 
 /**

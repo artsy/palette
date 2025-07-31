@@ -1,4 +1,4 @@
-import { Flex, media, space, Text } from "@artsy/palette"
+import { Color, Flex, media, space, Text } from "@artsy/palette"
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import { ChartHoverTooltip } from "../DataVis/ChartHoverTooltip"
@@ -13,8 +13,8 @@ const DEFAULT_HEIGHT = 87
 
 export interface LineChartProps extends ChartProps {
   height?: number
-  primaryColor?: string
-  hoverColor?: string
+  primaryColor?: Color
+  hoverColor?: Color
 }
 
 /**

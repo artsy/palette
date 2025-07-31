@@ -17,9 +17,9 @@ export const WithCustomColors = () => {
       minLabel="$0"
       maxLabel="$30,000"
       bars={BARS}
-      primaryColor="#3498db"
-      hoverColor="#e74c3c"
-      highlightColor="#f39c12"
+      primaryColor="blue100"
+      hoverColor="red100"
+      highlightColor="orange100"
     />
   )
 }

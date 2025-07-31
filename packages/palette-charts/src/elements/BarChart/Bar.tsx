@@ -1,4 +1,12 @@
-import { Box, breakpoints, color, Flex, media, space } from "@artsy/palette"
+import {
+  Box,
+  breakpoints,
+  color,
+  Color,
+  Flex,
+  media,
+  space,
+} from "@artsy/palette"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import {
@@ -10,26 +18,25 @@ const MAX_BAR_HEIGHT = 80
 const MIN_BAR_HEIGHT = 10
 const BAR_HEIGHT_RANGE = MAX_BAR_HEIGHT - MIN_BAR_HEIGHT
 
-
 interface BarBoxProps {
   isHighlighted?: boolean
   isHovered?: boolean
-  primaryColor?: string
-  hoverColor?: string
-  highlightColor?: string
+  primaryColor?: Color
+  hoverColor?: Color
+  highlightColor?: Color
 }
 
 const getBarBackground = (props: BarBoxProps, allowHover = false) => {
   if (allowHover && props.isHovered) {
-    return props.hoverColor || color("mono30")
+    return color(props.hoverColor || "mono30")
   }
   if (props.isHighlighted) {
-    return props.highlightColor || props.hoverColor || color("mono60")
+    return color(props.highlightColor || props.hoverColor || "mono60")
   }
-  return props.primaryColor || color("mono10")
+  return color(props.primaryColor || "mono10")
 }
 
-// the actual visible bit of the bar  
+// the actual visible bit of the bar
 const BarBox = styled(Box)<BarBoxProps>`
   transition: height 0.8s ease;
   position: relative;
@@ -43,7 +50,7 @@ const BarBox = styled(Box)<BarBoxProps>`
   cursor: ${(props) => ((props as any).onClick ? "pointer" : "default")};
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
-  
+
   @media (min-width: ${breakpoints.sm}) {
     background: ${(props) => getBarBackground(props, true)};
   }
@@ -165,9 +172,9 @@ export const Bar = ({
   highlightLabelRef?: React.RefObject<HTMLDivElement>
   onClick?: any
   onHover?: any
-  primaryColor?: string
-  hoverColor?: string
-  highlightColor?: string
+  primaryColor?: Color
+  hoverColor?: Color
+  highlightColor?: Color
 }) => {
   const [hover, setHover] = useState(false)
   // Before the bar has entered the view port it will have a height of 0
@@ -183,17 +190,17 @@ export const Bar = ({
 
   return (
     <BarBox
-        style={{ height: currentHeight }}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        isHighlighted={Boolean(highlightLabel)}
-        isHovered={hover}
-        onClick={onClick}
-        onMouseOver={onHover}
-        primaryColor={primaryColor}
-        hoverColor={hoverColor}
-        highlightColor={highlightColor}
-      >
+      style={{ height: currentHeight }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      isHighlighted={Boolean(highlightLabel)}
+      isHovered={hover}
+      onClick={onClick}
+      onMouseOver={onHover}
+      primaryColor={primaryColor}
+      hoverColor={hoverColor}
+      highlightColor={highlightColor}
+    >
       {highlightLabel && (
         <HighlightLabel
           innerRef={highlightLabelRef}

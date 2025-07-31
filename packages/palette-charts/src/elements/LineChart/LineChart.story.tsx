@@ -15,8 +15,8 @@ export const WithCustomColors = () => {
   return (
     <LineChart 
       points={POINTS}
-      primaryColor="#3498db"
-      hoverColor="#e74c3c"
+      primaryColor="blue100"
+      hoverColor="red100"
     />
   )
 }

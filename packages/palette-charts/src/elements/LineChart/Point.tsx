@@ -1,4 +1,4 @@
-import { color } from "@artsy/palette"
+import { color, Color } from "@artsy/palette"
 import React from "react"
 
 /**
@@ -17,8 +17,8 @@ export const Point = ({
   cy: number
   opacity: number
   hovered: boolean
-  primaryColor?: string
-  hoverColor?: string
+  primaryColor?: Color
+  hoverColor?: Color
 }) => {
   const defaultColor = primaryColor || color("mono10")
   const hoveredColor = hoverColor || primaryColor || color("mono30")
