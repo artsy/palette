@@ -13,12 +13,13 @@ export const Default = () => {
 /** BarChart with custom primary and hover colors */
 export const WithCustomColors = () => {
   return (
-    <BarChart 
-      minLabel="$0" 
-      maxLabel="$30,000" 
+    <BarChart
+      minLabel="$0"
+      maxLabel="$30,000"
       bars={BARS}
       primaryColor="#3498db"
       hoverColor="#e74c3c"
+      highlightColor="#f39c12"
     />
   )
 }
