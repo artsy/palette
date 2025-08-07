@@ -1,14 +1,20 @@
 import composeRefs from "@seznam/compose-react-refs"
 import { themeGet } from "@styled-system/theme-get"
-import React, { createRef, useCallback, useMemo, useRef, useState } from "react"
+import React, {
+  createRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import styled, { css, ExecutionContext } from "styled-components"
 import { height as systemHeight } from "styled-system"
-import { useContainsFocus, usePosition, useWidthOf } from "../../utils"
+import { useContainsFocus, usePosition } from "../../utils"
 import { Box, splitBoxProps } from "../Box"
 import { Input, InputProps } from "../Input"
 import { Text } from "../Text"
 import { PHONE_INPUT_STATES } from "./tokens"
-import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { RequiredField } from "../../shared/RequiredField"
 
 /**
@@ -38,6 +44,7 @@ export interface PhoneInputProps extends Omit<InputProps, "onSelect"> {
   required?: boolean
   dropdownValue?: string
   inputValue?: string
+  instanceId?: string
 }
 
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
@@ -53,6 +60,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       onSelect,
       dropdownValue,
       inputValue,
+      instanceId,
       ...rest
     },
     forwardedRef
@@ -81,6 +89,13 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     const [selectedOption, setSelectedOption] = useState(
       defaultOption || options[0]
     )
+    const [highlightedIndex, setHighlightedIndex] = useState(-1)
+
+    useEffect(() => {
+      if (isDropdownVisible) {
+        setHighlightedIndex(-1)
+      }
+    }, [isDropdownVisible])
 
     const filteredOptions = options.filter((option) => {
       if (searchQuery !== "") {
@@ -93,28 +108,14 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     })
 
     const { anchorRef, tooltipRef } = usePosition({
-      key: filteredOptions.length,
+      key: `${instanceId || "default"}-${filteredOptions.length}`,
       position: "bottom",
       offset: 10,
       active: isDropdownVisible,
       flip: false,
     })
 
-    const { reset, set } = useKeyboardListNavigation({
-      ref: containerRef,
-      list: filteredOptions,
-      waitForInteractive: true,
-      onEnter: ({ element: option, event }) => {
-        event.preventDefault()
-        event.stopPropagation()
-        if (option) {
-          handleSelect(option)
-        }
-        resetUI()
-      },
-    })
-
-    const { width } = useWidthOf({ ref: anchorRef })
+    const width = anchorRef.current?.offsetWidth || 0
 
     const inputName = inputProps.name || "palette-phone-input"
 
@@ -125,19 +126,12 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       }))
     }, [filteredOptions])
 
-    const resetUI = () => {
-      setTimeout(() => {
-        inputRef.current?.focus()
-        reset()
-        setDropdownVisible(false)
-      }, 100)
-    }
-
     const handleSelect = (option: Option) => {
       inputRef.current?.focus()
       setSearchQuery("")
       setSelectedOption(option)
       setDropdownVisible(false)
+      setHighlightedIndex(-1)
       onSelect?.(option)
     }
 
@@ -166,7 +160,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
           setDropdownVisible(false)
           countryPickerRef.current?.blur()
-          reset()
+          setHighlightedIndex(-1)
 
           return
 
@@ -186,6 +180,22 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       event: React.KeyboardEvent<HTMLInputElement>
     ) => {
       switch (event.key) {
+        case "ArrowDown":
+          event.preventDefault()
+          setHighlightedIndex((prev) => {
+            if (prev < 0) return 0
+            return prev < filteredOptions.length - 1 ? prev + 1 : prev
+          })
+          return
+
+        case "ArrowUp":
+          event.preventDefault()
+          setHighlightedIndex((prev) => {
+            if (prev <= 0) return -1
+            return prev - 1
+          })
+          return
+
         case "Tab":
           if (event.shiftKey) {
             // ignore
@@ -193,22 +203,29 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             // move down to the list
             event.preventDefault()
             event.stopPropagation()
-            reset()
-
-            set({ cursor: 0, interactive: true })
+            setHighlightedIndex(0)
           }
           return
 
         case "Enter":
           event.preventDefault()
           event.stopPropagation()
-          if (filteredOptions.length) {
+          if (highlightedIndex >= 0 && filteredOptions[highlightedIndex]) {
+            handleSelect(filteredOptions[highlightedIndex])
+          } else if (filteredOptions.length) {
             handleSelect(filteredOptions[0])
           }
           return
 
+        case "Escape":
+          event.preventDefault()
+          setDropdownVisible(false)
+          setHighlightedIndex(-1)
+          return
+
         default:
           searchInputRef.current?.focus()
+          setHighlightedIndex(-1)
       }
     }
 
@@ -269,12 +286,16 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
               autoFocus
               placeholder="Search"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value)
+                setHighlightedIndex(-1)
+              }}
               onKeyDown={handleSearchInputKeydown}
             />
 
             <SelectOptions>
               {optionsWithRefs.map(({ option, ref }, i) => {
+                const isHighlighted = i === highlightedIndex
                 return (
                   <SelectOption
                     key={i}
@@ -284,8 +305,11 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     aria-posinset={i + 1}
                     aria-setsize={options.length}
                     selected={option.value === selectedOption.value}
+                    highlighted={isHighlighted}
                     onClick={() => handleSelect(option)}
                     tabIndex={-1}
+                    onMouseEnter={() => setHighlightedIndex(i)}
+                    onMouseLeave={() => setHighlightedIndex(-1)}
                   >
                     <Text minWidth={80}>{option.text}</Text>
                     <Text>{option.name}</Text>
@@ -414,7 +438,7 @@ const SelectOptions = styled(Box)`
   padding: ${themeGet("space.1")};
 `
 
-const SelectOption = styled(Box)<{ selected?: boolean }>`
+const SelectOption = styled(Box)<{ selected?: boolean; highlighted?: boolean }>`
   padding: ${themeGet("space.1")} 0;
   cursor: pointer;
   display: flex;
@@ -422,7 +446,7 @@ const SelectOption = styled(Box)<{ selected?: boolean }>`
   align-items: center;
   text-decoration: none;
   color: ${themeGet("colors.mono60")};
-  transition: color 0.25s, text-decoration 0.25s;
+  transition: color 0.25s, text-decoration 0.25s, background-color 0.25s;
 
   &:hover {
     color: ${themeGet("colors.blue100")};
@@ -440,6 +464,13 @@ const SelectOption = styled(Box)<{ selected?: boolean }>`
     css`
       color: ${themeGet("colors.mono100")};
       text-decoration: none;
+    `}
+
+  ${(props) =>
+    props.highlighted &&
+    css`
+      color: ${themeGet("colors.blue100")};
+      text-decoration: underline;
     `}
 `
 
