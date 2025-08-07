@@ -446,7 +446,7 @@ const SelectOption = styled(Box)<{ selected?: boolean; highlighted?: boolean }>`
   align-items: center;
   text-decoration: none;
   color: ${themeGet("colors.mono60")};
-  transition: color 0.25s, text-decoration 0.25s, background-color 0.25s;
+  transition: color 0.25s, text-decoration 0.25s;
 
   &:hover {
     color: ${themeGet("colors.blue100")};
