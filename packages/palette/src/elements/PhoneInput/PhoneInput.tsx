@@ -44,7 +44,6 @@ export interface PhoneInputProps extends Omit<InputProps, "onSelect"> {
   required?: boolean
   dropdownValue?: string
   inputValue?: string
-  instanceId?: string
 }
 
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
@@ -60,7 +59,6 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       onSelect,
       dropdownValue,
       inputValue,
-      instanceId,
       ...rest
     },
     forwardedRef
@@ -108,7 +106,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     })
 
     const { anchorRef, tooltipRef } = usePosition({
-      key: `${instanceId || "default"}-${filteredOptions.length}`,
+      key: `default-${filteredOptions.length}`,
       position: "bottom",
       offset: 10,
       active: isDropdownVisible,
