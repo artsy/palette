@@ -106,7 +106,6 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     })
 
     const { anchorRef, tooltipRef } = usePosition({
-      key: `default-${filteredOptions.length}`,
       position: "bottom",
       offset: 10,
       active: isDropdownVisible,
