@@ -148,7 +148,7 @@ const Container = styled(Flex)<{
         `}
       }
 
-      &:focus {
+      &:focus-visible {
         ${RADIO_STATES.focus}
 
         // Radio
