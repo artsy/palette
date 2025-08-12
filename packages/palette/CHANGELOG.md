@@ -1,3 +1,15 @@
+# v43.2.0 (Tue Aug 12 2025)
+
+#### 🚀  Enhancement
+
+- fix(EMI-2698): Update Radio focus styling [#1460](https://github.com/artsy/palette/pull/1460) ([@MrSltun](https://github.com/MrSltun))
+
+#### Authors: 1
+
+- Sultan Al-Maari ([@MrSltun](https://github.com/MrSltun))
+
+---
+
 # v43.1.0 (Thu Jul 31 2025)
 
 #### 🚀  Enhancement
