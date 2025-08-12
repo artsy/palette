@@ -346,6 +346,7 @@ export const Dropdown = ({
               }
             >
               <FocusOn
+                autoFocus={false}
                 noIsolation
                 enabled={focusEnabled}
                 onClickOutside={onHide}
