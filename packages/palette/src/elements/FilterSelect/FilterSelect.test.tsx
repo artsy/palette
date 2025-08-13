@@ -51,6 +51,19 @@ describe("FilterSelect", () => {
     expect(text).toContain("Item 1")
   })
 
+  it("selects items but keeps original order when moveSelectedToTop is false", () => {
+    const wrapper = getWrapper({ moveSelectedToTop: false })
+    wrapper.find("Checkbox").at(1).simulate("click")
+    wrapper.find("Checkbox").at(2).simulate("click")
+    wrapper.update()
+
+    const text = wrapper.text()
+    // Items should remain in original order
+    expect(text).toContain("Item 1")
+    expect(text).toContain("Item 2")
+    expect(text).toContain("Item 3")
+  })
+
   it("resorts items when deselected", () => {
     const wrapper = getWrapper()
     wrapper.find("Checkbox").at(1).simulate("click")
@@ -72,7 +85,7 @@ describe("FilterSelect", () => {
     expect(text).toContain("Item 3")
   })
 
-  it("only selects one item if multiselect=false, and doesnt resort", () => {
+  it("only selects one item if multiselect=false, and doesn't resort", () => {
     const wrapper = getWrapper({ multiselect: false })
     wrapper.find("Radio").at(1).simulate("click")
     wrapper.update()

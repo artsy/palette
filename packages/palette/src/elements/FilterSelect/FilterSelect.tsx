@@ -37,6 +37,7 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
     initialItemsToShow,
     isFiltered,
     items,
+    moveSelectedToTop,
     multiselect,
     onChange,
     order,
@@ -70,10 +71,11 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
   const orderItems = (items: Items) => orderBy([...items], order[0], order[1])
   const itemsOrdered = orderItems(items)
   const filteredItemsOrdered = orderItems(filteredItems)
-  const itemsSorted = multiselect
-    ? // Move selected items to the top
-      uniqBy(selectedItems.concat(itemsOrdered), (x) => x.value)
-    : itemsOrdered
+  const itemsSorted =
+    multiselect && moveSelectedToTop
+      ? // Move selected items to the top
+        uniqBy(selectedItems.concat(itemsOrdered), (x) => x.value)
+      : itemsOrdered
   const expanded = isBelowTheFoldSelected(selectedItems, itemsSorted)
   const showNoResults = filteredItems.length === 0 && query !== ""
   const showSelectAll = multiselect && enableSelectAll && !showNoResults

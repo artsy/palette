@@ -30,6 +30,7 @@ interface FilterSelectContextProps {
   initialItemsToShow: number
   isFiltered: boolean
   items: Items
+  moveSelectedToTop: boolean
   multiselect: boolean
   onChange: (state: FilterSelectChangeState) => void
   onSelectAll?: (state: FilterSelectChangeState) => void
@@ -51,6 +52,7 @@ export type FilterSelectState = Pick<
   | "initialItemsToShow"
   | "isFiltered"
   | "items"
+  | "moveSelectedToTop"
   | "multiselect"
   | "onChange"
   | "onSelectAll"
@@ -133,6 +135,7 @@ const initialState: FilterSelectState = {
   initialItemsToShow: INITIAL_ITEMS_TO_SHOW,
   isFiltered: false,
   items: [],
+  moveSelectedToTop: true,
   multiselect: true,
   onChange: (x) => x,
   order: [["label"], ["asc"]],
