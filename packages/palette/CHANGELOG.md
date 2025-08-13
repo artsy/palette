@@ -1,3 +1,19 @@
+# v43.3.0 (Wed Aug 13 2025)
+
+#### 🚀  Enhancement
+
+- feat(filter-select): Add moveSelectedToTop prop [#1461](https://github.com/artsy/palette/pull/1461) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- feat(filter-select): Add moveSelectedToTop prop ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v43.2.0 (Tue Aug 12 2025)
 
 #### 🚀  Enhancement

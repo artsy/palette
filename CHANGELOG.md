@@ -1,3 +1,16 @@
+# (Wed Aug 13 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@43.3.0`
+  - feat(filter-select): Add moveSelectedToTop prop [#1461](https://github.com/artsy/palette/pull/1461) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # (Tue Aug 12 2025)
 
 #### 🚀  Enhancement
