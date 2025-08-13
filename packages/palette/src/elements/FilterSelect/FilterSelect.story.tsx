@@ -29,6 +29,13 @@ export const Default = () => {
             return `${item.label}; ${item.country}; ${extraSearchTerms}`
           },
         },
+
+        // checkboxes with move selected to top disabled
+        {
+          multiselect: true,
+          moveSelectedToTop: false,
+          enableSelectAll: true,
+        },
       ]}
     >
       <FilterSelect
