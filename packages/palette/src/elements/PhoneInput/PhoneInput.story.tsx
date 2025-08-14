@@ -223,3 +223,44 @@ export const Default = () => {
     </States>
   )
 }
+
+export const LoadingDisplayTest = () => {
+  const [isLoaded, setIsLoaded] = React.useState(false)
+  const [countryCode, setCountryCode] = React.useState("ad")
+  const [phoneNumber, setPhoneNumber] = React.useState("")
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true)
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <div>
+      <div
+        style={{
+          display: isLoaded ? "grid" : "none",
+          marginTop: "16px",
+        }}
+      >
+        <PhoneInput
+          key="loading-test-phone-input"
+          name="phoneNumber"
+          placeholder="(000) 000 0000"
+          options={countriesExample}
+          onSelect={(option) => {
+            console.log("Selected:", option)
+            setCountryCode(option.value)
+          }}
+          dropdownValue={countryCode}
+          inputValue={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          data-testid="LoadingTestPhoneInput"
+          required
+        />
+      </div>
+      {!isLoaded && <div>Loading phone input...</div>}
+    </div>
+  )
+}
