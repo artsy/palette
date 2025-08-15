@@ -23,6 +23,7 @@ import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 import { ResponsiveValue } from "styled-system"
 import { themeGet } from "@styled-system/theme-get"
+import { useMouseActivity } from "../../utils/useMouseActivity"
 
 export interface AutocompleteFooterActions {
   /** Call to close dropdown */
@@ -198,21 +199,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   // Records the latest mouse movement and, inside the `handleMouseEnter` callback,
   // only treat the event as genuine if the mouse has moved very recently.
   // Otherwise, the event is presumed to have been triggered by scrolling and is ignored.
-  const lastMouseMoveTimestamp = useRef<number>(0)
-
-  useEffect(() => {
-    if (!isDropdownVisible) return
-
-    const handleMouseMove = () => {
-      lastMouseMoveTimestamp.current = performance.now()
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [isDropdownVisible])
+  const { lastMouseMoveTimestamp } = useMouseActivity()
 
   const handleMouseEnter = (i: number) => () => {
     const now = performance.now()
