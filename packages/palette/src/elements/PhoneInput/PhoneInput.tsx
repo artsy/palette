@@ -1,31 +1,17 @@
 import composeRefs from "@seznam/compose-react-refs"
 import { themeGet } from "@styled-system/theme-get"
-import React, { createRef, useCallback, useMemo, useRef, useState } from "react"
-import styled, { css, ExecutionContext } from "styled-components"
+import React, { useCallback, useMemo, useRef, useState } from "react"
+import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
 import { useContainsFocus, usePosition, useWidthOf } from "../../utils"
 import { Box, splitBoxProps } from "../Box"
-import { Input, InputProps } from "../Input"
+import { InputProps } from "../Input"
 import { Text } from "../Text"
 import { PHONE_INPUT_STATES } from "./tokens"
-import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { RequiredField } from "../../shared/RequiredField"
-
-/**
- * The option structure for the list in the dropdown menu
- *
- * @interface Option
- * @property {string} `text` is the content that will be displayed as selected option
- * @property {string} `name` is the content that will be displayed in the dropdown list
- * @property {string} `value` is the value that will be passed to onSelect
- */
-interface Option {
-  text: string
-  name: string
-  value: string
-  countryCode?: string
-  flag?: string
-}
+import { Option, PhoneInputList } from "./PhoneInputList"
+import { caretMixin } from "../Select"
+import { Clickable } from "../Clickable"
 
 export interface PhoneInputProps extends Omit<InputProps, "onSelect"> {
   options: Option[]
@@ -64,9 +50,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     }
 
     const inputRef = useRef<HTMLInputElement | null>(null)
-    const searchInputRef = useRef<HTMLInputElement | null>(null)
     const containerRef = useRef<HTMLDivElement | null>(null)
-    const countryPickerRef = useRef<HTMLDivElement | null>(null)
 
     const defaultOption = useMemo(
       () =>
@@ -76,78 +60,36 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     )
 
     const [boxProps, inputProps] = splitBoxProps(rest)
-    const [isDropdownVisible, setDropdownVisible] = useState(false)
-    const [searchQuery, setSearchQuery] = useState("")
+
+    const [open, setOpen] = useState(false)
     const [selectedOption, setSelectedOption] = useState(
       defaultOption || options[0]
     )
 
-    const filteredOptions = options.filter((option) => {
-      if (searchQuery !== "") {
-        const filteredCountry =
-          option.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          option.name.toLowerCase().includes(searchQuery.toLowerCase())
-        return filteredCountry
-      }
-      return true
-    })
-
     const { anchorRef, tooltipRef } = usePosition({
-      key: filteredOptions.length,
       position: "bottom",
       offset: 10,
-      active: isDropdownVisible,
+      active: open,
       flip: false,
-    })
-
-    const { reset, set } = useKeyboardListNavigation({
-      ref: containerRef,
-      list: filteredOptions,
-      waitForInteractive: true,
-      onEnter: ({ element: option, event }) => {
-        event.preventDefault()
-        event.stopPropagation()
-        if (option) {
-          handleSelect(option)
-        }
-        resetUI()
-      },
     })
 
     const { width } = useWidthOf({ ref: anchorRef })
 
     const inputName = inputProps.name || "palette-phone-input"
 
-    const optionsWithRefs = useMemo(() => {
-      return filteredOptions.map((option) => ({
-        option,
-        ref: createRef<HTMLDivElement>(),
-      }))
-    }, [filteredOptions])
-
-    const resetUI = () => {
-      setTimeout(() => {
-        inputRef.current?.focus()
-        reset()
-        setDropdownVisible(false)
-      }, 100)
-    }
-
     const handleSelect = (option: Option) => {
-      inputRef.current?.focus()
-      setSearchQuery("")
       setSelectedOption(option)
-      setDropdownVisible(false)
+      setOpen(false)
+      inputRef.current?.focus()
       onSelect?.(option)
     }
 
     const handleFocusChange = useCallback(
       (focused: boolean) => {
-        if (focused || !isDropdownVisible) return
-
-        setDropdownVisible(false)
+        if (focused || !open) return
+        setOpen(false)
       },
-      [isDropdownVisible]
+      [open]
     )
 
     // Handle closing the dropdown when clicking outside of the input
@@ -156,60 +98,8 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       onChange: handleFocusChange,
     })
 
-    const handleCountryPickerKeydown = (
-      event: React.KeyboardEvent<HTMLDivElement>
-    ) => {
-      switch (event.key) {
-        case "Escape":
-          event.preventDefault()
-          event.stopPropagation()
-
-          setDropdownVisible(false)
-          countryPickerRef.current?.blur()
-          reset()
-
-          return
-
-        case "Enter":
-        case " ":
-          event.preventDefault()
-          event.stopPropagation()
-
-          if (!disabled) {
-            setDropdownVisible(true)
-          }
-          return
-      }
-    }
-
-    const handleSearchInputKeydown = (
-      event: React.KeyboardEvent<HTMLInputElement>
-    ) => {
-      switch (event.key) {
-        case "Tab":
-          if (event.shiftKey) {
-            // ignore
-          } else {
-            // move down to the list
-            event.preventDefault()
-            event.stopPropagation()
-            reset()
-
-            set({ cursor: 0, interactive: true })
-          }
-          return
-
-        case "Enter":
-          event.preventDefault()
-          event.stopPropagation()
-          if (filteredOptions.length) {
-            handleSelect(filteredOptions[0])
-          }
-          return
-
-        default:
-          searchInputRef.current?.focus()
-      }
+    const handleClose = () => {
+      setOpen(false)
     }
 
     return (
@@ -219,31 +109,28 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         className={className}
         {...boxProps}
       >
-        <ContainerBox
+        <PhoneInputContainer
           ref={anchorRef as any}
-          isDropdownVisible={isDropdownVisible}
+          open={open}
           hover={hover}
           focus={focus}
           error={error}
           disabled={disabled}
           placeholder={inputProps.placeholder}
         >
-          <SelectContainer
+          <PhoneInputSelect
             data-testid="country-picker"
-            ref={countryPickerRef as any}
             disabled={disabled}
             onClick={() => {
-              setDropdownVisible(!disabled && !isDropdownVisible)
+              setOpen(!disabled && !open)
             }}
-            tabIndex={disabled ? -1 : 0}
-            onKeyDown={handleCountryPickerKeydown}
           >
             {selectedOption.text}
-          </SelectContainer>
+          </PhoneInputSelect>
 
-          <StyledInput
+          <PhoneInputInput
             disabled={disabled}
-            ref={composeRefs(inputRef, forwardedRef) as any}
+            ref={composeRefs(inputRef, forwardedRef)}
             type="tel"
             autoComplete="tel-national"
             required={required}
@@ -254,46 +141,21 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             {...inputProps}
           />
 
-          <StyledLabel htmlFor={inputName}>
-            Phone number
-            <span />
-          </StyledLabel>
-        </ContainerBox>
+          <PhoneInputLabel htmlFor={inputName}>Phone number</PhoneInputLabel>
+        </PhoneInputContainer>
 
-        {isDropdownVisible && (
-          <SelectDropdown ref={tooltipRef as any} role="listbox" width={width}>
-            <Input
-              ref={searchInputRef}
-              p={1}
-              pb={0}
-              autoFocus
-              placeholder="Search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={handleSearchInputKeydown}
+        {open && (
+          <PhoneInputDropdown
+            ref={tooltipRef as any}
+            role="listbox"
+            width={width}
+          >
+            <PhoneInputList
+              options={options}
+              onSelect={handleSelect}
+              onClose={handleClose}
             />
-
-            <SelectOptions>
-              {optionsWithRefs.map(({ option, ref }, i) => {
-                return (
-                  <SelectOption
-                    key={i}
-                    ref={ref as any}
-                    role="option"
-                    aria-selected={option.value === selectedOption.value}
-                    aria-posinset={i + 1}
-                    aria-setsize={options.length}
-                    selected={option.value === selectedOption.value}
-                    onClick={() => handleSelect(option)}
-                    tabIndex={-1}
-                  >
-                    <Text minWidth={80}>{option.text}</Text>
-                    <Text>{option.name}</Text>
-                  </SelectOption>
-                )
-              })}
-            </SelectOptions>
-          </SelectDropdown>
+          </PhoneInputDropdown>
         )}
 
         {required && !(error && typeof error === "string") && (
@@ -312,36 +174,12 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
 PhoneInput.displayName = "PhoneInput"
 
-interface CaretProps extends ExecutionContext {
-  disabled?: boolean
-}
-
-const caretMixin = css`
-  &::after {
-    content: "";
-    cursor: inherit;
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: ${themeGet("space.1")};
-    pointer-events: none;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid
-      ${({ disabled }: CaretProps) => {
-        return disabled ? themeGet("colors.mono10") : themeGet("colors.mono60")
-      }};
-  }
-`
-
 type ContainerProps = Pick<
   PhoneInputProps,
   "disabled" | "error" | "hover" | "focus" | "placeholder"
-> & { isDropdownVisible: boolean }
+> & { open: boolean }
 
-const ContainerBox = styled(Box)<ContainerProps>`
+const PhoneInputContainer = styled(Box)<ContainerProps>`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -350,15 +188,13 @@ const ContainerBox = styled(Box)<ContainerProps>`
     return css`
       ${PHONE_INPUT_STATES.default}
       ${props.hover && PHONE_INPUT_STATES.hover}
-      ${(props.focus || props.isDropdownVisible) && PHONE_INPUT_STATES.focus}
+      ${(props.focus || props.open) && PHONE_INPUT_STATES.focus}
       ${props.disabled && PHONE_INPUT_STATES.disabled}
       ${props.error && PHONE_INPUT_STATES.error}
 
       &:hover {
         /* Applies hover style if the dropdown is not visible or the input is disabled */
-        ${!props.isDropdownVisible &&
-        !props.disabled &&
-        PHONE_INPUT_STATES.hover}
+        ${!props.open && !props.disabled && PHONE_INPUT_STATES.hover}
       }
 
       &:focus-within {
@@ -378,7 +214,8 @@ const ContainerBox = styled(Box)<ContainerProps>`
   }}
 `
 
-const SelectContainer = styled(Box)<{ disabled?: boolean }>`
+const PhoneInputSelect = styled(Clickable)<{ disabled?: boolean }>`
+  ${caretMixin}
   display: flex;
   align-items: center;
   position: relative;
@@ -396,54 +233,21 @@ const SelectContainer = styled(Box)<{ disabled?: boolean }>`
   height: 50px;
   font-size: ${themeGet("textVariants.sm-display.fontSize")};
   color: ${themeGet("colors.mono100")};
-
-  ${caretMixin}
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+    color: ${themeGet("colors.blue100")};
+  }
 `
 
-const SelectDropdown = styled(Box)`
+const PhoneInputDropdown = styled(Box)`
   box-shadow: ${themeGet("effects.dropShadow")};
-  z-index: 1;
   background: ${themeGet("colors.mono0")};
-`
-
-const SelectOptions = styled(Box)`
-  /* 308 = Roughly, 5.5 default sized options  */
-  max-height: 308px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  z-index: 1;
   padding: ${themeGet("space.1")};
 `
 
-const SelectOption = styled(Box)<{ selected?: boolean }>`
-  padding: ${themeGet("space.1")} 0;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-decoration: none;
-  color: ${themeGet("colors.mono60")};
-  transition: color 0.25s, text-decoration 0.25s;
-
-  &:hover {
-    color: ${themeGet("colors.blue100")};
-    text-decoration: underline;
-  }
-
-  &:focus,
-  &:active {
-    color: ${themeGet("colors.mono100")};
-    text-decoration: none;
-  }
-
-  ${(props) =>
-    props.selected &&
-    css`
-      color: ${themeGet("colors.mono100")};
-      text-decoration: none;
-    `}
-`
-
-const StyledInput = styled.input`
+const PhoneInputInput = styled.input`
   width: 100%;
   background-color: ${themeGet("colors.mono0")};
   padding: 0 ${themeGet("space.1")};
@@ -465,7 +269,7 @@ const StyledInput = styled.input`
   }
 `
 
-const StyledLabel = styled.label`
+const PhoneInputLabel = styled.label`
   position: absolute;
   top: 0;
   left: 5px;
@@ -478,14 +282,15 @@ const StyledLabel = styled.label`
   font-size: ${themeGet("textVariants.xs.fontSize")};
   color: ${themeGet("colors.mono60")};
 
-  & > span {
-    background-color: ${themeGet("colors.mono0")};
-    height: 2px;
-    width: 100%;
+  &::after {
+    content: "";
     display: block;
     position: absolute;
     top: 50%;
     left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: ${themeGet("colors.mono0")};
     z-index: -1;
   }
 `

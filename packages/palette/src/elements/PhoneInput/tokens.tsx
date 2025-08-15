@@ -19,6 +19,7 @@ export const PHONE_INPUT_STATES = {
   `,
   active: css`
     > div,
+    > button,
     > input {
       border-color: ${themeGet("colors.blue100")};
       color: ${themeGet("colors.mono100")};
@@ -34,6 +35,7 @@ export const PHONE_INPUT_STATES = {
   `,
   focus: css`
     > div,
+    > button,
     > input {
       border-color: ${themeGet("colors.blue100")};
     }
@@ -48,6 +50,7 @@ export const PHONE_INPUT_STATES = {
   `,
   hover: css`
     > div,
+    > button,
     > input {
       border-color: ${themeGet("colors.mono60")};
     }
@@ -59,6 +62,7 @@ export const PHONE_INPUT_STATES = {
   `,
   completed: css`
     > div,
+    > button,
     > input {
       border-color: ${themeGet("colors.mono60")};
       color: ${themeGet("colors.mono100")};
@@ -83,6 +87,7 @@ export const PHONE_INPUT_STATES = {
   `,
   error: css`
     > div,
+    > button,
     > input {
       border-color: ${themeGet("colors.red100")};
     }
