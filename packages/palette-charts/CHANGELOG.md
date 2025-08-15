@@ -1,3 +1,15 @@
+# v42.3.1 (Fri Aug 15 2025)
+
+#### 🏠  Internal
+
+- chore: Adding PhoneInput loading story [#1462](https://github.com/artsy/palette/pull/1462) ([@chr-tatu](https://github.com/chr-tatu))
+
+#### Authors: 1
+
+- Christian Tatu ([@chr-tatu](https://github.com/chr-tatu))
+
+---
+
 # v42.1.0 (Thu Jul 31 2025)
 
 #### 🚀  Enhancement

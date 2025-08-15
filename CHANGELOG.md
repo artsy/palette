@@ -1,3 +1,22 @@
+# (Fri Aug 15 2025)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@43.3.1`
+  - fix(dia-1450): fixes keyboard navigation in phone input [#1463](https://github.com/artsy/palette/pull/1463) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🏠  Internal
+
+- `@artsy/palette@43.3.1`
+  - chore: Adding PhoneInput loading story [#1462](https://github.com/artsy/palette/pull/1462) ([@chr-tatu](https://github.com/chr-tatu))
+
+#### Authors: 2
+
+- Christian Tatu ([@chr-tatu](https://github.com/chr-tatu))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Aug 13 2025)
 
 #### 🚀  Enhancement

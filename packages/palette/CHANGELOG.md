@@ -1,3 +1,24 @@
+# v43.3.1 (Fri Aug 15 2025)
+
+#### 🐛  Bug Fix
+
+- fix(dia-1450): fixes keyboard navigation in phone input [#1463](https://github.com/artsy/palette/pull/1463) ([@dzucconi](https://github.com/dzucconi))
+- fix(phoneinput): implements keyboard navigation; cleans up ([@dzucconi](https://github.com/dzucconi))
+- refactor: extracts mouse activity pattern ([@dzucconi](https://github.com/dzucconi))
+- fix(usewidthof): performance; ensures css changes propagate size change ([@dzucconi](https://github.com/dzucconi))
+- chore: Adding PhoneInput loading story ([@chr-tatu](https://github.com/chr-tatu))
+
+#### 🏠  Internal
+
+- chore: Adding PhoneInput loading story [#1462](https://github.com/artsy/palette/pull/1462) ([@chr-tatu](https://github.com/chr-tatu))
+
+#### Authors: 2
+
+- Christian Tatu ([@chr-tatu](https://github.com/chr-tatu))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v43.3.0 (Wed Aug 13 2025)
 
 #### 🚀  Enhancement
