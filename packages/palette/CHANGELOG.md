@@ -1,3 +1,19 @@
+# v44.0.0 (Tue Aug 19 2025)
+
+#### 💥  Breaking Change
+
+- refactor(select-input): Migrate PhoneInput to generic SelectInput [#1466](https://github.com/artsy/palette/pull/1466) ([@damassi](https://github.com/damassi))
+
+#### 🐛  Bug Fix
+
+- refactor(select-input): migrate phoneinput to generic selectinput ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
 # v43.3.1 (Fri Aug 15 2025)
 
 #### 🐛  Bug Fix

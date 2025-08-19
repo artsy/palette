@@ -1,5 +1,18 @@
 # (Tue Aug 19 2025)
 
+#### 💥  Breaking Change
+
+- `@artsy/palette@44.0.0`
+  - refactor(select-input): Migrate PhoneInput to generic SelectInput [#1466](https://github.com/artsy/palette/pull/1466) ([@damassi](https://github.com/damassi))
+
+#### Authors: 1
+
+- Christopher Pappas ([@damassi](https://github.com/damassi))
+
+---
+
+# (Tue Aug 19 2025)
+
 #### 🚀  Enhancement
 
 - `@artsy/palette-tokens@7.1.0`
