@@ -1,3 +1,19 @@
+# v7.1.0 (Tue Aug 19 2025)
+
+#### 🚀  Enhancement
+
+- feat(tokens): alias for half value [#1465](https://github.com/artsy/palette/pull/1465) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tokens): alias for half value ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v7.0.1 (Tue Jun 10 2025)
 
 #### 🐛  Bug Fix
