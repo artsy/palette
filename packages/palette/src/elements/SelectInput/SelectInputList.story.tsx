@@ -1,12 +1,24 @@
 import React from "react"
 import { States } from "storybook-states"
-import { PhoneInput, PhoneInputProps } from "./PhoneInput"
+import { SelectInputList, SelectInputListProps } from "./SelectInputList"
 
 export default {
-  title: "Components/PhoneInput",
+  title: "Components/SelectInputList",
 }
 
-const countriesExample = [
+export const Default = () => {
+  return (
+    <States<Partial<SelectInputListProps>> states={[{}]}>
+      <SelectInputList
+        options={EXAMPLE_COUNTRIES}
+        onSelect={(option) => console.log(option)}
+        onClose={() => console.log("close")}
+      />
+    </States>
+  )
+}
+
+const EXAMPLE_COUNTRIES = [
   {
     text: "🇦🇫 +93",
     name: "Afghanistan",
@@ -204,63 +216,3 @@ const countriesExample = [
     flag: "🇧🇦",
   },
 ]
-
-export const Default = () => {
-  return (
-    <States<Partial<PhoneInputProps>>
-      states={[
-        {},
-        { placeholder: "(000) 000 0000" },
-        { placeholder: "(000) 000 0000", required: true },
-        { placeholder: "(000) 000 0000", disabled: true },
-        { placeholder: "(000) 000 0000", error: "Something is wrong" },
-      ]}
-    >
-      <PhoneInput
-        options={countriesExample}
-        onSelect={(option) => console.log(option)}
-      />
-    </States>
-  )
-}
-
-export const LoadingDisplayTest = () => {
-  const [isLoaded, setIsLoaded] = React.useState(false)
-  const [countryCode, setCountryCode] = React.useState("ad")
-  const [phoneNumber, setPhoneNumber] = React.useState("")
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true)
-    }, 500)
-    return () => clearTimeout(timer)
-  }, [])
-
-  return (
-    <div>
-      <div
-        style={{
-          display: isLoaded ? "grid" : "none",
-          marginTop: "16px",
-        }}
-      >
-        <PhoneInput
-          key="loading-test-phone-input"
-          name="phoneNumber"
-          placeholder="(000) 000 0000"
-          options={countriesExample}
-          onSelect={(option) => {
-            console.log("Selected:", option)
-            setCountryCode(option.value)
-          }}
-          dropdownValue={countryCode}
-          inputValue={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          data-testid="LoadingTestPhoneInput"
-          required
-        />
-      </div>
-      {!isLoaded && <div>Loading phone input...</div>}
-    </div>
-  )
-}
