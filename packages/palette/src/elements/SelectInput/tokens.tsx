@@ -1,7 +1,7 @@
 import { themeGet } from "@styled-system/theme-get"
 import { css } from "styled-components"
 
-export const PHONE_INPUT_STATES = {
+export const SELECT_INPUT_STATES = {
   default: css`
     > div {
       border-color: ${themeGet("colors.mono30")};

@@ -1,6 +1,6 @@
 import { mount } from "enzyme"
 import React from "react"
-import { PhoneInput } from "../PhoneInput"
+import { SelectInput } from "../SelectInput"
 
 const countriesExample = [
   {
@@ -54,12 +54,16 @@ const countriesExample = [
   },
 ]
 
-describe("PhoneInput", () => {
+describe("SelectInput", () => {
   const mockOnSelect = jest.fn()
 
   it("returns a phone input", () => {
     const wrapper = mount(
-      <PhoneInput onSelect={mockOnSelect} options={countriesExample} />
+      <SelectInput
+        onSelect={mockOnSelect}
+        options={countriesExample}
+        label="Phone number"
+      />
     )
 
     expect(wrapper.find("input").length).toEqual(1)
@@ -68,7 +72,12 @@ describe("PhoneInput", () => {
 
   it("returns a required phone input when provided", () => {
     const wrapper = mount(
-      <PhoneInput onSelect={mockOnSelect} options={countriesExample} required />
+      <SelectInput
+        onSelect={mockOnSelect}
+        options={countriesExample}
+        label="Phone number"
+        required
+      />
     )
 
     expect(wrapper.text()).toContain("*Required")
@@ -76,9 +85,10 @@ describe("PhoneInput", () => {
 
   it("returns a phone input with an error text when provided", () => {
     const wrapper = mount(
-      <PhoneInput
+      <SelectInput
         onSelect={mockOnSelect}
         options={countriesExample}
+        label="Phone number"
         error="This is an error"
       />
     )
@@ -88,7 +98,12 @@ describe("PhoneInput", () => {
 
   it("displays the list of countries when the country picker is clicked", () => {
     const wrapper = mount(
-      <PhoneInput onSelect={mockOnSelect} options={countriesExample} />
+      <SelectInput
+        onSelect={mockOnSelect}
+        options={countriesExample}
+        label="Phone number"
+        enableSearch={false}
+      />
     )
 
     wrapper.find('[data-testid="country-picker"]').first().simulate("click")
@@ -100,7 +115,12 @@ describe("PhoneInput", () => {
 
   it("filters the list of countries when the search input is filled", () => {
     const wrapper = mount(
-      <PhoneInput onSelect={mockOnSelect} options={countriesExample} />
+      <SelectInput
+        onSelect={mockOnSelect}
+        options={countriesExample}
+        label="Phone number"
+        enableSearch={true}
+      />
     )
 
     wrapper.find('[data-testid="country-picker"]').first().simulate("click")
@@ -123,7 +143,12 @@ describe("PhoneInput", () => {
 
   it("updates the selected country when a new country is selected", () => {
     const wrapper = mount(
-      <PhoneInput onSelect={mockOnSelect} options={countriesExample} />
+      <SelectInput
+        onSelect={mockOnSelect}
+        options={countriesExample}
+        label="Phone number"
+        enableSearch={true}
+      />
     )
 
     // pre-selected country (first on the list)
@@ -146,5 +171,50 @@ describe("PhoneInput", () => {
     })
     expect(wrapper.text()).not.toContain("🇦🇱 +355")
     expect(wrapper.text()).toContain("🇦🇷 +54")
+  })
+
+  it("shows search input when enableSearch=true", () => {
+    const wrapper = mount(
+      <SelectInput
+        onSelect={mockOnSelect}
+        options={countriesExample}
+        label="Phone number"
+        enableSearch={true}
+      />
+    )
+
+    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+
+    expect(wrapper.find("input[placeholder='Search']").length).toEqual(1)
+  })
+
+  it("hides search input when enableSearch is false", () => {
+    const wrapper = mount(
+      <SelectInput
+        onSelect={mockOnSelect}
+        options={countriesExample}
+        label="Phone number"
+        enableSearch={false}
+      />
+    )
+
+    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+
+    expect(wrapper.find("input[placeholder='Search']").length).toEqual(0)
+  })
+
+  it("shows search input when enableSearch is explicitly true", () => {
+    const wrapper = mount(
+      <SelectInput
+        onSelect={mockOnSelect}
+        options={countriesExample}
+        label="Phone number"
+        enableSearch={true}
+      />
+    )
+
+    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+
+    expect(wrapper.find("input[placeholder='Search']").length).toEqual(1)
   })
 })

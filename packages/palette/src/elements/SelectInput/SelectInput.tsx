@@ -6,46 +6,56 @@ import { height as systemHeight } from "styled-system"
 import { useContainsFocus, usePosition, useWidthOf } from "../../utils"
 import { Box, splitBoxProps } from "../Box"
 import { InputProps } from "../Input"
-import { Text } from "../Text"
-import { PHONE_INPUT_STATES } from "./tokens"
+import { Text, TextProps } from "../Text"
+import { SELECT_INPUT_STATES } from "./tokens"
 import { RequiredField } from "../../shared/RequiredField"
-import { Option, PhoneInputList } from "./PhoneInputList"
+import { Option, SelectInputList } from "./SelectInputList"
 import { caretMixin } from "../Select"
-import { Clickable } from "../Clickable"
+import { Clickable, ClickableProps } from "../Clickable"
 
-export interface PhoneInputProps extends Omit<InputProps, "onSelect"> {
-  options: Option[]
-  onSelect: (option: Option) => void
+export interface SelectInputProps extends Omit<InputProps, "onSelect"> {
   active?: boolean
+  enableSearch?: boolean
   disabled?: boolean
+  dropdownValue?: string
   error?: string | boolean
   focus?: boolean
   hover?: boolean
-  required?: boolean
-  dropdownValue?: string
   inputValue?: string
+  label: string
+  onSelect: (option: Option) => void
+  options: Option[]
+  required?: boolean
+  /** Controls the width of the left hand select dropdown UI */
+  selectWidth?: ClickableProps["width"]
+  /** Controls the gap between the text and name labels in select options */
+  optionTextMinWidth?: TextProps["minWidth"]
 }
 
-export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
+export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
   (
     {
       className,
-      options,
+      enableSearch,
       disabled,
+      dropdownValue,
       error,
       focus,
       hover,
-      required,
-      onSelect,
-      dropdownValue,
+      label,
       inputValue,
+      onSelect,
+      options,
+      required,
+      selectWidth,
+      optionTextMinWidth,
       ...rest
     },
     forwardedRef
   ) => {
     if (options.length === 0) {
       throw new Error(
-        "Palette PhoneInput requires at least 1 option in the options prop"
+        "Palette SelectInput requires at least 1 option in the options prop"
       )
     }
 
@@ -75,7 +85,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
     const { width } = useWidthOf({ ref: anchorRef })
 
-    const inputName = inputProps.name || "palette-phone-input"
+    const inputName = inputProps.name || "palette-select-input"
 
     const handleSelect = (option: Option) => {
       setSelectedOption(option)
@@ -109,7 +119,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         className={className}
         {...boxProps}
       >
-        <PhoneInputContainer
+        <SelectInputContainer
           ref={anchorRef as any}
           open={open}
           hover={hover}
@@ -118,21 +128,20 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
           disabled={disabled}
           placeholder={inputProps.placeholder}
         >
-          <PhoneInputSelect
+          <SelectInputSelect
             data-testid="country-picker"
             disabled={disabled}
             onClick={() => {
               setOpen(!disabled && !open)
             }}
+            width={selectWidth}
           >
             {selectedOption.text}
-          </PhoneInputSelect>
+          </SelectInputSelect>
 
-          <PhoneInputInput
+          <SelectInputInput
             disabled={disabled}
             ref={composeRefs(inputRef, forwardedRef)}
-            type="tel"
-            autoComplete="tel-national"
             required={required}
             name={inputName}
             maxLength={25}
@@ -141,21 +150,23 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             {...inputProps}
           />
 
-          <PhoneInputLabel htmlFor={inputName}>Phone number</PhoneInputLabel>
-        </PhoneInputContainer>
+          <SelectInputLabel htmlFor={inputName}>{label}</SelectInputLabel>
+        </SelectInputContainer>
 
         {open && (
-          <PhoneInputDropdown
+          <SelectInputDropdown
             ref={tooltipRef as any}
             role="listbox"
             width={width}
           >
-            <PhoneInputList
+            <SelectInputList
               options={options}
               onSelect={handleSelect}
               onClose={handleClose}
+              enableSearch={enableSearch}
+              optionTextMinWidth={optionTextMinWidth}
             />
-          </PhoneInputDropdown>
+          </SelectInputDropdown>
         )}
 
         {required && !(error && typeof error === "string") && (
@@ -172,54 +183,54 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
   }
 )
 
-PhoneInput.displayName = "PhoneInput"
+SelectInput.displayName = "SelectInput"
 
 type ContainerProps = Pick<
-  PhoneInputProps,
+  SelectInputProps,
   "disabled" | "error" | "hover" | "focus" | "placeholder"
 > & { open: boolean }
 
-const PhoneInputContainer = styled(Box)<ContainerProps>`
+const SelectInputContainer = styled(Box)<ContainerProps>`
   position: relative;
   display: flex;
   flex-direction: row;
 
   ${(props) => {
     return css`
-      ${PHONE_INPUT_STATES.default}
-      ${props.hover && PHONE_INPUT_STATES.hover}
-      ${(props.focus || props.open) && PHONE_INPUT_STATES.focus}
-      ${props.disabled && PHONE_INPUT_STATES.disabled}
-      ${props.error && PHONE_INPUT_STATES.error}
+      ${SELECT_INPUT_STATES.default}
+      ${props.hover && SELECT_INPUT_STATES.hover}
+      ${(props.focus || props.open) && SELECT_INPUT_STATES.focus}
+      ${props.disabled && SELECT_INPUT_STATES.disabled}
+      ${props.error && SELECT_INPUT_STATES.error}
 
       &:hover {
         /* Applies hover style if the dropdown is not visible or the input is disabled */
-        ${!props.open && !props.disabled && PHONE_INPUT_STATES.hover}
+        ${!props.open && !props.disabled && SELECT_INPUT_STATES.hover}
       }
 
       &:focus-within {
-        ${!props.disabled && PHONE_INPUT_STATES.focus}
+        ${!props.disabled && SELECT_INPUT_STATES.focus}
 
         &:has(input:not(:placeholder-shown)) {
-          ${PHONE_INPUT_STATES.active}
-          ${props.error && PHONE_INPUT_STATES.error};
+          ${SELECT_INPUT_STATES.active}
+          ${props.error && SELECT_INPUT_STATES.error};
         }
       }
 
       &:has(input:not(:placeholder-shown)) {
-        ${!!props.placeholder && PHONE_INPUT_STATES.completed}
-        ${props.error && PHONE_INPUT_STATES.error};
+        ${!!props.placeholder && SELECT_INPUT_STATES.completed}
+        ${props.error && SELECT_INPUT_STATES.error};
       }
     `
   }}
 `
 
-const PhoneInputSelect = styled(Clickable)<{ disabled?: boolean }>`
+const SelectInputSelect = styled(Clickable)<{ disabled?: boolean }>`
   ${caretMixin}
   display: flex;
   align-items: center;
   position: relative;
-  min-width: 120px;
+  min-width: ${(p) => p.width ?? 120}px;
   border: 1px solid;
   border-right: 0;
   /* 24px = space.1 + 4px-wide caret + space.1 */
@@ -240,14 +251,14 @@ const PhoneInputSelect = styled(Clickable)<{ disabled?: boolean }>`
   }
 `
 
-const PhoneInputDropdown = styled(Box)`
+const SelectInputDropdown = styled(Box)`
   box-shadow: ${themeGet("effects.dropShadow")};
   background: ${themeGet("colors.mono0")};
   z-index: 1;
   padding: ${themeGet("space.1")};
 `
 
-const PhoneInputInput = styled.input`
+const SelectInputInput = styled.input`
   width: 100%;
   background-color: ${themeGet("colors.mono0")};
   padding: 0 ${themeGet("space.1")};
@@ -269,7 +280,7 @@ const PhoneInputInput = styled.input`
   }
 `
 
-const PhoneInputLabel = styled.label`
+const SelectInputLabel = styled.label`
   position: absolute;
   top: 0;
   left: 5px;

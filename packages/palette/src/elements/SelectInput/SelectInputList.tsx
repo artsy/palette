@@ -1,12 +1,13 @@
 import React, { createRef, useEffect, useMemo, useRef, useState } from "react"
 import { Input } from "../Input"
 import { Clickable } from "../Clickable"
-import { Text } from "../Text"
+import { Text, TextProps } from "../Text"
 import styled from "styled-components"
 import { themeGet } from "@styled-system/theme-get"
 import { Box } from "../Box"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
 import { useMouseActivity } from "../../utils/useMouseActivity"
+import { SelectInputProps } from "./SelectInput"
 
 /**
  * The option structure for the list in the dropdown menu
@@ -24,17 +25,21 @@ export interface Option {
   flag?: string
 }
 
-export interface PhoneInputListProps {
+export interface SelectInputListProps {
+  enableSearch?: SelectInputProps["enableSearch"]
   options: Option[]
   onSelect: (option: Option) => void
   onClose: () => void
+  optionTextMinWidth?: TextProps["minWidth"]
 }
 
-export const PhoneInputList = ({
+export const SelectInputList = ({
+  enableSearch,
   options,
   onSelect,
   onClose,
-}: PhoneInputListProps) => {
+  optionTextMinWidth = "8ch",
+}: SelectInputListProps) => {
   const [query, setQuery] = useState("")
 
   const optionsWithRefs = useMemo(() => {
@@ -95,20 +100,22 @@ export const PhoneInputList = ({
 
   return (
     <Box ref={containerRef}>
-      <Input
-        autoFocus
-        placeholder="Search"
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value)
-          reset()
-        }}
-        onKeyDown={handleKeyDown}
-      />
+      {enableSearch && (
+        <Input
+          autoFocus
+          placeholder="Search"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value)
+            reset()
+          }}
+          onKeyDown={handleKeyDown}
+        />
+      )}
 
-      <PhoneInputListOptions>
+      <SelectInputListOptions>
         {filteredOptionsWithRefs.map(({ option, ref }, i) => (
-          <PhoneInputListOption
+          <SelectInputListOption
             key={option.value}
             ref={ref}
             role="option"
@@ -118,19 +125,19 @@ export const PhoneInputList = ({
             }}
             tabIndex={-1}
           >
-            <Text variant="sm" minWidth="8ch">
+            <Text variant="sm" minWidth={optionTextMinWidth}>
               {option.text}
             </Text>
 
             <Text variant="sm">{option.name}</Text>
-          </PhoneInputListOption>
+          </SelectInputListOption>
         ))}
-      </PhoneInputListOptions>
+      </SelectInputListOptions>
     </Box>
   )
 }
 
-const PhoneInputListOption = styled(Clickable)`
+const SelectInputListOption = styled(Clickable)`
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -144,7 +151,7 @@ const PhoneInputListOption = styled(Clickable)`
   }
 `
 
-const PhoneInputListOptions = styled(Box)`
+const SelectInputListOptions = styled(Box)`
   max-height: 250px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;

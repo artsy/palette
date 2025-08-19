@@ -1,24 +1,12 @@
 import React from "react"
 import { States } from "storybook-states"
-import { PhoneInputList, PhoneInputListProps } from "./PhoneInputList"
+import { SelectInput, SelectInputProps } from "./SelectInput"
 
 export default {
-  title: "Components/PhoneInputList",
+  title: "Components/SelectInput",
 }
 
-export const Default = () => {
-  return (
-    <States<Partial<PhoneInputListProps>> states={[{}]}>
-      <PhoneInputList
-        options={EXAMPLE_COUNTRIES}
-        onSelect={(option) => console.log(option)}
-        onClose={() => console.log("close")}
-      />
-    </States>
-  )
-}
-
-const EXAMPLE_COUNTRIES = [
+const countriesExample = [
   {
     text: "🇦🇫 +93",
     name: "Afghanistan",
@@ -216,3 +204,124 @@ const EXAMPLE_COUNTRIES = [
     flag: "🇧🇦",
   },
 ]
+
+export const Default = () => {
+  return (
+    <States<Partial<SelectInputProps>>
+      states={[
+        {},
+        { placeholder: "(000) 000 0000" },
+        { placeholder: "(000) 000 0000", enableSearch: false },
+        { placeholder: "(000) 000 0000", label: undefined },
+        { placeholder: "(000) 000 0000", required: true },
+        { placeholder: "(000) 000 0000", disabled: true },
+        { placeholder: "(000) 000 0000", selectWidth: 100 },
+        { placeholder: "(000) 000 0000", optionTextMinWidth: "20ch" },
+        { placeholder: "(000) 000 0000", error: "Something is wrong" },
+      ]}
+    >
+      <SelectInput
+        options={countriesExample}
+        onSelect={(option) => console.log(option)}
+        label="Phone number"
+        type="tel"
+        autoComplete="tel-national"
+        enableSearch
+      />
+    </States>
+  )
+}
+
+const currencyOptions = [
+  {
+    text: "USD",
+    name: "US Dollar",
+    value: "usd",
+  },
+  {
+    text: "EUR",
+    name: "Euro",
+    value: "eur",
+  },
+  {
+    text: "GBP",
+    name: "British Pound",
+    value: "gbp",
+  },
+  {
+    text: "JPY",
+    name: "Japanese Yen",
+    value: "jpy",
+  },
+  {
+    text: "CHF",
+    name: "Swiss Franc",
+    value: "chf",
+  },
+]
+
+export const CurrencySelect = () => {
+  return (
+    <States<Partial<SelectInputProps>>
+      states={[
+        {},
+        { placeholder: "Currency" },
+        { placeholder: "Currency", enableSearch: true },
+        { placeholder: "Currency" },
+        { placeholder: "Currency" },
+      ]}
+    >
+      <SelectInput
+        options={currencyOptions}
+        onSelect={(option) => console.log(option)}
+        label="Currency"
+        selectWidth={70}
+        optionTextMinWidth="5ch"
+      />
+    </States>
+  )
+}
+
+export const LoadingDisplayTest = () => {
+  const [isLoaded, setIsLoaded] = React.useState(false)
+  const [countryCode, setCountryCode] = React.useState("ad")
+  const [phoneNumber, setPhoneNumber] = React.useState("")
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true)
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <div>
+      <div
+        style={{
+          display: isLoaded ? "grid" : "none",
+          marginTop: "16px",
+        }}
+      >
+        <SelectInput
+          key="loading-test-phone-input"
+          name="phoneNumber"
+          placeholder="(000) 000 0000"
+          options={countriesExample}
+          onSelect={(option) => {
+            console.log("Selected:", option)
+            setCountryCode(option.value)
+          }}
+          dropdownValue={countryCode}
+          label="Phone number"
+          type="tel"
+          autoComplete="tel-national"
+          inputValue={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          data-testid="LoadingTestSelectInput"
+          required
+        />
+      </div>
+      {!isLoaded && <div>Loading phone input...</div>}
+    </div>
+  )
+}
