@@ -127,6 +127,20 @@ export const Currency = () => {
   )
 }
 
+export const WithoutSearch = () => {
+  return (
+    <States<Partial<SelectInputProps>> states={[{ placeholder: "No Search" }]}>
+      <SelectInput
+        label="Price"
+        hideSearch
+        selectWidth={60}
+        options={currencyOptions}
+        onSelect={(option) => console.log(option)}
+      />
+    </States>
+  )
+}
+
 export const WithCustomDropdownStyles = () => {
   return (
     <States<Partial<SelectInputProps>>
