@@ -3,15 +3,31 @@ import { themeGet } from "@styled-system/theme-get"
 import React, { useCallback, useMemo, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
+import { RequiredField } from "../../shared/RequiredField"
 import { useContainsFocus, usePosition, useWidthOf } from "../../utils"
 import { Box, splitBoxProps } from "../Box"
-import { InputProps } from "../Input"
-import { Text } from "../Text"
-import { PHONE_INPUT_STATES } from "./tokens"
-import { RequiredField } from "../../shared/RequiredField"
-import { Option, PhoneInputList } from "./PhoneInputList"
-import { caretMixin } from "../Select"
 import { Clickable } from "../Clickable"
+import { InputProps } from "../Input"
+import { caretMixin } from "../Select"
+import { Text } from "../Text"
+import { PhoneInputList } from "./PhoneInputList"
+import { PHONE_INPUT_STATES } from "./tokens"
+
+/**
+ * The option structure for the list in the dropdown menu
+ *
+ * @interface Option
+ * @property {string} `text` is the content that will be displayed as selected option
+ * @property {string} `name` is the content that will be displayed in the dropdown list
+ * @property {string} `value` is the value that will be passed to onSelect
+ */
+interface Option {
+  text: string
+  name: string
+  value: string
+  countryCode?: string
+  flag?: string
+}
 
 export interface PhoneInputProps extends Omit<InputProps, "onSelect"> {
   options: Option[]
@@ -26,6 +42,11 @@ export interface PhoneInputProps extends Omit<InputProps, "onSelect"> {
   inputValue?: string
 }
 
+/**
+ * A component that allows users to select a country code and enter a phone number.
+ *
+ * @deprecated use component `SelectInput` with `type="tel"` and `autoComplete="tel-national"` instead.
+ */
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
   (
     {
