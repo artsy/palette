@@ -164,6 +164,7 @@ export const THEME = {
     // unit: px value
     /** Equivalent to 5px  */
     0.5: "5px",
+    half: "5px", // alias for 0.5 that makes it easier to access
     /** Equivalent to 10px  */
     1: "10px",
     /** Equivalent to 20px  */
