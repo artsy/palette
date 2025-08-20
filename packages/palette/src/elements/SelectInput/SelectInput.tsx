@@ -26,8 +26,8 @@ export interface SelectInputProps extends Omit<InputProps, "onSelect"> {
   onSelect: (option: Option) => void
   options: Option[]
   required?: boolean
-  /** Controls the width of the left hand select dropdown UI */
-  selectWidth?: ClickableProps["width"]
+  /** Props passed to the left hand select dropdown UI */
+  selectProps?: ClickableProps
   /** Controls the gap between the text and name labels in select options */
   optionTextMinWidth?: TextProps["minWidth"]
 }
@@ -47,8 +47,9 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
       onSelect,
       options,
       required,
-      selectWidth,
       optionTextMinWidth,
+      selectProps,
+
       ...rest
     },
     forwardedRef
@@ -129,12 +130,12 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
           placeholder={inputProps.placeholder}
         >
           <SelectInputSelect
-            data-testid="country-picker"
+            data-testid="select-picker"
             disabled={disabled}
             onClick={() => {
               setOpen(!disabled && !open)
             }}
-            width={selectWidth}
+            {...selectProps}
           >
             {selectedOption.text}
           </SelectInputSelect>

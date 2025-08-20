@@ -215,7 +215,7 @@ export const Default = () => {
         { placeholder: "(000) 000 0000", label: undefined },
         { placeholder: "(000) 000 0000", required: true },
         { placeholder: "(000) 000 0000", disabled: true },
-        { placeholder: "(000) 000 0000", selectWidth: 100 },
+        { placeholder: "(000) 000 0000", selectProps: { width: 100 } },
         { placeholder: "(000) 000 0000", optionTextMinWidth: "20ch" },
         { placeholder: "(000) 000 0000", error: "Something is wrong" },
       ]}
@@ -275,7 +275,7 @@ export const CurrencySelect = () => {
         options={currencyOptions}
         onSelect={(option) => console.log(option)}
         label="Currency"
-        selectWidth={70}
+        selectProps={{ width: 70 }}
         optionTextMinWidth="5ch"
       />
     </States>

@@ -106,7 +106,7 @@ describe("SelectInput", () => {
       />
     )
 
-    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+    wrapper.find('[data-testid="select-picker"]').first().simulate("click")
 
     expect(wrapper.html().match(/role="option"/g)?.length).toEqual(
       countriesExample.length
@@ -123,7 +123,7 @@ describe("SelectInput", () => {
       />
     )
 
-    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+    wrapper.find('[data-testid="select-picker"]').first().simulate("click")
 
     wrapper
       .find("input[placeholder='Search']")
@@ -154,7 +154,7 @@ describe("SelectInput", () => {
     // pre-selected country (first on the list)
     expect(wrapper.text()).toContain("🇦🇱 +355")
 
-    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+    wrapper.find('[data-testid="select-picker"]').first().simulate("click")
 
     wrapper
       .find("input[placeholder='Search']")
@@ -183,7 +183,7 @@ describe("SelectInput", () => {
       />
     )
 
-    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+    wrapper.find('[data-testid="select-picker"]').first().simulate("click")
 
     expect(wrapper.find("input[placeholder='Search']").length).toEqual(1)
   })
@@ -198,7 +198,7 @@ describe("SelectInput", () => {
       />
     )
 
-    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+    wrapper.find('[data-testid="select-picker"]').first().simulate("click")
 
     expect(wrapper.find("input[placeholder='Search']").length).toEqual(0)
   })
@@ -213,7 +213,7 @@ describe("SelectInput", () => {
       />
     )
 
-    wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+    wrapper.find('[data-testid="select-picker"]').first().simulate("click")
 
     expect(wrapper.find("input[placeholder='Search']").length).toEqual(1)
   })
