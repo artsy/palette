@@ -1,3 +1,16 @@
+# v44.0.1 (Thu Aug 21 2025)
+
+#### 🐛  Bug Fix
+
+- fix(autocomplete): better handles focusing when using a pointer device [#1468](https://github.com/artsy/palette/pull/1468) ([@dzucconi](https://github.com/dzucconi))
+- fix(autocomplete): better handles focusing when using a pointer device ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v44.0.0 (Tue Aug 19 2025)
 
 #### 💥  Breaking Change
