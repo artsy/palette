@@ -244,8 +244,23 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   // Moves focus to different options when keyboard navigating using up/down
   useEffect(() => {
-    const option = optionsWithRefs[index]
-    option?.ref?.current?.focus()
+    const el = optionsWithRefs[index]?.ref?.current
+    if (!el) return
+
+    const isPointerInteraction =
+      performance.now() - lastMouseMoveTimestamp.current < 50
+
+    if (isPointerInteraction) {
+      // Pointer interactions should not cause scroll
+      el.focus({ preventScroll: true })
+      return
+    }
+
+    // Keyboard navigation: focus and ensure visibility
+    el.focus({ preventScroll: true })
+    try {
+      el.scrollIntoView({ block: "nearest" })
+    } catch {}
   }, [index, optionsWithRefs])
 
   const handleFocusChange = useCallback(
