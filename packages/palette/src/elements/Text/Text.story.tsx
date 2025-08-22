@@ -1,153 +1,152 @@
-import {
-  TEXT_VARIANT_NAMES,
-  TEXT_VARIANTS,
-} from "@artsy/palette-tokens/dist/typography/v3"
-import { themeGet } from "@styled-system/theme-get"
-import React from "react"
-import { States } from "storybook-states"
-import styled from "styled-components"
-import { Color } from "../../Theme"
-import { Flex } from "../Flex"
-import { Text, TextProps } from "./Text"
+import { Text } from "./Text"
 
-const Table = styled.table`
-  width: 100%;
-  border: 1px solid ${themeGet("colors.mono10")};
-  border-collapse: collapse;
-
-  > thead > tr > th {
-    text-align: left;
-    font-weight: normal;
-  }
-
-  > thead > tr > th,
-  > tbody > tr > td {
-    border-bottom: 1px solid ${themeGet("colors.mono10")};
-    border-left: 1px solid ${themeGet("colors.mono10")};
-    padding: ${themeGet("space.1")};
-  }
-`
-
-const Specification: React.FC<
-  React.PropsWithChildren<{
-    size?: "small" | "large" | "default"
-    treatment: any
-  }>
-> = ({ size, treatment }) => {
-  const textColor =
-    {
-      small: ["purple100", "mono60"] as Color[],
-      large: ["mono60", "purple100"] as Color[],
-    }[size || "small"] || "mono60"
-
-  return (
-    <>
-      {
-        Object.entries(treatment).map(([property, value]) => {
-          return (
-            value && (
-              <Flex key={property}>
-                <Text variant="xs" textColor={textColor}>
-                  {property}:&nbsp;
-                </Text>
-
-                <Text variant="xs" textColor={textColor}>
-                  {value as any}
-                </Text>
-              </Flex>
-            )
-          )
-        }) as React.ReactNode[]
-      }
-    </>
-  )
+export default {
+  title: "Components/Text",
+  component: Text,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Text component provides typography with predefined variants for consistent text styling across the application. Supports various sizes, weights, colors, and semantic HTML elements.",
+      },
+      controls: {
+        include: [
+          "children",
+          "variant",
+          "as",
+          "textColor",
+          "caps",
+          "italic",
+          "underline",
+          "overflowEllipsis",
+          "lineClamp",
+          "textTransform",
+        ],
+      },
+    },
+  },
 }
 
-export default { title: "Components/Text" }
-
-export const Variants = () => {
-  return (
-    <Table>
-      <thead>
-        <tr>
-          <th>
-            <Text variant="sm-display">Variant</Text>
-          </th>
-
-          <th>
-            <Text variant="sm-display">Specifications</Text>
-          </th>
-
-          <th>
-            <Text variant="sm-display">Example</Text>
-          </th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {TEXT_VARIANT_NAMES.map((key) => (
-          <tr key={key}>
-            <td>
-              <Text variant="sm-display">{key}</Text>
-            </td>
-
-            <td>
-              <Specification size="default" treatment={TEXT_VARIANTS[key]} />
-            </td>
-
-            <td>
-              <Text variant={key}>
-                All their equipment and instruments are alive
-              </Text>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
-  )
+export const Default = {
+  args: {
+    children: "This is default text",
+  },
 }
 
-export const As = () => {
-  const ELEMENTS = ["h1", "h2", "h3", "p"] as Array<keyof JSX.IntrinsicElements>
-
-  return (
-    <>
-      {ELEMENTS.map((element) => {
-        return (
-          <Text key={element} as={element} variant="sm">
-            This is a text component with an element set to {element}
-          </Text>
-        )
-      })}
-    </>
-  )
+export const LargeTitle = {
+  args: {
+    variant: "lg-display",
+    children: "Large Display Text",
+  },
 }
 
-export const Truncation = () => {
-  return (
-    <States<TextProps> states={[{ overflowEllipsis: true }, { lineClamp: 2 }]}>
-      <Text variant="sm">
-        All their equipment and instruments are alive. All their equipment and
-        instruments are alive. All their equipment and instruments are alive.
-        All their equipment and instruments are alive. All their equipment and
-        instruments are alive. All their equipment and instruments are alive.
-        All their equipment and instruments are alive. All their equipment and
-        instruments are alive. All their equipment and instruments are alive.
-      </Text>
-    </States>
-  )
+export const MediumTitle = {
+  args: {
+    variant: "md-display",
+    children: "Medium Display Text",
+  },
 }
 
-export const Caps = () => {
-  return (
-    <States<TextProps>
-      states={[
-        {},
-        { textTransform: "uppercase" },
-        { textTransform: "capitalize" },
-      ]}
-    >
-      <Text variant="xs">Hello world</Text>
-    </States>
-  )
+export const SmallTitle = {
+  args: {
+    variant: "sm-display",
+    children: "Small Display Text",
+  },
+}
+
+export const BodyText = {
+  args: {
+    variant: "sm",
+    children:
+      "This is body text that would typically be used for paragraphs and general content.",
+  },
+}
+
+export const ColoredText = {
+  args: {
+    variant: "md",
+    textColor: "blue100",
+    children: "This text is colored blue",
+  },
+}
+
+export const AsHeading = {
+  args: {
+    as: "h2",
+    variant: "lg-display",
+    children: "This renders as an H2 element",
+  },
+}
+
+export const ExtraSmall = {
+  args: {
+    variant: "xs",
+    children: "Extra small text",
+  },
+}
+
+export const XLargeDisplay = {
+  args: {
+    variant: "xl",
+    children: "Extra large display text",
+  },
+}
+
+export const XXLargeDisplay = {
+  args: {
+    variant: "xxl",
+    children: "Extra extra large display text",
+  },
+}
+
+export const CappedText = {
+  args: {
+    caps: true,
+    children: "This text is in caps",
+  },
+}
+
+export const ItalicText = {
+  args: {
+    italic: true,
+    children: "This text is italicized",
+  },
+}
+
+export const UnderlineText = {
+  args: {
+    underline: true,
+    children: "This text is underlined",
+  },
+}
+
+export const TruncatedText = {
+  args: {
+    overflowEllipsis: true,
+    children:
+      "All their equipment and instruments are alive. All their equipment and instruments are alive. All their equipment and instruments are alive.",
+  },
+}
+
+export const LineClampText = {
+  args: {
+    lineClamp: 2,
+    children:
+      "All their equipment and instruments are alive. All their equipment and instruments are alive. All their equipment and instruments are alive. All their equipment and instruments are alive. All their equipment and instruments are alive.",
+  },
+}
+
+export const UppercaseText = {
+  args: {
+    textTransform: "uppercase",
+    children: "This text is uppercase",
+  },
+}
+
+export const CapitalizedText = {
+  args: {
+    textTransform: "capitalize",
+    children: "this text is capitalized",
+  },
 }
