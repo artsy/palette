@@ -1,10 +1,30 @@
 import { fn } from "@storybook/test"
 import React, { useReducer } from "react"
-import { States } from "storybook-states"
-import { MultiSelect, MultiSelectProps } from "./MultiSelect"
+import { MultiSelect } from "./MultiSelect"
 
 export default {
   title: "Components/MultiSelect",
+  component: MultiSelect,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      controls: {
+        include: [
+          "options",
+          "name",
+          "title",
+          "required",
+          "disabled",
+          "focus",
+          "hover",
+          "complete",
+          "error",
+          "description",
+          "onSelect",
+        ],
+      },
+    },
+  },
 }
 
 const OPTIONS = [
@@ -15,49 +35,112 @@ const OPTIONS = [
   { text: "Mixed Media", value: "mixed-media" },
 ]
 
-export const Default = () => {
-  return (
-    <States<Partial<MultiSelectProps>>
-      states={[
-        {},
-        { focus: true },
-        { hover: true },
-        { complete: true },
-        { error: "Something went wrong." },
-        { disabled: true },
-        { title: "Medium", name: "Select" },
-        { title: "Medium", name: "Select", required: true },
-        {
-          title: "Medium",
-          name: "Select",
-          description: "Materials or support",
-        },
-      ]}
-    >
-      <MultiSelect name="Medium" options={OPTIONS} onSelect={fn()} />
-    </States>
-  )
+export const Default = {
+  args: {
+    name: "Medium",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
 }
 
-export const Example = () => {
-  const [filters, setFilter] = useReducer(
-    (state, newFilter) => ({ ...state, ...newFilter }),
-    {}
-  )
+export const Focus = {
+  args: {
+    name: "Medium",
+    options: OPTIONS,
+    onSelect: fn(),
+    focus: true,
+  },
+}
 
-  return (
-    <>
-      <pre>{JSON.stringify(filters)}</pre>
+export const Hover = {
+  args: {
+    name: "Medium",
+    options: OPTIONS,
+    onSelect: fn(),
+    hover: true,
+  },
+}
 
-      <MultiSelect
-        options={OPTIONS}
-        name="Size"
-        onSelect={(sizes) => {
-          setFilter({ sizes: sizes.map((size) => size.value) })
-        }}
-      />
-    </>
-  )
+export const Complete = {
+  args: {
+    name: "Medium",
+    options: OPTIONS,
+    onSelect: fn(),
+    complete: true,
+  },
+}
+
+export const WithError = {
+  args: {
+    name: "Medium",
+    options: OPTIONS,
+    onSelect: fn(),
+    error: "Something went wrong.",
+  },
+}
+
+export const Disabled = {
+  args: {
+    name: "Medium",
+    options: OPTIONS,
+    onSelect: fn(),
+    disabled: true,
+  },
+}
+
+export const WithTitle = {
+  args: {
+    name: "Select",
+    title: "Medium",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
+}
+
+export const Required = {
+  args: {
+    name: "Select",
+    title: "Medium",
+    options: OPTIONS,
+    onSelect: fn(),
+    required: true,
+  },
+}
+
+export const WithDescription = {
+  args: {
+    name: "Select",
+    title: "Medium",
+    description: "Materials or support",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
+}
+
+export const WithStateTracking = {
+  args: {
+    name: "Size",
+    options: OPTIONS,
+  },
+  render: (args) => {
+    const [filters, setFilter] = useReducer(
+      (state, newFilter) => ({ ...state, ...newFilter }),
+      {}
+    )
+
+    return (
+      <>
+        <pre>{JSON.stringify(filters)}</pre>
+
+        <MultiSelect
+          {...args}
+          onSelect={(sizes) => {
+            setFilter({ sizes: sizes.map((size) => size.value) })
+          }}
+        />
+      </>
+    )
+  },
 }
 
 export const CustomSelectionLogic = () => {

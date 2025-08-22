@@ -16,14 +16,27 @@ import ArtsyLogoIcon from "@artsy/icons/ArtsyLogoIcon"
 import CloseIcon from "@artsy/icons/CloseIcon"
 
 export default {
+  component: ModalDialogContent,
   title: "Components/ModalDialogContent",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Content component for modal dialogs with title, body, and action sections.",
+      },
+    },
+    controls: {
+      include: ["title", "onBack", "onClose", "children"],
+    },
+  },
 }
 
 const EXAMPLE_LONG_NAME =
   "Egypt, Thebes, Wadi Qubbanet el-Qirud, New Kingdom, Late Dynasty 18 or early Dynasty 19"
 
-export const Default = () => {
-  return (
+export const Default = {
+  render: () => (
     <States<Partial<ModalDialogContentProps>>
       states={[
         {
@@ -153,5 +166,13 @@ export const Default = () => {
         </Join>
       </ModalDialogContent>
     </States>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default ModalDialogContent with various states including titles, logos, footers, and content.",
+      },
+    },
+  },
 }

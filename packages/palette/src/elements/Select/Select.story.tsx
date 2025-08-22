@@ -30,8 +30,8 @@ const OPTIONS = [
   { text: "Artwork year (asc.)", value: "year" },
 ]
 
-export const Default = () => {
-  return (
+export const Default = {
+  render: () => (
     <States<Partial<SelectProps>>
       states={[
         {},
@@ -53,5 +53,13 @@ export const Default = () => {
     >
       <Select options={OPTIONS} />
     </States>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default Select component with various states including focus, hover, error, disabled, and with titles and descriptions.",
+      },
+    },
+  },
 }

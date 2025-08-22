@@ -205,8 +205,15 @@ const countriesExample = [
   },
 ]
 
-export const Default = () => {
-  return (
+export const Default = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+  },
+  render: (args) => (
     <States<Partial<SelectInputProps>>
       states={[
         {},
@@ -220,16 +227,19 @@ export const Default = () => {
         { placeholder: "(000) 000 0000", error: "Something is wrong" },
       ]}
     >
-      <SelectInput
-        options={countriesExample}
-        onSelect={(option) => console.log(option)}
-        label="Phone number"
-        type="tel"
-        autoComplete="tel-national"
-        enableSearch
-      />
+      <SelectInput {...args} onSelect={(option) => console.log(option)} />
     </States>
-  )
+  ),
+  parameters: {
+    controls: {
+      include: ["options", "label", "type", "autoComplete", "enableSearch"],
+    },
+    docs: {
+      description: {
+        story: "Default SelectInput with various states.",
+      },
+    },
+  },
 }
 
 const currencyOptions = [
@@ -260,8 +270,14 @@ const currencyOptions = [
   },
 ]
 
-export const CurrencySelect = () => {
-  return (
+export const CurrencySelect = {
+  args: {
+    options: currencyOptions,
+    label: "Currency",
+    selectWidth: 70,
+    optionTextMinWidth: "5ch",
+  },
+  render: (args) => (
     <States<Partial<SelectInputProps>>
       states={[
         {},
@@ -271,57 +287,70 @@ export const CurrencySelect = () => {
         { placeholder: "Currency" },
       ]}
     >
-      <SelectInput
-        options={currencyOptions}
-        onSelect={(option) => console.log(option)}
-        label="Currency"
-        selectWidth={70}
-        optionTextMinWidth="5ch"
-      />
+      <SelectInput {...args} onSelect={(option) => console.log(option)} />
     </States>
-  )
+  ),
+  parameters: {
+    controls: {
+      include: ["options", "label", "selectWidth", "optionTextMinWidth"],
+    },
+    docs: {
+      description: {
+        story: "Currency select input with various states.",
+      },
+    },
+  },
 }
 
-export const LoadingDisplayTest = () => {
-  const [isLoaded, setIsLoaded] = React.useState(false)
-  const [countryCode, setCountryCode] = React.useState("ad")
-  const [phoneNumber, setPhoneNumber] = React.useState("")
+export const LoadingDisplayTest = {
+  render: () => {
+    const [isLoaded, setIsLoaded] = React.useState(false)
+    const [countryCode, setCountryCode] = React.useState("ad")
+    const [phoneNumber, setPhoneNumber] = React.useState("")
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true)
-    }, 500)
-    return () => clearTimeout(timer)
-  }, [])
+    React.useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoaded(true)
+      }, 500)
+      return () => clearTimeout(timer)
+    }, [])
 
-  return (
-    <div>
-      <div
-        style={{
-          display: isLoaded ? "grid" : "none",
-          marginTop: "16px",
-        }}
-      >
-        <SelectInput
-          key="loading-test-phone-input"
-          name="phoneNumber"
-          placeholder="(000) 000 0000"
-          options={countriesExample}
-          onSelect={(option) => {
-            console.log("Selected:", option)
-            setCountryCode(option.value)
+    return (
+      <div>
+        <div
+          style={{
+            display: isLoaded ? "grid" : "none",
+            marginTop: "16px",
           }}
-          dropdownValue={countryCode}
-          label="Phone number"
-          type="tel"
-          autoComplete="tel-national"
-          inputValue={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          data-testid="LoadingTestSelectInput"
-          required
-        />
+        >
+          <SelectInput
+            key="loading-test-phone-input"
+            name="phoneNumber"
+            placeholder="(000) 000 0000"
+            options={countriesExample}
+            onSelect={(option) => {
+              console.log("Selected:", option)
+              setCountryCode(option.value)
+            }}
+            dropdownValue={countryCode}
+            label="Phone number"
+            type="tel"
+            autoComplete="tel-national"
+            inputValue={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            data-testid="LoadingTestSelectInput"
+            required
+          />
+        </div>
+        {!isLoaded && <div>Loading phone input...</div>}
       </div>
-      {!isLoaded && <div>Loading phone input...</div>}
-    </div>
-  )
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Test loading state for SelectInput.",
+      },
+    },
+  },
 }

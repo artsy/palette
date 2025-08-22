@@ -9,7 +9,30 @@ const LOREM =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus sed iure repellendus animi, aliquid aut fuga maxime nemo minus quas. Error, incidunt fugit similique quidem culpa hic! Nemo, quas rerum. "
 
 export default {
+  component: ModalDialog,
   title: "Components/ModalDialog",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A modal dialog component with customizable layout, panels, and content areas.",
+      },
+    },
+    controls: {
+      include: [
+        "title",
+        "width",
+        "hasLogo",
+        "header",
+        "footer",
+        "leftPanel",
+        "rightPanel",
+        "zIndex",
+        "onClose",
+      ],
+    },
+  },
 }
 
 const Demo = ({ children, ...rest }: Partial<ModalDialogProps>) => {
@@ -28,8 +51,8 @@ const Demo = ({ children, ...rest }: Partial<ModalDialogProps>) => {
   )
 }
 
-export const Default = () => {
-  return (
+export const Default = {
+  render: () => (
     <States<Partial<ModalDialogProps>>
       states={[
         {
@@ -129,5 +152,13 @@ export const Default = () => {
     >
       {(props) => <Demo {...props} />}
     </States>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default ModalDialog with various configurations including titles, widths, panels, headers, and footers.",
+      },
+    },
+  },
 }
