@@ -26,31 +26,20 @@ export const Default = {
     <>
       <StackableBorderBox>
         <Flex>
-          <Flex>
-            <Avatar
-              size="xs"
-              src="https://picsum.photos/seed/example/110/110"
-            />
-          </Flex>
-          <Flex>
-            <Avatar
-              size="xs"
-              src="https://picsum.photos/seed/example/110/110"
-            />
-          </Flex>
+          <Avatar size="xs" src="https://picsum.photos/seed/example/110/110" />
           <Button>Click me</Button>
         </Flex>
       </StackableBorderBox>
-      <StackableBorderBox>2</StackableBorderBox>
-      <StackableBorderBox>3</StackableBorderBox>
-      <StackableBorderBox>4</StackableBorderBox>
+      <StackableBorderBox>Second Box</StackableBorderBox>
+      <StackableBorderBox>Third Box</StackableBorderBox>
+      <StackableBorderBox>Fourth Box</StackableBorderBox>
     </>
   ),
   parameters: {
     docs: {
       description: {
         story:
-          "Multiple stackable border boxes demonstrating how they connect visually.",
+          "Multiple stackable border boxes demonstrating visual connection.",
       },
     },
   },

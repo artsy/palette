@@ -79,9 +79,9 @@ export default {
         component:
           "A base modal component that handles focus management, backdrop clicks, and accessibility.",
       },
-    },
-    controls: {
-      include: ["onClose", "preventBodyScroll", "fullscreen"],
+      controls: {
+        include: ["onClose", "preventBodyScroll", "fullscreen"],
+      },
     },
   },
 }
