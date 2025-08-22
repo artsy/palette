@@ -80,17 +80,26 @@ export const SmallRange = {
 }
 
 export const WithinModal = {
-  render: () => (
-    <ModalBase
-      width="100%"
-      height="100%"
-      dialogProps={{ width: 400, height: 400, bg: "mono5" }}
-    >
-      <Box width={400} height={400}>
-        <Range min={0} max={5000} step={10} onChange={fn()} />
-      </Box>
-    </ModalBase>
-  ),
+  render: () => {
+    const [open, setOpen] = React.useState(false)
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open Modal</Button>
+        {open && (
+          <ModalBase
+            width="100%"
+            height="100%"
+            dialogProps={{ width: 400, height: 400, bg: "mono5" }}
+            onClose={() => setOpen(false)}
+          >
+            <Box width={400} height={400}>
+              <Range min={0} max={5000} step={10} onChange={fn()} />
+            </Box>
+          </ModalBase>
+        )}
+      </>
+    )
+  },
   parameters: {
     docs: {
       description: {
