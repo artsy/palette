@@ -1,4 +1,3 @@
-import { fn } from "@storybook/test"
 import React from "react"
 import { States } from "storybook-states"
 import { Position, POSITION } from "../../utils"
@@ -37,88 +36,182 @@ export default {
 }
 
 export const Default = {
-  render: () => (
-    <States<Partial<PopoverProps>>
-      states={[
-        {},
-        { visible: true },
-        { onClose: fn(), onDismiss: fn() },
-        {
-          visible: true,
-          popover: (
-            <Text variant="xs" width={300}>
-              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
-              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
-              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
-              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
-              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
-              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
-              | | | — (Content interaction with close button.)
-            </Text>
-          ),
-        },
-        {
-          pointer: true,
-          visible: true,
-          p: 0,
-          popover: (
-            <>
-              {new Array(4).fill(0).map((_, i) => (
-                <Text
-                  key={i}
-                  variant="sm-display"
-                  overflowEllipsis
-                  bg="red10"
-                  px={1}
-                  py={0.5}
-                >
-                  Example Item
-                </Text>
-              ))}
-            </>
-          ),
-        },
-        {
-          variant: "defaultDark",
-          placement: "bottom",
-          visible: true,
-          pointer: true,
-          zIndex: 99,
-        },
-        {
-          ignoreClickOutside: true,
-        },
-      ]}
-    >
-      <Popover
-        placement="bottom"
-        popover={
-          <Text variant="xs" width={300}>
-            {CONTENT}
-          </Text>
-        }
-      >
-        {({ onVisible, anchorRef }) => (
-          <Box textAlign="center">
-            <Button
-              ref={anchorRef}
-              variant="secondaryBlack"
-              size="small"
-              onClick={onVisible}
-            >
-              Click to display popover
-            </Button>
-          </Box>
-        )}
-      </Popover>
-    </States>
-  ),
+  args: {
+    placement: "bottom",
+    popover: (
+      <Text variant="xs" width={300}>
+        {CONTENT}
+      </Text>
+    ),
+    children: ({ onVisible, anchorRef }) => (
+      <Box textAlign="center">
+        <Button
+          ref={anchorRef}
+          variant="secondaryBlack"
+          size="small"
+          onClick={onVisible}
+        >
+          Click to display popover
+        </Button>
+      </Box>
+    ),
+  },
   parameters: {
-    chromatic: { disable: true },
     docs: {
       description: {
-        story:
-          "Default popover with various states including visible, with content interactions, pointer styles, and dark variant.",
+        story: "Default popover.",
+      },
+    },
+  },
+}
+
+export const Visible = {
+  args: {
+    placement: "bottom",
+    visible: true,
+    popover: (
+      <Text variant="xs" width={300}>
+        {CONTENT}
+      </Text>
+    ),
+    children: ({ anchorRef }) => (
+      <Box textAlign="center">
+        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+          Popover Visible
+        </Button>
+      </Box>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Popover visible state.",
+      },
+    },
+  },
+}
+
+export const WithContentInteraction = {
+  args: {
+    placement: "bottom",
+    visible: true,
+    popover: (
+      <Text variant="xs" width={300}>
+        | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+        | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+        | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+        | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+        | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+        | | | | | | | | | | | | | | | | | | | | | — (Content interaction with
+        close button.)
+      </Text>
+    ),
+    children: ({ anchorRef }) => (
+      <Box textAlign="center">
+        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+          Popover With Content Interaction
+        </Button>
+      </Box>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Popover with content interaction.",
+      },
+    },
+  },
+}
+
+export const Pointer = {
+  args: {
+    placement: "bottom",
+    pointer: true,
+    visible: true,
+    p: 0,
+    popover: (
+      <>
+        {new Array(4).fill(0).map((_, i) => (
+          <Text
+            key={i}
+            variant="sm-display"
+            overflowEllipsis
+            bg="red10"
+            px={1}
+            py={0.5}
+          >
+            Example Item
+          </Text>
+        ))}
+      </>
+    ),
+    children: ({ anchorRef }) => (
+      <Box textAlign="center">
+        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+          Popover With Pointer
+        </Button>
+      </Box>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Popover with pointer and multiple items.",
+      },
+    },
+  },
+}
+
+export const DarkVariant = {
+  args: {
+    placement: "bottom",
+    variant: "defaultDark",
+    visible: true,
+    pointer: true,
+    zIndex: 99,
+    popover: (
+      <Text variant="xs" width={300}>
+        {CONTENT}
+      </Text>
+    ),
+    children: ({ anchorRef }) => (
+      <Box textAlign="center">
+        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+          Popover Dark Variant
+        </Button>
+      </Box>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Popover with dark variant styling.",
+      },
+    },
+  },
+}
+
+export const IgnoreClickOutside = {
+  args: {
+    placement: "bottom",
+    ignoreClickOutside: true,
+    popover: (
+      <Text variant="xs" width={300}>
+        {CONTENT}
+      </Text>
+    ),
+    children: ({ anchorRef }) => (
+      <Box textAlign="center">
+        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+          Popover Ignore Click Outside
+        </Button>
+      </Box>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Popover with ignoreClickOutside enabled.",
       },
     },
   },
