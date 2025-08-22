@@ -1,29 +1,81 @@
 import { fn } from "@storybook/test"
 import React from "react"
-import { States } from "storybook-states"
-import { RadioGroup, RadioGroupProps } from "../RadioGroup"
+import { RadioGroup } from "../RadioGroup"
 import { BorderedRadio } from "./BorderedRadio"
+import { STYLED_SYSTEM_PROPS_BLACKLIST } from "../../shared/PropsBlacklist"
 
 export default {
   title: "Components/BorderedRadio",
+  component: BorderedRadio,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "BorderedRadio component provides a radio button with border styling. Designed to be used within RadioGroup for creating radio button lists with consistent visual borders.",
+      },
+      controls: {
+        exclude: STYLED_SYSTEM_PROPS_BLACKLIST,
+      },
+    },
+  },
 }
 
-export const Default = () => {
-  return (
-    <States<Partial<RadioGroupProps<string>>>
-      states={[{}, { defaultValue: "Aural" }, { deselectable: true }]}
-    >
-      <RadioGroup onSelect={fn()}>
-        {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
-          (value) => {
-            return (
-              <BorderedRadio key={value} value={value}>
-                {value}
-              </BorderedRadio>
-            )
-          }
-        )}
-      </RadioGroup>
-    </States>
-  )
+export const Default = {
+  args: {
+    value: "option1",
+    children: "Option 1",
+  },
+}
+
+export const WithPreselected = {
+  render: () => (
+    <RadioGroup defaultValue="Aural" onSelect={fn()}>
+      <BorderedRadio value="Visual">Visual</BorderedRadio>
+      <BorderedRadio value="Linguistic">Linguistic</BorderedRadio>
+      <BorderedRadio value="Spatial">Spatial</BorderedRadio>
+      <BorderedRadio value="Aural">Aural</BorderedRadio>
+      <BorderedRadio value="Gestural">Gestural</BorderedRadio>
+    </RadioGroup>
+  ),
+}
+
+export const WithDeselectable = {
+  render: () => (
+    <RadioGroup deselectable onSelect={fn()}>
+      <BorderedRadio value="Visual">Visual</BorderedRadio>
+      <BorderedRadio value="Linguistic">Linguistic</BorderedRadio>
+      <BorderedRadio value="Spatial">Spatial</BorderedRadio>
+      <BorderedRadio value="Aural">Aural</BorderedRadio>
+      <BorderedRadio value="Gestural">Gestural</BorderedRadio>
+    </RadioGroup>
+  ),
+}
+
+export const WithDisabledOption = {
+  render: () => (
+    <RadioGroup onSelect={fn()}>
+      <BorderedRadio value="Visual">Visual</BorderedRadio>
+      <BorderedRadio value="Linguistic" disabled>
+        Linguistic (Disabled)
+      </BorderedRadio>
+      <BorderedRadio value="Spatial">Spatial</BorderedRadio>
+      <BorderedRadio value="Aural">Aural</BorderedRadio>
+      <BorderedRadio value="Gestural">Gestural</BorderedRadio>
+    </RadioGroup>
+  ),
+}
+
+export const WithErrorState = {
+  render: () => (
+    <RadioGroup onSelect={fn()}>
+      <BorderedRadio value="Visual">Visual</BorderedRadio>
+      <BorderedRadio value="Linguistic">Linguistic</BorderedRadio>
+      <BorderedRadio value="Spatial" error>
+        Spatial (Error)
+      </BorderedRadio>
+      <BorderedRadio value="Aural">Aural</BorderedRadio>
+      <BorderedRadio value="Gestural">Gestural</BorderedRadio>
+    </RadioGroup>
+  ),
 }
