@@ -16,7 +16,28 @@ import { Column, GridColumns } from "../GridColumns"
 const CONTENT = "Lorem ipsum dolor sit amet consectetur adipisicing elit?"
 
 export default {
+  component: Tooltip,
   title: "Components/Tooltip",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A tooltip component for displaying contextual information on hover or focus with various placement options.",
+      },
+    },
+    controls: {
+      include: [
+        "placement",
+        "variant",
+        "visible",
+        "pointer",
+        "width",
+        "children",
+        "content",
+      ],
+    },
+  },
 }
 
 export const Default = () => {

@@ -4,7 +4,20 @@ import { ShowMore, ShowMoreProps } from "./ShowMore"
 import { Text } from "../Text"
 
 export default {
+  component: ShowMore,
   title: "Components/ShowMore",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A component that shows a limited number of children initially with a toggle to show/hide more.",
+      },
+    },
+    controls: {
+      include: ["initial", "expanded", "variant", "textDecoration", "children"],
+    },
+  },
 }
 
 export const Default = () => {

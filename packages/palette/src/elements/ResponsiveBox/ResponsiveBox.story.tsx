@@ -69,7 +69,28 @@ const EXAMPLE_MAXIMUMS: ResponsiveBoxMaxDimensions[] = [
   { maxHeight: 1024, maxWidth: 1024 },
 ]
 
-export default { title: "Components/ResponsiveBox" }
+export default {
+  component: ResponsiveBox,
+  title: "Components/ResponsiveBox",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A responsive container that maintains aspect ratio and optionally constrains maximum dimensions.",
+      },
+    },
+    controls: {
+      include: [
+        "aspectWidth",
+        "aspectHeight",
+        "maxWidth",
+        "maxHeight",
+        "children",
+      ],
+    },
+  },
+}
 
 export const Basic = () => {
   return (

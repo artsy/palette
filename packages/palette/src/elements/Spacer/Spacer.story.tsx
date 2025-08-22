@@ -1,56 +1,60 @@
-import { THEME } from "@artsy/palette-tokens/dist/themes/v3"
 import React from "react"
-import { States } from "storybook-states"
 import { Box } from "../Box"
-import { Spacer, SpacerProps } from "./Spacer"
+import { Spacer } from "./Spacer"
 
 export default {
-  title: "Components/Spacer",
   component: Spacer,
+  title: "Components/Spacer",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A spacing component that creates horizontal (x) or vertical (y) space between elements.",
+      },
+    },
+    controls: {
+      include: ["x", "y"],
+    },
+  },
 }
 
-const VALUES = Object.keys(THEME.space)
-  .sort((a, b) => {
-    return Number(a) - Number(b)
-  })
-  .map((value) => Number(value))
-
-export const Default = () => {
-  return (
-    <States<SpacerProps>
-      states={[
-        ...VALUES.map((value) => ({ y: value })),
-        ...VALUES.map((value) => ({ x: value })),
-      ]}
-    >
-      {({ x, y }) => {
-        if (y) {
-          return (
-            <_Spacer>
-              <Box height={2} width={100} bg="mono60" />
-
-              <Spacer y={y} />
-
-              <Box height={2} width={100} bg="mono60" />
-            </_Spacer>
-          )
-        }
-
-        return (
-          <_Spacer>
-            <Box display="flex">
-              <Box height={100} width={2} bg="mono60" />
-
-              <Spacer x={x} />
-
-              <Box height={100} width={2} bg="mono60" />
-            </Box>
-          </_Spacer>
-        )
-      }}
-    </States>
-  )
+export const VerticalSpacing = {
+  args: {
+    y: 2,
+  },
+  render: (args) => (
+    <Box>
+      <Box height={2} width={100} bg="mono60" />
+      <Spacer {...args} />
+      <Box height={2} width={100} bg="mono60" />
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Vertical spacing using the y prop.",
+      },
+    },
+  },
 }
 
-const _Spacer = Box
-_Spacer.displayName = "Spacer"
+export const HorizontalSpacing = {
+  args: {
+    x: 2,
+  },
+  render: (args) => (
+    <Box display="flex">
+      <Box height={100} width={2} bg="mono60" />
+      <Spacer {...args} />
+      <Box height={100} width={2} bg="mono60" />
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Horizontal spacing using the x prop.",
+      },
+    },
+  },
+}

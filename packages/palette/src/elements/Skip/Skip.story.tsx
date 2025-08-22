@@ -3,7 +3,20 @@ import { Text } from "../Text"
 import { Skip } from "./Skip"
 
 export default {
+  component: Skip,
   title: "Components/Skip",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A skip link component for accessibility, allowing keyboard users to skip to main content.",
+      },
+    },
+    controls: {
+      include: ["children", "width", "my"],
+    },
+  },
 }
 
 export const SkipButton = () => {
@@ -16,10 +29,6 @@ export const SkipButton = () => {
       </Text>
     </>
   )
-}
-
-SkipButton.story = {
-  name: "Skip button",
 }
 
 export const SkipButtonWithSpacing = () => {

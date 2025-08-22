@@ -4,7 +4,20 @@ import { Text } from "../Text"
 import { Sup, SupProps } from "./Sup"
 
 export default {
+  component: Sup,
   title: "Components/Sup",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A superscript text component with different size variants for adding small text above the baseline.",
+      },
+    },
+    controls: {
+      include: ["variant", "color", "children"],
+    },
+  },
 }
 
 export const Default = () => {

@@ -5,7 +5,28 @@ import { Button } from "../Button"
 import { TextArea, TextAreaProps } from "./TextArea"
 
 export default {
+  component: TextArea,
   title: "Components/TextArea",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A multi-line text input component with character limits, validation, and form states.",
+      },
+    },
+    controls: {
+      include: [
+        "title",
+        "error",
+        "disabled",
+        "required",
+        "characterLimit",
+        "characterLimitHelper",
+        "defaultValue",
+      ],
+    },
+  },
 }
 
 export const Default = () => {

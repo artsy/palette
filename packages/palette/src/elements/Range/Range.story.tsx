@@ -12,7 +12,20 @@ import { Drawer } from "../Drawer"
 import { Button } from "../Button"
 
 export default {
+  component: Range,
   title: "Components/Range",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A dual-handle range slider component for selecting value ranges with customizable min/max/step values.",
+      },
+    },
+    controls: {
+      include: ["min", "max", "step", "value", "onChange", "ariaLabels"],
+    },
+  },
 }
 
 export const Default = () => {

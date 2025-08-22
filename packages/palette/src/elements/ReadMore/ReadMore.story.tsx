@@ -4,7 +4,20 @@ import { ReadMore } from "./ReadMore"
 import { Box } from "../Box"
 
 export default {
+  component: ReadMore,
   title: "Components/ReadMore",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A component that truncates content and provides a 'read more' link to expand the full content.",
+      },
+    },
+    controls: {
+      include: ["maxChars", "content", "disabled"],
+    },
+  },
 }
 
 export const WithCharacterCap = () => {

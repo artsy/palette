@@ -8,7 +8,26 @@ import { RadioGroup, RadioGroupProps } from "./RadioGroup"
 import { Join } from "../Join"
 
 export default {
+  component: RadioGroup,
   title: "Components/RadioGroup",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A group of radio button inputs with support for default values and deselection.",
+      },
+    },
+    controls: {
+      include: [
+        "onSelect",
+        "defaultValue",
+        "deselectable",
+        "disabled",
+        "disabledText",
+      ],
+    },
+  },
 }
 
 export const Default = () => {

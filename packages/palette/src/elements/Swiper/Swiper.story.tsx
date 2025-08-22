@@ -39,7 +39,22 @@ const Demo = ({
   )
 }
 
-export default { title: "Components/Swiper" }
+export default {
+  component: Swiper,
+  title: "Components/Swiper",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A swiper/carousel component with horizontal scrolling, navigation, and progress indicators.",
+      },
+    },
+    controls: {
+      include: ["children"],
+    },
+  },
+}
 
 export const Simple = () => {
   return <Demo />

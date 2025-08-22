@@ -1,47 +1,72 @@
-import { fn } from "@storybook/test"
-import React, { useState } from "react"
-import { States } from "storybook-states"
 import { Toggle } from "./Toggle"
-import { Text } from "../Text"
-import { Flex } from "../Flex"
 
 export default {
+  component: Toggle,
   title: "Components/Toggle",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A toggle switch component for binary on/off states with hover and disabled states.",
+      },
+    },
+    controls: {
+      include: ["selected", "disabled", "onSelect"],
+    },
+  },
 }
 
-export const Default = () => {
-  return (
-    <States
-      states={[
-        {},
-        { selected: true },
-        { hover: true },
-        { hover: true, selected: true },
-        { disabled: true },
-        { disabled: true, selected: true },
-      ]}
-    >
-      <Toggle />
-    </States>
-  )
+export const Default = {
+  args: {
+    selected: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Basic toggle in off state.",
+      },
+    },
+  },
 }
 
-export const Demo = () => {
-  const [isSelected, setSelected] = useState(false)
-  return (
-    <States>
-      <Flex>
-        <Text px={1}>{isSelected ? "On" : "Off"} </Text>
-        <Toggle
-          selected={isSelected}
-          onSelect={(selected) => {
-            setSelected(selected)
-            fn()(selected)
-          }}
-        >
-          Example
-        </Toggle>
-      </Flex>
-    </States>
-  )
+export const Selected = {
+  args: {
+    selected: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Toggle in selected/on state.",
+      },
+    },
+  },
+}
+
+export const Disabled = {
+  args: {
+    disabled: true,
+    selected: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Disabled toggle that cannot be interacted with.",
+      },
+    },
+  },
+}
+
+export const DisabledSelected = {
+  args: {
+    disabled: true,
+    selected: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Disabled toggle in selected state.",
+      },
+    },
+  },
 }

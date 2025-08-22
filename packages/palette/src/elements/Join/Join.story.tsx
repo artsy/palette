@@ -30,56 +30,91 @@ class NonBlankComponent extends Component {
   }
 }
 
-export default { title: "Components/Join" }
-
-export const WithMultipleComponents = () => {
-  return (
-    <Join separator={<Separator my={1} />}>
-      <Text variant="sm-display">First in the list</Text>
-      <Text variant="sm-display">Second in the list</Text>
-    </Join>
-  )
+export default {
+  component: Join,
+  title: "Components/Join",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A utility component that joins child elements with a separator, filtering out null/undefined children.",
+      },
+    },
+    controls: {
+      include: ["separator", "children"],
+    },
+  },
 }
 
-WithMultipleComponents.story = {
-  name: "with multiple components",
+export const WithMultipleComponents = {
+  args: {
+    separator: <Separator my={1} />,
+    children: [
+      <Text key="1" variant="sm-display">
+        First in the list
+      </Text>,
+      <Text key="2" variant="sm-display">
+        Second in the list
+      </Text>,
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Join component with multiple children separated by a separator.",
+      },
+    },
+  },
 }
 
-export const WithOneComponent = () => {
-  return (
-    <Join separator={<Separator my={1} />}>
-      <Text variant="sm-display">Only one component here</Text>
-    </Join>
-  )
+export const WithOneComponent = {
+  args: {
+    separator: <Separator my={1} />,
+    children: <Text variant="sm-display">Only one component here</Text>,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Join component with a single child (no separator shown).",
+      },
+    },
+  },
 }
 
-WithOneComponent.story = {
-  name: "with one component",
-}
-
-export const WithSomeOfTheChildrenEmpty = () => {
-  return (
-    <Join separator={<Separator my={1} />}>
-      <Text variant="sm-display">First in the list</Text>
-      <BlankFunction />
-      <NonBlankFunction />
-      <BlankFC />
-      <NonBlankFC />
-      <BlankComponent />
-      <NonBlankComponent />
-      <Box m="2" />
-      <div>
+export const WithSomeOfTheChildrenEmpty = {
+  args: {
+    separator: <Separator my={1} />,
+    children: [
+      <Text key="1" variant="sm-display">
+        First in the list
+      </Text>,
+      <BlankFunction key="2" />,
+      <NonBlankFunction key="3" />,
+      <BlankFC key="4" />,
+      <NonBlankFC key="5" />,
+      <BlankComponent key="6" />,
+      <NonBlankComponent key="7" />,
+      <Box key="8" m="2" />,
+      <div key="9">
         <Text variant="sm-display">Some div with the content</Text>
-      </div>
-      <div />
-      <Text variant="sm-display">Another box with content</Text>
-      <div />
-    </Join>
-  )
-}
-
-WithSomeOfTheChildrenEmpty.story = {
-  name: "with some of the children empty",
+      </div>,
+      <div key="10" />,
+      <Text key="11" variant="sm-display">
+        Another box with content
+      </Text>,
+      <div key="12" />,
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Join component that filters out null/empty children and only shows separators between visible content.",
+      },
+    },
+  },
 }
 
 export const WithNestedChildren = () => {

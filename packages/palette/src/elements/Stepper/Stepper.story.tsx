@@ -4,7 +4,26 @@ import { States } from "storybook-states"
 import { Step, Stepper, StepperProps } from "./"
 
 export default {
+  component: Stepper,
   title: "Components/Stepper",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A multi-step navigation component with tabbed interface for step-based workflows.",
+      },
+    },
+    controls: {
+      include: [
+        "initialTabIndex",
+        "currentStepIndex",
+        "disableNavigation",
+        "fill",
+        "onChange",
+      ],
+    },
+  },
 }
 
 export const Default = () => {
