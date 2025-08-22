@@ -7,9 +7,23 @@ import { Box } from "../Box"
 import { useCursor } from "use-cursor"
 import { Button } from "../Button"
 import { Input } from "../Input"
+import { STYLED_SYSTEM_PROPS_BLACKLIST } from "../../shared/PropsBlacklist"
 
 export default {
   title: "Components/Tabs",
+  component: Tabs,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Tabs component provides a tabbed interface for organizing content into separate panels. Supports keyboard navigation, custom initial tab selection, and flexible layout options.",
+      },
+      controls: {
+        exclude: STYLED_SYSTEM_PROPS_BLACKLIST,
+      },
+    },
+  },
 }
 
 export const Default = () => {

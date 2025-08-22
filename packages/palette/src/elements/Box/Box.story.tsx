@@ -1,22 +1,85 @@
 import React from "react"
-import { States } from "storybook-states"
-import { Box, BoxProps } from "../Box"
+import { Box } from "../Box"
 
 export default {
   title: "Components/Box",
+  component: Box,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Box is a fundamental layout primitive component that provides a flexible container with styled-system props for spacing, layout, color, and typography.",
+      },
+      controls: {
+        include: [
+          "children",
+          "p",
+          "m",
+          "bg",
+          "color",
+          "borderRadius",
+          "border",
+          "borderColor",
+          "width",
+          "height",
+          "display",
+          "flexDirection",
+          "alignItems",
+          "justifyContent",
+          "gap",
+        ],
+      },
+    },
+  },
 }
 
-export const Stack = () => {
-  return (
-    <States<BoxProps> states={[{}, { gap: 1 }, { gap: 2 }, { gap: [2, 4] }]}>
-      <Box display="flex" flexDirection="column">
-        <Box bg="yellow100">1</Box>
-        <Box bg="yellow100">2</Box>
-        <Box bg="yellow100">3</Box>
-        <Box bg="yellow100">4</Box>
-        <Box bg="yellow100">5</Box>
-        <Box bg="yellow100">6</Box>
-      </Box>
-    </States>
-  )
+export const Default = {
+  args: {
+    children: "This is a Box component",
+    p: 2,
+    bg: "yellow100",
+  },
+}
+
+export const WithGap = {
+  args: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 2,
+    children: (
+      <>
+        <Box bg="yellow100" p={1}>
+          1
+        </Box>
+        <Box bg="yellow100" p={1}>
+          2
+        </Box>
+        <Box bg="yellow100" p={1}>
+          3
+        </Box>
+      </>
+    ),
+  },
+}
+
+export const ResponsiveGap = {
+  args: {
+    display: "flex",
+    flexDirection: "column",
+    gap: [1, 3],
+    children: (
+      <>
+        <Box bg="yellow100" p={1}>
+          Responsive
+        </Box>
+        <Box bg="yellow100" p={1}>
+          Gap
+        </Box>
+        <Box bg="yellow100" p={1}>
+          Values
+        </Box>
+      </>
+    ),
+  },
 }

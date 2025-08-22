@@ -47,29 +47,42 @@ const Demo = ({
   )
 }
 
-export default { title: "Components/Carousel" }
-
-export const Simple = () => {
-  return <Demo />
+export default {
+  title: "Components/Carousel",
+  component: Carousel,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A carousel component for displaying a horizontally scrollable collection of items with navigation controls. Supports variable widths, heights, and custom styling.",
+      },
+    },
+    controls: {
+      include: ["height", "options", "onChange"],
+    },
+  },
 }
 
-export const Multiple = () => {
-  return (
+export const Simple = {
+  render: () => <Demo />,
+}
+
+export const Multiple = {
+  render: () => (
     <>
       <Demo />
       <Demo />
       <Demo />
     </>
-  )
+  ),
 }
 
-export const SinglePage = () => {
-  const widths = [250, 250]
-  return <Demo widths={widths} />
-}
-
-SinglePage.story = {
-  name: "Single page",
+export const SinglePage = {
+  render: () => {
+    const widths = [250, 250]
+    return <Demo widths={widths} />
+  },
 }
 
 export const SingleOverflowingItem = () => {

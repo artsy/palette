@@ -1,5 +1,4 @@
 import { Banner } from "./Banner"
-import { STYLED_SYSTEM_PROPS_BLACKLIST } from "../../shared/PropsBlacklist"
 
 export default {
   title: "Components/Banner",
@@ -12,7 +11,7 @@ export default {
           "Banner component for displaying important messages to users with various styles and dismissible options.",
       },
       controls: {
-        exclude: STYLED_SYSTEM_PROPS_BLACKLIST,
+        include: ["children", "variant", "dismissable"],
       },
     },
   },

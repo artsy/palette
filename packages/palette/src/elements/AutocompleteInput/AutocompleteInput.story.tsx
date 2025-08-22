@@ -1,20 +1,32 @@
 import { fn } from "@storybook/test"
-import React, { useRef, useState } from "react"
-import { States } from "storybook-states"
-import { Box } from "../Box"
-import { Text } from "../Text"
-import {
-  AutocompleteInput,
-  AutocompleteInputOptionType,
-  AutocompleteInputProps,
-} from "./AutocompleteInput"
-import { Clickable } from "../Clickable"
-import { Flex } from "../Flex"
-import { Button } from "../Button"
-import { Stack } from "../Stack"
+import { AutocompleteInput } from "./AutocompleteInput"
 
 export default {
   title: "Components/AutocompleteInput",
+  component: AutocompleteInput,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "AutocompleteInput component provides a text input with dropdown suggestions. Supports custom option rendering, loading states, and keyboard navigation.",
+      },
+      controls: {
+        include: [
+          "title",
+          "placeholder",
+          "required",
+          "disabled",
+          "error",
+          "loading",
+          "options",
+          "onSelect",
+          "maxLength",
+          "description",
+        ],
+      },
+    },
+  },
 }
 
 const OPTIONS = [
@@ -37,283 +49,79 @@ const OPTIONS = [
   },
 ]
 
-export const Default = () => {
-  return (
-    <States<Partial<AutocompleteInputProps<typeof OPTIONS[number]>>>
-      states={[
-        {},
-        { loading: true },
-        { options: [], height: 40 },
-        {
-          options: [
-            ...OPTIONS,
-            ...OPTIONS.map((option) => ({
-              ...option,
-              text: `Another ${option.text}`,
-              value: `another-${option.value}`,
-            })),
-          ],
-          renderOption: (option) => (
-            <Box px={2} py={1}>
-              <Text variant="sm-display">{option.text}</Text>
-              <Text variant="xs" color="mono60">
-                {option.subtitle}
-              </Text>
-            </Box>
-          ),
-        },
-        {
-          options: [
-            ...OPTIONS,
-            ...OPTIONS.map((option) => ({
-              ...option,
-              text: `Another ${option.text}`,
-              value: `another-${option.value}`,
-            })),
-          ],
-          footer: (
-            <Box px={2} py={1} bg="mono10">
-              <Text variant="xs">Footer</Text>
-            </Box>
-          ),
-        },
-        {
-          options: [OPTIONS[0], OPTIONS[1]],
-          footer: (
-            <Box px={2} py={1} bg="mono10">
-              <Text variant="xs">Footer</Text>
-            </Box>
-          ),
-        },
-        {
-          options: [OPTIONS[0], OPTIONS[1]],
-          header: (
-            <Box px={2} py={1} bg="mono10">
-              <Text variant="xs">Header</Text>
-            </Box>
-          ),
-          footer: (
-            <Box px={2} py={1} bg="mono10">
-              <Text variant="xs">Footer</Text>
-            </Box>
-          ),
-        },
-        {
-          options: [
-            ...OPTIONS,
-            ...OPTIONS.map((option) => ({
-              ...option,
-              text: `Another ${option.text}`,
-              value: `another-${option.value}`,
-            })),
-          ],
-          header: (
-            <Box px={2} py={1} bg="mono10">
-              <Text variant="xs">Header</Text>
-            </Box>
-          ),
-          footer: ({ onClose }) => (
-            <Clickable
-              display="flex"
-              width={"100%"}
-              onClick={onClose}
-              px={2}
-              py={1}
-              bg="white"
-            >
-              <Text variant="xs">Footer</Text>
-            </Clickable>
-          ),
-          dropdownMaxHeight: "700px",
-        },
-      ]}
-    >
-      <AutocompleteInput
-        placeholder="Search"
-        options={OPTIONS}
-        onSelect={fn()}
-        onSubmit={fn()}
-        onClose={fn()}
-      />
-    </States>
-  )
+export const Default = {
+  args: {
+    title: "Search Medium",
+    placeholder: "Start typing...",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
 }
 
-export const Demo = () => {
-  const [query, setQuery] = useState("")
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value)
-  }
-
-  return (
-    <AutocompleteInput
-      placeholder="Begin typing..."
-      options={[...(query ? [{ text: query, value: query }] : []), ...OPTIONS]}
-      onChange={handleChange}
-      onSelect={fn()}
-      onSubmit={fn()}
-      onClose={fn()}
-      renderOption={(option, i) => {
-        const displayQuery = i === 0 && query !== ""
-
-        return (
-          <Box
-            px={2}
-            py={1}
-            {...(displayQuery
-              ? { borderBottom: "1px solid", borderColor: "mono10" }
-              : {})}
-          >
-            <Text variant="sm-display">
-              {displayQuery
-                ? `See full results for “${option.text}”`
-                : option.text}
-            </Text>
-
-            {"subtitle" in option && (
-              <Text variant="xs" color="mono60">
-                {option.subtitle}
-              </Text>
-            )}
-          </Box>
-        )
-      }}
-    />
-  )
+export const WithTitle = {
+  args: {
+    title: "Artwork Category",
+    placeholder: "Select a category...",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
 }
 
-const CITIES = [
-  { text: "New York", value: "new-york" },
-  { text: "Los Angeles", value: "los-angeles" },
-  { text: "London", value: "london" },
-  { text: "Berlin", value: "berlin" },
-  { text: "Paris", value: "paris" },
-  { text: "Rome", value: "rome" },
-  { text: "Madrid", value: "madrid" },
-  { text: "Barcelona", value: "barcelona" },
-  { text: "Amsterdam", value: "amsterdam" },
-  { text: "Brussels", value: "brussels" },
-  { text: "Copenhagen", value: "copenhagen" },
-  { text: "Dublin", value: "dublin" },
-  { text: "Florence", value: "florence" },
-  { text: "Geneva", value: "geneva" },
-  { text: "Helsinki", value: "helsinki" },
-  { text: "Hong Kong", value: "hong-kong" },
-  { text: "Lisbon", value: "lisbon" },
-  { text: "Milan", value: "milan" },
-  { text: "Monaco", value: "monaco" },
-  { text: "Moscow", value: "moscow" },
-  { text: "Munich", value: "munich" },
-  { text: "New Delhi", value: "new-delhi" },
-  { text: "Oslo", value: "oslo" },
-  { text: "Prague", value: "prague" },
-  { text: "Rio de Janeiro", value: "rio-de-janeiro" },
-  { text: "San Francisco", value: "san-francisco" },
-  { text: "São Paulo", value: "sao-paulo" },
-  { text: "Seoul", value: "seoul" },
-  { text: "Shanghai", value: "shanghai" },
-  { text: "Singapore", value: "singapore" },
-  { text: "Stockholm", value: "stockholm" },
-  { text: "Sydney", value: "sydney" },
-  { text: "Taipei", value: "taipei" },
-  { text: "Tokyo", value: "tokyo" },
-  { text: "Toronto", value: "toronto" },
-  { text: "Venice", value: "venice" },
-  { text: "Vienna", value: "vienna" },
-  { text: "Warsaw", value: "warsaw" },
-  { text: "Zurich", value: "zurich" },
-]
-
-export const FilterDemo = () => {
-  const [query, setQuery] = useState("")
-  const [selection, setSelection] = useState("")
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value)
-  }
-
-  const handleSelect = (option: AutocompleteInputOptionType) => {
-    setSelection(JSON.stringify(option))
-  }
-
-  const handleClear = () => {
-    setQuery("")
-  }
-
-  return (
-    <Box
-      display="flex"
-      height="150vh"
-      width="100%"
-      alignItems="center"
-      justifyContent="center"
-      flexDirection="column"
-      gap={2}
-    >
-      <AutocompleteInput
-        width={["75%", "50%"]}
-        placeholder="Begin typing..."
-        options={CITIES.filter((option) => {
-          return option.text.toLowerCase().includes(query.toLowerCase())
-        })}
-        onChange={handleChange}
-        onSelect={handleSelect}
-        onClear={handleClear}
-        onSubmit={fn()}
-        onClose={fn()}
-      />
-
-      <Text variant="xs">
-        Selected: {selection ? selection : "Nothing Yet"}
-      </Text>
-    </Box>
-  )
+export const Required = {
+  args: {
+    title: "Required Field",
+    required: true,
+    placeholder: "This field is required",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
 }
 
-export const ProgrammaticFocus = () => {
-  const ref = useRef<HTMLInputElement | null>(null)
-
-  return (
-    <Flex flexDirection="column" gap={2}>
-      <AutocompleteInput
-        forwardRef={ref}
-        width={["75%", "50%"]}
-        placeholder="Begin typing..."
-        options={CITIES}
-      />
-
-      <Button
-        onClick={() => {
-          if (!ref.current) return
-          console.log({ ref })
-          ref.current.focus()
-        }}
-      >
-        Focus input
-      </Button>
-    </Flex>
-  )
+export const WithError = {
+  args: {
+    title: "Category",
+    error: "Please select a valid category",
+    placeholder: "Select category...",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
 }
 
-export const OpenOnClick = () => {
-  const [open, setOpen] = useState(false)
+export const Loading = {
+  args: {
+    title: "Loading Categories",
+    loading: true,
+    placeholder: "Loading options...",
+    options: [],
+    onSelect: fn(),
+  },
+}
 
-  return (
-    <Stack gap={2} width={300}>
-      {open ? (
-        <Button onClick={() => setOpen(false)}>Close</Button>
-      ) : (
-        <Button onClick={() => setOpen(true)}>Open</Button>
-      )}
+export const Disabled = {
+  args: {
+    title: "Disabled Input",
+    disabled: true,
+    placeholder: "Cannot select",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
+}
 
-      {open && (
-        <AutocompleteInput
-          autoFocus
-          placeholder="Begin typing..."
-          options={CITIES}
-        />
-      )}
-    </Stack>
-  )
+export const WithDescription = {
+  args: {
+    title: "Category Selection",
+    description: "Choose the primary medium for this artwork",
+    placeholder: "Select medium...",
+    options: OPTIONS,
+    onSelect: fn(),
+  },
+}
+
+export const EmptyOptions = {
+  args: {
+    title: "No Options",
+    placeholder: "No options available",
+    options: [],
+    onSelect: fn(),
+  },
 }

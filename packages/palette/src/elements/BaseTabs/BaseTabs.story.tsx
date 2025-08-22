@@ -3,7 +3,6 @@ import React from "react"
 import { BaseTab, BaseTabs } from "../BaseTabs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
-import { STYLED_SYSTEM_PROPS_BLACKLIST } from "../../shared/PropsBlacklist"
 
 // Fake `RouterLink`
 const RouterLink: React.FC<React.PropsWithChildren<{ to: string }>> = ({
@@ -29,7 +28,7 @@ export default {
           "BaseTabs component for creating tabbed navigation interfaces. Provides horizontal overflow handling and supports various tab configurations including fill width and custom tab implementations.",
       },
       controls: {
-        exclude: STYLED_SYSTEM_PROPS_BLACKLIST,
+        include: ["children", "fill", "justifyContent"],
       },
     },
   },
