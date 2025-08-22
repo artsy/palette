@@ -1,10 +1,9 @@
 import { fn } from "@storybook/test"
 import React, { useState } from "react"
-import { States } from "storybook-states"
 import { Spacer } from "../Spacer"
 import { Button } from "../Button"
 import { Radio } from "../Radio/Radio"
-import { RadioGroup, RadioGroupProps } from "./RadioGroup"
+import { RadioGroup } from "./RadioGroup"
 import { Join } from "../Join"
 
 export default {
@@ -30,67 +29,169 @@ export default {
   },
 }
 
-export const Default = () => {
-  return (
-    <States<Partial<RadioGroupProps<string>>>
-      states={[
-        {},
-        { defaultValue: "Aural" },
-        { deselectable: true },
-        { disabled: true },
-        { disabled: true, disabledText: "Reason for disabled" },
-      ]}
-    >
-      <RadioGroup onSelect={fn()}>
-        <Join separator={<Spacer y={0.5} />}>
-          {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
-            (value) => {
-              return <Radio key={value} value={value} label={value} />
-            }
-          )}
-        </Join>
-      </RadioGroup>
-    </States>
-  )
+export const Default = {
+  args: {
+    onSelect: fn(),
+    children: (
+      <Join separator={<Spacer y={0.5} />}>
+        {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
+          (value) => {
+            return <Radio key={value} value={value} label={value} />
+          }
+        )}
+      </Join>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Basic radio group with multiple options.",
+      },
+    },
+  },
 }
 
-export const WithDefaultValue = () => {
-  const [defaultValue, setValue] = useState("PICKUP")
-
-  return (
-    <>
-      <Button
-        mb={2}
-        onClick={() => {
-          setValue(defaultValue === "PICKUP" ? "SHIP" : "PICKUP")
-        }}
-      >
-        Toggle default value: {defaultValue}
-      </Button>
-
-      <RadioGroup defaultValue={defaultValue} onSelect={fn()}>
-        <Radio value="SHIP" label="Provide shipping address" />
-        <Spacer y={0.5} />
-        <Radio value="PICKUP" label="Arrange for pickup" />
-      </RadioGroup>
-    </>
-  )
+export const WithDefaultValue = {
+  args: {
+    defaultValue: "Aural",
+    onSelect: fn(),
+    children: (
+      <Join separator={<Spacer y={0.5} />}>
+        {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
+          (value) => {
+            return <Radio key={value} value={value} label={value} />
+          }
+        )}
+      </Join>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Radio group with a pre-selected default value.",
+      },
+    },
+  },
 }
 
-WithDefaultValue.story = {
-  name: "With default value",
+export const Deselectable = {
+  args: {
+    deselectable: true,
+    onSelect: fn(),
+    children: (
+      <Join separator={<Spacer y={0.5} />}>
+        {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
+          (value) => {
+            return <Radio key={value} value={value} label={value} />
+          }
+        )}
+      </Join>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Radio group that allows deselecting the current selection.",
+      },
+    },
+  },
 }
 
-export const OtherTypes = () => {
-  return (
-    <States<Partial<RadioGroupProps<boolean | undefined>>>>
-      <RadioGroup defaultValue={false} onSelect={fn()}>
+export const Disabled = {
+  args: {
+    disabled: true,
+    onSelect: fn(),
+    children: (
+      <Join separator={<Spacer y={0.5} />}>
+        {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
+          (value) => {
+            return <Radio key={value} value={value} label={value} />
+          }
+        )}
+      </Join>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Disabled radio group that cannot be interacted with.",
+      },
+    },
+  },
+}
+
+export const DisabledWithText = {
+  args: {
+    disabled: true,
+    disabledText: "Reason for disabled",
+    onSelect: fn(),
+    children: (
+      <Join separator={<Spacer y={0.5} />}>
+        {["Visual", "Linguistic", "Spatial", "Aural", "Gestural"].map(
+          (value) => {
+            return <Radio key={value} value={value} label={value} />
+          }
+        )}
+      </Join>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Disabled radio group with explanatory text.",
+      },
+    },
+  },
+}
+
+export const InteractiveDefault = {
+  render: () => {
+    const [defaultValue, setValue] = useState("PICKUP")
+
+    return (
+      <>
+        <Button
+          mb={2}
+          onClick={() => {
+            setValue(defaultValue === "PICKUP" ? "SHIP" : "PICKUP")
+          }}
+        >
+          Toggle default value: {defaultValue}
+        </Button>
+        <RadioGroup defaultValue={defaultValue} onSelect={fn()}>
+          <Radio value="SHIP" label="Provide shipping address" />
+          <Spacer y={0.5} />
+          <Radio value="PICKUP" label="Arrange for pickup" />
+        </RadioGroup>
+      </>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Interactive example with dynamically changing default value.",
+      },
+    },
+  },
+}
+
+export const BooleanValues = {
+  args: {
+    defaultValue: false,
+    onSelect: fn(),
+    children: (
+      <>
         <Radio value={true} label="Yes" />
-
         <Spacer y={0.5} />
-
         <Radio value={false} label="No" />
-      </RadioGroup>
-    </States>
-  )
+      </>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Radio group with boolean values instead of strings.",
+      },
+    },
+  },
 }

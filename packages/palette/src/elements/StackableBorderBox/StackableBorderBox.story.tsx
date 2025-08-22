@@ -21,8 +21,8 @@ export default {
   },
 }
 
-export const Default = () => {
-  return (
+export const Default = {
+  render: () => (
     <>
       <StackableBorderBox>
         <Flex>
@@ -45,5 +45,13 @@ export const Default = () => {
       <StackableBorderBox>3</StackableBorderBox>
       <StackableBorderBox>4</StackableBorderBox>
     </>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multiple stackable border boxes demonstrating how they connect visually.",
+      },
+    },
+  },
 }

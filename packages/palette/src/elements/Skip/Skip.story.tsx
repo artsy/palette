@@ -19,50 +19,74 @@ export default {
   },
 }
 
-export const SkipButton = () => {
-  return (
+export const Default = {
+  args: {
+    children: "Skip to main content",
+  },
+  render: (args) => (
     <>
       <Text variant="sm">Press &lt;tab&gt; to focus</Text>
-      <Skip>Skip to main content</Skip>
+      <Skip {...args} />
       <Text variant="sm">
         It should not interfere with the normal flow of content
       </Text>
     </>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Basic skip button for accessibility navigation.",
+      },
+    },
+  },
 }
 
-export const SkipButtonWithSpacing = () => {
-  return (
+export const WithSpacing = {
+  args: {
+    children: "Skip to main content",
+    width: "100%",
+    my: 1,
+  },
+  render: (args) => (
     <>
       <Text variant="sm">Press &lt;tab&gt; to focus</Text>
-      <Skip width="100%" my={1}>
-        Skip to main content
-      </Skip>
+      <Skip {...args} />
       <Text variant="sm">
         It should not interfere with the normal flow of content
       </Text>
     </>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Skip button with custom spacing and width.",
+      },
+    },
+  },
 }
 
-SkipButtonWithSpacing.story = {
-  name: "Skip button with spacing",
-}
-
-export const SkipLink = () => {
-  return (
+export const SkipLink = {
+  args: {
+    children: "Skip to main content",
+    width: "100%",
+    my: 1,
+    as: "a",
+    href: "#main",
+  },
+  render: (args) => (
     <>
       <Text variant="sm">Press &lt;tab&gt; to focus</Text>
-      <Skip width="100%" my={1} as="a" href="#main">
-        Skip to main content
-      </Skip>
+      <Skip {...args} />
       <Text variant="sm">
         It should not interfere with the normal flow of content
       </Text>
     </>
-  )
-}
-
-SkipLink.story = {
-  name: "Skip link",
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Skip link rendered as an anchor element with href.",
+      },
+    },
+  },
 }

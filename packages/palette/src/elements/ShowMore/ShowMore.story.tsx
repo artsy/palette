@@ -1,6 +1,5 @@
 import React from "react"
-import { States } from "storybook-states"
-import { ShowMore, ShowMoreProps } from "./ShowMore"
+import { ShowMore } from "./ShowMore"
 import { Text } from "../Text"
 
 export default {
@@ -20,26 +19,78 @@ export default {
   },
 }
 
-export const Default = () => {
-  return (
-    <States<Partial<ShowMoreProps>> states={[{}, { expanded: true }]}>
-      <ShowMore initial={3}>
-        <Text variant="sm-display">First</Text>
-        <Text variant="sm-display">Second</Text>
-        <Text variant="sm-display">Third</Text>
-        <Text variant="sm-display">Fourth</Text>
-        <Text variant="sm-display">Fifth</Text>
-        <Text variant="sm-display">Sixth</Text>
-      </ShowMore>
-    </States>
-  )
+export const Default = {
+  args: {
+    initial: 3,
+    children: [
+      <Text key={1} variant="sm-display">
+        First
+      </Text>,
+      <Text key={2} variant="sm-display">
+        Second
+      </Text>,
+      <Text key={3} variant="sm-display">
+        Third
+      </Text>,
+      <Text key={4} variant="sm-display">
+        Fourth
+      </Text>,
+      <Text key={5} variant="sm-display">
+        Fifth
+      </Text>,
+      <Text key={6} variant="sm-display">
+        Sixth
+      </Text>,
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Shows first 3 items with a toggle to show/hide more.",
+      },
+    },
+  },
 }
 
-export const CommaSeparatedList = () => {
-  const artists = ["Monica Kim Garza", "John Houck", "Zemba Luzamba"]
+export const Expanded = {
+  args: {
+    initial: 3,
+    expanded: true,
+    children: [
+      <Text key={1} variant="sm-display">
+        First
+      </Text>,
+      <Text key={2} variant="sm-display">
+        Second
+      </Text>,
+      <Text key={3} variant="sm-display">
+        Third
+      </Text>,
+      <Text key={4} variant="sm-display">
+        Fourth
+      </Text>,
+      <Text key={5} variant="sm-display">
+        Fifth
+      </Text>,
+      <Text key={6} variant="sm-display">
+        Sixth
+      </Text>,
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "ShowMore component in expanded state showing all items.",
+      },
+    },
+  },
+}
 
-  return (
-    <States<Partial<ShowMoreProps>> states={[{}, { expanded: true }]}>
+export const CommaSeparatedList = {
+  render: () => {
+    const artists = ["Monica Kim Garza", "John Houck", "Zemba Luzamba"]
+
+    return (
       <ShowMore initial={1} variant="lg" textDecoration="underline" mt={1}>
         {artists.map((artist, index) => {
           let separator = ", "
@@ -55,10 +106,13 @@ export const CommaSeparatedList = () => {
           )
         })}
       </ShowMore>
-    </States>
-  )
-}
-
-CommaSeparatedList.story = {
-  name: "Works with comma-separated list",
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "ShowMore with comma-separated text content.",
+      },
+    },
+  },
 }

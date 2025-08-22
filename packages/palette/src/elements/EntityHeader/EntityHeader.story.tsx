@@ -4,7 +4,30 @@ import { Button } from "../Button"
 import { EntityHeader, EntityHeaderProps } from "./EntityHeader"
 
 export default {
+  component: EntityHeader,
   title: "Components/EntityHeader",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A header component for displaying entity information including name, image, metadata, and action buttons.",
+      },
+    },
+    controls: {
+      include: [
+        "name",
+        "initials",
+        "image",
+        "meta",
+        "href",
+        "FollowButton",
+        "labels",
+        "smallVariant",
+        "maxWidth",
+      ],
+    },
+  },
 }
 
 const FollowButton = () => {
@@ -26,75 +49,89 @@ const imageProps = {
   lazyLoad: true,
 }
 
-export const Default = () => {
-  return (
-    <States<EntityHeaderProps>
-      states={[
-        { name: "Francesca DiMattio" },
-        { smallVariant: true, name: "Francesca DiMattio", initials: "FD" },
-        { name: "Francesca DiMattio", initials: "FD" },
-        {
-          smallVariant: true,
-          name: "Francesca DiMattio",
-          image: imageProps,
-        },
-        {
-          name: "Francesca DiMattio",
-          image: imageProps,
-        },
-        {
-          initials: "FD",
-          name: "Francesca DiMattio",
-          image: imageProps,
-          meta: "American, b. 1979",
-          href: "http://www.artsy.net/artist/francesca-dimattio",
-        },
-        {
-          smallVariant: true,
-          name: "Francesca DiMattio",
-          image: imageProps,
-          FollowButton: <FollowButton />,
-        },
-        {
-          initials: "FD",
-          name: "Francesca DiMattio",
-          image: imageProps,
-          meta: "American, b. 1979",
-          href: "http://www.artsy.net/artist/francesca-dimattio",
-          FollowButton: <FollowButton />,
-        },
-        {
-          initials: "FLD",
-          name: "Francesca Longer DiMattio",
-          image: imageProps,
-          meta: "American, b. Founded 1979",
-          href: "http://www.artsy.net/artist/francesca-dimattio",
-          FollowButton: <FollowButton />,
-        },
-        {
-          initials: "FLD",
-          name: "Francesca Much Longer DiMattio",
-          image: imageProps,
-          meta: "American, b. Founded 1979",
-          href: "http://www.artsy.net/artist/francesca-dimattio",
-          FollowButton: <FollowButton />,
-          labels: [{ children: "Black Owned" }],
-        },
-        {
-          initials: "FLD",
-          name: "Francesca Much Longer DiMattio",
-          image: imageProps,
-          meta: "American, b. Founded 1979",
-          href: "http://www.artsy.net/artist/francesca-dimattio",
-          FollowButton: <FollowButton />,
-          labels: [
-            { children: "Black Owned" },
-            { children: "Women Owned", variant: "brand" },
-          ],
-        },
-      ]}
-    >
-      {(props) => <EntityHeader {...props} maxWidth={350} />}
-    </States>
-  )
+export const Default = {
+  args: {
+    name: "Francesca DiMattio",
+    initials: "FD",
+    image: imageProps,
+    meta: "American, b. 1979",
+    href: "http://www.artsy.net/artist/francesca-dimattio",
+    FollowButton: <FollowButton />,
+    maxWidth: 350,
+  },
+}
+
+export const WithStates = {
+  render: () => {
+    return (
+      <States<EntityHeaderProps>
+        states={[
+          { name: "Francesca DiMattio" },
+          { smallVariant: true, name: "Francesca DiMattio", initials: "FD" },
+          { name: "Francesca DiMattio", initials: "FD" },
+          {
+            smallVariant: true,
+            name: "Francesca DiMattio",
+            image: imageProps,
+          },
+          {
+            name: "Francesca DiMattio",
+            image: imageProps,
+          },
+          {
+            initials: "FD",
+            name: "Francesca DiMattio",
+            image: imageProps,
+            meta: "American, b. 1979",
+            href: "http://www.artsy.net/artist/francesca-dimattio",
+          },
+          {
+            smallVariant: true,
+            name: "Francesca DiMattio",
+            image: imageProps,
+            FollowButton: <FollowButton />,
+          },
+          {
+            initials: "FD",
+            name: "Francesca DiMattio",
+            image: imageProps,
+            meta: "American, b. 1979",
+            href: "http://www.artsy.net/artist/francesca-dimattio",
+            FollowButton: <FollowButton />,
+          },
+          {
+            initials: "FLD",
+            name: "Francesca Longer DiMattio",
+            image: imageProps,
+            meta: "American, b. Founded 1979",
+            href: "http://www.artsy.net/artist/francesca-dimattio",
+            FollowButton: <FollowButton />,
+          },
+          {
+            initials: "FLD",
+            name: "Francesca Much Longer DiMattio",
+            image: imageProps,
+            meta: "American, b. Founded 1979",
+            href: "http://www.artsy.net/artist/francesca-dimattio",
+            FollowButton: <FollowButton />,
+            labels: [{ children: "Black Owned" }],
+          },
+          {
+            initials: "FLD",
+            name: "Francesca Much Longer DiMattio",
+            image: imageProps,
+            meta: "American, b. Founded 1979",
+            href: "http://www.artsy.net/artist/francesca-dimattio",
+            FollowButton: <FollowButton />,
+            labels: [
+              { children: "Black Owned" },
+              { children: "Women Owned", variant: "brand" },
+            ],
+          },
+        ]}
+      >
+        {(props) => <EntityHeader {...props} maxWidth={350} />}
+      </States>
+    )
+  },
 }
