@@ -16,35 +16,6 @@ export default {
       },
     },
   },
-  argTypes: {
-    children: {
-      description: "The content to display inside the banner",
-      control: "text",
-      table: {
-        type: { summary: "ReactNode" },
-        category: "Content",
-      },
-    },
-    dismissable: {
-      description: "Whether the banner can be dismissed by the user",
-      control: "boolean",
-      table: {
-        type: { summary: "boolean" },
-        defaultValue: { summary: "true" },
-        category: "Behavior",
-      },
-    },
-    variant: {
-      description: "The visual style variant of the banner",
-      control: { type: "select" },
-      options: ["defaultLight", "defaultDark", "success", "error", "brand"],
-      table: {
-        type: { summary: "string" },
-        defaultValue: { summary: "defaultLight" },
-        category: "Appearance",
-      },
-    },
-  },
 }
 
 export const DefaultLight = {

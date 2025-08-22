@@ -1,11 +1,9 @@
 import { fn } from "@storybook/test"
 import React from "react"
-import { States } from "storybook-states"
 import { BaseTab, BaseTabs } from "../BaseTabs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
-import { BaseTabProps } from "./BaseTab"
-import { BaseTabsProps } from "./BaseTabs"
+import { STYLED_SYSTEM_PROPS_BLACKLIST } from "../../shared/PropsBlacklist"
 
 // Fake `RouterLink`
 const RouterLink: React.FC<React.PropsWithChildren<{ to: string }>> = ({
@@ -20,195 +18,141 @@ const RouterLink: React.FC<React.PropsWithChildren<{ to: string }>> = ({
   )
 }
 
-export default { title: "Components/BaseTabs" }
-
-export const _BaseTab = () => {
-  return (
-    <States<BaseTabProps>
-      states={[{}, { focus: true }, { hover: true }, { active: true }]}
-    >
-      <BaseTab>Example</BaseTab>
-    </States>
-  )
+export default {
+  title: "Components/BaseTabs",
+  component: BaseTabs,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "BaseTabs component for creating tabbed navigation interfaces. Provides horizontal overflow handling and supports various tab configurations including fill width and custom tab implementations.",
+      },
+      controls: {
+        exclude: STYLED_SYSTEM_PROPS_BLACKLIST,
+      },
+    },
+  },
 }
 
-export const Default = () => {
-  return (
-    <States<Partial<BaseTabsProps>>
-      states={[{}, { fill: true }, { justifyContent: "center" }]}
-    >
-      <BaseTabs>
+export const Default = {
+  args: {
+    children: (
+      <>
         <BaseTab>First</BaseTab>
         <BaseTab>Second</BaseTab>
         <BaseTab active>Active</BaseTab>
         <BaseTab>Last</BaseTab>
-      </BaseTabs>
-    </States>
-  )
+      </>
+    ),
+  },
 }
 
-export const AsA = () => {
-  return (
-    <BaseTabs>
-      <BaseTab as="a" href="#overview">
-        Overview
-      </BaseTab>
-
-      <BaseTab as="a" href="#cv">
-        CV
-      </BaseTab>
-
-      <BaseTab as="a" href="#shows" active>
-        Shows
-      </BaseTab>
-
-      <BaseTab as="a" href="#auction-results">
-        Auction Results
-      </BaseTab>
-
-      <BaseTab as="a" href="#articles">
-        Articles
-      </BaseTab>
-
-      <BaseTab as="a" href="#related-artists">
-        Related Artists
-      </BaseTab>
-    </BaseTabs>
-  )
+export const WithFill = {
+  args: {
+    fill: true,
+    children: (
+      <>
+        <BaseTab>First</BaseTab>
+        <BaseTab>Second</BaseTab>
+        <BaseTab active>Active</BaseTab>
+        <BaseTab>Last</BaseTab>
+      </>
+    ),
+  },
 }
 
-AsA.story = {
-  name: 'as="a"',
+export const AsAnchorTags = {
+  args: {
+    children: (
+      <>
+        <BaseTab as="a" href="#overview">
+          Overview
+        </BaseTab>
+        <BaseTab as="a" href="#cv">
+          CV
+        </BaseTab>
+        <BaseTab as="a" href="#shows" active>
+          Shows
+        </BaseTab>
+        <BaseTab as="a" href="#articles">
+          Articles
+        </BaseTab>
+      </>
+    ),
+  },
 }
 
-export const AsClickable = () => {
-  return (
-    <BaseTabs>
-      <BaseTab as={Clickable} onClick={fn()}>
-        Overview
-      </BaseTab>
-
-      <BaseTab as={Clickable} onClick={fn()}>
-        CV
-      </BaseTab>
-
-      <BaseTab as={Clickable} onClick={fn()} active>
-        Shows
-      </BaseTab>
-
-      <BaseTab as={Clickable} onClick={fn()}>
-        Auction Results
-      </BaseTab>
-
-      <BaseTab as={Clickable} onClick={fn()}>
-        Articles
-      </BaseTab>
-
-      <BaseTab as={Clickable} onClick={fn()}>
-        Related Artists
-      </BaseTab>
-    </BaseTabs>
-  )
+export const AsClickable = {
+  args: {
+    children: (
+      <>
+        <BaseTab as={Clickable} onClick={fn()}>
+          Overview
+        </BaseTab>
+        <BaseTab as={Clickable} onClick={fn()}>
+          CV
+        </BaseTab>
+        <BaseTab as={Clickable} onClick={fn()} active>
+          Shows
+        </BaseTab>
+        <BaseTab as={Clickable} onClick={fn()}>
+          Articles
+        </BaseTab>
+      </>
+    ),
+  },
 }
 
-AsClickable.story = {
-  name: "as={Clickable}",
-}
-
-export const AsRouterLink = () => {
-  return (
-    <BaseTabs>
-      <BaseTab as={RouterLink} to="#example" activeClassName="active" garbage>
+export const AsRouterLink = {
+  args: {
+    children: (
+      <BaseTab as={RouterLink} to="#example" activeClassName="active">
         Example
       </BaseTab>
-    </BaseTabs>
-  )
+    ),
+  },
 }
 
-AsRouterLink.story = {
-  name: "as={RouterLink}",
+export const Overflowing = {
+  args: {
+    children: (
+      <>
+        <BaseTab>Artworks (580656)</BaseTab>
+        <BaseTab active>Artists (8)</BaseTab>
+        <BaseTab>Collections (7)</BaseTab>
+        <BaseTab>Artist Series (13)</BaseTab>
+        <BaseTab>Galleries (4)</BaseTab>
+        <BaseTab>Shows (3667)</BaseTab>
+        <BaseTab>Categories (21)</BaseTab>
+        <BaseTab>Articles (656)</BaseTab>
+        <BaseTab>Auctions (23)</BaseTab>
+        <BaseTab>More (46)</BaseTab>
+      </>
+    ),
+  },
 }
 
-export const Overflowing = () => {
-  return (
-    <BaseTabs>
-      {[
-        "Artworks (580656)",
-        "Artists (8)",
-        "Collections (7)",
-        "Artist Series (13)",
-        "Galleries (4)",
-        "Shows (3667)",
-        "Categories (21)",
-        "Articles (656)",
-        "Auctions (23)",
-        "More (46)",
-      ].map((label, i) => {
-        return (
-          <BaseTab key={label} active={i === 1}>
-            {label}
-          </BaseTab>
-        )
-      })}
-    </BaseTabs>
-  )
+export const BreakingOutOfContainerMargin = {
+  args: {
+    mx: -6,
+    px: 6,
+    children: (
+      <BaseTab active>Rail border should extend past container</BaseTab>
+    ),
+  },
+  decorators: [
+    (Story) => (
+      <Box m={6} bg="mono10">
+        <Story />
+      </Box>
+    ),
+  ],
 }
 
-export const Fill = () => {
-  return (
-    <Box m={3}>
-      <BaseTabs fill my={3}>
-        <BaseTab as="a" href="#">
-          One
-        </BaseTab>
-      </BaseTabs>
-
-      <BaseTabs fill my={3}>
-        <BaseTab as="a" href="#">
-          One
-        </BaseTab>
-
-        <BaseTab as="a" href="#" active>
-          Two
-        </BaseTab>
-      </BaseTabs>
-
-      <BaseTabs fill my={3}>
-        <BaseTab as="a" href="#">
-          One
-        </BaseTab>
-
-        <BaseTab as="a" href="#" active>
-          Two
-        </BaseTab>
-
-        <BaseTab as="a" href="#">
-          Three
-        </BaseTab>
-      </BaseTabs>
-    </Box>
-  )
-}
-
-export const BreakingOutOfContainerMargin = () => {
-  return (
-    <Box m={6} bg="mono10">
-      <BaseTabs mx={-6} px={6}>
-        <BaseTab active>
-          Rail border should extend past mono10 background
-        </BaseTab>
-      </BaseTabs>
-    </Box>
-  )
-}
-
-BreakingOutOfContainerMargin.story = {
-  name: "Breaking out of container margin",
-}
-
-export const NestedChildren = () => {
-  return (
-    <BaseTabs>
+export const NestedChildren = {
+  args: {
+    children: (
       <>
         <BaseTab>First</BaseTab>
         <BaseTab>Second</BaseTab>
@@ -217,10 +161,6 @@ export const NestedChildren = () => {
           <BaseTab>Last</BaseTab>
         </>
       </>
-    </BaseTabs>
-  )
-}
-
-NestedChildren.story = {
-  name: "nested children",
+    ),
+  },
 }
