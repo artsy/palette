@@ -50,18 +50,55 @@ const Demo = ({
   )
 }
 
-export const Default = () => {
-  return (
+export const Default = {
+  render: () => (
     <Box maxWidth={1920} mx="auto">
       <Box mx={[2, 4]}>
-        <States<Partial<ShelfProps>>
-          states={[{}, { alignItems: "center" }, { showProgress: false }]}
-        >
-          <Demo />
-        </States>
+        <Demo />
       </Box>
     </Box>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Basic shelf component with default settings.",
+      },
+    },
+  },
+}
+
+export const CenterAligned = {
+  render: () => (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <Demo alignItems="center" />
+      </Box>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Shelf with items center-aligned vertically.",
+      },
+    },
+  },
+}
+
+export const NoProgress = {
+  render: () => (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <Demo showProgress={false} />
+      </Box>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Shelf without progress indicators.",
+      },
+    },
+  },
 }
 
 export const DifferingAmounts = () => {

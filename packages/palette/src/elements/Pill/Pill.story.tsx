@@ -1,8 +1,7 @@
 import React, { useState } from "react"
-import { States } from "storybook-states"
 import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
-import { Pill, PillProps, PillVariant, PILL_VARIANT_NAMES } from "./Pill"
+import { Pill, PillVariant, PILL_VARIANT_NAMES } from "./Pill"
 import { Box } from "../Box"
 import { Join } from "../Join"
 import GraphIcon from "@artsy/icons/GraphIcon"
@@ -30,54 +29,66 @@ export default {
 const Display = styled(Box)``
 Display.displayName = "Pill"
 
-export const Variants = () => {
-  return (
-    <States<PillProps>
-      states={PILL_VARIANT_NAMES.map((variant) => ({
-        variant: variant as PillVariant,
-      }))}
-    >
-      {(props) => (
+export const Default = {
+  args: {
+    children: "Default Pill",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Basic pill component with default styling.",
+      },
+    },
+  },
+}
+
+export const Variants = {
+  render: () => (
+    <Box display="flex" flexDirection="column" gap={2}>
+      {PILL_VARIANT_NAMES.map((variant) => (
         <Display
+          key={variant}
           p={1}
           overflowX="auto"
-          {...(["primaryWhite", "secondaryWhite"].includes(`${props.variant}`)
+          {...(["primaryWhite", "secondaryWhite"].includes(variant)
             ? { bg: "mono100", color: "mono0" }
             : { bg: "mono0", color: "mono100" })}
         >
           <Flex>
             <Join separator={<Spacer x={2} />}>
-              <Pill {...props}>Default</Pill>
-
-              <Pill {...props} focus>
+              <Pill variant={variant as PillVariant}>Default</Pill>
+              <Pill variant={variant as PillVariant} focus>
                 Focus
               </Pill>
-
-              <Pill {...props} hover>
+              <Pill variant={variant as PillVariant} hover>
                 Hover
               </Pill>
-
-              <Pill {...props} active>
+              <Pill variant={variant as PillVariant} active>
                 Active
               </Pill>
-
-              <Pill {...props} selected>
+              <Pill variant={variant as PillVariant} selected>
                 Selected
               </Pill>
-
-              <Pill {...props} disabled>
+              <Pill variant={variant as PillVariant} disabled>
                 Disabled
               </Pill>
             </Join>
           </Flex>
         </Display>
-      )}
-    </States>
-  )
+      ))}
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "All available pill variants with different interaction states.",
+      },
+    },
+  },
 }
 
-export const LinkExample = () => {
-  return (
+export const LinkExample = {
+  render: () => (
     <Pill
       variant="profile"
       as="a"
@@ -87,48 +98,66 @@ export const LinkExample = () => {
     >
       Artist Name
     </Pill>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Pill rendered as a clickable link element.",
+      },
+    },
+  },
 }
 
-export const LongExampleWithTruncation = () => {
-  return (
+export const LongExampleWithTruncation = {
+  render: () => (
     <Pill maxWidth={300}>
       Studio Museum in Harlem Artist-in-Residence (AIR) Program
     </Pill>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Pill with long text that gets truncated with ellipsis.",
+      },
+    },
+  },
 }
 
-export const SearchWithCount = () => {
-  return (
-    <States<PillProps>
-      states={[
-        {},
-        { focus: true },
-        { hover: true },
-        { active: true },
-        { selected: true },
-        { disabled: true },
-      ]}
-    >
+export const SearchWithCount = {
+  render: () => (
+    <Box display="flex" gap={2} flexWrap="wrap">
       <Pill variant="search" count={123}>
-        Artist Series
+        Default
       </Pill>
-    </States>
-  )
+      <Pill variant="search" count={123} focus>
+        Focus
+      </Pill>
+      <Pill variant="search" count={123} hover>
+        Hover
+      </Pill>
+      <Pill variant="search" count={123} active>
+        Active
+      </Pill>
+      <Pill variant="search" count={123} selected>
+        Selected
+      </Pill>
+      <Pill variant="search" count={123} disabled>
+        Disabled
+      </Pill>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Search variant pill with count indicator in different states.",
+      },
+    },
+  },
 }
 
-export const ArtistWithImage = () => {
-  return (
-    <States<PillProps>
-      states={[
-        {},
-        { focus: true },
-        { hover: true },
-        { active: true },
-        { selected: true },
-        { disabled: true },
-      ]}
-    >
+export const ArtistWithImage = {
+  render: () => (
+    <Box display="flex" gap={2} flexWrap="wrap">
       <Pill
         variant="profile"
         src={[
@@ -136,85 +165,169 @@ export const ArtistWithImage = () => {
           "https://picsum.photos/seed/isa/60/60",
         ]}
       >
-        Isa Genzken
+        Default
       </Pill>
-    </States>
-  )
-}
-
-export const PillWithIcon = () => {
-  return (
-    <States<PillProps>
-      states={[
-        {
-          iconPosition: "right",
-          Icon: ChevronSmallDownIcon,
-          variant: "default",
-        },
-        {},
-        { focus: true },
-        { hover: true },
-        { active: true },
-        { selected: true },
-        { disabled: true },
-        { variant: "search" },
-        { variant: "search", focus: true },
-        { variant: "search", hover: true },
-        { variant: "search", active: true },
-        { variant: "search", selected: true },
-        { variant: "search", disabled: true },
-        { variant: "filter" },
-        { variant: "filter", focus: true },
-        { variant: "filter", hover: true },
-        { variant: "filter", active: true },
-        { variant: "filter", selected: true },
-        { variant: "filter", disabled: true },
-        { variant: "dotted" },
-      ]}
-    >
-      <Pill variant="badge" Icon={GraphIcon}>
-        Artist Series
+      <Pill
+        variant="profile"
+        src={[
+          "https://picsum.photos/seed/isa/30/30",
+          "https://picsum.photos/seed/isa/60/60",
+        ]}
+        focus
+      >
+        Focus
       </Pill>
-    </States>
-  )
+      <Pill
+        variant="profile"
+        src={[
+          "https://picsum.photos/seed/isa/30/30",
+          "https://picsum.photos/seed/isa/60/60",
+        ]}
+        hover
+      >
+        Hover
+      </Pill>
+      <Pill
+        variant="profile"
+        src={[
+          "https://picsum.photos/seed/isa/30/30",
+          "https://picsum.photos/seed/isa/60/60",
+        ]}
+        selected
+      >
+        Selected
+      </Pill>
+      <Pill
+        variant="profile"
+        src={[
+          "https://picsum.photos/seed/isa/30/30",
+          "https://picsum.photos/seed/isa/60/60",
+        ]}
+        disabled
+      >
+        Disabled
+      </Pill>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Profile variant pill with artist image in different states.",
+      },
+    },
+  },
 }
 
-export const Demo = () => {
-  const [selected, setSelected] = useState(false)
-  return (
-    <Pill
-      selected={selected}
-      onClick={() => setSelected((prevActive) => !prevActive)}
-    >
-      Example
-    </Pill>
-  )
+export const PillWithIcon = {
+  render: () => (
+    <Box display="flex" flexDirection="column" gap={2}>
+      <Box display="flex" gap={2} flexWrap="wrap">
+        <Pill variant="badge" Icon={GraphIcon}>
+          Badge with Icon
+        </Pill>
+        <Pill variant="badge" Icon={GraphIcon} focus>
+          Focus
+        </Pill>
+        <Pill variant="badge" Icon={GraphIcon} hover>
+          Hover
+        </Pill>
+        <Pill variant="badge" Icon={GraphIcon} selected>
+          Selected
+        </Pill>
+        <Pill variant="badge" Icon={GraphIcon} disabled>
+          Disabled
+        </Pill>
+      </Box>
+      <Box display="flex" gap={2} flexWrap="wrap">
+        <Pill
+          variant="default"
+          Icon={ChevronSmallDownIcon}
+          iconPosition="right"
+        >
+          With Right Icon
+        </Pill>
+        <Pill variant="search" Icon={GraphIcon}>
+          Search with Icon
+        </Pill>
+        <Pill variant="filter" Icon={GraphIcon}>
+          Filter with Icon
+        </Pill>
+        <Pill variant="dotted" Icon={GraphIcon}>
+          Dotted with Icon
+        </Pill>
+      </Box>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Pills with various icons and icon positions.",
+      },
+    },
+  },
 }
 
-export const ProfileVariant = () => {
-  return (
-    <States<PillProps>
-      states={[
-        { variant: "profile" },
-        { variant: "profile", compact: true },
-        { variant: "profile", src: undefined },
-      ]}
-    >
-      <Pill src="https://picsum.photos/seed/isa/60/60">Isa Genzken</Pill>
-    </States>
-  )
+export const Interactive = {
+  render: () => {
+    const [selected, setSelected] = useState(false)
+    return (
+      <Pill
+        selected={selected}
+        onClick={() => setSelected((prevActive) => !prevActive)}
+      >
+        Click to Toggle
+      </Pill>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Interactive pill that toggles selected state when clicked.",
+      },
+    },
+  },
 }
 
-export const PillWithPopover = () => {
-  return (
-    <>
-      <Popover placement="bottom" popover={<>Content</>}>
-        {({ anchorRef, onVisible }) => (
-          <Pill ref={anchorRef as any} onClick={() => onVisible()}>
-            Example
-          </Pill>
-        )}
-      </Popover>
-    </>
-  )
+export const ProfileVariant = {
+  render: () => (
+    <Box display="flex" gap={2} flexWrap="wrap">
+      <Pill variant="profile" src="https://picsum.photos/seed/isa/60/60">
+        Standard Profile
+      </Pill>
+      <Pill
+        variant="profile"
+        compact
+        src="https://picsum.photos/seed/isa/60/60"
+      >
+        Compact Profile
+      </Pill>
+      <Pill variant="profile">Profile without Image</Pill>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Profile variant pills with different configurations.",
+      },
+    },
+  },
+}
+
+export const PillWithPopover = {
+  render: () => (
+    <Popover placement="bottom" popover={<>Popover Content</>}>
+      {({ anchorRef, onVisible }) => (
+        <Pill ref={anchorRef as any} onClick={() => onVisible()}>
+          Click for Popover
+        </Pill>
+      )}
+    </Popover>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Pill that triggers a popover when clicked.",
+      },
+    },
+  },
 }
