@@ -74,11 +74,10 @@ export const AsString = {
   },
 }
 
-export const CharacterCapWithHtml = () => {
-  return (
-    <ReadMore
-      maxChars={300}
-      content={`<p>
+export const CharacterCapWithHtml = {
+  args: {
+    maxChars: 300,
+    content: `<p>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps
           best-known for the large-scale outdoor installations and long,
@@ -98,17 +97,19 @@ export const CharacterCapWithHtml = () => {
           eveniet aliquid laborum fugiat quibusdam id suscipit est temporibus
           labore sint aliquam, laudantium tempore. Tenetur adipisci cumque
           alias facilis animi. Illum.
-        </p>`}
-    />
-  )
+        </p>`,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Character cap with HTML content.",
+      },
+    },
+  },
 }
 
-CharacterCapWithHtml.story = {
-  name: "Character cap with HTML",
-}
-
-export const WithCustomizableTypography = () => {
-  return (
+export const WithCustomizableTypography = {
+  render: () => (
     <HTML>
       <ReadMore
         maxChars={300}
@@ -137,15 +138,18 @@ export const WithCustomizableTypography = () => {
             </p>`}
       />
     </HTML>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "ReadMore with customizable typography using HTML wrapper.",
+      },
+    },
+  },
 }
 
-WithCustomizableTypography.story = {
-  name: "With customizable typography",
-}
-
-export const WithCustomizableTypography2 = () => {
-  return (
+export const WithCustomizableTypography2 = {
+  render: () => (
     <HTML variant="lg">
       <ReadMore
         maxChars={300}
@@ -173,19 +177,22 @@ export const WithCustomizableTypography2 = () => {
             </p>`}
       />
     </HTML>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "ReadMore with customizable large typography using HTML wrapper.",
+      },
+    },
+  },
 }
 
-WithCustomizableTypography2.story = {
-  name: "With customizable typography (2)",
-}
-
-export const CharacterCapWithHtmlDisabled = () => {
-  return (
-    <ReadMore
-      disabled
-      maxChars={300}
-      content={`<div>
+export const CharacterCapWithHtmlDisabled = {
+  args: {
+    disabled: true,
+    maxChars: 300,
+    content: `<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
           for the large-scale outdoor installations and long, spacious interiors
@@ -193,17 +200,19 @@ export const CharacterCapWithHtmlDisabled = () => {
           significant American artists of the post-war period, is perhaps
           best-known for the large-scale outdoor installations and long,
           spacious interiors he designed in Marfa.
-        </div>`}
-    />
-  )
+        </div>`,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Character cap with HTML content when disabled.",
+      },
+    },
+  },
 }
 
-CharacterCapWithHtmlDisabled.story = {
-  name: "Character cap with html (disabled)",
-}
-
-export const WithBottomReadMore = () => {
-  return (
+export const WithBottomReadMore = {
+  render: () => (
     <Box textAlign="center" width={600}>
       <HTML variant="lg">
         <ReadMore
@@ -221,9 +230,12 @@ export const WithBottomReadMore = () => {
         />
       </HTML>
     </Box>
-  )
-}
-
-WithBottomReadMore.story = {
-  name: "With bottom placed 'Read More'",
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "ReadMore with bottom-placed 'Read More' link.",
+      },
+    },
+  },
 }

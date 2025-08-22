@@ -13,11 +13,31 @@ const CONTENT =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eius autem aliquid cumque, mollitia incidunt totam. Id ut quae hic in quisquam, cupiditate iure nobis, provident minus voluptatem tenetur consequatur."
 
 export default {
+  component: Popover,
   title: "Components/Popover",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A floating popover component that can be positioned relative to an anchor element.",
+      },
+    },
+    controls: {
+      include: [
+        "placement",
+        "visible",
+        "variant",
+        "pointer",
+        "manageFocus",
+        "ignoreClickOutside",
+      ],
+    },
+  },
 }
 
-export const Default = () => {
-  return (
+export const Default = {
+  render: () => (
     <States<Partial<PopoverProps>>
       states={[
         {},
@@ -78,73 +98,76 @@ export const Default = () => {
           </Text>
         }
       >
-        {({ onVisible, anchorRef }) => {
-          return (
-            <Box textAlign="center">
-              <Button
-                ref={anchorRef}
-                variant="secondaryBlack"
-                size="small"
-                onClick={onVisible}
-              >
-                Click to display popover
-              </Button>
-            </Box>
-          )
-        }}
+        {({ onVisible, anchorRef }) => (
+          <Box textAlign="center">
+            <Button
+              ref={anchorRef}
+              variant="secondaryBlack"
+              size="small"
+              onClick={onVisible}
+            >
+              Click to display popover
+            </Button>
+          </Box>
+        )}
       </Popover>
     </States>
-  )
+  ),
+  parameters: {
+    chromatic: { disable: true },
+    docs: {
+      description: {
+        story:
+          "Default popover with various states including visible, with content interactions, pointer styles, and dark variant.",
+      },
+    },
+  },
 }
 
-Default.story = {
-  parameters: { chromatic: { disable: true } },
-}
-
-export const Placement = () => {
-  return (
+export const Placement = {
+  render: () => (
     <States<Partial<PopoverProps>>
       states={Object.keys(POSITION).map((placement) => ({
         placement: placement as Position,
       }))}
     >
-      {(props) => {
-        return (
-          <Popover
-            popover={<Text variant="xs">{JSON.stringify(props)}</Text>}
-            visible
-            variant="defaultDark"
-            pointer
-            {...props}
-          >
-            {({ anchorRef }) => {
-              return (
-                <Text
-                  ref={anchorRef as any}
-                  variant="xs"
-                  textAlign="center"
-                  p={1}
-                  maxWidth="50%"
-                  mx="auto"
-                  bg="mono10"
-                >
-                  {JSON.stringify(props)}
-                </Text>
-              )
-            }}
-          </Popover>
-        )
-      }}
+      {(props) => (
+        <Popover
+          popover={<Text variant="xs">{JSON.stringify(props)}</Text>}
+          visible
+          variant="defaultDark"
+          pointer
+          {...props}
+        >
+          {({ anchorRef }) => (
+            <Text
+              ref={anchorRef as any}
+              variant="xs"
+              textAlign="center"
+              p={1}
+              maxWidth="50%"
+              mx="auto"
+              bg="mono10"
+            >
+              {JSON.stringify(props)}
+            </Text>
+          )}
+        </Popover>
+      )}
     </States>
-  )
+  ),
+  parameters: {
+    chromatic: { disable: true },
+    docs: {
+      description: {
+        story: "Popover shown in all available placement positions.",
+      },
+    },
+  },
 }
 
-Placement.story = {
-  parameters: { chromatic: { disable: true } },
-}
-
-export const ManageFocus = () => {
-  return (
+export const ManageFocus = {
+  render: () => (
     <States<Partial<PopoverProps>>
       states={[
         { visible: true, manageFocus: false },
@@ -159,32 +182,102 @@ export const ManageFocus = () => {
           </Text>
         }
       >
-        {({ onVisible, anchorRef }) => {
-          return (
-            <Box textAlign="center">
-              <Button
-                ref={anchorRef}
-                variant="secondaryBlack"
-                size="small"
-                onClick={onVisible}
-              >
-                Click to display popover
-              </Button>
-            </Box>
-          )
-        }}
+        {({ onVisible, anchorRef }) => (
+          <Box textAlign="center">
+            <Button
+              ref={anchorRef}
+              variant="secondaryBlack"
+              size="small"
+              onClick={onVisible}
+            >
+              Click to display popover
+            </Button>
+          </Box>
+        )}
       </Popover>
     </States>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Popover with different focus management settings.",
+      },
+    },
+  },
 }
 
-export const PopoverActions = () => {
-  return (
+export const PopoverActions = {
+  render: () => (
     <States<Partial<PopoverProps>> states={[{ visible: true }]}>
       <Popover
         placement="bottom"
-        popover={({ onHide, onDismiss }) => {
-          return (
+        popover={({ onHide, onDismiss }) => (
+          <>
+            <Text variant="xs" width={300}>
+              {CONTENT}
+            </Text>
+
+            <Spacer y={2} />
+
+            <Flex>
+              <Button
+                flex={1}
+                size="small"
+                variant="secondaryBlack"
+                onClick={onHide}
+              >
+                Hide
+              </Button>
+
+              <Spacer x={1} />
+
+              <Button
+                flex={1}
+                size="small"
+                variant="secondaryBlack"
+                onClick={onDismiss}
+              >
+                Dismiss
+              </Button>
+            </Flex>
+          </>
+        )}
+      >
+        {({ onVisible, anchorRef }) => (
+          <Box textAlign="center">
+            <Button
+              ref={anchorRef}
+              variant="secondaryBlack"
+              size="small"
+              onClick={onVisible}
+            >
+              Click to display popover
+            </Button>
+          </Box>
+        )}
+      </Popover>
+    </States>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Popover with action buttons (Hide and Dismiss).",
+      },
+    },
+  },
+}
+
+export const CrashAtSpecificZoomLevels = {
+  render: () => (
+    <>
+      <Box height={100}>Zoom to 90% in Chrome, click, then scroll.</Box>
+
+      <Box height={2000} bg="mono5">
+        <Box height={200} />
+
+        <Popover
+          placement="top"
+          popover={({ onHide, onDismiss }) => (
             <>
               <Text variant="xs" width={300}>
                 {CONTENT}
@@ -214,11 +307,9 @@ export const PopoverActions = () => {
                 </Button>
               </Flex>
             </>
-          )
-        }}
-      >
-        {({ onVisible, anchorRef }) => {
-          return (
+          )}
+        >
+          {({ onVisible, anchorRef }) => (
             <Box textAlign="center">
               <Button
                 ref={anchorRef}
@@ -229,73 +320,16 @@ export const PopoverActions = () => {
                 Click to display popover
               </Button>
             </Box>
-          )
-        }}
-      </Popover>
-    </States>
-  )
-}
-
-export const CrashAtSpecificZoomLevels = () => {
-  return (
-    <>
-      <Box height={100}>Zoom to 90% in Chrome, click, then scroll.</Box>
-
-      <Box height={2000} bg="mono5">
-        <Box height={200} />
-
-        <Popover
-          placement="top"
-          popover={({ onHide, onDismiss }) => {
-            return (
-              <>
-                <Text variant="xs" width={300}>
-                  {CONTENT}
-                </Text>
-
-                <Spacer y={2} />
-
-                <Flex>
-                  <Button
-                    flex={1}
-                    size="small"
-                    variant="secondaryBlack"
-                    onClick={onHide}
-                  >
-                    Hide
-                  </Button>
-
-                  <Spacer x={1} />
-
-                  <Button
-                    flex={1}
-                    size="small"
-                    variant="secondaryBlack"
-                    onClick={onDismiss}
-                  >
-                    Dismiss
-                  </Button>
-                </Flex>
-              </>
-            )
-          }}
-        >
-          {({ onVisible, anchorRef }) => {
-            return (
-              <Box textAlign="center">
-                <Button
-                  ref={anchorRef}
-                  variant="secondaryBlack"
-                  size="small"
-                  onClick={onVisible}
-                >
-                  Click to display popover
-                </Button>
-              </Box>
-            )
-          }}
+          )}
         </Popover>
       </Box>
     </>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Test case for popover behavior at specific zoom levels.",
+      },
+    },
+  },
 }

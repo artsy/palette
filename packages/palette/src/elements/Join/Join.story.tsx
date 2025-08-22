@@ -117,25 +117,47 @@ export const WithSomeOfTheChildrenEmpty = {
   },
 }
 
-export const WithNestedChildren = () => {
-  return (
-    <Join separator={<Separator my={1} />}>
-      <Text variant="sm-display">First in the list</Text>
+export const WithNestedChildren = {
+  args: {
+    separator: <Separator my={1} />,
+    children: [
+      <Text key="1" variant="sm-display">
+        First in the list
+      </Text>,
       <>
-        <Text variant="sm-display">Second in the list</Text>
-        <Text variant="sm-display">Third in the list</Text>
+        <Text key="2" variant="sm-display">
+          Second in the list
+        </Text>
+        ,
+        <Text key="3" variant="sm-display">
+          Third in the list
+        </Text>
+        ,
         <>
-          <Text variant="sm-display">Fourth in the list</Text>
-          <Text variant="sm-display">Fifth in the list</Text>
+          <Text key="4" variant="sm-display">
+            Fourth in the list
+          </Text>
+          ,
+          <Text key="5" variant="sm-display">
+            Fifth in the list
+          </Text>
+          ,
         </>
-
-        <Box>
+        ,
+        <Box key="6">
           <Text variant="sm-display">These two lines</Text>
           <Text variant="sm-display">Are grouped</Text>
         </Box>
-
-        <Text>End of list</Text>
-      </>
-    </Join>
-  )
+        ,<Text key="7">End of list</Text>,
+      </>,
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Join component with nested children and groups, showing separators only between visible content.",
+      },
+    },
+  },
 }

@@ -101,8 +101,8 @@ export const NoProgress = {
   },
 }
 
-export const DifferingAmounts = () => {
-  return (
+export const DifferingAmounts = {
+  render: () => (
     <Box maxWidth={1920} mx="auto">
       <Box mx={[2, 4]}>
         <States<Partial<ShelfProps> & { amount: number }>
@@ -117,11 +117,19 @@ export const DifferingAmounts = () => {
         </States>
       </Box>
     </Box>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Shelf with different amounts of items to demonstrate scrolling behavior.",
+      },
+    },
+  },
 }
 
-export const NavigationButtons = () => {
-  return (
+export const NavigationButtons = {
+  render: () => (
     <States<ShelfNavigationProps>
       states={[
         {},
@@ -133,29 +141,43 @@ export const NavigationButtons = () => {
     >
       <ShelfNext />
     </States>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Navigation buttons for shelf with different states.",
+      },
+    },
+  },
 }
 
-export const ClientSideUpdates = () => {
-  const [amount, setAmount] = useState(1)
+export const ClientSideUpdates = {
+  render: () => {
+    const [amount, setAmount] = useState(1)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAmount(Math.floor(Math.random() * Math.floor(15)) + 1)
-    }, 1000)
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setAmount(Math.floor(Math.random() * Math.floor(15)) + 1)
+      }, 1000)
+      return () => {
+        clearInterval(interval)
+      }
+    }, [])
 
-  return (
-    <>
-      <pre>Amount: {amount}</pre>
-      <Demo amount={amount} />
-    </>
-  )
-}
-
-ClientSideUpdates.story = {
-  parameters: { chromatic: { disable: true } },
+    return (
+      <>
+        <pre>Amount: {amount}</pre>
+        <Demo amount={amount} />
+      </>
+    )
+  },
+  parameters: {
+    chromatic: { disable: true },
+    docs: {
+      description: {
+        story:
+          "Shelf with client-side updates to demonstrate dynamic content changes.",
+      },
+    },
+  },
 }
