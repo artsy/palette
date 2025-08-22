@@ -1,3 +1,4 @@
+import React from "react"
 import { Toggle } from "./Toggle"
 
 export default {
@@ -18,6 +19,16 @@ export default {
 }
 
 export const Default = {
+  render: (args) => {
+    const [selected, setSelected] = React.useState(args.selected ?? false)
+    return (
+      <Toggle
+        {...args}
+        selected={selected}
+        onSelect={() => setSelected(!selected)}
+      />
+    )
+  },
   args: {
     selected: false,
   },
@@ -31,6 +42,16 @@ export const Default = {
 }
 
 export const Selected = {
+  render: (args) => {
+    const [selected, setSelected] = React.useState(args.selected ?? true)
+    return (
+      <Toggle
+        {...args}
+        selected={selected}
+        onSelect={() => setSelected(!selected)}
+      />
+    )
+  },
   args: {
     selected: true,
   },
@@ -44,6 +65,7 @@ export const Selected = {
 }
 
 export const Disabled = {
+  render: (args) => <Toggle {...args} />,
   args: {
     disabled: true,
     selected: false,
@@ -58,6 +80,7 @@ export const Disabled = {
 }
 
 export const DisabledSelected = {
+  render: (args) => <Toggle {...args} />,
   args: {
     disabled: true,
     selected: true,
