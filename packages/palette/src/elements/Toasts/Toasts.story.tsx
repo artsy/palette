@@ -10,7 +10,20 @@ import { Separator } from "../Separator"
 import { Clickable } from "../Clickable"
 
 export default {
+  component: Toasts,
   title: "Components/Toasts",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A toast container component that manages multiple toast notifications with ToastsProvider.",
+      },
+    },
+    controls: {
+      include: ["children"],
+    },
+  },
 }
 
 export const Demo = () => {

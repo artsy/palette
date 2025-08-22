@@ -4,11 +4,37 @@ import { Text } from "../Text"
 import { FullBleed } from "./FullBleed"
 
 export default {
+  component: FullBleed,
   title: "Components/FullBleed",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A component that breaks out of its container to span the full width of the viewport.",
+      },
+    },
+    controls: {
+      include: ["bg", "px", "py", "children"],
+    },
+  },
 }
 
-export const Default = () => {
-  return (
+export const Default = {
+  args: {
+    bg: "blue10",
+    px: 2,
+    py: 1,
+    children: (
+      <Text my={2} variant="sm-display">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia
+        temporibus delectus cum, laudantium deleniti! Fugiat explicabo velit
+        accusamus, libero quod, ipsum nisi non nihil praesentium, optio
+        cupiditate adipisci omnis.
+      </Text>
+    ),
+  },
+  render: (args) => (
     <Box bg="mono5" maxWidth={900} mx="auto" px={2} py={1}>
       <Text my={2} variant="sm-display">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia
@@ -17,14 +43,7 @@ export const Default = () => {
         cupiditate adipisci omnis.
       </Text>
 
-      <FullBleed bg="blue10" px={2} py={1}>
-        <Text my={2} variant="sm-display">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia
-          temporibus delectus cum, laudantium deleniti! Fugiat explicabo velit
-          accusamus, libero quod, ipsum nisi non nihil praesentium, optio
-          cupiditate adipisci omnis.
-        </Text>
-      </FullBleed>
+      <FullBleed {...args} />
 
       <Text my={2} variant="sm-display">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia
@@ -33,5 +52,12 @@ export const Default = () => {
         cupiditate adipisci omnis.
       </Text>
     </Box>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "FullBleed component breaking out of its container.",
+      },
+    },
+  },
 }

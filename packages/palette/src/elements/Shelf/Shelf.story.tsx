@@ -6,7 +6,20 @@ import { Shelf, ShelfProps } from "./Shelf"
 import { ShelfNavigationProps, ShelfNext } from "./ShelfNavigation"
 
 export default {
+  component: Shelf,
   title: "Components/Shelf",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A horizontal scrollable shelf container for displaying collections of items.",
+      },
+    },
+    controls: {
+      include: ["children"],
+    },
+  },
 }
 
 const Demo = ({

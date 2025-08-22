@@ -3,7 +3,20 @@ import { Marquee, MarqueeProps } from "./Marquee"
 import { States } from "storybook-states"
 
 export default {
+  component: Marquee,
   title: "Components/Marquee",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A scrolling marquee text component with different visual variants and speed options.",
+      },
+    },
+    controls: {
+      include: ["marqueeText", "variant", "speed", "divider"],
+    },
+  },
 }
 
 export const Default = () => {

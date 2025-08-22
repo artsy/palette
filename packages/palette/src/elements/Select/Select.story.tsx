@@ -3,7 +3,20 @@ import { States } from "storybook-states"
 import { Select, SelectProps } from "./Select"
 
 export default {
+  component: Select,
   title: "Components/Select",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A styled select dropdown component with options, states, and form validation.",
+      },
+    },
+    controls: {
+      include: ["options", "title", "description", "error", "disabled"],
+    },
+  },
 }
 
 const OPTIONS = [

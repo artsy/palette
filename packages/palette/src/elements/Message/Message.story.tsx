@@ -9,7 +9,20 @@ import {
 } from "./Message"
 
 export default {
+  component: Message,
   title: "Components/Message",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A message component with different variants for displaying information, warnings, or errors.",
+      },
+    },
+    controls: {
+      include: ["variant", "title", "children"],
+    },
+  },
 }
 
 export const Default = () => {

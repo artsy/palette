@@ -11,7 +11,20 @@ import styled from "styled-components"
 import { Popover } from "../Popover"
 
 export default {
+  component: Pill,
   title: "Components/Pill",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A pill-shaped button component with various visual variants for different use cases.",
+      },
+    },
+    controls: {
+      include: ["variant", "children", "selected", "disabled"],
+    },
+  },
 }
 
 const Display = styled(Box)``

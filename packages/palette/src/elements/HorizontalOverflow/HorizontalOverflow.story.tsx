@@ -10,7 +10,20 @@ import { Join } from "../Join"
 import { Box } from "../Box"
 
 export default {
+  component: HorizontalOverflow,
   title: "Components/HorizontalOverflow",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A container that allows content to overflow horizontally with scrolling when needed.",
+      },
+    },
+    controls: {
+      include: ["children", "bg", "p", "height"],
+    },
+  },
 }
 
 export const Default = () => {

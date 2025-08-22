@@ -4,7 +4,20 @@ import { Label, LabelProps, LabelVariant, LABEL_VARIANTS } from "./Label"
 import { Box } from "../Box"
 
 export default {
+  component: Label,
   title: "Components/Label",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A label component with different visual variants for various use cases.",
+      },
+    },
+    controls: {
+      include: ["variant", "children"],
+    },
+  },
 }
 
 export const Default = () => {

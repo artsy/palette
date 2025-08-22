@@ -5,7 +5,28 @@ import { Clickable } from "../Clickable"
 import { LabeledInput, LabeledInputProps } from "./LabeledInput"
 
 export default {
+  component: LabeledInput,
   title: "Components/LabeledInput",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "An input field with an optional label that can be positioned as prefix or suffix.",
+      },
+    },
+    controls: {
+      include: [
+        "label",
+        "variant",
+        "title",
+        "description",
+        "placeholder",
+        "type",
+        "name",
+      ],
+    },
+  },
 }
 
 export const Default = () => {

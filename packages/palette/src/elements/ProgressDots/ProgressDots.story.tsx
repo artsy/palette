@@ -4,7 +4,20 @@ import { States } from "storybook-states"
 import { ProgressDots, ProgressDotsProps } from "./ProgressDots"
 
 export default {
+  component: ProgressDots,
   title: "Components/ProgressDots",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A navigation component displaying a series of dots or dashes to indicate progress or position.",
+      },
+    },
+    controls: {
+      include: ["activeIndex", "amount", "variant", "onClick"],
+    },
+  },
 }
 
 export const Default = () => {

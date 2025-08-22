@@ -5,7 +5,20 @@ import { Flex } from "../Flex"
 import { Button } from "../Button"
 
 export default {
+  component: StackableBorderBox,
   title: "Components/StackableBorderBox",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A bordered container component designed to be stacked with other border boxes.",
+      },
+    },
+    controls: {
+      include: ["children"],
+    },
+  },
 }
 
 export const Default = () => {

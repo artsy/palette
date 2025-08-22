@@ -3,7 +3,20 @@ import { States } from "storybook-states"
 import { ProgressBar, ProgressBarProps } from "./ProgressBar"
 
 export default {
+  component: ProgressBar,
   title: "Components/ProgressBar",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A progress bar component that displays completion percentage with customizable colors and background.",
+      },
+    },
+    controls: {
+      include: ["percentComplete", "highlight", "showBackground"],
+    },
+  },
 }
 
 export const Default = () => {
