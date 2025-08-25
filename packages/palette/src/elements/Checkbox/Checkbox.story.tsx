@@ -1,74 +1,109 @@
-import { fn } from "@storybook/test"
-import React, { useState } from "react"
-import { States } from "storybook-states"
-import { Box } from "../Box"
-import { Flex } from "../Flex"
-import { Text } from "../Text"
+import React from "react"
 import { Checkbox } from "./Checkbox"
 
 export default {
   title: "Components/Checkbox",
+  component: Checkbox,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Checkbox component provides a selectable input with label support. Includes states for selected, disabled, error, focus, and hover interactions.",
+      },
+      controls: {
+        include: [
+          "children",
+          "selected",
+          "disabled",
+          "error",
+          "focus",
+          "hover",
+          "onSelect",
+        ],
+      },
+    },
+  },
 }
 
-export const Default = () => {
-  return (
-    <States
-      states={[
-        {},
-        { selected: true },
-        { focus: true },
-        { focus: true, selected: true },
-        { hover: true },
-        { hover: true, selected: true },
-        { disabled: true },
-        { disabled: true, selected: true },
-        { error: true },
-        { error: true, selected: true },
-        {
-          children: (
-            <>
-              A label <>({2 + 2})</>
-            </>
-          ),
-        },
-        {
-          children: <div>Unstyled label</div>,
-        },
-      ]}
-    >
-      <Checkbox>A label</Checkbox>
-    </States>
-  )
+export const Unchecked = {
+  args: {
+    children: "Checkbox label",
+  },
 }
 
-export const Demo = () => {
-  const [isSelected, setSelected] = useState(false)
-  return (
-    <States>
-      <Checkbox
-        selected={isSelected}
-        onSelect={(selected) => {
-          setSelected(selected)
-          fn()(selected)
-        }}
-      >
-        Example
-      </Checkbox>
-    </States>
-  )
+export const Checked = {
+  args: {
+    children: "Checked checkbox",
+    selected: true,
+  },
 }
 
-export const Extended = () => {
-  return (
-    <States>
-      <Box width={300}>
-        <Checkbox width="100%">
-          <Flex width="35%" justifyContent="space-between" alignItems="center">
-            <Text lineHeight={1}>Green</Text>
-            <Box bg="green" width={20} height={20} borderRadius="50%" />
-          </Flex>
-        </Checkbox>
-      </Box>
-    </States>
-  )
+export const WithError = {
+  args: {
+    children: "Checkbox with error",
+    error: true,
+  },
+}
+
+export const Disabled = {
+  args: {
+    children: "Disabled checkbox",
+    disabled: true,
+  },
+}
+
+export const DisabledAndChecked = {
+  args: {
+    children: "Disabled and checked",
+    disabled: true,
+    selected: true,
+  },
+}
+
+export const Focus = {
+  args: {
+    children: "Focused checkbox",
+    focus: true,
+  },
+}
+
+export const Hover = {
+  args: {
+    children: "Hovered checkbox",
+    hover: true,
+  },
+}
+
+export const FocusAndSelected = {
+  args: {
+    children: "Focused and selected",
+    focus: true,
+    selected: true,
+  },
+}
+
+export const HoverAndSelected = {
+  args: {
+    children: "Hovered and selected",
+    hover: true,
+    selected: true,
+  },
+}
+
+export const WithCustomChildren = {
+  args: {
+    children: (
+      <>
+        A label <>({2 + 2})</>
+      </>
+    ),
+  },
+}
+
+export const FullWidth = {
+  args: {
+    width: "100%",
+    children: "Full width checkbox",
+  },
 }

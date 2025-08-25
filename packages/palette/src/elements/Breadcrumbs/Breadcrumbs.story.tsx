@@ -1,35 +1,49 @@
 import React from "react"
-import { States } from "storybook-states"
 import { Breadcrumbs } from "./Breadcrumbs"
 
 export default {
   title: "Components/Breadcrumbs",
+  component: Breadcrumbs,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Breadcrumbs component provides navigation links showing the user's location in the site hierarchy. Automatically adds separators between navigation items.",
+      },
+      controls: {
+        include: ["children"],
+      },
+    },
+  },
 }
 
-export const Default = () => {
-  return (
-    <States
-      states={[
-        {},
-        {
-          children: (
-            <>
-              <a href="#1">Level 01</a>
-              <a href="#2">Level 02</a>
-            </>
-          ),
-        },
-        {
-          children: <a href="#1">Level 01</a>,
-        },
-      ]}
-    >
-      <Breadcrumbs>
+export const Default = {
+  args: {
+    children: (
+      <>
         <a href="#1">Level 01</a>
         <a href="#2">Level 02</a>
         <a href="#3">Level 03</a>
         <a href="#4">Level 04</a>
-      </Breadcrumbs>
-    </States>
-  )
+      </>
+    ),
+  },
+}
+
+export const TwoLevels = {
+  args: {
+    children: (
+      <>
+        <a href="#1">Level 01</a>
+        <a href="#2">Level 02</a>
+      </>
+    ),
+  },
+}
+
+export const SingleLevel = {
+  args: {
+    children: <a href="#1">Level 01</a>,
+  },
 }

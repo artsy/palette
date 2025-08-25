@@ -5,11 +5,35 @@ import { Clickable } from "../Clickable"
 import { LabeledInput, LabeledInputProps } from "./LabeledInput"
 
 export default {
+  component: LabeledInput,
   title: "Components/LabeledInput",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "An input field with an optional label that can be positioned as prefix or suffix.",
+      },
+    },
+    controls: {
+      include: [
+        "label",
+        "variant",
+        "title",
+        "description",
+        "placeholder",
+        "type",
+        "name",
+      ],
+    },
+  },
 }
 
-export const Default = () => {
-  return (
+export const Default = {
+  args: {
+    label: "$",
+  },
+  render: (args) => (
     <States<Partial<LabeledInputProps>>
       states={[
         { label: "$USD", placeholder: "Min", type: "number" },
@@ -52,29 +76,50 @@ export const Default = () => {
         },
       ]}
     >
-      <LabeledInput label="$" />
+      <LabeledInput {...args} />
     </States>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Default LabeledInput with various states.",
+      },
+    },
+  },
 }
 
-export const CharacterCountExample = () => {
-  const defaultValue = "Hello world"
-  const [length, setLength] = useState(defaultValue.length)
-  return (
-    <LabeledInput
-      label={length}
-      onChange={(e) => setLength(e.currentTarget.value.length)}
-      defaultValue={defaultValue}
-    />
-  )
+export const CharacterCountExample = {
+  render: () => {
+    const defaultValue = "Hello world"
+    const [length, setLength] = useState(defaultValue.length)
+    return (
+      <LabeledInput
+        label={length}
+        onChange={(e) => setLength(e.currentTarget.value.length)}
+        defaultValue={defaultValue}
+      />
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "LabeledInput with character count display.",
+      },
+    },
+  },
 }
 
-export const CustomHeight = () => {
-  return (
-    <LabeledInput
-      label="🔎"
-      height={40}
-      placeholder="Input is 40px in height"
-    />
-  )
+export const CustomHeight = {
+  args: {
+    label: "🔎",
+    height: 40,
+    placeholder: "Input is 40px in height",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "LabeledInput with custom height.",
+      },
+    },
+  },
 }

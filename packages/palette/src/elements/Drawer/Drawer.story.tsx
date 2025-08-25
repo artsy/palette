@@ -4,13 +4,26 @@ import { Flex } from "../Flex"
 import { Button } from "../Button"
 
 export default {
+  component: Drawer,
   title: "Components/Drawer",
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "A sliding drawer component that can be anchored to the left or right side of the screen.",
+      },
+    },
+    controls: {
+      include: ["open", "onClose", "anchor"],
+    },
   },
 }
 
-const Layout: React.FC<React.PropsWithChildren<{ anchor: "left" | "right" }>> = ({ anchor }) => {
+const Layout: React.FC<
+  React.PropsWithChildren<{ anchor: "left" | "right" }>
+> = ({ anchor }) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -41,10 +54,30 @@ const Layout: React.FC<React.PropsWithChildren<{ anchor: "left" | "right" }>> = 
   )
 }
 
-export const Default = () => {
-  return <Layout anchor="right" />
+export const Default = {
+  args: {
+    anchor: "right",
+  },
+  render: () => <Layout anchor="right" />,
+  parameters: {
+    docs: {
+      description: {
+        story: "Default drawer that slides in from the right side.",
+      },
+    },
+  },
 }
 
-export const Left = () => {
-  return <Layout anchor="left" />
+export const Left = {
+  args: {
+    anchor: "left",
+  },
+  render: () => <Layout anchor="left" />,
+  parameters: {
+    docs: {
+      description: {
+        story: "Drawer that slides in from the left side.",
+      },
+    },
+  },
 }
