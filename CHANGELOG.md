@@ -1,3 +1,16 @@
+# (Mon Aug 25 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@44.1.0`
+  - feat(MultiSelect): Add controlled selection behavior [#1469](https://github.com/artsy/palette/pull/1469) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # (Thu Aug 21 2025)
 
 #### 🐛  Bug Fix
