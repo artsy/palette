@@ -23,7 +23,7 @@ export interface MultiSelectProps extends BoxProps {
   error?: string | boolean
   focus?: boolean
   hover?: boolean
-  /** Initial values to be selected */
+  /** Selected values (updating the list will refresh the internal selection and re-render the component) */
   selected?: Option["value"][]
   name?: string
   options: Option[]
@@ -61,6 +61,11 @@ export const MultiSelect: React.FC<
 
   const [visible, setVisible] = useState(autoOpen)
   const [selection, setSelection] = useState<Option[]>(selectedOptions || [])
+
+  useEffect(() => {
+    const newSelectedOptions = valuesToOptions(selected, options)
+    setSelection(newSelectedOptions)
+  }, [selected.toString()])
 
   // Yields focus back and forth between popover and anchor
   useUpdateEffect(() => {

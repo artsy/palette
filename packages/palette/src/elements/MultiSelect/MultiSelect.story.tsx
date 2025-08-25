@@ -34,11 +34,7 @@ export const Default = () => {
         },
       ]}
     >
-      <MultiSelect
-        name="Medium"
-        options={OPTIONS}
-        onSelect={fn()}
-      />
+      <MultiSelect name="Medium" options={OPTIONS} onSelect={fn()} />
     </States>
   )
 }
@@ -59,6 +55,38 @@ export const Example = () => {
         onSelect={(sizes) => {
           setFilter({ sizes: sizes.map((size) => size.value) })
         }}
+      />
+    </>
+  )
+}
+
+export const CustomSelectionLogic = () => {
+  const [selectedValue, setSelectedValue] = React.useState<string[]>([])
+
+  const handleSelect = (selection) => {
+    // If a new option is selected, only keep the most recently selected one
+    if (selection.length > selectedValue.length) {
+      const newlySelected = selection[selection.length - 1]
+      setSelectedValue([newlySelected.value])
+    } else {
+      // If an option was deselected, clear the selection
+      setSelectedValue([])
+    }
+  }
+
+  return (
+    <>
+      <p>
+        This MultiSelect behaves like a single select - selecting a new option
+        deselects all others.
+      </p>
+      <pre>Selected: {JSON.stringify(selectedValue)}</pre>
+
+      <MultiSelect
+        options={OPTIONS}
+        name="Select one medium"
+        selected={selectedValue}
+        onSelect={handleSelect}
       />
     </>
   )
