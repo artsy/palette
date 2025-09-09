@@ -1,6 +1,6 @@
 import React from "react"
 import { Checkbox } from "./Checkbox"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   title: "Components/Checkbox",
@@ -13,7 +13,7 @@ export default {
           "Checkbox component provides a selectable input with label support. Includes states for selected, disabled, error, focus, and hover interactions.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

@@ -1,7 +1,7 @@
 import React from "react"
 import { Text } from "../Text"
 import { Sup } from "./Sup"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: Sup,
@@ -15,7 +15,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

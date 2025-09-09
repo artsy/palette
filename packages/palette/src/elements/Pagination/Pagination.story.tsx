@@ -1,7 +1,7 @@
 import { fn } from "@storybook/test"
 import React from "react"
 import { Pagination, PaginationSkeleton } from "./Pagination"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const EXAMPLE_PAGE_CURSORS = {
   first: { page: 1, cursor: "Y3Vyc29yMg==", isCurrent: false },
@@ -27,7 +27,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

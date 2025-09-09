@@ -1,6 +1,6 @@
 import React from "react"
 import { SelectInputList } from "./SelectInputList"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: SelectInputList,
@@ -14,7 +14,7 @@ export default {
       },
     },
     controls: {
-      exclude: STORYBOOK_PROPS_BLACKLIST,
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
     },
   },
 }

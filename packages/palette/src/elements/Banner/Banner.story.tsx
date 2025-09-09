@@ -1,5 +1,5 @@
 import { Banner } from "./Banner"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   title: "Components/Banner",
@@ -12,7 +12,7 @@ export default {
           "Banner component for displaying important messages to users with various styles and dismissible options.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

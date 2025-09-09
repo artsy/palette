@@ -1,6 +1,6 @@
 import { fn } from "@storybook/test"
 import { FilterSelect } from "./FilterSelect"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: FilterSelect,
@@ -14,7 +14,7 @@ export default {
       },
     },
     controls: {
-      exclude: STORYBOOK_PROPS_BLACKLIST,
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
     },
   },
 }

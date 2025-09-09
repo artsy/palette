@@ -3,7 +3,7 @@ import React from "react"
 import { BaseTab, BaseTabs } from "../BaseTabs"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 // Fake `RouterLink`
 const RouterLink: React.FC<React.PropsWithChildren<{ to: string }>> = ({
@@ -29,7 +29,7 @@ export default {
           "BaseTabs component for creating tabbed navigation interfaces. Provides horizontal overflow handling and supports various tab configurations including fill width and custom tab implementations.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

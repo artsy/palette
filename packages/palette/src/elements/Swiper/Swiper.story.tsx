@@ -5,7 +5,7 @@ import { Clickable } from "../Clickable"
 import { ProgressDots } from "../ProgressDots"
 import { Text } from "../Text"
 import { Swiper, SwiperCell, SwiperProps, SwiperRail } from "./"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const LOREM =
   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis dicta sunt nihil perspiciatis aperiam asperiores, earum facere repellendus in veniam, mollitia, ducimus delectus perferendis beatae facilis molestiae et ad quaerat!"
@@ -51,7 +51,7 @@ export default {
           "A swiper/carousel component with horizontal scrolling, navigation, and progress indicators.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

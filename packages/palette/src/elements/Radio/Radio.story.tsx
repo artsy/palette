@@ -2,7 +2,7 @@ import React from "react"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Radio } from "./Radio"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: Radio,
@@ -16,7 +16,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

@@ -1,7 +1,7 @@
 import { fn } from "@storybook/test"
 import React, { useEffect, useState } from "react"
 import { Step, Stepper } from "./"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: Stepper,
@@ -15,7 +15,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

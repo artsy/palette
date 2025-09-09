@@ -11,7 +11,7 @@ import {
   CarouselProps,
   CarouselRail,
 } from "./"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const LOREM =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, adipisci. Voluptate voluptatum porro facere atque dolores est neque ipsam quaerat necessitatibus? Deleniti tempora assumenda accusantium, quia quo ad rem expedita!"
@@ -59,7 +59,7 @@ export default {
           "A carousel component for displaying a horizontally scrollable collection of items with navigation controls. Supports variable widths, heights, and custom styling.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

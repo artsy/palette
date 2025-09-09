@@ -6,7 +6,7 @@ import { Input } from "../Input"
 import { Join } from "../Join"
 import { Spacer } from "../Spacer"
 import { ModalBase, ModalBaseProps } from "./ModalBase"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const Example: React.FC<
   React.PropsWithChildren<
@@ -81,7 +81,7 @@ export default {
           "A base modal component that handles focus management, backdrop clicks, and accessibility.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

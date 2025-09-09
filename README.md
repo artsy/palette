@@ -42,7 +42,7 @@ Each story file should include:
 ```tsx
 import React from "react";
 import { MyComponent } from "./MyComponent";
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist";
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist";
 
 export default {
   component: MyComponent,
@@ -55,7 +55,7 @@ export default {
       },
     },
     controls: {
-      exclude: STORYBOOK_PROPS_BLACKLIST,
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
     },
   },
 };
@@ -77,7 +77,7 @@ export const Default = {
 #### Key Guidelines
 
 - **Always add autodocs**: Include `tags: ["autodocs"]` and component description
-- **Use the blacklist**: Add `controls: { exclude: STORYBOOK_PROPS_BLACKLIST }`
+- **Use the blocklist**: Add `controls: { exclude: STORYBOOK_PROPS_BLOCKLIST }`
 - **Separate stories for each variant**: Don't use the `States` helper - create individual story exports
 - **Use the `args` format**: Define props using the `args` property for better autodocs integration
 - **Add story descriptions**: Include `docs.description.story` for each story to explain its purpose

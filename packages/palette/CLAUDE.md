@@ -12,7 +12,7 @@ This guide describes the conventions for writing Storybook stories for Palette c
 Each story file should:
 
 - Import the component and any required types.
-- Import the `STORYBOOK_PROPS_BLACKLIST` from `../../utils/storybookBlacklist`.
+- Import the `STORYBOOK_PROPS_BLOCKLIST` from `../../utils/storybookBlocklist`.
 - Use the `arg` story format (CSF 3.0) for all stories.
 - Add autodocs and a component description in the default export.
 - Use **separate stories** for each state/variant (do not use the `States` helper).
@@ -22,7 +22,7 @@ Each story file should:
 ```tsx
 import React from "react"
 import { MyComponent } from "./MyComponent"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: MyComponent,
@@ -35,7 +35,7 @@ export default {
       },
     },
     controls: {
-      exclude: STORYBOOK_PROPS_BLACKLIST,
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
     },
   },
 }
@@ -70,7 +70,7 @@ export const Variant = {
 ## 4. Key Conventions
 
 - **Autodocs**: Always add `tags: ["autodocs"]` and a `component` description in the default export.
-- **Blacklist**: Always add `controls: { exclude: STORYBOOK_PROPS_BLACKLIST }` in the default export's `parameters`.
+- **Blocklist**: Always add `controls: { exclude: STORYBOOK_PROPS_BLOCKLIST }` in the default export's `parameters`.
 - **Arg Stories**: Use the `args` property for each story to define its props. Avoid inline render functions unless necessary for custom rendering.
 - **No States Helper**: Do **not** use `<States>` from `storybook-states`. Instead, create a separate export for each state/variant you want to demonstrate.
 - **Story Descriptions**: Add a `docs.description.story` for each story to clarify its purpose.
@@ -81,7 +81,7 @@ export const Variant = {
 ```tsx
 import React from "react"
 import { Dropdown } from "./Dropdown"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const dropdownContent = <div>Example content</div>
 
@@ -97,7 +97,7 @@ export default {
       },
     },
     controls: {
-      exclude: STORYBOOK_PROPS_BLACKLIST,
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
     },
   },
 }
@@ -144,7 +144,7 @@ export const PlacementTop = {
 ## 6. Checklist
 
 - [ ] File is named and located correctly
-- [ ] Default export includes autodocs, blacklist, and description
+- [ ] Default export includes autodocs, blocklist, and description
 - [ ] Each state/variant is a separate export (no States helper)
 - [ ] Each story uses the `args` format
 - [ ] Each story has a `docs.description.story`

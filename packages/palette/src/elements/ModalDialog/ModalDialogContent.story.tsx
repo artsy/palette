@@ -10,7 +10,7 @@ import { Box } from "../Box"
 import ChevronLeftIcon from "@artsy/icons/ChevronLeftIcon"
 import ArtsyLogoIcon from "@artsy/icons/ArtsyLogoIcon"
 import CloseIcon from "@artsy/icons/CloseIcon"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: ModalDialogContent,
@@ -23,7 +23,7 @@ export default {
           "Content component for modal dialogs with title, body, and action sections.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

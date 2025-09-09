@@ -1,7 +1,7 @@
 import React from "react"
 import { Stack } from "../Stack"
 import { Box } from "../Box"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   title: "Components/Stack",
@@ -14,7 +14,7 @@ export default {
           "Stack component provides a flex-based layout for arranging children with consistent spacing. Supports both vertical and horizontal arrangements with customizable gaps.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

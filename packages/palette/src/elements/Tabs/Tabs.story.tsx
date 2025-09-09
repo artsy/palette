@@ -7,7 +7,7 @@ import { Box } from "../Box"
 import { useCursor } from "use-cursor"
 import { Button } from "../Button"
 import { Input } from "../Input"
-import { STYLED_SYSTEM_PROPS_BLACKLIST } from "../../shared/PropsBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   title: "Components/Tabs",
@@ -20,7 +20,7 @@ export default {
           "Tabs component provides a tabbed interface for organizing content into separate panels. Supports keyboard navigation, custom initial tab selection, and flexible layout options.",
       },
       controls: {
-        exclude: STYLED_SYSTEM_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

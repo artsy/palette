@@ -1,5 +1,5 @@
 import { Input } from "./Input"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   title: "Components/Input",
@@ -12,7 +12,7 @@ export default {
           "Input component provides a text input field with built-in validation, error states, and accessibility features. Supports titles, placeholders, required fields, and character limits.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

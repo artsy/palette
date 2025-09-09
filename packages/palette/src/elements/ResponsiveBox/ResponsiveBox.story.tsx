@@ -9,7 +9,7 @@ import {
   ResponsiveBoxMaxDimensions,
   ResponsiveBoxProps,
 } from "./ResponsiveBox"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const Measure: React.FC<React.PropsWithChildren<ResponsiveBoxProps>> = (
   props
@@ -81,7 +81,7 @@ export default {
           "A responsive container that maintains aspect ratio and optionally constrains maximum dimensions.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

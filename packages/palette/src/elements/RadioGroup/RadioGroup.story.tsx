@@ -5,7 +5,7 @@ import { Button } from "../Button"
 import { Radio } from "../Radio/Radio"
 import { RadioGroup } from "./RadioGroup"
 import { Join } from "../Join"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: RadioGroup,
@@ -19,7 +19,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

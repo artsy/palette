@@ -2,7 +2,7 @@ import React from "react"
 import { Join } from "../Join"
 import { Spacer } from "../Spacer"
 import { Skeleton, SkeletonBox, SkeletonText } from "./Skeleton"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: SkeletonBox,
@@ -16,7 +16,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

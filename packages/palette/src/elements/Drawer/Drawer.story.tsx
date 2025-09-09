@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Drawer } from "./Drawer"
 import { Flex } from "../Flex"
 import { Button } from "../Button"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: Drawer,
@@ -17,7 +17,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

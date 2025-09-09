@@ -1,7 +1,7 @@
 import { fn } from "@storybook/test"
 import React, { useReducer } from "react"
 import { MultiSelect } from "./MultiSelect"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   title: "Components/MultiSelect",
@@ -10,7 +10,7 @@ export default {
   parameters: {
     docs: {
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

@@ -1,6 +1,6 @@
 import React from "react"
 import { Breadcrumbs } from "./Breadcrumbs"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   title: "Components/Breadcrumbs",
@@ -13,7 +13,7 @@ export default {
           "Breadcrumbs component provides navigation links showing the user's location in the site hierarchy. Automatically adds separators between navigation items.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

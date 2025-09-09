@@ -6,7 +6,7 @@ import { Text } from "../Text"
 import { Expandable } from "./Expandable"
 import { Button } from "../Button"
 import { Box } from "../Box"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   title: "Components/Expandable",
@@ -20,7 +20,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

@@ -8,7 +8,7 @@ import GraphIcon from "@artsy/icons/GraphIcon"
 import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
 import styled from "styled-components"
 import { Popover } from "../Popover"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: Pill,
@@ -22,7 +22,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

@@ -7,7 +7,7 @@ import { Toasts } from "./Toasts"
 import { ToastsProvider, useToasts } from "./useToasts"
 import { Separator } from "../Separator"
 import { Clickable } from "../Clickable"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: Toasts,
@@ -20,7 +20,7 @@ export default {
           "A toast container component that manages multiple toast notifications with ToastsProvider.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

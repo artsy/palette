@@ -3,7 +3,7 @@ import { Box } from "../Box"
 import { Text } from "../Text"
 import { Shelf } from "./Shelf"
 import { ShelfNext } from "./ShelfNavigation"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: Shelf,
@@ -16,7 +16,7 @@ export default {
           "A horizontal scrollable shelf container for displaying collections of items.",
       },
       controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
     },
   },

@@ -9,7 +9,7 @@ import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 import { Drawer } from "../Drawer"
 import { Button } from "../Button"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: Range,
@@ -23,7 +23,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

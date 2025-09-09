@@ -1,9 +1,9 @@
 /**
- * Blacklist of common props that should be excluded from Storybook controls.
+ * Blocklist of common props that should be excluded from Storybook controls.
  * These are primarily BoxProps, FlexProps, HTML attributes, React props, and
  * other technical props not typically needed for component documentation.
  */
-export const STORYBOOK_PROPS_BLACKLIST = [
+export const STORYBOOK_PROPS_BLOCKLIST = [
   // BackgroundProps
   "background",
   "backgroundImage",

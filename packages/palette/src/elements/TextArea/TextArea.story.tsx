@@ -2,7 +2,7 @@ import { fn } from "@storybook/test"
 import React from "react"
 import { Button } from "../Button"
 import { TextArea } from "./TextArea"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
   component: TextArea,
@@ -16,7 +16,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }

@@ -12,7 +12,7 @@ import { Text } from "../Text"
 import { Tooltip, TooltipProps } from "./Tooltip"
 import { Stack } from "../Stack"
 import { Column, GridColumns } from "../GridColumns"
-import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const CONTENT = "Lorem ipsum dolor sit amet consectetur adipisicing elit?"
 
@@ -28,7 +28,7 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
       },
   },
 }
