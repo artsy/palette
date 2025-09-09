@@ -1,5 +1,6 @@
 import BellStrokeIcon from "@artsy/icons/BellStrokeIcon"
 import { Button } from "./index"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/Button",
@@ -12,23 +13,7 @@ export default {
           "Button component provides a clickable interface element with multiple variants, sizes, and states. Supports loading states, icons, and can be rendered as different HTML elements.",
       },
       controls: {
-        include: [
-          "children",
-          "variant",
-          "size",
-          "loading",
-          "disabled",
-          "success",
-          "focus",
-          "hover",
-          "active",
-          "Icon",
-          "as",
-          "href",
-          "onClick",
-          "autoFocus",
-          "tabIndex",
-        ],
+        exclude: STORYBOOK_PROPS_BLACKLIST,
       },
     },
   },

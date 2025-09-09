@@ -1,4 +1,5 @@
 import { Select } from "./Select"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Select,
@@ -12,8 +13,8 @@ export default {
       },
     },
     controls: {
-      include: ["options", "title", "description", "error", "disabled"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

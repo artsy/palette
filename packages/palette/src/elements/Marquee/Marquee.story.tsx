@@ -1,5 +1,6 @@
 import React from "react"
 import { Marquee } from "./Marquee"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Marquee,
@@ -13,8 +14,8 @@ export default {
       },
     },
     controls: {
-      include: ["marqueeText", "variant", "speed", "divider"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

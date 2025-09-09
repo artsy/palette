@@ -1,6 +1,7 @@
 import { fn } from "@storybook/test"
 import React from "react"
 import { Clickable } from "./Clickable"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/Clickable",
@@ -14,15 +15,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "children",
-        "onClick",
-        "textDecoration",
-        "cursor",
-        "type",
-        "disabled",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

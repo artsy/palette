@@ -1,6 +1,7 @@
 import React from "react"
 import { States } from "storybook-states"
 import { SelectInputList, SelectInputListProps } from "./SelectInputList"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/SelectInputList",
@@ -31,7 +32,9 @@ export const Default = {
     </States>
   ),
   parameters: {
-    controls: { include: ["options"] },
+    controls: {
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
     docs: {
       description: {
         story: "Default SelectInputList with example countries.",

@@ -1,4 +1,5 @@
 import { PasswordInput } from "./PasswordInput"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: PasswordInput,
@@ -12,8 +13,8 @@ export default {
       },
     },
     controls: {
-      include: ["name", "placeholder", "defaultValue", "defaultVisibility"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

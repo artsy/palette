@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { ProgressBar } from "./ProgressBar"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: ProgressBar,
@@ -13,8 +14,8 @@ export default {
       },
     },
     controls: {
-      include: ["percentComplete", "highlight", "showBackground"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

@@ -1,6 +1,7 @@
 import { fn } from "@storybook/test"
 import React from "react"
 import { Pagination, PaginationSkeleton } from "./Pagination"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 const EXAMPLE_PAGE_CURSORS = {
   first: { page: 1, cursor: "Y3Vyc29yMg==", isCurrent: false },
@@ -26,8 +27,8 @@ export default {
       },
     },
     controls: {
-      include: ["hasNextPage", "pageCursors", "onClick", "onNext"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

@@ -2,6 +2,7 @@ import React from "react"
 import { Box } from "../Box"
 import { Text } from "../Text"
 import { FullBleed } from "./FullBleed"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: FullBleed,
@@ -15,8 +16,8 @@ export default {
       },
     },
     controls: {
-      include: ["bg", "px", "py", "children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

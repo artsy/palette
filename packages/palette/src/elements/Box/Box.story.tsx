@@ -1,5 +1,6 @@
 import React from "react"
 import { Box } from "../Box"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/Box",
@@ -12,23 +13,7 @@ export default {
           "Box is a fundamental layout primitive component that provides a flexible container with styled-system props for spacing, layout, color, and typography.",
       },
       controls: {
-        include: [
-          "children",
-          "p",
-          "m",
-          "bg",
-          "color",
-          "borderRadius",
-          "border",
-          "borderColor",
-          "width",
-          "height",
-          "display",
-          "flexDirection",
-          "alignItems",
-          "justifyContent",
-          "gap",
-        ],
+        exclude: STORYBOOK_PROPS_BLACKLIST,
       },
     },
   },

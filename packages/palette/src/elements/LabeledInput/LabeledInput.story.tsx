@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { States } from "storybook-states"
 import { Clickable } from "../Clickable"
 import { LabeledInput, LabeledInputProps } from "./LabeledInput"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: LabeledInput,
@@ -16,16 +17,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "label",
-        "variant",
-        "title",
-        "description",
-        "placeholder",
-        "type",
-        "name",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

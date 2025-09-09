@@ -1,6 +1,7 @@
 import React from "react"
 import { Text } from "../Text"
 import { Message, MESSAGE_VARIANTS, MessageVariant } from "./Message"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Message,
@@ -14,8 +15,8 @@ export default {
       },
     },
     controls: {
-      include: ["variant", "title", "children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

@@ -9,6 +9,7 @@ import {
   ResponsiveBoxMaxDimensions,
   ResponsiveBoxProps,
 } from "./ResponsiveBox"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 const Measure: React.FC<React.PropsWithChildren<ResponsiveBoxProps>> = (
   props
@@ -81,13 +82,7 @@ export default {
       },
     },
     controls: {
-      include: [
-        "aspectWidth",
-        "aspectHeight",
-        "maxWidth",
-        "maxHeight",
-        "children",
-      ],
+      exclude: STORYBOOK_PROPS_BLACKLIST,
     },
   },
 }

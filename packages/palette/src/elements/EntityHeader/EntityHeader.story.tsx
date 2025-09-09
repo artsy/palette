@@ -2,6 +2,7 @@ import React from "react"
 import { States } from "storybook-states"
 import { Button } from "../Button"
 import { EntityHeader, EntityHeaderProps } from "./EntityHeader"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: EntityHeader,
@@ -15,18 +16,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "name",
-        "initials",
-        "image",
-        "meta",
-        "href",
-        "FollowButton",
-        "labels",
-        "smallVariant",
-        "maxWidth",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

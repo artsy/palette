@@ -1,6 +1,7 @@
 import { fn } from "@storybook/test"
 import React, { useState } from "react"
 import { ProgressDots } from "./ProgressDots"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: ProgressDots,
@@ -14,8 +15,8 @@ export default {
       },
     },
     controls: {
-      include: ["activeIndex", "amount", "variant", "onClick"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

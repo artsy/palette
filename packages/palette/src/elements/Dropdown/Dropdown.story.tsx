@@ -10,6 +10,7 @@ import { Flex } from "../Flex"
 import { Pill } from "../Pill"
 import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
 import { Spacer } from "../Spacer"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Dropdown,
@@ -23,16 +24,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "placement",
-        "visible",
-        "keepInDOM",
-        "openDropdownByClick",
-        "transition",
-        "dropdown",
-        "children",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

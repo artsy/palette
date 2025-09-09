@@ -1,4 +1,5 @@
 import { CarouselBar } from "./CarouselBar"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/CarouselBar",
@@ -12,8 +13,8 @@ export default {
       },
     },
     controls: {
-      include: ["percentComplete"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

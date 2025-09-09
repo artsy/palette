@@ -1,4 +1,5 @@
 import { Check } from "./Check"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Check,
@@ -12,8 +13,8 @@ export default {
       },
     },
     controls: {
-      include: ["selected", "disabled", "error", "focus", "hover"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

@@ -1,6 +1,7 @@
 import React from "react"
 import { States } from "storybook-states"
 import { SelectInput, SelectInputProps } from "./SelectInput"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/SelectInput",
@@ -232,8 +233,8 @@ export const Default = {
   ),
   parameters: {
     controls: {
-      include: ["options", "label", "type", "autoComplete", "enableSearch"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
     docs: {
       description: {
         story: "Default SelectInput with various states.",
@@ -292,8 +293,8 @@ export const CurrencySelect = {
   ),
   parameters: {
     controls: {
-      include: ["options", "label", "selectWidth", "optionTextMinWidth"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
     docs: {
       description: {
         story: "Currency select input with various states.",

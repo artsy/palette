@@ -3,6 +3,7 @@ import { Text } from "../Text"
 import { Button } from "../Button"
 import { ModalDialog } from "./ModalDialog"
 import { Box } from "../Box"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 const LOREM =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus sed iure repellendus animi, aliquid aut fuga maxime nemo minus quas. Error, incidunt fugit similique quidem culpa hic! Nemo, quas rerum. "
@@ -18,17 +19,7 @@ export default {
           "A modal dialog component with customizable layout, panels, and content areas.",
       },
       controls: {
-        include: [
-          "title",
-          "width",
-          "hasLogo",
-          "header",
-          "footer",
-          "leftPanel",
-          "rightPanel",
-          "zIndex",
-          "onClose",
-        ],
+        exclude: STORYBOOK_PROPS_BLACKLIST,
       },
     },
   },

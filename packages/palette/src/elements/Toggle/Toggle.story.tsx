@@ -1,5 +1,6 @@
 import React from "react"
 import { Toggle } from "./Toggle"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Toggle,
@@ -13,8 +14,8 @@ export default {
       },
     },
     controls: {
-      include: ["selected", "disabled", "onSelect"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

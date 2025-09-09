@@ -1,6 +1,7 @@
 import React from "react"
 import { Card } from "./Card"
 import { TriptychCard } from "./TriptychCard"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/Cards",
@@ -14,16 +15,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "title",
-        "subtitle",
-        "status",
-        "image",
-        "maxWidth",
-        "href",
-        "onClick",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

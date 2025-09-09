@@ -2,6 +2,7 @@ import React from "react"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Radio } from "./Radio"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Radio,
@@ -15,8 +16,8 @@ export default {
       },
     },
     controls: {
-      include: ["selected", "label", "value", "disabled", "error", "children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

@@ -5,6 +5,7 @@ import { Button } from "../Button"
 import { Radio } from "../Radio/Radio"
 import { RadioGroup } from "./RadioGroup"
 import { Join } from "../Join"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: RadioGroup,
@@ -18,14 +19,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "onSelect",
-        "defaultValue",
-        "deselectable",
-        "disabled",
-        "disabledText",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

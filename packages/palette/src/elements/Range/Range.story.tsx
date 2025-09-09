@@ -9,6 +9,7 @@ import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 import { Drawer } from "../Drawer"
 import { Button } from "../Button"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Range,
@@ -22,8 +23,8 @@ export default {
       },
     },
     controls: {
-      include: ["min", "max", "step", "value", "onChange", "ariaLabels"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

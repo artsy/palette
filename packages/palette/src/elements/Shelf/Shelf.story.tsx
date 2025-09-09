@@ -4,6 +4,7 @@ import { Box } from "../Box"
 import { Text } from "../Text"
 import { Shelf, ShelfProps } from "./Shelf"
 import { ShelfNavigationProps, ShelfNext } from "./ShelfNavigation"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Shelf,
@@ -17,8 +18,8 @@ export default {
       },
     },
     controls: {
-      include: ["children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

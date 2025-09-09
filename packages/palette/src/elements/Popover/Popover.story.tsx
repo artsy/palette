@@ -7,6 +7,7 @@ import { Flex } from "../Flex"
 import { Spacer } from "../Spacer"
 import { Text } from "../Text"
 import { Popover, PopoverProps } from "./Popover"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 const CONTENT =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eius autem aliquid cumque, mollitia incidunt totam. Id ut quae hic in quisquam, cupiditate iure nobis, provident minus voluptatem tenetur consequatur."
@@ -23,15 +24,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "placement",
-        "visible",
-        "variant",
-        "pointer",
-        "manageFocus",
-        "ignoreClickOutside",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

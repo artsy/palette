@@ -5,6 +5,7 @@ import { Clickable } from "../Clickable"
 import { ProgressDots } from "../ProgressDots"
 import { Text } from "../Text"
 import { Swiper, SwiperCell, SwiperProps, SwiperRail } from "./"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 const LOREM =
   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis dicta sunt nihil perspiciatis aperiam asperiores, earum facere repellendus in veniam, mollitia, ducimus delectus perferendis beatae facilis molestiae et ad quaerat!"
@@ -51,8 +52,8 @@ export default {
       },
     },
     controls: {
-      include: ["children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

@@ -3,6 +3,7 @@ import { Box } from "../Box"
 import { Separator } from "../Separator"
 import { Text } from "../Text"
 import { Join } from "./Join"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 const BlankFunction = () => {
   return null
@@ -42,7 +43,7 @@ export default {
       },
     },
     controls: {
-      include: ["separator", "children"],
+      exclude: STORYBOOK_PROPS_BLACKLIST,
     },
   },
 }

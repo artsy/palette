@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Drawer } from "./Drawer"
 import { Flex } from "../Flex"
 import { Button } from "../Button"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Drawer,
@@ -16,8 +17,8 @@ export default {
       },
     },
     controls: {
-      include: ["open", "onClose", "anchor"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

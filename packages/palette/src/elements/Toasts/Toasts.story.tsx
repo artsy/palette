@@ -8,6 +8,7 @@ import { Toasts } from "./Toasts"
 import { ToastsProvider, useToasts } from "./useToasts"
 import { Separator } from "../Separator"
 import { Clickable } from "../Clickable"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Toasts,
@@ -21,8 +22,8 @@ export default {
       },
     },
     controls: {
-      include: ["children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

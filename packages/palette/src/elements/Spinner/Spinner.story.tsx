@@ -1,4 +1,5 @@
 import { Spinner } from "./Spinner"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Spinner,
@@ -13,8 +14,8 @@ export default {
       },
     },
     controls: {
-      include: ["size", "color", "delay", "position"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

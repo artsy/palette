@@ -1,6 +1,7 @@
 import React from "react"
 import { ShowMore } from "./ShowMore"
 import { Text } from "../Text"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: ShowMore,
@@ -14,8 +15,8 @@ export default {
       },
     },
     controls: {
-      include: ["initial", "expanded", "variant", "textDecoration", "children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

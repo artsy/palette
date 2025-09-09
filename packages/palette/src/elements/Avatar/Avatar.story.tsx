@@ -1,4 +1,5 @@
 import { Avatar } from "./Avatar"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/Avatar",
@@ -11,7 +12,7 @@ export default {
           "Avatar component displays user profile images or initials in various sizes. Supports lazy loading, fallback to initials when image fails to load, and responsive sizing.",
       },
       controls: {
-        include: ["initials", "size", "src", "srcSet", "lazyLoad", "disabled"],
+        exclude: STORYBOOK_PROPS_BLACKLIST,
       },
     },
   },

@@ -1,4 +1,5 @@
 import { Separator } from "./Separator"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Separator,
@@ -12,8 +13,8 @@ export default {
       },
     },
     controls: {
-      include: ["color", "borderColor", "borderWidth", "my"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

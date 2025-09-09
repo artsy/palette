@@ -11,6 +11,7 @@ import {
   CarouselProps,
   CarouselRail,
 } from "./"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 const LOREM =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, adipisci. Voluptate voluptatum porro facere atque dolores est neque ipsam quaerat necessitatibus? Deleniti tempora assumenda accusantium, quia quo ad rem expedita!"
@@ -59,7 +60,7 @@ export default {
       },
     },
     controls: {
-      include: ["height", "options", "onChange"],
+      exclude: STORYBOOK_PROPS_BLACKLIST,
     },
   },
 }

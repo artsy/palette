@@ -2,6 +2,7 @@ import React from "react"
 import { HTML } from "../HTML"
 import { ReadMore } from "./ReadMore"
 import { Box } from "../Box"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: ReadMore,
@@ -15,8 +16,8 @@ export default {
       },
     },
     controls: {
-      include: ["maxChars", "content", "disabled"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

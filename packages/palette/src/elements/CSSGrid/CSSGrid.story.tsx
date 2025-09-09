@@ -1,6 +1,7 @@
 import React from "react"
 import { Image } from "../Image"
 import { CSSGrid } from "./CSSGrid"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/CSSGrid",
@@ -13,15 +14,7 @@ export default {
           "CSSGrid component provides a CSS Grid layout container with responsive props support. Allows for flexible grid layouts with configurable gaps, columns, and responsive breakpoints.",
       },
       controls: {
-        include: [
-          "children",
-          "gridGap",
-          "gridTemplateColumns",
-          "gridTemplateRows",
-          "gridArea",
-          "width",
-          "height",
-        ],
+        exclude: STORYBOOK_PROPS_BLACKLIST,
       },
     },
   },

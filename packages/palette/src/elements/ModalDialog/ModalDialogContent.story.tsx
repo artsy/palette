@@ -14,6 +14,7 @@ import { Box } from "../Box"
 import ChevronLeftIcon from "@artsy/icons/ChevronLeftIcon"
 import ArtsyLogoIcon from "@artsy/icons/ArtsyLogoIcon"
 import CloseIcon from "@artsy/icons/CloseIcon"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: ModalDialogContent,
@@ -27,8 +28,8 @@ export default {
       },
     },
     controls: {
-      include: ["title", "onBack", "onClose", "children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

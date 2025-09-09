@@ -1,6 +1,7 @@
 import { fn } from "@storybook/test"
 import React, { useReducer } from "react"
 import { MultiSelect } from "./MultiSelect"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/MultiSelect",
@@ -9,19 +10,7 @@ export default {
   parameters: {
     docs: {
       controls: {
-        include: [
-          "options",
-          "name",
-          "title",
-          "required",
-          "disabled",
-          "focus",
-          "hover",
-          "complete",
-          "error",
-          "description",
-          "onSelect",
-        ],
+        exclude: STORYBOOK_PROPS_BLACKLIST,
       },
     },
   },

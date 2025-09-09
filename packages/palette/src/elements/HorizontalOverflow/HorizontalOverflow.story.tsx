@@ -4,6 +4,7 @@ import { Text } from "../Text"
 import { Spacer } from "../Spacer"
 import { Join } from "../Join"
 import { Box } from "../Box"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: HorizontalOverflow,
@@ -17,8 +18,8 @@ export default {
       },
     },
     controls: {
-      include: ["children", "bg", "p", "height"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

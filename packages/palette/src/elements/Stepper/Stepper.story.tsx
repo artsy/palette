@@ -1,6 +1,7 @@
 import { fn } from "@storybook/test"
 import React, { useEffect, useState } from "react"
 import { Step, Stepper } from "./"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Stepper,
@@ -14,14 +15,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "initialTabIndex",
-        "currentStepIndex",
-        "disableNavigation",
-        "fill",
-        "onChange",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

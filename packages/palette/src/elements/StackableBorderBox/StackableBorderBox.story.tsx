@@ -3,6 +3,7 @@ import { StackableBorderBox } from "./StackableBorderBox"
 import { Avatar } from "../Avatar/Avatar"
 import { Flex } from "../Flex"
 import { Button } from "../Button"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: StackableBorderBox,
@@ -16,8 +17,8 @@ export default {
       },
     },
     controls: {
-      include: ["children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

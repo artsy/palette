@@ -2,6 +2,7 @@ import { fn } from "@storybook/test"
 import React from "react"
 import { RadioGroup } from "../RadioGroup"
 import { BorderedRadio } from "./BorderedRadio"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/BorderedRadio",
@@ -14,15 +15,7 @@ export default {
           "BorderedRadio component provides a radio button with border styling. Designed to be used within RadioGroup for creating radio button lists with consistent visual borders.",
       },
       controls: {
-        include: [
-          "children",
-          "value",
-          "disabled",
-          "selected",
-          "error",
-          "focus",
-          "hover",
-        ],
+        exclude: STORYBOOK_PROPS_BLACKLIST,
       },
     },
   },

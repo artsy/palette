@@ -1,7 +1,7 @@
 import React from "react"
 import { flattenChildren } from "../../helpers/flattenChildren"
 
-interface JoinProps {
+export interface JoinProps {
   separator: React.ReactElement<any>
 }
 
@@ -25,7 +25,10 @@ interface JoinProps {
  * <SomeComponent/>
  * <child3/>
  */
-export const Join: React.FC<React.PropsWithChildren<JoinProps>> = ({ separator, children }) => {
+export const Join: React.FC<React.PropsWithChildren<JoinProps>> = ({
+  separator,
+  children,
+}) => {
   const elements = flattenChildren(children)
 
   return (

@@ -3,6 +3,7 @@ import React from "react"
 import { States } from "storybook-states"
 import { FilterSelect } from "./FilterSelect"
 import { FilterSelectProps } from "./FilterSelect"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: FilterSelect,
@@ -16,19 +17,8 @@ export default {
       },
     },
     controls: {
-      include: [
-        "placeholder",
-        "multiselect",
-        "enableSelectAll",
-        "initialItemsToShow",
-        "moveSelectedToTop",
-        "searchableText",
-        "renderItemLabel",
-        "onChange",
-        "items",
-        "order",
-      ],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

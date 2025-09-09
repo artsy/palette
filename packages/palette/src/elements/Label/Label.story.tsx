@@ -1,6 +1,7 @@
 import React from "react"
 import { Label, LabelVariant, LABEL_VARIANTS } from "./Label"
 import { Box } from "../Box"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Label,
@@ -14,8 +15,8 @@ export default {
       },
     },
     controls: {
-      include: ["variant", "children"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

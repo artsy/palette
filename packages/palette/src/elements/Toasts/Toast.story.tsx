@@ -1,5 +1,6 @@
 import { fn } from "@storybook/test"
 import { Toast } from "./Toast"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Toast,
@@ -13,8 +14,8 @@ export default {
       },
     },
     controls: {
-      include: ["variant", "message", "description", "action"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

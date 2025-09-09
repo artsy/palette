@@ -2,6 +2,7 @@ import React from "react"
 import { Join } from "../Join"
 import { Spacer } from "../Spacer"
 import { Skeleton, SkeletonBox, SkeletonText } from "./Skeleton"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: SkeletonBox,
@@ -15,8 +16,8 @@ export default {
       },
     },
     controls: {
-      include: ["width", "height", "borderRadius", "variant"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

@@ -1,4 +1,5 @@
 import { HTML } from "./HTML"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 const HTML_EXAMPLE = `
 <h1>H1 Headline</h1>
@@ -34,8 +35,8 @@ export default {
       },
     },
     controls: {
-      include: ["html", "variant", "style"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

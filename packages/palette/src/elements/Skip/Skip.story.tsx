@@ -1,6 +1,7 @@
 import React from "react"
 import { Text } from "../Text"
 import { Skip } from "./Skip"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Skip,
@@ -14,8 +15,8 @@ export default {
       },
     },
     controls: {
-      include: ["children", "width", "my"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

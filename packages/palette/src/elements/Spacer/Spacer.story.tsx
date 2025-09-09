@@ -1,6 +1,7 @@
 import React from "react"
 import { Box } from "../Box"
 import { Spacer } from "./Spacer"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   component: Spacer,
@@ -14,8 +15,8 @@ export default {
       },
     },
     controls: {
-      include: ["x", "y"],
-    },
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
   },
 }
 

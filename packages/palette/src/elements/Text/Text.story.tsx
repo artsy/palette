@@ -1,4 +1,5 @@
 import { Text } from "./Text"
+import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
   title: "Components/Text",
@@ -11,18 +12,7 @@ export default {
           "Text component provides typography with predefined variants for consistent text styling across the application. Supports various sizes, weights, colors, and semantic HTML elements.",
       },
       controls: {
-        include: [
-          "children",
-          "variant",
-          "as",
-          "textColor",
-          "caps",
-          "italic",
-          "underline",
-          "overflowEllipsis",
-          "lineClamp",
-          "textTransform",
-        ],
+        exclude: STORYBOOK_PROPS_BLACKLIST,
       },
     },
   },
