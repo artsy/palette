@@ -1,10 +1,22 @@
 import React from "react"
-import { States } from "storybook-states"
-import { SelectInput, SelectInputProps } from "./SelectInput"
+import { SelectInput } from "./SelectInput"
 import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
+  component: SelectInput,
   title: "Components/SelectInput",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A composite input component that combines a dropdown selector with a text input, commonly used for phone numbers with country codes.",
+      },
+    },
+    controls: {
+      exclude: STORYBOOK_PROPS_BLACKLIST,
+    },
+  },
 }
 
 const countriesExample = [
@@ -215,29 +227,184 @@ export const Default = {
     enableSearch: true,
   },
   render: (args) => (
-    <States<Partial<SelectInputProps>>
-      states={[
-        {},
-        { placeholder: "(000) 000 0000" },
-        { placeholder: "(000) 000 0000", enableSearch: false },
-        { placeholder: "(000) 000 0000", label: undefined },
-        { placeholder: "(000) 000 0000", required: true },
-        { placeholder: "(000) 000 0000", disabled: true },
-        { placeholder: "(000) 000 0000", selectWidth: 100 },
-        { placeholder: "(000) 000 0000", optionTextMinWidth: "20ch" },
-        { placeholder: "(000) 000 0000", error: "Something is wrong" },
-      ]}
-    >
-      <SelectInput {...args} onSelect={(option) => console.log(option)} />
-    </States>
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
   ),
   parameters: {
-    controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
-      },
     docs: {
       description: {
-        story: "Default SelectInput with various states.",
+        story: "Basic SelectInput with search enabled.",
+      },
+    },
+  },
+}
+
+export const WithPlaceholder = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput with placeholder text.",
+      },
+    },
+  },
+}
+
+export const WithoutSearch = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: false,
+    placeholder: "(000) 000 0000",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput without search functionality.",
+      },
+    },
+  },
+}
+
+export const WithoutLabel = {
+  args: {
+    options: countriesExample,
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput without a label.",
+      },
+    },
+  },
+}
+
+export const Required = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    required: true,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Required SelectInput with validation indicator.",
+      },
+    },
+  },
+}
+
+export const Disabled = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    disabled: true,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Disabled SelectInput.",
+      },
+    },
+  },
+}
+
+export const CustomSelectWidth = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    selectWidth: 100,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput with custom select dropdown width.",
+      },
+    },
+  },
+}
+
+export const CustomOptionTextWidth = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    optionTextMinWidth: "20ch",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput with custom minimum width for option text.",
+      },
+    },
+  },
+}
+
+export const WithError = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    error: "Something is wrong",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput with error state.",
       },
     },
   },
@@ -279,25 +446,53 @@ export const CurrencySelect = {
     optionTextMinWidth: "5ch",
   },
   render: (args) => (
-    <States<Partial<SelectInputProps>>
-      states={[
-        {},
-        { placeholder: "Currency" },
-        { placeholder: "Currency", enableSearch: true },
-        { placeholder: "Currency" },
-        { placeholder: "Currency" },
-      ]}
-    >
-      <SelectInput {...args} onSelect={(option) => console.log(option)} />
-    </States>
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
   ),
   parameters: {
-    controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
-      },
     docs: {
       description: {
-        story: "Currency select input with various states.",
+        story: "Currency select input with custom width settings.",
+      },
+    },
+  },
+}
+
+export const CurrencyWithPlaceholder = {
+  args: {
+    options: currencyOptions,
+    label: "Currency",
+    selectWidth: 70,
+    optionTextMinWidth: "5ch",
+    placeholder: "Currency",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Currency select with placeholder text.",
+      },
+    },
+  },
+}
+
+export const CurrencyWithSearch = {
+  args: {
+    options: currencyOptions,
+    label: "Currency",
+    selectWidth: 70,
+    optionTextMinWidth: "5ch",
+    placeholder: "Currency",
+    enableSearch: true,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Currency select with search enabled.",
       },
     },
   },
