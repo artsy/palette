@@ -58,9 +58,9 @@ export default {
         component:
           "A carousel component for displaying a horizontally scrollable collection of items with navigation controls. Supports variable widths, heights, and custom styling.",
       },
-    },
-    controls: {
-      exclude: STORYBOOK_PROPS_BLACKLIST,
+      controls: {
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
     },
   },
 }

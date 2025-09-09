@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { States } from "storybook-states"
-import { Position, POSITION } from "../../utils"
+import { Position } from "../../utils"
 import { Box } from "../Box"
 import { Button } from "../Button"
 import { Text } from "../Text"
-import { Dropdown, DropdownProps } from "./Dropdown"
+import { Dropdown } from "./Dropdown"
 import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Pill } from "../Pill"
@@ -24,8 +23,8 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLACKLIST,
+    },
   },
 }
 
@@ -57,54 +56,6 @@ export const Default = {
         </Button>
       </Box>
     ),
-  },
-  parameters: { chromatic: { disable: true } },
-}
-
-export const AllPlacements = {
-  render: () => {
-    return (
-      <States<Partial<DropdownProps>>
-        states={Object.keys(POSITION).map((placement) => ({
-          placement: placement as Position,
-        }))}
-      >
-        <Dropdown
-          placement="bottom"
-          visible
-          dropdown={
-            <Box width={300} p={2}>
-              <Text as="a" display="block" variant="sm" href="#">
-                One
-              </Text>
-
-              <Text as="a" display="block" variant="sm" href="#">
-                Two
-              </Text>
-
-              <Text as="a" display="block" variant="sm" href="#">
-                Three
-              </Text>
-            </Box>
-          }
-        >
-          {({ anchorRef, anchorProps }) => {
-            return (
-              <Box textAlign="center">
-                <Button
-                  ref={anchorRef}
-                  variant="secondaryBlack"
-                  size="small"
-                  {...anchorProps}
-                >
-                  Hover to display dropdown
-                </Button>
-              </Box>
-            )
-          }}
-        </Dropdown>
-      </States>
-    )
   },
   parameters: { chromatic: { disable: true } },
 }

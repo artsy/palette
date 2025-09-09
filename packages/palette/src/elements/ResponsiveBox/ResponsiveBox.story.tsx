@@ -80,9 +80,9 @@ export default {
         component:
           "A responsive container that maintains aspect ratio and optionally constrains maximum dimensions.",
       },
-    },
-    controls: {
-      exclude: STORYBOOK_PROPS_BLACKLIST,
+      controls: {
+        exclude: STORYBOOK_PROPS_BLACKLIST,
+      },
     },
   },
 }

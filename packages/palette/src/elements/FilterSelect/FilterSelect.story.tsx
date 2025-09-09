@@ -1,8 +1,5 @@
 import { fn } from "@storybook/test"
-import React from "react"
-import { States } from "storybook-states"
 import { FilterSelect } from "./FilterSelect"
-import { FilterSelectProps } from "./FilterSelect"
 import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
@@ -17,8 +14,8 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLACKLIST,
+    },
   },
 }
 
@@ -96,49 +93,102 @@ export const WithSelectAll = {
   },
 }
 
-export const WithStates = {
-  render: () => {
-    return (
-      <States<FilterSelectProps>
-        states={[
-          // radio
-          { multiselect: false },
+export const SingleSelect = {
+  args: {
+    placeholder: "Filter by artist name",
+    initialItemsToShow: 6,
+    order: [
+      ["country", "name"],
+      ["asc", "asc"],
+    ],
+    renderItemLabel: (item) => `${item.label}, ${item.country}`,
+    onChange: fn(),
+    items,
+    multiselect: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "FilterSelect in single selection mode (radio buttons).",
+      },
+    },
+  },
+}
 
-          // checkboxes
-          { multiselect: true },
+export const MultiselectBasic = {
+  args: {
+    placeholder: "Filter by artist name",
+    initialItemsToShow: 6,
+    order: [
+      ["country", "name"],
+      ["asc", "asc"],
+    ],
+    renderItemLabel: (item) => `${item.label}, ${item.country}`,
+    onChange: fn(),
+    items,
+    multiselect: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "FilterSelect with basic multiselect functionality (checkboxes).",
+      },
+    },
+  },
+}
 
-          // checkboxes with searchable hidden text and quick select-all
-          {
-            multiselect: true,
-            enableSelectAll: true,
-            onSelectAll: (state) => console.log("onSelectAll", state),
-            searchableText: (item) => {
-              const extraSearchTerms =
-                item.country === "American" ? "USA; Yankee; Murican" : ""
-              return `${item.label}; ${item.country}; ${extraSearchTerms}`
-            },
-          },
+export const MultiselectWithSearchableText = {
+  args: {
+    placeholder: "Filter by artist name",
+    initialItemsToShow: 6,
+    order: [
+      ["country", "name"],
+      ["asc", "asc"],
+    ],
+    renderItemLabel: (item) => `${item.label}, ${item.country}`,
+    onChange: fn(),
+    items,
+    multiselect: true,
+    enableSelectAll: true,
+    onSelectAll: (state) => console.log("onSelectAll", state),
+    searchableText: (item) => {
+      const extraSearchTerms =
+        item.country === "American" ? "USA; Yankee; Murican" : ""
+      return `${item.label}; ${item.country}; ${extraSearchTerms}`
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "FilterSelect with multiselect, searchable hidden text, and quick select-all functionality.",
+      },
+    },
+  },
+}
 
-          // checkboxes with move selected to top disabled
-          {
-            multiselect: true,
-            moveSelectedToTop: false,
-            enableSelectAll: true,
-          },
-        ]}
-      >
-        <FilterSelect
-          placeholder="Filter by artist name"
-          initialItemsToShow={6}
-          order={[
-            ["country", "name"],
-            ["asc", "asc"],
-          ]}
-          renderItemLabel={(item) => `${item.label}, ${item.country}`}
-          onChange={fn()}
-          items={items}
-        />
-      </States>
-    )
+export const MultiselectNoMoveToTop = {
+  args: {
+    placeholder: "Filter by artist name",
+    initialItemsToShow: 6,
+    order: [
+      ["country", "name"],
+      ["asc", "asc"],
+    ],
+    renderItemLabel: (item) => `${item.label}, ${item.country}`,
+    onChange: fn(),
+    items,
+    multiselect: true,
+    moveSelectedToTop: false,
+    enableSelectAll: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "FilterSelect with multiselect but selected items don't move to top.",
+      },
+    },
   },
 }

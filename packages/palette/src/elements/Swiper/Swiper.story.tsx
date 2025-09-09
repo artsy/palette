@@ -50,10 +50,10 @@ export default {
         component:
           "A swiper/carousel component with horizontal scrolling, navigation, and progress indicators.",
       },
-    },
-    controls: {
+      controls: {
         exclude: STORYBOOK_PROPS_BLACKLIST,
       },
+    },
   },
 }
 

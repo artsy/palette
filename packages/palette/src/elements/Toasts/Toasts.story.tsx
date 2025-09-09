@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { States } from "storybook-states"
 import { Flex } from "../Flex"
 import { Button } from "../Button"
 import { Text } from "../Text"
@@ -20,10 +19,10 @@ export default {
         component:
           "A toast container component that manages multiple toast notifications with ToastsProvider.",
       },
-    },
-    controls: {
+      controls: {
         exclude: STORYBOOK_PROPS_BLACKLIST,
       },
+    },
   },
 }
 
@@ -90,9 +89,7 @@ export const Demo = {
           </Button>
         </Flex>
 
-        <States>
-          <Toasts limit={7} />
-        </States>
+        <Toasts limit={7} />
 
         {activeToasts.length > 0 && (
           <>

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { States } from "storybook-states"
 import { Box } from "../Box"
 import { Text } from "../Text"
-import { Shelf, ShelfProps } from "./Shelf"
-import { ShelfNavigationProps, ShelfNext } from "./ShelfNavigation"
+import { Shelf } from "./Shelf"
+import { ShelfNext } from "./ShelfNavigation"
 import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
@@ -16,17 +15,14 @@ export default {
         component:
           "A horizontal scrollable shelf container for displaying collections of items.",
       },
-    },
-    controls: {
+      controls: {
         exclude: STORYBOOK_PROPS_BLACKLIST,
       },
+    },
   },
 }
 
-const Demo = ({
-  amount = 25,
-  ...rest
-}: Partial<ShelfProps> & { amount?: number }) => {
+const Demo = ({ amount = 25, ...rest }: { amount?: number } & any) => {
   return (
     <Shelf {...rest}>
       {Array.from(Array(amount))
@@ -102,51 +98,124 @@ export const NoProgress = {
   },
 }
 
-export const DifferingAmounts = {
+export const SingleItem = {
   render: () => (
     <Box maxWidth={1920} mx="auto">
       <Box mx={[2, 4]}>
-        <States<Partial<ShelfProps> & { amount: number }>
-          states={[
-            { amount: 1 },
-            { amount: 3 },
-            { amount: 20 },
-            { amount: 10 },
-          ]}
-        >
-          <Demo />
-        </States>
+        <Demo amount={1} />
       </Box>
     </Box>
   ),
   parameters: {
     docs: {
       description: {
-        story:
-          "Shelf with different amounts of items to demonstrate scrolling behavior.",
+        story: "Shelf with a single item.",
       },
     },
   },
 }
 
-export const NavigationButtons = {
+export const FewItems = {
   render: () => (
-    <States<ShelfNavigationProps>
-      states={[
-        {},
-        { hover: true },
-        { focus: true },
-        { disabled: true },
-        { hover: true, focus: true },
-      ]}
-    >
-      <ShelfNext />
-    </States>
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <Demo amount={3} />
+      </Box>
+    </Box>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Navigation buttons for shelf with different states.",
+        story: "Shelf with few items that don't require scrolling.",
+      },
+    },
+  },
+}
+
+export const ManyItems = {
+  render: () => (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <Demo amount={20} />
+      </Box>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Shelf with many items that require horizontal scrolling.",
+      },
+    },
+  },
+}
+
+export const TenItems = {
+  render: () => (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <Demo amount={10} />
+      </Box>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Shelf with ten items to demonstrate medium-sized collections.",
+      },
+    },
+  },
+}
+
+export const NavigationDefault = {
+  render: () => <ShelfNext />,
+  parameters: {
+    docs: {
+      description: {
+        story: "Default navigation button for shelf.",
+      },
+    },
+  },
+}
+
+export const NavigationHover = {
+  render: () => <ShelfNext hover={true} />,
+  parameters: {
+    docs: {
+      description: {
+        story: "Navigation button in hover state.",
+      },
+    },
+  },
+}
+
+export const NavigationFocus = {
+  render: () => <ShelfNext focus={true} />,
+  parameters: {
+    docs: {
+      description: {
+        story: "Navigation button in focus state.",
+      },
+    },
+  },
+}
+
+export const NavigationDisabled = {
+  render: () => <ShelfNext disabled={true} />,
+  parameters: {
+    docs: {
+      description: {
+        story: "Navigation button in disabled state.",
+      },
+    },
+  },
+}
+
+export const NavigationHoverFocus = {
+  render: () => <ShelfNext hover={true} focus={true} />,
+  parameters: {
+    docs: {
+      description: {
+        story: "Navigation button with both hover and focus states.",
       },
     },
   },
