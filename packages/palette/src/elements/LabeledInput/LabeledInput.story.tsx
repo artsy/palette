@@ -1,8 +1,5 @@
-import { fn } from "@storybook/test"
 import React, { useState } from "react"
-import { States } from "storybook-states"
-import { Clickable } from "../Clickable"
-import { LabeledInput, LabeledInputProps } from "./LabeledInput"
+import { LabeledInput } from "./LabeledInput"
 import { STORYBOOK_PROPS_BLACKLIST } from "../../utils/storybookBlacklist"
 
 export default {
@@ -17,65 +14,21 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLACKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLACKLIST,
+    },
   },
 }
 
 export const Default = {
   args: {
     label: "$",
+    placeholder: "Enter amount",
   },
-  render: (args) => (
-    <States<Partial<LabeledInputProps>>
-      states={[
-        { label: "$USD", placeholder: "Min", type: "number" },
-        {
-          placeholder: "Clickable label",
-          label: (
-            <Clickable
-              onClick={fn()}
-              bg="mono60"
-              width={18}
-              height={18}
-              borderRadius="50%"
-            />
-          ),
-        },
-        { title: "Amount" },
-        { title: "Amount", description: "Currency: USD" },
-        {
-          label: "USD",
-          variant: "prefix",
-          title: "Your offer",
-          placeholder: "Start typing...",
-          name: "offer",
-        },
-        {
-          label: "USD",
-          variant: "suffix",
-          title: "Your offer",
-          placeholder: "Start typing...",
-          name: "offer",
-        },
-        {
-          label: "USD",
-          variant: "suffix",
-          title: "Your offer",
-          placeholder: "Start typing...",
-          name: "offer",
-          showCounter: true,
-          maxLength: 40,
-        },
-      ]}
-    >
-      <LabeledInput {...args} />
-    </States>
-  ),
+  render: (args) => <LabeledInput {...args} />,
   parameters: {
     docs: {
       description: {
-        story: "Default LabeledInput with various states.",
+        story: "Basic LabeledInput with a dollar sign label.",
       },
     },
   },
