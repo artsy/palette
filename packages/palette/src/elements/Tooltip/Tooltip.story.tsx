@@ -28,8 +28,8 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLOCKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
+    },
   },
 }
 
@@ -44,54 +44,8 @@ export const Default = {
   },
 }
 
-export const WithStates = {
-  render: () => {
-    return (
-      <States<Partial<TooltipProps>>
-        states={[
-          { placement: "top-start" },
-          { placement: "bottom", width: 600 },
-          { placement: "bottom", visible: true, pointer: true },
-          {
-            variant: "defaultDark",
-            placement: "bottom",
-            visible: true,
-            pointer: true,
-          },
-          {
-            visible: false,
-            children: <>This text has a tooltip that never displays</>,
-          },
-          {
-            visible: true,
-            textAlign: "center",
-          },
-          {
-            visible: true,
-            pointer: true,
-            offset: -10,
-          },
-        ]}
-      >
-        {({ children, ...rest }) => (
-          <Tooltip content={CONTENT} {...rest}>
-            <Text
-              variant="xs"
-              textAlign="center"
-              p={1}
-              bg="mono100"
-              color="mono0"
-            >
-              {children ?? "This text has a tooltip"}
-            </Text>
-          </Tooltip>
-        )}
-      </States>
-    )
-  },
-}
-
 export const WithClickable = {
+  tags: ["!autodocs"],
   args: {
     content: CONTENT,
     children: (
@@ -106,6 +60,7 @@ export const WithClickable = {
 }
 
 export const Placement = {
+  tags: ["!autodocs"],
   render: () => {
     return (
       <States<Partial<TooltipProps>>
@@ -141,6 +96,7 @@ export const Placement = {
 }
 
 export const IconExample = {
+  tags: ["!autodocs"],
   render: () => {
     return (
       <Text variant="xs" display="flex" alignItems="center" lineHeight={1}>
@@ -157,6 +113,7 @@ export const IconExample = {
 }
 
 export const ExternalControl = {
+  tags: ["!autodocs"],
   render: () => {
     const [visible, setVisible] = useState(false)
 
@@ -183,6 +140,7 @@ export const ExternalControl = {
 }
 
 export const PointerCentering = {
+  tags: ["!autodocs"],
   render: () => {
     const [placement, setPlacement] = useState<Position>("top")
     const [size, setSize] = useState(50)
@@ -257,6 +215,7 @@ export const PointerCentering = {
 }
 
 export const StressTest = {
+  tags: ["!autodocs"],
   render: () => {
     return (
       <Stack gap={1}>
@@ -292,6 +251,7 @@ export const StressTest = {
 }
 
 export const PositioningBug = {
+  tags: ["!autodocs"],
   render: () => {
     return (
       <GridColumns>

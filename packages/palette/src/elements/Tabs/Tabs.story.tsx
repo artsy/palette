@@ -1,8 +1,7 @@
 import { fn } from "@storybook/test"
 import React, { useEffect, useState } from "react"
-import { States } from "storybook-states"
 import { Sup } from "../Sup"
-import { Tab, Tabs, TabsProps } from "./"
+import { Tab, Tabs } from "./"
 import { Box } from "../Box"
 import { useCursor } from "use-cursor"
 import { Button } from "../Button"
@@ -43,23 +42,6 @@ export const Default = {
         Auction results panel
       </Tab>,
     ],
-  },
-}
-
-export const WithStates = {
-  render: () => {
-    return (
-      <States<Partial<TabsProps>>
-        states={[{}, { initialTabIndex: 2 }, { justifyContent: "center" }]}
-      >
-        <Tabs onChange={fn()}>
-          <Tab name="Overview">Overview panel</Tab>
-          <Tab name="Works for sale">Works for sale panel</Tab>
-          <Tab name="CV">CV panel</Tab>
-          <Tab name="Auction results">Auction results panel</Tab>
-        </Tabs>
-      </States>
-    )
   },
 }
 

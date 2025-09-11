@@ -24,8 +24,8 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLOCKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
+    },
   },
 }
 
@@ -60,6 +60,7 @@ export const Default = {
 }
 
 export const Visible = {
+  tags: ["!autodocs"],
   args: {
     placement: "bottom",
     visible: true,
@@ -86,6 +87,7 @@ export const Visible = {
 }
 
 export const WithContentInteraction = {
+  tags: ["!autodocs"],
   args: {
     placement: "bottom",
     visible: true,
@@ -118,6 +120,7 @@ export const WithContentInteraction = {
 }
 
 export const Pointer = {
+  tags: ["!autodocs"],
   args: {
     placement: "bottom",
     pointer: true,
@@ -157,6 +160,7 @@ export const Pointer = {
 }
 
 export const DarkVariant = {
+  tags: ["!autodocs"],
   args: {
     placement: "bottom",
     variant: "defaultDark",
@@ -186,6 +190,7 @@ export const DarkVariant = {
 }
 
 export const IgnoreClickOutside = {
+  tags: ["!autodocs"],
   args: {
     placement: "bottom",
     ignoreClickOutside: true,
@@ -212,6 +217,7 @@ export const IgnoreClickOutside = {
 }
 
 export const Placement = {
+  tags: ["!autodocs"],
   render: () => (
     <States<Partial<PopoverProps>>
       states={Object.keys(POSITION).map((placement) => ({
@@ -254,6 +260,7 @@ export const Placement = {
 }
 
 export const ManageFocus = {
+  tags: ["!autodocs"],
   render: () => (
     <States<Partial<PopoverProps>>
       states={[
@@ -294,6 +301,7 @@ export const ManageFocus = {
 }
 
 export const PopoverActions = {
+  tags: ["!autodocs"],
   render: () => (
     <States<Partial<PopoverProps>> states={[{ visible: true }]}>
       <Popover
@@ -355,6 +363,7 @@ export const PopoverActions = {
 }
 
 export const CrashAtSpecificZoomLevels = {
+  tags: ["!autodocs"],
   render: () => (
     <>
       <Box height={100}>Zoom to 90% in Chrome, click, then scroll.</Box>

@@ -2,7 +2,6 @@ import React from "react"
 import { Image } from "../Image"
 import styled from "styled-components"
 import { Box } from "../Box"
-import { States } from "storybook-states"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const blurhashDataUri =
@@ -20,8 +19,8 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLOCKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
+    },
   },
 }
 
@@ -55,34 +54,6 @@ export const WithPlaceholder = {
     height: "200px",
     src: "https://picsum.photos/seed/example/300/200",
     placeHolderURL: blurhashDataUri,
-  },
-}
-
-export const WithStates = {
-  render: () => {
-    return (
-      <States
-        states={[
-          {},
-          {
-            src: "https://picsum.photos/seed/example/300/200",
-            srcSet:
-              "https://picsum.photos/seed/example/300/200 1x, https://picsum.photos/seed/example/600/400 2x",
-          },
-          {
-            placeHolderURL: blurhashDataUri,
-          },
-        ]}
-      >
-        <Image
-          id="example"
-          className="example"
-          width="300px"
-          height="200px"
-          src="https://picsum.photos/seed/example/300/200"
-        />
-      </States>
-    )
   },
 }
 
