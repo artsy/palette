@@ -1,3 +1,16 @@
+# (Fri Sep 12 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@44.2.0`
+  - feat: configure autodocs [#1470](https://github.com/artsy/palette/pull/1470) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Mon Aug 25 2025)
 
 #### 🚀  Enhancement
