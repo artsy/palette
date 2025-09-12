@@ -1,9 +1,22 @@
 import React from "react"
-import { States } from "storybook-states"
-import { SelectInput, SelectInputProps } from "./SelectInput"
+import { SelectInput } from "./SelectInput"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
+  component: SelectInput,
   title: "Components/SelectInput",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A composite input component that combines a dropdown selector with a text input, commonly used for phone numbers with country codes.",
+      },
+    },
+    controls: {
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
+    },
+  },
 }
 
 const countriesExample = [
@@ -205,31 +218,196 @@ const countriesExample = [
   },
 ]
 
-export const Default = () => {
-  return (
-    <States<Partial<SelectInputProps>>
-      states={[
-        {},
-        { placeholder: "(000) 000 0000" },
-        { placeholder: "(000) 000 0000", enableSearch: false },
-        { placeholder: "(000) 000 0000", label: undefined },
-        { placeholder: "(000) 000 0000", required: true },
-        { placeholder: "(000) 000 0000", disabled: true },
-        { placeholder: "(000) 000 0000", selectWidth: 100 },
-        { placeholder: "(000) 000 0000", optionTextMinWidth: "20ch" },
-        { placeholder: "(000) 000 0000", error: "Something is wrong" },
-      ]}
-    >
-      <SelectInput
-        options={countriesExample}
-        onSelect={(option) => console.log(option)}
-        label="Phone number"
-        type="tel"
-        autoComplete="tel-national"
-        enableSearch
-      />
-    </States>
-  )
+export const Default = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Basic SelectInput with search enabled.",
+      },
+    },
+  },
+}
+
+export const WithPlaceholder = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput with placeholder text.",
+      },
+    },
+  },
+}
+
+export const WithoutSearch = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: false,
+    placeholder: "(000) 000 0000",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput without search functionality.",
+      },
+    },
+  },
+}
+
+export const WithoutLabel = {
+  args: {
+    options: countriesExample,
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput without a label.",
+      },
+    },
+  },
+}
+
+export const Required = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    required: true,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Required SelectInput with validation indicator.",
+      },
+    },
+  },
+}
+
+export const Disabled = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    disabled: true,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Disabled SelectInput.",
+      },
+    },
+  },
+}
+
+export const CustomSelectWidth = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    selectWidth: 100,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput with custom select dropdown width.",
+      },
+    },
+  },
+}
+
+export const CustomOptionTextWidth = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    optionTextMinWidth: "20ch",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput with custom minimum width for option text.",
+      },
+    },
+  },
+}
+
+export const WithError = {
+  args: {
+    options: countriesExample,
+    label: "Phone number",
+    type: "tel",
+    autoComplete: "tel-national",
+    enableSearch: true,
+    placeholder: "(000) 000 0000",
+    error: "Something is wrong",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "SelectInput with error state.",
+      },
+    },
+  },
 }
 
 const currencyOptions = [
@@ -260,68 +438,115 @@ const currencyOptions = [
   },
 ]
 
-export const CurrencySelect = () => {
-  return (
-    <States<Partial<SelectInputProps>>
-      states={[
-        {},
-        { placeholder: "Currency" },
-        { placeholder: "Currency", enableSearch: true },
-        { placeholder: "Currency" },
-        { placeholder: "Currency" },
-      ]}
-    >
-      <SelectInput
-        options={currencyOptions}
-        onSelect={(option) => console.log(option)}
-        label="Currency"
-        selectWidth={70}
-        optionTextMinWidth="5ch"
-      />
-    </States>
-  )
+export const CurrencySelect = {
+  args: {
+    options: currencyOptions,
+    label: "Currency",
+    selectWidth: 70,
+    optionTextMinWidth: "5ch",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Currency select input with custom width settings.",
+      },
+    },
+  },
 }
 
-export const LoadingDisplayTest = () => {
-  const [isLoaded, setIsLoaded] = React.useState(false)
-  const [countryCode, setCountryCode] = React.useState("ad")
-  const [phoneNumber, setPhoneNumber] = React.useState("")
+export const CurrencyWithPlaceholder = {
+  args: {
+    options: currencyOptions,
+    label: "Currency",
+    selectWidth: 70,
+    optionTextMinWidth: "5ch",
+    placeholder: "Currency",
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Currency select with placeholder text.",
+      },
+    },
+  },
+}
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true)
-    }, 500)
-    return () => clearTimeout(timer)
-  }, [])
+export const CurrencyWithSearch = {
+  args: {
+    options: currencyOptions,
+    label: "Currency",
+    selectWidth: 70,
+    optionTextMinWidth: "5ch",
+    placeholder: "Currency",
+    enableSearch: true,
+  },
+  render: (args) => (
+    <SelectInput {...args} onSelect={(option) => console.log(option)} />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Currency select with search enabled.",
+      },
+    },
+  },
+}
 
-  return (
-    <div>
-      <div
-        style={{
-          display: isLoaded ? "grid" : "none",
-          marginTop: "16px",
-        }}
-      >
-        <SelectInput
-          key="loading-test-phone-input"
-          name="phoneNumber"
-          placeholder="(000) 000 0000"
-          options={countriesExample}
-          onSelect={(option) => {
-            console.log("Selected:", option)
-            setCountryCode(option.value)
+export const LoadingDisplayTest = {
+  render: () => {
+    const [isLoaded, setIsLoaded] = React.useState(false)
+    const [countryCode, setCountryCode] = React.useState("ad")
+    const [phoneNumber, setPhoneNumber] = React.useState("")
+
+    React.useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoaded(true)
+      }, 500)
+      return () => clearTimeout(timer)
+    }, [])
+
+    return (
+      <div>
+        <div
+          style={{
+            display: isLoaded ? "grid" : "none",
+            marginTop: "16px",
           }}
-          dropdownValue={countryCode}
-          label="Phone number"
-          type="tel"
-          autoComplete="tel-national"
-          inputValue={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          data-testid="LoadingTestSelectInput"
-          required
-        />
+        >
+          <SelectInput
+            key="loading-test-phone-input"
+            name="phoneNumber"
+            placeholder="(000) 000 0000"
+            options={countriesExample}
+            onSelect={(option) => {
+              console.log("Selected:", option)
+              setCountryCode(option.value)
+            }}
+            dropdownValue={countryCode}
+            label="Phone number"
+            type="tel"
+            autoComplete="tel-national"
+            inputValue={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            data-testid="LoadingTestSelectInput"
+            required
+          />
+        </div>
+        {!isLoaded && <div>Loading phone input...</div>}
       </div>
-      {!isLoaded && <div>Loading phone input...</div>}
-    </div>
-  )
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Test loading state for SelectInput.",
+      },
+    },
+  },
 }

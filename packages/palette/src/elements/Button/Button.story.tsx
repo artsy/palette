@@ -1,210 +1,163 @@
-import React, { useState } from "react"
-import { States } from "storybook-states"
-import styled from "styled-components"
-import { Join } from "../Join"
 import BellStrokeIcon from "@artsy/icons/BellStrokeIcon"
-import { Box } from "../Box"
-import { Flex } from "../Flex"
-import { Spacer } from "../Spacer"
-import { ButtonProps } from "./Button"
-import { Button, BUTTON_SIZE_NAMES, BUTTON_VARIANT_NAMES } from "./index"
+import { Button } from "./index"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
-export default { title: "Components/Button" }
-
-export const _States = () => {
-  return (
-    <States<ButtonProps>
-      states={[
-        {},
-        { focus: true },
-        { hover: true },
-        { active: true },
-        { loading: true },
-        { disabled: true },
-        { success: true },
-        { loading: true, disabled: true },
-      ]}
-    >
-      <Button>Label</Button>
-    </States>
-  )
+export default {
+  title: "Components/Button",
+  component: Button,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Button component provides a clickable interface element with multiple variants, sizes, and states. Supports loading states, icons, and can be rendered as different HTML elements.",
+      },
+      controls: {
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
+      },
+    },
+  },
 }
 
-_States.story = {
-  name: "States",
+export const Default = {
+  args: {
+    children: "Button",
+  },
 }
 
-export const Sizes = () => {
-  return (
-    <States<ButtonProps> states={BUTTON_SIZE_NAMES.map((size) => ({ size }))}>
-      <Button>Label</Button>
-    </States>
-  )
+export const Primary = {
+  args: {
+    variant: "primary",
+    children: "Primary Button",
+  },
 }
 
-const variants = BUTTON_VARIANT_NAMES.map((variant) => ({ variant }))
-
-const Display = styled(Box)``
-Display.displayName = "Button"
-
-export const Variants = () => {
-  return (
-    <States<ButtonProps>
-      states={([{ size: "large" }, { size: "small" }] as const)
-        .map((size) => {
-          return variants.map((variant) => ({ ...size, ...variant }))
-        })
-        .reduce((a, b) => {
-          return a.concat(b)
-        }, [])}
-    >
-      {(props) => (
-        <Display
-          p={1}
-          overflowX="auto"
-          {...(["primaryWhite", "secondaryWhite"].includes(`${props.variant}`)
-            ? { bg: "mono100", color: "mono0" }
-            : { bg: "mono0", color: "mono100" })}
-        >
-          <Flex>
-            <Join separator={<Spacer x={2} />}>
-              <Button {...props}>Default</Button>
-
-              <Button {...props} focus>
-                Focus
-              </Button>
-
-              <Button {...props} hover>
-                Hover
-              </Button>
-
-              <Button {...props} active>
-                Active
-              </Button>
-
-              <Button {...props} loading>
-                Loading
-              </Button>
-
-              <Button {...props} disabled>
-                Disabled
-              </Button>
-
-              <Button {...props} success>
-                Success
-              </Button>
-            </Join>
-          </Flex>
-        </Display>
-      )}
-    </States>
-  )
+export const Secondary = {
+  args: {
+    variant: "secondary",
+    children: "Secondary Button",
+  },
 }
 
-export const NativeButtonProps = () => {
-  return (
-    <States<ButtonProps>
-      states={[
-        { autoFocus: true, children: "autofocused" },
-        { tabIndex: -1, children: "not focusable with keyboard" },
-        {
-          onClick: (event) => {
-            event.preventDefault()
-          },
-          children: "correctly typed click event",
-        },
-      ]}
-    >
-      <Button>Label</Button>
-    </States>
-  )
+export const Large = {
+  args: {
+    size: "large",
+    children: "Large Button",
+  },
 }
 
-NativeButtonProps.story = {
-  name: "Native button tag props",
+export const Small = {
+  args: {
+    size: "small",
+    children: "Small Button",
+  },
 }
 
-export const WithBoxProps = () => {
-  return (
-    <States>
-      <Box border="1px dotted" borderColor="mono100">
-        <Button display="block" width="100%" my={2}>
-          full width
-        </Button>
-
-        <Button display="block" width="100%" my={2}>
-          with collapsing
-        </Button>
-
-        <Button display="block" width="100%" my={2}>
-          margins
-        </Button>
-      </Box>
-    </States>
-  )
+export const WithIconBasic = {
+  args: {
+    children: "Create an Alert",
+    variant: "secondaryBlack",
+    size: "small",
+    Icon: BellStrokeIcon,
+  },
 }
 
-WithBoxProps.story = {
-  name: "with BoxProps",
+export const LoadingState = {
+  args: {
+    children: "Loading Button",
+    loading: true,
+  },
 }
 
-export const Loading = () => {
-  const [loading, setLoading] = useState(false)
-
-  const handleClick = () => {
-    if (loading) return
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-  }
-  return (
-    <States>
-      <Button loading={loading} onClick={handleClick}>
-        click to load
-      </Button>
-    </States>
-  )
+export const Disabled = {
+  args: {
+    children: "Disabled Button",
+    disabled: true,
+  },
 }
 
-export const As = () => {
-  return (
-    <States states={[{}, { as: "div", children: "This is a div" }]}>
-      {/* @ts-ignore */}
-      <Button as="a" href="#example">
-        This is an anchor tag with an href
-      </Button>
-    </States>
-  )
+export const Success = {
+  args: {
+    children: "Success Button",
+    success: true,
+  },
 }
 
-export const WithIcon = () => {
-  return (
-    <States<ButtonProps>
-      states={[
-        {},
-        { focus: true },
-        { hover: true },
-        { loading: true },
-        { disabled: true },
-        { loading: true, disabled: true },
-        { success: true },
-        { size: "large" },
-        { size: "large", focus: true },
-        { size: "large", hover: true },
-        { size: "large", loading: true },
-        { size: "large", disabled: true },
-        { size: "large", loading: true, disabled: true },
-        { size: "large", success: true },
-      ]}
-    >
-      <Button variant="secondaryBlack" size="small" Icon={BellStrokeIcon}>
-        Create an Alert
-      </Button>
-    </States>
-  )
+export const Focus = {
+  args: {
+    children: "Focused Button",
+    focus: true,
+  },
 }
 
-export const ResponsiveSize = () => {
-  return <Button size={["small", "large"]}>Resize Viewport</Button>
+export const Hover = {
+  args: {
+    children: "Hovered Button",
+    hover: true,
+  },
+}
+
+export const Active = {
+  args: {
+    children: "Active Button",
+    active: true,
+  },
+}
+
+export const PrimaryWhite = {
+  args: {
+    variant: "primaryWhite",
+    children: "Primary White Button",
+  },
+}
+
+export const SecondaryWhite = {
+  args: {
+    variant: "secondaryWhite",
+    children: "Secondary White Button",
+  },
+}
+
+export const SecondaryBlack = {
+  args: {
+    variant: "secondaryBlack",
+    children: "Secondary Black Button",
+  },
+}
+
+export const AutoFocus = {
+  args: {
+    autoFocus: true,
+    children: "Auto Focused Button",
+  },
+}
+
+export const NotKeyboardFocusable = {
+  args: {
+    tabIndex: -1,
+    children: "Not Keyboard Focusable",
+  },
+}
+
+export const FullWidth = {
+  args: {
+    display: "block",
+    width: "100%",
+    children: "Full Width Button",
+  },
+}
+
+export const AsAnchor = {
+  args: {
+    as: "a",
+    href: "#example",
+    children: "This is an anchor tag",
+  },
+}
+
+export const ResponsiveSize = {
+  args: {
+    size: ["small", "large"],
+    children: "Resize Viewport",
+  },
 }

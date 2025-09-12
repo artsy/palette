@@ -26,6 +26,64 @@ specific then it's best to leave the component where it's used. We can always mo
 
 If you'd like to add a new component to Palette please raise the need in our `#design-system` Slack channel.
 
+### Creating Storybook Stories
+
+When adding new components, you'll need to create corresponding Storybook stories. Follow these conventions:
+
+#### Story File Structure
+
+- Place the story file in the same directory as the component, e.g. `src/elements/Button/Button.story.tsx`
+- Use PascalCase for the filename, matching the component name
+
+#### Required Elements
+
+Each story file should include:
+
+```tsx
+import React from "react";
+import { MyComponent } from "./MyComponent";
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist";
+
+export default {
+  component: MyComponent,
+  title: "Components/MyComponent",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: "A short description of what this component does.",
+      },
+    },
+    controls: {
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
+    },
+  },
+};
+
+export const Default = {
+  args: {
+    // default props
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "A short description of this story variant.",
+      },
+    },
+  },
+};
+```
+
+#### Key Guidelines
+
+- **Always add autodocs**: Include `tags: ["autodocs"]` and component description
+- **Use the blocklist**: Add `controls: { exclude: STORYBOOK_PROPS_BLOCKLIST }`
+- **Separate stories for each variant**: Don't use the `States` helper - create individual story exports
+- **Use the `args` format**: Define props using the `args` property for better autodocs integration
+- **Add story descriptions**: Include `docs.description.story` for each story to explain its purpose
+
+For a complete guide, see [`packages/palette/claude.md`](packages/palette/CLAUDE.md).
+
 ## Local development
 
 In the project root run the following:

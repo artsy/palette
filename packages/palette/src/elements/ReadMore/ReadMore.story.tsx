@@ -2,16 +2,29 @@ import React from "react"
 import { HTML } from "../HTML"
 import { ReadMore } from "./ReadMore"
 import { Box } from "../Box"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
+  component: ReadMore,
   title: "Components/ReadMore",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A component that truncates content and provides a 'read more' link to expand the full content.",
+      },
+    },
+    controls: {
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
+      },
+  },
 }
 
-export const WithCharacterCap = () => {
-  return (
-    <ReadMore
-      maxChars={300}
-      content={`<div>
+export const Default = {
+  args: {
+    maxChars: 300,
+    content: `<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
           for the large-scale outdoor installations and long, spacious interiors
@@ -19,49 +32,53 @@ export const WithCharacterCap = () => {
           significant American artists of the post-war period, is perhaps
           best-known for the large-scale outdoor installations and long,
           spacious interiors he designed in Marfa.
-        </div>`}
-    />
-  )
+        </div>`,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Read more component with character limit truncation.",
+      },
+    },
+  },
 }
 
-WithCharacterCap.story = {
-  name: "With character cap",
-}
-
-export const ShortContent = () => {
-  return (
-    <ReadMore
-      maxChars={300}
-      content={`<div>
+export const ShortContent = {
+  args: {
+    maxChars: 300,
+    content: `<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>.
-        </div>`}
-    />
-  )
+        </div>`,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Read more with content shorter than the character limit.",
+      },
+    },
+  },
 }
 
-ShortContent.story = {
-  name: "Short content",
+export const AsString = {
+  args: {
+    maxChars: 300,
+    content:
+      "Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa. Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa.",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Read more with plain string content instead of HTML.",
+      },
+    },
+  },
 }
 
-export const AsString = () => {
-  return (
-    <ReadMore
-      maxChars={300}
-      content="Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa. Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa."
-    />
-  )
-}
-
-AsString.story = {
-  name: "As string",
-}
-
-export const CharacterCapWithHtml = () => {
-  return (
-    <ReadMore
-      maxChars={300}
-      content={`<p>
+export const CharacterCapWithHtml = {
+  args: {
+    maxChars: 300,
+    content: `<p>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps
           best-known for the large-scale outdoor installations and long,
@@ -81,17 +98,19 @@ export const CharacterCapWithHtml = () => {
           eveniet aliquid laborum fugiat quibusdam id suscipit est temporibus
           labore sint aliquam, laudantium tempore. Tenetur adipisci cumque
           alias facilis animi. Illum.
-        </p>`}
-    />
-  )
+        </p>`,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Character cap with HTML content.",
+      },
+    },
+  },
 }
 
-CharacterCapWithHtml.story = {
-  name: "Character cap with HTML",
-}
-
-export const WithCustomizableTypography = () => {
-  return (
+export const WithCustomizableTypography = {
+  render: () => (
     <HTML>
       <ReadMore
         maxChars={300}
@@ -120,15 +139,18 @@ export const WithCustomizableTypography = () => {
             </p>`}
       />
     </HTML>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "ReadMore with customizable typography using HTML wrapper.",
+      },
+    },
+  },
 }
 
-WithCustomizableTypography.story = {
-  name: "With customizable typography",
-}
-
-export const WithCustomizableTypography2 = () => {
-  return (
+export const WithCustomizableTypography2 = {
+  render: () => (
     <HTML variant="lg">
       <ReadMore
         maxChars={300}
@@ -156,19 +178,22 @@ export const WithCustomizableTypography2 = () => {
             </p>`}
       />
     </HTML>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "ReadMore with customizable large typography using HTML wrapper.",
+      },
+    },
+  },
 }
 
-WithCustomizableTypography2.story = {
-  name: "With customizable typography (2)",
-}
-
-export const CharacterCapWithHtmlDisabled = () => {
-  return (
-    <ReadMore
-      disabled
-      maxChars={300}
-      content={`<div>
+export const CharacterCapWithHtmlDisabled = {
+  args: {
+    disabled: true,
+    maxChars: 300,
+    content: `<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
           for the large-scale outdoor installations and long, spacious interiors
@@ -176,17 +201,19 @@ export const CharacterCapWithHtmlDisabled = () => {
           significant American artists of the post-war period, is perhaps
           best-known for the large-scale outdoor installations and long,
           spacious interiors he designed in Marfa.
-        </div>`}
-    />
-  )
+        </div>`,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Character cap with HTML content when disabled.",
+      },
+    },
+  },
 }
 
-CharacterCapWithHtmlDisabled.story = {
-  name: "Character cap with html (disabled)",
-}
-
-export const WithBottomReadMore = () => {
-  return (
+export const WithBottomReadMore = {
+  render: () => (
     <Box textAlign="center" width={600}>
       <HTML variant="lg">
         <ReadMore
@@ -204,9 +231,12 @@ export const WithBottomReadMore = () => {
         />
       </HTML>
     </Box>
-  )
-}
-
-WithBottomReadMore.story = {
-  name: "With bottom placed 'Read More'",
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "ReadMore with bottom-placed 'Read More' link.",
+      },
+    },
+  },
 }

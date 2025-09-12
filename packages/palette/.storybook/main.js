@@ -13,11 +13,16 @@ const config = {
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-viewport"),
+    getAbsolutePath("@storybook/addon-docs"),
   ],
 
   framework: {
     name: getAbsolutePath("@storybook/react-webpack5"),
     options: {},
+  },
+
+  docs: {
+    autodocs: "tag",
   },
 
   core: {

@@ -1,32 +1,62 @@
-import React from "react"
-import { States } from "storybook-states"
-import { Spinner, SpinnerProps } from "./Spinner"
+import { Spinner } from "./Spinner"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
+  component: Spinner,
   title: "Components/Spinner",
-  parameters: { chromatic: { disable: true } },
+  tags: ["autodocs"],
+  parameters: {
+    chromatic: { disable: true },
+    docs: {
+      description: {
+        component:
+          "A loading spinner component with different sizes and colors, optionally with a delay before showing.",
+      },
+    },
+    controls: {
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
+      },
+  },
 }
 
-export const Default = () => (
-  <States<SpinnerProps>
-    states={[
-      {},
-      { color: "brand", size: "small", m: 2 },
-      { size: ["small", "medium", "large"] },
-    ]}
-  >
-    <Spinner position="static" />
-  </States>
-)
-
-export const DefaultSpinner = () => {
-  return <Spinner />
+export const Default = {
+  args: {
+    position: "static",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Basic spinner with default styling.",
+      },
+    },
+  },
 }
 
-export const SpinnerWithDelayedShow = () => {
-  return <Spinner delay={1000} />
+export const Small = {
+  args: {
+    size: "small",
+    color: "brand",
+    position: "static",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Small spinner with brand color.",
+      },
+    },
+  },
 }
 
-SpinnerWithDelayedShow.story = {
-  name: "Spinner with delayed show",
+export const WithDelay = {
+  args: {
+    delay: 1000,
+    position: "static",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Spinner that shows after a 1 second delay.",
+      },
+    },
+  },
 }

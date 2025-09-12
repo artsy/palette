@@ -9,6 +9,7 @@ import {
   ResponsiveBoxMaxDimensions,
   ResponsiveBoxProps,
 } from "./ResponsiveBox"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const Measure: React.FC<React.PropsWithChildren<ResponsiveBoxProps>> = (
   props
@@ -69,10 +70,25 @@ const EXAMPLE_MAXIMUMS: ResponsiveBoxMaxDimensions[] = [
   { maxHeight: 1024, maxWidth: 1024 },
 ]
 
-export default { title: "Components/ResponsiveBox" }
+export default {
+  component: ResponsiveBox,
+  title: "Components/ResponsiveBox",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A responsive container that maintains aspect ratio and optionally constrains maximum dimensions.",
+      },
+      controls: {
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
+      },
+    },
+  },
+}
 
-export const Basic = () => {
-  return (
+export const Basic = {
+  render: () => (
     <>
       {EXAMPLE_ASPECTS.map((aspect, i) =>
         EXAMPLE_MAXIMUMS.map((maximum, j) => {
@@ -90,11 +106,19 @@ export const Basic = () => {
         })
       )}
     </>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Basic responsive boxes with various aspect ratios and maximum dimensions.",
+      },
+    },
+  },
 }
 
-export const MaxWidth100 = () => {
-  return (
+export const MaxWidth100 = {
+  render: () => (
     <>
       {EXAMPLE_ASPECTS.map((aspect, i) => {
         return (
@@ -104,11 +128,14 @@ export const MaxWidth100 = () => {
         )
       })}
     </>
-  )
-}
-
-MaxWidth100.story = {
-  name: "maxWidth: 100%",
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Responsive boxes constrained to 100% maximum width.",
+      },
+    },
+  },
 }
 
 const Masonry = styled(Box)`
@@ -119,8 +146,8 @@ const Masonry = styled(Box)`
   }
 `
 
-export const ColumnsWithResponsiveImages = () => {
-  return (
+export const ColumnsWithResponsiveImages = {
+  render: () => (
     <Masonry>
       {new Array(12).fill(0).map((_, i) => {
         const orientation = i % 3 === 0 ? "portrait" : "landscape"
@@ -151,5 +178,13 @@ export const ColumnsWithResponsiveImages = () => {
         )
       })}
     </Masonry>
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Responsive images in a masonry layout with different orientations.",
+      },
+    },
+  },
 }

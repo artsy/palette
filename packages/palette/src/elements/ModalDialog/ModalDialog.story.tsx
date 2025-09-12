@@ -1,133 +1,101 @@
-import React, { useState } from "react"
-import { States } from "storybook-states"
+import React from "react"
 import { Text } from "../Text"
 import { Button } from "../Button"
-import { ModalDialog, ModalDialogProps } from "./ModalDialog"
+import { ModalDialog } from "./ModalDialog"
 import { Box } from "../Box"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const LOREM =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus sed iure repellendus animi, aliquid aut fuga maxime nemo minus quas. Error, incidunt fugit similique quidem culpa hic! Nemo, quas rerum. "
 
 export default {
+  component: ModalDialog,
   title: "Components/ModalDialog",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A modal dialog component with customizable layout, panels, and content areas.",
+      },
+      controls: {
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
+      },
+    },
+  },
 }
 
-const Demo = ({ children, ...rest }: Partial<ModalDialogProps>) => {
-  const [open, setOpen] = useState(false)
-
+const Template = (args) => {
+  const [open, setOpen] = React.useState(false)
   return (
     <>
       <Button onClick={() => setOpen(true)}>Open Modal</Button>
-
       {open && (
-        <ModalDialog onClose={() => setOpen(false)} {...rest}>
-          {children ? children : <Text variant="sm">{LOREM.repeat(15)}</Text>}
+        <ModalDialog {...args} onClose={() => setOpen(false)}>
+          {args.children || <Text variant="sm">{LOREM.repeat(2)}</Text>}
         </ModalDialog>
       )}
     </>
   )
 }
 
-export const Default = () => {
-  return (
-    <States<Partial<ModalDialogProps>>
-      states={[
-        {
-          children: <Text variant="sm">{LOREM}</Text>,
-        },
-        { title: "Modal Title" },
-        { title: "100% Width", width: "100%" },
-        { title: "Responsive Percentage Width", width: ["75%", "66%", "50%"] },
-        { title: "Responsive Width", width: ["100%", 550] },
-        {
-          title:
-            "Modal Title with a longer title or headline text that runs on for mutliple lines",
-        },
-        { hasLogo: true },
-        { title: "Modal Title", hasLogo: true },
-        {
-          children: <Text variant="sm">{LOREM}</Text>,
-          footer: <Button width="100%">Confirm</Button>,
-        },
-        { title: "Modal Title", footer: <Button width="100%">Confirm</Button> },
-        {
-          title:
-            "Modal Title with a longer title or headline text that runs on for mutliple lines",
-          footer: <Button width="100%">Confirm</Button>,
-        },
-        {
-          title:
-            "Modal Title with a longer title or headline text that runs on for mutliple lines",
-          hasLogo: true,
-          footer: <Button width="100%">Confirm</Button>,
-        },
-        {
-          width: 800,
-          title: "With Left Panel",
-          leftPanel: (
-            <Box bg="mono100" width={300} flexShrink={0} p={1}>
-              <Text variant="xs" color="mono0">
-                Some custom content on the left
-              </Text>
-            </Box>
-          ),
-        },
-        {
-          width: 800,
-          title: "With Right Panel",
-          rightPanel: (
-            <Box bg="mono100" width={300} flexShrink={0} p={1}>
-              <Text variant="xs" color="mono0">
-                Some custom content on the left
-              </Text>
-            </Box>
-          ),
-        },
-        {
-          width: "100%",
-          title: "With Left and Right Panels",
-          leftPanel: (
-            <Box bg="mono100" width={300} flexShrink={0} p={1}>
-              <Text variant="xs" color="mono0">
-                Some custom content on the left
-              </Text>
-            </Box>
-          ),
-          rightPanel: (
-            <Box bg="mono100" width={300} flexShrink={0} p={1}>
-              <Text variant="xs" color="mono0">
-                Some custom content on the left
-              </Text>
-            </Box>
-          ),
-        },
-        {
-          title: "With Header",
-          header: (
-            <Box bg="mono10" p={2} textAlign="center">
-              <Text variant="xs">Header Content</Text>
-            </Box>
-          ),
-        },
-        {
-          title: "With Header and Footer",
-          header: (
-            <Box bg="mono10" p={2} textAlign="center">
-              <Text variant="xs">Header Content</Text>
-            </Box>
-          ),
-          footer: <Button width="100%">Confirm</Button>,
-        },
-        {
-          title: "With custom z-index",
-          zIndex: 1000,
-        },
-        {
-          title: <Box bg="red">Custom title</Box>,
-        },
-      ]}
-    >
-      {(props) => <Demo {...props} />}
-    </States>
-  )
+export const Default = {
+  args: {
+    title: "Modal Title",
+    children: <Text variant="sm">{LOREM}</Text>,
+  },
+  render: Template,
+  parameters: {
+    docs: {
+      description: {
+        story: "Default ModalDialog with title and content.",
+      },
+    },
+  },
+}
+
+export const WithFooter = {
+  args: {
+    title: "Modal Title",
+    children: <Text variant="sm">{LOREM}</Text>,
+    footer: <Button width="100%">Confirm</Button>,
+  },
+  render: Template,
+  parameters: {
+    docs: {
+      description: {
+        story: "ModalDialog with a footer button.",
+      },
+    },
+  },
+}
+
+export const WithPanels = {
+  args: {
+    title: "With Left and Right Panels",
+    width: "100%",
+    leftPanel: (
+      <Box bg="mono100" width={300} flexShrink={0} p={1}>
+        <Text variant="xs" color="mono0">
+          Some custom content on the left
+        </Text>
+      </Box>
+    ),
+    rightPanel: (
+      <Box bg="mono100" width={300} flexShrink={0} p={1}>
+        <Text variant="xs" color="mono0">
+          Some custom content on the right
+        </Text>
+      </Box>
+    ),
+    children: <Text variant="sm">{LOREM}</Text>,
+  },
+  render: Template,
+  parameters: {
+    docs: {
+      description: {
+        story: "ModalDialog with left and right panels.",
+      },
+    },
+  },
 }

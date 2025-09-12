@@ -1,21 +1,64 @@
-import React from "react"
-import { States } from "storybook-states"
-import { PasswordInput, PasswordInputProps } from "./PasswordInput"
+import { PasswordInput } from "./PasswordInput"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
+  component: PasswordInput,
   title: "Components/PasswordInput",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A password input field with a toggle to show/hide the password text.",
+      },
+    },
+    controls: {
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
+      },
+  },
 }
 
-export const Default = () => {
-  return (
-    <States<Partial<PasswordInputProps>>
-      states={[
-        {},
-        { defaultValue: "secret" },
-        { defaultValue: "secret", defaultVisibility: true },
-      ]}
-    >
-      <PasswordInput name="Password" placeholder="Password" />
-    </States>
-  )
+export const Default = {
+  args: {
+    name: "Password",
+    placeholder: "Password",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Basic password input with placeholder text.",
+      },
+    },
+  },
+}
+
+export const WithValue = {
+  args: {
+    name: "Password",
+    placeholder: "Password",
+    defaultValue: "secret",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Password input with a default value.",
+      },
+    },
+  },
+}
+
+export const VisibleByDefault = {
+  args: {
+    name: "Password",
+    placeholder: "Password",
+    defaultValue: "secret",
+    defaultVisibility: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Password input with text visible by default.",
+      },
+    },
+  },
 }

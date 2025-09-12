@@ -6,6 +6,7 @@ import { Input } from "../Input"
 import { Join } from "../Join"
 import { Spacer } from "../Spacer"
 import { ModalBase, ModalBaseProps } from "./ModalBase"
+import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const Example: React.FC<
   React.PropsWithChildren<
@@ -69,18 +70,48 @@ const Example: React.FC<
   )
 }
 
-export default { title: "Components/ModalBase" }
-
-export const Default = () => {
-  return <Example />
+export default {
+  component: ModalBase,
+  title: "Components/ModalBase",
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A base modal component that handles focus management, backdrop clicks, and accessibility.",
+      },
+      controls: {
+        exclude: STORYBOOK_PROPS_BLOCKLIST,
+      },
+    },
+  },
 }
 
-export const DeferredFocusables = () => {
-  return <Example defer />
+export const Default = {
+  render: () => <Example />,
+  parameters: {
+    docs: {
+      description: {
+        story: "Default ModalBase with basic functionality.",
+      },
+    },
+  },
 }
 
-export const Fullscreen = () => {
-  return (
+export const DeferredFocusables = {
+  render: () => <Example defer />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "ModalBase with deferred focusable elements that are added after render.",
+      },
+    },
+  },
+}
+
+export const Fullscreen = {
+  render: () => (
     <Example
       dialogProps={{
         width: "100%",
@@ -90,11 +121,18 @@ export const Fullscreen = () => {
         justifyContent: "center",
       }}
     />
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "ModalBase in fullscreen mode.",
+      },
+    },
+  },
 }
 
-export const Scrolling = () => {
-  return (
+export const Scrolling = {
+  render: () => (
     <Example
       bodyChildren={
         <>
@@ -111,5 +149,13 @@ export const Scrolling = () => {
         </>
       }
     />
-  )
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "ModalBase with scrollable content inside while body scroll is prevented.",
+      },
+    },
+  },
 }
