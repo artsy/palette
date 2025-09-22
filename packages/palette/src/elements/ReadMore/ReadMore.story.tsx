@@ -16,8 +16,8 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLOCKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
+    },
   },
 }
 

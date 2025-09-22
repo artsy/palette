@@ -30,10 +30,8 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
   if (typeof expandedHTML !== "string") return null
 
   const charCount = expandedHTML.replace(HTML_TAG_REGEX, "").length
-
   const truncatedHTML = truncate(expandedHTML, maxChars).html
-
-  const visible = charCount > maxChars
+  const shouldShowToggle = charCount > maxChars
 
   const handleClick = () => {
     if (disabled) return
@@ -44,7 +42,8 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
       : onReadMoreClicked && onReadMoreClicked()
   }
 
-  if (!visible) {
+  // If content doesn't need truncation, render normally
+  if (!shouldShowToggle) {
     return (
       <span
         dangerouslySetInnerHTML={{
@@ -56,6 +55,11 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
 
   return (
     <Container aria-expanded={expanded}>
+      {/* Add sr-only full content only when collapsed for SEO/accessibility */}
+      {!expanded && shouldShowToggle && (
+        <span className="sr-only" dangerouslySetInnerHTML={{ __html: expandedHTML }} />
+      )}
+      
       {expanded ? (
         <>
           <Box dangerouslySetInnerHTML={{ __html: expandedHTML }} />
@@ -97,6 +101,19 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
 const Container = styled.div`
   > * > span > *:last-child {
     display: inherit;
+  }
+  
+  /* Screen reader only content - accessible to screen readers and crawlers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 `
 
