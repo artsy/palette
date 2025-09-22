@@ -34,7 +34,7 @@ describe("ReadMore", () => {
   it("Auto expands text that is less than max char count", () => {
     const wrapper = mount(<ReadMore maxChars={100} content={htmlCopy} />)
     expect(wrapper.find("button").length).toEqual(0)
-    expect(wrapper.find(".sr-only")).toHaveLength(0)
+    expect(wrapper.find("VisuallyHidden")).toHaveLength(0)
   })
 
   it("changes the button text on click", () => {
@@ -65,16 +65,16 @@ describe("ReadMore", () => {
 
   it("includes full content for screen readers when collapsed", () => {
     const wrapper = mount(<ReadMore maxChars={20} content={copy} />)
-    expect(wrapper.find(".sr-only")).toHaveLength(1)
-    const srOnlyContent = wrapper.find(".sr-only").html()
-    expect(srOnlyContent).toContain(copy)
+    expect(wrapper.find("VisuallyHidden")).toHaveLength(1)
+    const hiddenContent = wrapper.find("VisuallyHidden").html()
+    expect(hiddenContent).toContain(copy)
   })
 
-  it("removes sr-only content when expanded", () => {
+  it("removes visually hidden content when expanded", () => {
     const wrapper = mount(<ReadMore maxChars={20} content={copy} />)
-    expect(wrapper.find(".sr-only")).toHaveLength(1)
+    expect(wrapper.find("VisuallyHidden")).toHaveLength(1)
     wrapper.find("button").simulate("click")
-    expect(wrapper.find(".sr-only")).toHaveLength(0)
+    expect(wrapper.find("VisuallyHidden")).toHaveLength(0)
   })
 
   it("has proper ARIA attributes on container", () => {
