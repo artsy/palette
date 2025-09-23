@@ -240,3 +240,31 @@ export const WithBottomReadMore = {
     },
   },
 }
+
+export const SimpleLineClamp = {
+  args: {
+    maxLines: 3,
+    content: `<p>
+      Donald Judd, widely regarded as one of the most significant American
+      artists of <a href="#">the post-war period</a>, is perhaps best-known
+      for the large-scale outdoor installations and long, spacious interiors
+      he designed in Marfa. Donald Judd, widely regarded as one of the most
+      significant American artists of the post-war period, is perhaps
+      best-known for the large-scale outdoor installations and long,
+      spacious interiors he designed in Marfa.
+    </p>
+    <p>
+      <strong>Lorem ipsum dolor</strong> sit amet consectetur adipisicing
+      elit. Ducimus eligendi obcaecati voluptate
+      <em>molestias vero nobis voluptatum</em>, tenetur dolorum assumenda.
+    </p>`,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Simple CSS line-clamp that shows ellipses (...) after specified lines. Full content remains in DOM for SEO/accessibility.",
+      },
+    },
+  },
+}
+

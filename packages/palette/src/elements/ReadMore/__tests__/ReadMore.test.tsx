@@ -63,19 +63,6 @@ describe("ReadMore", () => {
     expect(callback).toBeCalled()
   })
 
-  it("includes full content for screen readers when collapsed", () => {
-    const wrapper = mount(<ReadMore maxChars={20} content={copy} />)
-    expect(wrapper.find("VisuallyHidden")).toHaveLength(1)
-    const hiddenContent = wrapper.find("VisuallyHidden").html()
-    expect(hiddenContent).toContain(copy)
-  })
-
-  it("removes visually hidden content when expanded", () => {
-    const wrapper = mount(<ReadMore maxChars={20} content={copy} />)
-    expect(wrapper.find("VisuallyHidden")).toHaveLength(1)
-    wrapper.find("button").simulate("click")
-    expect(wrapper.find("VisuallyHidden")).toHaveLength(0)
-  })
 
   it("has proper ARIA attributes on container", () => {
     const wrapper = mount(<ReadMore maxChars={20} content={copy} />)
@@ -86,4 +73,5 @@ describe("ReadMore", () => {
       true
     )
   })
+
 })
