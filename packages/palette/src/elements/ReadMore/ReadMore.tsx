@@ -1,16 +1,15 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import truncate from "trunc-html"
 import { Clickable } from "../Clickable"
 import { Text } from "../Text"
-import { Box } from "../Box"
+import { useTheme } from "../../Theme"
 
 export interface ReadMoreProps {
   content: string
   disabled?: boolean
   inlineReadMoreLink?: boolean
   isExpanded?: boolean
-  maxChars?: number
+  maxLines?: number
   onReadLessClicked?: () => void
   onReadMoreClicked?: () => void
 }
@@ -21,72 +20,73 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
   disabled,
   inlineReadMoreLink = true,
   isExpanded,
-  maxChars = Infinity,
+  maxLines = Infinity,
   onReadLessClicked,
   onReadMoreClicked,
 }) => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  const { theme } = useTheme()
+
+  const [isOverflowing, setIsOverflowing] = useState(false)
+  const [singleLineHeight, setSingleLineHeight] = useState(0)
   const [expanded, setExpanded] = useState(!!isExpanded)
+
+  const maxLinesToShow = expanded ? Infinity : maxLines
+  const sentinelSpan = `<span data-readmore-sentinel aria-hidden="true" style="display:inline-block;width:0;padding:0;margin:0;">&#8203;</span>`
 
   if (typeof expandedHTML !== "string") return null
 
-  const charCount = expandedHTML.replace(HTML_TAG_REGEX, "").length
-
-  const truncatedHTML = truncate(expandedHTML, maxChars).html
-
-  const visible = charCount > maxChars
-
   const handleClick = () => {
     if (disabled) return
+
     setExpanded((expandedState) => !expandedState)
 
-    expanded
-      ? onReadLessClicked && onReadLessClicked()
-      : onReadMoreClicked && onReadMoreClicked()
+    expanded ? onReadLessClicked?.() : onReadMoreClicked?.()
   }
 
-  if (!visible) {
-    return (
-      <span
-        dangerouslySetInnerHTML={{
-          __html: expandedHTML,
-        }}
-      />
-    )
-  }
+  useEffect(() => {
+    if (!ref.current) return
+
+    setIsOverflowing(ref.current.scrollHeight > ref.current.clientHeight)
+
+    const sentinel = ref.current.querySelector("[data-readmore-sentinel]")
+    if (!sentinel) return
+
+    setSingleLineHeight(sentinel.clientHeight)
+  }, [])
 
   return (
     <Container aria-expanded={expanded}>
-      {expanded ? (
-        <>
-          <Box dangerouslySetInnerHTML={{ __html: expandedHTML }} />
+      <LineClamp
+        ref={ref}
+        lineClamp={maxLinesToShow}
+        dangerouslySetInnerHTML={{
+          __html: expanded ? expandedHTML : `${expandedHTML}${sentinelSpan}`,
+        }}
+      />
 
-          <Clickable
-            cursor="pointer"
-            textDecoration="underline"
-            onClick={handleClick}
-          >
-            <Text variant="xs" fontWeight="bold">
-              Read less
-            </Text>
-          </Clickable>
-        </>
-      ) : (
-        <Clickable onClick={handleClick}>
-          {inlineReadMoreLink ? (
-            <>
-              <span dangerouslySetInnerHTML={{ __html: truncatedHTML }} />{" "}
-            </>
-          ) : (
-            <Box dangerouslySetInnerHTML={{ __html: truncatedHTML }} />
-          )}
-
-          <Text
-            as="span"
-            variant="xs"
-            fontWeight="bold"
-            style={{ textDecoration: "underline" }}
-          >
-            Read more
+      {isOverflowing && (
+        <Clickable
+          cursor="pointer"
+          textDecoration="underline"
+          onClick={handleClick}
+          {...(!expanded && inlineReadMoreLink
+            ? {
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                background: `linear-gradient(to left, ${theme.colors.mono0} 0, ${theme.colors.mono0} calc(100% - ${theme.space[4]}), transparent 100%)`,
+                pl: 4,
+                height: singleLineHeight,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }
+            : {})}
+        >
+          <Text variant="xs" fontWeight="bold">
+            Read {expanded ? "less" : "more"}
           </Text>
         </Clickable>
       )}
@@ -95,11 +95,15 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
 }
 
 const Container = styled.div`
-  > * > span > *:last-child {
-    display: inherit;
-  }
+  position: relative;
 `
 
 Container.displayName = "Container"
 
-const HTML_TAG_REGEX = /(<([^>]+)>)/gi
+const LineClamp = styled.div<{ lineClamp: number }>`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: ${(props) => props.lineClamp};
+  line-clamp: ${(props) => props.lineClamp};
+  overflow: hidden;
+`

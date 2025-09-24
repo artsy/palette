@@ -16,14 +16,14 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLOCKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
+    },
   },
 }
 
 export const Default = {
   args: {
-    maxChars: 300,
+    maxLines: 2,
     content: `<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
@@ -45,7 +45,7 @@ export const Default = {
 
 export const ShortContent = {
   args: {
-    maxChars: 300,
+    maxLines: 3,
     content: `<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>.
@@ -62,7 +62,7 @@ export const ShortContent = {
 
 export const AsString = {
   args: {
-    maxChars: 300,
+    maxLines: 2,
     content:
       "Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa. Donald Judd, widely regarded as one of the most significant American artists of the post-war period, is perhaps best-known for the large-scale outdoor installations and long, spacious interiors he designed in Marfa.",
   },
@@ -77,7 +77,7 @@ export const AsString = {
 
 export const CharacterCapWithHtml = {
   args: {
-    maxChars: 300,
+    maxLines: 2,
     content: `<p>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps
@@ -113,7 +113,7 @@ export const WithCustomizableTypography = {
   render: () => (
     <HTML>
       <ReadMore
-        maxChars={300}
+        maxLines={3}
         content={`
             <p>
               Donald Judd, widely regarded as one of the most significant
@@ -153,7 +153,7 @@ export const WithCustomizableTypography2 = {
   render: () => (
     <HTML variant="lg">
       <ReadMore
-        maxChars={300}
+        maxLines={3}
         content={`<p>
               Donald Judd, widely regarded as one of the most significant
               American artists of <a href="#">the post-war period</a>, is
@@ -192,7 +192,7 @@ export const WithCustomizableTypography2 = {
 export const CharacterCapWithHtmlDisabled = {
   args: {
     disabled: true,
-    maxChars: 300,
+    maxLines: 3,
     content: `<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
@@ -218,7 +218,7 @@ export const WithBottomReadMore = {
       <HTML variant="lg">
         <ReadMore
           inlineReadMoreLink={false}
-          maxChars={280}
+          maxLines={3}
           content={`<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
