@@ -58,13 +58,14 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
 
   return (
     <Container aria-expanded={expanded}>
-      <LineClamp
-        ref={ref}
-        lineClamp={maxLinesToShow}
-        dangerouslySetInnerHTML={{
-          __html: expanded ? expandedHTML : `${expandedHTML}${sentinelSpan}`,
-        }}
-      />
+      <LineClamp ref={ref} lineClamp={maxLinesToShow}>
+        {/* LineClamp's `display` causes stacking of margins. Nested div ensures internal margins collapse. */}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: expanded ? expandedHTML : `${expandedHTML}${sentinelSpan}`,
+          }}
+        />
+      </LineClamp>
 
       {isOverflowing && (
         <Clickable
