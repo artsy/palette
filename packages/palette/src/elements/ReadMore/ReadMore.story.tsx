@@ -76,9 +76,11 @@ export const AsString = {
 }
 
 export const CharacterCapWithHtml = {
-  args: {
-    maxLines: 2,
-    content: `<p>
+  render: () => (
+    <HTML variant="sm">
+      <ReadMore
+        maxLines={2}
+        content={`<p>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps
           best-known for the large-scale outdoor installations and long,
@@ -98,8 +100,10 @@ export const CharacterCapWithHtml = {
           eveniet aliquid laborum fugiat quibusdam id suscipit est temporibus
           labore sint aliquam, laudantium tempore. Tenetur adipisci cumque
           alias facilis animi. Illum.
-        </p>`,
-  },
+        </p>`}
+      />
+    </HTML>
+  ),
   parameters: {
     docs: {
       description: {
