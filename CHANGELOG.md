@@ -1,3 +1,16 @@
+# (Tue Sep 30 2025)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette@45.0.0`
+  - feat(readmore): switches to max lines in order to keep content in dom [#1472](https://github.com/artsy/palette/pull/1472) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Sep 12 2025)
 
 #### 🚀  Enhancement

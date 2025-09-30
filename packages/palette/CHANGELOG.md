@@ -1,3 +1,22 @@
+# v45.0.0 (Tue Sep 30 2025)
+
+#### 💥  Breaking Change
+
+- feat(readmore): switches to max lines in order to keep content in dom [#1472](https://github.com/artsy/palette/pull/1472) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(readmore): corrects truncation when at limit; polish ([@dzucconi](https://github.com/dzucconi))
+- fix(readmore): corrects vertical margin collapsing ([@dzucconi](https://github.com/dzucconi))
+- fix(html): corrects margins and dividers ([@dzucconi](https://github.com/dzucconi))
+- feat(readmore): switches to max lines in order to keep content in dom ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v44.2.0 (Fri Sep 12 2025)
 
 #### 🚀  Enhancement
