@@ -25,7 +25,7 @@ export const htmlMixin = css`
   blockquote,
   pre,
   hr {
-    margin: ${themeGet("space.1")}px auto;
+    margin: ${themeGet("space.1")} 0;
 
     &:first-child {
       margin-top: 0;
@@ -38,6 +38,7 @@ export const htmlMixin = css`
 
   hr {
     height: 1px;
+    width: 100%;
     border: 0;
     background-color: ${themeGet("colors.mono10")};
   }
