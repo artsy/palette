@@ -24,6 +24,8 @@ export default {
 export const Default = {
   args: {
     maxLines: 2,
+    onReadMoreClicked: () => console.log("Read more clicked"),
+    onReadLessClicked: () => console.log("Read less clicked"),
     content: `<div>
           Donald Judd, widely regarded as one of the most significant American
           artists of <a href="#">the post-war period</a>, is perhaps best-known
