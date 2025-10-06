@@ -1,3 +1,19 @@
+# v45.1.0 (Mon Oct 06 2025)
+
+#### 🚀  Enhancement
+
+- feat(readmore): moves read more button to its own line [#1473](https://github.com/artsy/palette/pull/1473) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(readmore): moves read more button to its own line ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v45.0.0 (Tue Sep 30 2025)
 
 #### 💥  Breaking Change
