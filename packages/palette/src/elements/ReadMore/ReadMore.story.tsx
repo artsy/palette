@@ -1,7 +1,6 @@
 import React from "react"
 import { HTML } from "../HTML"
 import { ReadMore } from "./ReadMore"
-import { Box } from "../Box"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 export default {
@@ -213,35 +212,6 @@ export const CharacterCapWithHtmlDisabled = {
     docs: {
       description: {
         story: "Character cap with HTML content when disabled.",
-      },
-    },
-  },
-}
-
-export const WithBottomReadMore = {
-  render: () => (
-    <Box textAlign="center" width={600}>
-      <HTML variant="lg">
-        <ReadMore
-          inlineReadMoreLink={false}
-          maxLines={3}
-          content={`<div>
-          Donald Judd, widely regarded as one of the most significant American
-          artists of <a href="#">the post-war period</a>, is perhaps best-known
-          for the large-scale outdoor installations and long, spacious interiors
-          he designed in Marfa. Donald Judd, widely regarded as one of the most
-          significant American artists of the post-war period, is perhaps
-          best-known for the large-scale outdoor installations and long,
-          spacious interiors he designed in Marfa.
-        </div>`}
-        />
-      </HTML>
-    </Box>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story: "ReadMore with bottom-placed 'Read More' link.",
       },
     },
   },
