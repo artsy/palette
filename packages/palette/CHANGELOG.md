@@ -1,3 +1,15 @@
+# v45.2.0 (Mon Oct 27 2025)
+
+#### 🚀  Enhancement
+
+- feat: option to hide close button on popover [#1475](https://github.com/artsy/palette/pull/1475) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v45.1.0 (Mon Oct 06 2025)
 
 #### 🚀  Enhancement

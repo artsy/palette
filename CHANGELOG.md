@@ -1,3 +1,18 @@
+# (Mon Oct 27 2025)
+
+#### 🚀  Enhancement
+
+- chore(deps): update cimg/python docker tag to v3.14 [#1474](https://github.com/artsy/palette/pull/1474) ([@renovate[bot]](https://github.com/renovate[bot]))
+- `@artsy/palette@45.2.0`
+  - feat: option to hide close button on popover [#1475](https://github.com/artsy/palette/pull/1475) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Mon Oct 06 2025)
 
 #### 🚀  Enhancement
