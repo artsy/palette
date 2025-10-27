@@ -48,6 +48,8 @@ export interface PopoverProps extends BoxProps {
   popover:
     | ((actions: Omit<PopoverActions, "anchorRef">) => JSX.Element)
     | React.ReactNode
+  /** Show the close icon button */
+  showCloseButton?: boolean
   variant?: PopoverVariant
   /** Initial default visibility */
   visible?: boolean
@@ -67,6 +69,7 @@ export const Popover = ({
   placement = "top",
   pointer = false,
   popover,
+  showCloseButton = true,
   variant = "defaultLight",
   visible: _visible = false,
   zIndex = 1,
@@ -172,15 +175,17 @@ export const Popover = ({
               />
             )}
 
-            <Close
-              position="relative"
-              zIndex={2}
-              p={1}
-              onClick={handleDismiss}
-              aria-label="Close"
-            >
-              <CloseIcon fill="currentColor" display="block" />
-            </Close>
+            {showCloseButton && (
+              <Close
+                position="relative"
+                zIndex={2}
+                p={1}
+                onClick={handleDismiss}
+                aria-label="Close"
+              >
+                <CloseIcon fill="currentColor" display="block" />
+              </Close>
+            )}
 
             <Panel
               variant={variant}

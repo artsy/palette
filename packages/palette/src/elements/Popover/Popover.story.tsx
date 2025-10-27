@@ -69,9 +69,14 @@ export const Visible = {
         {CONTENT}
       </Text>
     ),
-    children: ({ anchorRef }) => (
+    children: ({ onVisible, anchorRef }) => (
       <Box textAlign="center">
-        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+        <Button
+          ref={anchorRef}
+          variant="secondaryBlack"
+          size="small"
+          onClick={onVisible}
+        >
           Popover Visible
         </Button>
       </Box>
@@ -102,9 +107,14 @@ export const WithContentInteraction = {
         close button.)
       </Text>
     ),
-    children: ({ anchorRef }) => (
+    children: ({ onVisible, anchorRef }) => (
       <Box textAlign="center">
-        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+        <Button
+          ref={anchorRef}
+          variant="secondaryBlack"
+          size="small"
+          onClick={onVisible}
+        >
           Popover With Content Interaction
         </Button>
       </Box>
@@ -142,9 +152,14 @@ export const Pointer = {
         ))}
       </>
     ),
-    children: ({ anchorRef }) => (
+    children: ({ onVisible, anchorRef }) => (
       <Box textAlign="center">
-        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+        <Button
+          ref={anchorRef}
+          variant="secondaryBlack"
+          size="small"
+          onClick={onVisible}
+        >
           Popover With Pointer
         </Button>
       </Box>
@@ -172,9 +187,14 @@ export const DarkVariant = {
         {CONTENT}
       </Text>
     ),
-    children: ({ anchorRef }) => (
+    children: ({ onVisible, anchorRef }) => (
       <Box textAlign="center">
-        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+        <Button
+          ref={anchorRef}
+          variant="secondaryBlack"
+          size="small"
+          onClick={onVisible}
+        >
           Popover Dark Variant
         </Button>
       </Box>
@@ -189,19 +209,58 @@ export const DarkVariant = {
   },
 }
 
+export const HideCloseButton = {
+  tags: ["!autodocs"],
+  args: {
+    placement: "bottom",
+    showCloseButton: false,
+    visible: true,
+    popover: (
+      <Text variant="xs" width={300}>
+        {CONTENT}
+      </Text>
+    ),
+    children: ({ onVisible, anchorRef }) => (
+      <Box textAlign="center">
+        <Button
+          ref={anchorRef}
+          variant="secondaryBlack"
+          size="small"
+          onClick={onVisible}
+        >
+          Popover Without Close Button
+        </Button>
+      </Box>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Popover with close button hidden.",
+      },
+    },
+  },
+}
+
 export const IgnoreClickOutside = {
   tags: ["!autodocs"],
   args: {
     placement: "bottom",
+    visible: true,
     ignoreClickOutside: true,
     popover: (
       <Text variant="xs" width={300}>
         {CONTENT}
       </Text>
     ),
-    children: ({ anchorRef }) => (
+    children: ({ onVisible, anchorRef }) => (
       <Box textAlign="center">
-        <Button ref={anchorRef} variant="secondaryBlack" size="small">
+        <Button
+          ref={anchorRef}
+          variant="secondaryBlack"
+          size="small"
+          onClick={onVisible}
+        >
           Popover Ignore Click Outside
         </Button>
       </Box>
