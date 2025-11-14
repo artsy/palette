@@ -60,7 +60,11 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
 
   return (
     <Container aria-expanded={expanded}>
-      <LineClamp ref={ref} lineClamp={maxLinesToShow}>
+      <LineClamp
+        key={`${expanded}`} // Forces a re-render on Mobile Safari
+        ref={ref}
+        lineClamp={maxLinesToShow}
+      >
         {/* LineClamp's `display` causes stacking of margins. Nested div ensures internal margins collapse. */}
         <Box
           position="relative"
