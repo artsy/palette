@@ -1,3 +1,16 @@
+# v45.3.0 (Fri Nov 14 2025)
+
+#### 🐛  Bug Fix
+
+- fix(read-more): fixes rendering issue in mobile safari [#1479](https://github.com/artsy/palette/pull/1479) ([@dzucconi](https://github.com/dzucconi))
+- fix(read-more): fixes rendering issue in mobile safari ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v45.2.0 (Mon Oct 27 2025)
 
 #### 🚀  Enhancement

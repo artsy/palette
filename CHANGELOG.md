@@ -1,3 +1,24 @@
+# (Fri Nov 14 2025)
+
+#### 🚀  Enhancement
+
+- feat: add yarn check github action [#1478](https://github.com/artsy/palette/pull/1478) ([@mc-jones](https://github.com/mc-jones))
+- feat: add add-version-label github action [#1477](https://github.com/artsy/palette/pull/1477) ([@amonkhouse](https://github.com/amonkhouse))
+- feat: add conventional commit github action [#1476](https://github.com/artsy/palette/pull/1476) ([@amonkhouse](https://github.com/amonkhouse))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@45.3.0`
+  - fix(read-more): fixes rendering issue in mobile safari [#1479](https://github.com/artsy/palette/pull/1479) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 3
+
+- Amy Monkhouse ([@amonkhouse](https://github.com/amonkhouse))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Matt Jones ([@mc-jones](https://github.com/mc-jones))
+
+---
+
 # (Mon Oct 27 2025)
 
 #### 🚀  Enhancement
