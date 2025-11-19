@@ -1,4 +1,4 @@
-name: ☢️ Add Version Label
+name: ☢️ Add Version Label test
 
 on:
   pull_request:
