@@ -75,4 +75,56 @@ describe("Dropdown", () => {
       expect(wrapper.html()).toContain("<div>dropdown content</div>")
     })
   })
+
+  describe("returnFocus", () => {
+    it("passes returnFocus=true to FocusOn by default", () => {
+      const wrapper = mount(
+        <div>
+          <Dropdown dropdown={<div>dropdown content</div>}>
+            {({ anchorRef, anchorProps }) => {
+              return (
+                <a ref={anchorRef as any} {...anchorProps}>
+                  anchor
+                </a>
+              )
+            }}
+          </Dropdown>
+        </div>
+      )
+
+      act(() => {
+        wrapper.find("a").first().simulate("mouseenter")
+        jest.runAllTimers()
+      })
+
+      const focusOnComponent = wrapper.find("FocusOn")
+      expect(focusOnComponent).toHaveLength(1)
+      expect(focusOnComponent.prop("returnFocus")).toBe(true)
+    })
+
+    it("passes returnFocus=false to FocusOn when explicitly set", () => {
+      const wrapper = mount(
+        <div>
+          <Dropdown returnFocus={false} dropdown={<div>dropdown content</div>}>
+            {({ anchorRef, anchorProps }) => {
+              return (
+                <a ref={anchorRef as any} {...anchorProps}>
+                  anchor
+                </a>
+              )
+            }}
+          </Dropdown>
+        </div>
+      )
+
+      act(() => {
+        wrapper.find("a").first().simulate("mouseenter")
+        jest.runAllTimers()
+      })
+
+      const focusOnComponent = wrapper.find("FocusOn")
+      expect(focusOnComponent).toHaveLength(1)
+      expect(focusOnComponent.prop("returnFocus")).toBe(false)
+    })
+  })
 })
