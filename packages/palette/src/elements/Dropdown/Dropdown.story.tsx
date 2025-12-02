@@ -352,3 +352,109 @@ export const DisabledTransition = {
     )
   },
 }
+
+export const ReturnFocusDefault = {
+  args: {
+    placement: "bottom",
+    openDropdownByClick: true,
+    dropdown: (
+      <Box width={200} p={2}>
+        <Text variant="sm" mb={1}>
+          Try this:
+        </Text>
+        <Text variant="xs" color="mono60" mb={2}>
+          1. Click button to open dropdown
+        </Text>
+        <Text variant="xs" color="mono60" mb={2}>
+          2. Press Tab to focus on links
+        </Text>
+        <Text variant="xs" color="mono60" mb={2}>
+          3. Press Escape to close
+        </Text>
+        <Text variant="xs" color="mono60" mb={2}>
+          4. Notice focus returns to button
+        </Text>
+        <Text as="a" display="block" variant="sm" href="#" tabIndex={0} mb={1}>
+          Focusable Link 1
+        </Text>
+        <Text as="a" display="block" variant="sm" href="#" tabIndex={0}>
+          Focusable Link 2
+        </Text>
+      </Box>
+    ),
+    children: ({ anchorRef, anchorProps }) => (
+      <Button
+        ref={anchorRef}
+        variant="secondaryBlack"
+        size="small"
+        {...anchorProps}
+      >
+        Click me (returnFocus=true)
+      </Button>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default behavior with `returnFocus=true`. When you close the dropdown (Escape key or click outside), focus returns to the trigger button for better accessibility.",
+      },
+    },
+    chromatic: { disable: true },
+  },
+}
+
+export const ReturnFocusDisabled = {
+  args: {
+    placement: "bottom",
+    openDropdownByClick: true,
+    returnFocus: false,
+    dropdown: (
+      <Box width={200} p={2}>
+        <Text variant="sm" mb={1}>
+          Try this:
+        </Text>
+        <Text variant="xs" color="mono60" mb={2}>
+          1. Click button to open dropdown
+        </Text>
+        <Text variant="xs" color="mono60" mb={2}>
+          2. Press Tab to focus on button
+        </Text>
+        <Text variant="xs" color="mono60" mb={2}>
+          3. Press Escape to close
+        </Text>
+        <Text variant="xs" color="mono60" mb={2}>
+          4. Focus stays where it was
+        </Text>
+        <Button
+          variant="primaryBlack"
+          size="small"
+          onClick={() => {
+            alert("Modal opened! Focus should not return to dropdown trigger.")
+          }}
+        >
+          Open Modal
+        </Button>
+      </Box>
+    ),
+    children: ({ anchorRef, anchorProps }) => (
+      <Button
+        ref={anchorRef}
+        variant="secondaryBlack"
+        size="small"
+        {...anchorProps}
+      >
+        Click me (returnFocus=false)
+      </Button>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "With `returnFocus=false`, focus does not return to the trigger when the dropdown closes. This is useful when the dropdown opens a modal or navigates to another page, where returning focus would be disruptive.",
+      },
+    },
+    chromatic: { disable: true },
+  },
+}

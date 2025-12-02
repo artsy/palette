@@ -50,6 +50,8 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
   children: Children
   /** Optionally disable flipping (default: `true`) */
   flip?: boolean
+  /** Whether to return focus to the previous element when the dropdown closes (default: `true`) */
+  returnFocus?: boolean
 }
 
 /**
@@ -67,6 +69,7 @@ export const Dropdown = ({
   openDropdownByClick,
   transition: _transition = true,
   flip = true,
+  returnFocus = true,
   ...rest
 }: DropdownProps) => {
   const [visible, setVisible] = useState(false)
@@ -349,6 +352,7 @@ export const Dropdown = ({
                 noIsolation
                 enabled={focusEnabled}
                 onClickOutside={onHide}
+                returnFocus={returnFocus}
               >
                 <Pane maxHeight={maxHeight}>
                   {typeof dropdown === "function"
