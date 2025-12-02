@@ -1,3 +1,15 @@
+# v45.4.0 (Tue Dec 02 2025)
+
+#### 🚀  Enhancement
+
+- chore: AMBER - dropdown focus [#1481](https://github.com/artsy/palette/pull/1481) ([@Mitch-Henson](https://github.com/Mitch-Henson))
+
+#### Authors: 1
+
+- Mitchell Henson ([@Mitch-Henson](https://github.com/Mitch-Henson))
+
+---
+
 # v45.3.0 (Fri Nov 14 2025)
 
 #### 🐛  Bug Fix
