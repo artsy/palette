@@ -1,3 +1,19 @@
+# v45.5.0 (Fri Dec 05 2025)
+
+#### 🚀  Enhancement
+
+- feat(basetabs): supports native html div props [#1482](https://github.com/artsy/palette/pull/1482) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(basetabs): supports native html div props ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v45.4.0 (Tue Dec 02 2025)
 
 #### 🚀  Enhancement
