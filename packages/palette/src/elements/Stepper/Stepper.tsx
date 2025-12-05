@@ -21,11 +21,13 @@ export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
   initialTabIndex = 0,
   children,
   mb = 2,
+  onChange,
   ...rest
 }) => {
   const { tabs, activeTabIndex, handleClick, ref } = useTabs({
     children,
     initialTabIndex,
+    onChange,
   })
 
   return (

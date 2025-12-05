@@ -5,14 +5,15 @@ import { HorizontalOverflow } from "../HorizontalOverflow/HorizontalOverflow"
 import { Join } from "../Join"
 
 /** Extends `Box` */
-export type BaseTabsProps = BoxProps & {
-  /**
-   * Enable if tabs should fill the width of the container
-   * (as opposed to left-align)
-   */
-  fill?: boolean
-  children: React.ReactNode
-}
+export type BaseTabsProps = BoxProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> & {
+    /**
+     * Enable if tabs should fill the width of the container
+     * (as opposed to left-align)
+     */
+    fill?: boolean
+    children: React.ReactNode
+  }
 
 /** Extends `Box`, provides configurable gutter */
 export const BaseTabs: React.ForwardRefExoticComponent<
