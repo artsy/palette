@@ -28,6 +28,16 @@ const SkeletonTextOverlay = styled(SkeletonBox)`
   transform: translateY(-50%);
 `
 
+const toBlockCharacters = (text: React.ReactNode): string => {
+  if (typeof text === 'string') {
+    return text.replace(/./g, '\u2588')
+  }
+  if (typeof text === 'number') {
+    return text.toString().replace(/./g, '\u2588')
+  }
+  return '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588'
+}
+
 /**
  * Allows you to create boxes the exact dimensions of a given piece of text
  */
@@ -35,11 +45,12 @@ export const SkeletonText: React.FC<
   React.PropsWithChildren<SkeletonTextProps>
 > = ({ children, ...rest }) => {
   const [borderProps, textProps] = splitBorderProps(rest)
+  const blocks = toBlockCharacters(children)
 
   return (
     <Text color="transparent" {...textProps}>
-      <Box as="span" display="inline-flex" position="relative" aria-hidden>
-        {children}
+      <Box as="span" display="inline-flex" position="relative" aria-hidden="true">
+        {blocks}
 
         <SkeletonTextOverlay {...borderProps} />
       </Box>
