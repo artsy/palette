@@ -1,5 +1,5 @@
 import { themeGet } from "@styled-system/theme-get"
-import React from "react"
+import React, { useMemo } from "react"
 import styled, { keyframes } from "styled-components"
 import { border, BorderProps } from "styled-system"
 import { splitProps } from "../../utils/splitProps"
@@ -30,12 +30,12 @@ const SkeletonTextOverlay = styled(SkeletonBox)`
 
 const toBlockCharacters = (text: React.ReactNode): string => {
   if (typeof text === 'string') {
-    return text.replace(/./g, '\u2588')
+    return text.replace(/\S/g, '█')
   }
   if (typeof text === 'number') {
-    return text.toString().replace(/./g, '\u2588')
+    return text.toString().replace(/\S/g, '█')
   }
-  return '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588'
+  return '████████'
 }
 
 /**
@@ -45,7 +45,7 @@ export const SkeletonText: React.FC<
   React.PropsWithChildren<SkeletonTextProps>
 > = ({ children, ...rest }) => {
   const [borderProps, textProps] = splitBorderProps(rest)
-  const blocks = toBlockCharacters(children)
+  const blocks = useMemo(() => toBlockCharacters(children), [children])
 
   return (
     <Text color="transparent" {...textProps}>
