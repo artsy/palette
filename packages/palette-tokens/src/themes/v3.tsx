@@ -96,7 +96,7 @@ const COLORS = {
 export type Colors = typeof COLORS;
 
 const EFFECTS = {
-  dropShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.1)",
+  dropShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.08)",
   innerShadow: "1px 1px 2px 0 rgba(0, 0, 0, 0.1) inset",
   flatShadow: "0 1px 1px 0 rgba(0, 0, 0, 0.05)",
   /** Shadow to drop under text to improve legibility when over images */

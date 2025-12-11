@@ -458,3 +458,79 @@ export const ReturnFocusDisabled = {
     chromatic: { disable: true },
   },
 }
+
+export const CustomDelay = {
+  render: () => {
+    const dropdown = (
+      <Box width={250} p={2}>
+        <Text as="a" display="block" variant="sm" href="#">
+          One
+        </Text>
+        <Text as="a" display="block" variant="sm" href="#">
+          Two
+        </Text>
+        <Text as="a" display="block" variant="sm" href="#">
+          Three
+        </Text>
+      </Box>
+    )
+
+    return (
+      <Flex gap={2}>
+        <Dropdown dropdown={dropdown} placement="bottom" delay={0}>
+          {({ anchorRef, anchorProps }) => {
+            return (
+              <Button
+                ref={anchorRef}
+                variant="secondaryBlack"
+                size="small"
+                {...anchorProps}
+              >
+                No delay (default)
+              </Button>
+            )
+          }}
+        </Dropdown>
+
+        <Dropdown dropdown={dropdown} placement="bottom" delay={500}>
+          {({ anchorRef, anchorProps }) => {
+            return (
+              <Button
+                ref={anchorRef}
+                variant="primaryBlack"
+                size="small"
+                {...anchorProps}
+              >
+                500ms delay
+              </Button>
+            )
+          }}
+        </Dropdown>
+
+        <Dropdown dropdown={dropdown} placement="bottom" delay={1000}>
+          {({ anchorRef, anchorProps }) => {
+            return (
+              <Button
+                ref={anchorRef}
+                variant="tertiary"
+                size="small"
+                {...anchorProps}
+              >
+                1000ms delay
+              </Button>
+            )
+          }}
+        </Dropdown>
+      </Flex>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `delay` prop allows you to configure how long to wait before showing the dropdown on hover. This is useful for preventing accidental triggers. The delay is ignored when `openDropdownByClick` is true.",
+      },
+    },
+    chromatic: { disable: true },
+  },
+}
