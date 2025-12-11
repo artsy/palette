@@ -960,6 +960,222 @@ const contrastRatio = (hexColor1: string, hexColor2: string): number => {
   return parseFloat(ratio.toFixed(2)) // Round to two decimal places for readability
 }
 
+export const Effects = () => {
+  const { theme } = useTheme()
+
+  return (
+    <>
+      <Text variant="xxl" mb={4}>
+        Effects
+      </Text>
+
+      <Text variant="sm" mb={12}>
+        Visual effects tokens including shadows, gradients, and overlays used
+        throughout the design system.
+      </Text>
+
+      <Separator color="mono30" my={12} />
+
+      <GridColumns gridRowGap={12}>
+        <Column span={6}>
+          <Box
+            width="fit-content"
+            px={6}
+            py={4}
+            borderRadius={2}
+            style={{
+              boxShadow: theme.effects.dropShadow,
+            }}
+          >
+            <Text variant="sm" color="mono60">
+              theme.effects.dropShadow
+            </Text>
+          </Box>
+        </Column>
+
+        <Column span={6}>
+          <Text as="span" variant="sm" color="mono60">
+            box-shadow:{" "}
+          </Text>
+
+          <Text as="span" variant="sm">
+            {theme.effects.dropShadow}
+          </Text>
+        </Column>
+
+        <Column span={6}>
+          <Box
+            width="fit-content"
+            px={6}
+            py={4}
+            borderRadius={2}
+            style={{
+              boxShadow: theme.effects.innerShadow,
+            }}
+          >
+            <Text variant="sm" color="mono60">
+              theme.effects.innerShadow
+            </Text>
+          </Box>
+        </Column>
+
+        <Column span={6}>
+          <Text as="span" variant="sm" color="mono60">
+            box-shadow:{" "}
+          </Text>
+
+          <Text as="span" variant="sm">
+            {theme.effects.innerShadow}
+          </Text>
+        </Column>
+
+        <Column span={6}>
+          <Box
+            width="fit-content"
+            px={6}
+            py={4}
+            borderRadius={2}
+            style={{
+              boxShadow: theme.effects.flatShadow,
+            }}
+          >
+            <Text variant="sm" color="mono60">
+              theme.effects.flatShadow
+            </Text>
+          </Box>
+        </Column>
+
+        <Column span={6}>
+          <Text as="span" variant="sm" color="mono60">
+            box-shadow:{" "}
+          </Text>
+
+          <Text as="span" variant="sm">
+            {theme.effects.flatShadow}
+          </Text>
+        </Column>
+
+        <Column span={6}>
+          <Box width="fit-content" px={6} py={4} borderRadius={2} bg="mono30">
+            <Text
+              variant="sm"
+              color="mono0"
+              style={{ textShadow: theme.effects.textShadow }}
+            >
+              theme.effects.textShadow
+            </Text>
+          </Box>
+        </Column>
+
+        <Column span={6}>
+          <Text as="span" variant="sm" color="mono60">
+            text-shadow:{" "}
+          </Text>
+
+          <Text as="span" variant="sm">
+            {theme.effects.textShadow}
+          </Text>
+        </Column>
+
+        <Column span={6}>
+          <Box
+            width="fit-content"
+            px={6}
+            py={4}
+            borderRadius={2}
+            border="1px solid"
+            borderColor="mono5"
+            background={theme.effects.overlayGradient}
+          >
+            <Text
+              variant="sm"
+              color="mono0"
+              style={{ textShadow: theme.effects.textShadow }}
+            >
+              theme.effects.overlayGradient
+            </Text>
+          </Box>
+        </Column>
+
+        <Column span={6}>
+          <Text as="span" variant="sm" color="mono60">
+            background:{" "}
+          </Text>
+
+          <Text as="span" variant="sm">
+            {theme.effects.overlayGradient}
+          </Text>
+        </Column>
+
+        <Column span={6}>
+          <Box bg="mono30" position="relative" p={4} borderRadius={2}>
+            <Box
+              position="absolute"
+              top={0}
+              left={0}
+              right={0}
+              bottom={0}
+              style={{
+                background: theme.effects.fadeRight,
+              }}
+            />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            ipsum quasi nesciunt perferendis iste nemo impedit molestias vero
+            obcaecati commodi autem illum eius, modi dolorem eum. Similique ut
+            consectetur rerum! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Eveniet ipsum quasi nesciunt perferendis iste nemo
+            impedit molestias vero obcaecati commodi autem illum eius, modi
+            dolorem eum. Similique ut consectetur rerum!
+          </Box>
+        </Column>
+
+        <Column span={6}>
+          <Text as="span" variant="sm" color="mono60">
+            background:{" "}
+          </Text>
+
+          <Text as="span" variant="sm">
+            {theme.effects.fadeRight}
+          </Text>
+        </Column>
+
+        <Column span={6}>
+          <Box bg="mono30" position="relative" p={4}>
+            <Box
+              position="absolute"
+              top={2}
+              left={2}
+              right={2}
+              bottom={2}
+              borderRadius={2}
+              style={{
+                backgroundColor: theme.effects.backdrop,
+              }}
+            />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            ipsum quasi nesciunt perferendis iste nemo impedit molestias vero
+            obcaecati commodi autem illum eius, modi dolorem eum. Similique ut
+            consectetur rerum! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Eveniet ipsum quasi nesciunt perferendis iste nemo
+            impedit molestias vero obcaecati commodi autem illum eius, modi
+            dolorem eum. Similique ut consectetur rerum!
+          </Box>
+        </Column>
+
+        <Column span={6}>
+          <Text as="span" variant="sm" color="mono60">
+            background:{" "}
+          </Text>
+
+          <Text as="span" variant="sm">
+            {theme.effects.backdrop}
+          </Text>
+        </Column>
+      </GridColumns>
+    </>
+  )
+}
+
 export const ContrastRatios = () => {
   return (
     <>
