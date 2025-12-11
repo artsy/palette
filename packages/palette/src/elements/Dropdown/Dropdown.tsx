@@ -52,6 +52,8 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
   flip?: boolean
   /** Whether to return focus to the previous element when the dropdown closes (default: `true`) */
   returnFocus?: boolean
+  /** Delay in milliseconds before showing the dropdown on hover (ignored when openDropdownByClick is true) */
+  delay?: number
 }
 
 /**
@@ -70,6 +72,7 @@ export const Dropdown = ({
   transition: _transition = true,
   flip = true,
   returnFocus = true,
+  delay = 0,
   ...rest
 }: DropdownProps) => {
   const [visible, setVisible] = useState(false)
@@ -91,16 +94,19 @@ export const Dropdown = ({
       visible: boolean
       isPointer?: boolean
     }) => {
-      const delay = _transition ? (visible ? 50 : 150) : visible ? 1 : 50
+      // Use custom delay when opening via pointer interaction (hover), but only if not using click mode
+      const defaultDelay = _transition ? (visible ? 50 : 150) : visible ? 1 : 50
+      const finalDelay =
+        visible && isPointer && !openDropdownByClick ? delay : defaultDelay
 
       timeoutRef.current && clearTimeout(timeoutRef.current)
       timeoutRef.current = setTimeout(() => {
         if (!visible && activeRef.current) return
         pointerRef.current = isPointer
         setVisible(visible)
-      }, delay)
+      }, finalDelay)
     },
-    [_transition]
+    [_transition, delay, openDropdownByClick]
   )
 
   const onVisible = () => {
