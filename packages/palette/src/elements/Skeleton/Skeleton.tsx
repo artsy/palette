@@ -1,5 +1,5 @@
 import { themeGet } from "@styled-system/theme-get"
-import React from "react"
+import React, { useMemo } from "react"
 import styled, { keyframes } from "styled-components"
 import { border, BorderProps } from "styled-system"
 import { splitProps } from "../../utils/splitProps"
@@ -28,6 +28,16 @@ const SkeletonTextOverlay = styled(SkeletonBox)`
   transform: translateY(-50%);
 `
 
+const toBlockCharacters = (text: React.ReactNode): string => {
+  if (typeof text === 'string') {
+    return text.replace(/\S/g, '█')
+  }
+  if (typeof text === 'number') {
+    return text.toString().replace(/\S/g, '█')
+  }
+  return '████████'
+}
+
 /**
  * Allows you to create boxes the exact dimensions of a given piece of text
  */
@@ -35,11 +45,12 @@ export const SkeletonText: React.FC<
   React.PropsWithChildren<SkeletonTextProps>
 > = ({ children, ...rest }) => {
   const [borderProps, textProps] = splitBorderProps(rest)
+  const blocks = useMemo(() => toBlockCharacters(children), [children])
 
   return (
     <Text color="transparent" {...textProps}>
-      <Box as="span" display="inline-flex" position="relative" aria-hidden>
-        {children}
+      <Box as="span" display="inline-flex" position="relative" aria-hidden="true">
+        {blocks}
 
         <SkeletonTextOverlay {...borderProps} />
       </Box>
