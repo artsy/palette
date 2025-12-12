@@ -1,3 +1,19 @@
+# v7.2.0 (Fri Dec 12 2025)
+
+#### 🚀  Enhancement
+
+- Adjustments to support sticky nav [#1484](https://github.com/artsy/palette/pull/1484) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- fix(theme): adjusts drop shadow token to match figma ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v7.1.0 (Tue Aug 19 2025)
 
 #### 🚀  Enhancement

@@ -1,3 +1,19 @@
+# (Fri Dec 12 2025)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@45.6.0`
+  - feat(DIAM-230): Remove irrelevant indexed text from placeholder content [#1483](https://github.com/artsy/palette/pull/1483) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- `@artsy/palette-tokens@7.2.0`, `@artsy/palette@45.6.0`
+  - Adjustments to support sticky nav [#1484](https://github.com/artsy/palette/pull/1484) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # (Fri Dec 05 2025)
 
 #### 🚀  Enhancement

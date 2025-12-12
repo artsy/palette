@@ -1,3 +1,22 @@
+# v45.6.0 (Fri Dec 12 2025)
+
+#### 🚀  Enhancement
+
+- feat(DIAM-230): Remove irrelevant indexed text from placeholder content [#1483](https://github.com/artsy/palette/pull/1483) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+- Adjustments to support sticky nav [#1484](https://github.com/artsy/palette/pull/1484) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(dropdown): adds a customizable delay ([@dzucconi](https://github.com/dzucconi))
+- chore(theme): adds effects story ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v45.5.0 (Fri Dec 05 2025)
 
 #### 🚀  Enhancement
