@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette",
-  "version": "45.5.0",
+  "version": "45.6.0",
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
@@ -120,7 +120,7 @@
   },
   "dependencies": {
     "@artsy/icons": "^3.2.2",
-    "@artsy/palette-tokens": "^7.1.0",
+    "@artsy/palette-tokens": "^7.2.0",
     "@seznam/compose-react-refs": "^1.0.6",
     "@storybook/react-webpack5": "^9.0.16",
     "@styled-system/theme-get": "^5.1.2",
