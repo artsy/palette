@@ -36,6 +36,7 @@ export const BaseTabs: React.ForwardRefExoticComponent<
               display="inline-flex"
               textAlign="center"
               flex={fill ? 1 : undefined}
+              alignItems="stretch"
             >
               {child}
             </Box>
