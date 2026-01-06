@@ -103,10 +103,6 @@ export const useTabs = ({
 }
 
 const Container = styled(Clickable)`
-  height: 100%;
-  display: flex;
-  align-items: stretch;
-  align-self: stretch;
   &:focus {
     outline: none;
     z-index: 2;
@@ -140,7 +136,7 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
               onClick={handleClick(i)}
               flex={1}
             >
-              <BaseTab active={i === activeTabIndex} variant="sm" flex={1}>
+              <BaseTab active={i === activeTabIndex} variant="sm">
                 <span>{tab.child.props.name}</span>
               </BaseTab>
             </Container>
