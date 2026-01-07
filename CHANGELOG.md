@@ -1,3 +1,16 @@
+# (Wed Jan 07 2026)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@45.7.0`
+  - feat(expandable): supports controlled usage [#1487](https://github.com/artsy/palette/pull/1487) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Dec 12 2025)
 
 #### 🚀  Enhancement
