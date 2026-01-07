@@ -122,4 +122,31 @@ describe("Tabs", () => {
 
     expect(wrapper.text()).toContain("Open100Ready to ship4Complete")
   })
+
+  it("applies blue border when tab button is focused", () => {
+    const wrapper = mount(
+      <div>
+        <Tabs>
+          <Tab name="Overview" />
+          <Tab name="CV" />
+        </Tabs>
+      </div>,
+      { attachTo: document.body }
+    )
+
+    const buttons = wrapper.find("button")
+    expect(buttons).toHaveLength(2)
+
+    const firstButton = buttons.at(0).getDOMNode() as HTMLElement
+    firstButton.focus()
+
+    expect(document.activeElement).toBe(firstButton)
+
+    // Check that the focused button has the blue border styling
+    const computedStyle = window.getComputedStyle(firstButton)
+    expect(computedStyle.borderWidth).toBe("1px")
+    expect(computedStyle.borderStyle).toBe("solid")
+
+    wrapper.unmount()
+  })
 })
