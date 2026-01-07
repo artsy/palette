@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { isText } from "../../helpers/isText"
 import ChevronUpIcon from "@artsy/icons/ChevronUpIcon"
 import ChevronDownIcon from "@artsy/icons/ChevronDownIcon"
@@ -24,7 +24,7 @@ export interface ExpandableProps extends Omit<ClickableProps, "children"> {
  */
 export const Expandable = ({
   label,
-  expanded: defaultExpanded,
+  expanded: expandedProp,
   children,
   disabled,
   onClick,
@@ -32,7 +32,13 @@ export const Expandable = ({
   borderColor = "mono60",
   ...rest
 }: ExpandableProps) => {
-  const [expanded, setExpanded] = useState(defaultExpanded)
+  const [expanded, setExpanded] = useState(expandedProp)
+
+  useEffect(() => {
+    if (expandedProp !== undefined) {
+      setExpanded(expandedProp)
+    }
+  }, [expandedProp])
 
   const [boxProps, clickableProps] = splitBoxProps(rest)
 
