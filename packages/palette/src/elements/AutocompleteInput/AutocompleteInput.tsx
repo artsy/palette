@@ -176,7 +176,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     clamp,
     flip,
     key: options.length,
-    offset: 10,
+    offset: 0,
     position: "bottom",
   })
 
@@ -389,41 +389,44 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
       />
 
       {isDropdownVisible && (
-        <AutocompleteInputDropdown
+        <AutocompleteInputDropdownContainer
           ref={tooltipRef as any}
           role="listbox"
           width={width}
+          pt={1} // Gap in place of `offset` for `usePosition`
         >
-          <div ref={headerRef} {...ignoreFocusChange}>
-            {header}
-          </div>
+          <AutocompleteInputDropdown>
+            <div ref={headerRef} {...ignoreFocusChange}>
+              {header}
+            </div>
 
-          <AutocompleteInputOptions maxHeight={dropdownMaxHeight}>
-            {optionsWithRefs.map(({ option, ref }, i) => {
-              return (
-                <AutocompleteInputOption
-                  key={i}
-                  ref={ref}
-                  role="option"
-                  aria-selected={i === index}
-                  aria-posinset={i + 1}
-                  aria-setsize={options.length}
-                  onMouseDown={handleMouseDown(option, i)}
-                  onMouseEnter={handleMouseEnter(i)}
-                  tabIndex={-1}
-                >
-                  {renderOption(option, i)}
-                </AutocompleteInputOption>
-              )
-            })}
-          </AutocompleteInputOptions>
+            <AutocompleteInputOptions maxHeight={dropdownMaxHeight}>
+              {optionsWithRefs.map(({ option, ref }, i) => {
+                return (
+                  <AutocompleteInputOption
+                    key={i}
+                    ref={ref}
+                    role="option"
+                    aria-selected={i === index}
+                    aria-posinset={i + 1}
+                    aria-setsize={options.length}
+                    onMouseDown={handleMouseDown(option, i)}
+                    onMouseEnter={handleMouseEnter(i)}
+                    tabIndex={-1}
+                  >
+                    {renderOption(option, i)}
+                  </AutocompleteInputOption>
+                )
+              })}
+            </AutocompleteInputOptions>
 
-          <div ref={footerRef} {...ignoreFocusChange}>
-            {typeof footer === "function"
-              ? footer({ onClose: handleClose })
-              : footer}
-          </div>
-        </AutocompleteInputDropdown>
+            <div ref={footerRef} {...ignoreFocusChange}>
+              {typeof footer === "function"
+                ? footer({ onClose: handleClose })
+                : footer}
+            </div>
+          </AutocompleteInputDropdown>
+        </AutocompleteInputDropdownContainer>
       )}
 
       <VisuallyHidden {...(id ? { id: `${id}__assistiveHint` } : {})}>
@@ -443,9 +446,12 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   )
 }
 
+const AutocompleteInputDropdownContainer = styled(Box)`
+  z-index: 1;
+`
+
 const AutocompleteInputDropdown = styled(Box)`
   box-shadow: ${themeGet("effects.dropShadow")};
-  z-index: 1;
 `
 
 const AutocompleteInputOptions = styled(Box)`
