@@ -97,10 +97,15 @@ export const Expandable = ({
         )}
       </Clickable>
 
-      {expanded &&
-        (typeof children === "function"
-          ? (children as ChildrenFunction)({ setExpanded, expanded })
-          : children)}
+      <Box
+        overflow="hidden"
+        height={expanded ? "auto" : "0px"}
+        style={{ visibility: expanded ? "visible" : "hidden" }}
+      >
+        {typeof children === "function"
+          ? (children as ChildrenFunction)({ setExpanded, expanded: !!expanded })
+          : children}
+      </Box>
     </Box>
   )
 }
