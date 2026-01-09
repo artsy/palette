@@ -1,3 +1,15 @@
+# v45.8.0 (Fri Jan 09 2026)
+
+#### 🚀  Enhancement
+
+- feat(DIAM-234): Ensure hidden content isn't removed from the DOM [#1485](https://github.com/artsy/palette/pull/1485) ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+#### Authors: 1
+
+- Lily Pace ([@lilyfromseattle](https://github.com/lilyfromseattle))
+
+---
+
 # v45.7.1 (Fri Jan 09 2026)
 
 #### 🐛  Bug Fix
