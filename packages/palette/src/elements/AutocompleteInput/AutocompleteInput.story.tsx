@@ -1,6 +1,9 @@
 import { fn } from "@storybook/test"
 import { AutocompleteInput } from "./AutocompleteInput"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
+import { Box } from "../Box/Box"
+import React from "react"
+import styled from "styled-components"
 
 export default {
   title: "Components/AutocompleteInput",
@@ -115,3 +118,26 @@ export const EmptyOptions = {
     onSelect: fn(),
   },
 }
+
+export const WithHoverableUnderlay = () => {
+  return (
+    <>
+      <AutocompleteInput
+        title="Search Medium"
+        placeholder="Start typing..."
+        options={OPTIONS}
+        onSelect={fn()}
+      />
+
+      <Underlay p={2}>
+        This should not turn red when moving from input to results
+      </Underlay>
+    </>
+  )
+}
+
+const Underlay = styled(Box)`
+  &:hover {
+    background-color: red;
+  }
+`
