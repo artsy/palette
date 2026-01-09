@@ -4,6 +4,7 @@ import ChevronUpIcon from "@artsy/icons/ChevronUpIcon"
 import ChevronDownIcon from "@artsy/icons/ChevronDownIcon"
 import { Box, splitBoxProps } from "../Box"
 import { Clickable, ClickableProps } from "../Clickable"
+import { Collapse } from "../Collapse"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 
@@ -97,10 +98,11 @@ export const Expandable = ({
         )}
       </Clickable>
 
-      {expanded &&
-        (typeof children === "function"
-          ? (children as ChildrenFunction)({ setExpanded, expanded })
-          : children)}
+      <Collapse open={!!expanded}>
+        {typeof children === "function"
+          ? (children as ChildrenFunction)({ setExpanded, expanded: !!expanded })
+          : children}
+      </Collapse>
     </Box>
   )
 }
