@@ -1,3 +1,15 @@
+# v45.10.0 (Fri Jan 09 2026)
+
+#### 🚀  Enhancement
+
+- feat(DIAM-234): keep collapsed Expandable content in the DOM [#1490](https://github.com/artsy/palette/pull/1490) ([@iskounen](https://github.com/iskounen))
+
+#### Authors: 1
+
+- Adam Iskounen ([@iskounen](https://github.com/iskounen))
+
+---
+
 # v45.9.0 (Fri Jan 09 2026)
 
 #### 🚀  Enhancement
