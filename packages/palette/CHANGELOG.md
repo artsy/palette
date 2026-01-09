@@ -1,3 +1,16 @@
+# v45.7.1 (Fri Jan 09 2026)
+
+#### 🐛  Bug Fix
+
+- fix(autocompleteinput): ensures we fill gap between search input and dropdown [#1488](https://github.com/artsy/palette/pull/1488) ([@dzucconi](https://github.com/dzucconi))
+- fix(autocompleteinput): ensures we fill gap between search input and dropdown ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v45.7.0 (Wed Jan 07 2026)
 
 #### 🚀  Enhancement
