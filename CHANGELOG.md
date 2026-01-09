@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@45.9.0`
+  - Revert "feat(DIAM-234): Ensure hidden content isn't removed from the DOM" [#1489](https://github.com/artsy/palette/pull/1489) ([@iskounen](https://github.com/iskounen))
+
+#### Authors: 1
+
+- Adam Iskounen ([@iskounen](https://github.com/iskounen))
+
+---
+
+# (Fri Jan 09 2026)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@45.8.0`
   - feat(DIAM-234): Ensure hidden content isn't removed from the DOM [#1485](https://github.com/artsy/palette/pull/1485) ([@lilyfromseattle](https://github.com/lilyfromseattle))
 

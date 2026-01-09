@@ -1,3 +1,15 @@
+# v45.9.0 (Fri Jan 09 2026)
+
+#### 🚀  Enhancement
+
+- Revert "feat(DIAM-234): Ensure hidden content isn't removed from the DOM" [#1489](https://github.com/artsy/palette/pull/1489) ([@iskounen](https://github.com/iskounen))
+
+#### Authors: 1
+
+- Adam Iskounen ([@iskounen](https://github.com/iskounen))
+
+---
+
 # v45.8.0 (Fri Jan 09 2026)
 
 #### 🚀  Enhancement
