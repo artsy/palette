@@ -5,6 +5,10 @@ export interface CollapseProps {
 }
 /**
  * Collapse component for the web
+ *
+ * @deprecated This component is deprecated and will be removed in a future version.
+ * Use CSS-based approaches or native HTML elements like `<details>` instead.
+ * See the Expandable component for an example of CSS-based collapse behavior.
  */
 export class Collapse extends React.Component<
   React.PropsWithChildren<CollapseProps>
