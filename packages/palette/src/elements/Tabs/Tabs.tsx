@@ -103,7 +103,7 @@ export const useTabs = ({
 }
 
 const Container = styled(Clickable)`
-  &:focus {
+  &:focus-visible {
     outline: none;
     z-index: 2;
     border: 1px solid ${themeGet("colors.blue100")};
