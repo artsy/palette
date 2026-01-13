@@ -6,6 +6,8 @@ import React, {
   useRef,
   useState,
 } from "react"
+import styled from "styled-components"
+import { themeGet } from "@styled-system/theme-get"
 import { flattenChildren } from "../../helpers/flattenChildren"
 import { useUpdateEffect } from "../../utils/useUpdateEffect"
 import { BaseTabs, BaseTabsProps } from "../BaseTabs"
@@ -100,6 +102,14 @@ export const useTabs = ({
   }
 }
 
+const Container = styled(Clickable)`
+  &:focus-visible {
+    outline: none;
+    z-index: 2;
+    border: 1px solid ${themeGet("colors.blue100")};
+  }
+`
+
 /** A tab bar navigation component */
 export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
   children,
@@ -119,7 +129,7 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
       <BaseTabs ref={ref} mb={mb} {...rest}>
         {tabs.map((tab, i) => {
           return (
-            <Clickable
+            <Container
               key={i}
               ref={tab.ref as any}
               aria-selected={i === activeTabIndex}
@@ -129,7 +139,7 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
               <BaseTab active={i === activeTabIndex} variant="sm">
                 <span>{tab.child.props.name}</span>
               </BaseTab>
-            </Clickable>
+            </Container>
           )
         })}
       </BaseTabs>
