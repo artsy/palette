@@ -1,3 +1,15 @@
+# v45.11.0 (Tue Jan 13 2026)
+
+#### 🚀  Enhancement
+
+- fix(tabs): focus on tabs show complete outline [#1486](https://github.com/artsy/palette/pull/1486) ([@ansor4](https://github.com/ansor4))
+
+#### Authors: 1
+
+- Anson Wang ([@ansor4](https://github.com/ansor4))
+
+---
+
 # v45.10.0 (Fri Jan 09 2026)
 
 #### 🚀  Enhancement
