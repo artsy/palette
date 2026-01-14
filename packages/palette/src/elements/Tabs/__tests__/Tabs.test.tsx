@@ -123,7 +123,7 @@ describe("Tabs", () => {
     expect(wrapper.text()).toContain("Open100Ready to ship4Complete")
   })
 
-  it("applies blue border when tab button is focused", () => {
+  it("applies blue box-shadow outline when tab button is focused", () => {
     const wrapper = mount(
       <div>
         <Tabs>
@@ -142,10 +142,9 @@ describe("Tabs", () => {
 
     expect(document.activeElement).toBe(firstButton)
 
-    // Check that the focused button has the blue border styling
+    // Check that the focused button has the inset box-shadow styling
     const computedStyle = window.getComputedStyle(firstButton)
-    expect(computedStyle.borderWidth).toBe("1px")
-    expect(computedStyle.borderStyle).toBe("solid")
+    expect(computedStyle.boxShadow).toContain("inset")
 
     wrapper.unmount()
   })

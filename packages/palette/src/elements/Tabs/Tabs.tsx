@@ -106,7 +106,7 @@ const Container = styled(Clickable)`
   &:focus-visible {
     outline: none;
     z-index: 2;
-    border: 1px solid ${themeGet("colors.blue100")};
+    box-shadow: inset 0 0 0 1px ${themeGet("colors.blue100")};
   }
 `
 
