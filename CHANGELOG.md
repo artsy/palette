@@ -1,3 +1,16 @@
+# (Wed Jan 14 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@45.11.1`
+  - fix(tabs): fix the border jump on focus [#1491](https://github.com/artsy/palette/pull/1491) ([@ansor4](https://github.com/ansor4))
+
+#### Authors: 1
+
+- Anson Wang ([@ansor4](https://github.com/ansor4))
+
+---
+
 # (Tue Jan 13 2026)
 
 #### 🚀  Enhancement
