@@ -42,7 +42,8 @@ export const ProgressDots: React.FC<
   return (
     <>
       <Box
-        role="presentation"
+        role={onClick ? "tablist" : "presentation"}
+        aria-label={onClick ? "Progress indicators" : undefined}
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -50,11 +51,12 @@ export const ProgressDots: React.FC<
         {...rest}
       >
         {Array.from(Array(amount)).map((_, i) => {
+          const isActive = i === activeIndex
           const indicator = (
             <Indicator
               key={i}
               variant={indicatorVariant}
-              bg={i === activeIndex ? "mono100" : "mono30"}
+              bg={isActive ? "mono100" : "mono30"}
               mx={0.5}
             />
           )
@@ -65,6 +67,10 @@ export const ProgressDots: React.FC<
             return (
               <Clickable
                 key={i}
+                role="tab"
+                aria-label={`Go to ${i + 1} of ${amount}`}
+                aria-selected={isActive}
+                aria-current={isActive ? "page" : undefined}
                 display="block"
                 position="relative"
                 width={indicatorVariant === "dash" ? "100%" : "auto"}
@@ -89,7 +95,7 @@ export const ProgressDots: React.FC<
       </Box>
 
       <VisuallyHidden aria-live="polite" aria-atomic="true">
-        Page {activeIndex + 1} of {amount}
+        {activeIndex + 1} of {amount}
       </VisuallyHidden>
     </>
   )
