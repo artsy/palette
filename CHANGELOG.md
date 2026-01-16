@@ -1,3 +1,16 @@
+# (Fri Jan 16 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@45.11.2`
+  - fix(progress-dots): adds accessible labels when used interactively [#1492](https://github.com/artsy/palette/pull/1492) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Jan 14 2026)
 
 #### 🐛  Bug Fix
