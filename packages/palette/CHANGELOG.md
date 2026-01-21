@@ -1,3 +1,16 @@
+# v45.11.3 (Wed Jan 21 2026)
+
+#### 🐛  Bug Fix
+
+- fix(image): explicitly includes fetch priority to avoid filtering [#1493](https://github.com/artsy/palette/pull/1493) ([@dzucconi](https://github.com/dzucconi))
+- fix(image): allowlists fetchpriority ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v45.11.2 (Fri Jan 16 2026)
 
 #### 🐛  Bug Fix
