@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import { Box, BoxProps, splitBoxProps } from "../Box"
+import styled from "styled-components"
+import isPropValid from "@emotion/is-prop-valid"
 
 export interface ImageProps
   extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, "width" | "height">,
@@ -73,7 +75,7 @@ export const Image: React.FC<ImageProps> = ({
           }),
         }}
       >
-        <Box
+        <Img
           as="img"
           position="absolute"
           top={0}
@@ -90,7 +92,7 @@ export const Image: React.FC<ImageProps> = ({
 
   // If no placeholder and no lazy loading, render a direct img element
   return (
-    <Box
+    <Img
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       as="img"
@@ -104,3 +106,9 @@ export const Image: React.FC<ImageProps> = ({
     />
   )
 }
+
+// Can be removed when styled-components is updated in Force
+// https://github.com/emotion-js/emotion/blob/b882bcba85132554992e4bd49e94c95939bbf810/packages/is-prop-valid/CHANGELOG.md#patch-changes
+const Img = styled(Box).withConfig({
+  shouldForwardProp: (prop) => isPropValid(prop) || prop === "fetchPriority",
+})``

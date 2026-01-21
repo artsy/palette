@@ -31,6 +31,7 @@ export const Default = {
     width: "300px",
     height: "200px",
     src: "https://picsum.photos/seed/example/300/200",
+    fetchPriority: "high",
   },
 }
 
