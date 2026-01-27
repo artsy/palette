@@ -1,7 +1,7 @@
 {
   "name": "@artsy/palette-charts",
   "sideEffects": false,
-  "version": "44.11.3",
+  "version": "44.12.0",
   "description": "Design system library for react components",
   "main": "dist/index.js",
   "publishConfig": {
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
-    "@artsy/palette": "^45.11.3",
+    "@artsy/palette": "^45.12.0",
     "@babel/cli": "7.12.16",
     "@babel/core": "7.12.16",
     "@babel/plugin-proposal-class-properties": "7.12.13",
