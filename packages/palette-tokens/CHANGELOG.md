@@ -1,3 +1,19 @@
+# v7.3.0 (Tue Jan 27 2026)
+
+#### 🚀  Enhancement
+
+- feat(tokens): exports dark theme as well [#1494](https://github.com/artsy/palette/pull/1494) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(tokens): exports dark theme as well ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v7.2.0 (Fri Dec 12 2025)
 
 #### 🚀  Enhancement
