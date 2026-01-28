@@ -1,3 +1,15 @@
+# v45.13.0 (Wed Jan 28 2026)
+
+#### 🚀  Enhancement
+
+- feat(autocomplete-input): Add dropdownMinWidth [#1495](https://github.com/artsy/palette/pull/1495) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # v45.11.3 (Wed Jan 21 2026)
 
 #### 🐛  Bug Fix

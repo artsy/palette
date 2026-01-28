@@ -1,3 +1,16 @@
+# (Wed Jan 28 2026)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@45.13.0`
+  - feat(autocomplete-input): Add dropdownMinWidth [#1495](https://github.com/artsy/palette/pull/1495) ([@olerichter00](https://github.com/olerichter00))
+
+#### Authors: 1
+
+- Ole ([@olerichter00](https://github.com/olerichter00))
+
+---
+
 # (Tue Jan 27 2026)
 
 #### 🚀  Enhancement
