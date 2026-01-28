@@ -1,4 +1,7 @@
+import CloseIcon from "@artsy/icons/CloseIcon"
+import SearchIcon from "@artsy/icons/SearchIcon"
 import composeRefs from "@seznam/compose-react-refs"
+import { themeGet } from "@styled-system/theme-get"
 import React, {
   createRef,
   useCallback,
@@ -8,22 +11,19 @@ import React, {
   useRef,
 } from "react"
 import styled from "styled-components"
+import { ResponsiveValue } from "styled-system"
 import { useKeyboardListNavigation } from "use-keyboard-list-navigation"
-import { Spinner } from "../Spinner"
-import SearchIcon from "@artsy/icons/SearchIcon"
-import CloseIcon from "@artsy/icons/CloseIcon"
-import { usePosition, useContainsFocus, useClickOutside } from "../../utils"
+import { useClickOutside, useContainsFocus, usePosition } from "../../utils"
+import { useMouseActivity } from "../../utils/useMouseActivity"
 import { useWidthOf } from "../../utils/useWidthOf"
 import { Box, splitBoxProps } from "../Box"
 import { Clickable } from "../Clickable"
 import { InputProps } from "../Input"
 import { LabeledInput } from "../LabeledInput"
+import { Spinner } from "../Spinner"
 import { VisuallyHidden } from "../VisuallyHidden"
 import { AutocompleteInputOption } from "./AutocompleteInputOption"
 import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
-import { ResponsiveValue } from "styled-system"
-import { themeGet } from "@styled-system/theme-get"
-import { useMouseActivity } from "../../utils/useMouseActivity"
 
 export interface AutocompleteFooterActions {
   /** Call to close dropdown */
@@ -69,6 +69,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   clamp?: boolean
   defaultValue?: string
   dropdownMaxHeight?: ResponsiveValue<string | number>
+  dropdownMinWidth?: ResponsiveValue<string | number>
   loading?: boolean
   header?: React.ReactNode
   /** Optionally disable flipping (default: `true`) */
@@ -98,6 +99,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   clamp = false,
   defaultValue = "",
   dropdownMaxHeight = 308, // 308 = roughly 5.5 options
+  dropdownMinWidth,
   flip = true,
   footer,
   forwardRef: forwardedRef,
@@ -393,9 +395,10 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
           ref={tooltipRef as any}
           role="listbox"
           width={width}
+          minWidth={200}
           pt={1} // Gap in place of `offset` for `usePosition`
         >
-          <AutocompleteInputDropdown>
+          <AutocompleteInputDropdown minWidth={dropdownMinWidth}>
             <div ref={headerRef} {...ignoreFocusChange}>
               {header}
             </div>
