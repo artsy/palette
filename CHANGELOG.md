@@ -1,3 +1,16 @@
+# (Fri Jan 30 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@45.13.1`
+  - fix(diam-257): improve support for dynamic tabs [#1496](https://github.com/artsy/palette/pull/1496) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Jan 28 2026)
 
 #### 🚀  Enhancement

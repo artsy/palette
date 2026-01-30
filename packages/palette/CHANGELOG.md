@@ -1,3 +1,17 @@
+# v45.13.1 (Fri Jan 30 2026)
+
+#### 🐛  Bug Fix
+
+- fix(diam-257): improve support for dynamic tabs [#1496](https://github.com/artsy/palette/pull/1496) ([@dzucconi](https://github.com/dzucconi))
+- fix(tabs): safety for dynamic tabs ([@dzucconi](https://github.com/dzucconi))
+- chore(tabs): adds dynamic tabs story ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v45.13.0 (Wed Jan 28 2026)
 
 #### 🚀  Enhancement
