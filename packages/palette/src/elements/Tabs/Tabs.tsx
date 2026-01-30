@@ -63,17 +63,23 @@ export const useTabs = ({
     setActiveTabIndex(initialTabIndex)
   }, [initialTabIndex, tabs])
 
+  // Compute a safe index for rendering (clamped to valid range)
+  // Ensures we never access an out-of-bounds index during removal
+  const safeActiveTabIndex =
+    tabs.length === 0 ? 0 : Math.min(activeTabIndex, tabs.length - 1)
+
   // Ref of the tabs viewport
   const ref = useRef<HTMLDivElement | null>(null)
 
   // Scroll to active tab when `activeTabIndex` changes
   useEffect(() => {
     if (!ref.current) return
-    const tab = tabs[activeTabIndex].ref.current
+    if (tabs.length === 0 || safeActiveTabIndex >= tabs.length) return
+    const tab = tabs[safeActiveTabIndex].ref.current
     if (!tab) return
     const position = tab.offsetLeft
     ref.current.scrollTo?.({ left: position, behavior: "smooth" })
-  }, [activeTabIndex])
+  }, [safeActiveTabIndex, tabs.length])
 
   const handleClick = useCallback(
     (index: number) => {
@@ -95,7 +101,7 @@ export const useTabs = ({
   )
 
   return {
-    activeTabIndex,
+    activeTabIndex: safeActiveTabIndex,
     handleClick,
     ref,
     tabs,
@@ -124,6 +130,8 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
     onChange,
   })
 
+  if (tabs.length === 0) return null
+
   return (
     <>
       <BaseTabs ref={ref} mb={mb} {...rest}>
@@ -144,7 +152,7 @@ export const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
         })}
       </BaseTabs>
 
-      {tabs[activeTabIndex].child}
+      {tabs[activeTabIndex]?.child}
     </>
   )
 }

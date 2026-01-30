@@ -259,3 +259,62 @@ export const WithInputs = {
     )
   },
 }
+
+export const DynamicTabs = {
+  render: () => {
+    const [tabs, setTabs] = useState([
+      { id: 1, name: "Tab 1" },
+      { id: 2, name: "Tab 2" },
+      { id: 3, name: "Tab 3" },
+    ])
+    const [nextId, setNextId] = useState(4)
+
+    const addTab = () => {
+      setTabs((prev) => [...prev, { id: nextId, name: `Tab ${nextId}` }])
+      setNextId((prev) => prev + 1)
+    }
+
+    const removeTab = (id: number) => {
+      setTabs((prev) => prev.filter((tab) => tab.id !== id))
+    }
+
+    return (
+      <>
+        <Box display="flex" flexDirection="row" gap={1} mb={2}>
+          <Button variant="secondaryBlack" size="small" onClick={addTab}>
+            Add Tab
+          </Button>
+        </Box>
+
+        <Tabs onChange={fn()}>
+          {tabs.map((tab) => (
+            <Tab key={tab.id} name={tab.name}>
+              <Box p={2}>
+                <Box mb={2}>Content for {tab.name}</Box>
+                <Button
+                  variant="secondaryBlack"
+                  size="small"
+                  onClick={() => removeTab(tab.id)}
+                >
+                  Remove this tab
+                </Button>
+              </Box>
+            </Tab>
+          ))}
+        </Tabs>
+
+        <Box mt={2}>
+          <pre>Current tabs: {JSON.stringify(tabs, null, 2)}</pre>
+        </Box>
+      </>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates dynamically adding and removing tabs. The component should handle tab changes gracefully, adjusting the active tab index when tabs are removed.",
+      },
+    },
+  },
+}
