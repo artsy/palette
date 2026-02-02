@@ -1,2 +1,2 @@
 export * from "./BorderBox"
-export { BorderBoxProps } from "./BorderBoxBase"
+export type { BorderBoxProps } from "./BorderBoxBase"

@@ -11,7 +11,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "dist",
+    "outDir": "dist/cjs",
     "plugins": [
       {
         "name": "typescript-styled-plugin"

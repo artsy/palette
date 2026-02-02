@@ -1,2 +1,2 @@
-export { ColumnSpan, ColumnStart } from "./calculateGridColumn"
+export type { ColumnSpan, ColumnStart } from "./calculateGridColumn"
 export * from "./GridColumns"
