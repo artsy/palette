@@ -25,10 +25,10 @@
   resolved "https://registry.yarnpkg.com/@artsy/auto-config/-/auto-config-1.2.0.tgz#62a237ca3a058f1b91e5b8a12abebae0ddc5bd2f"
   integrity sha512-6zGlvqELl4XhqMajJxfgHaY3m5YhZK5FwkxlouJKSb0Su301bzXaPUxKjzj9X147YHJUyrRLSAruzVtj1Gr42Q==
 
-"@artsy/icons@^3.2.2":
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/@artsy/icons/-/icons-3.2.2.tgz#8f0b836fa5b40c4d4fc327ec72fd7748e3be43ec"
-  integrity sha512-4Y7kGrLBOXCfAnrUEI/cT42fOUuuKG3KqfOUZ6lwAZC0W+oBCEshUGgMSK1x3NN0kzE+j6jVtvSVQpvrUfKDBg==
+"@artsy/icons@^3.64.0":
+  version "3.64.0"
+  resolved "https://registry.yarnpkg.com/@artsy/icons/-/icons-3.64.0.tgz#957c3b1ba585b8215ea4c465030dab4f11853f81"
+  integrity sha512-2tCCH4c96e9/VyptlG95bO2m7APBABJXpzY3NaxM5e7Vs9vHw4r6h8DRkNgyKU24Mrqw+/z+9pVyn4C/orBrhA==
 
 "@babel/cli@7.12.16":
   version "7.12.16"

@@ -52,12 +52,14 @@
   },
   "homepage": "https://github.com/artsy/palette#readme",
   "peerDependencies": {
+    "@artsy/icons": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "styled-components": "^6"
   },
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
+    "@artsy/icons": "^3.64.0",
     "@babel/cli": "7.12.16",
     "@babel/core": "7.12.16",
     "@babel/plugin-proposal-class-properties": "7.12.13",
@@ -132,7 +134,6 @@
     "webpack": "5"
   },
   "dependencies": {
-    "@artsy/icons": "^3.2.2",
     "@artsy/palette-tokens": "^7.3.0",
     "@seznam/compose-react-refs": "^1.0.6",
     "@storybook/react-webpack5": "^9.0.16",
