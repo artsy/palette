@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette",
-  "version": "45.13.1",
+  "version": "46.0.0",
   "description": "Design system library for react components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -60,7 +60,6 @@
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
     "@artsy/icons": "^3.64.0",
-    "concurrently": "4.1.0",
     "@babel/cli": "7.12.16",
     "@babel/core": "7.12.16",
     "@babel/plugin-proposal-class-properties": "7.12.13",
@@ -99,6 +98,7 @@
     "babel-plugin-styled-components": "2.1.4",
     "cache-loader": "3.0.0",
     "chromatic": "5.9.2",
+    "concurrently": "4.1.0",
     "enzyme": "3.9.0",
     "enzyme-to-json": "3.3.5",
     "eslint": "^7.32.0",
