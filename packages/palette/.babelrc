@@ -1,12 +1,15 @@
 {
   "presets": [
     "@babel/preset-typescript",
-    "@babel/preset-react",
+    ["@babel/preset-react", { "runtime": "automatic" }],
     [
       "@babel/preset-env",
       {
         "targets": {
-          "browsers": ["last 2 versions"]
+          "chrome": "111",
+          "edge": "111",
+          "firefox": "111",
+          "safari": "16.4"
         }
       }
     ]
@@ -14,16 +17,12 @@
   "plugins": [
     "babel-plugin-add-react-displayname",
     "babel-plugin-styled-components",
-    ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    "@babel/plugin-proposal-optional-chaining",
     [
       "module-resolver",
       {
         "extensions": [".ts", ".tsx"],
         "root": ["./src"]
       }
-    ],
-    ["@babel/plugin-transform-private-property-in-object", { "loose": true }],
-    ["@babel/plugin-transform-private-methods", { "loose": true }]
+    ]
   ]
 }
