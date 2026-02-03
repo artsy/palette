@@ -203,6 +203,90 @@ const App = () => (
   ),
 }
 
+export const Accessibility = {
+  render: () => {
+    return (
+      <Box>
+        <Text as="h1" variant={"xl"}>
+          Accessibility
+        </Text>
+
+        <Spacer y={1} />
+
+        <Text>TKTK</Text>
+      </Box>
+    )
+  },
+}
+
+export const Developing = {
+  name: "Developing for Palette",
+  render: () => {
+    return (
+      <Box>
+        <Text as="h1" variant={"xl"}>
+          Developing for Palette
+        </Text>
+
+        <Spacer y={1} />
+
+        <Text>TKTK</Text>
+      </Box>
+    )
+  },
+}
+
+export const How = {
+  name: "How Palette Works",
+  render: () => {
+    return (
+      <Box>
+        <Text as="h1" variant={"xl"}>
+          How Palette Works
+        </Text>
+
+        <Spacer y={1} />
+
+        <Text>TKTK</Text>
+      </Box>
+    )
+  },
+}
+
+export const Migrating = {
+  name: "Migrating from v2 to v3",
+  render: () => {
+    return (
+      <Box>
+        <Text as="h1" variant={"xl"}>
+          Migrating from v2 to v3
+        </Text>
+
+        <Spacer y={1} />
+
+        <Text>TKTK</Text>
+      </Box>
+    )
+  },
+}
+
+export const Responsive = {
+  name: "Responsive Props",
+  render: () => {
+    return (
+      <Box>
+        <Text as="h1" variant={"xl"}>
+          Responsive Props
+        </Text>
+
+        <Spacer y={1} />
+
+        <Text>TKTK</Text>
+      </Box>
+    )
+  },
+}
+
 const Snippet = ({ code }: { code: string }) => {
   const [isHovered, setIsHovered] = React.useState(false)
 
