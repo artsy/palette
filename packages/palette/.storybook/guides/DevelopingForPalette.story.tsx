@@ -55,15 +55,8 @@ export const DevelopingForPalette = {
             for each.
           </Text>
           <Text as="li" my={1}>
-            • If adding or changing a component, make sure to update the docs in{" "}
-            <a
-              href="https://github.com/artsy/palette/tree/main/packages/palette-docs"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <code>packages/palette-docs</code>
-            </a>
-            .
+            • If adding or changing a component, make sure to update its
+            stories.
           </Text>
           <Text as="li" my={1}>
             • If needing to modify the theme, see{" "}
@@ -182,9 +175,6 @@ yarn type-check`}
             • <code>palette</code>
           </Text>
           <Text as="li" my={0.5}>
-            • <code>palette-docs</code>
-          </Text>
-          <Text as="li" my={0.5}>
             • <code>palette-charts</code>
           </Text>
         </Box>
@@ -238,28 +228,6 @@ yarn type-check`}
             elements
           </a>{" "}
           folder for the complete list.
-        </Text>
-
-        <Spacer y={2} />
-
-        <Text as="h3" variant={"md"}>
-          palette-docs
-        </Text>
-
-        <Spacer y={1} />
-
-        <Text>
-          This is a where our docs are created, built on top of{" "}
-          <a
-            href="https://www.gatsbyjs.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Gatsby
-          </a>
-          . Docs are written in <code>.mdx</code> (Markdown React) which allows
-          us to create live, interactive code examples using real Palette
-          components.
         </Text>
 
         <Spacer y={2} />
