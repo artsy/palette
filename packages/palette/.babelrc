@@ -24,5 +24,17 @@
         "root": ["./src"]
       }
     ]
-  ]
+  ],
+  "env": {
+    "compile": {
+      "ignore": [
+        "**/__tests__/**",
+        "**/__stories__/**",
+        "**/*.story.tsx",
+        "**/*.test.tsx",
+        "**/*.test.ts",
+        "**/storybookBlocklist.ts"
+      ]
+    }
+  }
 }

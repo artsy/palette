@@ -21,8 +21,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "compile": "yarn compile:cjs && yarn compile:esm",
-    "compile:cjs": "babel src --source-maps --extensions '.ts,.tsx' --ignore 'src/**/__tests__/**,src/**/__stories__/**,src/**/*.story.tsx,src/**/*.test.tsx,src/**/*.test.ts' --out-dir dist/cjs",
-    "compile:esm": "babel src --source-maps --extensions '.ts,.tsx' --ignore 'src/**/__tests__/**,src/**/__stories__/**,src/**/*.story.tsx,src/**/*.test.tsx,src/**/*.test.ts' --out-dir dist/esm --config-file ./babel.esm.json --no-babelrc",
+    "compile:cjs": "BABEL_ENV=compile babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/cjs",
+    "compile:esm": "babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/esm --config-file ./babel.esm.json --no-babelrc",
     "lint": "tslint --project tsconfig.json 'src/*/**'",
     "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
     "prettier-project": "yarn prettier --write 'src/**/*.{ts,tsx}'",

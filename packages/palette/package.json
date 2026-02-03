@@ -21,8 +21,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "compile": "yarn compile:cjs && yarn compile:esm",
-    "compile:cjs": "babel src --source-maps --extensions '.ts,.tsx' --ignore 'src/**/__tests__/**,src/**/__stories__/**,src/**/*.story.tsx,src/**/*.test.tsx,src/**/*.test.ts,src/**/storybookBlocklist.ts' --out-dir dist/cjs",
-    "compile:esm": "babel src --source-maps --extensions '.ts,.tsx' --ignore 'src/**/__tests__/**,src/**/__stories__/**,src/**/*.story.tsx,src/**/*.test.tsx,src/**/*.test.ts,src/**/storybookBlocklist.ts' --out-dir dist/esm --config-file ./babel.esm.json --no-babelrc",
+    "compile:cjs": "BABEL_ENV=compile babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/cjs",
+    "compile:esm": "babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/esm --config-file ./babel.esm.json --no-babelrc",
     "prepack": "yarn generate-tokens && yarn generate-styles",
     "generate-tokens": "ts-node scripts/generate-tokens.ts",
     "generate-styles": "ts-node scripts/generate-styles.ts",
