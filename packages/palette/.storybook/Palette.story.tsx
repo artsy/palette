@@ -2,6 +2,7 @@ import React from "react"
 import PageIcon from "@artsy/icons/PageIcon"
 
 import { Text } from "../src/elements/Text"
+import { Box } from "../src/elements/Box"
 import { Spacer } from "../src/elements/Spacer"
 
 export default {
@@ -10,7 +11,7 @@ export default {
 
 export const Introduction = {
   render: () => (
-    <div>
+    <Box>
       <Text as="h1" variant={"xxl"}>
         Palette
       </Text>
@@ -198,7 +199,7 @@ const App = () => (
         If you're using Next.js, Gatsby or any other framework the patterns
         should be similar.
       </Text>
-    </div>
+    </Box>
   ),
 }
 
