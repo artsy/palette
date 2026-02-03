@@ -1,2 +1,12 @@
+# Ignore everything
 *
-!dist/**/!(*.test.*|__*)
+
+# Include dist folder contents
+!dist/**
+
+# But exclude build artifacts and dev files from dist
+dist/**/*.tsbuildinfo
+dist/**/*.test.*
+dist/**/__tests__/**
+dist/**/__stories__/**
+dist/**/*.story.*

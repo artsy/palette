@@ -22,6 +22,15 @@
     "composite": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules/*", "dist/*", "www/*"],
+  "exclude": [
+    "node_modules/*",
+    "dist/*",
+    "www/*",
+    "src/**/*.story.tsx",
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
+    "src/**/__tests__/**",
+    "src/**/__stories__/**"
+  ],
   "references": [{ "path": "../palette" }]
 }
