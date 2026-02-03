@@ -1,3 +1,23 @@
+# v45.0.0 (Tue Feb 03 2026)
+
+#### 💥  Breaking Change
+
+- feat: makes library tree-shakeable [#1497](https://github.com/artsy/palette/pull/1497) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore: cleans up compilation scripts ([@dzucconi](https://github.com/dzucconi))
+- fix: excise more build artifacts from package ([@dzucconi](https://github.com/dzucconi))
+- fix: avoids shipping stories and tests ([@dzucconi](https://github.com/dzucconi))
+- chore: modernizes babel output ([@dzucconi](https://github.com/dzucconi))
+- feat: makes library tree-shakeable ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v42.3.1 (Fri Aug 15 2025)
 
 #### 🏠  Internal

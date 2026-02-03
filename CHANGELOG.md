@@ -1,3 +1,16 @@
+# (Tue Feb 03 2026)
+
+#### 💥  Breaking Change
+
+- `@artsy/palette-charts@45.0.0`, `@artsy/palette@46.0.0`
+  - feat: makes library tree-shakeable [#1497](https://github.com/artsy/palette/pull/1497) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Jan 30 2026)
 
 #### 🐛  Bug Fix
