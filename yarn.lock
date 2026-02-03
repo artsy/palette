@@ -25,10 +25,10 @@
   resolved "https://registry.yarnpkg.com/@artsy/auto-config/-/auto-config-1.2.0.tgz#62a237ca3a058f1b91e5b8a12abebae0ddc5bd2f"
   integrity sha512-6zGlvqELl4XhqMajJxfgHaY3m5YhZK5FwkxlouJKSb0Su301bzXaPUxKjzj9X147YHJUyrRLSAruzVtj1Gr42Q==
 
-"@artsy/icons@^3.2.2":
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/@artsy/icons/-/icons-3.2.2.tgz#8f0b836fa5b40c4d4fc327ec72fd7748e3be43ec"
-  integrity sha512-4Y7kGrLBOXCfAnrUEI/cT42fOUuuKG3KqfOUZ6lwAZC0W+oBCEshUGgMSK1x3NN0kzE+j6jVtvSVQpvrUfKDBg==
+"@artsy/icons@^3.64.0":
+  version "3.64.0"
+  resolved "https://registry.yarnpkg.com/@artsy/icons/-/icons-3.64.0.tgz#957c3b1ba585b8215ea4c465030dab4f11853f81"
+  integrity sha512-2tCCH4c96e9/VyptlG95bO2m7APBABJXpzY3NaxM5e7Vs9vHw4r6h8DRkNgyKU24Mrqw+/z+9pVyn4C/orBrhA==
 
 "@babel/cli@7.12.16":
   version "7.12.16"
@@ -6777,16 +6777,6 @@ assign-symbols@^1.0.0:
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
   integrity sha1-WWZ/QfrdTyDMvCu5a41Pf3jsA2c=
 
-assignment@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/assignment/-/assignment-2.0.0.tgz#ffd17b21bf5d6b22e777b989681a815456a3dd3e"
-  integrity sha1-/9F7Ib9dayLnd7mJaBqBVFaj3T4=
-
-assignment@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/assignment/-/assignment-2.2.0.tgz#f5b5bc2d160d69986e8700cd38f567c0aabe101e"
-  integrity sha1-9bW8LRYNaZhuhwDNOPVnwKq+EB4=
-
 ast-types@^0.14.2:
   version "0.14.2"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.14.2.tgz#600b882df8583e3cd4f2df5fa20fa83759d4bdfd"
@@ -10747,11 +10737,6 @@ hastscript@^6.0.0:
     property-information "^5.0.0"
     space-separated-tokens "^1.0.0"
 
-he@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/he/-/he-0.5.0.tgz#2c05ffaef90b68e860f3fd2b54ef580989277ee2"
-  integrity sha1-LAX/rvkLaOhg8/0rVO9YCYknfuI=
-
 he@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
@@ -11141,14 +11126,6 @@ inquirer@^8.2.4:
     strip-ansi "^6.0.0"
     through "^2.3.6"
     wrap-ansi "^7.0.0"
-
-insane@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/insane/-/insane-2.6.1.tgz#c7dcae7b51c20346883b71078fad6ce0483c198f"
-  integrity sha1-x9yue1HCA0aIO3EHj61s4Eg8GY8=
-  dependencies:
-    assignment "2.0.0"
-    he "0.5.0"
 
 internal-slot@^1.0.3:
   version "1.0.3"
@@ -17194,20 +17171,6 @@ trough@^1.0.0:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.5.tgz#b8b639cefad7d0bb2abd37d433ff8293efa5f406"
   integrity sha512-rvuRbTarPXmMb79SmzEp8aqXNKcK+y0XaB298IXueQ8I2PsrATcPBCSPyK/dDNa2iWOhKlfNnOjdAOTBU/nkFA==
-
-trunc-html@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/trunc-html/-/trunc-html-1.1.2.tgz#1e97d51f67d470b67662b1a670e6d0ea7a8edafe"
-  integrity sha1-HpfVH2fUcLZ2YrGmcObQ6nqO2v4=
-  dependencies:
-    assignment "2.2.0"
-    insane "2.6.1"
-    trunc-text "1.0.1"
-
-trunc-text@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/trunc-text/-/trunc-text-1.0.1.tgz#58f876d8ac59b224b79834bb478b8656e69622b5"
-  integrity sha1-WPh22KxZsiS3mDS7R4uGVuaWIrU=
 
 ts-api-utils@^2.1.0:
   version "2.1.0"

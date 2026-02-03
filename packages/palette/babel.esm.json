@@ -10,7 +10,8 @@
           "edge": "111",
           "firefox": "111",
           "safari": "16.4"
-        }
+        },
+        "modules": false
       }
     ]
   ],
@@ -25,16 +26,12 @@
       }
     ]
   ],
-  "env": {
-    "compile": {
-      "ignore": [
-        "**/__tests__/**",
-        "**/__stories__/**",
-        "**/*.story.tsx",
-        "**/*.test.tsx",
-        "**/*.test.ts",
-        "**/storybookBlocklist.ts"
-      ]
-    }
-  }
+  "ignore": [
+    "**/__tests__/**",
+    "**/__stories__/**",
+    "**/*.story.tsx",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "**/storybookBlocklist.ts"
+  ]
 }

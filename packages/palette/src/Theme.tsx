@@ -4,7 +4,7 @@ import { THEME, Theme as TTheme } from "./themes"
 
 export * from "@artsy/palette-tokens/dist/themes/v3"
 import { THEME_DARK } from "@artsy/palette-tokens/dist/themes/v3Dark"
-export { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
+export type { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 
 export const THEMES = {
   light: THEME,

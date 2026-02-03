@@ -1,17 +1,28 @@
 {
   "name": "@artsy/palette-charts",
-  "sideEffects": false,
   "version": "44.13.1",
   "description": "Design system library for react components",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/cjs/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "babel src --source-maps --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ --out-dir dist",
+    "compile": "yarn compile:cjs && yarn compile:esm",
+    "compile:cjs": "BABEL_ENV=compile babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/cjs",
+    "compile:esm": "babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/esm --config-file ./babel.esm.json --no-babelrc",
     "lint": "tslint --project tsconfig.json 'src/*/**'",
     "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
     "prettier-project": "yarn prettier --write 'src/**/*.{ts,tsx}'",
@@ -19,8 +30,8 @@
     "test": "yarn type-check && yarn jest --runInBand",
     "test:watch": "jest --watch --runInBand",
     "type-check": "tsc --noEmit --pretty",
-    "type-declarations": "tsc --emitDeclarationOnly",
-    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'yarn type-declarations -w'",
+    "type-declarations": "tsc --emitDeclarationOnly --outDir dist/cjs",
+    "watch": "concurrently --raw --kill-others 'yarn compile:cjs -w' 'yarn type-declarations -w'",
     "storybook": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006 --quiet",
     "build-storybook": "build-storybook",
     "visual-test": "chromatic test --exit-zero-on-changes --app-code n02zjqmdqq"

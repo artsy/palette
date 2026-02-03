@@ -2,15 +2,27 @@
   "name": "@artsy/palette",
   "version": "45.13.1",
   "description": "Design system library for react components",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/cjs/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "typings": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "babel src --source-maps --extensions '.ts,.tsx' --ignore src/**/__tests__,src/**/__stories__ --out-dir dist",
+    "compile": "yarn compile:cjs && yarn compile:esm",
+    "compile:cjs": "BABEL_ENV=compile babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/cjs",
+    "compile:esm": "babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/esm --config-file ./babel.esm.json --no-babelrc",
     "prepack": "yarn generate-tokens && yarn generate-styles",
     "generate-tokens": "ts-node scripts/generate-tokens.ts",
     "generate-styles": "ts-node scripts/generate-styles.ts",
@@ -22,8 +34,9 @@
     "test": "yarn type-check && yarn jest --runInBand",
     "test:watch": "jest --watch --runInBand",
     "type-check": "tsc --noEmit --pretty",
-    "type-declarations": "tsc --emitDeclarationOnly",
-    "watch": "concurrently --raw --kill-others 'yarn compile -w' 'yarn type-declarations -w'",
+    "type-declarations": "tsc --emitDeclarationOnly --outDir dist/cjs",
+    "type-declarations:esm": "tsc -p tsconfig.esm.json --emitDeclarationOnly",
+    "watch": "concurrently --raw --kill-others 'yarn compile:cjs -w' 'yarn type-declarations -w'",
     "storybook": "storybook dev -p 6006 --quiet",
     "build-storybook": "storybook build",
     "visual-test": "chromatic test --exit-zero-on-changes --project-token n02zjqmdqq"
@@ -39,12 +52,15 @@
   },
   "homepage": "https://github.com/artsy/palette#readme",
   "peerDependencies": {
+    "@artsy/icons": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "styled-components": "^6"
   },
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
+    "@artsy/icons": "^3.64.0",
+    "concurrently": "4.1.0",
     "@babel/cli": "7.12.16",
     "@babel/core": "7.12.16",
     "@babel/plugin-proposal-class-properties": "7.12.13",
@@ -119,17 +135,13 @@
     "webpack": "5"
   },
   "dependencies": {
-    "@artsy/icons": "^3.2.2",
     "@artsy/palette-tokens": "^7.3.0",
     "@seznam/compose-react-refs": "^1.0.6",
-    "@storybook/react-webpack5": "^9.0.16",
     "@styled-system/theme-get": "^5.1.2",
-    "concurrently": "4.1.0",
     "es-toolkit": "^1.16.0",
     "proportional-scale": "^4.0.0",
     "react-focus-on": "^3.7.0",
     "styled-system": "^5.1.5",
-    "trunc-html": "^1.1.2",
     "use-cursor": "^1.2.3",
     "use-keyboard-list-navigation": "2.4.2"
   },
