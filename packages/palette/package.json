@@ -60,6 +60,7 @@
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
     "@artsy/icons": "^3.64.0",
+    "concurrently": "4.1.0",
     "@babel/cli": "7.12.16",
     "@babel/core": "7.12.16",
     "@babel/plugin-proposal-class-properties": "7.12.13",
@@ -136,14 +137,11 @@
   "dependencies": {
     "@artsy/palette-tokens": "^7.3.0",
     "@seznam/compose-react-refs": "^1.0.6",
-    "@storybook/react-webpack5": "^9.0.16",
     "@styled-system/theme-get": "^5.1.2",
-    "concurrently": "4.1.0",
     "es-toolkit": "^1.16.0",
     "proportional-scale": "^4.0.0",
     "react-focus-on": "^3.7.0",
     "styled-system": "^5.1.5",
-    "trunc-html": "^1.1.2",
     "use-cursor": "^1.2.3",
     "use-keyboard-list-navigation": "2.4.2"
   },
