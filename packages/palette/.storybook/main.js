@@ -10,7 +10,6 @@ const config = {
     "./guides/Accessibility.story.tsx",
     "./guides/DevelopingForPalette.story.tsx",
     "./guides/HowPaletteWorks.story.tsx",
-    "./guides/MigratingV2ToV3.story.tsx",
     "./guides/ResponsiveProps.story.tsx",
     "../src/**/*.story.@(tsx|mdx)",
     "../../palette-charts/src/**/*.story.@(tsx|mdx)",
