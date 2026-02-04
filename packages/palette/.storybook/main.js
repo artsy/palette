@@ -6,6 +6,11 @@ const require = createRequire(import.meta.url)
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: [
+    "./guides/GettingStarted.story.tsx",
+    "./guides/Accessibility.story.tsx",
+    "./guides/DevelopingForPalette.story.tsx",
+    "./guides/HowPaletteWorks.story.tsx",
+    "./guides/ResponsiveProps.story.tsx",
     "../src/**/*.story.@(tsx|mdx)",
     "../../palette-charts/src/**/*.story.@(tsx|mdx)",
   ],
