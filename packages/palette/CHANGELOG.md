@@ -1,3 +1,15 @@
+# v46.1.0 (Wed Feb 04 2026)
+
+#### 🚀  Enhancement
+
+- docs: restore the guide docs from the old site [#1498](https://github.com/artsy/palette/pull/1498) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # v46.0.0 (Tue Feb 03 2026)
 
 #### 💥  Breaking Change
