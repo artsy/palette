@@ -1,3 +1,16 @@
+# v46.2.0 (Tue Feb 10 2026)
+
+#### 🐛  Bug Fix
+
+- fix(dropdown): ensures keepindom handles ssr correctly [#1500](https://github.com/artsy/palette/pull/1500) ([@dzucconi](https://github.com/dzucconi))
+- fix(dropdown): ensures keepindom handles ssr correctly ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v46.1.0 (Wed Feb 04 2026)
 
 #### 🚀  Enhancement

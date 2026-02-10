@@ -1,3 +1,21 @@
+# (Tue Feb 10 2026)
+
+#### 🚀  Enhancement
+
+- feat: add triggers to conventional commits check [#1499](https://github.com/artsy/palette/pull/1499) ([@amonkhouse](https://github.com/amonkhouse))
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@46.2.0`
+  - fix(dropdown): ensures keepindom handles ssr correctly [#1500](https://github.com/artsy/palette/pull/1500) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Amy Monkhouse ([@amonkhouse](https://github.com/amonkhouse))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Feb 04 2026)
 
 #### 🚀  Enhancement
