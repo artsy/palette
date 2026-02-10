@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
 import { calculateMaxHeight, Position, usePosition } from "../../utils"
+import { useDidMount } from "../../utils/useDidMount"
 import { usePortal } from "../../utils/usePortal"
 import { Box, BoxProps } from "../Box"
 import { FocusOn } from "react-focus-on"
@@ -276,6 +277,7 @@ export const Dropdown = ({
   }
 
   const { createPortal } = usePortal()
+  const isClient = useDidMount()
 
   const isPointer = !openDropdownByClick && pointerRef.current
   const focusEnabled = visible && !isPointer
@@ -305,6 +307,76 @@ export const Dropdown = ({
     }
   }, [anchorRef, offset, placement, visible])
 
+  const dropdownPanel = useMemo(() => {
+    if (!(visible || keepInDOM)) return null
+
+    return (
+      <Container
+        aria-label="Press escape to close"
+        tabIndex={0}
+        ref={panelRef as any}
+        zIndex={dropdownZIndex}
+        display="inline-block"
+        placement={placement}
+        style={{
+          ...(keepInDOM ? { visibility: visible ? "visible" : "hidden" } : {}),
+        }}
+        {...(openDropdownByClick
+          ? {}
+          : { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave })}
+        maxHeight={maxHeight + offset}
+        {...padding}
+        {...rest}
+      >
+        <Panel
+          transition={_transition}
+          maxHeight={maxHeight}
+          style={
+            transition
+              ? // In
+                { opacity: 1, transform: "translate(0)" }
+              : // Out
+                { opacity: 0, transform: translation }
+          }
+        >
+          <FocusOn
+            noIsolation
+            enabled={focusEnabled}
+            onClickOutside={onHide}
+            returnFocus={returnFocus}
+          >
+            <Pane maxHeight={maxHeight}>
+              {typeof dropdown === "function"
+                ? (dropdown as any)({
+                    onVisible,
+                    onHide,
+                    setVisible,
+                    visible,
+                  })
+                : dropdown}
+            </Pane>
+          </FocusOn>
+        </Panel>
+      </Container>
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    visible,
+    keepInDOM,
+    dropdownZIndex,
+    placement,
+    openDropdownByClick,
+    maxHeight,
+    offset,
+    _transition,
+    transition,
+    translation,
+    focusEnabled,
+    returnFocus,
+    dropdown,
+    padding,
+  ])
+
   return (
     <>
       {(children as any)?.({
@@ -316,64 +388,11 @@ export const Dropdown = ({
         visible,
       })}
 
-      {(visible || keepInDOM) &&
-        createPortal(
-          <Container
-            aria-label="Press escape to close"
-            tabIndex={0}
-            ref={panelRef as any}
-            zIndex={dropdownZIndex}
-            display="inline-block"
-            placement={placement}
-            style={{
-              ...(keepInDOM
-                ? { visibility: visible ? "visible" : "hidden" }
-                : {}),
-            }}
-            {...(openDropdownByClick
-              ? {}
-              : {
-                  onMouseEnter: handleMouseEnter,
-                  onMouseLeave: handleMouseLeave,
-                })}
-            maxHeight={maxHeight + offset}
-            {...padding}
-            {...rest}
-          >
-            <Panel
-              transition={_transition}
-              maxHeight={maxHeight}
-              style={
-                transition
-                  ? // In
-                    { opacity: 1, transform: "translate(0)" }
-                  : // Out
-                    {
-                      opacity: 0,
-                      transform: translation,
-                    }
-              }
-            >
-              <FocusOn
-                noIsolation
-                enabled={focusEnabled}
-                onClickOutside={onHide}
-                returnFocus={returnFocus}
-              >
-                <Pane maxHeight={maxHeight}>
-                  {typeof dropdown === "function"
-                    ? (dropdown as any)({
-                        onVisible,
-                        onHide,
-                        setVisible,
-                        visible,
-                      })
-                    : dropdown}
-                </Pane>
-              </FocusOn>
-            </Panel>
-          </Container>
-        )}
+      {/* During SSR, `createPortal` returns null because the DOM isn't available.
+          When `keepInDOM` is true, render directly in the tree so the content
+          is present in the server-rendered HTML. After hydration, it moves to a portal. */}
+      {dropdownPanel &&
+        (!isClient && keepInDOM ? dropdownPanel : createPortal(dropdownPanel))}
     </>
   )
 }
