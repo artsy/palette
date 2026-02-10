@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@46.3.0`
+  - feat: add accessibility tests [#1501](https://github.com/artsy/palette/pull/1501) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# (Tue Feb 10 2026)
+
+#### 🚀  Enhancement
+
 - feat: add triggers to conventional commits check [#1499](https://github.com/artsy/palette/pull/1499) ([@amonkhouse](https://github.com/amonkhouse))
 
 #### 🐛  Bug Fix

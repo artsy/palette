@@ -1,3 +1,15 @@
+# v46.3.0 (Tue Feb 10 2026)
+
+#### 🚀  Enhancement
+
+- feat: add accessibility tests [#1501](https://github.com/artsy/palette/pull/1501) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.2.0 (Tue Feb 10 2026)
 
 #### 🐛  Bug Fix
