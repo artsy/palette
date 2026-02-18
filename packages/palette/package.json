@@ -137,6 +137,8 @@
   },
   "dependencies": {
     "@artsy/palette-tokens": "^7.3.0",
+    "@floating-ui/react": "^0.27.18",
+    "@floating-ui/react-dom": "^2.1.7",
     "@seznam/compose-react-refs": "^1.0.6",
     "@styled-system/theme-get": "^5.1.2",
     "es-toolkit": "^1.16.0",

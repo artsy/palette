@@ -100,7 +100,7 @@ export const MultiSelect: React.FC<
       document.removeEventListener("keydown", handleKeydown)
     }
   }, [])
-  const { anchorRef, tooltipRef } = usePosition({
+  const { anchorRef, tooltipRef, floatingStyles } = usePosition({
     position: "bottom",
     offset: 10,
     active: visible,
@@ -169,6 +169,7 @@ export const MultiSelect: React.FC<
           zIndex={1}
           bg="mono0"
           width={width}
+          style={floatingStyles}
         >
           {options.map((option) => {
             return (
@@ -207,7 +208,6 @@ const valuesToOptions = (
 }
 
 const Options = styled(Box)`
-  position: fixed;
   z-index: 1;
   max-height: 300px;
   text-align: left;
