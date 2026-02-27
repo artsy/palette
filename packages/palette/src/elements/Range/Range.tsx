@@ -158,7 +158,9 @@ const handleStyles = css`
   box-shadow: ${themeGet("effects.flatShadow")};
 `
 
-const Slider = styled.input`
+const Slider = styled.input.attrs((props) => ({
+  type: props.type ?? "range",
+}))`
   appearance: none;
   background: transparent;
   position: relative;
@@ -198,6 +200,3 @@ const Slider = styled.input`
   }
 `
 
-Slider.defaultProps = {
-  type: "range",
-}

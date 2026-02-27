@@ -20,7 +20,10 @@ export interface SeparatorProps
 /**
  * A horizontal divider whose width and spacing can be adjusted
  */
-export const Separator = styled.div<SeparatorProps>`
+export const Separator = styled.div.attrs<SeparatorProps>((props) => ({
+  width: props.width ?? "100%",
+  color: props.color ?? "mono10",
+}))<SeparatorProps>`
   border-width: 1px;
   border-style: solid;
   border-bottom-width: 0;
@@ -29,8 +32,3 @@ export const Separator = styled.div<SeparatorProps>`
   margin: 0;
   ${compose(space, width, border, color)};
 `
-
-Separator.defaultProps = {
-  width: "100%",
-  color: "mono10",
-}

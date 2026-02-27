@@ -10,8 +10,9 @@ import { Text, TextProps } from "../Text"
 export type SkeletonBoxProps = BoxProps
 
 /** A mono10 Box */
-export const SkeletonBox = styled(Box)``
-SkeletonBox.defaultProps = { bg: "mono10" }
+export const SkeletonBox = styled(Box).attrs<SkeletonBoxProps>((props) => ({
+  bg: props.bg ?? "mono10",
+}))<SkeletonBoxProps>``
 SkeletonBox.displayName = "SkeletonBox"
 
 const splitBorderProps = splitProps<BorderProps>(border)

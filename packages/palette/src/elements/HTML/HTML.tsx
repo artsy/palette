@@ -44,13 +44,11 @@ export const htmlMixin = css`
   }
 `
 
-const Container = styled(Text)`
+const Container = styled(Text).attrs<TextProps>((props) => ({
+  variant: props.variant ?? "sm",
+}))<TextProps>`
   ${htmlMixin}
 `
-
-Container.defaultProps = {
-  variant: "sm",
-}
 
 /**
  * Sets reasonable defaults for tags that we might encounter in Markdown output.

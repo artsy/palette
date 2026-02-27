@@ -17,7 +17,9 @@ const linkMixin = compose(boxMixin, textDecoration)
  * Tip: If working on Force, please use <Link as={RouterLink}>.
 
  */
-export const Link = styled.a<LinkProps>`
+export const Link = styled.a.attrs<LinkProps>((props) => ({
+  textDecoration: props.textDecoration ?? "underline",
+}))<LinkProps>`
   color: currentColor;
   transition: color 0.25s;
   &:hover {
@@ -30,7 +32,3 @@ export const Link = styled.a<LinkProps>`
 `
 
 Link.displayName = "Link"
-
-Link.defaultProps = {
-  textDecoration: "underline",
-}

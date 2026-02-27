@@ -7,14 +7,12 @@ export type FullBleedProps = BoxProps
 /**
  * Utility to break out of parent containers
  */
-export const FullBleed = styled(Box)``
-
-FullBleed.defaultProps = {
-  position: "relative",
-  left: "50%",
-  right: "50%",
-  width: "100vw",
-  maxWidth: "100vw",
-  marginLeft: "-50vw",
-  marginRight: "-50vw",
-}
+export const FullBleed = styled(Box).attrs<FullBleedProps>((props) => ({
+  position: props.position ?? "relative",
+  left: props.left ?? "50%",
+  right: props.right ?? "50%",
+  width: props.width ?? "100vw",
+  maxWidth: props.maxWidth ?? "100vw",
+  marginLeft: props.marginLeft ?? "-50vw",
+  marginRight: props.marginRight ?? "-50vw",
+}))<FullBleedProps>``

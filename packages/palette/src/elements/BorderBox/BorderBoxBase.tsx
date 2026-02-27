@@ -9,12 +9,10 @@ export interface BorderBoxProps extends FlexProps {
  * A `div` that has a common border and padding set by default
  * @deprecated: Use `Box`
  */
-export const BorderBoxBase = styled(Flex)<BorderBoxProps>`
+export const BorderBoxBase = styled(Flex).attrs<BorderBoxProps>((props) => ({
+  borderColor: props.borderColor ?? "mono10",
+  p: props.p ?? 2,
+}))<BorderBoxProps>`
   border-width: 1px;
   border-style: solid;
 `
-
-BorderBoxBase.defaultProps = {
-  borderColor: "mono10",
-  p: 2,
-}

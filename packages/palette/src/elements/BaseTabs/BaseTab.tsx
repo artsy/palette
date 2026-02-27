@@ -21,7 +21,13 @@ export type BaseTabProps<C extends React.ComponentType<React.PropsWithChildren<u
  * E.g.: `<BaseTab as={RouterLink} to="/foo">Foo</BaseTab>`
  * or `<BaseTab as={Clickable} onClick={handleClick}>Foo</BaseTab>`
  */
-export const BaseTab = styled(Text)<BaseTabProps>`
+export const BaseTab = styled(Text).attrs<BaseTabProps>((props) => ({
+  variant: props.variant ?? "sm",
+  mb: props.mb ?? "-1px",
+  alignItems: props.alignItems ?? "flex-start",
+  justifyContent: props.justifyContent ?? "center",
+  textAlign: props.textAlign ?? "center",
+}))<BaseTabProps>`
   display: flex;
   width: 100%;
   position: relative;
@@ -47,14 +53,6 @@ export const BaseTab = styled(Text)<BaseTabProps>`
     `
   }}
 `
-
-BaseTab.defaultProps = {
-  variant: "sm",
-  mb: "-1px",
-  alignItems: "flex-start",
-  justifyContent: "center",
-  textAlign: "center",
-}
 
 BaseTab.displayName = "BaseTab"
 

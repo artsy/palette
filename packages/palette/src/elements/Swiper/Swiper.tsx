@@ -30,7 +30,9 @@ const Container = styled(Box)`
 export type SwiperRailProps = BoxProps
 
 /** A `SwiperRail` slides back and forth within the viewport */
-export const SwiperRail = styled(Box)<{ as?: React.ElementType }>`
+export const SwiperRail = styled(Box).attrs<SwiperRailProps>((props) => ({
+  display: props.display ?? "flex",
+}))<{ as?: React.ElementType }>`
   width: 100%;
   height: 100%;
   margin: 0;
@@ -38,10 +40,6 @@ export const SwiperRail = styled(Box)<{ as?: React.ElementType }>`
   list-style: none;
   white-space: nowrap;
 `
-
-SwiperRail.defaultProps = {
-  display: "flex",
-}
 
 /** SwiperCellProps */
 export type SwiperCellProps = BoxProps
