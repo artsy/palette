@@ -1,3 +1,16 @@
+# (Fri Feb 27 2026)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@46.4.0`
+  - refactor: prefer Styled Component `attrs` over React `defaultProps` [#1503](https://github.com/artsy/palette/pull/1503) ([@anandaroop](https://github.com/anandaroop))
+
+#### Authors: 1
+
+- Anandaroop Roy ([@anandaroop](https://github.com/anandaroop))
+
+---
+
 # (Tue Feb 10 2026)
 
 #### 🚀  Enhancement
