@@ -82,7 +82,10 @@ export type TextProps = BaseTextProps &
   }
 
 /** Text */
-export const Text = styled(Box)<TextProps>`
+export const Text = styled(Box).attrs<TextProps>((props) => ({
+  fontFamily: props.fontFamily ?? "sans",
+  variant: props.variant ?? "sm",
+}))<TextProps>`
   && {
     ${variant({ variants: TEXT_VARIANTS })}
     ${textMixin}
@@ -105,8 +108,3 @@ export const Text = styled(Box)<TextProps>`
 `
 
 Text.displayName = "Text"
-
-Text.defaultProps = {
-  fontFamily: "sans",
-  variant: "sm",
-}

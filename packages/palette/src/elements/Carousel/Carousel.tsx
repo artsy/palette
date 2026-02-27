@@ -34,7 +34,11 @@ export type CarouselRailProps = BoxProps & {
 }
 
 /** A `CarouselRail` slides back and forth within the viewport */
-export const CarouselRail = styled(Box)<CarouselRailProps>`
+export const CarouselRail = styled(Box).attrs<CarouselRailProps>((props) => ({
+  as: props.as ?? "ul",
+  display: props.display ?? "flex",
+  transition: props.transition ?? `transform ${RAIL_TRANSITION_MS}ms`,
+}))<CarouselRailProps>`
   height: 100%;
   margin: 0;
   padding: 0;
@@ -43,23 +47,15 @@ export const CarouselRail = styled(Box)<CarouselRailProps>`
   ${transition}
 `
 
-CarouselRail.defaultProps = {
-  as: "ul",
-  display: "flex",
-  transition: `transform ${RAIL_TRANSITION_MS}ms`,
-}
-
 /** CarouselCellProps */
 export type CarouselCellProps = BoxProps
 
 /** A `CarouselCell` wraps a single child in the carousel */
-export const CarouselCell = styled(Box)`
+export const CarouselCell = styled(Box).attrs<CarouselCellProps>((props) => ({
+  as: props.as ?? "li",
+}))<CarouselCellProps>`
   white-space: normal;
 `
-
-CarouselCell.defaultProps = {
-  as: "li",
-}
 
 /**
  * We share this spacing value with the `Swiper` component

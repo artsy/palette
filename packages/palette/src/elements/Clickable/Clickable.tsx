@@ -20,7 +20,10 @@ const clickableMixin = compose(boxMixin, cursor, textDecoration)
  * Clickable is a utility component useful for wrapping things like <div>s
  * without having to deal with the requirements to make the <div> accessible.
  */
-export const Clickable = styled.button<ClickableProps>`
+export const Clickable = styled.button.attrs<ClickableProps>((props) => ({
+  cursor: props.cursor ?? "pointer",
+  type: props.type ?? "button",
+}))<ClickableProps>`
   appearance: none;
   padding: 0;
   border: 0;
@@ -36,10 +39,5 @@ export const Clickable = styled.button<ClickableProps>`
     cursor: default;
   }
 `
-
-Clickable.defaultProps = {
-  cursor: "pointer",
-  type: "button",
-}
 
 export const splitClickableProps = splitProps<ClickableProps>(clickableMixin)

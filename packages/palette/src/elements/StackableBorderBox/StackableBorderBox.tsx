@@ -19,7 +19,3 @@ export const StackableBorderBox = styled(BorderBox)<BorderBoxProps>`
 `
 
 StackableBorderBox.displayName = "StackableBorderBox"
-
-StackableBorderBox.defaultProps = {
-  ...BorderBox.defaultProps,
-}

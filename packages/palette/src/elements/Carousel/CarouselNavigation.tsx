@@ -10,7 +10,11 @@ const ARROW_TRANSITION_MS = 250
 /** CarouselNavigationProps */
 export type CarouselNavigationProps = ClickableProps
 
-const Arrow = styled(Clickable)`
+const Arrow = styled(Clickable).attrs<CarouselNavigationProps>((props) => ({
+  width: props.width ?? ARROW_WIDTH.map((value) => space(value)),
+  height: props.height ?? "100%",
+  color: props.color ?? "mono60",
+}))<CarouselNavigationProps>`
   position: absolute;
   top: 0;
   display: flex;
@@ -35,15 +39,6 @@ const Arrow = styled(Clickable)`
     cursor: default;
   }
 `
-
-/**
- * Set some easily overwriteable props using `defaultProps`
- */
-Arrow.defaultProps = {
-  width: ARROW_WIDTH.map((value) => space(value)),
-  height: "100%",
-  color: "mono60",
-}
 
 /**
  * Default next button

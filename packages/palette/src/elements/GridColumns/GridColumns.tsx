@@ -15,14 +15,12 @@ export type GridColumnsProps = Omit<CSSGridProps, "gridTemplateColumns">
 /**
  * A 12-column fluid grid
  */
-export const GridColumns = styled(CSSGrid)`
+export const GridColumns = styled(CSSGrid).attrs<GridColumnsProps>((props) => ({
+  gridColumnGap: props.gridColumnGap ?? [1, 2],
+  gridRowGap: props.gridRowGap ?? [1, 2],
+}))<GridColumnsProps>`
   grid-template-columns: repeat(12, 1fr);
 `
-
-GridColumns.defaultProps = {
-  gridColumnGap: [1, 2],
-  gridRowGap: [1, 2],
-}
 
 type CellProps = ColumnCell & GridColumnProps & BoxProps
 

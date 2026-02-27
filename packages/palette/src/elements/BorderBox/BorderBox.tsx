@@ -8,14 +8,12 @@ export type BorderBoxProps = BoxProps
  * @deprecated: Use `Box` along with props e.g. `border="1px solid" borderColor="mono10" p={2}`,
  * as needed.
  */
-export const BorderBox = styled(Box)`
+export const BorderBox = styled(Box).attrs<BorderBoxProps>((props) => ({
+  borderColor: props.borderColor ?? "mono10",
+  p: props.p ?? 2,
+}))<BorderBoxProps>`
   border-width: 1px;
   border-style: solid;
 `
 
 BorderBox.displayName = "BorderBox"
-
-BorderBox.defaultProps = {
-  borderColor: "mono10",
-  p: 2,
-}

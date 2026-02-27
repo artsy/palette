@@ -137,10 +137,6 @@ export const Pill = forwardRef<
 
 Pill.displayName = "Pill"
 
-Pill.defaultProps = {
-  variant: "default",
-}
-
 const Container = styled(Clickable)<PillProps>`
   display: inline-flex;
   align-items: center;

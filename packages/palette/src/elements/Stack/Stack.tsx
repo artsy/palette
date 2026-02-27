@@ -10,11 +10,9 @@ export type StackProps = BoxProps & {
  * `Stack` is `Box` with` display: flex` and `flex-direction: column`.
  * `gap` is required
  */
-export const Stack = styled(Box)<StackProps>``
-
-Stack.defaultProps = {
-  display: "flex",
-  flexDirection: "column",
-}
+export const Stack = styled(Box).attrs<StackProps>((props) => ({
+  display: props.display ?? "flex",
+  flexDirection: props.flexDirection ?? "column",
+}))<StackProps>``
 
 Stack.displayName = "Stack"
