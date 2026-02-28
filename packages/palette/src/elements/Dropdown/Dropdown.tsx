@@ -129,7 +129,8 @@ export const Dropdown = ({
   const {
     anchorRef,
     tooltipRef: panelRef,
-    state: { isFlipped },
+    floatingStyles,
+    resolvedPlacement,
   } = usePosition({
     position: placement,
     offset: 0,
@@ -230,27 +231,29 @@ export const Dropdown = ({
     }
   }, [placement])
 
-  // Fills offset gap between anchor and panel to prevent mouseout
+  // Fills offset gap between anchor and panel to prevent mouseout.
+  // Use the resolved placement so the padding is always on the anchor-facing side,
+  // even after Floating UI has flipped the panel to the opposite side.
   const padding = useMemo(() => {
-    switch (placement) {
+    switch (resolvedPlacement) {
       case "top-start":
       case "top":
       case "top-end":
-        return { [isFlipped ? "pt" : "pb"]: offset }
+        return { pb: offset }
       case "bottom-start":
       case "bottom":
       case "bottom-end":
-        return { [isFlipped ? "pb" : "pt"]: offset }
+        return { pt: offset }
       case "left-start":
       case "left":
       case "left-end":
-        return { [isFlipped ? "pl" : "pr"]: offset }
+        return { pr: offset }
       case "right-start":
       case "right":
       case "right-end":
-        return { [isFlipped ? "pr" : "pl"]: offset }
+        return { pl: offset }
     }
-  }, [placement, isFlipped, offset])
+  }, [resolvedPlacement, offset])
 
   const pointerRef = useRef(false)
 
@@ -319,6 +322,7 @@ export const Dropdown = ({
         display="inline-block"
         placement={placement}
         style={{
+          ...floatingStyles,
           ...(keepInDOM ? { visibility: visible ? "visible" : "hidden" } : {}),
         }}
         {...(openDropdownByClick
@@ -398,7 +402,6 @@ export const Dropdown = ({
 }
 
 const Container = styled(Box)<{ placement: Position } & BoxProps>`
-  position: fixed;
   text-align: left;
   outline: 0;
 `

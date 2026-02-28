@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
 import { isText } from "../../helpers"
@@ -62,14 +62,19 @@ export const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     setActive(false)
   }
 
+  const arrowRef = useRef<SVGSVGElement | null>(null)
+
   const {
     anchorRef,
     tooltipRef,
-    state: { isFlipped },
+    floatingStyles,
+    context,
+    rects,
   } = usePosition({
     position: placement,
     offset,
     active: visible ?? active,
+    arrowRef: arrowRef as React.RefObject<Element | null>,
   })
 
   return (
@@ -89,23 +94,19 @@ export const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
         variant={variant}
         width={width}
         zIndex={zIndex}
-        style={
+        style={{
+          ...floatingStyles,
           // If visible is explictly set to `false` then the tooltip should be hidden
           // Otherwise it should be visible or utilize the active state.
-          visible !== false
-            ? {
-                opacity: visible ?? active ? 1 : 0,
-              }
-            : { opacity: 0 }
-        }
+          opacity: visible !== false ? (visible ?? active ? 1 : 0) : 0,
+        }}
       >
         {pointer && (
           <Pointer
-            anchorRef={anchorRef}
-            tooltipRef={tooltipRef}
+            ref={arrowRef}
+            context={context}
+            rects={rects}
             variant={variant}
-            placement={placement}
-            isFlipped={isFlipped}
           />
         )}
 
@@ -118,7 +119,6 @@ export const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
 }
 
 const Tip = styled(Box)<{ variant?: TooltipVariant }>`
-  position: absolute;
   transition: opacity 250ms ease-out;
   text-align: left;
   box-shadow: ${themeGet("effects.dropShadow")};

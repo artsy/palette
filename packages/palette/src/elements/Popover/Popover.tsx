@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { variant } from "styled-system"
 import CloseIcon from "@artsy/icons/CloseIcon"
@@ -127,14 +127,19 @@ export const Popover = ({
     }
   }, [handleHide])
 
+  const arrowRef = useRef<SVGSVGElement | null>(null)
+
   const {
     anchorRef,
     tooltipRef,
-    state: { isFlipped },
+    floatingStyles,
+    context,
+    rects,
   } = usePosition({
     position: placement,
     offset,
     active: visible,
+    arrowRef: arrowRef as React.RefObject<Element | null>,
   })
 
   useClickOutside({
@@ -162,16 +167,15 @@ export const Popover = ({
             ref={tooltipRef as any}
             zIndex={zIndex}
             display="inline-block"
-            position="relative"
             variant={variant}
+            style={floatingStyles}
           >
             {pointer && (
               <Pointer
-                anchorRef={anchorRef}
-                tooltipRef={tooltipRef}
+                ref={arrowRef}
+                context={context}
+                rects={rects}
                 variant={variant}
-                placement={placement}
-                isFlipped={isFlipped}
               />
             )}
 
@@ -209,7 +213,6 @@ export const Popover = ({
 }
 
 const Tip = styled(Box)<{ variant?: PopoverVariant }>`
-  position: fixed;
   text-align: left;
   transition: opacity 250ms ease-out;
   box-shadow: ${themeGet("effects.dropShadow")};
