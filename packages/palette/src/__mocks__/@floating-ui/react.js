@@ -16,6 +16,7 @@ const useFloating = ({
   placement = "bottom",
   strategy = "absolute",
   open = false,
+  onOpenChange = () => {},
 } = {}) => {
   const referenceRef = React.useRef(null)
   const floatingRef = React.useRef(null)
@@ -42,6 +43,11 @@ const useFloating = ({
 
   const middlewareData = {}
 
+  // Use a ref so interaction hook stubs can always call the latest onOpenChange
+  // without capturing a stale closure.
+  const onOpenChangeRef = React.useRef(onOpenChange)
+  onOpenChangeRef.current = onOpenChange
+
   const context = {
     x: 0,
     y: 0,
@@ -50,7 +56,7 @@ const useFloating = ({
     middlewareData,
     isPositioned: true,
     open,
-    onOpenChange: () => {},
+    onOpenChange: (...args) => onOpenChangeRef.current(...args),
     refs,
     elements: { reference: null, floating: null },
     events: { emit: () => {}, on: () => {}, off: () => {} },
@@ -98,6 +104,68 @@ const FloatingArrow = React.forwardRef(function FloatingArrow(
   })
 })
 
+// ── Interaction hook stubs ───────────────────────────────────────────────────
+// Provide realistic event handler stubs so tests that simulate mouse/keyboard
+// events still drive the visible state via context.onOpenChange.
+
+const useHover = (context, { enabled = true } = {}) => {
+  if (!enabled) return { reference: {}, floating: {} }
+  return {
+    reference: {
+      onMouseEnter: (event) => context.onOpenChange(true, event, "hover"),
+      onMouseLeave: (event) => context.onOpenChange(false, event, "hover"),
+    },
+    floating: {},
+  }
+}
+
+const useClick = (context, { enabled = true, toggle = true } = {}) => {
+  if (!enabled) return { reference: {}, floating: {} }
+  return {
+    reference: {
+      onClick: (event) => {
+        if (toggle) {
+          context.onOpenChange(!context.open, event, "click")
+        } else {
+          context.onOpenChange(true, event, "click")
+        }
+      },
+    },
+    floating: {},
+  }
+}
+
+const useDismiss = (context, _options) => ({
+  reference: {},
+  floating: {},
+})
+
+const useFocus = (_context, _options) => ({
+  reference: {},
+  floating: {},
+})
+
+const useInteractions = (interactions = []) => ({
+  getReferenceProps: (userProps = {}) => {
+    const merged = { ...userProps }
+    interactions.forEach(({ reference = {} }) => {
+      Object.assign(merged, reference)
+    })
+    return merged
+  },
+  getFloatingProps: (userProps = {}) => {
+    const merged = { ...userProps }
+    interactions.forEach(({ floating = {} }) => {
+      Object.assign(merged, floating)
+    })
+    return merged
+  },
+  getItemProps: (userProps = {}) => userProps,
+})
+
+// safePolygon returns a handleClose function stub
+const safePolygon = (_options) => (_state) => null
+
 module.exports = {
   useFloating,
   offset,
@@ -108,4 +176,10 @@ module.exports = {
   autoPlacement,
   autoUpdate,
   FloatingArrow,
+  useHover,
+  useClick,
+  useDismiss,
+  useFocus,
+  useInteractions,
+  safePolygon,
 }

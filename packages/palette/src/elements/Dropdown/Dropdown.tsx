@@ -1,5 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
+import {
+  useHover,
+  useClick,
+  useDismiss,
+  useInteractions,
+  safePolygon,
+} from "@floating-ui/react"
 import { calculateMaxHeight, Position, usePosition } from "../../utils"
 import { useDidMount } from "../../utils/useDidMount"
 import { usePortal } from "../../utils/usePortal"
@@ -78,132 +85,115 @@ export const Dropdown = ({
 }: DropdownProps) => {
   const [visible, setVisible] = useState(false)
 
-  // If prop updates/set initial visibility.
+  // Sync with controlled `visible` prop
   useEffect(() => {
     setVisible(_visible)
   }, [_visible])
 
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Track whether the current open was triggered by pointer (hover) so we know
+  // whether to enable keyboard focus-trapping via FocusOn.
+  const pointerRef = useRef(false)
 
-  // We need to keep the pointer state in sync with the visibility state, else we
-  // wind up with focus isolation out of sync.
-  const setVisibility = useCallback(
-    ({
-      visible,
-      isPointer = false,
-    }: {
-      visible: boolean
-      isPointer?: boolean
-    }) => {
-      // Use custom delay when opening via pointer interaction (hover), but only if not using click mode
-      const defaultDelay = _transition ? (visible ? 50 : 150) : visible ? 1 : 50
-      const finalDelay =
-        visible && isPointer && !openDropdownByClick ? delay : defaultDelay
-
-      timeoutRef.current && clearTimeout(timeoutRef.current)
-      timeoutRef.current = setTimeout(() => {
-        if (!visible && activeRef.current) return
-        pointerRef.current = isPointer
-        setVisible(visible)
-      }, finalDelay)
+  // onOpenChange is called by Floating UI interaction hooks (useHover, useClick,
+  // useDismiss). The `reason` arg lets us detect pointer vs keyboard opens.
+  const onOpenChange = useCallback(
+    (open: boolean, _event?: Event, reason?: string) => {
+      pointerRef.current =
+        open && (reason === "hover" || reason === "safe-polygon")
+      setVisible(open)
     },
-    [_transition, delay, openDropdownByClick]
+    []
   )
-
-  const onVisible = () => {
-    setVisibility({ visible: true })
-  }
-
-  const onHide = useCallback(() => {
-    setVisibility({ visible: false })
-  }, [setVisibility])
-
-  const onToggleVisibility = () => {
-    if (visible) {
-      return onHide()
-    }
-
-    onVisible()
-  }
 
   const {
     anchorRef,
     tooltipRef: panelRef,
     floatingStyles,
     resolvedPlacement,
+    context,
   } = usePosition({
     position: placement,
     offset: 0,
     active: visible,
     flip,
     padding: offset,
+    onOpenChange,
   })
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onHide()
-      }
-    }
+  // useHover: opens/closes on pointer enter/leave. safePolygon keeps the panel
+  // open while the cursor traverses the gap between anchor and panel.
+  const hover = useHover(context, {
+    enabled: !openDropdownByClick,
+    delay: {
+      open: delay ?? (_transition ? 50 : 1),
+      close: _transition ? 150 : 50,
+    },
+    // Menus should remain open while traversing toward the panel, even with
+    // slower cursor movement. The default `requireIntent: true` can close too
+    // aggressively for this UX.
+    handleClose: safePolygon({
+      requireIntent: false,
+      buffer: 1,
+      blockPointerEvents: true,
+    }),
+  })
 
-    // Close dropdown when focus leaves element
+  // useClick: toggles for click-mode; open-only (toggle:false) for hover-mode
+  // so keyboard users can press Enter/Space on a focused anchor to open it.
+  const click = useClick(context, {
+    toggle: !!openDropdownByClick,
+  })
+
+  // useDismiss: closes on Escape key and click outside (replaces manual listeners).
+  const dismiss = useDismiss(context)
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    click,
+    dismiss,
+  ])
+
+  // Tab-key close for hover-mode: FocusOn is disabled so focus can leave the
+  // panel freely; we watch for that and close when it does.
+  useEffect(() => {
+    if (!visible || openDropdownByClick) return
+
     const handleKeyUp = (event: KeyboardEvent) => {
       if (!panelRef.current) return
-
       if (
         event.key === "Tab" &&
-        !(
-          panelRef.current === document.activeElement ||
-          panelRef.current.contains(document.activeElement)
-        )
+        !panelRef.current.contains(document.activeElement)
       ) {
-        onHide()
+        setVisible(false)
       }
     }
+
+    document.addEventListener("keyup", handleKeyUp)
+    return () => document.removeEventListener("keyup", handleKeyUp)
+  }, [visible, openDropdownByClick, panelRef])
+
+  // Close when a link inside the panel is clicked (click-mode only).
+  useEffect(() => {
+    if (!openDropdownByClick) return
 
     const handleClick = (event: MouseEvent) => {
-      if (!panelRef.current || !openDropdownByClick) return
+      if (!panelRef.current) return
       const target = event.target as Element
-      const tagName = target.tagName.toLowerCase()
-      let isClosableElement = tagName === "a"
-      let element: Element | null = target
-
-      // Find parent link element
-      if (!isClosableElement) {
-        element = target.closest("a")
-        isClosableElement = !!element
-      }
-
-      if (isClosableElement && element && panelRef.current.contains(element)) {
-        onHide()
-      }
+      const link =
+        target.tagName.toLowerCase() === "a" ? target : target.closest("a")
+      if (link && panelRef.current.contains(link)) setVisible(false)
     }
 
-    document.addEventListener("keydown", handleKeyDown)
-    document.addEventListener("keyup", handleKeyUp)
     document.addEventListener("click", handleClick)
+    return () => document.removeEventListener("click", handleClick)
+  }, [openDropdownByClick, panelRef])
 
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown)
-      document.removeEventListener("keyup", handleKeyUp)
-      document.removeEventListener("click", handleClick)
-    }
-  }, [panelRef, openDropdownByClick, onHide])
+  const onVisible = useCallback(() => setVisible(true), [])
+  const onHide = useCallback(() => setVisible(false), [])
 
-  const activeRef = useRef(false)
-
-  const handleMouseEnter = () => {
-    activeRef.current = true
-  }
-
-  const handleMouseLeave = () => {
-    activeRef.current = false
-    onHide()
-  }
-
+  // Drive CSS transition: wait one animation frame so the element is in the
+  // DOM before the opacity/transform transition kicks in.
   const [transition, setTransition] = useState(false)
-
-  // Wait for next tick so that animation runs
   useEffect(() => {
     requestAnimationFrame(() => {
       setTransition(visible)
@@ -231,9 +221,8 @@ export const Dropdown = ({
     }
   }, [placement])
 
-  // Fills offset gap between anchor and panel to prevent mouseout.
-  // Use the resolved placement so the padding is always on the anchor-facing side,
-  // even after Floating UI has flipped the panel to the opposite side.
+  // Padding on the panel that fills the gap between anchor and panel so the
+  // safePolygon cursor path isn't interrupted.
   const padding = useMemo(() => {
     switch (resolvedPlacement) {
       case "top-start":
@@ -254,33 +243,6 @@ export const Dropdown = ({
         return { pl: offset }
     }
   }, [resolvedPlacement, offset])
-
-  const pointerRef = useRef(false)
-
-  const handlePointerVisible = () => {
-    setVisibility({ visible: true, isPointer: true })
-  }
-
-  const handlePointerHide = () => {
-    setVisibility({ visible: false, isPointer: false })
-  }
-
-  const anchorProps: React.HTMLAttributes<HTMLElement> = {
-    "aria-expanded": visible,
-    "aria-haspopup": true,
-    ...(openDropdownByClick
-      ? {
-          onClick: onToggleVisibility,
-        }
-      : {
-          onMouseEnter: handlePointerVisible,
-          onMouseLeave: handlePointerHide,
-          onClick: onVisible,
-        }),
-  }
-
-  const { createPortal } = usePortal()
-  const isClient = useDidMount()
 
   const isPointer = !openDropdownByClick && pointerRef.current
   const focusEnabled = visible && !isPointer
@@ -310,6 +272,9 @@ export const Dropdown = ({
     }
   }, [anchorRef, offset, placement, visible])
 
+  const { createPortal } = usePortal()
+  const isClient = useDidMount()
+
   const dropdownPanel = useMemo(() => {
     if (!(visible || keepInDOM)) return null
 
@@ -325,11 +290,9 @@ export const Dropdown = ({
           ...floatingStyles,
           ...(keepInDOM ? { visibility: visible ? "visible" : "hidden" } : {}),
         }}
-        {...(openDropdownByClick
-          ? {}
-          : { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave })}
         maxHeight={maxHeight + offset}
         {...padding}
+        {...getFloatingProps()}
         {...rest}
       >
         <Panel
@@ -337,18 +300,11 @@ export const Dropdown = ({
           maxHeight={maxHeight}
           style={
             transition
-              ? // In
-                { opacity: 1, transform: "translate(0)" }
-              : // Out
-                { opacity: 0, transform: translation }
+              ? { opacity: 1, transform: "translate(0)" }
+              : { opacity: 0, transform: translation }
           }
         >
-          <FocusOn
-            noIsolation
-            enabled={focusEnabled}
-            onClickOutside={onHide}
-            returnFocus={returnFocus}
-          >
+          <FocusOn noIsolation enabled={focusEnabled} returnFocus={returnFocus}>
             <Pane maxHeight={maxHeight}>
               {typeof dropdown === "function"
                 ? (dropdown as any)({
@@ -363,13 +319,11 @@ export const Dropdown = ({
         </Panel>
       </Container>
     )
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     visible,
     keepInDOM,
     dropdownZIndex,
     placement,
-    openDropdownByClick,
     maxHeight,
     offset,
     _transition,
@@ -379,7 +333,15 @@ export const Dropdown = ({
     returnFocus,
     dropdown,
     padding,
+    floatingStyles,
+    getFloatingProps,
+    rest,
   ])
+
+  const anchorProps: React.HTMLAttributes<HTMLElement> = getReferenceProps({
+    "aria-expanded": visible,
+    "aria-haspopup": true as const,
+  })
 
   return (
     <>
@@ -392,9 +354,6 @@ export const Dropdown = ({
         visible,
       })}
 
-      {/* During SSR, `createPortal` returns null because the DOM isn't available.
-          When `keepInDOM` is true, render directly in the tree so the content
-          is present in the server-rendered HTML. After hydration, it moves to a portal. */}
       {dropdownPanel &&
         (!isClient && keepInDOM ? dropdownPanel : createPortal(dropdownPanel))}
     </>

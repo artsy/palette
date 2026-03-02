@@ -63,6 +63,7 @@ export const usePosition = ({
   padding = 0,
   autoPlacement = false,
   arrowRef,
+  onOpenChange,
 }: {
   /** Listen to changes on this value */
   key?: string | number | boolean
@@ -93,6 +94,12 @@ export const usePosition = ({
    * to keep the arrow pointing at the anchor even after shift clamping.
    */
   arrowRef?: React.RefObject<Element | null>
+  /**
+   * Called by Floating UI interaction hooks (useHover, useClick, useDismiss)
+   * whenever they want to open or close the floating element.
+   * `reason` identifies the source ('hover', 'click', 'escape-key', etc.).
+   */
+  onOpenChange?: (open: boolean, event?: Event, reason?: string) => void
 }) => {
   const middleware = useMemo(() => {
     const mw: Middleware[] = []
@@ -137,7 +144,7 @@ export const usePosition = ({
     middleware,
     strategy: "fixed",
     open: active,
-    onOpenChange: () => {},
+    onOpenChange: onOpenChange ?? (() => {}),
     whileElementsMounted: active ? autoUpdate : undefined,
   })
 
