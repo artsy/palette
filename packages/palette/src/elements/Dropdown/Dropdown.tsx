@@ -250,27 +250,38 @@ export const Dropdown = ({
   const [maxHeight, setMaxHeight] = useState(0)
 
   useEffect(() => {
-    const calculate = debounce(() => {
+    const calculate = () => {
       if (!anchorRef.current) return
 
       const nextMaxHeight = calculateMaxHeight({
         anchorRect: anchorRef.current.getBoundingClientRect(),
-        position: placement,
+        // Use the actual Floating UI placement so max-height follows flips.
+        position: resolvedPlacement,
         offset,
       })
 
       setMaxHeight(nextMaxHeight)
-    }, 500)
+    }
 
-    window.addEventListener("resize", calculate, { passive: true })
-    window.addEventListener("scroll", calculate, { passive: true })
+    // Keep scroll/resize work cheap while still reacting immediately to a fresh
+    // open or placement change.
+    const calculateOnViewportChange = debounce(calculate, 100)
+
+    window.addEventListener("resize", calculateOnViewportChange, {
+      passive: true,
+    })
+    window.addEventListener("scroll", calculateOnViewportChange, {
+      passive: true,
+    })
+
+    // Immediate first pass prevents a stale max-height flash after flips.
     calculate()
 
     return () => {
-      window.removeEventListener("resize", calculate)
-      window.removeEventListener("scroll", calculate)
+      window.removeEventListener("resize", calculateOnViewportChange)
+      window.removeEventListener("scroll", calculateOnViewportChange)
     }
-  }, [anchorRef, offset, placement, visible])
+  }, [anchorRef, offset, resolvedPlacement, visible])
 
   const { createPortal } = usePortal()
   const isClient = useDidMount()

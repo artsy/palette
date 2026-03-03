@@ -663,3 +663,38 @@ export const CustomDelay = {
     chromatic: { disable: true },
   },
 }
+
+export const AtViewportEdge = {
+  render: () => {
+    return (
+      <Box height={5000}>
+        <Box height="80vh" bg="mono10" width="50%" />
+
+        <Dropdown
+          placement="bottom"
+          dropdown={
+            <Box width={200} p={2}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+              consequuntur facere velit rerum amet fugiat recusandae suscipit.
+              Fugiat obcaecati reiciendis vel, sapiente odio repellat fugit
+              alias incidunt? Ex, magnam magni.
+            </Box>
+          }
+        >
+          {({ anchorRef, anchorProps }) => {
+            return (
+              <Button
+                ref={anchorRef}
+                variant="primaryBlack"
+                size="small"
+                {...anchorProps}
+              >
+                Hover
+              </Button>
+            )
+          }}
+        </Dropdown>
+      </Box>
+    )
+  },
+}
