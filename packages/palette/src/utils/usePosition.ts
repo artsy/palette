@@ -11,6 +11,8 @@ import {
   Placement,
   Middleware,
   MiddlewareState,
+  AutoPlacementOptions,
+  FlipOptions,
 } from "@floating-ui/react"
 import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
 
@@ -30,6 +32,8 @@ export const POSITION = {
 } as const
 
 export type Position = keyof typeof POSITION
+export type PositionFlip = boolean | FlipOptions
+export type PositionAutoPlacement = boolean | AutoPlacementOptions
 
 /** Element rects captured mid-middleware-chain. */
 export interface PositionRects {
@@ -77,7 +81,7 @@ export const usePosition = ({
    * Flip to the opposite side when there is no space. Cannot be combined with
    * `autoPlacement`. (default: `true`)
    */
-  flip?: boolean
+  flip?: PositionFlip
   /** Optionally disable clamping along the axis (default: `true`) */
   clamp?: boolean
   /** Add boundary padding (default: `0`) used when clamping */
@@ -87,7 +91,7 @@ export const usePosition = ({
    * space instead of using `flip`. Mutually exclusive with `flip`.
    * (default: `false`)
    */
-  autoPlacement?: boolean
+  autoPlacement?: PositionAutoPlacement
   /**
    * Ref to the arrow/pointer element. When provided, the `arrow()` middleware
    * is added so that `arrowData` is populated with the exact x/y offset needed
@@ -109,9 +113,13 @@ export const usePosition = ({
     }
 
     if (autoPlacement) {
-      mw.push(autoPlacementMiddleware())
+      mw.push(
+        autoPlacementMiddleware(
+          typeof autoPlacement === "object" ? autoPlacement : undefined
+        )
+      )
     } else if (flip) {
-      mw.push(flipMiddleware())
+      mw.push(flipMiddleware(typeof flip === "object" ? flip : undefined))
     }
 
     if (clamp) {

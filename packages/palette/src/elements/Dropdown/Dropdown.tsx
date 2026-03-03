@@ -7,7 +7,13 @@ import {
   useInteractions,
   safePolygon,
 } from "@floating-ui/react"
-import { calculateMaxHeight, Position, usePosition } from "../../utils"
+import {
+  calculateMaxHeight,
+  Position,
+  PositionAutoPlacement,
+  PositionFlip,
+  usePosition,
+} from "../../utils"
 import { useDidMount } from "../../utils/useDidMount"
 import { usePortal } from "../../utils/usePortal"
 import { Box, BoxProps } from "../Box"
@@ -57,7 +63,14 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
   openDropdownByClick?: boolean
   children: Children
   /** Optionally disable flipping (default: `true`) */
-  flip?: boolean
+  flip?: PositionFlip
+  /**
+   * Use Floating UI's autoPlacement middleware. Accepts a boolean or full
+   * AutoPlacement options object.
+   *
+   * When enabled, it takes precedence over `flip`.
+   */
+  autoPlacement?: PositionAutoPlacement
   /** Whether to return focus to the previous element when the dropdown closes (default: `true`) */
   returnFocus?: boolean
   /** Delay in milliseconds before showing the dropdown on hover (ignored when openDropdownByClick is true) */
@@ -79,6 +92,7 @@ export const Dropdown = ({
   openDropdownByClick,
   transition: _transition = true,
   flip = true,
+  autoPlacement = false,
   returnFocus = true,
   delay = 0,
   ...rest
@@ -115,7 +129,9 @@ export const Dropdown = ({
     position: placement,
     offset: 0,
     active: visible,
-    flip,
+    // Avoid running both middleware: autoPlacement supersedes flip.
+    flip: autoPlacement ? false : flip,
+    autoPlacement,
     padding: offset,
     onOpenChange,
   })
