@@ -119,7 +119,13 @@ export const usePosition = ({
         )
       )
     } else if (flip) {
-      mw.push(flipMiddleware(typeof flip === "object" ? flip : undefined))
+      mw.push(
+        flipMiddleware(
+          // Use a 1px default tolerance to avoid jitter at viewport edges caused
+          // by fractional scroll/layout measurements and border rounding.
+          typeof flip === "object" ? { padding: 1, ...flip } : { padding: 1 }
+        )
+      )
     }
 
     if (clamp) {
