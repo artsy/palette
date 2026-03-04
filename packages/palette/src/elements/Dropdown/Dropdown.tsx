@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import {
   useHover,
   useClick,
   useDismiss,
   useInteractions,
   safePolygon,
+  useTransitionStatus,
   type SafePolygonOptions,
 } from "@floating-ui/react"
 import {
@@ -211,35 +212,12 @@ export const Dropdown = ({
   const onVisible = useCallback(() => setVisible(true), [])
   const onHide = useCallback(() => setVisible(false), [])
 
-  // Drive CSS transition: wait one animation frame so the element is in the
-  // DOM before the opacity/transform transition kicks in.
-  const [transition, setTransition] = useState(false)
-  useEffect(() => {
-    requestAnimationFrame(() => {
-      setTransition(visible)
-    })
-  }, [visible])
-
-  const translation = useMemo(() => {
-    switch (placement) {
-      case "top-start":
-      case "top":
-      case "top-end":
-        return `translateY(10px)`
-      case "bottom-start":
-      case "bottom":
-      case "bottom-end":
-        return `translateY(-10px)`
-      case "left-start":
-      case "left":
-      case "left-end":
-        return `translateX(10px)`
-      case "right-start":
-      case "right":
-      case "right-end":
-        return `translateX(-10px)`
-    }
-  }, [placement])
+  // Placement-aware transitions via CSS data attributes (per Floating UI docs).
+  // CSS reads the current data-placement on every frame, so there's no stale
+  // capture when flip changes placement after mount.
+  const { isMounted, status } = useTransitionStatus(context, {
+    duration: _transition ? 250 : 0,
+  })
 
   // Padding on the panel that fills the gap between anchor and panel so the
   // safePolygon cursor path isn't interrupted.
@@ -275,7 +253,6 @@ export const Dropdown = ({
 
       const nextMaxHeight = calculateMaxHeight({
         anchorRect: anchorRef.current.getBoundingClientRect(),
-        // Use the actual Floating UI placement so max-height follows flips.
         position: resolvedPlacement,
         offset,
       })
@@ -283,8 +260,6 @@ export const Dropdown = ({
       setMaxHeight(nextMaxHeight)
     }
 
-    // Keep scroll/resize work cheap while still reacting immediately to a fresh
-    // open or placement change.
     const calculateOnViewportChange = debounce(calculate, 100)
 
     window.addEventListener("resize", calculateOnViewportChange, {
@@ -294,7 +269,6 @@ export const Dropdown = ({
       passive: true,
     })
 
-    // Immediate first pass prevents a stale max-height flash after flips.
     calculate()
 
     return () => {
@@ -307,7 +281,10 @@ export const Dropdown = ({
   const isClient = useDidMount()
 
   const dropdownPanel = useMemo(() => {
-    if (!(visible || keepInDOM)) return null
+    if (!(visible || isMounted || keepInDOM)) return null
+
+    const panelVisible = _transition ? isMounted : visible
+    const renderPanel = panelVisible || keepInDOM
 
     return (
       <Container
@@ -326,40 +303,40 @@ export const Dropdown = ({
         {...getFloatingProps()}
         {...rest}
       >
-        <Panel
-          transition={_transition}
-          maxHeight={maxHeight}
-          style={
-            transition
-              ? { opacity: 1, transform: "translate(0)" }
-              : { opacity: 0, transform: translation }
-          }
-        >
-          <FocusOn noIsolation enabled={focusEnabled} returnFocus={returnFocus}>
-            <Pane maxHeight={maxHeight}>
-              {typeof dropdown === "function"
-                ? (dropdown as any)({
-                    onVisible,
-                    onHide,
-                    setVisible,
-                    visible,
-                  })
-                : dropdown}
-            </Pane>
-          </FocusOn>
-        </Panel>
+        {renderPanel && (
+          <Panel
+            data-status={panelVisible ? status : "initial"}
+            data-placement={resolvedPlacement}
+            $animate={_transition}
+            maxHeight={maxHeight}
+          >
+            <FocusOn noIsolation enabled={focusEnabled} returnFocus={returnFocus}>
+              <Pane maxHeight={maxHeight}>
+                {typeof dropdown === "function"
+                  ? (dropdown as any)({
+                      onVisible,
+                      onHide,
+                      setVisible,
+                      visible,
+                    })
+                  : dropdown}
+              </Pane>
+            </FocusOn>
+          </Panel>
+        )}
       </Container>
     )
   }, [
     visible,
+    isMounted,
     keepInDOM,
     dropdownZIndex,
     placement,
+    resolvedPlacement,
     maxHeight,
     offset,
     _transition,
-    transition,
-    translation,
+    status,
     focusEnabled,
     returnFocus,
     dropdown,
@@ -396,9 +373,54 @@ const Container = styled(Box)<{ placement: Position } & BoxProps>`
   outline: 0;
 `
 
-const Panel = styled(Box)<{ transition: boolean; maxHeight: number }>`
-  transition: ${({ transition }) =>
-    transition ? "opacity 250ms ease-out, transform 250ms ease-out" : "none"};
+/**
+ * Placement-aware transitions driven by data attributes, following the pattern
+ * from https://floating-ui.com/docs/useTransition#placement-aware-transitions
+ *
+ * CSS reads data-placement (which is always the *resolved* placement from
+ * Floating UI, including flips) on every frame, so there is never a stale
+ * slide direction — even when flip changes the placement after mount.
+ */
+const Panel = styled(Box)<{ $animate: boolean; maxHeight: number }>`
+  ${({ $animate }) =>
+    $animate
+      ? css`
+          transition-property: opacity, transform;
+
+          &[data-status="open"],
+          &[data-status="close"] {
+            transition-duration: 250ms;
+            transition-timing-function: ease-out;
+          }
+
+          &[data-status="initial"],
+          &[data-status="close"] {
+            opacity: 0;
+          }
+
+          &[data-status="initial"][data-placement^="top"],
+          &[data-status="close"][data-placement^="top"] {
+            transform: translateY(10px);
+          }
+
+          &[data-status="initial"][data-placement^="bottom"],
+          &[data-status="close"][data-placement^="bottom"] {
+            transform: translateY(-10px);
+          }
+
+          &[data-status="initial"][data-placement^="left"],
+          &[data-status="close"][data-placement^="left"] {
+            transform: translateX(10px);
+          }
+
+          &[data-status="initial"][data-placement^="right"],
+          &[data-status="close"][data-placement^="right"] {
+            transform: translateX(-10px);
+          }
+        `
+      : css`
+          transition: none;
+        `}
 `
 
 const Pane = styled(Box)`

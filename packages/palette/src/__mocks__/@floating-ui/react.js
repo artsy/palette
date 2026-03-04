@@ -166,6 +166,12 @@ const useInteractions = (interactions = []) => ({
 // safePolygon returns a handleClose function stub
 const safePolygon = (_options) => (_state) => null
 
+// useTransitionStatus: stub for tests; isMounted and status follow context.open
+const useTransitionStatus = (context, _options) => ({
+  isMounted: context.open,
+  status: context.open ? "open" : "close",
+})
+
 module.exports = {
   useFloating,
   offset,
@@ -182,4 +188,5 @@ module.exports = {
   useFocus,
   useInteractions,
   safePolygon,
+  useTransitionStatus,
 }
