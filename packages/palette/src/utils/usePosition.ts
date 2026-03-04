@@ -142,8 +142,6 @@ export const usePosition = ({
     mw.push(hideMiddleware())
 
     return mw
-    // arrowRef is a stable ref object — its identity doesn't change
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offset, flip, clamp, padding, autoPlacement, arrowRef])
 
   const {
