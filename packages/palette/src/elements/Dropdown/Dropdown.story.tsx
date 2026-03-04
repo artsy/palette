@@ -473,6 +473,11 @@ export const SafePolygon = {
 
         <Flex>
           <Dropdown
+            safePolygonOptions={{
+              requireIntent: true,
+              buffer: 0.5,
+              blockPointerEvents: true,
+            }}
             dropdown={
               <Box
                 width="100vw"

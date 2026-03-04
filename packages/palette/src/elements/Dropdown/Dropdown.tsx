@@ -6,6 +6,7 @@ import {
   useDismiss,
   useInteractions,
   safePolygon,
+  type SafePolygonOptions,
 } from "@floating-ui/react"
 import {
   calculateMaxHeight,
@@ -75,6 +76,12 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
   returnFocus?: boolean
   /** Delay in milliseconds before showing the dropdown on hover (ignored when openDropdownByClick is true) */
   delay?: number
+  /**
+   * Optional overrides for Floating UI's safePolygon (used when openDropdownByClick is false).
+   * When omitted, the default hover close behavior is used (no custom safe polygon).
+   * Pass an object to customize, e.g. `{ requireIntent: false, buffer: 1, blockPointerEvents: true }`.
+   */
+  safePolygonOptions?: SafePolygonOptions | null
 }
 
 /**
@@ -95,6 +102,7 @@ export const Dropdown = ({
   autoPlacement = false,
   returnFocus = true,
   delay = 0,
+  safePolygonOptions,
   ...rest
 }: DropdownProps) => {
   const [visible, setVisible] = useState(false)
@@ -136,22 +144,18 @@ export const Dropdown = ({
     onOpenChange,
   })
 
-  // useHover: opens/closes on pointer enter/leave. safePolygon keeps the panel
-  // open while the cursor traverses the gap between anchor and panel.
+  // useHover: opens/closes on pointer enter/leave. Optionally use safePolygon
+  // to keep the panel open while the cursor traverses the gap (when safePolygonOptions is set).
   const hover = useHover(context, {
     enabled: !openDropdownByClick,
     delay: {
       open: delay ?? (_transition ? 50 : 1),
       close: _transition ? 150 : 50,
     },
-    // Menus should remain open while traversing toward the panel, even with
-    // slower cursor movement. The default `requireIntent: true` can close too
-    // aggressively for this UX.
-    handleClose: safePolygon({
-      requireIntent: false,
-      buffer: 1,
-      blockPointerEvents: true,
-    }),
+    handleClose:
+      safePolygonOptions !== undefined && safePolygonOptions !== null
+        ? safePolygon(safePolygonOptions)
+        : null,
   })
 
   // useClick: toggles for click-mode; open-only (toggle:false) for hover-mode
