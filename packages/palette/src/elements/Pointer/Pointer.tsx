@@ -1,195 +1,101 @@
-import React, { FC, useEffect, useMemo, useState, useCallback } from "react"
-import styled from "styled-components"
-import { variant } from "styled-system"
-import { Position } from "../../utils"
-import { useResizeObserver } from "../../utils/useResizeObserver"
-import { Box } from "../Box"
+import React, { useMemo } from "react"
+import styled, { css } from "styled-components"
+import { FloatingArrow, FloatingContext } from "@floating-ui/react"
+import { PositionRects } from "../../utils/usePosition"
 import { themeGet } from "@styled-system/theme-get"
 
 const POINTER_VARIANTS = {
-  defaultLight: {
-    backgroundColor: "mono0",
-  },
-  defaultDark: {
-    backgroundColor: "mono100",
-  },
-}
+  defaultLight: "defaultLight",
+  defaultDark: "defaultDark",
+} as const
 
 type PointerVariant = keyof typeof POINTER_VARIANTS
 
 export interface PointerProps {
-  anchorRef: React.RefObject<HTMLElement>
-  tooltipRef: React.RefObject<HTMLElement>
-  isFlipped: boolean
-  placement: Position
+  /**
+   * The floating context returned by `usePosition`. Required by `FloatingArrow`
+   * to resolve placement and arrow middleware data.
+   */
+  context: FloatingContext
+  /**
+   * Reference + floating element rects captured by the `captureRects`
+   * middleware. Used to apply the 2× threshold: the arrow tracks the anchor
+   * center only while the anchor is ≤ 2× the floating element's size on the
+   * relevant axis; beyond that the arrow is pinned near the aligned edge.
+   */
+  rects?: PositionRects
   variant?: PointerVariant
 }
 
+// Visual size of the arrow triangle (px).
+const ARROW_WIDTH = 14
+const ARROW_HEIGHT = 7
+
+// Inset from the aligned edge used when the anchor exceeds the 2× threshold.
+const EDGE_INSET = ARROW_WIDTH
+
 /**
- * Internal-use component for displaying a triangular pointer to an anchor node
+ * Internal-use arrow component.  Uses Floating UI's `FloatingArrow` for the
+ * SVG shape and positioning; applies a 2× size threshold to decide whether the
+ * arrow should track the anchor's center or be pinned near the aligned edge.
  */
-export const Pointer: FC<React.PropsWithChildren<PointerProps>> = ({
-  anchorRef,
-  tooltipRef,
-  isFlipped,
-  placement,
-  variant = "defaultLight",
-}) => {
-  const [[anchorWidth, anchorHeight], setAnchorDimensions] = useState([0, 0])
-  const [[tooltipWidth, tooltipHeight], setTooltipDimensions] = useState([0, 0])
+export const Pointer = React.forwardRef<SVGSVGElement, PointerProps>(
+  function Pointer({ context, rects, variant = "defaultLight" }, ref) {
+    const { placement } = context
+    const [axis, alignment] = placement.split("-") as [
+      string,
+      "start" | "end" | undefined
+    ]
 
-  const position = useMemo(() => {
-    const horizontalCenter = anchorWidth / 2
-    const verticalCenter = anchorHeight / 2
+    // Determine whether the anchor is wide/tall enough to exceed the 2× rule.
+    // When it does, the arrow is pinned to the aligned edge instead of tracking
+    // the anchor's geometric center (which would drift far outside the tooltip).
+    const overrideStyle = useMemo<React.CSSProperties>(() => {
+      if (!alignment || !rects) return {}
 
-    switch (placement) {
-      case "top-start":
-        return {
-          bottom: isFlipped ? "100%" : 0,
-          left: `${
-            horizontalCenter > tooltipWidth
-              ? POINTER_WIDTH
-              : horizontalCenter - POINTER_WIDTH / 2
-          }px`,
-        }
-      case "top":
-        return {
-          bottom: isFlipped ? "100%" : 0,
-          left: `calc(50% - ${POINTER_WIDTH / 2}px)`,
-        }
-      case "top-end":
-        return {
-          bottom: isFlipped ? "100%" : 0,
-          right: `${
-            horizontalCenter > tooltipWidth
-              ? POINTER_WIDTH * 2
-              : horizontalCenter + POINTER_WIDTH / 2
-          }px`,
-        }
-      case "bottom-start":
-        return {
-          top: isFlipped ? "100%" : 0,
-          left: `${
-            horizontalCenter > tooltipWidth
-              ? POINTER_WIDTH
-              : horizontalCenter - POINTER_WIDTH / 2
-          }px`,
-        }
-      case "bottom":
-        return {
-          top: isFlipped ? "100%" : 0,
-          left: `calc(50% - ${POINTER_WIDTH / 2}px)`,
-        }
-      case "bottom-end":
-        return {
-          top: isFlipped ? "100%" : 0,
-          right: `${
-            horizontalCenter > tooltipWidth
-              ? POINTER_WIDTH * 2
-              : horizontalCenter + POINTER_WIDTH / 2
-          }px`,
-        }
-      case "left-start":
-        return {
-          top: `${
-            verticalCenter > tooltipHeight - POINTER_WIDTH / 2
-              ? POINTER_WIDTH
-              : verticalCenter
-          }px`,
-          ...(isFlipped
-            ? { left: `-${POINTER_WIDTH / 2}px` }
-            : { right: `${POINTER_WIDTH / 2}px` }),
-        }
-      case "left":
-        return {
-          top: "50%",
-          ...(isFlipped
-            ? { left: `-${POINTER_WIDTH / 2}px` }
-            : { right: `${POINTER_WIDTH / 2}px` }),
-        }
-      case "left-end":
-        return {
-          bottom: `${
-            verticalCenter > tooltipHeight - POINTER_WIDTH / 2
-              ? POINTER_WIDTH
-              : verticalCenter
-          }px`,
+      const isHorizontal = axis === "top" || axis === "bottom"
+      const exceedsThreshold = isHorizontal
+        ? rects.reference.width > 2 * rects.floating.width
+        : rects.reference.height > 2 * rects.floating.height
 
-          ...(isFlipped
-            ? { left: `-${POINTER_WIDTH / 2}px` }
-            : { right: `${POINTER_WIDTH / 2}px` }),
-        }
-      case "right-start":
-        return {
-          top: `${
-            verticalCenter > tooltipHeight - POINTER_WIDTH / 2
-              ? POINTER_WIDTH
-              : verticalCenter
-          }px`,
-          ...(isFlipped
-            ? { right: `${POINTER_WIDTH / 2}px` }
-            : { left: `-${POINTER_WIDTH / 2}px` }),
-        }
-      case "right":
-        return {
-          top: "50%",
-          ...(isFlipped
-            ? { right: `${POINTER_WIDTH / 2}px` }
-            : { left: `-${POINTER_WIDTH / 2}px` }),
-        }
-      case "right-end":
-        return {
-          bottom: `${
-            verticalCenter > tooltipHeight - POINTER_WIDTH / 2
-              ? POINTER_WIDTH
-              : verticalCenter
-          }px`,
-          ...(isFlipped
-            ? { right: `${POINTER_WIDTH / 2}px` }
-            : { left: `-${POINTER_WIDTH / 2}px` }),
-        }
-    }
-  }, [
-    anchorHeight,
-    anchorWidth,
-    isFlipped,
-    placement,
-    tooltipHeight,
-    tooltipWidth,
-  ])
+      if (!exceedsThreshold) return {}
 
-  const handleResize = useCallback(() => {
-    if (!anchorRef.current || !tooltipRef.current) return
+      // Anchor is more than 2× the floating element on this axis — pin near edge.
+      if (isHorizontal) {
+        return alignment === "start"
+          ? { left: `${EDGE_INSET}px`, right: "auto" }
+          : { right: `${EDGE_INSET * 2}px`, left: "auto" }
+      } else {
+        return alignment === "start"
+          ? { top: `${EDGE_INSET}px`, bottom: "auto" }
+          : { bottom: `${EDGE_INSET}px`, top: "auto" }
+      }
+    }, [alignment, axis, rects])
 
-    const anchorRect = anchorRef.current.getBoundingClientRect()
-    const tooltipRect = tooltipRef.current.getBoundingClientRect()
-
-    setAnchorDimensions([anchorRect.width, anchorRect.height])
-    setTooltipDimensions([tooltipRect.width, tooltipRect.height])
-  }, [anchorRef, tooltipRef])
-
-  useEffect(handleResize, [handleResize])
-
-  useResizeObserver({ target: anchorRef, onResize: handleResize })
-
-  return <Container variant={variant} {...position} />
-}
-
-const POINTER_SIZE = 10 // px
-const POINTER_WIDTH = Math.sqrt(2 * Math.pow(10, 2)) // px
-
-const Container = styled(Box)<{ variant: PointerVariant }>`
-  z-index: -1;
-  position: absolute;
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: ${POINTER_SIZE}px;
-    height: ${POINTER_SIZE}px;
-    transform-origin: 0 0;
-    transform: rotate(-45deg);
-    box-shadow: ${themeGet("effects.dropShadow")};
-    ${variant({ variants: POINTER_VARIANTS })}
+    return (
+      <StyledFloatingArrow
+        ref={ref}
+        context={context}
+        $variant={variant}
+        fill="currentColor"
+        width={ARROW_WIDTH}
+        height={ARROW_HEIGHT}
+        tipRadius={1}
+        style={overrideStyle}
+      />
+    )
   }
+)
+
+const StyledFloatingArrow = styled(FloatingArrow)<{ $variant: PointerVariant }>`
+  ${({ $variant }) =>
+    $variant === "defaultDark"
+      ? css`
+          color: ${themeGet("colors.mono100")};
+        `
+      : css`
+          color: ${themeGet("colors.mono0")};
+        `}
+
+  filter: ${themeGet("effects.dropShadow")};
 `

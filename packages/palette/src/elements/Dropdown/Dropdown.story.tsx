@@ -10,6 +10,7 @@ import { Pill } from "../Pill"
 import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
 import { Spacer } from "../Spacer"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
+import { Message } from "../Message"
 
 export default {
   component: Dropdown,
@@ -459,6 +460,139 @@ export const ReturnFocusDisabled = {
   },
 }
 
+export const SafePolygon = {
+  render: () => {
+    return (
+      <Flex flexDirection="column" alignItems="flex-start" gap={1}>
+        <Message variant="info">
+          The dropdown uses Floating UI&apos;s <strong>safePolygon</strong>{" "}
+          handler. When you leave the anchor button, a dynamic triangle is drawn
+          from your cursor to the floating panel — the dropdown stays open while
+          your cursor is inside that polygon, preventing accidental dismissal.
+        </Message>
+
+        <Flex>
+          <Dropdown
+            safePolygonOptions={{
+              requireIntent: true,
+              buffer: 0.5,
+              blockPointerEvents: true,
+            }}
+            dropdown={
+              <Box
+                width="100vw"
+                p={2}
+                display="flex"
+                flexDirection="row"
+                gap={1}
+                flexWrap="wrap"
+              >
+                {[
+                  "First",
+                  "Second",
+                  "Third",
+                  "Fourth",
+                  "Fifth",
+                  "Sixth",
+                  "Seventh",
+                  "Eighth",
+                  "Ninth",
+                  "Tenth",
+                  "Eleventh",
+                  "Twelfth",
+                  "Thirteenth",
+                  "Fourteenth",
+                  "Fifteenth",
+                  "Sixteenth",
+                  "Seventeenth",
+                  "Eighteenth",
+                  "Nineteenth",
+                  "Twentieth",
+                  "Twenty-first",
+                  "Twenty-second",
+                  "Twenty-third",
+                  "Twenty-fourth",
+                  "Twenty-fifth",
+                  "Twenty-sixth",
+                  "Twenty-seventh",
+                  "Twenty-eighth",
+                  "Twenty-ninth",
+                  "Thirtieth",
+                  "Thirty-first",
+                  "Thirty-second",
+                  "Thirty-third",
+                  "Thirty-fourth",
+                  "Thirty-fifth",
+                  "Thirty-sixth",
+                  "Thirty-seventh",
+                  "Thirty-eighth",
+                  "Thirty-ninth",
+                  "Fortieth",
+                ].map((position) => (
+                  <Text key={position} variant="sm" width="20%" as="a" href="#">
+                    {position}
+                  </Text>
+                ))}
+              </Box>
+            }
+            placement="bottom"
+            offset={20}
+          >
+            {({ anchorRef, anchorProps }) => (
+              <Clickable
+                ref={anchorRef as any}
+                {...anchorProps}
+                border="1px solid"
+                borderColor="red100"
+                p={2}
+              >
+                Artists
+              </Clickable>
+            )}
+          </Dropdown>
+
+          <Dropdown
+            dropdown={
+              <Box width="100vw" p={2}>
+                <Text variant="sm">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo
+                  fugiat, minus nesciunt ex laudantium ab laboriosam, labore
+                  laborum deleniti non, temporibus mollitia excepturi cumque!
+                  Nemo eos delectus ipsa. Necessitatibus, est.
+                </Text>
+              </Box>
+            }
+            placement="bottom"
+            offset={20}
+          >
+            {({ anchorRef, anchorProps }) => (
+              <Clickable
+                ref={anchorRef as any}
+                {...anchorProps}
+                border="1px solid"
+                borderColor="red100"
+                p={2}
+                ml="-1px"
+              >
+                Artworks
+              </Clickable>
+            )}
+          </Dropdown>
+        </Flex>
+      </Flex>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates Floating UI's `safePolygon` hover handler. A dynamic safe triangle is computed between your cursor and the floating panel, so the dropdown stays open while you move diagonally toward it — even across a large gap.",
+      },
+    },
+    chromatic: { disable: true },
+  },
+}
+
 export const CustomDelay = {
   render: () => {
     const dropdown = (
@@ -532,5 +666,40 @@ export const CustomDelay = {
       },
     },
     chromatic: { disable: true },
+  },
+}
+
+export const AtViewportEdge = {
+  render: () => {
+    return (
+      <Box height={5000}>
+        <Box height="80vh" bg="mono10" width="50%" />
+
+        <Dropdown
+          placement="bottom"
+          dropdown={
+            <Box width={200} p={2}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+              consequuntur facere velit rerum amet fugiat recusandae suscipit.
+              Fugiat obcaecati reiciendis vel, sapiente odio repellat fugit
+              alias incidunt? Ex, magnam magni.
+            </Box>
+          }
+        >
+          {({ anchorRef, anchorProps }) => {
+            return (
+              <Button
+                ref={anchorRef}
+                variant="primaryBlack"
+                size="small"
+                {...anchorProps}
+              >
+                Hover
+              </Button>
+            )
+          }}
+        </Dropdown>
+      </Box>
+    )
   },
 }

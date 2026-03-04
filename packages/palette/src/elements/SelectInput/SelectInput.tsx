@@ -76,7 +76,7 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
       defaultOption || options[0]
     )
 
-    const { anchorRef, tooltipRef } = usePosition({
+    const { anchorRef, tooltipRef, floatingStyles } = usePosition({
       position: "bottom",
       offset: 10,
       active: open,
@@ -158,6 +158,7 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
             ref={tooltipRef as any}
             role="listbox"
             width={width}
+            style={floatingStyles}
           >
             <SelectInputList
               options={options}

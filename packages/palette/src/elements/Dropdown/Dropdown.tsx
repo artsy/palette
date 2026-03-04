@@ -1,6 +1,21 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import styled from "styled-components"
-import { calculateMaxHeight, Position, usePosition } from "../../utils"
+import styled, { css } from "styled-components"
+import {
+  useHover,
+  useClick,
+  useDismiss,
+  useInteractions,
+  safePolygon,
+  useTransitionStatus,
+  type SafePolygonOptions,
+} from "@floating-ui/react"
+import {
+  calculateMaxHeight,
+  Position,
+  PositionAutoPlacement,
+  PositionFlip,
+  usePosition,
+} from "../../utils"
 import { useDidMount } from "../../utils/useDidMount"
 import { usePortal } from "../../utils/usePortal"
 import { Box, BoxProps } from "../Box"
@@ -50,11 +65,24 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
   openDropdownByClick?: boolean
   children: Children
   /** Optionally disable flipping (default: `true`) */
-  flip?: boolean
+  flip?: PositionFlip
+  /**
+   * Use Floating UI's autoPlacement middleware. Accepts a boolean or full
+   * AutoPlacement options object.
+   *
+   * When enabled, it takes precedence over `flip`.
+   */
+  autoPlacement?: PositionAutoPlacement
   /** Whether to return focus to the previous element when the dropdown closes (default: `true`) */
   returnFocus?: boolean
   /** Delay in milliseconds before showing the dropdown on hover (ignored when openDropdownByClick is true) */
   delay?: number
+  /**
+   * Optional overrides for Floating UI's safePolygon (used when openDropdownByClick is false).
+   * When omitted, the default hover close behavior is used (no custom safe polygon).
+   * Pass an object to customize, e.g. `{ requireIntent: false, buffer: 1, blockPointerEvents: true }`.
+   */
+  safePolygonOptions?: SafePolygonOptions | null
 }
 
 /**
@@ -72,212 +100,147 @@ export const Dropdown = ({
   openDropdownByClick,
   transition: _transition = true,
   flip = true,
+  autoPlacement = false,
   returnFocus = true,
   delay = 0,
+  safePolygonOptions,
   ...rest
 }: DropdownProps) => {
   const [visible, setVisible] = useState(false)
 
-  // If prop updates/set initial visibility.
+  // Sync with controlled `visible` prop
   useEffect(() => {
     setVisible(_visible)
   }, [_visible])
 
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Track whether the current open was triggered by pointer (hover) so we know
+  // whether to enable keyboard focus-trapping via FocusOn.
+  const pointerRef = useRef(false)
 
-  // We need to keep the pointer state in sync with the visibility state, else we
-  // wind up with focus isolation out of sync.
-  const setVisibility = useCallback(
-    ({
-      visible,
-      isPointer = false,
-    }: {
-      visible: boolean
-      isPointer?: boolean
-    }) => {
-      // Use custom delay when opening via pointer interaction (hover), but only if not using click mode
-      const defaultDelay = _transition ? (visible ? 50 : 150) : visible ? 1 : 50
-      const finalDelay =
-        visible && isPointer && !openDropdownByClick ? delay : defaultDelay
-
-      timeoutRef.current && clearTimeout(timeoutRef.current)
-      timeoutRef.current = setTimeout(() => {
-        if (!visible && activeRef.current) return
-        pointerRef.current = isPointer
-        setVisible(visible)
-      }, finalDelay)
+  // onOpenChange is called by Floating UI interaction hooks (useHover, useClick,
+  // useDismiss). The `reason` arg lets us detect pointer vs keyboard opens.
+  const onOpenChange = useCallback(
+    (open: boolean, _event?: Event, reason?: string) => {
+      pointerRef.current =
+        open && (reason === "hover" || reason === "safe-polygon")
+      setVisible(open)
     },
-    [_transition, delay, openDropdownByClick]
+    []
   )
-
-  const onVisible = () => {
-    setVisibility({ visible: true })
-  }
-
-  const onHide = useCallback(() => {
-    setVisibility({ visible: false })
-  }, [setVisibility])
-
-  const onToggleVisibility = () => {
-    if (visible) {
-      return onHide()
-    }
-
-    onVisible()
-  }
 
   const {
     anchorRef,
     tooltipRef: panelRef,
-    state: { isFlipped },
+    floatingStyles,
+    resolvedPlacement,
+    context,
   } = usePosition({
     position: placement,
     offset: 0,
     active: visible,
-    flip,
+    // Avoid running both middleware: autoPlacement supersedes flip.
+    flip: autoPlacement ? false : flip,
+    autoPlacement,
     padding: offset,
+    onOpenChange,
   })
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onHide()
-      }
-    }
+  // useHover: opens/closes on pointer enter/leave. Optionally use safePolygon
+  // to keep the panel open while the cursor traverses the gap (when safePolygonOptions is set).
+  const hover = useHover(context, {
+    enabled: !openDropdownByClick,
+    delay: {
+      open: delay ?? (_transition ? 50 : 1),
+      close: _transition ? 150 : 50,
+    },
+    handleClose:
+      safePolygonOptions !== undefined && safePolygonOptions !== null
+        ? safePolygon(safePolygonOptions)
+        : null,
+  })
 
-    // Close dropdown when focus leaves element
+  // useClick: toggles for click-mode; open-only (toggle:false) for hover-mode
+  // so keyboard users can press Enter/Space on a focused anchor to open it.
+  const click = useClick(context, {
+    toggle: !!openDropdownByClick,
+  })
+
+  // useDismiss: closes on Escape key and click outside (replaces manual listeners).
+  const dismiss = useDismiss(context)
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    click,
+    dismiss,
+  ])
+
+  // Tab-key close for hover-mode: FocusOn is disabled so focus can leave the
+  // panel freely; we watch for that and close when it does.
+  useEffect(() => {
+    if (!visible || openDropdownByClick) return
+
     const handleKeyUp = (event: KeyboardEvent) => {
       if (!panelRef.current) return
-
       if (
         event.key === "Tab" &&
-        !(
-          panelRef.current === document.activeElement ||
-          panelRef.current.contains(document.activeElement)
-        )
+        !panelRef.current.contains(document.activeElement)
       ) {
-        onHide()
+        setVisible(false)
       }
     }
+
+    document.addEventListener("keyup", handleKeyUp)
+    return () => document.removeEventListener("keyup", handleKeyUp)
+  }, [visible, openDropdownByClick, panelRef])
+
+  // Close when a link inside the panel is clicked (click-mode only).
+  useEffect(() => {
+    if (!openDropdownByClick) return
 
     const handleClick = (event: MouseEvent) => {
-      if (!panelRef.current || !openDropdownByClick) return
+      if (!panelRef.current) return
       const target = event.target as Element
-      const tagName = target.tagName.toLowerCase()
-      let isClosableElement = tagName === "a"
-      let element: Element | null = target
-
-      // Find parent link element
-      if (!isClosableElement) {
-        element = target.closest("a")
-        isClosableElement = !!element
-      }
-
-      if (isClosableElement && element && panelRef.current.contains(element)) {
-        onHide()
-      }
+      const link =
+        target.tagName.toLowerCase() === "a" ? target : target.closest("a")
+      if (link && panelRef.current.contains(link)) setVisible(false)
     }
 
-    document.addEventListener("keydown", handleKeyDown)
-    document.addEventListener("keyup", handleKeyUp)
     document.addEventListener("click", handleClick)
+    return () => document.removeEventListener("click", handleClick)
+  }, [openDropdownByClick, panelRef])
 
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown)
-      document.removeEventListener("keyup", handleKeyUp)
-      document.removeEventListener("click", handleClick)
-    }
-  }, [panelRef, openDropdownByClick, onHide])
+  const onVisible = useCallback(() => setVisible(true), [])
+  const onHide = useCallback(() => setVisible(false), [])
 
-  const activeRef = useRef(false)
+  // Placement-aware transitions via CSS data attributes (per Floating UI docs).
+  // CSS reads the current data-placement on every frame, so there's no stale
+  // capture when flip changes placement after mount.
+  const { isMounted, status } = useTransitionStatus(context, {
+    duration: _transition ? 250 : 0,
+  })
 
-  const handleMouseEnter = () => {
-    activeRef.current = true
-  }
-
-  const handleMouseLeave = () => {
-    activeRef.current = false
-    onHide()
-  }
-
-  const [transition, setTransition] = useState(false)
-
-  // Wait for next tick so that animation runs
-  useEffect(() => {
-    requestAnimationFrame(() => {
-      setTransition(visible)
-    })
-  }, [visible])
-
-  const translation = useMemo(() => {
-    switch (placement) {
-      case "top-start":
-      case "top":
-      case "top-end":
-        return `translateY(10px)`
-      case "bottom-start":
-      case "bottom":
-      case "bottom-end":
-        return `translateY(-10px)`
-      case "left-start":
-      case "left":
-      case "left-end":
-        return `translateX(10px)`
-      case "right-start":
-      case "right":
-      case "right-end":
-        return `translateX(-10px)`
-    }
-  }, [placement])
-
-  // Fills offset gap between anchor and panel to prevent mouseout
+  // Padding on the panel that fills the gap between anchor and panel so the
+  // safePolygon cursor path isn't interrupted.
   const padding = useMemo(() => {
-    switch (placement) {
+    switch (resolvedPlacement) {
       case "top-start":
       case "top":
       case "top-end":
-        return { [isFlipped ? "pt" : "pb"]: offset }
+        return { pb: offset }
       case "bottom-start":
       case "bottom":
       case "bottom-end":
-        return { [isFlipped ? "pb" : "pt"]: offset }
+        return { pt: offset }
       case "left-start":
       case "left":
       case "left-end":
-        return { [isFlipped ? "pl" : "pr"]: offset }
+        return { pr: offset }
       case "right-start":
       case "right":
       case "right-end":
-        return { [isFlipped ? "pr" : "pl"]: offset }
+        return { pl: offset }
     }
-  }, [placement, isFlipped, offset])
-
-  const pointerRef = useRef(false)
-
-  const handlePointerVisible = () => {
-    setVisibility({ visible: true, isPointer: true })
-  }
-
-  const handlePointerHide = () => {
-    setVisibility({ visible: false, isPointer: false })
-  }
-
-  const anchorProps: React.HTMLAttributes<HTMLElement> = {
-    "aria-expanded": visible,
-    "aria-haspopup": true,
-    ...(openDropdownByClick
-      ? {
-          onClick: onToggleVisibility,
-        }
-      : {
-          onMouseEnter: handlePointerVisible,
-          onMouseLeave: handlePointerHide,
-          onClick: onVisible,
-        }),
-  }
-
-  const { createPortal } = usePortal()
-  const isClient = useDidMount()
+  }, [resolvedPlacement, offset])
 
   const isPointer = !openDropdownByClick && pointerRef.current
   const focusEnabled = visible && !isPointer
@@ -285,30 +248,43 @@ export const Dropdown = ({
   const [maxHeight, setMaxHeight] = useState(0)
 
   useEffect(() => {
-    const calculate = debounce(() => {
+    const calculate = () => {
       if (!anchorRef.current) return
 
       const nextMaxHeight = calculateMaxHeight({
         anchorRect: anchorRef.current.getBoundingClientRect(),
-        position: placement,
+        position: resolvedPlacement,
         offset,
       })
 
       setMaxHeight(nextMaxHeight)
-    }, 500)
+    }
 
-    window.addEventListener("resize", calculate, { passive: true })
-    window.addEventListener("scroll", calculate, { passive: true })
+    const calculateOnViewportChange = debounce(calculate, 100)
+
+    window.addEventListener("resize", calculateOnViewportChange, {
+      passive: true,
+    })
+    window.addEventListener("scroll", calculateOnViewportChange, {
+      passive: true,
+    })
+
     calculate()
 
     return () => {
-      window.removeEventListener("resize", calculate)
-      window.removeEventListener("scroll", calculate)
+      window.removeEventListener("resize", calculateOnViewportChange)
+      window.removeEventListener("scroll", calculateOnViewportChange)
     }
-  }, [anchorRef, offset, placement, visible])
+  }, [anchorRef, offset, resolvedPlacement, visible])
+
+  const { createPortal } = usePortal()
+  const isClient = useDidMount()
 
   const dropdownPanel = useMemo(() => {
-    if (!(visible || keepInDOM)) return null
+    if (!(visible || isMounted || keepInDOM)) return null
+
+    const panelVisible = _transition ? isMounted : visible
+    const renderPanel = panelVisible || keepInDOM
 
     return (
       <Container
@@ -319,63 +295,61 @@ export const Dropdown = ({
         display="inline-block"
         placement={placement}
         style={{
+          ...floatingStyles,
           ...(keepInDOM ? { visibility: visible ? "visible" : "hidden" } : {}),
         }}
-        {...(openDropdownByClick
-          ? {}
-          : { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave })}
         maxHeight={maxHeight + offset}
         {...padding}
+        {...getFloatingProps()}
         {...rest}
       >
-        <Panel
-          transition={_transition}
-          maxHeight={maxHeight}
-          style={
-            transition
-              ? // In
-                { opacity: 1, transform: "translate(0)" }
-              : // Out
-                { opacity: 0, transform: translation }
-          }
-        >
-          <FocusOn
-            noIsolation
-            enabled={focusEnabled}
-            onClickOutside={onHide}
-            returnFocus={returnFocus}
+        {renderPanel && (
+          <Panel
+            data-status={panelVisible ? status : "initial"}
+            data-placement={resolvedPlacement}
+            $animate={_transition}
+            maxHeight={maxHeight}
           >
-            <Pane maxHeight={maxHeight}>
-              {typeof dropdown === "function"
-                ? (dropdown as any)({
-                    onVisible,
-                    onHide,
-                    setVisible,
-                    visible,
-                  })
-                : dropdown}
-            </Pane>
-          </FocusOn>
-        </Panel>
+            <FocusOn noIsolation enabled={focusEnabled} returnFocus={returnFocus}>
+              <Pane maxHeight={maxHeight}>
+                {typeof dropdown === "function"
+                  ? (dropdown as any)({
+                      onVisible,
+                      onHide,
+                      setVisible,
+                      visible,
+                    })
+                  : dropdown}
+              </Pane>
+            </FocusOn>
+          </Panel>
+        )}
       </Container>
     )
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     visible,
+    isMounted,
     keepInDOM,
     dropdownZIndex,
     placement,
-    openDropdownByClick,
+    resolvedPlacement,
     maxHeight,
     offset,
     _transition,
-    transition,
-    translation,
+    status,
     focusEnabled,
     returnFocus,
     dropdown,
     padding,
+    floatingStyles,
+    getFloatingProps,
+    rest,
   ])
+
+  const anchorProps: React.HTMLAttributes<HTMLElement> = getReferenceProps({
+    "aria-expanded": visible,
+    "aria-haspopup": true as const,
+  })
 
   return (
     <>
@@ -388,9 +362,6 @@ export const Dropdown = ({
         visible,
       })}
 
-      {/* During SSR, `createPortal` returns null because the DOM isn't available.
-          When `keepInDOM` is true, render directly in the tree so the content
-          is present in the server-rendered HTML. After hydration, it moves to a portal. */}
       {dropdownPanel &&
         (!isClient && keepInDOM ? dropdownPanel : createPortal(dropdownPanel))}
     </>
@@ -398,14 +369,58 @@ export const Dropdown = ({
 }
 
 const Container = styled(Box)<{ placement: Position } & BoxProps>`
-  position: fixed;
   text-align: left;
   outline: 0;
 `
 
-const Panel = styled(Box)<{ transition: boolean; maxHeight: number }>`
-  transition: ${({ transition }) =>
-    transition ? "opacity 250ms ease-out, transform 250ms ease-out" : "none"};
+/**
+ * Placement-aware transitions driven by data attributes, following the pattern
+ * from https://floating-ui.com/docs/useTransition#placement-aware-transitions
+ *
+ * CSS reads data-placement (which is always the *resolved* placement from
+ * Floating UI, including flips) on every frame, so there is never a stale
+ * slide direction — even when flip changes the placement after mount.
+ */
+const Panel = styled(Box)<{ $animate: boolean; maxHeight: number }>`
+  ${({ $animate }) =>
+    $animate
+      ? css`
+          transition-property: opacity, transform;
+
+          &[data-status="open"],
+          &[data-status="close"] {
+            transition-duration: 250ms;
+            transition-timing-function: ease-out;
+          }
+
+          &[data-status="initial"],
+          &[data-status="close"] {
+            opacity: 0;
+          }
+
+          &[data-status="initial"][data-placement^="top"],
+          &[data-status="close"][data-placement^="top"] {
+            transform: translateY(10px);
+          }
+
+          &[data-status="initial"][data-placement^="bottom"],
+          &[data-status="close"][data-placement^="bottom"] {
+            transform: translateY(-10px);
+          }
+
+          &[data-status="initial"][data-placement^="left"],
+          &[data-status="close"][data-placement^="left"] {
+            transform: translateX(10px);
+          }
+
+          &[data-status="initial"][data-placement^="right"],
+          &[data-status="close"][data-placement^="right"] {
+            transform: translateX(-10px);
+          }
+        `
+      : css`
+          transition: none;
+        `}
 `
 
 const Pane = styled(Box)`
