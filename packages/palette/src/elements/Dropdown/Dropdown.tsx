@@ -22,7 +22,7 @@ import { Box, BoxProps } from "../Box"
 import { FocusOn } from "react-focus-on"
 import { themeGet } from "@styled-system/theme-get"
 import { debounce } from "es-toolkit"
-import { useDropdownGroupContext } from "./DropdownGroupContext"
+import { useDropdownGroupItem } from "./DropdownGroupContext"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -107,24 +107,27 @@ export const Dropdown = ({
   safePolygonOptions,
   ...rest
 }: DropdownProps) => {
-  const dropdownGroup = useDropdownGroupContext()
-  const groupedHoverInteractions = !!dropdownGroup && !openDropdownByClick
-  const group = groupedHoverInteractions ? dropdownGroup : null
   const dropdownIdRef = useRef<string>(generateDropdownId())
   const dropdownId = dropdownIdRef.current
+
+  const {
+    anchorGroupProps,
+    openDelay,
+    transitionEnabled,
+    enterTransitionDisabled,
+    leaveTransitionDisabled,
+    onHoverOpen,
+    onHoverClose,
+    clearEnterTransitionDisable,
+    clearLeaveTransitionDisable,
+  } = useDropdownGroupItem({
+    id: dropdownId,
+    enabled: !openDropdownByClick,
+    delay,
+    transition: _transition,
+  })
+
   const [visible, setVisible] = useState(false)
-  const [disableTransitionReason, setDisableTransitionReason] = useState<
-    "lateral-enter" | "lateral-leave" | null
-  >(null)
-  const activeDropdownId = group?.activeDropdownId ?? null
-  const lateralEntry =
-    groupedHoverInteractions &&
-    activeDropdownId !== null &&
-    activeDropdownId !== dropdownId
-  const transitionEnabled = _transition && disableTransitionReason === null
-  const openDelay = lateralEntry
-    ? group?.lateralOpenDelay ?? delay ?? (_transition ? 50 : 1)
-    : delay ?? (_transition ? 50 : 1)
 
   // Sync with controlled `visible` prop
   useEffect(() => {
@@ -135,24 +138,6 @@ export const Dropdown = ({
   // whether to enable keyboard focus-trapping via FocusOn.
   const pointerRef = useRef(false)
 
-  // Keep transitions disabled only for the specific lateral handoff cycle.
-  useEffect(() => {
-    if (!disableTransitionReason) return
-
-    if (
-      disableTransitionReason === "lateral-enter" &&
-      visible &&
-      activeDropdownId === dropdownId
-    ) {
-      setDisableTransitionReason(null)
-      return
-    }
-
-    if (disableTransitionReason === "lateral-leave" && !visible) {
-      setDisableTransitionReason(null)
-    }
-  }, [disableTransitionReason, visible, activeDropdownId, dropdownId])
-
   // onOpenChange is called by Floating UI interaction hooks (useHover, useClick,
   // useDismiss). The `reason` arg lets us detect pointer vs keyboard opens.
   const onOpenChange = useCallback(
@@ -161,12 +146,14 @@ export const Dropdown = ({
         open && (reason === "hover" || reason === "safe-polygon")
 
       if (open && !openDropdownByClick) {
-        group?.onHoverOpen(dropdownId)
+        onHoverOpen()
+      } else if (!open && !openDropdownByClick) {
+        onHoverClose()
       }
 
       setVisible(open)
     },
-    [dropdownId, group, openDropdownByClick]
+    [onHoverOpen, onHoverClose, openDropdownByClick]
   )
 
   const {
@@ -259,6 +246,23 @@ export const Dropdown = ({
   const { isMounted, status } = useTransitionStatus(context, {
     duration: transitionEnabled ? 250 : 0,
   })
+
+  useEffect(() => {
+    if (!enterTransitionDisabled || !visible) return
+
+    clearEnterTransitionDisable()
+  }, [enterTransitionDisabled, visible, clearEnterTransitionDisable])
+
+  useEffect(() => {
+    if (!leaveTransitionDisabled || visible || isMounted) return
+
+    clearLeaveTransitionDisable()
+  }, [
+    leaveTransitionDisabled,
+    visible,
+    isMounted,
+    clearLeaveTransitionDisable,
+  ])
 
   // Padding on the panel that fills the gap between anchor and panel so the
   // safePolygon cursor path isn't interrupted.
@@ -390,34 +394,7 @@ export const Dropdown = ({
   const anchorProps: React.HTMLAttributes<HTMLElement> = getReferenceProps({
     "aria-expanded": visible,
     "aria-haspopup": true as const,
-    ...(group
-      ? {
-          "data-dropdown-group": group.groupId,
-          onMouseEnter: () => {
-            const isLateralEntry =
-              group.activeDropdownId !== null &&
-              group.activeDropdownId !== dropdownId
-
-            setDisableTransitionReason(
-              isLateralEntry ? "lateral-enter" : null
-            )
-
-            group.onAnchorEnter(dropdownId)
-          },
-          onMouseLeave: (event: React.MouseEvent<HTMLElement>) => {
-            const nextTarget = event.relatedTarget
-            const movingWithinGroup =
-              nextTarget instanceof Element &&
-              nextTarget.closest(`[data-dropdown-group="${group.groupId}"]`)
-
-            setDisableTransitionReason(
-              movingWithinGroup ? "lateral-leave" : null
-            )
-
-            group.onAnchorLeave(event)
-          },
-        }
-      : {}),
+    ...anchorGroupProps,
   })
 
   return (
