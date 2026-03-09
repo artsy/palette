@@ -3,6 +3,7 @@ import React from "react"
 import { act } from "react-dom/test-utils"
 import { FocusOn } from "react-focus-on"
 import { Dropdown } from "../Dropdown"
+import { DropdownGroupProvider } from "../DropdownGroupContext"
 
 jest.useFakeTimers()
 
@@ -135,6 +136,93 @@ describe("Dropdown", () => {
       const focusOnComponent = wrapper.find(FocusOn)
       expect(focusOnComponent).toHaveLength(1)
       expect(focusOnComponent.prop("returnFocus")).toBe(false)
+    })
+  })
+
+  describe("grouped behavior", () => {
+    it("marks grouped anchors with a shared group id", () => {
+      const wrapper = mount(
+        <div>
+          <DropdownGroupProvider lateralOpenDelay={200}>
+            <Dropdown dropdown={<div>first dropdown content</div>} delay={0}>
+              {({ anchorRef, anchorProps }) => {
+                return (
+                  <a ref={anchorRef as any} {...anchorProps}>
+                    first anchor
+                  </a>
+                )
+              }}
+            </Dropdown>
+
+            <Dropdown dropdown={<div>second dropdown content</div>} delay={0}>
+              {({ anchorRef, anchorProps }) => {
+                return (
+                  <a ref={anchorRef as any} {...anchorProps}>
+                    second anchor
+                  </a>
+                )
+              }}
+            </Dropdown>
+          </DropdownGroupProvider>
+        </div>
+      )
+
+      const firstAnchor = wrapper.find("a").at(0)
+      const secondAnchor = wrapper.find("a").at(1)
+
+      expect(firstAnchor.prop("data-dropdown-group")).toBeDefined()
+      expect(firstAnchor.prop("data-dropdown-group")).toBe(
+        secondAnchor.prop("data-dropdown-group")
+      )
+    })
+
+    it("resets to default delay after leaving the dropdown group", () => {
+      const wrapper = mount(
+        <div>
+          <DropdownGroupProvider lateralOpenDelay={200}>
+            <Dropdown dropdown={<div>first dropdown content</div>} delay={0}>
+              {({ anchorRef, anchorProps }) => {
+                return (
+                  <a ref={anchorRef as any} {...anchorProps}>
+                    first anchor
+                  </a>
+                )
+              }}
+            </Dropdown>
+
+            <Dropdown dropdown={<div>second dropdown content</div>} delay={0}>
+              {({ anchorRef, anchorProps }) => {
+                return (
+                  <a ref={anchorRef as any} {...anchorProps}>
+                    second anchor
+                  </a>
+                )
+              }}
+            </Dropdown>
+          </DropdownGroupProvider>
+        </div>
+      )
+
+      const firstAnchor = wrapper.find("a").at(0)
+      const secondAnchor = wrapper.find("a").at(1)
+
+      act(() => {
+        firstAnchor.simulate("mouseenter")
+        jest.runOnlyPendingTimers()
+      })
+
+      act(() => {
+        firstAnchor.simulate("mouseleave", { relatedTarget: null })
+        jest.runAllTimers()
+      })
+
+      act(() => {
+        secondAnchor.simulate("mouseenter")
+        jest.advanceTimersByTime(1)
+      })
+      wrapper.update()
+
+      expect(wrapper.html()).toContain("second dropdown content")
     })
   })
 })

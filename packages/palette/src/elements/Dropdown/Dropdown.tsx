@@ -22,6 +22,7 @@ import { Box, BoxProps } from "../Box"
 import { FocusOn } from "react-focus-on"
 import { themeGet } from "@styled-system/theme-get"
 import { debounce } from "es-toolkit"
+import { useDropdownGroupContext } from "./DropdownGroupContext"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -106,7 +107,24 @@ export const Dropdown = ({
   safePolygonOptions,
   ...rest
 }: DropdownProps) => {
+  const dropdownGroup = useDropdownGroupContext()
+  const groupedHoverInteractions = !!dropdownGroup && !openDropdownByClick
+  const group = groupedHoverInteractions ? dropdownGroup : null
+  const dropdownIdRef = useRef<string>(generateDropdownId())
+  const dropdownId = dropdownIdRef.current
   const [visible, setVisible] = useState(false)
+  const [disableTransitionReason, setDisableTransitionReason] = useState<
+    "lateral-enter" | "lateral-leave" | null
+  >(null)
+  const activeDropdownId = group?.activeDropdownId ?? null
+  const lateralEntry =
+    groupedHoverInteractions &&
+    activeDropdownId !== null &&
+    activeDropdownId !== dropdownId
+  const transitionEnabled = _transition && disableTransitionReason === null
+  const openDelay = lateralEntry
+    ? group?.lateralOpenDelay ?? delay ?? (_transition ? 50 : 1)
+    : delay ?? (_transition ? 50 : 1)
 
   // Sync with controlled `visible` prop
   useEffect(() => {
@@ -117,15 +135,38 @@ export const Dropdown = ({
   // whether to enable keyboard focus-trapping via FocusOn.
   const pointerRef = useRef(false)
 
+  // Keep transitions disabled only for the specific lateral handoff cycle.
+  useEffect(() => {
+    if (!disableTransitionReason) return
+
+    if (
+      disableTransitionReason === "lateral-enter" &&
+      visible &&
+      activeDropdownId === dropdownId
+    ) {
+      setDisableTransitionReason(null)
+      return
+    }
+
+    if (disableTransitionReason === "lateral-leave" && !visible) {
+      setDisableTransitionReason(null)
+    }
+  }, [disableTransitionReason, visible, activeDropdownId, dropdownId])
+
   // onOpenChange is called by Floating UI interaction hooks (useHover, useClick,
   // useDismiss). The `reason` arg lets us detect pointer vs keyboard opens.
   const onOpenChange = useCallback(
     (open: boolean, _event?: Event, reason?: string) => {
       pointerRef.current =
         open && (reason === "hover" || reason === "safe-polygon")
+
+      if (open && !openDropdownByClick) {
+        group?.onHoverOpen(dropdownId)
+      }
+
       setVisible(open)
     },
-    []
+    [dropdownId, group, openDropdownByClick]
   )
 
   const {
@@ -150,7 +191,7 @@ export const Dropdown = ({
   const hover = useHover(context, {
     enabled: !openDropdownByClick,
     delay: {
-      open: delay ?? (_transition ? 50 : 1),
+      open: openDelay,
       close: _transition ? 150 : 50,
     },
     handleClose:
@@ -216,7 +257,7 @@ export const Dropdown = ({
   // CSS reads the current data-placement on every frame, so there's no stale
   // capture when flip changes placement after mount.
   const { isMounted, status } = useTransitionStatus(context, {
-    duration: _transition ? 250 : 0,
+    duration: transitionEnabled ? 250 : 0,
   })
 
   // Padding on the panel that fills the gap between anchor and panel so the
@@ -283,7 +324,7 @@ export const Dropdown = ({
   const dropdownPanel = useMemo(() => {
     if (!(visible || isMounted || keepInDOM)) return null
 
-    const panelVisible = _transition ? isMounted : visible
+    const panelVisible = transitionEnabled ? isMounted : visible
     const renderPanel = panelVisible || keepInDOM
 
     return (
@@ -307,7 +348,7 @@ export const Dropdown = ({
           <Panel
             data-status={panelVisible ? status : "initial"}
             data-placement={resolvedPlacement}
-            $animate={_transition}
+            $animate={transitionEnabled}
             maxHeight={maxHeight}
           >
             <FocusOn noIsolation enabled={focusEnabled} returnFocus={returnFocus}>
@@ -335,7 +376,7 @@ export const Dropdown = ({
     resolvedPlacement,
     maxHeight,
     offset,
-    _transition,
+    transitionEnabled,
     status,
     focusEnabled,
     returnFocus,
@@ -349,6 +390,34 @@ export const Dropdown = ({
   const anchorProps: React.HTMLAttributes<HTMLElement> = getReferenceProps({
     "aria-expanded": visible,
     "aria-haspopup": true as const,
+    ...(group
+      ? {
+          "data-dropdown-group": group.groupId,
+          onMouseEnter: () => {
+            const isLateralEntry =
+              group.activeDropdownId !== null &&
+              group.activeDropdownId !== dropdownId
+
+            setDisableTransitionReason(
+              isLateralEntry ? "lateral-enter" : null
+            )
+
+            group.onAnchorEnter(dropdownId)
+          },
+          onMouseLeave: (event: React.MouseEvent<HTMLElement>) => {
+            const nextTarget = event.relatedTarget
+            const movingWithinGroup =
+              nextTarget instanceof Element &&
+              nextTarget.closest(`[data-dropdown-group="${group.groupId}"]`)
+
+            setDisableTransitionReason(
+              movingWithinGroup ? "lateral-leave" : null
+            )
+
+            group.onAnchorLeave(event)
+          },
+        }
+      : {}),
   })
 
   return (
@@ -432,3 +501,10 @@ const Pane = styled(Box)`
     overflow-y: auto;
   }
 `
+
+let dropdownIdCounter = 0
+
+const generateDropdownId = () => {
+  dropdownIdCounter += 1
+  return `dropdown-${dropdownIdCounter}`
+}

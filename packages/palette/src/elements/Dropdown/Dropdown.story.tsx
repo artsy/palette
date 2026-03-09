@@ -10,7 +10,7 @@ import { Pill } from "../Pill"
 import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
 import { Spacer } from "../Spacer"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
-import { Message } from "../Message"
+import { DropdownGroupProvider } from "./DropdownGroupContext"
 
 export default {
   component: Dropdown,
@@ -460,24 +460,12 @@ export const ReturnFocusDisabled = {
   },
 }
 
-export const SafePolygon = {
+export const NavBarDropdownGroup = {
   render: () => {
     return (
-      <Flex flexDirection="column" alignItems="flex-start" gap={1}>
-        <Message variant="info">
-          The dropdown uses Floating UI&apos;s <strong>safePolygon</strong>{" "}
-          handler. When you leave the anchor button, a dynamic triangle is drawn
-          from your cursor to the floating panel — the dropdown stays open while
-          your cursor is inside that polygon, preventing accidental dismissal.
-        </Message>
-
+      <DropdownGroupProvider lateralOpenDelay={150}>
         <Flex>
           <Dropdown
-            safePolygonOptions={{
-              requireIntent: true,
-              buffer: 0.5,
-              blockPointerEvents: true,
-            }}
             dropdown={
               <Box
                 width="100vw"
@@ -543,7 +531,7 @@ export const SafePolygon = {
                 ref={anchorRef as any}
                 {...anchorProps}
                 border="1px solid"
-                borderColor="red100"
+                borderColor="mono60"
                 p={2}
               >
                 Artists
@@ -558,7 +546,26 @@ export const SafePolygon = {
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo
                   fugiat, minus nesciunt ex laudantium ab laboriosam, labore
                   laborum deleniti non, temporibus mollitia excepturi cumque!
-                  Nemo eos delectus ipsa. Necessitatibus, est.
+                  Nemo eos delectus ipsa. Necessitatibus, est. Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Sit repellat eveniet
+                  debitis, minus iste tenetur. Nam mollitia alias ab, ratione
+                  voluptate veniam ex, vero sed maiores suscipit ducimus
+                  architecto minima! Lorem ipsum dolor, sit amet consectetur
+                  adipisicing elit. Beatae temporibus aperiam tempora? Magni
+                  totam molestias veniam doloremque hic enim, voluptatem saepe
+                  eaque vero dicta temporibus provident modi alias est
+                  asperiores! Lorem ipsum dolor sit amet consectetur,
+                  adipisicing elit. Illo fugiat, minus nesciunt ex laudantium ab
+                  laboriosam, labore laborum deleniti non, temporibus mollitia
+                  excepturi cumque! Nemo eos delectus ipsa. Necessitatibus, est.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+                  repellat eveniet debitis, minus iste tenetur. Nam mollitia
+                  alias ab, ratione voluptate veniam ex, vero sed maiores
+                  suscipit ducimus architecto minima! Lorem ipsum dolor, sit
+                  amet consectetur adipisicing elit. Beatae temporibus aperiam
+                  tempora? Magni totam molestias veniam doloremque hic enim,
+                  voluptatem saepe eaque vero dicta temporibus provident modi
+                  alias est asperiores!
                 </Text>
               </Box>
             }
@@ -570,7 +577,7 @@ export const SafePolygon = {
                 ref={anchorRef as any}
                 {...anchorProps}
                 border="1px solid"
-                borderColor="red100"
+                borderColor="mono60"
                 p={2}
                 ml="-1px"
               >
@@ -579,14 +586,14 @@ export const SafePolygon = {
             )}
           </Dropdown>
         </Flex>
-      </Flex>
+      </DropdownGroupProvider>
     )
   },
   parameters: {
     docs: {
       description: {
         story:
-          "Demonstrates Floating UI's `safePolygon` hover handler. A dynamic safe triangle is computed between your cursor and the floating panel, so the dropdown stays open while you move diagonally toward it — even across a large gap.",
+          "Demonstrates behavior when grouped: initial pointer entry into navbar transitions the first dropdown. Lateral movement between dropdowns has a disabled transition. There's a configurable, slight delay when moving laterally to ensure we don't accidentally trigger a dropdown when moving to the panel below at an angle. Leaving the navbar group completely transitions out as normal.",
       },
     },
     chromatic: { disable: true },
