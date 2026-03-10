@@ -114,13 +114,13 @@ export const Dropdown = ({
     anchorGroupProps,
     openDelay,
     transitionEnabled,
-    holdOpenOnClose,
-    forceClose,
+    shouldKeepOpenDuringPendingSwap,
+    shouldForceCloseForCommittedSwap,
     enterTransitionDisabled,
     leaveTransitionDisabled,
     onHoverOpen,
     onHoverClose,
-    acknowledgeForceClose,
+    acknowledgeCommittedForceClose,
     clearEnterTransitionDisable,
     clearLeaveTransitionDisable,
   } = useDropdownGroupItem({
@@ -151,13 +151,20 @@ export const Dropdown = ({
       if (open && !openDropdownByClick) {
         onHoverOpen()
       } else if (!open && !openDropdownByClick) {
-        if (holdOpenOnClose) return
+        // During a pending lateral swap, keep the currently active panel open
+        // until the delayed sibling actually commits.
+        if (shouldKeepOpenDuringPendingSwap) return
         onHoverClose()
       }
 
       setVisible(open)
     },
-    [holdOpenOnClose, onHoverOpen, onHoverClose, openDropdownByClick]
+    [
+      shouldKeepOpenDuringPendingSwap,
+      onHoverOpen,
+      onHoverClose,
+      openDropdownByClick,
+    ]
   )
 
   const {
@@ -269,12 +276,17 @@ export const Dropdown = ({
   ])
 
   useEffect(() => {
-    if (!forceClose || !visible) return
+    if (!shouldForceCloseForCommittedSwap || !visible) return
 
     setVisible(false)
     onHoverClose()
-    acknowledgeForceClose()
-  }, [acknowledgeForceClose, forceClose, onHoverClose, visible])
+    acknowledgeCommittedForceClose()
+  }, [
+    acknowledgeCommittedForceClose,
+    shouldForceCloseForCommittedSwap,
+    onHoverClose,
+    visible,
+  ])
 
   // Padding on the panel that fills the gap between anchor and panel so the
   // safePolygon cursor path isn't interrupted.
@@ -393,7 +405,7 @@ export const Dropdown = ({
     maxHeight,
     offset,
     transitionEnabled,
-    forceClose,
+    shouldForceCloseForCommittedSwap,
     status,
     focusEnabled,
     returnFocus,

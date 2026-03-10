@@ -28,12 +28,17 @@ interface DropdownGroupContextValue {
 }
 
 interface DropdownGroupState {
+  // Persistent group state.
   activeDropdownId: string | null
   hoveredDropdownId: string | null
   pendingDropdownId: string | null
+
+  // One-shot signals consumed by Dropdown instances.
   forceCloseDropdownId: string | null
   disableEnterTransitionForId: string | null
   disableLeaveTransitionForId: string | null
+
+  // Triggers delayed reset after fully leaving the navbar group.
   shouldReset: boolean
 }
 
@@ -70,6 +75,18 @@ const INITIAL_DROPDOWN_GROUP_STATE: DropdownGroupState = {
   shouldReset: false,
 }
 
+const isActive = (state: DropdownGroupState, id: string) =>
+  state.activeDropdownId === id
+
+const isLateralEntry = (state: DropdownGroupState, id: string) =>
+  state.activeDropdownId !== null && state.activeDropdownId !== id
+
+const hasPendingSibling = (state: DropdownGroupState, id: string) =>
+  state.pendingDropdownId !== null && state.pendingDropdownId !== id
+
+const isPendingTarget = (state: DropdownGroupState, id: string) =>
+  state.pendingDropdownId === id
+
 const dropdownGroupReducer = (
   state: DropdownGroupState,
   action: DropdownGroupAction
@@ -77,13 +94,13 @@ const dropdownGroupReducer = (
   switch (action.type) {
     case "ANCHOR_ENTER": {
       const { id } = action.payload
-      const isLateralEntry =
-        state.activeDropdownId !== null && state.activeDropdownId !== id
+      const enteringLateralSibling = isLateralEntry(state, id)
 
       return {
         ...state,
         hoveredDropdownId: id,
-        pendingDropdownId: isLateralEntry ? id : null,
+        // Keep active open while a sibling is pending delayed-open.
+        pendingDropdownId: enteringLateralSibling ? id : null,
         shouldReset: false,
       }
     }
@@ -100,45 +117,42 @@ const dropdownGroupReducer = (
 
     case "HOVER_OPEN": {
       const { id } = action.payload
-      const isLateralSwap =
-        state.activeDropdownId !== null && state.activeDropdownId !== id
+      const lateralSwap = isLateralEntry(state, id)
 
       return {
         ...state,
-        forceCloseDropdownId: isLateralSwap ? state.activeDropdownId : null,
+        // This one-shot signal is consumed by the previously active dropdown.
+        forceCloseDropdownId: lateralSwap ? state.activeDropdownId : null,
         activeDropdownId: id,
         hoveredDropdownId: id,
         pendingDropdownId: null,
-        disableEnterTransitionForId: isLateralSwap ? id : null,
-        disableLeaveTransitionForId: isLateralSwap ? state.activeDropdownId : null,
+        disableEnterTransitionForId: lateralSwap ? id : null,
+        disableLeaveTransitionForId: lateralSwap ? state.activeDropdownId : null,
         shouldReset: false,
       }
     }
 
     case "HOVER_CLOSE": {
       const { id } = action.payload
-      const isClosingCurrentActive = state.activeDropdownId === id
-      const hasPendingSibling =
-        state.pendingDropdownId !== null && state.pendingDropdownId !== id
+      const closingActive = isActive(state, id)
+      const pendingSibling = hasPendingSibling(state, id)
 
-      if (
-        state.pendingDropdownId === id &&
-        state.activeDropdownId !== null &&
-        state.activeDropdownId !== id
-      ) {
+      if (isPendingTarget(state, id) && isLateralEntry(state, id)) {
         return {
           ...state,
           pendingDropdownId: null,
         }
       }
 
-      if (isClosingCurrentActive && hasPendingSibling) {
+      if (closingActive && pendingSibling) {
+        // Ignore close from the currently active dropdown while a sibling is
+        // still pending delayed-open.
         return state
       }
 
       return {
         ...state,
-        activeDropdownId: isClosingCurrentActive ? null : state.activeDropdownId,
+        activeDropdownId: closingActive ? null : state.activeDropdownId,
         forceCloseDropdownId:
           state.forceCloseDropdownId === id ? null : state.forceCloseDropdownId,
       }
@@ -223,6 +237,8 @@ export const DropdownGroupProvider: React.FC<DropdownGroupProviderProps> = ({
   )
 
   const acknowledgeForceClose = useCallback((id: string) => {
+    // Consumes the one-shot force-close signal emitted during lateral swap
+    // commit once the previous active dropdown has actually closed.
     dispatch({ type: "ACK_FORCE_CLOSE", payload: { id } })
   }, [])
 
@@ -294,13 +310,13 @@ interface DropdownGroupItemBehavior {
   anchorGroupProps: React.HTMLAttributes<HTMLElement>
   openDelay: number
   transitionEnabled: boolean
-  holdOpenOnClose: boolean
-  forceClose: boolean
+  shouldKeepOpenDuringPendingSwap: boolean
+  shouldForceCloseForCommittedSwap: boolean
   enterTransitionDisabled: boolean
   leaveTransitionDisabled: boolean
   onHoverOpen(): void
   onHoverClose(): void
-  acknowledgeForceClose(): void
+  acknowledgeCommittedForceClose(): void
   clearEnterTransitionDisable(): void
   clearLeaveTransitionDisable(): void
 }
@@ -314,23 +330,18 @@ export const useDropdownGroupItem = ({
   const group = useDropdownGroupContext()
   const baseOpenDelay = delay ?? (transition ? 50 : 1)
 
-  const isLateralEntry =
-    enabled &&
-    !!group &&
-    group.state.activeDropdownId !== null &&
-    group.state.activeDropdownId !== id
+  const lateralEntry = enabled && !!group && isLateralEntry(group.state, id)
 
   const openDelay =
-    isLateralEntry && group ? group.lateralOpenDelay : baseOpenDelay
+    lateralEntry && group ? group.lateralOpenDelay : baseOpenDelay
 
-  const holdOpenOnClose =
+  const shouldKeepOpenDuringPendingSwap =
     enabled &&
     !!group &&
-    group.state.activeDropdownId === id &&
-    group.state.pendingDropdownId !== null &&
-    group.state.pendingDropdownId !== id
+    isActive(group.state, id) &&
+    hasPendingSibling(group.state, id)
 
-  const forceClose =
+  const shouldForceCloseForCommittedSwap =
     enabled && !!group && group.state.forceCloseDropdownId === id
 
   const transitionEnabled =
@@ -380,7 +391,7 @@ export const useDropdownGroupItem = ({
     group.onHoverClose(id)
   }, [enabled, group, id])
 
-  const acknowledgeForceClose = useCallback(() => {
+  const acknowledgeCommittedForceClose = useCallback(() => {
     if (!enabled || !group) return
 
     group.acknowledgeForceClose(id)
@@ -414,13 +425,13 @@ export const useDropdownGroupItem = ({
     anchorGroupProps,
     openDelay,
     transitionEnabled,
-    holdOpenOnClose,
-    forceClose,
+    shouldKeepOpenDuringPendingSwap,
+    shouldForceCloseForCommittedSwap,
     enterTransitionDisabled,
     leaveTransitionDisabled,
     onHoverOpen,
     onHoverClose,
-    acknowledgeForceClose,
+    acknowledgeCommittedForceClose,
     clearEnterTransitionDisable,
     clearLeaveTransitionDisable,
   }
