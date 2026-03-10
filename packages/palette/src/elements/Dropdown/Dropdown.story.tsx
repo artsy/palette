@@ -593,7 +593,7 @@ export const NavBarDropdownGroup = {
     docs: {
       description: {
         story:
-          "Demonstrates grouped navbar behavior. Initial entry transitions in, lateral movement keeps the current panel open until the delayed sibling swap occurs, and the swap itself is instant (no enter/leave transition). Increase `lateralOpenDelay` in this story if you want to stress-test and clearly observe the delayed-swap window.",
+          "Demonstrates grouped navbar behavior. Initial entry transitions in, lateral movement keeps the current panel open until the delayed sibling swap occurs, and the swap itself is instant (no enter/leave transition). Group boundaries include both triggers and open panels. Increase `lateralOpenDelay` in this story if you want to stress-test and clearly observe the delayed-swap window.",
       },
     },
     chromatic: { disable: true },

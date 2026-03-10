@@ -112,6 +112,7 @@ export const Dropdown = ({
 
   const {
     anchorGroupProps,
+    floatingGroupProps,
     openDelay,
     transitionEnabled,
     shouldKeepOpenDuringPendingSwap,
@@ -369,7 +370,7 @@ export const Dropdown = ({
         }}
         maxHeight={maxHeight + offset}
         {...padding}
-        {...getFloatingProps()}
+        {...getFloatingProps(floatingGroupProps)}
         {...rest}
       >
         {renderPanel && (
@@ -412,6 +413,7 @@ export const Dropdown = ({
     dropdown,
     padding,
     floatingStyles,
+    floatingGroupProps,
     getFloatingProps,
     rest,
   ])

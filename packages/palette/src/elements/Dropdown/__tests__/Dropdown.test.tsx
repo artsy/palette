@@ -3,7 +3,10 @@ import React from "react"
 import { act } from "react-dom/test-utils"
 import { FocusOn } from "react-focus-on"
 import { Dropdown } from "../Dropdown"
-import { DropdownGroupProvider } from "../DropdownGroupContext"
+import {
+  DropdownGroupProvider,
+  useDropdownGroupItem,
+} from "../DropdownGroupContext"
 
 jest.useFakeTimers()
 
@@ -223,6 +226,88 @@ describe("Dropdown", () => {
       wrapper.update()
 
       expect(wrapper.html()).toContain("second dropdown content")
+    })
+
+    it("marks grouped floating panels with the same group id", () => {
+      const wrapper = mount(
+        <div>
+          <DropdownGroupProvider lateralOpenDelay={200}>
+            <Dropdown dropdown={<div>first dropdown content</div>} delay={0}>
+              {({ anchorRef, anchorProps }) => {
+                return (
+                  <a ref={anchorRef as any} {...anchorProps}>
+                    first anchor
+                  </a>
+                )
+              }}
+            </Dropdown>
+          </DropdownGroupProvider>
+        </div>
+      )
+
+      const firstAnchor = wrapper.find("a").at(0)
+
+      act(() => {
+        firstAnchor.simulate("mouseenter")
+        jest.runOnlyPendingTimers()
+      })
+      wrapper.update()
+
+      const groupId = firstAnchor.prop("data-dropdown-group")
+      expect(groupId).toBeDefined()
+
+      const groupedPanel = wrapper.find(`div[data-dropdown-group="${groupId}"]`)
+      expect(groupedPanel.exists()).toBe(true)
+    })
+
+    it("does not treat anchor->panel movement as leaving the group", () => {
+      const GroupHarness = () => {
+        const first = useDropdownGroupItem({
+          id: "first",
+          enabled: true,
+          delay: 0,
+          transition: true,
+        })
+        const second = useDropdownGroupItem({
+          id: "second",
+          enabled: true,
+          delay: 0,
+          transition: true,
+        })
+
+        return (
+          <>
+            <div id="first-anchor" {...first.anchorGroupProps} />
+            <button id="open-first" onClick={first.onHoverOpen} />
+            <button id="close-first" onClick={first.onHoverClose} />
+            <div id="second-delay">{second.openDelay}</div>
+          </>
+        )
+      }
+
+      const wrapper = mount(
+        <DropdownGroupProvider lateralOpenDelay={200}>
+          <GroupHarness />
+        </DropdownGroupProvider>
+      )
+
+      act(() => {
+        wrapper.find("#open-first").simulate("click")
+      })
+      wrapper.update()
+
+      const firstAnchor = wrapper.find("#first-anchor")
+      const groupId = firstAnchor.prop("data-dropdown-group")
+      const panelTarget = document.createElement("div")
+      panelTarget.setAttribute("data-dropdown-group", String(groupId))
+
+      act(() => {
+        firstAnchor.simulate("mouseleave", { relatedTarget: panelTarget })
+        jest.runAllTimers()
+      })
+      wrapper.update()
+
+      expect(wrapper.find("#second-delay").text()).toBe("200")
     })
   })
 })

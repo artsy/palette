@@ -308,6 +308,7 @@ interface UseDropdownGroupItemOptions {
 
 interface DropdownGroupItemBehavior {
   anchorGroupProps: React.HTMLAttributes<HTMLElement>
+  floatingGroupProps: React.HTMLAttributes<HTMLElement>
   openDelay: number
   transitionEnabled: boolean
   shouldKeepOpenDuringPendingSwap: boolean
@@ -363,20 +364,24 @@ export const useDropdownGroupItem = ({
     group.onAnchorEnter(id)
   }, [enabled, group, id])
 
-  const onMouseLeave = useCallback(
+  const isMovingWithinGroup = useCallback(
+    (nextTarget: EventTarget | null) => {
+      if (!group || !(nextTarget instanceof Element)) return false
+
+      return !!nextTarget.closest(`[data-dropdown-group="${group.groupId}"]`)
+    },
+    [group]
+  )
+
+  const onGroupBoundaryMouseLeave = useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       if (!enabled || !group) return
 
-      const nextTarget = event.relatedTarget
-      const movingWithinGroup =
-        nextTarget instanceof Element &&
-        nextTarget.closest(`[data-dropdown-group="${group.groupId}"]`)
-
-      if (!movingWithinGroup) {
+      if (!isMovingWithinGroup(event.relatedTarget)) {
         group.onGroupLeave()
       }
     },
-    [enabled, group]
+    [enabled, group, isMovingWithinGroup]
   )
 
   const onHoverOpen = useCallback(() => {
@@ -415,14 +420,26 @@ export const useDropdownGroupItem = ({
         ? {
             "data-dropdown-group": group.groupId,
             onMouseEnter,
-            onMouseLeave,
+            onMouseLeave: onGroupBoundaryMouseLeave,
           }
         : {},
-    [enabled, group, onMouseEnter, onMouseLeave]
+    [enabled, group, onMouseEnter, onGroupBoundaryMouseLeave]
+  )
+
+  const floatingGroupProps = useMemo<React.HTMLAttributes<HTMLElement>>(
+    () =>
+      enabled && group
+        ? {
+            "data-dropdown-group": group.groupId,
+            onMouseLeave: onGroupBoundaryMouseLeave,
+          }
+        : {},
+    [enabled, group, onGroupBoundaryMouseLeave]
   )
 
   return {
     anchorGroupProps,
+    floatingGroupProps,
     openDelay,
     transitionEnabled,
     shouldKeepOpenDuringPendingSwap,
