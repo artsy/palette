@@ -593,7 +593,7 @@ export const NavBarDropdownGroup = {
     docs: {
       description: {
         story:
-          "Demonstrates behavior when grouped: initial pointer entry into navbar transitions the first dropdown. Lateral movement between dropdowns has a disabled transition. There's a configurable, slight delay when moving laterally to ensure we don't accidentally trigger a dropdown when moving to the panel below at an angle. Leaving the navbar group completely transitions out as normal.",
+          "Demonstrates grouped navbar behavior. Initial entry transitions in, lateral movement keeps the current panel open until the delayed sibling swap occurs, and the swap itself is instant (no enter/leave transition). This story uses an exaggerated `lateralOpenDelay` to make the delayed-swap behavior easy to observe.",
       },
     },
     chromatic: { disable: true },

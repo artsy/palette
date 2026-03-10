@@ -15,12 +15,14 @@ interface DropdownGroupContextValue {
   state: DropdownGroupState
   activeDropdownId: string | null
   hoveredDropdownId: string | null
+  pendingDropdownId: string | null
   groupId: string
   lateralOpenDelay: number
   onAnchorEnter(id: string): void
   onGroupLeave(): void
   onHoverOpen(id: string): void
   onHoverClose(id: string): void
+  acknowledgeForceClose(id: string): void
   clearEnterTransitionDisable(id: string): void
   clearLeaveTransitionDisable(id: string): void
 }
@@ -28,6 +30,8 @@ interface DropdownGroupContextValue {
 interface DropdownGroupState {
   activeDropdownId: string | null
   hoveredDropdownId: string | null
+  pendingDropdownId: string | null
+  forceCloseDropdownId: string | null
   disableEnterTransitionForId: string | null
   disableLeaveTransitionForId: string | null
   shouldReset: boolean
@@ -51,6 +55,7 @@ type DropdownGroupAction =
   | { type: "ANCHOR_LEAVE_GROUP" }
   | { type: "HOVER_OPEN"; payload: { id: string } }
   | { type: "HOVER_CLOSE"; payload: { id: string } }
+  | { type: "ACK_FORCE_CLOSE"; payload: { id: string } }
   | { type: "CLEAR_DISABLE_ENTER"; payload: { id: string } }
   | { type: "CLEAR_DISABLE_LEAVE"; payload: { id: string } }
   | { type: "RESET_GROUP" }
@@ -58,6 +63,8 @@ type DropdownGroupAction =
 const INITIAL_DROPDOWN_GROUP_STATE: DropdownGroupState = {
   activeDropdownId: null,
   hoveredDropdownId: null,
+  pendingDropdownId: null,
+  forceCloseDropdownId: null,
   disableEnterTransitionForId: null,
   disableLeaveTransitionForId: null,
   shouldReset: false,
@@ -76,15 +83,8 @@ const dropdownGroupReducer = (
       return {
         ...state,
         hoveredDropdownId: id,
+        pendingDropdownId: isLateralEntry ? id : null,
         shouldReset: false,
-        disableEnterTransitionForId: isLateralEntry
-          ? id
-          : state.disableEnterTransitionForId === id
-            ? null
-            : state.disableEnterTransitionForId,
-        disableLeaveTransitionForId: isLateralEntry
-          ? state.activeDropdownId
-          : state.disableLeaveTransitionForId,
       }
     }
 
@@ -92,6 +92,7 @@ const dropdownGroupReducer = (
       return {
         ...state,
         hoveredDropdownId: null,
+        pendingDropdownId: null,
         shouldReset: true,
         disableEnterTransitionForId: null,
         disableLeaveTransitionForId: null,
@@ -99,26 +100,57 @@ const dropdownGroupReducer = (
 
     case "HOVER_OPEN": {
       const { id } = action.payload
+      const isLateralSwap =
+        state.activeDropdownId !== null && state.activeDropdownId !== id
 
       return {
         ...state,
+        forceCloseDropdownId: isLateralSwap ? state.activeDropdownId : null,
         activeDropdownId: id,
         hoveredDropdownId: id,
+        pendingDropdownId: null,
+        disableEnterTransitionForId: isLateralSwap ? id : null,
+        disableLeaveTransitionForId: isLateralSwap ? state.activeDropdownId : null,
         shouldReset: false,
       }
     }
 
     case "HOVER_CLOSE": {
       const { id } = action.payload
-      const shouldKeepActiveForLateralSwap =
-        state.hoveredDropdownId !== null && state.hoveredDropdownId !== id
+      const isClosingCurrentActive = state.activeDropdownId === id
+      const hasPendingSibling =
+        state.pendingDropdownId !== null && state.pendingDropdownId !== id
+
+      if (
+        state.pendingDropdownId === id &&
+        state.activeDropdownId !== null &&
+        state.activeDropdownId !== id
+      ) {
+        return {
+          ...state,
+          pendingDropdownId: null,
+        }
+      }
+
+      if (isClosingCurrentActive && hasPendingSibling) {
+        return state
+      }
 
       return {
         ...state,
-        activeDropdownId:
-          state.activeDropdownId === id && !shouldKeepActiveForLateralSwap
-            ? null
-            : state.activeDropdownId,
+        activeDropdownId: isClosingCurrentActive ? null : state.activeDropdownId,
+        forceCloseDropdownId:
+          state.forceCloseDropdownId === id ? null : state.forceCloseDropdownId,
+      }
+    }
+
+    case "ACK_FORCE_CLOSE": {
+      const { id } = action.payload
+
+      return {
+        ...state,
+        forceCloseDropdownId:
+          state.forceCloseDropdownId === id ? null : state.forceCloseDropdownId,
       }
     }
 
@@ -190,6 +222,10 @@ export const DropdownGroupProvider: React.FC<DropdownGroupProviderProps> = ({
     []
   )
 
+  const acknowledgeForceClose = useCallback((id: string) => {
+    dispatch({ type: "ACK_FORCE_CLOSE", payload: { id } })
+  }, [])
+
   const clearEnterTransitionDisable = useCallback((id: string) => {
     dispatch({ type: "CLEAR_DISABLE_ENTER", payload: { id } })
   }, [])
@@ -213,12 +249,14 @@ export const DropdownGroupProvider: React.FC<DropdownGroupProviderProps> = ({
       state,
       activeDropdownId: state.activeDropdownId,
       hoveredDropdownId: state.hoveredDropdownId,
+      pendingDropdownId: state.pendingDropdownId,
       groupId: groupIdRef.current,
       lateralOpenDelay,
       onAnchorEnter,
       onGroupLeave,
       onHoverOpen,
       onHoverClose,
+      acknowledgeForceClose,
       clearEnterTransitionDisable,
       clearLeaveTransitionDisable,
     }
@@ -229,6 +267,7 @@ export const DropdownGroupProvider: React.FC<DropdownGroupProviderProps> = ({
     onGroupLeave,
     onHoverOpen,
     onHoverClose,
+    acknowledgeForceClose,
     clearEnterTransitionDisable,
     clearLeaveTransitionDisable,
   ])
@@ -255,10 +294,13 @@ interface DropdownGroupItemBehavior {
   anchorGroupProps: React.HTMLAttributes<HTMLElement>
   openDelay: number
   transitionEnabled: boolean
+  holdOpenOnClose: boolean
+  forceClose: boolean
   enterTransitionDisabled: boolean
   leaveTransitionDisabled: boolean
   onHoverOpen(): void
   onHoverClose(): void
+  acknowledgeForceClose(): void
   clearEnterTransitionDisable(): void
   clearLeaveTransitionDisable(): void
 }
@@ -280,6 +322,16 @@ export const useDropdownGroupItem = ({
 
   const openDelay =
     isLateralEntry && group ? group.lateralOpenDelay : baseOpenDelay
+
+  const holdOpenOnClose =
+    enabled &&
+    !!group &&
+    group.state.activeDropdownId === id &&
+    group.state.pendingDropdownId !== null &&
+    group.state.pendingDropdownId !== id
+
+  const forceClose =
+    enabled && !!group && group.state.forceCloseDropdownId === id
 
   const transitionEnabled =
     transition &&
@@ -328,6 +380,12 @@ export const useDropdownGroupItem = ({
     group.onHoverClose(id)
   }, [enabled, group, id])
 
+  const acknowledgeForceClose = useCallback(() => {
+    if (!enabled || !group) return
+
+    group.acknowledgeForceClose(id)
+  }, [enabled, group, id])
+
   const clearEnterTransitionDisable = useCallback(() => {
     if (!enabled || !group) return
 
@@ -356,10 +414,13 @@ export const useDropdownGroupItem = ({
     anchorGroupProps,
     openDelay,
     transitionEnabled,
+    holdOpenOnClose,
+    forceClose,
     enterTransitionDisabled,
     leaveTransitionDisabled,
     onHoverOpen,
     onHoverClose,
+    acknowledgeForceClose,
     clearEnterTransitionDisable,
     clearLeaveTransitionDisable,
   }

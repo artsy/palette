@@ -114,10 +114,13 @@ export const Dropdown = ({
     anchorGroupProps,
     openDelay,
     transitionEnabled,
+    holdOpenOnClose,
+    forceClose,
     enterTransitionDisabled,
     leaveTransitionDisabled,
     onHoverOpen,
     onHoverClose,
+    acknowledgeForceClose,
     clearEnterTransitionDisable,
     clearLeaveTransitionDisable,
   } = useDropdownGroupItem({
@@ -148,12 +151,13 @@ export const Dropdown = ({
       if (open && !openDropdownByClick) {
         onHoverOpen()
       } else if (!open && !openDropdownByClick) {
+        if (holdOpenOnClose) return
         onHoverClose()
       }
 
       setVisible(open)
     },
-    [onHoverOpen, onHoverClose, openDropdownByClick]
+    [holdOpenOnClose, onHoverOpen, onHoverClose, openDropdownByClick]
   )
 
   const {
@@ -263,6 +267,14 @@ export const Dropdown = ({
     isMounted,
     clearLeaveTransitionDisable,
   ])
+
+  useEffect(() => {
+    if (!forceClose || !visible) return
+
+    setVisible(false)
+    onHoverClose()
+    acknowledgeForceClose()
+  }, [acknowledgeForceClose, forceClose, onHoverClose, visible])
 
   // Padding on the panel that fills the gap between anchor and panel so the
   // safePolygon cursor path isn't interrupted.
@@ -381,6 +393,7 @@ export const Dropdown = ({
     maxHeight,
     offset,
     transitionEnabled,
+    forceClose,
     status,
     focusEnabled,
     returnFocus,
