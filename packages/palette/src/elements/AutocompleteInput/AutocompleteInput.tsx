@@ -173,7 +173,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     if (state.query === "") reset()
   }, [reset, state.query])
 
-  const { anchorRef, tooltipRef } = usePosition({
+  const { anchorRef, tooltipRef, floatingStyles } = usePosition({
     active: isDropdownVisible,
     clamp,
     flip,
@@ -397,6 +397,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
           width={width}
           minWidth={200}
           pt={1} // Gap in place of `offset` for `usePosition`
+          style={floatingStyles}
         >
           <AutocompleteInputDropdown minWidth={dropdownMinWidth}>
             <div ref={headerRef} {...ignoreFocusChange}>
