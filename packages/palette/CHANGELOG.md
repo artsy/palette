@@ -1,3 +1,28 @@
+# v46.5.0 (Wed Mar 11 2026)
+
+#### 🚀  Enhancement
+
+- fix: replaces positioning engine with floating-ui [#1504](https://github.com/artsy/palette/pull/1504) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- chore(dropdown): removes safe polygon story ([@dzucconi](https://github.com/dzucconi))
+- feat(dropdown): uses resolved placement aware transitions ([@dzucconi](https://github.com/dzucconi))
+- feat(dropdown): supports custom safe polygon options; removes default ([@dzucconi](https://github.com/dzucconi))
+- chore(useposition): removes eslint exception ([@dzucconi](https://github.com/dzucconi))
+- fix(deps): removes redundant package ([@dzucconi](https://github.com/dzucconi))
+- fix(dropdown): corrects for rounding errors ([@dzucconi](https://github.com/dzucconi))
+- feat(dropdown): exposes flip and autoplacement options ([@dzucconi](https://github.com/dzucconi))
+- fix(dropdown): corrects height when inverted position due to flip ([@dzucconi](https://github.com/dzucconi))
+- fix(dropdown): switches to use floating-ui interaction hooks; includes safe polygon ([@dzucconi](https://github.com/dzucconi))
+- feat: replaces positioning engine with floating-ui ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v46.4.0 (Fri Feb 27 2026)
 
 #### 🚀  Enhancement

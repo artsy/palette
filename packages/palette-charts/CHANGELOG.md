@@ -1,3 +1,15 @@
+# v45.5.0 (Wed Mar 11 2026)
+
+#### 🚀  Enhancement
+
+- fix: replaces positioning engine with floating-ui [#1504](https://github.com/artsy/palette/pull/1504) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v45.0.0 (Tue Feb 03 2026)
 
 #### 💥  Breaking Change

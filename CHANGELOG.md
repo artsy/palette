@@ -1,3 +1,16 @@
+# (Wed Mar 11 2026)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@46.5.0`
+  - fix: replaces positioning engine with floating-ui [#1504](https://github.com/artsy/palette/pull/1504) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Feb 27 2026)
 
 #### 🚀  Enhancement
