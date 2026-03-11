@@ -3,6 +3,10 @@ import React from "react"
 import { act } from "react-dom/test-utils"
 import { FocusOn } from "react-focus-on"
 import { Dropdown } from "../Dropdown"
+import {
+  DropdownGroupProvider,
+  useDropdownGroup,
+} from "../DropdownGroupContext"
 
 jest.useFakeTimers()
 
@@ -135,6 +139,114 @@ describe("Dropdown", () => {
       const focusOnComponent = wrapper.find(FocusOn)
       expect(focusOnComponent).toHaveLength(1)
       expect(focusOnComponent.prop("returnFocus")).toBe(false)
+    })
+  })
+
+  describe("DropdownGroupProvider", () => {
+    const GroupedDropdowns = () => {
+      const dropdownGroup = useDropdownGroup()
+
+      return (
+        <>
+          <Dropdown {...dropdownGroup} dropdown={<div>first panel</div>}>
+            {({ anchorRef, anchorProps }) => {
+              return (
+                <a ref={anchorRef as any} {...anchorProps}>
+                  first anchor
+                </a>
+              )
+            }}
+          </Dropdown>
+
+          <Dropdown {...dropdownGroup} dropdown={<div>second panel</div>}>
+            {({ anchorRef, anchorProps }) => {
+              return (
+                <a ref={anchorRef as any} {...anchorProps}>
+                  second anchor
+                </a>
+              )
+            }}
+          </Dropdown>
+        </>
+      )
+    }
+
+    it("delays lateral swaps between neighboring dropdowns", () => {
+      const wrapper = mount(
+        <div>
+          <DropdownGroupProvider delay={200}>
+            <GroupedDropdowns />
+          </DropdownGroupProvider>
+        </div>
+      )
+
+      const anchors = wrapper.find("a")
+
+      act(() => {
+        anchors.at(0).simulate("mouseenter")
+      })
+      wrapper.update()
+
+      expect(wrapper.html()).toContain("first panel")
+      expect(wrapper.html()).not.toContain("second panel")
+
+      act(() => {
+        anchors.at(0).simulate("mouseleave", {
+          relatedTarget: anchors.at(1).getDOMNode(),
+        })
+        anchors.at(1).simulate("mouseenter")
+        jest.advanceTimersByTime(199)
+      })
+      wrapper.update()
+
+      expect(wrapper.html()).toContain("first panel")
+      expect(wrapper.html()).not.toContain("second panel")
+
+      act(() => {
+        jest.advanceTimersByTime(1)
+      })
+      wrapper.update()
+
+      expect(wrapper.html()).not.toContain("first panel")
+      expect(wrapper.html()).toContain("second panel")
+    })
+
+    it("swaps cleanly when moving from a panel to a neighboring dropdown", () => {
+      const wrapper = mount(
+        <div>
+          <DropdownGroupProvider delay={150}>
+            <GroupedDropdowns />
+          </DropdownGroupProvider>
+        </div>
+      )
+
+      act(() => {
+        wrapper.find("a").at(0).simulate("mouseenter")
+      })
+      wrapper.update()
+
+      const panel = wrapper.find('[aria-label="Press escape to close"]').first()
+      const secondAnchor = wrapper.find("a").at(1)
+
+      act(() => {
+        panel.simulate("mouseleave", {
+          relatedTarget: secondAnchor.getDOMNode(),
+        })
+        secondAnchor.simulate("mouseenter")
+        jest.advanceTimersByTime(149)
+      })
+      wrapper.update()
+
+      expect(wrapper.html()).toContain("first panel")
+      expect(wrapper.html()).not.toContain("second panel")
+
+      act(() => {
+        jest.advanceTimersByTime(1)
+      })
+      wrapper.update()
+
+      expect(wrapper.html()).not.toContain("first panel")
+      expect(wrapper.html()).toContain("second panel")
     })
   })
 })

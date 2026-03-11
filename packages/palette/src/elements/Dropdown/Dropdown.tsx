@@ -22,6 +22,11 @@ import { Box, BoxProps } from "../Box"
 import { FocusOn } from "react-focus-on"
 import { themeGet } from "@styled-system/theme-get"
 import { debounce } from "es-toolkit"
+import { DropdownGroupHookProps } from "./DropdownGroupContext"
+import {
+  DropdownVisibilityOptions,
+  useDropdownGroupBehavior,
+} from "./useDropdownGroupBehavior"
 
 export interface DropdownActions {
   /** Call to show dropdown */
@@ -104,28 +109,45 @@ export const Dropdown = ({
   returnFocus = true,
   delay = 0,
   safePolygonOptions,
+  dropdownGroup,
   ...rest
-}: DropdownProps) => {
+}: DropdownProps & DropdownGroupHookProps) => {
   const [visible, setVisible] = useState(false)
-
-  // Sync with controlled `visible` prop
-  useEffect(() => {
-    setVisible(_visible)
-  }, [_visible])
-
-  // Track whether the current open was triggered by pointer (hover) so we know
-  // whether to enable keyboard focus-trapping via FocusOn.
+  const [transitionOverride, setTransitionOverride] = useState<boolean | null>(
+    null
+  )
   const pointerRef = useRef(false)
 
-  // onOpenChange is called by Floating UI interaction hooks (useHover, useClick,
-  // useDismiss). The `reason` arg lets us detect pointer vs keyboard opens.
-  const onOpenChange = useCallback(
-    (open: boolean, _event?: Event, reason?: string) => {
-      pointerRef.current =
-        open && (reason === "hover" || reason === "safe-polygon")
-      setVisible(open)
+  const transitionEnabled = transitionOverride ?? _transition
+
+  const setVisibleWithOptions = useCallback(
+    (nextVisible: boolean, options: DropdownVisibilityOptions = {}) => {
+      pointerRef.current = nextVisible && options.source === "hover"
+
+      if (typeof options.transition === "boolean") {
+        setTransitionOverride(options.transition)
+        setVisible(nextVisible)
+        return
+      }
+
+      setTransitionOverride(null)
+      setVisible(nextVisible)
     },
     []
+  )
+
+  useEffect(() => {
+    setVisibleWithOptions(_visible, { source: "manual" })
+  }, [_visible, setVisibleWithOptions])
+
+  const onOpenChange = useCallback(
+    (open: boolean, _event?: Event, reason?: string) => {
+      const source =
+        reason === "hover" || reason === "safe-polygon" ? "hover" : "click"
+
+      setVisibleWithOptions(open, { source })
+    },
+    [setVisibleWithOptions]
   )
 
   const {
@@ -145,10 +167,23 @@ export const Dropdown = ({
     onOpenChange,
   })
 
+  const {
+    groupedHoverEnabled,
+    groupedInteractionProps,
+  } = useDropdownGroupBehavior({
+    dropdownGroup,
+    openDropdownByClick,
+    delay,
+    transition: _transition,
+    anchorRef: anchorRef as React.MutableRefObject<HTMLElement | null>,
+    panelRef: panelRef as React.MutableRefObject<HTMLElement | null>,
+    setVisibleWithOptions,
+  })
+
   // useHover: opens/closes on pointer enter/leave. Optionally use safePolygon
   // to keep the panel open while the cursor traverses the gap (when safePolygonOptions is set).
   const hover = useHover(context, {
-    enabled: !openDropdownByClick,
+    enabled: !openDropdownByClick && !groupedHoverEnabled,
     delay: {
       open: delay ?? (_transition ? 50 : 1),
       close: _transition ? 150 : 50,
@@ -185,13 +220,13 @@ export const Dropdown = ({
         event.key === "Tab" &&
         !panelRef.current.contains(document.activeElement)
       ) {
-        setVisible(false)
+        setVisibleWithOptions(false)
       }
     }
 
     document.addEventListener("keyup", handleKeyUp)
     return () => document.removeEventListener("keyup", handleKeyUp)
-  }, [visible, openDropdownByClick, panelRef])
+  }, [visible, openDropdownByClick, panelRef, setVisibleWithOptions])
 
   // Close when a link inside the panel is clicked (click-mode only).
   useEffect(() => {
@@ -202,21 +237,31 @@ export const Dropdown = ({
       const target = event.target as Element
       const link =
         target.tagName.toLowerCase() === "a" ? target : target.closest("a")
-      if (link && panelRef.current.contains(link)) setVisible(false)
+      if (link && panelRef.current.contains(link)) {
+        setVisibleWithOptions(false, { source: "click" })
+      }
     }
 
     document.addEventListener("click", handleClick)
     return () => document.removeEventListener("click", handleClick)
-  }, [openDropdownByClick, panelRef])
+  }, [openDropdownByClick, panelRef, setVisibleWithOptions])
 
-  const onVisible = useCallback(() => setVisible(true), [])
-  const onHide = useCallback(() => setVisible(false), [])
+  const onVisible = useCallback(() => setVisibleWithOptions(true), [
+    setVisibleWithOptions,
+  ])
+  const onHide = useCallback(() => setVisibleWithOptions(false), [
+    setVisibleWithOptions,
+  ])
+  const setVisibleDirectly = useCallback(
+    (nextVisible: boolean) => setVisibleWithOptions(nextVisible),
+    [setVisibleWithOptions]
+  )
 
   // Placement-aware transitions via CSS data attributes (per Floating UI docs).
   // CSS reads the current data-placement on every frame, so there's no stale
   // capture when flip changes placement after mount.
   const { isMounted, status } = useTransitionStatus(context, {
-    duration: _transition ? 250 : 0,
+    duration: transitionEnabled ? 250 : 0,
   })
 
   // Padding on the panel that fills the gap between anchor and panel so the
@@ -283,7 +328,7 @@ export const Dropdown = ({
   const dropdownPanel = useMemo(() => {
     if (!(visible || isMounted || keepInDOM)) return null
 
-    const panelVisible = _transition ? isMounted : visible
+    const panelVisible = transitionEnabled ? isMounted : visible
     const renderPanel = panelVisible || keepInDOM
 
     return (
@@ -302,14 +347,14 @@ export const Dropdown = ({
         }}
         maxHeight={maxHeight + offset}
         {...padding}
-        {...getFloatingProps()}
+        {...getFloatingProps(groupedInteractionProps?.floatingProps ?? {})}
         {...rest}
       >
         {renderPanel && (
           <Panel
             data-status={panelVisible ? status : "initial"}
             data-placement={resolvedPlacement}
-            $animate={_transition}
+            $animate={transitionEnabled}
             maxHeight={maxHeight}
           >
             <FocusOn noIsolation enabled={focusEnabled} returnFocus={returnFocus}>
@@ -318,7 +363,7 @@ export const Dropdown = ({
                   ? (dropdown as any)({
                       onVisible,
                       onHide,
-                      setVisible,
+                      setVisible: setVisibleDirectly,
                       visible,
                     })
                   : dropdown}
@@ -337,20 +382,23 @@ export const Dropdown = ({
     resolvedPlacement,
     maxHeight,
     offset,
-    _transition,
+    transitionEnabled,
     status,
     focusEnabled,
     returnFocus,
     dropdown,
     padding,
     floatingStyles,
+    groupedInteractionProps,
     getFloatingProps,
+    setVisibleDirectly,
     rest,
   ])
 
   const anchorProps: React.HTMLAttributes<HTMLElement> = getReferenceProps({
     "aria-expanded": visible,
     "aria-haspopup": true as const,
+    ...groupedInteractionProps?.anchorProps,
   })
 
   return (
@@ -360,7 +408,7 @@ export const Dropdown = ({
         anchorProps,
         onVisible,
         onHide,
-        setVisible,
+        setVisible: setVisibleDirectly,
         visible,
       })}
 

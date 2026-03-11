@@ -10,7 +10,7 @@ import { Pill } from "../Pill"
 import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
 import { Spacer } from "../Spacer"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
-import { Message } from "../Message"
+import { DropdownGroupProvider, useDropdownGroup } from "./DropdownGroupContext"
 
 export default {
   component: Dropdown,
@@ -204,6 +204,74 @@ export const OpenDropdownByClick = {
         </Dropdown>
       </Flex>
     )
+  },
+}
+
+export const GroupedHoverSwap = {
+  render: () => {
+    const GroupedDropdownRow = () => {
+      const dropdownGroup = useDropdownGroup()
+
+      return (
+        <Flex gap={1}>
+          {[1, 2, 3].map((num) => {
+            const dropdown = (
+              <Box width={280} p={2}>
+                <Text variant="sm-display" mb={1}>
+                  Menu {num}
+                </Text>
+                <Clickable display="block" width="100%" py={1} px={2}>
+                  Item {num}.1
+                </Clickable>
+                <Clickable display="block" width="100%" py={1} px={2}>
+                  Item {num}.2
+                </Clickable>
+                <Clickable display="block" width="100%" py={1} px={2}>
+                  Item {num}.3
+                </Clickable>
+              </Box>
+            )
+
+            return (
+              <Dropdown
+                key={num}
+                {...dropdownGroup}
+                dropdown={dropdown}
+                placement="bottom-start"
+              >
+                {({ anchorRef, anchorProps }) => {
+                  return (
+                    <Button
+                      ref={anchorRef}
+                      variant={num === 2 ? "primaryBlack" : "secondaryBlack"}
+                      size="small"
+                      {...anchorProps}
+                    >
+                      Hover group {num}
+                    </Button>
+                  )
+                }}
+              </Dropdown>
+            )
+          })}
+        </Flex>
+      )
+    }
+
+    return (
+      <DropdownGroupProvider delay={180}>
+        <GroupedDropdownRow />
+      </DropdownGroupProvider>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Wrap neighboring dropdowns in `DropdownGroupProvider` and spread `useDropdownGroup()` into each `Dropdown` to delay lateral swaps while keeping the initial hover transition.",
+      },
+    },
+    chromatic: { disable: true },
   },
 }
 
