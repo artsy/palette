@@ -296,7 +296,9 @@ export const Dropdown = ({
         placement={placement}
         style={{
           ...floatingStyles,
-          ...(keepInDOM ? { visibility: visible ? "visible" : "hidden" } : {}),
+          ...(keepInDOM
+            ? { visibility: panelVisible ? "visible" : "hidden" }
+            : {}),
         }}
         maxHeight={maxHeight + offset}
         {...padding}
