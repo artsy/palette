@@ -145,7 +145,7 @@ For more info, check out our [development guide in the docs](https://palette.art
 
 ### Commits and Deployments
 
-Palette uses [auto-release](https://github.com/intuit/auto-release#readme) to automatically release on every PR. Every PR should have a label that matches one of the following
+Palette uses [auto-release](https://github.com/intuit/auto-release#readme) to automatically release from `main` based on PR labels. Every PR should have a label that matches one of the following
 
 - Version: Trivial
 - Version: Patch
@@ -158,7 +158,11 @@ and patch for bug fixes. Trivial will not cause a release and should be used whe
 
 If you don't want to release on a particular PR but the changes aren't trivial then use the `Skip Release` tag along side the appropriate version tag.
 
-`Canary` tags will publish a canary version to NPM which can be used to test work in progress. See [the CircleCI job](https://app.circleci.com/pipelines/github/artsy/palette/4138/workflows/ffc56588-35bf-41ed-a0a8-a806fc807678/jobs/20148) for the exact version published and update your consuming app accordingly.
+`Canary` tags will publish a canary version to NPM which can be used to test work in progress. See the [Publish to npm workflow](https://github.com/artsy/palette/actions/workflows/publish-npm.yml) for the exact version published and update your consuming app accordingly.
+
+### npm Trusted Publishing
+
+Palette publishes to npm via GitHub Actions OIDC using `.github/workflows/publish-npm.yml`.
 
 ## Repos consuming Palette
 
