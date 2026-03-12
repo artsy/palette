@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  auto: artsy/auto@2.3.0
   aws-s3: circleci/aws-s3@2.0.0
   node: circleci/node@6.3.0
 
@@ -53,30 +52,6 @@ workflows:
           filters:
             branches:
               only: main
-
-      # PR Builds
-      - auto/publish-canary:
-          context: npm-deploy
-          filters:
-            branches:
-              ignore: main
-          node-version: "20.10.0"
-          requires:
-            - test
-            - lint
-            - type-check
-
-      # Releases
-      - auto/publish:
-          context: npm-deploy
-          filters:
-            branches:
-              only: main
-          node-version: "20.10.0"
-          requires:
-            - test
-            - lint
-            - type-check
 
       # Docs / Storybooks
       - node/run:
