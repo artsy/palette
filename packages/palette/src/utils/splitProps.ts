@@ -25,3 +25,5 @@ export const splitProps = <T>(mixin: styleFn) => {
     return [leftProps, rightProps]
   }
 }
+
+export const test = () => "example"
