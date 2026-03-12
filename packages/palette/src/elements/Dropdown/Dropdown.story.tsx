@@ -570,3 +570,62 @@ export const AtViewportEdge = {
     )
   },
 }
+
+export const HoverSwapDelay = {
+  render: () => {
+    return (
+      <Flex gap={1}>
+        {[1, 2, 3].map((num) => {
+          const dropdown = (
+            <Box width="100vw" p={2}>
+              <Text variant="sm-display" mb={1}>
+                Menu {num}
+              </Text>
+              <Clickable display="block" width="100%" py={1} px={2}>
+                Item {num}.1
+              </Clickable>
+              <Clickable display="block" width="100%" py={1} px={2}>
+                Item {num}.2
+              </Clickable>
+              <Clickable display="block" width="100%" py={1} px={2}>
+                Item {num}.3
+              </Clickable>
+            </Box>
+          )
+
+          return (
+            <Dropdown
+              key={num}
+              dropdown={dropdown}
+              placement="bottom-start"
+              offset={0}
+              delay={{ open: 100, close: 200 }}
+            >
+              {({ anchorRef, anchorProps }) => {
+                return (
+                  <Button
+                    ref={anchorRef}
+                    variant={num === 2 ? "primaryBlack" : "secondaryBlack"}
+                    size="small"
+                    {...anchorProps}
+                  >
+                    Hover group {num}
+                  </Button>
+                )
+              }}
+            </Dropdown>
+          )
+        })}
+      </Flex>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use the `delay` prop to configure the delay for showing/hiding the dropdown on hover.",
+      },
+    },
+    chromatic: { disable: true },
+  },
+}
