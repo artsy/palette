@@ -7,6 +7,7 @@ import {
   useInteractions,
   safePolygon,
   useTransitionStatus,
+  type Delay,
   type SafePolygonOptions,
 } from "@floating-ui/react"
 import {
@@ -75,8 +76,8 @@ export interface DropdownProps extends Omit<BoxProps, "children"> {
   autoPlacement?: PositionAutoPlacement
   /** Whether to return focus to the previous element when the dropdown closes (default: `true`) */
   returnFocus?: boolean
-  /** Delay in milliseconds before showing the dropdown on hover (ignored when openDropdownByClick is true) */
-  delay?: number
+  /** Delay in milliseconds before showing/hiding the dropdown on hover (ignored when openDropdownByClick is true) */
+  delay?: Delay
   /**
    * Optional overrides for Floating UI's safePolygon (used when openDropdownByClick is false).
    * When omitted, the default hover close behavior is used (no custom safe polygon).
@@ -145,14 +146,27 @@ export const Dropdown = ({
     onOpenChange,
   })
 
+  const hoverDelay = useMemo(() => {
+    const defaultCloseDelay = _transition ? 150 : 50
+
+    if (typeof delay === "number") {
+      return {
+        open: delay,
+        close: defaultCloseDelay,
+      }
+    }
+
+    return {
+      open: delay.open ?? 0,
+      close: delay.close ?? defaultCloseDelay,
+    }
+  }, [delay, _transition])
+
   // useHover: opens/closes on pointer enter/leave. Optionally use safePolygon
   // to keep the panel open while the cursor traverses the gap (when safePolygonOptions is set).
   const hover = useHover(context, {
     enabled: !openDropdownByClick,
-    delay: {
-      open: delay ?? (_transition ? 50 : 1),
-      close: _transition ? 150 : 50,
-    },
+    delay: hoverDelay,
     handleClose:
       safePolygonOptions !== undefined && safePolygonOptions !== null
         ? safePolygon(safePolygonOptions)
@@ -296,7 +310,9 @@ export const Dropdown = ({
         placement={placement}
         style={{
           ...floatingStyles,
-          ...(keepInDOM ? { visibility: visible ? "visible" : "hidden" } : {}),
+          ...(keepInDOM
+            ? { visibility: panelVisible ? "visible" : "hidden" }
+            : {}),
         }}
         maxHeight={maxHeight + offset}
         {...padding}
