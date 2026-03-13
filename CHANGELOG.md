@@ -1,3 +1,16 @@
+# (Fri Mar 13 2026)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@46.6.0`
+  - feat(dropdown): supports custom delay options [#1506](https://github.com/artsy/palette/pull/1506) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Wed Mar 11 2026)
 
 #### 🚀  Enhancement

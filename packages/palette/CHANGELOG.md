@@ -1,3 +1,20 @@
+# v46.6.0 (Fri Mar 13 2026)
+
+#### 🚀  Enhancement
+
+- feat(dropdown): supports custom delay options [#1506](https://github.com/artsy/palette/pull/1506) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(dropdown): passes through full delay options ([@dzucconi](https://github.com/dzucconi))
+- fix(dropdown): allows transition out to run when keeping in dom ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v46.5.0 (Wed Mar 11 2026)
 
 #### 🚀  Enhancement
