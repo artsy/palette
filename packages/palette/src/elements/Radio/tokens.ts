@@ -8,7 +8,7 @@ export const RADIO_DOT_STATES = {
     resting: css`
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
-      border-color: ${themeGet("colors.mono100")};
+      border-color: ${themeGet("colors.mono60")};
       background-color: ${themeGet("colors.mono0")};
     `,
     selected: css`
