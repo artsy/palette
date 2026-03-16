@@ -47,6 +47,6 @@ export const RadioDot = styled(Box)<CheckProps>`
     height: 12px;
     border-radius: 50%;
     transition: background-color 0.25s;
-    background-color: currentColor;
+    background-color: var(--dot-color);
   }
 `

@@ -8,13 +8,15 @@ export const RADIO_DOT_STATES = {
     resting: css`
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
-      border-color: ${themeGet("colors.mono30")};
+      border-color: ${themeGet("colors.mono100")};
+      background-color: ${themeGet("colors.mono0")};
     `,
     selected: css`
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
       border-color: ${themeGet("colors.mono100")};
-      background-color: ${themeGet("colors.mono100")};
+      background-color: ${themeGet("colors.mono0")};
+      --dot-color: ${themeGet("colors.mono100")};
     `,
   },
   focus: {
@@ -22,12 +24,14 @@ export const RADIO_DOT_STATES = {
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
       border-color: ${themeGet("colors.mono100")};
+      background-color: ${themeGet("colors.mono0")};
     `,
     selected: css`
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
       border-color: ${themeGet("colors.mono100")};
-      background-color: ${themeGet("colors.mono100")};
+      background-color: ${themeGet("colors.mono0")};
+      --dot-color: ${themeGet("colors.mono100")};
     `,
   },
   disabled: {
@@ -40,7 +44,8 @@ export const RADIO_DOT_STATES = {
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
       border-color: ${themeGet("colors.mono30")};
-      background-color: ${themeGet("colors.mono30")};
+      background-color: ${themeGet("colors.mono0")};
+      --dot-color: ${themeGet("colors.mono30")};
     `,
   },
   error: {
@@ -48,26 +53,29 @@ export const RADIO_DOT_STATES = {
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
       border-color: ${themeGet("colors.red100")};
+      background-color: ${themeGet("colors.mono0")};
     `,
     selected: css`
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
       border-color: ${themeGet("colors.red100")};
-      background-color: ${themeGet("colors.red100")};
+      background-color: ${themeGet("colors.mono0")};
+      --dot-color: ${themeGet("colors.red100")};
     `,
   },
   hover: {
     resting: css`
       border: 1px solid;
       color: transparent;
-      border-color: ${themeGet("colors.blue100")};
+      border-color: ${themeGet("colors.mono100")};
       background-color: ${themeGet("colors.mono0")};
     `,
     selected: css`
       border: 1px solid;
       color: ${themeGet("colors.mono0")};
-      border-color: ${themeGet("colors.blue100")};
-      background-color: ${themeGet("colors.blue100")};
+      border-color: ${themeGet("colors.mono100")};
+      background-color: ${themeGet("colors.mono0")};
+      --dot-color: ${themeGet("colors.mono100")};
     `,
   },
 }
@@ -88,12 +96,7 @@ export const RADIO_STATES = {
     color: ${themeGet("colors.mono100")};
   `,
   hover: css`
-    color: ${themeGet("colors.blue100")};
-
-    /* Label */
-    > div > div:first-of-type {
-      text-decoration: underline;
-    }
+    color: ${themeGet("colors.mono100")};
   `,
   disabled: css`
     pointer-events: none;
