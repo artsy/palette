@@ -1,3 +1,15 @@
+# v46.7.0 (Tue Mar 17 2026)
+
+#### 🚀  Enhancement
+
+- feat: update radio styles [#1509](https://github.com/artsy/palette/pull/1509) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.6.0 (Fri Mar 13 2026)
 
 #### 🚀  Enhancement
