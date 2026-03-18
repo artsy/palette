@@ -28,10 +28,17 @@ const Cell = styled(Box)<CellProps>`
   ${gridColumn}
 `
 
+const SubgridCell = styled(Cell)`
+  display: grid;
+  grid-template-columns: subgrid;
+`
+
 /** Column implements `Box` and `gridColumn` */
 export type ColumnProps = CellProps & {
   /** denotes whether or not to break to a new row after column */
   wrap?: boolean
+  /** renders the column as a subgrid, inheriting parent grid tracks */
+  subgrid?: boolean
   children?: React.ReactNode
 }
 
@@ -43,15 +50,18 @@ export const Column: React.FC<React.PropsWithChildren<ColumnProps>> = ({
   span,
   start,
   wrap,
+  subgrid,
   ...rest
 }) => {
   const gridColumnValue = useMemo(() => {
     return calculateGridColumn({ span, start })
   }, [span, start])
 
+  const Component = subgrid ? SubgridCell : Cell
+
   return (
     <>
-      <Cell gridColumn={gridColumnValue} {...rest} />
+      <Component gridColumn={gridColumnValue} {...rest} />
       {wrap && <ColumnWrap gridColumnValue={gridColumnValue} />}
     </>
   )
