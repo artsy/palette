@@ -203,6 +203,32 @@ export const Subgrid = {
             </Column>
           </Column>
         </Column>
+
+        <Column span={6} subgrid rowGap={6} columnGap={[2, 2, 4]}>
+          <Column span={3} bg="blue" p={1}>
+            <Text variant="sm-display">Custom gaps</Text>
+          </Column>
+
+          <Column span={3} bg="red" p={1}>
+            <Text variant="sm-display">columnGap: 2</Text>
+          </Column>
+
+          <Column span={3} bg="green" p={1}>
+            <Text variant="sm-display">rowGap: 6</Text>
+          </Column>
+
+          <Column span={3} bg="purple" subgrid rowGap={1}>
+            {Array.from(Array(12)).map((_, i) => (
+              <Column key={i} span={1} bg="mono30">
+                {i}
+              </Column>
+            ))}
+          </Column>
+        </Column>
+
+        <Column span={6} bg="mono10" p={1}>
+          <Text variant="sm-display">Span 6 (inherits parent gaps)</Text>
+        </Column>
       </>
     ),
   },
@@ -218,8 +244,8 @@ export const Subgrid = {
 
 export const CustomGutters = {
   args: {
-    gridColumnGap: 4,
-    gridRowGap: 1,
+    columnGap: 4,
+    rowGap: 1,
     children: (
       <>
         {Array.from(Array(12)).map((_, i) => (
