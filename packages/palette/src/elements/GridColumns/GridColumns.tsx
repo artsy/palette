@@ -1,6 +1,15 @@
 import React, { useMemo } from "react"
 import styled from "styled-components"
-import { gridColumn, GridColumnProps } from "styled-system"
+import {
+  gridColumn,
+  GridColumnProps,
+  gridColumnGap,
+  GridColumnGapProps,
+  gridRowGap,
+  GridRowGapProps,
+  ResponsiveValue,
+  system,
+} from "styled-system"
 import { Box, BoxProps } from "../Box"
 import { CSSGrid, CSSGridProps } from "../CSSGrid"
 import {
@@ -28,19 +37,37 @@ const Cell = styled(Box)<CellProps>`
   ${gridColumn}
 `
 
-const SubgridCell = styled(Cell)`
+const gapProps = system({
+  columnGap: { property: "columnGap", scale: "space" },
+  rowGap: { property: "rowGap", scale: "space" },
+})
+
+interface GapProps {
+  columnGap?: ResponsiveValue<string | number>
+  rowGap?: ResponsiveValue<string | number>
+}
+
+type SubgridCellProps = CellProps & GridColumnGapProps & GridRowGapProps & GapProps
+
+const SubgridCell = styled(Cell)<SubgridCellProps>`
   display: grid;
   grid-template-columns: subgrid;
+  ${gridColumnGap}
+  ${gridRowGap}
+  ${gapProps}
 `
 
 /** Column implements `Box` and `gridColumn` */
-export type ColumnProps = CellProps & {
-  /** denotes whether or not to break to a new row after column */
-  wrap?: boolean
-  /** renders the column as a subgrid, inheriting parent grid tracks */
-  subgrid?: boolean
-  children?: React.ReactNode
-}
+export type ColumnProps = CellProps &
+  GridColumnGapProps &
+  GridRowGapProps &
+  GapProps & {
+    /** denotes whether or not to break to a new row after column */
+    wrap?: boolean
+    /** renders the column as a subgrid, inheriting parent grid tracks */
+    subgrid?: boolean
+    children?: React.ReactNode
+  }
 
 /**
  * A column sits within the GridColumns and spans the columns,
