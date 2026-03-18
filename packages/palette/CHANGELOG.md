@@ -1,3 +1,19 @@
+# v46.8.0 (Wed Mar 18 2026)
+
+#### 🚀  Enhancement
+
+- feat(grid): adds subgrid support [#1510](https://github.com/artsy/palette/pull/1510) ([@dzucconi](https://github.com/dzucconi))
+
+#### 🐛  Bug Fix
+
+- feat(grid): adds subgrid support ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v46.7.0 (Tue Mar 17 2026)
 
 #### 🚀  Enhancement
