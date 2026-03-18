@@ -34,8 +34,8 @@ export default {
       },
     },
     controls: {
-        exclude: STORYBOOK_PROPS_BLOCKLIST,
-      },
+      exclude: STORYBOOK_PROPS_BLOCKLIST,
+    },
   },
 }
 
@@ -157,6 +157,60 @@ export const KitchenSink = {
       description: {
         story:
           "Comprehensive example showing various column configurations and layouts.",
+      },
+    },
+  },
+}
+
+export const Subgrid = {
+  args: {
+    position: "relative",
+    m: 2,
+    children: (
+      <>
+        <GridColumnsDebug />
+
+        <Column span={8} subgrid>
+          <Column span={3} bg="mono10" p={1}>
+            <Text variant="sm-display">Span 3 (nested)</Text>
+          </Column>
+
+          <Column span={5} bg="mono10" p={1}>
+            <Text variant="sm-display">Span 5 (nested)</Text>
+          </Column>
+        </Column>
+
+        <Column span={4} bg="mono10" p={1}>
+          <Text variant="sm-display">Span 4 (direct child)</Text>
+        </Column>
+
+        <Column span={12} subgrid>
+          <Column span={2} bg="mono10" p={1}>
+            <Text variant="sm-display">2</Text>
+          </Column>
+
+          <Column span={4} bg="mono10" p={1}>
+            <Text variant="sm-display">4</Text>
+          </Column>
+
+          <Column span={6} subgrid>
+            <Column span={3} bg="mono10" p={1}>
+              <Text variant="sm-display">3 (deeply nested)</Text>
+            </Column>
+
+            <Column span={3} bg="mono10" p={1}>
+              <Text variant="sm-display">3 (deeply nested)</Text>
+            </Column>
+          </Column>
+        </Column>
+      </>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates CSS subgrid support. Nested Columns inherit the parent grid's column tracks, so gutters and alignment are preserved at any nesting depth.",
       },
     },
   },
