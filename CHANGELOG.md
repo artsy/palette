@@ -2,6 +2,19 @@
 
 #### 🚀  Enhancement
 
+- `@artsy/palette@46.9.0`
+  - feat(grid): supports gaps on subgrids [#1511](https://github.com/artsy/palette/pull/1511) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Wed Mar 18 2026)
+
+#### 🚀  Enhancement
+
 - `@artsy/palette@46.8.0`
   - feat(grid): adds subgrid support [#1510](https://github.com/artsy/palette/pull/1510) ([@dzucconi](https://github.com/dzucconi))
 
