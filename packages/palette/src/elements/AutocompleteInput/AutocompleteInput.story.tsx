@@ -215,13 +215,11 @@ export const LoadNewSuggestionsAfterSelection = () => {
   const [key, setKey] = React.useState(0)
   const [options, setOptions] = React.useState(CATEGORIES)
   const [loading, setLoading] = React.useState(false)
-  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(
-    null
-  )
+  const [selected, setSelected] = React.useState<string[]>([])
 
   const handleSelect = (option: typeof CATEGORIES[0]) => {
-    setSelectedCategory(option.value)
     setLoading(true)
+    setSelected((prev) => [...prev, option.value])
 
     // Simulate API call to fetch artists for the selected category
     setTimeout(() => {
@@ -238,7 +236,7 @@ export const LoadNewSuggestionsAfterSelection = () => {
     setKey((k) => k + 1)
     setOptions(CATEGORIES)
     setLoading(false)
-    setSelectedCategory(null)
+    setSelected([])
   }
 
   return (
@@ -263,9 +261,9 @@ export const LoadNewSuggestionsAfterSelection = () => {
       <Box mt={2}>
         <button onClick={handleReset}>Reset</button>
       </Box>
-      {selectedCategory && (
+      {selected.length > 0 && (
         <Box mt={3} p={2} bg="blue10" borderRadius={1}>
-          <strong>Selected Category: {selectedCategory}</strong>
+          <strong>Selected Category: {selected.join(" > ")}</strong>
           <br />
           <small>
             {loading

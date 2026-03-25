@@ -81,8 +81,11 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   forwardRef?: React.Ref<HTMLInputElement>
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
-  /** on <click> or <enter> when an option is selected. Return { keepOpen: true } to keep dropdown open */
-  onSelect?(option: T, index: number): void | { keepOpen: boolean }
+  /** on <click> or <enter> when an option is selected. Optionally return (or resolve) { keepOpen: true } to keep dropdown open. */
+  onSelect?(
+    option: T,
+    index: number
+  ): void | { keepOpen: boolean } | Promise<void | { keepOpen: boolean }>;
   /** on <click> of the 'x' (clear) button */
   onClear?(): void
   /** Callback that runs when options are hidden */
@@ -150,9 +153,9 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     }, 100)
   }
 
-  const handleSelect = (option: T, index: number) => {
-    const result = onSelect?.(option, index)
-    const keepOpen = result && typeof result === "object" && result.keepOpen
+  const handleSelect = async (option: T, index: number) => {
+    const result = await Promise.resolve(onSelect?.(option, index))
+    const keepOpen = result != null && typeof result === "object" && result.keepOpen
 
     if (keepOpen) {
       // Keep dropdown open and clear query to reset view
@@ -172,8 +175,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     onEnter: ({ element: option, index: i, event }) => {
       event.preventDefault()
       event.stopPropagation()
-      const keepOpen = handleSelect(option, i)
-      resetUI(keepOpen)
+      handleSelect(option, i).then(resetUI)
     },
   })
 
@@ -205,8 +207,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   }
 
   const handleMouseDown = (option: T, i: number) => () => {
-    const keepOpen = handleSelect(option, i)
-    resetUI(keepOpen)
+    handleSelect(option, i).then(resetUI)
   }
 
   const handleClick = () => {

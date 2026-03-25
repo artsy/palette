@@ -93,13 +93,82 @@ describe("Autocomplete", () => {
     )
   })
 
-  it("closes the options when one is selected", () => {
+  it("closes the options when one is selected", async () => {
     const wrapper = getWrapper()
     fillInput(wrapper, "hello")
 
     expect(wrapper.html()).toContain('aria-expanded="true"')
 
-    act(() => {
+    await act(async () => {
+      wrapper.find("button").at(1).simulate("mousedown")
+      jest.runAllTimers()
+    })
+
+    expect(wrapper.html()).toContain('aria-expanded="false"')
+  })
+
+  it("keeps the dropdown open when onSelect returns { keepOpen: true }", async () => {
+    const onSelect = jest.fn().mockReturnValue({ keepOpen: true })
+    const wrapper = mount(
+      <AutocompleteInput
+        options={OPTIONS}
+        placeholder="Example input"
+        onSelect={onSelect}
+      />
+    )
+
+    fillInput(wrapper, "hello")
+    expect(wrapper.html()).toContain('aria-expanded="true"')
+
+    await act(async () => {
+      wrapper.find("button").at(1).simulate("mousedown")
+      jest.runAllTimers()
+    })
+
+    wrapper.update()
+
+    expect(wrapper.html()).toContain('aria-expanded="true"')
+    expect(wrapper.find("input").getDOMNode<HTMLInputElement>().value).toBe("")
+  })
+
+  it("keeps the dropdown open when onSelect returns a promise resolving to { keepOpen: true }", async () => {
+    const onSelect = jest.fn().mockResolvedValue({ keepOpen: true })
+    const wrapper = mount(
+      <AutocompleteInput
+        options={OPTIONS}
+        placeholder="Example input"
+        onSelect={onSelect}
+      />
+    )
+
+    fillInput(wrapper, "hello")
+    expect(wrapper.html()).toContain('aria-expanded="true"')
+
+    await act(async () => {
+      wrapper.find("button").at(1).simulate("mousedown")
+      jest.runAllTimers()
+    })
+
+    wrapper.update()
+
+    expect(wrapper.html()).toContain('aria-expanded="true"')
+    expect(wrapper.find("input").getDOMNode<HTMLInputElement>().value).toBe("")
+  })
+
+  it("closes the dropdown when onSelect returns a promise resolving to void", async () => {
+    const onSelect = jest.fn().mockResolvedValue(undefined)
+    const wrapper = mount(
+      <AutocompleteInput
+        options={OPTIONS}
+        placeholder="Example input"
+        onSelect={onSelect}
+      />
+    )
+
+    fillInput(wrapper, "hello")
+    expect(wrapper.html()).toContain('aria-expanded="true"')
+
+    await act(async () => {
       wrapper.find("button").at(1).simulate("mousedown")
       jest.runAllTimers()
     })
