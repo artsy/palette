@@ -81,8 +81,8 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   forwardRef?: React.Ref<HTMLInputElement>
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
-  /** on <click> or <enter> when an option is selected */
-  onSelect?(option: T, index: number): void
+  /** on <click> or <enter> when an option is selected. Return { keepOpen: true } to keep dropdown open */
+  onSelect?(option: T, index: number): void | { keepOpen: boolean }
   /** on <click> of the 'x' (clear) button */
   onClear?(): void
   /** Callback that runs when options are hidden */
@@ -136,7 +136,13 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     }))
   }, [options])
 
-  const resetUI = () => {
+  const resetUI = (keepOpen = false) => {
+    if (keepOpen) {
+      // Keep the dropdown open, just reset navigation
+      reset()
+      return
+    }
+
     setTimeout(() => {
       inputRef.current?.focus()
       reset()
@@ -145,9 +151,18 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   }
 
   const handleSelect = (option: T, index: number) => {
-    dispatch({ type: "SELECT", payload: { query: option.text } })
+    const result = onSelect?.(option, index)
+    const keepOpen = result && typeof result === "object" && result.keepOpen
+
+    if (keepOpen) {
+      // Keep dropdown open and clear query to reset view
+      dispatch({ type: "CLEAR" })
+    } else {
+      dispatch({ type: "SELECT", payload: { query: option.text } })
+    }
     inputRef.current?.focus()
-    onSelect?.(option, index)
+
+    return keepOpen
   }
 
   const { index, reset, set } = useKeyboardListNavigation({
@@ -157,8 +172,8 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     onEnter: ({ element: option, index: i, event }) => {
       event.preventDefault()
       event.stopPropagation()
-      handleSelect(option, i)
-      resetUI()
+      const keepOpen = handleSelect(option, i)
+      resetUI(keepOpen)
     },
   })
 
@@ -190,8 +205,8 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   }
 
   const handleMouseDown = (option: T, i: number) => () => {
-    handleSelect(option, i)
-    resetUI()
+    const keepOpen = handleSelect(option, i)
+    resetUI(keepOpen)
   }
 
   const handleClick = () => {
