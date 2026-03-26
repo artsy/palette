@@ -142,93 +142,69 @@ const Underlay = styled(Box)`
   }
 `
 
-const CATEGORIES = [
-  { text: "Painting", value: "painting", subtitle: "Visual art medium" },
-  { text: "Sculpture", value: "sculpture", subtitle: "3D art form" },
-  { text: "Photography", value: "photography", subtitle: "Photo medium" },
-  { text: "Print", value: "print", subtitle: "Printed works" },
-]
+type Option = { text: string; value: string; subtitle: string }
 
-const ARTISTS_BY_CATEGORY: Record<
-  string,
-  { text: string; value: string; subtitle: string }[]
-> = {
-  painting: [
-    { text: "Pablo Picasso", value: "picasso", subtitle: "Spanish painter" },
-    {
-      text: "Vincent van Gogh",
-      value: "van-gogh",
-      subtitle: "Dutch post-impressionist",
-    },
-    { text: "Claude Monet", value: "monet", subtitle: "French impressionist" },
-  ],
-  sculpture: [
-    {
-      text: "Michelangelo",
-      value: "michelangelo",
-      subtitle: "Italian Renaissance",
-    },
-    {
-      text: "Auguste Rodin",
-      value: "rodin",
-      subtitle: "French sculptor",
-    },
-    {
-      text: "Henry Moore",
-      value: "henry-moore",
-      subtitle: "British sculptor",
-    },
-  ],
-  photography: [
-    {
-      text: "Ansel Adams",
-      value: "ansel-adams",
-      subtitle: "American photographer",
-    },
-    {
-      text: "Henri Cartier-Bresson",
-      value: "cartier-bresson",
-      subtitle: "French photographer",
-    },
-    {
-      text: "Diane Arbus",
-      value: "diane-arbus",
-      subtitle: "American photographer",
-    },
-  ],
-  print: [
-    { text: "Andy Warhol", value: "warhol", subtitle: "Pop art" },
-    {
-      text: "Shepard Fairey",
-      value: "fairey",
-      subtitle: "Contemporary artist",
-    },
-    {
-      text: "Keith Haring",
-      value: "haring",
-      subtitle: "Graffiti artist",
-    },
-  ],
+const MENU: Record<string, { subtitle: string; artists: Option[] }> = {
+  painting: {
+    subtitle: "Visual art medium",
+    artists: [
+      { text: "Pablo Picasso", value: "picasso", subtitle: "Spanish painter" },
+      { text: "Vincent van Gogh", value: "van-gogh", subtitle: "Dutch post-impressionist" },
+      { text: "Claude Monet", value: "monet", subtitle: "French impressionist" },
+    ],
+  },
+  sculpture: {
+    subtitle: "3D art form",
+    artists: [
+      { text: "Michelangelo", value: "michelangelo", subtitle: "Italian Renaissance" },
+      { text: "Auguste Rodin", value: "rodin", subtitle: "French sculptor" },
+      { text: "Henry Moore", value: "henry-moore", subtitle: "British sculptor" },
+    ],
+  },
+  photography: {
+    subtitle: "Photo medium",
+    artists: [
+      { text: "Ansel Adams", value: "ansel-adams", subtitle: "American photographer" },
+      { text: "Henri Cartier-Bresson", value: "cartier-bresson", subtitle: "French photographer" },
+      { text: "Diane Arbus", value: "diane-arbus", subtitle: "American photographer" },
+    ],
+  },
+  print: {
+    subtitle: "Printed works",
+    artists: [
+      { text: "Andy Warhol", value: "warhol", subtitle: "Pop art" },
+      { text: "Shepard Fairey", value: "fairey", subtitle: "Contemporary artist" },
+      { text: "Keith Haring", value: "haring", subtitle: "Graffiti artist" },
+    ],
+  },
 }
+
+const CATEGORIES: Option[] = Object.entries(MENU).map(([value, { subtitle }]) => ({
+  text: value.charAt(0).toUpperCase() + value.slice(1),
+  value,
+  subtitle,
+}))
 
 export const LoadNewSuggestionsAfterSelection = () => {
   const [key, setKey] = React.useState(0)
-  const [options, setOptions] = React.useState(CATEGORIES)
+  const [options, setOptions] = React.useState<Option[]>(CATEGORIES)
   const [loading, setLoading] = React.useState(false)
   const [selected, setSelected] = React.useState<string[]>([])
 
-  const handleSelect = (option: typeof CATEGORIES[0]) => {
-    setLoading(true)
+  const handleSelect = async (option: Option) => {
     setSelected((prev) => [...prev, option.value])
 
-    // Simulate API call to fetch artists for the selected category
-    setTimeout(() => {
-      const artists = ARTISTS_BY_CATEGORY[option.value] || []
-      setOptions(artists)
-      setLoading(false)
-    }, 800)
+    const category = MENU[option.value]
 
-    // Return keepOpen to keep the dropdown open while loading new options
+    // Leaf node (an artist) — close immediately, no delay
+    if (!category) return
+
+    // Category node — simulate fetching artists then keep open
+    setLoading(true)
+    await new Promise<void>((resolve) => setTimeout(resolve, 800))
+    setOptions(category.artists)
+    setLoading(false)
+
     return { keepOpen: true }
   }
 
