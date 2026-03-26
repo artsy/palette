@@ -87,7 +87,8 @@ describe("Button", () => {
       </Theme>
     )
 
-    expect(wrapper.html()).toContain("Buttontest__StyledButton")
+    expect(wrapper.find(StyledButton)).toHaveLength(1)
+    expect(wrapper.find("button")).toHaveLength(1)
   })
 })
 
