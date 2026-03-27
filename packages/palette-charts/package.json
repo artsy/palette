@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette-charts",
-  "version": "45.9.0",
+  "version": "45.9.1",
   "description": "Design system library for react components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
-    "@artsy/palette": "^46.9.0",
+    "@artsy/palette": "^46.9.1",
     "@rsbuild/plugin-styled-components": "^1.6.1",
     "@rslib/core": "^0.20.1",
     "@swc/core": "^1.15.21",
