@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, TextProps } from "../elements"
+import { Text, TextProps } from "../elements/Text"
 
 export const RequiredField: React.FC<
   React.PropsWithChildren<TextProps & { disabled?: boolean }>

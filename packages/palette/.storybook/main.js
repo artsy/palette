@@ -1,9 +1,10 @@
 import { createRequire } from "node:module"
 import { dirname, join } from "node:path"
+import { pluginStyledComponents } from "@rsbuild/plugin-styled-components"
 
 const require = createRequire(import.meta.url)
 
-/** @type { import('@storybook/react-webpack5').StorybookConfig } */
+/** @type { import('storybook-react-rsbuild').StorybookConfig } */
 const config = {
   stories: [
     "./guides/GettingStarted.story.tsx",
@@ -17,13 +18,12 @@ const config = {
 
   addons: [
     getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-viewport"),
     getAbsolutePath("@storybook/addon-docs"),
     getAbsolutePath("@storybook/addon-a11y"),
   ],
 
   framework: {
-    name: getAbsolutePath("@storybook/react-webpack5"),
+    name: getAbsolutePath("storybook-react-rsbuild"),
     options: {},
   },
 
@@ -33,46 +33,26 @@ const config = {
 
   core: {
     disableTelemetry: true,
-    builder: {
-      name: getAbsolutePath("@storybook/builder-webpack5"),
-    },
   },
 
   typescript: {
     check: false,
-    reactDocgen: "react-docgen-typescript",
+    reactDocgen: "react-docgen",
   },
 
-  babel: (config) => {
-    return { ...config, rootMode: "upward" }
-  },
-
-  webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.(ts|tsx|js|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader",
-        options: {
-          presets: [
-            "@babel/preset-env",
-            "@babel/preset-typescript",
-            "@babel/preset-react",
-          ],
-          plugins: [
-            ["@babel/plugin-proposal-class-properties", { loose: true }],
-            [
-              "@babel/plugin-transform-private-property-in-object",
-              { loose: true },
-            ],
-            ["@babel/plugin-transform-private-methods", { loose: true }],
-          ],
-        },
+  rsbuildFinal: (config) => {
+    config.plugins = [...(config.plugins || []), pluginStyledComponents()]
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve?.alias,
+        "@storybook/test": "storybook/test",
       },
-    })
-
-    config.resolve.extensions.push(".ts", ".tsx", ".js", ".jsx")
-
+    }
+    config.dev = {
+      ...config.dev,
+      lazyCompilation: false,
+    }
     return config
   },
 }

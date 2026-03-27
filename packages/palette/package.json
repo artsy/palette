@@ -20,23 +20,20 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "yarn compile:cjs && yarn compile:esm",
-    "compile:cjs": "BABEL_ENV=compile babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/cjs",
-    "compile:esm": "babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/esm --config-file ./babel.esm.json --no-babelrc",
+    "compile": "rslib build",
     "prepack": "yarn generate-tokens && yarn generate-styles",
     "generate-tokens": "ts-node scripts/generate-tokens.ts",
     "generate-styles": "ts-node scripts/generate-styles.ts",
     "lint": "eslint --cache --cache-location '.cache/eslint/' --ext ts,tsx  --ignore-pattern 'dist'",
     "local-palette-dev": "scripts/yalc-sync-after-change",
-    "prepublishOnly": "yarn clean && yarn compile && cd ../palette-tokens && yarn compile && cd ../palette && yarn type-declarations",
+    "prepublishOnly": "yarn clean && cd ../palette-tokens && yarn compile && cd ../palette && yarn compile",
     "prettier-project": "yarn prettier --write 'src/**/*.{ts,tsx}'",
     "release": "auto shipit && node scripts/clean-up-after-auto.js",
     "test": "yarn type-check && yarn jest --runInBand",
     "test:watch": "jest --watch --runInBand",
     "type-check": "tsc --noEmit --pretty",
-    "type-declarations": "tsc --emitDeclarationOnly --outDir dist/cjs",
-    "type-declarations:esm": "tsc -p tsconfig.esm.json --emitDeclarationOnly",
-    "watch": "concurrently --raw --kill-others 'yarn compile:cjs -w' 'yarn type-declarations -w'",
+    "type-declarations": "rslib build",
+    "watch": "rslib build --watch",
     "storybook": "storybook dev -p 6006 --quiet",
     "build-storybook": "storybook build",
     "visual-test": "chromatic test --exit-zero-on-changes --project-token n02zjqmdqq"
@@ -60,24 +57,14 @@
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
     "@artsy/icons": "^3.64.0",
-    "@babel/cli": "7.12.16",
-    "@babel/core": "7.12.16",
-    "@babel/plugin-proposal-class-properties": "7.12.13",
-    "@babel/plugin-proposal-json-strings": "7.12.13",
-    "@babel/plugin-proposal-optional-chaining": "7.12.16",
-    "@babel/plugin-syntax-dynamic-import": "7.8.3",
-    "@babel/plugin-syntax-import-meta": "7.10.4",
-    "@babel/plugin-transform-private-methods": "^7.27.1",
-    "@babel/plugin-transform-private-property-in-object": "^7.27.1",
-    "@babel/preset-env": "^7.27.2",
-    "@babel/preset-react": "^7.27.1",
-    "@babel/preset-typescript": "^7.27.1",
-    "@storybook/addon-a11y": "^9.0.16",
-    "@storybook/addon-docs": "^9.0.18",
-    "@storybook/addon-links": "^9.0.16",
-    "@storybook/builder-webpack5": "^9.0.16",
-    "@storybook/react-webpack5": "^9.0.16",
-    "@storybook/test": "^9.0.0-alpha.2",
+    "@rsbuild/core": "^1.7.4",
+    "@rsbuild/plugin-styled-components": "^1.6.1",
+    "@rslib/core": "^0.20.1",
+    "@storybook/addon-a11y": "^9.1",
+    "@storybook/addon-docs": "^9.1",
+    "@storybook/addon-links": "^9.1",
+    "@swc/core": "^1.15.21",
+    "@swc/jest": "^0.2.39",
     "@types/debounce": "1.2.0",
     "@types/enzyme": "3.10.8",
     "@types/jest": "^28.0.0",
@@ -91,13 +78,6 @@
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "@wojtekmaj/enzyme-adapter-react-17": "0.4.1",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^28.0.0",
-    "babel-loader": "^10.0.0",
-    "babel-plugin-add-react-displayname": "0.0.5",
-    "babel-plugin-module-resolver": "4.1.0",
-    "babel-plugin-styled-components": "2.1.4",
-    "cache-loader": "3.0.0",
     "chromatic": "5.9.2",
     "concurrently": "4.1.0",
     "enzyme": "3.9.0",
@@ -106,9 +86,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.25.3",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-storybook": "9.0.16",
-    "fork-ts-checker-notifier-webpack-plugin": "1.0.0",
-    "fork-ts-checker-webpack-plugin": "^9.1.0",
+    "eslint-plugin-storybook": "^9.0",
     "husky": "2.1.0",
     "jest": "^28.0.0",
     "jest-environment-jsdom": "^29.5.0",
@@ -123,17 +101,13 @@
     "react-dom-17": "npm:react-dom@17.0.2",
     "react-powerplug": "1.0.0",
     "react-test-renderer": "16.8.6",
-    "regenerator-runtime": "0.13.5",
-    "simple-progress-webpack-plugin": "1.1.2",
-    "static-extend": "0.1.2",
-    "storybook": "^9.0.16",
+    "storybook": "^9.1",
+    "storybook-react-rsbuild": "^2",
     "storybook-states": "1.2.0",
     "styled-components": "6.1.13",
-    "ts-loader": "^9.5.2",
     "ts-node": "8.1.0",
     "typescript": "^5.8.3",
-    "typescript-styled-plugin": "0.10.0",
-    "webpack": "5"
+    "typescript-styled-plugin": "0.10.0"
   },
   "dependencies": {
     "@artsy/palette-tokens": "^7.3.0",
@@ -193,7 +167,27 @@
       "enzyme-to-json/serializer"
     ],
     "transform": {
-      ".(ts|tsx)": "babel-jest"
+      ".(ts|tsx)": [
+        "@swc/jest",
+        {
+          "jsc": {
+            "parser": {
+              "syntax": "typescript",
+              "tsx": true
+            },
+            "transform": {
+              "react": {
+                "runtime": "automatic"
+              }
+            },
+            "externalHelpers": false
+          },
+          "module": {
+            "type": "commonjs",
+            "importInterop": "swc"
+          }
+        }
+      ]
     },
     "testEnvironment": "jsdom",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",

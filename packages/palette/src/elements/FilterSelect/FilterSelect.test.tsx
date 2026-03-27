@@ -240,7 +240,7 @@ describe("FilterSelect", () => {
     expect(text).not.toContain("Item 2")
     expect(text).not.toContain("Item 3")
 
-    wrapper.find("ShowMore Clickable").simulate("click")
+    wrapper.findWhere(n => n.text() === "Show more" && n.type() === "button").first().simulate("click")
     wrapper.update()
 
     text = wrapper.text()

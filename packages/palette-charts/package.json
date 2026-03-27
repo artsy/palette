@@ -20,21 +20,16 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "yarn compile:cjs && yarn compile:esm",
-    "compile:cjs": "BABEL_ENV=compile babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/cjs",
-    "compile:esm": "babel src --source-maps --extensions '.ts,.tsx' --out-dir dist/esm --config-file ./babel.esm.json --no-babelrc",
+    "compile": "rslib build",
     "lint": "tslint --project tsconfig.json 'src/*/**'",
-    "prepublishOnly": "yarn clean && yarn compile && yarn type-declarations",
+    "prepublishOnly": "yarn clean && yarn compile",
     "prettier-project": "yarn prettier --write 'src/**/*.{ts,tsx}'",
     "release": "auto shipit && node scripts/clean-up-after-auto.js",
     "test": "yarn type-check && yarn jest --runInBand",
     "test:watch": "jest --watch --runInBand",
     "type-check": "tsc --noEmit --pretty",
-    "type-declarations": "tsc --emitDeclarationOnly --outDir dist/cjs",
-    "watch": "concurrently --raw --kill-others 'yarn compile:cjs -w' 'yarn type-declarations -w'",
-    "storybook": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006 --quiet",
-    "build-storybook": "build-storybook",
-    "visual-test": "chromatic test --exit-zero-on-changes --app-code n02zjqmdqq"
+    "type-declarations": "rslib build",
+    "watch": "rslib build --watch"
   },
   "repository": {
     "type": "git",
@@ -46,10 +41,6 @@
     "url": "https://github.com/artsy/palette/issues"
   },
   "homepage": "https://github.com/artsy/palette#readme",
-  "resolutions": {
-    "//": "Locking colors to 1.4.0 because 1.4.4 has been deliberately corrupted",
-    "colors": "1.4.0"
-  },
   "peerDependencies": {
     "@artsy/palette": "^40",
     "@styled-system/theme-get": "^5",
@@ -61,23 +52,10 @@
   "devDependencies": {
     "@artsy/auto-config": "1.2.0",
     "@artsy/palette": "^46.9.0",
-    "@babel/cli": "7.12.16",
-    "@babel/core": "7.12.16",
-    "@babel/plugin-proposal-class-properties": "7.12.13",
-    "@babel/plugin-proposal-json-strings": "7.12.13",
-    "@babel/plugin-proposal-optional-chaining": "7.12.16",
-    "@babel/plugin-syntax-dynamic-import": "7.8.3",
-    "@babel/plugin-syntax-import-meta": "7.10.4",
-    "@babel/preset-env": "7.12.16",
-    "@babel/preset-react": "7.12.13",
-    "@babel/preset-typescript": "7.12.16",
-    "@storybook/addon-actions": "6.5.0-alpha.30",
-    "@storybook/addon-links": "6.5.0-alpha.30",
-    "@storybook/addon-viewport": "6.5.0-alpha.30",
-    "@storybook/addons": "6.5.0-alpha.30",
-    "@storybook/builder-webpack5": "^6.5.0-alpha.30",
-    "@storybook/manager-webpack5": "^6.5.0-alpha.30",
-    "@storybook/react": "6.5.0-alpha.30",
+    "@rsbuild/plugin-styled-components": "^1.6.1",
+    "@rslib/core": "^0.20.1",
+    "@swc/core": "^1.15.21",
+    "@swc/jest": "^0.2.39",
     "@types/d3-interpolate": "1.3.1",
     "@types/d3-shape": "1.3.1",
     "@types/debounce": "1.2.0",
@@ -91,19 +69,8 @@
     "@types/styled-system": "5.1.9",
     "@types/styled-system__theme-get": "5.0.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^28.0.0",
-    "babel-loader": "8.2.2",
-    "babel-plugin-add-react-displayname": "0.0.5",
-    "babel-plugin-module-resolver": "4.1.0",
-    "babel-plugin-styled-components": "1.12.0",
-    "cache-loader": "3.0.0",
-    "chromatic": "^5.6.2",
-    "concurrently": "3.6.1",
     "enzyme": "3.9.0",
     "enzyme-to-json": "3.3.5",
-    "fork-ts-checker-notifier-webpack-plugin": "1.0.0",
-    "fork-ts-checker-webpack-plugin": "1.2.0",
     "husky": "2.1.0",
     "jest": "^28.0.0",
     "jest-environment-jsdom": "^29.5.0",
@@ -115,10 +82,6 @@
     "react-dom": "^18.3.1",
     "react-powerplug": "1.0.0",
     "react-test-renderer": "16.8.6",
-    "regenerator-runtime": "0.13.5",
-    "simple-progress-webpack-plugin": "1.1.2",
-    "static-extend": "0.1.2",
-    "storybook-states": "^1.2.0",
     "styled-components": "6.1.13",
     "ts-node": "8.1.0",
     "tslint": "5.16.0",
@@ -178,7 +141,27 @@
       "enzyme-to-json/serializer"
     ],
     "transform": {
-      ".(ts|tsx)": "babel-jest"
+      ".(ts|tsx)": [
+        "@swc/jest",
+        {
+          "jsc": {
+            "parser": {
+              "syntax": "typescript",
+              "tsx": true
+            },
+            "transform": {
+              "react": {
+                "runtime": "automatic"
+              }
+            },
+            "externalHelpers": false
+          },
+          "module": {
+            "type": "commonjs",
+            "importInterop": "swc"
+          }
+        }
+      ]
     },
     "testEnvironment": "jsdom",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",

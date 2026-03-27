@@ -59,7 +59,9 @@ export const ToastsContext = createContext<{
   },
 })
 
-export const ToastsProvider: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
+export const ToastsProvider: React.FC<React.PropsWithChildren<unknown>> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(reducer, { toasts: [] })
 
   const activeToasts = useRef<
@@ -110,10 +112,10 @@ export const ToastsProvider: React.FC<React.PropsWithChildren<unknown>> = ({ chi
   )
 
   useEffect(() => {
-    const toasts = activeToasts.current
-
     return () => {
-      toasts.forEach((toast) => clearTimeout(toast.timeout))
+      if (activeToasts.current instanceof Map) {
+        activeToasts.current.forEach((toast) => clearTimeout(toast.timeout))
+      }
     }
   }, [])
 
