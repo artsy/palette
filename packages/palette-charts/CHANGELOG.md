@@ -1,3 +1,16 @@
+# v45.9.1 (Fri Mar 27 2026)
+
+#### 🐛  Bug Fix
+
+- chore: replace babel/webpack with swc/rslib/rsbuild [#1513](https://github.com/artsy/palette/pull/1513) ([@dzucconi](https://github.com/dzucconi))
+- chore: replace babel/webpack with swc/rslib/rsbuild ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v45.5.0 (Wed Mar 11 2026)
 
 #### 🚀  Enhancement

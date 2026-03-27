@@ -1,3 +1,18 @@
+# (Fri Mar 27 2026)
+
+#### 🐛  Bug Fix
+
+- feat: adds pr link to cards with matching ids in desc [#1512](https://github.com/artsy/palette/pull/1512) ([@rabidpaul](https://github.com/rabidpaul))
+- `@artsy/palette-charts@45.9.1`, `@artsy/palette@46.9.1`
+  - chore: replace babel/webpack with swc/rslib/rsbuild [#1513](https://github.com/artsy/palette/pull/1513) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 2
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+- Paul Sanders ([@rabidpaul](https://github.com/rabidpaul))
+
+---
+
 # (Wed Mar 18 2026)
 
 #### 🚀  Enhancement
