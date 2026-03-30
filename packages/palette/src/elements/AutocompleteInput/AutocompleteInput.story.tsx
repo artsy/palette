@@ -1,5 +1,5 @@
 import { fn } from "@storybook/test"
-import { AutocompleteInput } from "./AutocompleteInput"
+import { AutocompleteInput, AutocompleteInputHandle } from "./AutocompleteInput"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 import { Box } from "../Box/Box"
 import React from "react"
@@ -186,6 +186,7 @@ const CATEGORIES: Option[] = Object.entries(MENU).map(([value, { subtitle }]) =>
 }))
 
 export const LoadNewSuggestionsAfterSelection = () => {
+  const controlRef = React.useRef<AutocompleteInputHandle>(null)
   const [key, setKey] = React.useState(0)
   const [options, setOptions] = React.useState<Option[]>(CATEGORIES)
   const [loading, setLoading] = React.useState(false)
@@ -196,16 +197,17 @@ export const LoadNewSuggestionsAfterSelection = () => {
 
     const category = MENU[option.value]
 
-    // Leaf node (an artist) — close immediately, no delay
+    // Leaf node (an artist) — close naturally
     if (!category) return
 
-    // Category node — simulate fetching artists then keep open
+    // Category node — simulate fetching artists, then reopen with new options
     setLoading(true)
     await new Promise<void>((resolve) => setTimeout(resolve, 800))
     setOptions(category.artists)
     setLoading(false)
 
-    return { keepOpen: true }
+    controlRef.current?.setQuery("")
+    controlRef.current?.open()
   }
 
   const handleReset = () => {
@@ -228,6 +230,7 @@ export const LoadNewSuggestionsAfterSelection = () => {
       </Box>
       <AutocompleteInput
         key={key}
+        controlRef={controlRef}
         title="Search by Category or Artist"
         placeholder={loading ? "Loading artists..." : "Select a category..."}
         options={options}
@@ -246,6 +249,69 @@ export const LoadNewSuggestionsAfterSelection = () => {
               ? "Loading artists for this category..."
               : "New options loaded automatically! Select an artist to continue."}
           </small>
+        </Box>
+      )}
+    </Box>
+  )
+}
+
+type AddressOption = { text: string; value: string }
+
+const STREET_OPTIONS: AddressOption[] = [
+  { text: "156 Quincy St", value: "156-quincy" },
+  { text: "156 Queens Blvd", value: "156-queens" },
+  { text: "156 Quantum Ave", value: "156-quantum" },
+]
+
+const APT_OPTIONS: AddressOption[] = [
+  { text: "156 Quincy St Apt 1", value: "156-quincy-apt-1" },
+  { text: "156 Quincy St Apt 2", value: "156-quincy-apt-2" },
+  { text: "156 Quincy St Apt G", value: "156-quincy-apt-g" },
+]
+
+export const AddressAutocomplete = () => {
+  const controlRef = React.useRef<AutocompleteInputHandle>(null)
+  const [options, setOptions] = React.useState<AddressOption[]>(STREET_OPTIONS)
+  const [loading, setLoading] = React.useState(false)
+  const [selection, setSelection] = React.useState<string | null>(null)
+
+  const handleSelect = async (option: AddressOption) => {
+    if (option.value !== "156-quincy") {
+      setSelection(option.text)
+      return
+    }
+
+    // Fetch apartments for this street
+    setLoading(true)
+    await new Promise<void>((resolve) => setTimeout(resolve, 600))
+    setOptions(APT_OPTIONS)
+    setLoading(false)
+
+    controlRef.current?.setQuery("156 Quincy St Apt ")
+    controlRef.current?.open()
+  }
+
+  const handleReset = () => {
+    setOptions(STREET_OPTIONS)
+    setSelection(null)
+  }
+
+  return (
+    <Box>
+      <AutocompleteInput
+        controlRef={controlRef}
+        title="Address"
+        placeholder="Start typing your address..."
+        defaultValue="156 Q"
+        options={options}
+        loading={loading}
+        onSelect={handleSelect}
+        onClear={handleReset}
+      />
+
+      {selection && (
+        <Box mt={3} p={2} bg="blue10" borderRadius={1}>
+          <strong>Selected: {selection}</strong>
         </Box>
       )}
     </Box>
