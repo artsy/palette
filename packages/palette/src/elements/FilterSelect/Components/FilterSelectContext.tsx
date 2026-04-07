@@ -157,6 +157,7 @@ export const FilterSelectContextProvider: React.FC<
 
   const contextValue = {
     ...state,
+    selectedItems: state.selectedItems.filter(Boolean),
 
     toggleSelectedItem: (item) => {
       dispatch({

@@ -120,7 +120,7 @@ const _FilterSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
 }
 
 export const isBelowTheFoldSelected = (selectedItems, resultsSorted) => {
-  const selected = selectedItems.map(({ value }) => value)
+  const selected = selectedItems.filter(Boolean).map(({ value }) => value)
   const results = resultsSorted
     .slice(INITIAL_ITEMS_TO_SHOW)
     .map(({ value }) => value)
