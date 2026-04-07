@@ -6,6 +6,7 @@ import React, {
   createRef,
   useCallback,
   useEffect,
+  useImperativeHandle,
   useMemo,
   useReducer,
   useRef,
@@ -28,6 +29,17 @@ import { AutocompleteInputOptionLabel } from "./AutocompleteInputOptionLabel"
 export interface AutocompleteFooterActions {
   /** Call to close dropdown */
   onClose(): void
+}
+
+export interface AutocompleteInputHandle {
+  /** Focus the input */
+  focus(): void
+  /** Open the dropdown */
+  open(): void
+  /** Close the dropdown */
+  close(): void
+  /** Set the query text */
+  setQuery(query: string): void
 }
 
 /** Base option type — can be expanded */
@@ -77,12 +89,14 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
   footer?:
     | React.ReactNode
     | ((dropdownActions: AutocompleteFooterActions) => React.ReactNode)
+  /** Ref for imperative control of the input */
+  controlRef?: React.Ref<AutocompleteInputHandle>
   /** Ref to the input; workaround generics */
   forwardRef?: React.Ref<HTMLInputElement>
   /** on <enter> when no option is selected */
   onSubmit?(query: string): void
   /** on <click> or <enter> when an option is selected */
-  onSelect?(option: T, index: number): void
+  onSelect?(option: T, index: number): void | Promise<void>
   /** on <click> of the 'x' (clear) button */
   onClear?(): void
   /** Callback that runs when options are hidden */
@@ -97,6 +111,7 @@ export interface AutocompleteInputProps<T extends AutocompleteInputOptionType>
 /** AutocompleteInput */
 export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
   clamp = false,
+  controlRef,
   defaultValue = "",
   dropdownMaxHeight = 308, // 308 = roughly 5.5 options
   dropdownMinWidth,
@@ -136,6 +151,8 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     }))
   }, [options])
 
+  const keepOpenRef = useRef(false)
+
   const resetUI = () => {
     setTimeout(() => {
       inputRef.current?.focus()
@@ -144,10 +161,24 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     }, 100)
   }
 
-  const handleSelect = (option: T, index: number) => {
-    dispatch({ type: "SELECT", payload: { query: option.text } })
-    inputRef.current?.focus()
-    onSelect?.(option, index)
+  const handleSelect = async (option: T, index: number) => {
+    keepOpenRef.current = false
+    ignoreFocusChangeRef.current = true
+    try {
+      await Promise.resolve(onSelect?.(option, index))
+    } finally {
+      ignoreFocusChangeRef.current = false
+    }
+
+    console.log("[AutocompleteInput] handleSelect after await: keepOpenRef.current =", keepOpenRef.current, "state.open =", state.open)
+    if (keepOpenRef.current) {
+      keepOpenRef.current = false
+      reset()
+      inputRef.current?.focus()
+    } else {
+      dispatch({ type: "SELECT", payload: { query: option.text } })
+      resetUI()
+    }
   }
 
   const { index, reset, set } = useKeyboardListNavigation({
@@ -158,7 +189,6 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
       event.preventDefault()
       event.stopPropagation()
       handleSelect(option, i)
-      resetUI()
     },
   })
 
@@ -191,7 +221,6 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   const handleMouseDown = (option: T, i: number) => () => {
     handleSelect(option, i)
-    resetUI()
   }
 
   const handleClick = () => {
@@ -238,6 +267,22 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
     onClose?.()
   }, [onClose, reset])
 
+  useImperativeHandle(
+    controlRef,
+    () => ({
+      focus: () => inputRef.current?.focus(),
+      open: () => {
+        console.log("[AutocompleteInput] open() called")
+        keepOpenRef.current = true
+        dispatch({ type: "OPEN" })
+      },
+      close: handleClose,
+      setQuery: (query: string) =>
+        dispatch({ type: "CHANGE", payload: { query } }),
+    }),
+    [handleClose]
+  )
+
   const ignoreFocusChangeRef = useRef<boolean>(false)
   const ignoreFocusChange = {
     onMouseDown: () => (ignoreFocusChangeRef.current = true),
@@ -267,6 +312,7 @@ export const AutocompleteInput = <T extends AutocompleteInputOptionType>({
 
   const handleFocusChange = useCallback(
     (focused: boolean) => {
+      console.log("[AutocompleteInput] handleFocusChange: focused =", focused, "ignoreFocus =", ignoreFocusChangeRef.current, "isDropdownVisible =", isDropdownVisible)
       if (ignoreFocusChangeRef.current || focused || !isDropdownVisible) return
 
       handleClose()
