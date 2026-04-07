@@ -240,7 +240,10 @@ describe("FilterSelect", () => {
     expect(text).not.toContain("Item 2")
     expect(text).not.toContain("Item 3")
 
-    wrapper.findWhere(n => n.text() === "Show more" && n.type() === "button").first().simulate("click")
+    wrapper
+      .findWhere((n) => n.text() === "Show more" && n.type() === "button")
+      .first()
+      .simulate("click")
     wrapper.update()
 
     text = wrapper.text()
@@ -259,6 +262,18 @@ describe("FilterSelect", () => {
     })
 
     expect(wrapper.text()).toContain("NameHello1")
+  })
+
+  it("handles nullish entries in selectedItems without crashing", () => {
+    const wrapper = getWrapper({
+      selectedItems: [
+        { label: "Item 1", value: "item-1" },
+        undefined,
+        null,
+      ] as any,
+    })
+
+    expect(wrapper.find("Checkbox").length).toBeGreaterThan(0)
   })
 
   it("dispatches state on change", () => {
