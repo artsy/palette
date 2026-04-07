@@ -1,3 +1,17 @@
+# v46.9.2 (Tue Apr 07 2026)
+
+#### 🐛  Bug Fix
+
+- fix(filterselect): handle nullish entries in selecteditems [#1515](https://github.com/artsy/palette/pull/1515) ([@dzucconi](https://github.com/dzucconi))
+- fix(filterselect): handles null data gracefully ([@dzucconi](https://github.com/dzucconi))
+- chore(filterselect): reproduces bug with null data ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v46.9.1 (Fri Mar 27 2026)
 
 #### 🐛  Bug Fix

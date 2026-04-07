@@ -1,3 +1,16 @@
+# (Tue Apr 07 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@46.9.2`
+  - fix(filterselect): handle nullish entries in selecteditems [#1515](https://github.com/artsy/palette/pull/1515) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Fri Mar 27 2026)
 
 #### 🐛  Bug Fix
