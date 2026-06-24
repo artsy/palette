@@ -187,11 +187,15 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
       </Nav>
 
       <FullBleed
-        // To prevent any page jank we initially partially disable this component
-        // so that content is left aligned with the parent container and then once
-        // we have the offset and page values; we reset it to actually full-bleed.
-        // The `offset` will push the content up to the parent margin.
-        {...(!mounted ? { left: null, right: null, marginLeft: null } : {})}
+        // To prevent any page jank we initially disable the bleed so that content
+        // is left aligned with the parent container, and then once we have the
+        // offset and page values we enable it to actually full-bleed. The `offset`
+        // will push the content up to the parent margin.
+        //
+        // This matters most on SSR: the server renders the un-mounted state, so
+        // disabling the bleed here keeps content aligned to the parent margin and
+        // avoids a content shift once the client mounts.
+        enabled={mounted}
       >
         <Viewport ref={viewportRef as any}>
           <Rail as="ul" position="relative" alignItems={alignItems} mb={[2, 6]}>
