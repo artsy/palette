@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import { renderToString } from "react-dom/server"
+import { ServerStyleSheet } from "styled-components"
 import { Box } from "../Box"
 import { Text } from "../Text"
 import { Shelf } from "./Shelf"
@@ -216,6 +218,58 @@ export const NavigationHoverFocus = {
     docs: {
       description: {
         story: "Navigation button with both hover and focus states.",
+      },
+    },
+  },
+}
+
+export const ServerSideRender = {
+  render: () => {
+    // Render the Shelf to a static HTML string exactly as a server would,
+    // collecting the styled-components CSS alongside it. Because effects never
+    // run during `renderToString`, `mounted` stays `false` — so this captures
+    // the real pre-hydration first paint. We inject it via `dangerouslySetInnerHTML`
+    // and never hydrate it, freezing the SSR layout so it can be inspected.
+    //
+    // After the FullBleed fix, the cells line up with the page margin (matching
+    // the hydrated client render). Before the fix, the un-bled markup leaked to
+    // the screen edge and the content visibly shifted once the client mounted.
+    const sheet = new ServerStyleSheet()
+
+    let html = ""
+
+    try {
+      const markup = renderToString(
+        sheet.collectStyles(
+          <Box maxWidth={1920} mx="auto">
+            <Box mx={[2, 4]}>
+              <Demo amount={10} />
+            </Box>
+          </Box>
+        )
+      )
+
+      html = sheet.getStyleTags() + markup
+    } finally {
+      sheet.seal()
+    }
+
+    return (
+      <Box>
+        <Text variant="sm-display" mb={2}>
+          Frozen server-rendered markup (never hydrated). Cells should align with
+          the page margin, not the screen edge.
+        </Text>
+
+        <Box dangerouslySetInnerHTML={{ __html: html }} />
+      </Box>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Simulates the server-side render by rendering the Shelf to a static HTML string (with collected styles) and injecting it without hydrating. This exposes the pre-mount layout a real SSR consumer sees on first paint, guarding against content-shift regressions.",
       },
     },
   },
