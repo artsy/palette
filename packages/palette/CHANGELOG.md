@@ -1,3 +1,18 @@
+# v46.9.3 (Wed Jun 24 2026)
+
+#### 🐛  Bug Fix
+
+- fix(shelf): prevents content shift on ssr shelf instances [#1518](https://github.com/artsy/palette/pull/1518) ([@dzucconi](https://github.com/dzucconi))
+- refactor(fullbleed): adds ability to disable via prop ([@dzucconi](https://github.com/dzucconi))
+- fix(shelf): prevents content shift ([@dzucconi](https://github.com/dzucconi))
+- chore(shelf): adds ssr story ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v46.9.2 (Tue Apr 07 2026)
 
 #### 🐛  Bug Fix

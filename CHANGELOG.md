@@ -1,3 +1,16 @@
+# (Wed Jun 24 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@46.9.3`
+  - fix(shelf): prevents content shift on ssr shelf instances [#1518](https://github.com/artsy/palette/pull/1518) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Apr 07 2026)
 
 #### 🐛  Bug Fix
