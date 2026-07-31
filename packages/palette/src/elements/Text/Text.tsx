@@ -87,7 +87,7 @@ export const Text = styled(Box).attrs<TextProps>((props) => ({
   variant: props.variant ?? "sm",
 }))<TextProps>`
   && {
-    ${variant({ variants: TEXT_VARIANTS })}
+    ${variant({ scale: "textVariants", variants: TEXT_VARIANTS })}
     ${textMixin}
 
     ${(props) => {
