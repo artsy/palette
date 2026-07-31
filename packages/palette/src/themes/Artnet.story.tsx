@@ -1,17 +1,26 @@
 import React, { useState } from "react"
 import {
+  ArtnetAutocompleteInput,
+  ArtnetButton,
   Box,
-  Button,
   Clickable,
   Column,
   GridColumns,
-  Input,
   Link,
   Select,
   Separator,
   Text,
-} from "../elements"
+} from "../artnet-elements"
 import { Theme } from "../Theme"
+
+const ARTIST_OPTIONS = [
+  "Pablo Picasso",
+  "Gerhard Richter",
+  "Yayoi Kusama",
+  "Andy Warhol",
+  "Jean-Michel Basquiat",
+  "Banksy",
+]
 
 export default {
   title: "Theme/Artnet",
@@ -195,17 +204,14 @@ export const PriceDatabase = () => {
             </Clickable>
           </Box>
 
-          {/*
-            Input/Select/Button below carry their own hardcoded corner
-            radius — a known exception, see the file header comment.
-          */}
           <GridColumns mt={6} alignItems="end">
             <Column span={4}>
-              <Input
+              <ArtnetAutocompleteInput
                 title="Artist"
                 placeholder="e.g. Picasso"
                 value={artistQuery}
-                onChange={(event) => setArtistQuery(event.target.value)}
+                onChange={setArtistQuery}
+                options={ARTIST_OPTIONS}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") handleSearch()
                 }}
@@ -222,13 +228,13 @@ export const PriceDatabase = () => {
             </Column>
 
             <Column span={4} display="flex" alignItems="flex-end">
-              <Button
+              <ArtnetButton
                 variant="primaryBlack"
                 width="100%"
                 onClick={handleSearch}
               >
                 Search
-              </Button>
+              </ArtnetButton>
             </Column>
           </GridColumns>
         </Box>
