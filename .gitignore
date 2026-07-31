@@ -21,3 +21,4 @@ storybook-static
 tsconfig.tsbuildinfo
 yarn-error.log
 .cache
+.playwright-mcp/
