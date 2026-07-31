@@ -4,18 +4,21 @@ import { THEME, Theme as TTheme } from "./themes"
 
 export * from "@artsy/palette-tokens/dist/themes/v3"
 import { THEME_DARK } from "@artsy/palette-tokens/dist/themes/v3Dark"
+import { THEME_ARTNET_LIGHT } from "@artsy/palette-tokens/dist/themes/artnetLight"
+export { THEME_ARTNET_LIGHT }
 export type { TextVariant } from "@artsy/palette-tokens/dist/typography/v3"
 
 export const THEMES = {
   light: THEME,
   dark: THEME_DARK,
+  artnet_light: THEME_ARTNET_LIGHT,
 }
 
 const DEFAULT_THEME = THEME
 
 interface ThemeProps {
   children?: React.ReactNode
-  theme?: "light" | "dark"
+  theme?: "light" | "dark" | "artnet_light"
 }
 
 /**
