@@ -228,7 +228,7 @@ const Container = styled(Clickable)<ContainerProps>`
   padding: 16px 24px 16px ${themeGet("space.1")};
   font-family: ${themeGet("fonts.sans")};
   border: 1px solid;
-  border-radius: 3px;
+  border-radius: ${themeGet("radii.3")};
   border-color: ${themeGet("colors.mono30")};
   cursor: pointer;
   line-height: 1;

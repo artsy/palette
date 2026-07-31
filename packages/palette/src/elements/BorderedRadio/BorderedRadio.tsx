@@ -7,7 +7,7 @@ export type BorderedRadioProps<T = any> = RadioProps<T>
 /** A radio button with a border */
 export const BorderedRadio = styled(Radio)<BorderedRadioProps>`
   padding: ${themeGet("space.2")};
-  border-radius: 2px;
+  border-radius: ${themeGet("radii.2")};
   border: 1px solid ${themeGet("colors.mono10")};
   transition: background-color 0.25s;
 

@@ -144,6 +144,17 @@ export const THEME = {
   effects: EFFECTS,
   fonts: TEXT_FONTS,
 
+  /**
+   * Corner radius scale. styled-system resolves a numeric `borderRadius`
+   * prop as an index into this array (see @styled-system/core `getValue`),
+   * so index N must equal the pixel value some component still passes as
+   * a raw number today (e.g. `borderRadius={2}` in Pagination,
+   * `borderRadius={3}` in ShelfScrollBar) — changing what lives at those
+   * indices changes what those call sites render. Values here match what
+   * was already hardcoded, so this is a no-op for existing consumers.
+   */
+  radii: ["0px", "1px", "2px", "3px", "4px", "5px", "6px"],
+
   // prettier-ignore
   // Media queries to work with in web
   mediaQueries: {
@@ -182,6 +193,8 @@ export const THEME = {
 
 /** All available px spacing maps */
 export type SpacingUnit = keyof typeof THEME["space"];
+/** The corner radius scale */
+export type Radii = typeof THEME["radii"];
 /** All available color keys */
 export type Color = keyof typeof THEME["colors"];
 /** All available color values */

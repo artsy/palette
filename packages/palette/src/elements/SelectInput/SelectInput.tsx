@@ -237,7 +237,7 @@ const SelectInputSelect = styled(Clickable)<{ disabled?: boolean }>`
   /* 24px = space.1 + 4px-wide caret + space.1 */
   padding: 0 24px 0 ${themeGet("space.1")};
   font-family: ${themeGet("fonts.sans")};
-  border-radius: 3px 0 0 3px;
+  border-radius: ${themeGet("radii.3")} 0 0 ${themeGet("radii.3")};
   border-color: ${themeGet("colors.mono30")};
   cursor: pointer;
   line-height: 1;
@@ -267,7 +267,7 @@ const SelectInputInput = styled.input`
   outline: none;
   line-height: 1;
   border: 1px solid;
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 ${themeGet("radii.3")} ${themeGet("radii.3")} 0;
   transition: color 0.25s, border-color 0.25s;
   font-family: ${themeGet("fonts.sans")};
   font-size: ${themeGet("textVariants.sm-display.fontSize")};

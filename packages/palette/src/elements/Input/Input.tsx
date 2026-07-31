@@ -135,7 +135,7 @@ const StyledInput = styled.input<StyledInputProps>`
   appearance: none;
   line-height: 1;
   border: 1px solid;
-  border-radius: 3px;
+  border-radius: ${themeGet("radii.3")};
   transition: border-color 0.25s, color 0.25s;
   font-family: ${themeGet("fonts.sans")};
   ${systemHeight};

@@ -105,6 +105,15 @@ const TEXT_VARIANTS: Record<
   xxs: { fontSize: "12px", lineHeight: "16px" },
 }
 
+/**
+ * artnet's real interface (homepage, Price Database search and results)
+ * has no rounded corners anywhere observed — inputs, buttons, and result
+ * cards are all sharp-edged. Same index positions as the base theme's
+ * radii scale (see v3.tsx) so numeric `borderRadius` props resolve
+ * correctly under this theme too.
+ */
+const RADII = ["0px", "0px", "0px", "0px", "0px", "0px", "0px"]
+
 const FONTS = {
   /**
    * artnet.com uses licensed typefaces (ArtnetGrotesk, Sailec,
@@ -121,4 +130,5 @@ export const THEME_ARTNET_LIGHT = {
   colors: COLORS,
   fonts: FONTS,
   textVariants: TEXT_VARIANTS,
+  radii: RADII,
 }

@@ -177,7 +177,7 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
   transition: border-color 0.25s, color 0.25s;
   outline: none;
   border: 1px solid;
-  border-radius: 3px;
+  border-radius: ${themeGet("radii.3")};
   font-family: ${themeGet("fonts.sans")};
 
   &::placeholder {
