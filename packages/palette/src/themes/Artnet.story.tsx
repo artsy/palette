@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import {
-  ArtnetAutocompleteInput,
-  ArtnetButton,
+  AutocompleteInput,
   Box,
+  Button,
   Clickable,
   Column,
   GridColumns,
@@ -47,6 +47,17 @@ const RESULTS_BY_TAB: Record<Tab, MockResult[]> = {
       title: "Cubist Linocuts",
       medium: "linocuts",
       objectType: "Print",
+      dimensions: "Height 26.7 x Width 31.8 cm",
+      saleDate: "28 August 2026",
+      auctionHouse: "Thomaston Place Auction Galleries",
+      lotInfo: "SUMMER GRANDEUR 2026 – [Lot 01150]",
+      estimate: "est. 500 - 700 USD",
+    },
+    {
+      artist: "After Pablo Picasso",
+      title: "Spherist Linocuts",
+      medium: "linocuts",
+      objectType: "Sculpture",
       dimensions: "Height 26.7 x Width 31.8 cm",
       saleDate: "28 August 2026",
       auctionHouse: "Thomaston Place Auction Galleries",
@@ -117,10 +128,9 @@ const OBJECT_TYPE_OPTIONS = [
  * (see packages/palette-tokens/src/themes/artnetLight.tsx). Filtering runs
  * against the dummy RESULTS_BY_TAB dict above — there's no real search.
  *
- * Sharp corners are deliberate: no `borderRadius` is set anywhere below,
- * since Box has no default radius. Input/Button/Select carry their own
- * hardcoded non-zero radius baked into their own CSS — a known, called-out
- * exception until the theme-radii follow-up lands.
+ * Sharp corners come from artnet_light's all-zero radii scale (see
+ * artnetLight.tsx) — Button/Input/Select/AutocompleteInput all read
+ * theme.radii, no per-component overrides needed here.
  */
 export const PriceDatabase = () => {
   const [tab, setTab] = useState<Tab>("fineArt")
@@ -206,15 +216,13 @@ export const PriceDatabase = () => {
 
           <GridColumns mt={6} alignItems="end">
             <Column span={4}>
-              <ArtnetAutocompleteInput
+              <AutocompleteInput
                 title="Artist"
                 placeholder="e.g. Picasso"
                 value={artistQuery}
                 onChange={setArtistQuery}
                 options={ARTIST_OPTIONS}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") handleSearch()
-                }}
+                onSubmit={handleSearch}
               />
             </Column>
 
@@ -228,13 +236,13 @@ export const PriceDatabase = () => {
             </Column>
 
             <Column span={4} display="flex" alignItems="flex-end">
-              <ArtnetButton
+              <Button
                 variant="primaryBlack"
                 width="100%"
                 onClick={handleSearch}
               >
                 Search
-              </ArtnetButton>
+              </Button>
             </Column>
           </GridColumns>
         </Box>
