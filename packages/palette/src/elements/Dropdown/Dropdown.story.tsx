@@ -10,7 +10,6 @@ import { Pill } from "../Pill"
 import ChevronSmallDownIcon from "@artsy/icons/ChevronSmallDownIcon"
 import { Spacer } from "../Spacer"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
-import { Message } from "../Message"
 
 export default {
   component: Dropdown,

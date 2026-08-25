@@ -46,13 +46,22 @@ export const DevelopingForPalette = {
             , the main Palette library. Here you'll write new components inside
             of the <code>elements</code> folder, add tests, and define{" "}
             <a
-              href="https://github.com/artsy/palette/blob/main/packages/palette/src/elements/Avatar/Avatar.story.tsx"
+              href="https://github.com/artsy/palette/blob/main/packages/palette/src/elements/Text/Text.story.tsx"
               target="_blank"
               rel="noopener noreferrer"
             >
               storybook stories
             </a>{" "}
-            for each.
+            for each — see{" "}
+            <a
+              href="https://github.com/artsy/palette/blob/main/packages/palette/CLAUDE.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CLAUDE.md
+            </a>{" "}
+            for the conventions, including typing stories against the
+            component's real props.
           </Text>
           <Text as="li" my={1}>
             • If adding or changing a component, make sure to update its

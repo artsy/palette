@@ -16,15 +16,23 @@ Each story file should:
 - Use the `arg` story format (CSF 3.0) for all stories.
 - Add autodocs and a component description in the default export.
 - Use **separate stories** for each state/variant (do not use the `States` helper).
+- **Type the default export as `Meta<typeof Component>` and every story export as
+  `StoryObj<typeof Component>`** (imported from `@storybook/react`), so
+  TypeScript's excess-property check catches args that don't actually exist on
+  the component. See
+  [`Text.story.tsx`](./src/elements/Text/Text.story.tsx) for a real example, and
+  [#1520](https://github.com/artsy/palette/pull/1520) for the fabricated
+  `italic`/`underline`/`caps` args bug this typing catches.
 
 ## 3. Example Template
 
 ```tsx
+import type { Meta, StoryObj } from "@storybook/react"
 import React from "react"
 import { MyComponent } from "./MyComponent"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
-export default {
+const meta: Meta<typeof MyComponent> = {
   component: MyComponent,
   title: "Components/MyComponent",
   tags: ["autodocs"],
@@ -40,7 +48,11 @@ export default {
   },
 }
 
-export const Default = {
+export default meta
+
+type Story = StoryObj<typeof MyComponent>
+
+export const Default: Story = {
   args: {
     /* default props */
   },
@@ -53,7 +65,7 @@ export const Default = {
   },
 }
 
-export const Variant = {
+export const Variant: Story = {
   args: {
     /* variant props */
   },
@@ -79,13 +91,14 @@ export const Variant = {
 ## 5. Example: Dropdown
 
 ```tsx
+import type { Meta, StoryObj } from "@storybook/react"
 import React from "react"
 import { Dropdown } from "./Dropdown"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const dropdownContent = <div>Example content</div>
 
-export default {
+const meta: Meta<typeof Dropdown> = {
   component: Dropdown,
   title: "Components/Dropdown",
   tags: ["autodocs"],
@@ -102,7 +115,11 @@ export default {
   },
 }
 
-export const Default = {
+export default meta
+
+type Story = StoryObj<typeof Dropdown>
+
+export const Default: Story = {
   args: {
     placement: "bottom",
     dropdown: dropdownContent,
@@ -121,7 +138,7 @@ export const Default = {
   },
 }
 
-export const PlacementTop = {
+export const PlacementTop: Story = {
   args: {
     placement: "top",
     dropdown: dropdownContent,
@@ -145,6 +162,7 @@ export const PlacementTop = {
 
 - [ ] File is named and located correctly
 - [ ] Default export includes autodocs, blocklist, and description
+- [ ] Default export is typed as `Meta<typeof Component>`; each story is typed as `StoryObj<typeof Component>`
 - [ ] Each state/variant is a separate export (no States helper)
 - [ ] Each story uses the `args` format
 - [ ] Each story has a `docs.description.story`
