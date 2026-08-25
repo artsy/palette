@@ -17,12 +17,12 @@ Each story file should:
 - Add autodocs and a component description in the default export.
 - Use **separate stories** for each state/variant (do not use the `States` helper).
 - **Type the default export as `Meta<typeof Component>` and every story export as
-  `StoryObj<typeof Component>`** (imported from `@storybook/react`). Without this,
-  a story's `args` object is an untyped literal and TypeScript will not catch
-  props that don't actually exist on the component — see the fabricated
-  `italic`/`underline`/`caps` args once shipped in `Text.story.tsx` (fixed in
-  [#1520](https://github.com/artsy/palette/pull/1520)) for a real example of the
-  bug this typing prevents.
+  `StoryObj<typeof Component>`** (imported from `@storybook/react`), so
+  TypeScript's excess-property check catches args that don't actually exist on
+  the component. See
+  [`Text.story.tsx`](./src/elements/Text/Text.story.tsx) for a real example, and
+  [#1520](https://github.com/artsy/palette/pull/1520) for the fabricated
+  `italic`/`underline`/`caps` args bug this typing catches.
 
 ## 3. Example Template
 
@@ -79,12 +79,6 @@ export const Variant: Story = {
 }
 ```
 
-Typing the default export as `Meta<typeof MyComponent>` and each story as
-`StoryObj<typeof MyComponent>` makes every `args` object literal subject to
-TypeScript's excess-property check against `MyComponent`'s real props, so a
-typo'd or fabricated arg (a prop the component doesn't actually accept) fails
-`type-check` instead of silently rendering nothing/wrong in Storybook.
-
 ## 4. Key Conventions
 
 - **Autodocs**: Always add `tags: ["autodocs"]` and a `component` description in the default export.
@@ -97,13 +91,14 @@ typo'd or fabricated arg (a prop the component doesn't actually accept) fails
 ## 5. Example: Dropdown
 
 ```tsx
+import type { Meta, StoryObj } from "@storybook/react"
 import React from "react"
 import { Dropdown } from "./Dropdown"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const dropdownContent = <div>Example content</div>
 
-export default {
+const meta: Meta<typeof Dropdown> = {
   component: Dropdown,
   title: "Components/Dropdown",
   tags: ["autodocs"],
@@ -120,7 +115,11 @@ export default {
   },
 }
 
-export const Default = {
+export default meta
+
+type Story = StoryObj<typeof Dropdown>
+
+export const Default: Story = {
   args: {
     placement: "bottom",
     dropdown: dropdownContent,
@@ -139,7 +138,7 @@ export const Default = {
   },
 }
 
-export const PlacementTop = {
+export const PlacementTop: Story = {
   args: {
     placement: "top",
     dropdown: dropdownContent,
