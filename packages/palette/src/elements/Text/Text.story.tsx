@@ -1,7 +1,8 @@
+import type { Meta, StoryObj } from "@storybook/react"
 import { Text } from "./Text"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
-export default {
+const meta: Meta<typeof Text> = {
   title: "Components/Text",
   component: Text,
   tags: ["autodocs"],
@@ -18,34 +19,38 @@ export default {
   },
 }
 
-export const Default = {
+export default meta
+
+type Story = StoryObj<typeof Text>
+
+export const Default: Story = {
   args: {
     children: "This is default text",
   },
 }
 
-export const LargeTitle = {
+export const LargeTitle: Story = {
   args: {
     variant: "lg-display",
     children: "Large Display Text",
   },
 }
 
-export const MediumTitle = {
+export const MediumTitle: Story = {
   args: {
-    variant: "md-display",
+    variant: "md",
     children: "Medium Display Text",
   },
 }
 
-export const SmallTitle = {
+export const SmallTitle: Story = {
   args: {
     variant: "sm-display",
     children: "Small Display Text",
   },
 }
 
-export const BodyText = {
+export const BodyText: Story = {
   args: {
     variant: "sm",
     children:
@@ -53,7 +58,7 @@ export const BodyText = {
   },
 }
 
-export const ColoredText = {
+export const ColoredText: Story = {
   args: {
     variant: "md",
     textColor: "blue100",
@@ -61,7 +66,7 @@ export const ColoredText = {
   },
 }
 
-export const AsHeading = {
+export const AsHeading: Story = {
   args: {
     as: "h2",
     variant: "lg-display",
@@ -69,49 +74,28 @@ export const AsHeading = {
   },
 }
 
-export const ExtraSmall = {
+export const ExtraSmall: Story = {
   args: {
     variant: "xs",
     children: "Extra small text",
   },
 }
 
-export const XLargeDisplay = {
+export const XLargeDisplay: Story = {
   args: {
     variant: "xl",
     children: "Extra large display text",
   },
 }
 
-export const XXLargeDisplay = {
+export const XXLargeDisplay: Story = {
   args: {
     variant: "xxl",
     children: "Extra extra large display text",
   },
 }
 
-export const CappedText = {
-  args: {
-    caps: true,
-    children: "This text is in caps",
-  },
-}
-
-export const ItalicText = {
-  args: {
-    italic: true,
-    children: "This text is italicized",
-  },
-}
-
-export const UnderlineText = {
-  args: {
-    underline: true,
-    children: "This text is underlined",
-  },
-}
-
-export const TruncatedText = {
+export const TruncatedText: Story = {
   args: {
     overflowEllipsis: true,
     children:
@@ -119,7 +103,7 @@ export const TruncatedText = {
   },
 }
 
-export const LineClampText = {
+export const LineClampText: Story = {
   args: {
     lineClamp: 2,
     children:
@@ -127,14 +111,14 @@ export const LineClampText = {
   },
 }
 
-export const UppercaseText = {
+export const UppercaseText: Story = {
   args: {
     textTransform: "uppercase",
     children: "This text is uppercase",
   },
 }
 
-export const CapitalizedText = {
+export const CapitalizedText: Story = {
   args: {
     textTransform: "capitalize",
     children: "this text is capitalized",
