@@ -64,6 +64,15 @@ export type FilterSelectState = Pick<
   | "selectedItems"
 >
 
+/**
+ * Removes nullish entries so downstream consumers can rely on every item
+ * being present. Returns the same array when nothing needs removing, so
+ * referential identity (and effects keyed on it) is preserved.
+ */
+const compactItems = (items: Items = []): Items => {
+  return items.some((item) => !item) ? items.filter(Boolean) : items
+}
+
 type Action =
   | { type: "SET_QUERY"; payload: { query: string } }
   | { type: "TOGGLE_SELECTED_ITEM"; payload: { item: Item } }
@@ -124,7 +133,7 @@ const filterSelectReducer = (state: FilterSelectState, action: Action) => {
 
       return {
         ...state,
-        selectedItems: items,
+        selectedItems: compactItems(items),
       }
     }
   }
@@ -153,11 +162,15 @@ export const FilterSelectContextProvider: React.FC<
   const [state, dispatch] = useReducer(filterSelectReducer, {
     ...initialState,
     ...props,
+    selectedItems: compactItems(props.selectedItems),
   })
 
+  // NOTE: `selectedItems` must be passed through from state untouched.
+  // Deriving a new array here (e.g. `.filter(Boolean)`) changes its identity
+  // on every render, which re-fires the `onChange` effect in `FilterSelect`
+  // and can loop forever when the consumer's `onChange` updates state.
   const contextValue = {
     ...state,
-    selectedItems: state.selectedItems.filter(Boolean),
 
     toggleSelectedItem: (item) => {
       dispatch({
