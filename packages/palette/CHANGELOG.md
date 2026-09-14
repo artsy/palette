@@ -1,3 +1,16 @@
+# v46.9.4 (Mon Sep 14 2026)
+
+#### 🐛  Bug Fix
+
+- fix(filterselect): keeps selectedItems referentially stable [#1522](https://github.com/artsy/palette/pull/1522) ([@dzucconi](https://github.com/dzucconi))
+- fix(filterselect): keeps selectedItems referentially stable ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v46.9.3 (Wed Jun 24 2026)
 
 #### 🐛  Bug Fix
