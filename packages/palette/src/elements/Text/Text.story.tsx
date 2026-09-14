@@ -90,27 +90,6 @@ export const XXLargeDisplay = {
   },
 }
 
-export const CappedText = {
-  args: {
-    caps: true,
-    children: "This text is in caps",
-  },
-}
-
-export const ItalicText = {
-  args: {
-    italic: true,
-    children: "This text is italicized",
-  },
-}
-
-export const UnderlineText = {
-  args: {
-    underline: true,
-    children: "This text is underlined",
-  },
-}
-
 export const TruncatedText = {
   args: {
     overflowEllipsis: true,
