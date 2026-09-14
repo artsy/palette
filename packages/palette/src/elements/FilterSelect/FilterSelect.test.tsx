@@ -276,6 +276,51 @@ describe("FilterSelect", () => {
     expect(wrapper.find("Checkbox").length).toBeGreaterThan(0)
   })
 
+  it("strips nullish entries from selectedItems passed to onChange", () => {
+    const spy = jest.fn()
+    const wrapper = getWrapper({
+      onChange: spy,
+      selectedItems: [{ label: "Item 1", value: "item-1" }, null] as any,
+    })
+
+    wrapper.find("Checkbox").at(1).simulate("click")
+    wrapper.update()
+
+    expect(spy).toHaveBeenCalledTimes(1)
+    expect(spy.mock.calls[0][0].selectedItems).toEqual([
+      { label: "Item 1", value: "item-1" },
+      { label: "Item 2", value: "item-2" },
+    ])
+  })
+
+  it("does not loop when onChange updates parent state", () => {
+    // Mirrors the Force `ResultsFilter` pattern: the consumer stores the
+    // change in its own state and re-renders the FilterSelect. If the
+    // context's `selectedItems` identity changed on every render this would
+    // re-fire `onChange` forever.
+    const spy = jest.fn()
+
+    const Consumer = () => {
+      const [, setState] = React.useState<unknown>(null)
+
+      return (
+        <FilterSelect
+          {...defaultProps}
+          onChange={(state) => {
+            spy(state)
+            setState(state)
+          }}
+        />
+      )
+    }
+
+    const wrapper = mount(<Consumer />)
+    wrapper.find("Checkbox").at(0).simulate("click")
+    wrapper.update()
+
+    expect(spy).toHaveBeenCalledTimes(1)
+  })
+
   it("dispatches state on change", () => {
     const items = [
       { label: "Item1", value: "item-1" },
