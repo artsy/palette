@@ -1,4 +1,4 @@
-import { fn } from "@storybook/test"
+import { fn } from "storybook/test"
 import React, { useEffect, useState } from "react"
 import { Step, Stepper } from "./"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
