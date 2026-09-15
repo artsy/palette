@@ -167,16 +167,18 @@ export const Dropdown = ({
   const hover = useHover(context, {
     enabled: !openDropdownByClick,
     delay: hoverDelay,
+    // Reopen only on a fresh hover, not movement after a consumer closes it.
+    move: false,
     handleClose:
       safePolygonOptions !== undefined && safePolygonOptions !== null
         ? safePolygon(safePolygonOptions)
         : null,
   })
 
-  // useClick: toggles for click-mode; open-only (toggle:false) for hover-mode
-  // so keyboard users can press Enter/Space on a focused anchor to open it.
+  // Ignore mouse clicks in hover-mode; keep touch and keyboard activation.
   const click = useClick(context, {
     toggle: !!openDropdownByClick,
+    ignoreMouse: !openDropdownByClick,
   })
 
   // useDismiss: closes on Escape key and click outside (replaces manual listeners).
