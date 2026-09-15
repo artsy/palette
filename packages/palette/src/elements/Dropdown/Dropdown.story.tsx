@@ -629,3 +629,25 @@ export const HoverSwapDelay = {
     chromatic: { disable: true },
   },
 }
+
+export const HoverSuppressedAfterClick = {
+  render: () => (
+    <Dropdown dropdown={<Box p={2}>Dropdown content</Box>}>
+      {({ anchorRef, anchorProps, setVisible }) => (
+        <Text
+          as="a"
+          href="#"
+          ref={anchorRef as any}
+          {...anchorProps}
+          onClick={(event) => {
+            event.preventDefault()
+            setVisible(false)
+          }}
+        >
+          Hover to open, click to close, then move away and back to reopen
+        </Text>
+      )}
+    </Dropdown>
+  ),
+  parameters: { chromatic: { disable: true } },
+}
