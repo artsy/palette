@@ -1,3 +1,23 @@
+# v46.9.5 (Tue Sep 15 2026)
+
+#### 🐛  Bug Fix
+
+- fix(dropdown): close on click does not re-arm hover until mouseout [#1523](https://github.com/artsy/palette/pull/1523) ([@dzucconi](https://github.com/dzucconi))
+- fix(dropdown): close on click does not re-arm hover until mouseout ([@dzucconi](https://github.com/dzucconi))
+- Remove Text stories for props that don't exist (italic, underline, caps) ([@claude](https://github.com/claude))
+
+#### 🏠  Internal
+
+- fix: remove Text stories for props that don't exist (italic, underline, caps) [#1520](https://github.com/artsy/palette/pull/1520) ([@claude](https://github.com/claude) [@claude[bot]](https://github.com/claude[bot]))
+
+#### Authors: 3
+
+- [@claude[bot]](https://github.com/claude[bot])
+- Claude ([@claude](https://github.com/claude))
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # v46.9.4 (Mon Sep 14 2026)
 
 #### 🐛  Bug Fix

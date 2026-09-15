@@ -1,3 +1,16 @@
+# v45.9.5 (Tue Sep 15 2026)
+
+#### 🏠  Internal
+
+- fix: remove Text stories for props that don't exist (italic, underline, caps) [#1520](https://github.com/artsy/palette/pull/1520) ([@claude](https://github.com/claude) [@claude[bot]](https://github.com/claude[bot]))
+
+#### Authors: 2
+
+- [@claude[bot]](https://github.com/claude[bot])
+- Claude ([@claude](https://github.com/claude))
+
+---
+
 # v45.9.1 (Fri Mar 27 2026)
 
 #### 🐛  Bug Fix
