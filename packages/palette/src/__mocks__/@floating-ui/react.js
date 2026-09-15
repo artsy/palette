@@ -119,15 +119,41 @@ const useHover = (context, { enabled = true } = {}) => {
   }
 }
 
-const useClick = (context, { enabled = true, toggle = true } = {}) => {
+const isMouseLikePointerType = (pointerType) =>
+  pointerType === "mouse" || pointerType === "pen"
+
+const useClick = (
+  context,
+  { enabled = true, toggle = true, ignoreMouse = false } = {}
+) => {
+  const pointerTypeRef = React.useRef(undefined)
+
   if (!enabled) return { reference: {}, floating: {} }
+
+  const toggleOpen = (event) => {
+    if (toggle) {
+      context.onOpenChange(!context.open, event, "click")
+    } else {
+      context.onOpenChange(true, event, "click")
+    }
+  }
+
   return {
     reference: {
+      onPointerDown: (event) => {
+        pointerTypeRef.current = event.pointerType
+      },
       onClick: (event) => {
-        if (toggle) {
-          context.onOpenChange(!context.open, event, "click")
-        } else {
-          context.onOpenChange(true, event, "click")
+        if (ignoreMouse && isMouseLikePointerType(pointerTypeRef.current)) {
+          return
+        }
+        toggleOpen(event)
+      },
+      onKeyDown: (event) => {
+        pointerTypeRef.current = undefined
+        // Like the real hook, Enter on an anchor is left to the browser
+        if (event.key === "Enter" && event.currentTarget?.tagName !== "A") {
+          toggleOpen(event)
         }
       },
     },
@@ -145,21 +171,41 @@ const useFocus = (_context, _options) => ({
   floating: {},
 })
 
+// Like the real `mergeProps`, same-named event handlers are chained rather
+// than overridden, so consumer handlers passed to getReferenceProps still run.
+const mergeProps = (userProps = {}, propsList = []) => {
+  const merged = { ...userProps }
+  propsList.forEach((props = {}) => {
+    Object.entries(props).forEach(([key, value]) => {
+      const existing = merged[key]
+      if (
+        /^on[A-Z]/.test(key) &&
+        typeof value === "function" &&
+        typeof existing === "function"
+      ) {
+        merged[key] = (...args) => {
+          existing(...args)
+          value(...args)
+        }
+      } else {
+        merged[key] = value
+      }
+    })
+  })
+  return merged
+}
+
 const useInteractions = (interactions = []) => ({
-  getReferenceProps: (userProps = {}) => {
-    const merged = { ...userProps }
-    interactions.forEach(({ reference = {} }) => {
-      Object.assign(merged, reference)
-    })
-    return merged
-  },
-  getFloatingProps: (userProps = {}) => {
-    const merged = { ...userProps }
-    interactions.forEach(({ floating = {} }) => {
-      Object.assign(merged, floating)
-    })
-    return merged
-  },
+  getReferenceProps: (userProps = {}) =>
+    mergeProps(
+      userProps,
+      interactions.map(({ reference = {} }) => reference)
+    ),
+  getFloatingProps: (userProps = {}) =>
+    mergeProps(
+      userProps,
+      interactions.map(({ floating = {} }) => floating)
+    ),
   getItemProps: (userProps = {}) => userProps,
 })
 

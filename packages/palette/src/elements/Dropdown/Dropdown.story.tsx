@@ -629,3 +629,56 @@ export const HoverSwapDelay = {
     chromatic: { disable: true },
   },
 }
+
+export const HoverSuppressedAfterClick = {
+  render: () => {
+    return (
+      <Box>
+        <Text variant="xs" mb={2}>
+          Hover to open, then click the trigger: the dropdown closes and stays
+          closed while the pointer rests on the trigger. Move away and back to
+          reopen it.
+        </Text>
+
+        <Dropdown
+          placement="bottom"
+          dropdown={({ setVisible }) => (
+            <Box width={300} p={2}>
+              <Text
+                as="a"
+                display="block"
+                variant="sm"
+                href="#"
+                onClick={() => setVisible(false)}
+              >
+                One
+              </Text>
+              <Text
+                as="a"
+                display="block"
+                variant="sm"
+                href="#"
+                onClick={() => setVisible(false)}
+              >
+                Two
+              </Text>
+            </Box>
+          )}
+        >
+          {({ anchorRef, anchorProps, setVisible }) => (
+            <Button
+              ref={anchorRef}
+              variant="secondaryBlack"
+              size="small"
+              {...anchorProps}
+              onClick={() => setVisible(false)}
+            >
+              Hover to open, click to close
+            </Button>
+          )}
+        </Dropdown>
+      </Box>
+    )
+  },
+  parameters: { chromatic: { disable: true } },
+}

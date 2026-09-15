@@ -118,15 +118,31 @@ export const Dropdown = ({
   // whether to enable keyboard focus-trapping via FocusOn.
   const pointerRef = useRef(false)
 
+  // Hover-mode only: while "suppressed", hover is not allowed to *open* the
+  // dropdown (closing still works). Hover is suppressed when the anchor is
+  // clicked with a pointer and re-armed once the pointer leaves the anchor, so
+  // the dropdown doesn't immediately reopen while the cursor is still resting
+  // on the thing that was just clicked (e.g. a nav link).
+  const hoverSuppressedRef = useRef(false)
+
   // onOpenChange is called by Floating UI interaction hooks (useHover, useClick,
   // useDismiss). The `reason` arg lets us detect pointer vs keyboard opens.
   const onOpenChange = useCallback(
     (open: boolean, _event?: Event, reason?: string) => {
+      if (
+        open &&
+        reason === "hover" &&
+        !openDropdownByClick &&
+        hoverSuppressedRef.current
+      ) {
+        return
+      }
+
       pointerRef.current =
         open && (reason === "hover" || reason === "safe-polygon")
       setVisible(open)
     },
-    []
+    [openDropdownByClick]
   )
 
   const {
@@ -175,8 +191,12 @@ export const Dropdown = ({
 
   // useClick: toggles for click-mode; open-only (toggle:false) for hover-mode
   // so keyboard users can press Enter/Space on a focused anchor to open it.
+  // In hover-mode mouse clicks are ignored: hovering already opened it, and a
+  // click on the anchor (e.g. a nav link) shouldn't reopen it after the
+  // consumer closes it.
   const click = useClick(context, {
     toggle: !!openDropdownByClick,
+    ignoreMouse: !openDropdownByClick,
   })
 
   // useDismiss: closes on Escape key and click outside (replaces manual listeners).
@@ -222,6 +242,20 @@ export const Dropdown = ({
     document.addEventListener("click", handleClick)
     return () => document.removeEventListener("click", handleClick)
   }, [openDropdownByClick, panelRef])
+
+  const handleAnchorPointerDown = useCallback(
+    (event: React.PointerEvent<HTMLElement>) => {
+      if (openDropdownByClick) return
+      if (event.pointerType !== "mouse" && event.pointerType !== "pen") return
+
+      hoverSuppressedRef.current = true
+    },
+    [openDropdownByClick]
+  )
+
+  const handleAnchorMouseLeave = useCallback(() => {
+    hoverSuppressedRef.current = false
+  }, [])
 
   const onVisible = useCallback(() => setVisible(true), [])
   const onHide = useCallback(() => setVisible(false), [])
@@ -365,6 +399,8 @@ export const Dropdown = ({
   const anchorProps: React.HTMLAttributes<HTMLElement> = getReferenceProps({
     "aria-expanded": visible,
     "aria-haspopup": true as const,
+    onPointerDown: handleAnchorPointerDown,
+    onMouseLeave: handleAnchorMouseLeave,
   })
 
   return (
