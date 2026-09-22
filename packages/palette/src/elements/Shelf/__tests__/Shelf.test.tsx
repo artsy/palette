@@ -29,4 +29,40 @@ describe("Shelf", () => {
 
     expect(wrapper.find(FullBleed)).not.toHaveStyleRule("width", "100vw")
   })
+
+  it("uses the default responsive gap between cells", () => {
+    const wrapper = mount(
+      <Shelf>
+        <Box>1</Box>
+        <Box>2</Box>
+      </Shelf>
+    )
+
+    const cells = wrapper.find("li")
+    expect(cells.at(0).prop("pr")).toEqual([1, 2])
+  })
+
+  it("allows overriding the gap between cells", () => {
+    const wrapper = mount(
+      <Shelf gap={[1, 1]}>
+        <Box>1</Box>
+        <Box>2</Box>
+      </Shelf>
+    )
+
+    const cells = wrapper.find("li")
+    expect(cells.at(0).prop("pr")).toEqual([1, 1])
+  })
+
+  it("does not apply the gap after the last cell", () => {
+    const wrapper = mount(
+      <Shelf gap={[1, 1]}>
+        <Box>1</Box>
+        <Box>2</Box>
+      </Shelf>
+    )
+
+    const cells = wrapper.find("li")
+    expect(cells.at(1).prop("pr")).not.toEqual([1, 1])
+  })
 })

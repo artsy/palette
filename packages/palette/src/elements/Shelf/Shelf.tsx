@@ -15,6 +15,7 @@ import { Box, BoxProps } from "../Box"
 import { CELL_GAP_PADDING_AMOUNT, paginateCarousel } from "../Carousel"
 import { FlexProps } from "../Flex"
 import { FullBleed } from "../FullBleed"
+import { SpacingUnit } from "../../Theme"
 import { ShelfNext, ShelfPrevious } from "./ShelfNavigation"
 import { ShelfScrollBar } from "./ShelfScrollBar"
 
@@ -31,6 +32,12 @@ export type ShelfProps = BoxProps & {
    * a centered container, and will otherwise push the rail off-screen.
    */
   fullBleed?: boolean
+  /**
+   * Space between cells, responsive by breakpoint. Defaults to
+   * `CELL_GAP_PADDING_AMOUNT` (10px mobile, 20px desktop). Override when a
+   * caller needs gap parity with a different rail implementation.
+   */
+  gap?: SpacingUnit[]
   children: JSX.Element | JSX.Element[]
   onChange?(index: number): void
 }
@@ -43,6 +50,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   showProgress = true,
   snap = "none",
   fullBleed = true,
+  gap = CELL_GAP_PADDING_AMOUNT,
   children,
   onChange,
   ...rest
@@ -223,7 +231,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
                   key={i}
                   ref={ref as any}
                   pl={isFirst ? bleedOffset : undefined}
-                  pr={!isLast ? CELL_GAP_PADDING_AMOUNT : bleedOffset}
+                  pr={!isLast ? gap : bleedOffset}
                   style={{ scrollSnapAlign: snap }}
                 >
                   {child}
