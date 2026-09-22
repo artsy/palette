@@ -168,6 +168,47 @@ export const TenItems = {
   },
 }
 
+export const NoFullBleed = {
+  render: () => (
+    <Box maxWidth={1920} mx="auto">
+      <Box display="flex">
+        <Box width={200} bg="mono10" p={1}>
+          <Text variant="sm-display">Sidebar</Text>
+        </Box>
+        <Box flex={1} mx={[2, 4]}>
+          <Demo fullBleed={false} />
+        </Box>
+      </Box>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Shelf with `fullBleed={false}`, for use in a column that isn't horizontally centered in the viewport (e.g. a sidebar layout), where the breakout's centering math would otherwise push the rail off-screen.",
+      },
+    },
+  },
+}
+
+export const CustomGap = {
+  render: () => (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]}>
+        <Demo gap={[1, 1]} />
+      </Box>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Shelf with a flat 10px `gap` at every breakpoint, overriding the default responsive gap (10px mobile, 20px desktop) — useful for matching gap spacing to another rail implementation.",
+      },
+    },
+  },
+}
+
 export const NavigationDefault = {
   render: () => <ShelfNext />,
   parameters: {

@@ -15,7 +15,6 @@ import { Box, BoxProps } from "../Box"
 import { CELL_GAP_PADDING_AMOUNT, paginateCarousel } from "../Carousel"
 import { FlexProps } from "../Flex"
 import { FullBleed } from "../FullBleed"
-import { SpacingUnit } from "../../Theme"
 import { ShelfNext, ShelfPrevious } from "./ShelfNavigation"
 import { ShelfScrollBar } from "./ShelfScrollBar"
 
@@ -25,7 +24,6 @@ export type ShelfProps = BoxProps & {
   showProgress?: boolean
   snap?: "none" | "start" | "end" | "center"
   fullBleed?: boolean
-  gap?: SpacingUnit[]
   children: JSX.Element | JSX.Element[]
   onChange?(index: number): void
 }
@@ -53,6 +51,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
 
   const containerRef = useRef<HTMLDivElement | null>(null)
   const viewportRef = useRef<HTMLDivElement | null>(null)
+  const railRef = useRef<HTMLUListElement | null>(null)
 
   const [mounted, setMounted] = useState(false)
   const [pages, setPages] = useState([0])
@@ -62,19 +61,26 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   const bleedOffset = fullBleed ? offset : 0
 
   const init = useCallback(() => {
-    if (containerRef.current === null) return
+    if (containerRef.current === null || railRef.current === null) return
 
     const { current: container } = containerRef
 
+    // Gap lives in the Rail's CSS `gap`, not in each cell's own box, so it
+    // has to be measured separately and added back into the page-stop math.
+    const gapPx = parseFloat(getComputedStyle(railRef.current).columnGap) || 0
+
     // Set page-stops
     const values = cells.map(({ ref }, i) => {
+      const isLast = i === cells.length - 1
+      const trailingGap = isLast ? 0 : gapPx
+
       // If we have an offset we actually want to subtract it from
       // the first and last elements.
-      if (bleedOffset !== 0 && (i === 0 || i === cells.length - 1)) {
-        return Math.ceil(ref.current!.clientWidth - bleedOffset)
+      if (bleedOffset !== 0 && (i === 0 || isLast)) {
+        return Math.ceil(ref.current!.clientWidth - bleedOffset) + trailingGap
       }
 
-      return ref.current!.clientWidth
+      return ref.current!.clientWidth + trailingGap
     })
 
     setPages(
@@ -205,7 +211,14 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
         enabled={mounted && fullBleed}
       >
         <Viewport ref={viewportRef as any}>
-          <Rail as="ul" position="relative" alignItems={alignItems} mb={[2, 6]}>
+          <Rail
+            as="ul"
+            ref={railRef as any}
+            position="relative"
+            alignItems={alignItems}
+            gap={gap}
+            mb={[2, 6]}
+          >
             {cells.map(({ child, ref }, i) => {
               const isFirst = i === 0
               const isLast = i === cells.length - 1
@@ -216,7 +229,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
                   key={i}
                   ref={ref as any}
                   pl={isFirst ? bleedOffset : undefined}
-                  pr={!isLast ? gap : bleedOffset}
+                  pr={isLast ? bleedOffset : undefined}
                   style={{ scrollSnapAlign: snap }}
                 >
                   {child}
