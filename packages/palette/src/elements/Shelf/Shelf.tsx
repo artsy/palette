@@ -23,6 +23,14 @@ export type ShelfProps = BoxProps & {
   alignItems?: FlexProps["alignItems"]
   showProgress?: boolean
   snap?: "none" | "start" | "end" | "center"
+  /**
+   * Whether the rail breaks out of its parent container to the edges of the
+   * viewport. Defaults to `true`. Set to `false` when `Shelf` sits in a
+   * column that isn't horizontally centered in the viewport (e.g. a sidebar
+   * in a multi-column layout) — the breakout's centering math only holds for
+   * a centered container, and will otherwise push the rail off-screen.
+   */
+  fullBleed?: boolean
   children: JSX.Element | JSX.Element[]
   onChange?(index: number): void
 }
@@ -34,6 +42,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   alignItems = "flex-end",
   showProgress = true,
   snap = "none",
+  fullBleed = true,
   children,
   onChange,
   ...rest
@@ -54,6 +63,11 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   const [offset, setOffset] = useState(0)
   const [atStart, setAtStart] = useState(true)
 
+  // `offset` is only meaningful as a bleed-compensation value when we're
+  // actually breaking out via FullBleed — with `fullBleed` false, Viewport
+  // never leaves its parent's width, so there's nothing to compensate for.
+  const bleedOffset = fullBleed ? offset : 0
+
   const init = useCallback(() => {
     if (containerRef.current === null) return
 
@@ -63,8 +77,8 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
     const values = cells.map(({ ref }, i) => {
       // If we have an offset we actually want to subtract it from
       // the first and last elements.
-      if (offset !== 0 && (i === 0 || i === cells.length - 1)) {
-        return Math.ceil(ref.current!.clientWidth - offset)
+      if (bleedOffset !== 0 && (i === 0 || i === cells.length - 1)) {
+        return Math.ceil(ref.current!.clientWidth - bleedOffset)
       }
 
       return ref.current!.clientWidth
@@ -85,7 +99,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
     setOffset(x)
 
     setMounted(true)
-  }, [cells, offset])
+  }, [cells, bleedOffset])
 
   useEffect(() => {
     init()
@@ -195,7 +209,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
         // This matters most on SSR: the server renders the un-mounted state, so
         // disabling the bleed here keeps content aligned to the parent margin and
         // avoids a content shift once the client mounts.
-        enabled={mounted}
+        enabled={mounted && fullBleed}
       >
         <Viewport ref={viewportRef as any}>
           <Rail as="ul" position="relative" alignItems={alignItems} mb={[2, 6]}>
@@ -208,8 +222,8 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
                   as="li"
                   key={i}
                   ref={ref as any}
-                  pl={isFirst ? offset : undefined}
-                  pr={!isLast ? CELL_GAP_PADDING_AMOUNT : offset}
+                  pl={isFirst ? bleedOffset : undefined}
+                  pr={!isLast ? CELL_GAP_PADDING_AMOUNT : bleedOffset}
                   style={{ scrollSnapAlign: snap }}
                 >
                   {child}
