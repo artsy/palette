@@ -24,19 +24,7 @@ export type ShelfProps = BoxProps & {
   alignItems?: FlexProps["alignItems"]
   showProgress?: boolean
   snap?: "none" | "start" | "end" | "center"
-  /**
-   * Whether the rail breaks out of its parent container to the edges of the
-   * viewport. Defaults to `true`. Set to `false` when `Shelf` sits in a
-   * column that isn't horizontally centered in the viewport (e.g. a sidebar
-   * in a multi-column layout) — the breakout's centering math only holds for
-   * a centered container, and will otherwise push the rail off-screen.
-   */
   fullBleed?: boolean
-  /**
-   * Space between cells, responsive by breakpoint. Defaults to
-   * `CELL_GAP_PADDING_AMOUNT` (10px mobile, 20px desktop). Override when a
-   * caller needs gap parity with a different rail implementation.
-   */
   gap?: SpacingUnit[]
   children: JSX.Element | JSX.Element[]
   onChange?(index: number): void
@@ -71,9 +59,6 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   const [offset, setOffset] = useState(0)
   const [atStart, setAtStart] = useState(true)
 
-  // `offset` is only meaningful as a bleed-compensation value when we're
-  // actually breaking out via FullBleed — with `fullBleed` false, Viewport
-  // never leaves its parent's width, so there's nothing to compensate for.
   const bleedOffset = fullBleed ? offset : 0
 
   const init = useCallback(() => {
