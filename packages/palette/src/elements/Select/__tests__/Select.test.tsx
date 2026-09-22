@@ -76,4 +76,35 @@ describe("Select", () => {
       expect(wrapper.html()).toContain("Sort")
     })
   })
+
+  describe("label association", () => {
+    it("associates the label with the select via a generated id", () => {
+      const wrapper = mount(<Select options={options} title="Sort" />)
+      const id = wrapper.find("select").prop("id")
+
+      expect(id).toBeTruthy()
+      expect(wrapper.find("label").prop("htmlFor")).toEqual(id)
+    })
+
+    it("prefers a consumer-supplied id", () => {
+      const wrapper = mount(
+        <Select options={options} title="Sort" id="my-select" />
+      )
+
+      expect(wrapper.find("select").prop("id")).toEqual("my-select")
+      expect(wrapper.find("label").prop("htmlFor")).toEqual("my-select")
+    })
+
+    it("gives two selects on the same page distinct ids", () => {
+      const wrapper = mount(
+        <>
+          <Select options={options} title="One" />
+          <Select options={options} title="Two" />
+        </>
+      )
+      const [first, second] = wrapper.find("select").map((n) => n.prop("id"))
+
+      expect(first).not.toEqual(second)
+    })
+  })
 })

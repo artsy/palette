@@ -3,7 +3,12 @@ import { themeGet } from "@styled-system/theme-get"
 import React, { useCallback, useMemo, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import { height as systemHeight } from "styled-system"
-import { useContainsFocus, usePosition, useWidthOf } from "../../utils"
+import {
+  useContainsFocus,
+  usePosition,
+  useStableId,
+  useWidthOf,
+} from "../../utils"
 import { Box, splitBoxProps } from "../Box"
 import { InputProps } from "../Input"
 import { Text, TextProps } from "../Text"
@@ -87,6 +92,10 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
 
     const inputName = inputProps.name || "palette-select-input"
 
+    // `htmlFor` resolves against the input's `id`, not its `name`.
+    const generatedId = useStableId("select-input")
+    const inputId = inputProps.id ?? generatedId
+
     const handleSelect = (option: Option) => {
       setSelectedOption(option)
       setOpen(false)
@@ -148,9 +157,10 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
             placeholder={inputProps.placeholder}
             value={inputValue}
             {...inputProps}
+            id={inputId}
           />
 
-          <SelectInputLabel htmlFor={inputName}>{label}</SelectInputLabel>
+          <SelectInputLabel htmlFor={inputId}>{label}</SelectInputLabel>
         </SelectInputContainer>
 
         {open && (

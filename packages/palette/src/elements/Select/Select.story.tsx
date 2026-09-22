@@ -31,6 +31,7 @@ const OPTIONS = [
 
 export const Default = {
   args: {
+    "aria-label": "Sort",
     options: OPTIONS,
   },
   parameters: {
@@ -44,6 +45,7 @@ export const Default = {
 
 export const Focus = {
   args: {
+    "aria-label": "Sort",
     options: OPTIONS,
     focus: true,
   },
@@ -58,6 +60,7 @@ export const Focus = {
 
 export const Hover = {
   args: {
+    "aria-label": "Sort",
     options: OPTIONS,
     hover: true,
   },
@@ -72,6 +75,7 @@ export const Hover = {
 
 export const WithError = {
   args: {
+    "aria-label": "Sort",
     options: OPTIONS,
     error: "Something went wrong.",
   },
@@ -86,6 +90,7 @@ export const WithError = {
 
 export const Disabled = {
   args: {
+    "aria-label": "Sort",
     options: OPTIONS,
     disabled: true,
   },
@@ -204,6 +209,7 @@ export const Required = {
 
 export const WithSelectedValue = {
   args: {
+    "aria-label": "Sort",
     options: OPTIONS,
     selected: "year",
   },
