@@ -3,7 +3,7 @@ import { renderToString } from "react-dom/server"
 import { ServerStyleSheet } from "styled-components"
 import { Box } from "../Box"
 import { Text } from "../Text"
-import { Shelf } from "./Shelf"
+import { Shelf, ShelfProps } from "./Shelf"
 import { ShelfNext } from "./ShelfNavigation"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
@@ -95,6 +95,38 @@ export const NoProgress = {
     docs: {
       description: {
         story: "Shelf without progress indicators.",
+      },
+    },
+  },
+}
+
+export const Configurable = {
+  args: {
+    gap: 4,
+    scrollBarGap: 1,
+    fullBleed: false,
+  },
+  argTypes: {
+    gap: { control: { type: "number" } },
+    scrollBarGap: { control: { type: "number" } },
+    fullBleed: { control: { type: "boolean" } },
+  },
+  render: (args: ShelfProps) => (
+    <Box maxWidth={1920} mx="auto">
+      <Box mx={[2, 4]} border="1px dashed" borderColor="brand">
+        <Text variant="xs" color="mono60" p={0.5}>
+          Dashed border marks the parent container
+        </Text>
+
+        <Demo amount={10} {...args} />
+      </Box>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates the spacing and layout props: `gap` controls the spacing between cells, `scrollBarGap` controls the spacing between the cells and the scrollbar, and `fullBleed={false}` keeps the rail clipped to the parent container (dashed border) instead of bleeding to the edges of the viewport.",
       },
     },
   },
@@ -257,8 +289,8 @@ export const ServerSideRender = {
     return (
       <Box>
         <Text variant="sm-display" mb={2}>
-          Frozen server-rendered markup (never hydrated). Cells should align with
-          the page margin, not the screen edge.
+          Frozen server-rendered markup (never hydrated). Cells should align
+          with the page margin, not the screen edge.
         </Text>
 
         <Box dangerouslySetInnerHTML={{ __html: html }} />

@@ -9,7 +9,9 @@ import React, {
   useState,
 } from "react"
 import styled from "styled-components"
+import { ResponsiveValue } from "styled-system"
 import { useCursor } from "use-cursor"
+import { SpacingUnit } from "../../Theme"
 import { visuallyDisableScrollbar } from "../../helpers/visuallyDisableScrollbar"
 import { Box, BoxProps } from "../Box"
 import { CELL_GAP_PADDING_AMOUNT, paginateCarousel } from "../Carousel"
@@ -18,9 +20,22 @@ import { FullBleed } from "../FullBleed"
 import { ShelfNext, ShelfPrevious } from "./ShelfNavigation"
 import { ShelfScrollBar } from "./ShelfScrollBar"
 
+/** Default spacing between the rail and the scrollbar */
+export const SHELF_SCROLL_BAR_GAP: SpacingUnit[] = [2, 6]
+
 /** ShelfProps */
-export type ShelfProps = BoxProps & {
+export type ShelfProps = Omit<BoxProps, "gap"> & {
   alignItems?: FlexProps["alignItems"]
+  /** Spacing between each cell. Defaults to `[1, 2]`. */
+  gap?: ResponsiveValue<SpacingUnit>
+  /**
+   * Whether the rail breaks out of the parent container to the edges of the
+   * viewport. Defaults to `true`. Set to `false` to keep the rail clipped to
+   * the bounds of the parent container.
+   */
+  fullBleed?: boolean
+  /** Spacing between the cells and the scrollbar. Defaults to `[2, 6]`. */
+  scrollBarGap?: ResponsiveValue<SpacingUnit>
   showProgress?: boolean
   snap?: "none" | "start" | "end" | "center"
   children: JSX.Element | JSX.Element[]
@@ -32,6 +47,9 @@ export type ShelfProps = BoxProps & {
  */
 export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   alignItems = "flex-end",
+  gap = CELL_GAP_PADDING_AMOUNT,
+  fullBleed = true,
+  scrollBarGap = SHELF_SCROLL_BAR_GAP,
   showProgress = true,
   snap = "none",
   children,
@@ -80,12 +98,14 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
       })
     )
 
-    // Set offset to accomodate full-bleed and line up initially with page-margins
+    // Set offset to accomodate full-bleed and line up initially with page-margins.
+    // When not full-bleed the rail is already bounded by the container so no
+    // offset is required.
     const { x } = container.getBoundingClientRect()
-    setOffset(x)
+    setOffset(fullBleed ? x : 0)
 
     setMounted(true)
-  }, [cells, offset])
+  }, [cells, fullBleed, offset])
 
   useEffect(() => {
     init()
@@ -167,80 +187,66 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
 
   return (
     <Container ref={containerRef as any} {...rest}>
-      <Nav
-        as="nav"
-        // We can't position relative to the FullBleed rail —
-        // so offset the bottom by the bottom margin + the height of the scrollbar.
-        bottom={[23, 63]}
-      >
-        <Previous
-          onClick={handlePrev}
-          disabled={atStart}
-          aria-label="Previous page"
-        />
+      {/*
+        The FullBleed rail is 100vw wide, so the nav can't be positioned
+        relative to it. Instead we wrap both in a container-width box that is
+        exactly the height of the rail; the spacing to the scrollbar lives on
+        this wrapper so the nav stays vertically centered on the cells.
+      */}
+      <Box position="relative" mb={scrollBarGap}>
+        <Nav as="nav">
+          <Previous
+            onClick={handlePrev}
+            disabled={atStart}
+            aria-label="Previous page"
+          />
 
-        <Next
-          onClick={handleNext}
-          disabled={pageIndex === pages.length - 1}
-          aria-label="Next page"
-        />
-      </Nav>
+          <Next
+            onClick={handleNext}
+            disabled={pageIndex === pages.length - 1}
+            aria-label="Next page"
+          />
+        </Nav>
 
-      <FullBleed
-        // To prevent any page jank we initially disable the bleed so that content
-        // is left aligned with the parent container, and then once we have the
-        // offset and page values we enable it to actually full-bleed. The `offset`
-        // will push the content up to the parent margin.
-        //
-        // This matters most on SSR: the server renders the un-mounted state, so
-        // disabling the bleed here keeps content aligned to the parent margin and
-        // avoids a content shift once the client mounts.
-        enabled={mounted}
-      >
-        <Viewport ref={viewportRef as any}>
-          <Rail as="ul" position="relative" alignItems={alignItems} mb={[2, 6]}>
-            {cells.map(({ child, ref }, i) => {
-              const isFirst = i === 0
-              const isLast = i === cells.length - 1
+        <FullBleed
+          // To prevent any page jank we initially disable the bleed so that content
+          // is left aligned with the parent container, and then once we have the
+          // offset and page values we enable it to actually full-bleed. The `offset`
+          // will push the content up to the parent margin.
+          //
+          // This matters most on SSR: the server renders the un-mounted state, so
+          // disabling the bleed here keeps content aligned to the parent margin and
+          // avoids a content shift once the client mounts.
+          enabled={fullBleed && mounted}
+        >
+          <Viewport ref={viewportRef as any}>
+            <Rail as="ul" position="relative" alignItems={alignItems}>
+              {cells.map(({ child, ref }, i) => {
+                const isFirst = i === 0
+                const isLast = i === cells.length - 1
 
-              return (
-                <Cell
-                  as="li"
-                  key={i}
-                  ref={ref as any}
-                  pl={isFirst ? offset : undefined}
-                  pr={!isLast ? CELL_GAP_PADDING_AMOUNT : offset}
-                  style={{ scrollSnapAlign: snap }}
-                >
-                  {child}
-                </Cell>
-              )
-            })}
-          </Rail>
-        </Viewport>
-      </FullBleed>
+                return (
+                  <Cell
+                    as="li"
+                    key={i}
+                    ref={ref as any}
+                    pl={isFirst ? offset : undefined}
+                    pr={!isLast ? gap : offset}
+                    style={{ scrollSnapAlign: snap }}
+                  >
+                    {child}
+                  </Cell>
+                )
+              })}
+            </Rail>
+          </Viewport>
+        </FullBleed>
+      </Box>
 
       {showProgress && <ShelfScrollBar viewport={viewportRef.current} />}
     </Container>
   )
 }
-
-const Container = styled(Box)`
-  position: relative;
-  width: 100%;
-
-  > nav {
-    transition: opacity 250ms;
-    transition-delay: 100ms;
-    opacity: 0;
-  }
-
-  &:hover {
-    > nav {
-      opacity: 1;
-    }
-  }
-`
 
 const Nav = styled(Box)`
   pointer-events: none;
@@ -248,7 +254,25 @@ const Nav = styled(Box)`
   z-index: 1;
   top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
+`
+
+const Container = styled(Box)`
+  position: relative;
+  width: 100%;
+
+  ${Nav} {
+    transition: opacity 250ms;
+    transition-delay: 100ms;
+    opacity: 0;
+  }
+
+  &:hover {
+    ${Nav} {
+      opacity: 1;
+    }
+  }
 `
 
 const Viewport = styled(Box)`
