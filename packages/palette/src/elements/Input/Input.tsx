@@ -53,9 +53,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [boxProps, inputProps] = splitBoxProps(rest)
     const [value, setValue] = React.useState(inputProps.value || defaultValue)
 
-    // `htmlFor` resolves against the input's `id`, not its `name`, so fall back
-    // to a generated id when the consumer hasn't supplied one — otherwise the
-    // label is rendered but never associated with the input.
+    // `htmlFor` resolves against `id`, not `name`.
     const generatedId = useStableId("input")
     const id = inputProps.id ?? generatedId
 

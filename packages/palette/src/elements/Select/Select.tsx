@@ -53,8 +53,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
     ref
   ) => {
     const [boxProps, selectProps] = splitBoxProps(rest)
-    // Fall back to a generated id so the label is always associated with the
-    // select, even when the consumer doesn't supply one.
+    // Fallback id so the label is always associated.
     const generatedId = useStableId("select")
     const selectId = id ?? generatedId
     // due to :has not available in Firefox yet, we need to add the styles to the label using JS

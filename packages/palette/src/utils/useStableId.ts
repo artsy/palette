@@ -1,15 +1,11 @@
 import React, { useRef } from "react"
 
 /**
- * Returns an id that is stable across renders, for associating a form control
- * with its `<label htmlFor>` when the consumer hasn't supplied an `id`.
+ * A render-stable id, for associating a form control with its label.
  *
- * React 18's `useId` is used when available. The implementation is chosen once,
- * at module load, rather than inside the hook, so that the rules of hooks still
- * hold. The fallback exists because jest maps `react` to `react-17` (see
- * `moduleNameMapper` in package.json) where `useId` does not exist; it is a
- * plain counter and is *not* SSR-safe, so it must never be the path taken in
- * a React 18 runtime.
+ * Picks `useId` at module load, not in the hook, so the rules of hooks hold.
+ * The counter fallback is for jest, which maps `react` to `react-17`; it is
+ * not SSR-safe.
  */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

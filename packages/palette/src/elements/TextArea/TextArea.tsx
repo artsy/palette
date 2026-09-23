@@ -55,7 +55,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ) => {
     const [boxProps, inputProps] = splitBoxProps(rest)
 
-    // `htmlFor` resolves against the textarea's `id`, not its `name`.
+    // `htmlFor` resolves against `id`, not `name`.
     const generatedId = useStableId("textarea")
     const id = inputProps.id ?? generatedId
 

@@ -92,7 +92,7 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
 
     const inputName = inputProps.name || "palette-select-input"
 
-    // `htmlFor` resolves against the input's `id`, not its `name`.
+    // `htmlFor` resolves against `id`, not `name`.
     const generatedId = useStableId("select-input")
     const inputId = inputProps.id ?? generatedId
 
