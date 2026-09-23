@@ -3,7 +3,7 @@ import { renderToString } from "react-dom/server"
 import { ServerStyleSheet } from "styled-components"
 import { Box } from "../Box"
 import { Text } from "../Text"
-import { Shelf } from "./Shelf"
+import { Shelf, ShelfProps } from "./Shelf"
 import { ShelfNext } from "./ShelfNavigation"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
@@ -61,6 +61,30 @@ export const Default = {
     docs: {
       description: {
         story: "Basic shelf component with default settings.",
+      },
+    },
+  },
+}
+
+export const ConfigurableLayout = {
+  args: {
+    fullBleed: false,
+    gap: 1,
+  },
+  argTypes: {
+    gap: { control: "number" },
+    columnGap: { control: "number" },
+    rowGap: { control: "number" },
+  },
+  render: (args: ShelfProps) => (
+    <Box maxWidth={900} mx="auto" px={[2, 4]}>
+      <Demo {...args} />
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Contained shelf with configurable gaps.",
       },
     },
   },
@@ -257,8 +281,8 @@ export const ServerSideRender = {
     return (
       <Box>
         <Text variant="sm-display" mb={2}>
-          Frozen server-rendered markup (never hydrated). Cells should align with
-          the page margin, not the screen edge.
+          Frozen server-rendered markup (never hydrated). Cells should align
+          with the page margin, not the screen edge.
         </Text>
 
         <Box dangerouslySetInnerHTML={{ __html: html }} />

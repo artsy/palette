@@ -21,6 +21,14 @@ import { ShelfScrollBar } from "./ShelfScrollBar"
 /** ShelfProps */
 export type ShelfProps = BoxProps & {
   alignItems?: FlexProps["alignItems"]
+  /** Shorthand for setting both `columnGap` and `rowGap`. */
+  gap?: BoxProps["gap"]
+  /** Space between cells. Defaults to `[1, 2]`. */
+  columnGap?: BoxProps["gap"]
+  /** Space between the cells and scrollbar. Defaults to `[2, 6]`. */
+  rowGap?: BoxProps["gap"]
+  /** Whether cells can extend beyond the parent container. Defaults to `true`. */
+  fullBleed?: boolean
   showProgress?: boolean
   snap?: "none" | "start" | "end" | "center"
   children: JSX.Element | JSX.Element[]
@@ -32,6 +40,10 @@ export type ShelfProps = BoxProps & {
  */
 export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   alignItems = "flex-end",
+  gap,
+  columnGap = gap ?? CELL_GAP_PADDING_AMOUNT,
+  rowGap = gap ?? [2, 6],
+  fullBleed = true,
   showProgress = true,
   snap = "none",
   children,
@@ -61,13 +73,19 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
 
     // Set page-stops
     const values = cells.map(({ ref }, i) => {
+      const cell = ref.current!
+      const next = cells[i + 1]?.ref.current
+
+      // Measure up to the next cell so that the column gap is included
+      const width = next ? next.offsetLeft - cell.offsetLeft : cell.clientWidth
+
       // If we have an offset we actually want to subtract it from
       // the first and last elements.
       if (offset !== 0 && (i === 0 || i === cells.length - 1)) {
-        return Math.ceil(ref.current!.clientWidth - offset)
+        return Math.ceil(width - offset)
       }
 
-      return ref.current!.clientWidth
+      return width
     })
 
     setPages(
@@ -82,10 +100,10 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
 
     // Set offset to accomodate full-bleed and line up initially with page-margins
     const { x } = container.getBoundingClientRect()
-    setOffset(x)
+    setOffset(fullBleed ? x : 0)
 
     setMounted(true)
-  }, [cells, offset])
+  }, [cells, offset, fullBleed])
 
   useEffect(() => {
     init()
@@ -166,13 +184,8 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   }
 
   return (
-    <Container ref={containerRef as any} {...rest}>
-      <Nav
-        as="nav"
-        // We can't position relative to the FullBleed rail —
-        // so offset the bottom by the bottom margin + the height of the scrollbar.
-        bottom={[23, 63]}
-      >
+    <Container ref={containerRef as any} gap={rowGap} {...rest}>
+      <Nav as="nav" gridArea="1 / 1">
         <Previous
           onClick={handlePrev}
           disabled={atStart}
@@ -195,10 +208,16 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
         // This matters most on SSR: the server renders the un-mounted state, so
         // disabling the bleed here keeps content aligned to the parent margin and
         // avoids a content shift once the client mounts.
-        enabled={mounted}
+        enabled={fullBleed && mounted}
+        gridArea="1 / 1"
       >
         <Viewport ref={viewportRef as any}>
-          <Rail as="ul" position="relative" alignItems={alignItems} mb={[2, 6]}>
+          <Rail
+            as="ul"
+            position="relative"
+            alignItems={alignItems}
+            gap={columnGap}
+          >
             {cells.map(({ child, ref }, i) => {
               const isFirst = i === 0
               const isLast = i === cells.length - 1
@@ -209,7 +228,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
                   key={i}
                   ref={ref as any}
                   pl={isFirst ? offset : undefined}
-                  pr={!isLast ? CELL_GAP_PADDING_AMOUNT : offset}
+                  pr={isLast ? offset : undefined}
                   style={{ scrollSnapAlign: snap }}
                 >
                   {child}
@@ -225,8 +244,12 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   )
 }
 
+// The nav and rail share the first row so the nav spans only the cells;
+// the scrollbar falls into the second row.
 const Container = styled(Box)`
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   width: 100%;
 
   > nav {
@@ -244,11 +267,8 @@ const Container = styled(Box)`
 
 const Nav = styled(Box)`
   pointer-events: none;
-  position: absolute;
+  position: relative;
   z-index: 1;
-  top: 0;
-  right: 0;
-  left: 0;
 `
 
 const Viewport = styled(Box)`
