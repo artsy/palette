@@ -1,3 +1,16 @@
+# (Wed Sep 23 2026)
+
+#### 🚀  Enhancement
+
+- `@artsy/palette@46.10.0`
+  - feat(shelf): supports configurable layouts [#1527](https://github.com/artsy/palette/pull/1527) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Tue Sep 15 2026)
 
 #### 🐛  Bug Fix
