@@ -172,6 +172,8 @@ export const ColumnsWithResponsiveImages = {
                 srcSet={`https://picsum.photos/seed/${i}/${width}/${height} 1x, https://picsum.photos/seed/${i}/${
                   width * 2
                 }/${height * 2} 2x`}
+                // Decorative: this demos masonry layout, not image content
+                alt=""
               />
             </ResponsiveBox>
           </Box>
