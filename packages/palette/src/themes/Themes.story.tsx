@@ -1211,6 +1211,17 @@ export const ContrastRatios = () => {
   )
 }
 
+// This story's entire purpose is rendering every colour token as text next to
+// its measured contrast ratio, so the low-contrast swatches are the subject
+// matter rather than a defect. The rule is disabled here only.
+ContrastRatios.parameters = {
+  a11y: {
+    config: {
+      rules: [{ id: "color-contrast", enabled: false }],
+    },
+  },
+}
+
 const ContrastRatioSwatch: FC<
   React.PropsWithChildren<{
     name: string
@@ -1247,6 +1258,7 @@ const ContrastRatioSwatch: FC<
       >
         <input
           type="color"
+          aria-label={`Edit ${name}`}
           value={value}
           onChange={(e) => {
             debouncedSetValue(e.target.value)
