@@ -34,4 +34,10 @@ describe("Button", () => {
     wrapper.find(Clickable).simulate("click")
     expect(onClose).toHaveBeenCalled()
   })
+
+  it("gives the icon-only dismiss button an accessible name", () => {
+    const wrapper = mount(<Banner dismissable>There was an error.</Banner>)
+
+    expect(wrapper.find(Clickable).prop("aria-label")).toEqual("Dismiss")
+  })
 })
