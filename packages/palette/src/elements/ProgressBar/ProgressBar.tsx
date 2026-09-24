@@ -7,6 +7,8 @@ export interface ProgressBarProps extends BoxProps {
   highlight?: Color
   showBackground?: boolean
   transition?: string
+  /** Accessible name for the progressbar */
+  "aria-label"?: string
 }
 
 /** ProgressBar */
@@ -17,12 +19,14 @@ export const ProgressBar: React.FC<
   highlight = "brand",
   showBackground = true,
   transition = "transform 1s ease",
+  "aria-label": ariaLabel = "Progress",
   ...rest
 }) => {
   return (
     <Box
       tabIndex={0}
       role="progressbar"
+      aria-label={ariaLabel}
       aria-valuenow={percentComplete}
       aria-valuemin={0}
       aria-valuemax={100}

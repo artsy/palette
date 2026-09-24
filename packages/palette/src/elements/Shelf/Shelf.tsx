@@ -185,7 +185,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
 
   return (
     <Container ref={containerRef as any} gap={rowGap} {...rest}>
-      <Nav as="nav" gridArea="1 / 1">
+      <Nav as="nav" aria-label="Shelf navigation" gridArea="1 / 1">
         <Previous
           onClick={handlePrev}
           disabled={atStart}
