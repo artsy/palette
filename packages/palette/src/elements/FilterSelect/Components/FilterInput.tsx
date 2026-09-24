@@ -27,8 +27,6 @@ export const FilterInput: React.FC<React.PropsWithChildren<InputProps>> = (
   return (
     <LabeledInput
       ref={ref}
-      // `search` is a landmark role and is invalid on <input>; `searchbox` is
-      // the input-level equivalent.
       role="searchbox"
       label={
         query !== "" ? (
