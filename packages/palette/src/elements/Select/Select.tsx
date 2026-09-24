@@ -7,6 +7,7 @@ import { Box, BoxProps, splitBoxProps } from "../Box"
 import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { SELECT_STATES } from "./tokens"
+import { useStableId } from "../../utils/useStableId"
 
 export interface Option {
   value: string
@@ -52,6 +53,9 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
     ref
   ) => {
     const [boxProps, selectProps] = splitBoxProps(rest)
+    // Fallback id so the label is always associated.
+    const generatedId = useStableId("select")
+    const selectId = id ?? generatedId
     // due to :has not available in Firefox yet, we need to add the styles to the label using JS
     const [selectedOption, setSelectedOption] = useState(selected || value)
     const [isFocused, setIsFocused] = useState(false)
@@ -82,7 +86,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
         >
           <select
             ref={ref as any}
-            id={id}
+            id={selectId}
             disabled={disabled}
             name={name}
             value={selected || value}
@@ -103,7 +107,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
           </select>
 
           {!!title && (
-            <StyledLabel htmlFor={id}>
+            <StyledLabel htmlFor={selectId}>
               {title}
 
               <span />

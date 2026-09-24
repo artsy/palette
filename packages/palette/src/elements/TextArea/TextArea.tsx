@@ -7,6 +7,7 @@ import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { TEXTAREA_STATES } from "./tokens"
 import { FORM_ELEMENT_TRANSITION } from "../../helpers"
+import { useStableId } from "../../utils/useStableId"
 
 export interface TextAreaProps
   extends BoxProps,
@@ -53,6 +54,10 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     ref
   ) => {
     const [boxProps, inputProps] = splitBoxProps(rest)
+
+    // `htmlFor` resolves against `id`, not `name`.
+    const generatedId = useStableId("textarea")
+    const id = inputProps.id ?? generatedId
 
     const [value, setValue] = useState(defaultValue)
 
@@ -115,10 +120,11 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
             title={title}
             placeholder={inputProps.placeholder || " "}
             {...inputProps}
+            id={id}
           />
 
           {!!title && (
-            <StyledLabel htmlFor={inputProps.name}>
+            <StyledLabel htmlFor={id}>
               {title}
               <span />
             </StyledLabel>

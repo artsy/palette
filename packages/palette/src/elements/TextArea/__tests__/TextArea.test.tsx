@@ -178,4 +178,21 @@ describe("TextArea", () => {
     expect(wrapper.text()).toContain("5/5")
     expect(wrapper.text()).toContain("Character limit reached")
   })
+
+  describe("label association", () => {
+    it("associates the label with the textarea via a generated id", () => {
+      const wrapper = mount(<TextArea title="Title" />)
+      const id = wrapper.find("textarea").prop("id")
+
+      expect(id).toBeTruthy()
+      expect(wrapper.find("label").prop("htmlFor")).toEqual(id)
+    })
+
+    it("prefers a consumer-supplied id", () => {
+      const wrapper = mount(<TextArea title="Title" id="my-textarea" />)
+
+      expect(wrapper.find("textarea").prop("id")).toEqual("my-textarea")
+      expect(wrapper.find("label").prop("htmlFor")).toEqual("my-textarea")
+    })
+  })
 })

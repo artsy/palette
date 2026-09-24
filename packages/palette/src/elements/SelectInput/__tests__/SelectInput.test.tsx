@@ -217,4 +217,38 @@ describe("SelectInput", () => {
 
     expect(wrapper.find("input[placeholder='Search']").length).toEqual(1)
   })
+
+  describe("label association", () => {
+    it("associates the label with the input via a generated id", () => {
+      const wrapper = mount(
+        <SelectInput
+          onSelect={jest.fn()}
+          options={countriesExample}
+          label="Phone number"
+        />
+      )
+      const id = wrapper.find("input").first().prop("id")
+
+      expect(id).toBeTruthy()
+      expect(wrapper.find("label").first().prop("htmlFor")).toEqual(id)
+    })
+
+    it("prefers a consumer-supplied id", () => {
+      const wrapper = mount(
+        <SelectInput
+          onSelect={jest.fn()}
+          options={countriesExample}
+          label="Phone number"
+          id="my-select-input"
+        />
+      )
+
+      expect(wrapper.find("input").first().prop("id")).toEqual(
+        "my-select-input"
+      )
+      expect(wrapper.find("label").first().prop("htmlFor")).toEqual(
+        "my-select-input"
+      )
+    })
+  })
 })

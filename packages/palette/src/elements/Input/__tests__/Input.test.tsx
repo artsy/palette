@@ -40,4 +40,43 @@ describe("Input", () => {
     const wrapper = mount(<Input maxLength={10} showCounter />)
     expect(wrapper.text()).toContain("0/10")
   })
+
+  describe("label association", () => {
+    it("associates the label with the input via a generated id", () => {
+      const wrapper = mount(<Input title="Title" />)
+      const id = wrapper.find("input").prop("id")
+
+      expect(id).toBeTruthy()
+      expect(wrapper.find("label").prop("htmlFor")).toEqual(id)
+    })
+
+    it("prefers a consumer-supplied id", () => {
+      const wrapper = mount(<Input title="Title" id="my-input" />)
+
+      expect(wrapper.find("input").prop("id")).toEqual("my-input")
+      expect(wrapper.find("label").prop("htmlFor")).toEqual("my-input")
+    })
+
+    it("does not key the association off name", () => {
+      const wrapper = mount(<Input title="Title" name="my-name" />)
+
+      expect(wrapper.find("input").prop("name")).toEqual("my-name")
+      expect(wrapper.find("label").prop("htmlFor")).not.toEqual("my-name")
+      expect(wrapper.find("label").prop("htmlFor")).toEqual(
+        wrapper.find("input").prop("id")
+      )
+    })
+
+    it("gives two inputs on the same page distinct ids", () => {
+      const wrapper = mount(
+        <>
+          <Input title="One" />
+          <Input title="Two" />
+        </>
+      )
+      const [first, second] = wrapper.find("input").map((n) => n.prop("id"))
+
+      expect(first).not.toEqual(second)
+    })
+  })
 })

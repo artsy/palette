@@ -8,6 +8,7 @@ import { Text } from "../Text"
 import { Tooltip } from "../Tooltip"
 import { INPUT_STATES } from "./tokens"
 import { FORM_ELEMENT_TRANSITION } from "../../helpers"
+import { useStableId } from "../../utils/useStableId"
 
 export interface InputProps
   extends BoxProps,
@@ -52,6 +53,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [boxProps, inputProps] = splitBoxProps(rest)
     const [value, setValue] = React.useState(inputProps.value || defaultValue)
 
+    // `htmlFor` resolves against `id`, not `name`.
+    const generatedId = useStableId("input")
+    const id = inputProps.id ?? generatedId
+
     const handleChange = useCallback(
       (event: React.ChangeEvent<HTMLInputElement>) => {
         const nextValue = event.currentTarget.value
@@ -87,10 +92,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onChange={handleChange}
             placeholder={inputProps.placeholder || " "}
             {...inputProps}
+            id={id}
           />
 
           {!!title && (
-            <StyledLabel labelOffset={labelOffset} htmlFor={inputProps.name}>
+            <StyledLabel labelOffset={labelOffset} htmlFor={id}>
               {title}
               <span />
             </StyledLabel>
