@@ -72,7 +72,6 @@ export const ImageLazyLoad = {
             width="300px"
             height="200px"
             src={`https://picsum.photos/seed/${i}/300/200`}
-            // Decorative: these demo lazy-loading, not image content
             alt=""
           />
         ))}
@@ -93,7 +92,6 @@ export const ImageLazyLoadSrcSet = {
             height="200px"
             src={`https://picsum.photos/seed/${i}/300/200`}
             srcSet={`https://picsum.photos/seed/${i}/300/200 1x, https://picsum.photos/seed/${i}/600/400 2x`}
-            // Decorative: these demo lazy-loading, not image content
             alt=""
           />
         ))}
