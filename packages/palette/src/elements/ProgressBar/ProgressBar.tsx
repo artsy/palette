@@ -7,7 +7,6 @@ export interface ProgressBarProps extends BoxProps {
   highlight?: Color
   showBackground?: boolean
   transition?: string
-  /** Accessible name for the progressbar */
   "aria-label"?: string
 }
 
