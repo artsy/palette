@@ -2,8 +2,7 @@ import { mount } from "enzyme"
 import React from "react"
 import { ShelfScrollBar } from "../ShelfScrollBar"
 
-// The thumb only renders when the content actually overflows, so build a
-// viewport that reports more scroll width than client width.
+// The thumb only renders when the content overflows.
 const overflowingViewport = () => {
   const el = document.createElement("div")
   Object.defineProperties(el, {
@@ -16,8 +15,7 @@ const overflowingViewport = () => {
 
 describe("ShelfScrollBar", () => {
   it("renders a thumb only when the content overflows", () => {
-    // Guards the assertions below from passing vacuously: with no overflow
-    // there is no thumb at all, so "contains no button" would be trivially true.
+    // Without a thumb, "contains no button" below would pass trivially.
     const withoutOverflow = mount(<ShelfScrollBar viewport={null} />)
     const withOverflow = mount(<ShelfScrollBar viewport={overflowingViewport()} />)
 
