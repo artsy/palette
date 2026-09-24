@@ -39,7 +39,7 @@ export const Radio = <T,>({
   focus,
   error,
   label,
-  selected,
+  selected = false,
   value,
   size = "sm",
   onSelect,
@@ -62,7 +62,6 @@ export const Radio = <T,>({
 
   return (
     <Container
-      as="label"
       alignItems="center"
       role="radio"
       aria-checked={selected}
