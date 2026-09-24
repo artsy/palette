@@ -166,7 +166,6 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
         {open && (
           <SelectInputDropdown
             ref={tooltipRef as any}
-            role="listbox"
             width={width}
             style={floatingStyles}
           >
