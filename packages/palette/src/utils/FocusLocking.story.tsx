@@ -29,10 +29,8 @@ export const Default = () => {
   )
 }
 
-// `react-focus-on` correctly applies aria-hidden to everything outside the
-// trap. In a real modal those siblings sit behind a scrim; here the demo
-// renders inline, and showing the un-focusable siblings is the whole point of
-// the story — so the resulting aria-hidden-focus report is expected.
+// `react-focus-on` correctly aria-hides everything outside the trap; showing
+// those siblings is the point of this story.
 Default.parameters = {
   a11y: {
     config: {

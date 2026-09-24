@@ -1211,9 +1211,8 @@ export const ContrastRatios = () => {
   )
 }
 
-// This story's entire purpose is rendering every colour token as text next to
-// its measured contrast ratio, so the low-contrast swatches are the subject
-// matter rather than a defect. The rule is disabled here only.
+// This story exists to display low-contrast tokens, so the failures are the
+// subject matter rather than a defect.
 ContrastRatios.parameters = {
   a11y: {
     config: {

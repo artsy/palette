@@ -63,9 +63,8 @@ export const DisabledExpanded = {
 
 export const CustomLabel = {
   args: {
-    // The label renders inside Expandable's toggle <button>, so it must not
-    // contain interactive elements — that would nest a control inside a
-    // control, which assistive tech cannot represent.
+    // The label renders inside the toggle <button>, so it must not contain
+    // interactive elements.
     label: (
       <Flex flex={1} justifyContent="space-between">
         <Text variant="sm-display">Custom Heading</Text>
