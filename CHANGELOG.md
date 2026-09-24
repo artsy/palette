@@ -1,3 +1,17 @@
+# (Thu Sep 24 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@46.10.1`
+  - fix(input): associate labels with their form controls [#1525](https://github.com/artsy/palette/pull/1525) ([@rquartararo](https://github.com/rquartararo))
+  - fix(radio): use a valid role and always emit aria-checked [#1526](https://github.com/artsy/palette/pull/1526) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Wed Sep 23 2026)
 
 #### 🚀  Enhancement
