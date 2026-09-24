@@ -3,9 +3,8 @@ import React from "react"
 import { Clickable } from "../../Clickable"
 import { ReadMore } from "../ReadMore"
 
-// jsdom reports every element as zero-height, so `overflowing` stays false and
-// the toggle isn't rendered. Force it by clamping to a single line and stubbing
-// the measurements the resize handler reads.
+// jsdom reports zero height, so the toggle never renders unless the
+// measurements are stubbed.
 const LONG = "<p>" + "word ".repeat(400) + "</p>"
 
 const mountOverflowing = () => {
