@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Clickable } from "../Clickable"
 import { Text } from "../Text"
 import { Box } from "../Box"
+import { useStableId } from "../../utils/useStableId"
 
 export interface ReadMoreProps {
   content: string
@@ -48,6 +49,7 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
   }
 
   const initialized = useRef(false)
+  const regionId = useStableId("read-more")
 
   useEffect(() => {
     if (initialized.current) return
@@ -59,10 +61,11 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
   }, [])
 
   return (
-    <Container aria-expanded={expanded}>
+    <Container>
       <LineClamp
         key={`${expanded}`} // Forces a re-render on Mobile Safari
         ref={ref}
+        id={regionId}
         lineClamp={maxLinesToShow}
       >
         {/* LineClamp's `display` causes stacking of margins. Nested div ensures internal margins collapse. */}
@@ -81,6 +84,8 @@ export const ReadMore: React.FC<React.PropsWithChildren<ReadMoreProps>> = ({
           onClick={handleClick}
           display="block"
           width="100%"
+          aria-expanded={expanded}
+          aria-controls={regionId}
         >
           <Text variant="xs" fontWeight="bold">
             Read {expanded ? "less" : "more"}
