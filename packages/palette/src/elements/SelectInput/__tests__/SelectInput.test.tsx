@@ -251,4 +251,30 @@ describe("SelectInput", () => {
       )
     })
   })
+
+  describe("listbox semantics", () => {
+    it("gives every option a listbox parent", () => {
+      const wrapper = mount(
+        <SelectInput
+          onSelect={jest.fn()}
+          options={countriesExample}
+          label="Phone number"
+        />
+      )
+
+      wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+
+      const options = wrapper.find('[role="option"]').hostNodes()
+      expect(options.length).toBeGreaterThan(0)
+
+      const listboxes = wrapper.find('[role="listbox"]').hostNodes()
+      expect(listboxes.length).toEqual(1)
+
+      const listbox = listboxes.first().getDOMNode()
+
+      options.forEach((option) => {
+        expect(listbox.contains(option.getDOMNode())).toBe(true)
+      })
+    })
+  })
 })
