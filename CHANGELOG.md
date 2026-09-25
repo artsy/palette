@@ -1,3 +1,16 @@
+# (Fri Sep 25 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@46.10.2`
+  - fix(image): correctly handles errors for hydration [#1538](https://github.com/artsy/palette/pull/1538) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
 # (Thu Sep 24 2026)
 
 #### 🐛  Bug Fix
