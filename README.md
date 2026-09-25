@@ -40,11 +40,12 @@ When adding new components, you'll need to create corresponding Storybook storie
 Each story file should include:
 
 ```tsx
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { MyComponent } from "./MyComponent";
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist";
 
-export default {
+const meta: Meta<typeof MyComponent> = {
   component: MyComponent,
   title: "Components/MyComponent",
   tags: ["autodocs"],
@@ -60,7 +61,11 @@ export default {
   },
 };
 
-export const Default = {
+export default meta;
+
+type Story = StoryObj<typeof MyComponent>;
+
+export const Default: Story = {
   args: {
     // default props
   },
@@ -81,8 +86,9 @@ export const Default = {
 - **Separate stories for each variant**: Don't use the `States` helper - create individual story exports
 - **Use the `args` format**: Define props using the `args` property for better autodocs integration
 - **Add story descriptions**: Include `docs.description.story` for each story to explain its purpose
+- **Type the default export as `Meta<typeof Component>` and stories as `StoryObj<typeof Component>`**: catches fabricated/nonexistent props at type-check time (see [`Text.story.tsx`](packages/palette/src/elements/Text/Text.story.tsx) for a real example)
 
-For a complete guide, see [`packages/palette/claude.md`](packages/palette/CLAUDE.md).
+For a complete guide, see [`packages/palette/CLAUDE.md`](packages/palette/CLAUDE.md).
 
 ## Local development
 

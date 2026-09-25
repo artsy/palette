@@ -1,4 +1,4 @@
-import { fn } from "@storybook/test"
+import { fn } from "storybook/test"
 import React, { useEffect, useState } from "react"
 import { Box } from "../Box"
 import { Clickable } from "../Clickable"

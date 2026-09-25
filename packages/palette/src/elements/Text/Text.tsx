@@ -2,6 +2,7 @@ import {
   TEXT_VARIANTS,
   TextVariant,
 } from "@artsy/palette-tokens/dist/typography/v3"
+import type { ElementType } from "react"
 import styled, { css } from "styled-components"
 import {
   color,
@@ -79,6 +80,13 @@ export type TextProps = BaseTextProps &
     overflowEllipsis?: boolean
     textTransform?: ResponsiveValue<TextTransform>
     lineClamp?: ResponsiveValue<number>
+    /**
+     * Renders the underlying element as a different HTML tag/component.
+     * Supported at runtime by styled-components' polymorphic `as` prop,
+     * declared explicitly here so it survives strict prop typing
+     * (e.g. Storybook's `Meta<typeof Text>` / `StoryObj<typeof Text>`).
+     */
+    as?: ElementType
   }
 
 /** Text */
