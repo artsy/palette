@@ -29,6 +29,16 @@ export const Default = () => {
   )
 }
 
+// `react-focus-on` correctly aria-hides everything outside the trap; showing
+// those siblings is the point of this story.
+Default.parameters = {
+  a11y: {
+    config: {
+      rules: [{ id: "aria-hidden-focus", enabled: false }],
+    },
+  },
+}
+
 export const WithAutocompleteInput = () => {
   return (
     <FocusOn>

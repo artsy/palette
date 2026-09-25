@@ -1211,6 +1211,16 @@ export const ContrastRatios = () => {
   )
 }
 
+// This story exists to display low-contrast tokens, so the failures are the
+// subject matter rather than a defect.
+ContrastRatios.parameters = {
+  a11y: {
+    config: {
+      rules: [{ id: "color-contrast", enabled: false }],
+    },
+  },
+}
+
 const ContrastRatioSwatch: FC<
   React.PropsWithChildren<{
     name: string
@@ -1247,6 +1257,7 @@ const ContrastRatioSwatch: FC<
       >
         <input
           type="color"
+          aria-label={`Edit ${name}`}
           value={value}
           onChange={(e) => {
             debouncedSetValue(e.target.value)

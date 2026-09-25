@@ -166,6 +166,7 @@ export const PointerCentering = {
 
         <Input
           type="range"
+          title="Size"
           min={0}
           max={200}
           value={size}
