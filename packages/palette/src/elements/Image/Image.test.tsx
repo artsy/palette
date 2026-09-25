@@ -66,17 +66,19 @@ describe("Image", () => {
       decode: () => Promise.reject(new Error("EncodingError")),
     }
 
-    it("calls onError", async () => {
+    it("calls onError and hides the image", async () => {
       const onError = jest.fn()
       const onLoad = jest.fn()
 
-      await hydrateSettledImage(
+      const img = await hydrateSettledImage(
         { src: "broken.jpg", alt: "", onError, onLoad },
         broken
       )
 
       expect(onError).toHaveBeenCalledTimes(1)
       expect(onLoad).not.toHaveBeenCalled()
+      expect(img.style.opacity).toBe("0")
+      expect(img.getAttribute("aria-hidden")).toBe("true")
     })
 
     it("keeps a lazy-loaded image hidden", async () => {
@@ -187,6 +189,20 @@ describe("Image", () => {
       expect(onLoad).toHaveBeenCalledTimes(1)
     })
 
+    it("hides the image when it fails", async () => {
+      const onError = jest.fn()
+
+      const img = await render(
+        <Image src="broken.jpg" alt="" onError={onError} />
+      )
+
+      dispatch(img, "error")
+
+      expect(onError).toHaveBeenCalledTimes(1)
+      expect(img.style.opacity).toBe("0")
+      expect(img.getAttribute("aria-hidden")).toBe("true")
+    })
+
     it("settles again when the source changes", async () => {
       const onError = jest.fn()
       const onLoad = jest.fn()
@@ -195,6 +211,7 @@ describe("Image", () => {
         <Image src="broken.jpg" alt="" onError={onError} onLoad={onLoad} />
       )
       dispatch(img, "error")
+      expect(img.style.opacity).toBe("0")
 
       await render(
         <Image src="fixed.jpg" alt="" onError={onError} onLoad={onLoad} />
@@ -203,6 +220,8 @@ describe("Image", () => {
 
       expect(onError).toHaveBeenCalledTimes(1)
       expect(onLoad).toHaveBeenCalledTimes(1)
+      expect(img.style.opacity).toBe("")
+      expect(img.hasAttribute("aria-hidden")).toBe(false)
     })
   })
 })

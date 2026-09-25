@@ -74,6 +74,7 @@ export const Image: React.FC<ImageProps> = ({
   const commonImgProps = {
     ref: imageRef as any,
     loading: lazyLoad ? ("lazy" as const) : undefined,
+    "aria-hidden": mode === "Error" || undefined,
     onLoad: (event: React.SyntheticEvent<HTMLImageElement, Event>) =>
       settle("Ready", event, onLoad),
     onError: (event: React.SyntheticEvent<HTMLImageElement, Event>) =>
@@ -84,13 +85,14 @@ export const Image: React.FC<ImageProps> = ({
     ...imageProps,
   }
 
-  // Common lazy loading style
-  const lazyLoadStyle = lazyLoad
-    ? {
-        transition: "opacity 0.2s ease-in-out",
-        opacity: mode === "Ready" ? 1 : 0,
-      }
-    : {}
+  // Lazy-loaded images fade in once ready. Broken images are hidden entirely:
+  // visually, to avoid the browser's broken-image glyph, and from assistive
+  // technology, since there is no image to describe.
+  const isHidden = mode === "Error" || (lazyLoad && mode !== "Ready")
+  const visibilityStyle = {
+    ...(lazyLoad && { transition: "opacity 0.2s ease-in-out", opacity: 1 }),
+    ...(isHidden && { opacity: 0 }),
+  }
 
   // If there's a placeholder URL or lazy loading is enabled, use a wrapper container
   if (placeHolderURL || lazyLoad) {
@@ -118,7 +120,7 @@ export const Image: React.FC<ImageProps> = ({
           width="100%"
           height="100%"
           display="block"
-          style={{ ...lazyLoadStyle, ...style }}
+          style={{ ...visibilityStyle, ...style }}
           {...commonImgProps}
         />
       </Box>
@@ -135,7 +137,7 @@ export const Image: React.FC<ImageProps> = ({
       width={width}
       height={height}
       display="block"
-      style={style}
+      style={{ ...visibilityStyle, ...style }}
       {...boxProps}
       {...commonImgProps}
     />

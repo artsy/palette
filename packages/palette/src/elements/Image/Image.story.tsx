@@ -155,3 +155,22 @@ export const EnsuresImageDoesNotCollapse = {
     )
   },
 }
+
+const BROKEN_SRC = "/image-that-does-not-exist.jpg"
+
+export const WithBrokenSource = {
+  args: {
+    width: "300px",
+    height: "200px",
+    src: BROKEN_SRC,
+    alt: "An image that fails to load",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "An image whose source fails to load is hidden instead of showing the browser's broken-image glyph. Its space in the layout is preserved.",
+      },
+    },
+  },
+}
