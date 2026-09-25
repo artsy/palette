@@ -35,6 +35,7 @@ export const Default = {
     width: "300px",
     height: "200px",
     src: "https://picsum.photos/seed/example/300/200",
+    alt: "A placeholder photograph",
     fetchPriority: "high",
   },
 }
@@ -46,6 +47,7 @@ export const WithSrcSet = {
     width: "300px",
     height: "200px",
     src: "https://picsum.photos/seed/example/300/200",
+    alt: "A placeholder photograph",
     srcSet:
       "https://picsum.photos/seed/example/300/200 1x, https://picsum.photos/seed/example/600/400 2x",
   },
@@ -58,6 +60,7 @@ export const WithPlaceholder = {
     width: "300px",
     height: "200px",
     src: "https://picsum.photos/seed/example/300/200",
+    alt: "A placeholder photograph",
     placeHolderURL: blurhashDataUri,
   },
 }
@@ -73,6 +76,7 @@ export const ImageLazyLoad = {
             width="300px"
             height="200px"
             src={`https://picsum.photos/seed/${i}/300/200`}
+            alt=""
           />
         ))}
       </>
@@ -92,6 +96,7 @@ export const ImageLazyLoadSrcSet = {
             height="200px"
             src={`https://picsum.photos/seed/${i}/300/200`}
             srcSet={`https://picsum.photos/seed/${i}/300/200 1x, https://picsum.photos/seed/${i}/600/400 2x`}
+            alt=""
           />
         ))}
       </>
@@ -106,6 +111,7 @@ export const ImageLazyLoadSrcSetPlaceHolderURL = {
     height: "200px",
     placeHolderURL: blurhashDataUri,
     src: "https://picsum.photos/seed/example/300/200",
+    alt: "A placeholder photograph",
     srcSet:
       "https://picsum.photos/seed/example/300/200 1x, https://picsum.photos/seed/example/600/400 2x",
   },
@@ -124,6 +130,7 @@ export const WithStyledImage = {
           placeHolderURL={blurhashDataUri}
           src="https://picsum.photos/seed/example/300/200"
           srcSet="https://picsum.photos/seed/example/300/200 1x, https://picsum.photos/seed/example/600/400 2x"
+          alt="A placeholder photograph"
         />
       </Box>
     )
@@ -138,6 +145,7 @@ export const WithCustomStyle = {
           width="100%"
           height="100%"
           src="https://picsum.photos/seed/example/300/200"
+          alt="A placeholder photograph"
           style={{
             borderRadius: "10px",
             borderColor: "blue",
@@ -154,7 +162,11 @@ export const EnsuresImageDoesNotCollapse = {
   render: () => {
     return (
       <Box width={300} height={200} bg="red">
-        <Image src="https://picsum.photos/seed/example/300/200" lazyLoad />
+        <Image
+          src="https://picsum.photos/seed/example/300/200"
+          alt="A placeholder photograph"
+          lazyLoad
+        />
       </Box>
     )
   },
