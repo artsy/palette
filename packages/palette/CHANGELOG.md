@@ -1,3 +1,15 @@
+# v46.10.3 (Fri Sep 25 2026)
+
+#### 🐛  Bug Fix
+
+- fix(toggle): use the valid role="switch" [#1532](https://github.com/artsy/palette/pull/1532) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.2 (Fri Sep 25 2026)
 
 #### 🐛  Bug Fix
