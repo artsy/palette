@@ -57,8 +57,9 @@ export const Banner: React.FC<React.PropsWithChildren<BannerProps>> = ({
           alignItems="center"
           color="currentColor"
           onClick={handleClick}
+          aria-label="Dismiss"
         >
-          <CloseIcon style={{ fill: "currentcolor" }} />
+          <CloseIcon style={{ fill: "currentcolor" }} aria-hidden />
         </Clickable>
       )}
     </Container>

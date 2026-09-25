@@ -77,8 +77,8 @@ export const ShelfNext: React.FC<
   React.PropsWithChildren<ShelfNavigationProps>
 > = (props) => {
   return (
-    <Arrow {...props}>
-      <ChevronRightIcon width={15} height={15} />
+    <Arrow aria-label="Next page" {...props}>
+      <ChevronRightIcon width={15} height={15} aria-hidden />
     </Arrow>
   )
 }
@@ -90,8 +90,8 @@ export const ShelfPrevious: React.FC<
   React.PropsWithChildren<ShelfNavigationProps>
 > = (props) => {
   return (
-    <Arrow {...props}>
-      <ChevronLeftIcon width={15} height={15} />
+    <Arrow aria-label="Previous page" {...props}>
+      <ChevronLeftIcon width={15} height={15} aria-hidden />
     </Arrow>
   )
 }
