@@ -1,6 +1,6 @@
 {
   "name": "@artsy/palette",
-  "version": "46.10.2",
+  "version": "46.10.3",
   "description": "Design system library for react components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
