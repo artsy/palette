@@ -136,4 +136,14 @@ describe("Carousel", () => {
     expect(html).toContain("beautiful number 2")
     expect(html).toContain("beautiful number 3")
   })
+
+  it("names its nav landmark so multiple carousels stay distinguishable", () => {
+    const wrapper = mount(
+      <Carousel aria-label="Featured artworks">
+        <div>One</div>
+      </Carousel>
+    )
+
+    expect(wrapper.find("nav").prop("aria-label")).toEqual("Featured artworks")
+  })
 })

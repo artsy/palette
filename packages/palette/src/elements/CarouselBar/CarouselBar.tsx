@@ -8,6 +8,7 @@ export const CarouselBar: React.FC<
 > = (props) => {
   return (
     <ProgressBar
+      aria-label="Carousel progress"
       height="1px"
       highlight="mono100"
       mt={0}
