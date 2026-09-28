@@ -1,3 +1,15 @@
+# v46.10.4 (Mon Sep 28 2026)
+
+#### 🐛  Bug Fix
+
+- fix: add accessible names to icon-only buttons [#1529](https://github.com/artsy/palette/pull/1529) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.3 (Fri Sep 25 2026)
 
 #### 🐛  Bug Fix
