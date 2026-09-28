@@ -23,8 +23,12 @@ export const PasswordInput: React.FC<React.PropsWithChildren<PasswordInputProps>
     <LabeledInput
       type={visibility ? "text" : "password"}
       label={
-        <Clickable onClick={handleClick} height="100%">
-          {visibility ? <HideIcon /> : <ShowIcon />}
+        <Clickable
+          onClick={handleClick}
+          height="100%"
+          aria-label={visibility ? "Hide password" : "Show password"}
+        >
+          {visibility ? <HideIcon aria-hidden /> : <ShowIcon aria-hidden />}
         </Clickable>
       }
       {...rest}
