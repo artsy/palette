@@ -178,7 +178,7 @@ const NextPrevButton: React.FC<
       <Flex
         display="flex"
         alignItems="center"
-        color="mono60"
+        color="mono30"
         py={0.5}
         {...rest}
       >

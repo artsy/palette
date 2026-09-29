@@ -81,8 +81,7 @@ export const CHECKBOX_STATES = {
   `,
   disabled: css`
     pointer-events: none;
-    // mono30 is ~1.8:1 on mono0 in the light theme; mono60 clears AA in both
-    color: ${themeGet("colors.mono60")};
+    color: ${themeGet("colors.mono30")};
   `,
   error: css`
     color: ${themeGet("colors.red100")};
