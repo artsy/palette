@@ -44,6 +44,15 @@ export const Disabled = {
     children: "Disabled checkbox",
     disabled: true,
   },
+  // WCAG 1.4.3 exempts inactive controls; axe flags these because the label is
+  // a text node rather than a native disabled control.
+  parameters: {
+    a11y: {
+      config: {
+        rules: [{ id: "color-contrast", enabled: false }],
+      },
+    },
+  },
 }
 
 export const DisabledAndChecked = {
@@ -51,6 +60,15 @@ export const DisabledAndChecked = {
     children: "Disabled and checked",
     disabled: true,
     selected: true,
+  },
+  // WCAG 1.4.3 exempts inactive controls; axe flags these because the label is
+  // a text node rather than a native disabled control.
+  parameters: {
+    a11y: {
+      config: {
+        rules: [{ id: "color-contrast", enabled: false }],
+      },
+    },
   },
 }
 

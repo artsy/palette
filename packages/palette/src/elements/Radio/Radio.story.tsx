@@ -53,7 +53,14 @@ export const Disabled = {
     disabled: true,
     children: "Disabled radio",
   },
+  // WCAG 1.4.3 exempts inactive controls; axe flags these because the label is
+  // a text node rather than a native disabled control.
   parameters: {
+    a11y: {
+      config: {
+        rules: [{ id: "color-contrast", enabled: false }],
+      },
+    },
     docs: {
       description: {
         story: "Disabled radio button that cannot be interacted with.",
