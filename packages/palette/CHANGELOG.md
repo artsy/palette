@@ -1,3 +1,43 @@
+# v46.10.3 (Fri Sep 25 2026)
+
+#### 🐛  Bug Fix
+
+- fix(toggle): use the valid role="switch" [#1532](https://github.com/artsy/palette/pull/1532) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# v46.10.2 (Fri Sep 25 2026)
+
+#### 🐛  Bug Fix
+
+- fix(image): correctly handles errors for hydration [#1538](https://github.com/artsy/palette/pull/1538) ([@dzucconi](https://github.com/dzucconi))
+- docs(image): add stories simulating server-side hydration ([@dzucconi](https://github.com/dzucconi))
+- feat(image): hide images that fail to load ([@dzucconi](https://github.com/dzucconi))
+- fix(image): replay load and error events missed before hydration ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# v46.10.1 (Thu Sep 24 2026)
+
+#### 🐛  Bug Fix
+
+- fix(input): associate labels with their form controls [#1525](https://github.com/artsy/palette/pull/1525) ([@rquartararo](https://github.com/rquartararo))
+- fix(radio): use a valid role and always emit aria-checked [#1526](https://github.com/artsy/palette/pull/1526) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.0 (Wed Sep 23 2026)
 
 #### 🚀  Enhancement

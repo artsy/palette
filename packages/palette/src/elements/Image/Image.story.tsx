@@ -1,7 +1,11 @@
-import React from "react"
-import { Image } from "../Image"
+import React, { useEffect, useRef, useState } from "react"
+import { hydrateRoot, Root } from "react-dom/client"
+import { renderToString } from "react-dom/server"
+import { Image, ImageProps } from "../Image"
 import styled from "styled-components"
 import { Box } from "../Box"
+import { Text } from "../Text"
+import { Theme } from "../../Theme"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 
 const blurhashDataUri =
@@ -153,5 +157,138 @@ export const EnsuresImageDoesNotCollapse = {
         <Image src="https://picsum.photos/seed/example/300/200" lazyLoad />
       </Box>
     )
+  },
+}
+
+const BROKEN_SRC = "/image-that-does-not-exist.jpg"
+
+export const WithBrokenSource = {
+  args: {
+    width: "300px",
+    height: "200px",
+    src: BROKEN_SRC,
+    alt: "An image that fails to load",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "An image whose source fails to load is hidden instead of showing the browser's broken-image glyph. Its space in the layout is preserved.",
+      },
+    },
+  },
+}
+
+/**
+ * Simulates server-side rendering: inserts the server markup, waits for the
+ * browser to settle the `<img>` (before React has attached any listeners),
+ * then hydrates. Logs each step and which handlers React ends up calling.
+ */
+const SimulatedHydration: React.FC<ImageProps> = (props) => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [log, setLog] = useState<string[]>([])
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const append = (entry: string) => setLog((prev) => [...prev, entry])
+    const element = (
+      <Theme theme="light">
+        <Image
+          {...props}
+          onLoad={() => append("React: onLoad called")}
+          onError={() => append("React: onError called")}
+        />
+      </Theme>
+    )
+
+    setLog([])
+    container.innerHTML = renderToString(element)
+    append("Server HTML inserted")
+
+    const img = container.querySelector("img") as HTMLImageElement
+    let root: Root | null = null
+    let cancelled = false
+
+    const hydrate = (reason: string) => {
+      if (cancelled) return
+      append(`Browser: image ${reason} (before hydration)`)
+      root = hydrateRoot(container, element, {
+        onRecoverableError: (error) =>
+          append(`Hydration error: ${(error as Error).message}`),
+      })
+      append("Hydrated")
+    }
+
+    const onNativeLoad = () => hydrate("loaded")
+    const onNativeError = () => hydrate("failed")
+
+    if (img.complete) {
+      hydrate(img.naturalWidth > 0 ? "loaded" : "failed")
+    } else {
+      img.addEventListener("load", onNativeLoad, { once: true })
+      img.addEventListener("error", onNativeError, { once: true })
+    }
+
+    return () => {
+      cancelled = true
+      img.removeEventListener("load", onNativeLoad)
+      img.removeEventListener("error", onNativeError)
+      // Defer so we don't unmount a root while React is mid-commit
+      const hydratedRoot = root
+      setTimeout(() => hydratedRoot?.unmount())
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.src, props.lazyLoad])
+
+  return (
+    <Box display="flex" style={{ gap: 20 }}>
+      <Box ref={containerRef} width={300} height={200} bg="mono5" />
+      <Box as="ol" pl={2}>
+        {log.map((entry, i) => (
+          <Text as="li" key={i} variant="xs">
+            {entry}
+          </Text>
+        ))}
+      </Box>
+    </Box>
+  )
+}
+
+export const HydrationAfterImageFails = {
+  render: (args: ImageProps) => <SimulatedHydration {...args} />,
+  args: {
+    width: "300px",
+    height: "200px",
+    src: BROKEN_SRC,
+    alt: "An image that fails before hydration",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Server-rendered image that fails before React hydrates, so the browser's `error` event fires before React is listening. The component detects the settled image on hydration, hides it, and calls `onError`.",
+      },
+    },
+  },
+}
+
+export const HydrationAfterImageLoads = {
+  render: (args: ImageProps) => <SimulatedHydration {...args} />,
+  args: {
+    width: "300px",
+    height: "200px",
+    lazyLoad: true,
+    src: "https://picsum.photos/seed/hydration/300/200",
+    alt: "An image that loads before hydration",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Server-rendered, lazy-loaded image that loads before React hydrates. The component detects the loaded image on hydration, fades it in, and calls `onLoad` exactly once.",
+      },
+    },
   },
 }

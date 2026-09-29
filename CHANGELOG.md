@@ -1,3 +1,43 @@
+# (Fri Sep 25 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@46.10.3`
+  - fix(toggle): use the valid role="switch" [#1532](https://github.com/artsy/palette/pull/1532) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# (Fri Sep 25 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@46.10.2`
+  - fix(image): correctly handles errors for hydration [#1538](https://github.com/artsy/palette/pull/1538) ([@dzucconi](https://github.com/dzucconi))
+
+#### Authors: 1
+
+- Damon ([@dzucconi](https://github.com/dzucconi))
+
+---
+
+# (Thu Sep 24 2026)
+
+#### 🐛  Bug Fix
+
+- `@artsy/palette@46.10.1`
+  - fix(input): associate labels with their form controls [#1525](https://github.com/artsy/palette/pull/1525) ([@rquartararo](https://github.com/rquartararo))
+  - fix(radio): use a valid role and always emit aria-checked [#1526](https://github.com/artsy/palette/pull/1526) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Wed Sep 23 2026)
 
 #### 🚀  Enhancement

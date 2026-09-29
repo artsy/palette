@@ -34,4 +34,25 @@ describe("Toggle", () => {
 
     expect(handleSelect).toBeCalledTimes(1)
   })
+
+  describe("accessibility", () => {
+    it("uses a valid ARIA role", () => {
+      const wrapper = mount(<Toggle />)
+
+      expect(wrapper.find('[role="switch"]').length).toBeGreaterThan(0)
+      expect(wrapper.find('[role="toggle"]').length).toEqual(0)
+    })
+
+    it("reports its checked state", () => {
+      expect(
+        mount(<Toggle />).find('[role="switch"]').first().prop("aria-checked")
+      ).toBe(false)
+      expect(
+        mount(<Toggle selected />)
+          .find('[role="switch"]')
+          .first()
+          .prop("aria-checked")
+      ).toBe(true)
+    })
+  })
 })
