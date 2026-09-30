@@ -27,10 +27,10 @@ export const ResponsiveGrid = {
     gridTemplateColumns: ["repeat(2, 1fr)", "repeat(3, 1fr)", "repeat(4, 1fr)"],
     children: [1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
       <Image
-        src="https://picsum.photos/id/1025/140/100/"
+        src={`https://picsum.photos/seed/${i}/140/100`}
         width={[100, 120, 140]}
         key={i}
-        alt=""
+        alt={`Placeholder photograph ${i}`}
       />
     )),
   },
