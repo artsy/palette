@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { useMutationObserver } from "../../utils/useMutationObserver"
 import { Box, BoxProps } from "../Box"
-import { Clickable } from "../Clickable"
 import { useClickScroll } from "./useClickScroll"
 import { useDragScroll } from "./useDragScroll"
 
@@ -27,7 +26,7 @@ export const ShelfScrollBar: React.FC<
   })
 
   const trackRef = useRef<HTMLDivElement | null>(null)
-  const thumbRef = useRef<HTMLButtonElement | null>(null)
+  const thumbRef = useRef<HTMLDivElement | null>(null)
 
   const trackWidth = trackRef.current?.clientWidth ?? 1
 
@@ -104,7 +103,7 @@ export const ShelfScrollBar: React.FC<
       ref={trackRef as any}
       bg="mono15"
       role="scrollbar"
-      aria-orientation="vertical"
+      aria-orientation="horizontal"
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={progress}
@@ -125,7 +124,7 @@ export const ShelfScrollBar: React.FC<
             backfaceVisibility: "hidden",
           }}
         >
-          <HitArea ref={thumbRef as any} tabIndex={-1} aria-label="Thumb" />
+          <HitArea ref={thumbRef as any} />
         </Thumb>
       )}
     </Track>
@@ -151,7 +150,8 @@ const TrackHitArea = styled(Box)`
 
 const Thumb = styled(Box)``
 
-const HitArea = styled(Clickable)`
+const HitArea = styled.div`
+  cursor: pointer;
   position: absolute;
   top: -10px;
   bottom: -10px;
