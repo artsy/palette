@@ -1,3 +1,15 @@
+# v46.10.6 (Wed Sep 30 2026)
+
+#### 🐛  Bug Fix
+
+- chore(stories): add alt text to image demos [#1535](https://github.com/artsy/palette/pull/1535) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.5 (Wed Sep 30 2026)
 
 #### 🐛  Bug Fix

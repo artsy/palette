@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@46.10.6`
+  - chore(stories): add alt text to image demos [#1535](https://github.com/artsy/palette/pull/1535) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# (Wed Sep 30 2026)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@46.10.5`
   - fix(readmore): move aria-expanded onto the toggle button [#1531](https://github.com/artsy/palette/pull/1531) ([@rquartararo](https://github.com/rquartararo))
   - fix(filterselect): use a valid ARIA role on the search input [#1528](https://github.com/artsy/palette/pull/1528) ([@rquartararo](https://github.com/rquartararo))
