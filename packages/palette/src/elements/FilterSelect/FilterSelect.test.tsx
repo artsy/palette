@@ -348,4 +348,10 @@ describe("FilterSelect", () => {
       })
     )
   })
+
+  it("uses a valid ARIA role on the search input", () => {
+    const wrapper = getWrapper()
+
+    expect(wrapper.find("input").first().prop("role")).toEqual("searchbox")
+  })
 })

@@ -27,7 +27,7 @@ export const FilterInput: React.FC<React.PropsWithChildren<InputProps>> = (
   return (
     <LabeledInput
       ref={ref}
-      role="search"
+      role="searchbox"
       label={
         query !== "" ? (
           // Active state
