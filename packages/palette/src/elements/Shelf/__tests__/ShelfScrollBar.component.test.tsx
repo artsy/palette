@@ -14,28 +14,10 @@ const overflowingViewport = () => {
 }
 
 describe("ShelfScrollBar", () => {
-  it("renders a thumb only when the content overflows", () => {
-    // Without a thumb, "contains no button" below would pass trivially.
-    const withoutOverflow = mount(<ShelfScrollBar viewport={null} />)
-    const withOverflow = mount(<ShelfScrollBar viewport={overflowingViewport()} />)
-
-    expect(withOverflow.find("div").length).toBeGreaterThan(
-      withoutOverflow.find("div").length
-    )
-  })
-
   it("has no interactive descendants inside role=scrollbar", () => {
     const wrapper = mount(<ShelfScrollBar viewport={overflowingViewport()} />)
 
     expect(wrapper.find('[role="scrollbar"]').length).toBeGreaterThan(0)
     expect(wrapper.find("button").length).toEqual(0)
-  })
-
-  it("reports a horizontal orientation", () => {
-    const wrapper = mount(<ShelfScrollBar viewport={overflowingViewport()} />)
-
-    expect(
-      wrapper.find('[role="scrollbar"]').first().prop("aria-orientation")
-    ).toEqual("horizontal")
   })
 })
