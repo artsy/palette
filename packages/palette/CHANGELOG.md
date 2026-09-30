@@ -1,3 +1,15 @@
+# v46.10.7 (Wed Sep 30 2026)
+
+#### 🐛  Bug Fix
+
+- fix(shelf): scrollbar thumb must not be interactive [#1533](https://github.com/artsy/palette/pull/1533) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.6 (Wed Sep 30 2026)
 
 #### 🐛  Bug Fix

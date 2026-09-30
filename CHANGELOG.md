@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@46.10.7`
+  - fix(shelf): scrollbar thumb must not be interactive [#1533](https://github.com/artsy/palette/pull/1533) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# (Wed Sep 30 2026)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@46.10.6`
   - chore(stories): add alt text to image demos [#1535](https://github.com/artsy/palette/pull/1535) ([@rquartararo](https://github.com/rquartararo))
 
