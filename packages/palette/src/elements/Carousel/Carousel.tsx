@@ -86,6 +86,8 @@ export interface CarouselProps extends BoxProps {
   paginateBy?: "page" | "cell"
   onChange?(index: number): void
   onPageCountChange?(count: number): void
+  /** Distinguishes this carousel's nav landmark from others on the page */
+  "aria-label"?: string
 }
 
 /**
@@ -104,6 +106,7 @@ export const Carousel: React.FC<React.PropsWithChildren<CarouselProps>> = ({
   paginateBy = "page",
   onChange,
   onPageCountChange,
+  "aria-label": ariaLabel = "Carousel navigation",
   ...rest
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -200,7 +203,7 @@ export const Carousel: React.FC<React.PropsWithChildren<CarouselProps>> = ({
         Skip to end of content
       </Skip>
 
-      <nav>
+      <nav aria-label={ariaLabel}>
         <Previous
           onClick={handlePrev}
           disabled={index === 0}
