@@ -1,3 +1,15 @@
+# v46.10.8 (Thu Oct 01 2026)
+
+#### 🐛  Bug Fix
+
+- fix(selectinput): give the options container the listbox role [#1534](https://github.com/artsy/palette/pull/1534) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.7 (Wed Sep 30 2026)
 
 #### 🐛  Bug Fix
