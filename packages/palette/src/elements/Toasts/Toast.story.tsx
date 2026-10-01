@@ -1,4 +1,4 @@
-import { fn } from "@storybook/test"
+import { fn } from "storybook/test"
 import { Toast } from "./Toast"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
 

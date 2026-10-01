@@ -1,4 +1,4 @@
-import { fn } from "@storybook/test"
+import { fn } from "storybook/test"
 import React, { useState } from "react"
 import { ProgressDots } from "./ProgressDots"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
