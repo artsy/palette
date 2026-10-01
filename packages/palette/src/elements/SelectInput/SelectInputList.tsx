@@ -113,7 +113,7 @@ export const SelectInputList = ({
         />
       )}
 
-      <SelectInputListOptions>
+      <SelectInputListOptions role="listbox">
         {filteredOptionsWithRefs.map(({ option, ref }, i) => (
           <SelectInputListOption
             key={option.value}
