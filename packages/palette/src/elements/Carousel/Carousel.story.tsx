@@ -72,9 +72,9 @@ export const Simple = {
 export const Multiple = {
   render: () => (
     <>
-      <Demo />
-      <Demo />
-      <Demo />
+      <Demo aria-label="Featured works" />
+      <Demo aria-label="Recently viewed" />
+      <Demo aria-label="Trending now" />
     </>
   ),
 }
