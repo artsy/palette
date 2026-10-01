@@ -33,6 +33,8 @@ export type ShelfProps = BoxProps & {
   snap?: "none" | "start" | "end" | "center"
   children: JSX.Element | JSX.Element[]
   onChange?(index: number): void
+  /** Distinguishes this shelf's nav landmark from others on the page */
+  "aria-label"?: string
 }
 
 /**
@@ -48,6 +50,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
   snap = "none",
   children,
   onChange,
+  "aria-label": ariaLabel = "Shelf navigation",
   ...rest
 }) => {
   const cells = useMemo(
@@ -185,7 +188,7 @@ export const Shelf: React.FC<React.PropsWithChildren<ShelfProps>> = ({
 
   return (
     <Container ref={containerRef as any} gap={rowGap} {...rest}>
-      <Nav as="nav" aria-label="Shelf navigation" gridArea="1 / 1">
+      <Nav as="nav" aria-label={ariaLabel} gridArea="1 / 1">
         <Previous
           onClick={handlePrev}
           disabled={atStart}
