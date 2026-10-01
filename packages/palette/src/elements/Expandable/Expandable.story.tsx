@@ -1,5 +1,6 @@
 import { fn } from "@storybook/test"
 import React, { useState } from "react"
+import { Clickable } from "../Clickable"
 import { Flex } from "../Flex"
 import { Text } from "../Text"
 import { Expandable } from "./Expandable"
@@ -63,14 +64,18 @@ export const DisabledExpanded = {
 
 export const CustomLabel = {
   args: {
-    // The label renders inside the toggle <button>, so it must not contain
-    // interactive elements.
     label: (
       <Flex flex={1} justifyContent="space-between">
         <Text variant="sm-display">Custom Heading</Text>
-        <Text variant="sm-display" color="mono60">
-          3 items
-        </Text>
+        <Clickable
+          textDecoration="underline"
+          onClick={(e) => {
+            e.stopPropagation()
+            fn()
+          }}
+        >
+          Link in header
+        </Clickable>
       </Flex>
     ),
     children: (
