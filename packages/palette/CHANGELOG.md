@@ -1,3 +1,15 @@
+# v46.10.10 (Thu Oct 01 2026)
+
+#### 🐛  Bug Fix
+
+- fix: name progressbar and nav landmarks [#1530](https://github.com/artsy/palette/pull/1530) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.9 (Thu Oct 01 2026)
 
 #### 🐛  Bug Fix

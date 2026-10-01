@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@46.10.10`
+  - fix: name progressbar and nav landmarks [#1530](https://github.com/artsy/palette/pull/1530) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# (Thu Oct 01 2026)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@46.10.9`
   - chore(stories): label demo controls and suppress intentional failures [#1537](https://github.com/artsy/palette/pull/1537) ([@rquartararo](https://github.com/rquartararo))
 
