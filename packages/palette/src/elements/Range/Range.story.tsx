@@ -94,7 +94,13 @@ export const WithinModal = {
             onClose={() => setOpen(false)}
           >
             <Box width={400} height={400}>
-              <Range min={0} max={5000} step={10} onChange={fn()} />
+              <Range
+                min={0}
+                max={5000}
+                step={10}
+                ariaLabels={["Minimum price", "Maximum price"]}
+                onChange={fn()}
+              />
             </Box>
           </ModalBase>
         )}
@@ -129,7 +135,13 @@ export const WithinDrawer = {
           }}
         >
           <Box width={400} p={2}>
-            <Range min={0} max={5000} step={10} onChange={fn()} />
+            <Range
+              min={0}
+              max={5000}
+              step={10}
+              ariaLabels={["Minimum price", "Maximum price"]}
+              onChange={fn()}
+            />
           </Box>
         </Drawer>
       </>
@@ -161,6 +173,7 @@ export const InContext = {
           min={0}
           max={50000}
           step={100}
+          ariaLabels={["Minimum price", "Maximum price"]}
           value={[min, max]}
           onChange={setMinMax}
         />
