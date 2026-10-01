@@ -831,23 +831,27 @@ export const Inputs = () => {
 
       <GridColumns>
         <Column span={2}>
-          <Select options={OPTIONS} />
+          <Select aria-label="Sort" options={OPTIONS} />
         </Column>
 
         <Column span={2}>
-          <Select options={OPTIONS} focus />
+          <Select aria-label="Sort" options={OPTIONS} focus />
         </Column>
 
         <Column span={2}>
-          <Select options={OPTIONS} hover />
+          <Select aria-label="Sort" options={OPTIONS} hover />
         </Column>
 
         <Column span={2}>
-          <Select options={OPTIONS} error="Input Value Error Message/Reason" />
+          <Select
+            aria-label="Sort"
+            options={OPTIONS}
+            error="Input Value Error Message/Reason"
+          />
         </Column>
 
         <Column span={2} wrap>
-          <Select options={OPTIONS} disabled />
+          <Select aria-label="Sort" options={OPTIONS} disabled />
         </Column>
       </GridColumns>
 
