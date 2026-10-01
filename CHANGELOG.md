@@ -2,6 +2,19 @@
 
 #### 🐛  Bug Fix
 
+- `@artsy/palette@46.10.9`
+  - chore(stories): label demo controls and suppress intentional failures [#1537](https://github.com/artsy/palette/pull/1537) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
+# (Thu Oct 01 2026)
+
+#### 🐛  Bug Fix
+
 - `@artsy/palette@46.10.8`
   - fix(selectinput): give the options container the listbox role [#1534](https://github.com/artsy/palette/pull/1534) ([@rquartararo](https://github.com/rquartararo))
 

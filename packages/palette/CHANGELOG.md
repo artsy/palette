@@ -1,3 +1,15 @@
+# v46.10.9 (Thu Oct 01 2026)
+
+#### 🐛  Bug Fix
+
+- chore(stories): label demo controls and suppress intentional failures [#1537](https://github.com/artsy/palette/pull/1537) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.8 (Thu Oct 01 2026)
 
 #### 🐛  Bug Fix
