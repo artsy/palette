@@ -40,6 +40,7 @@ export const CharacterCountExample = {
     const [length, setLength] = useState(defaultValue.length)
     return (
       <LabeledInput
+        title="Message"
         label={length}
         onChange={(e) => setLength(e.currentTarget.value.length)}
         defaultValue={defaultValue}

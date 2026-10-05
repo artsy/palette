@@ -248,12 +248,20 @@ export const WithInputs = {
       <Tabs>
         <Tab name="First">
           <pre>{JSON.stringify({ value })}</pre>
-          <Input value={value} onChange={(e) => setValue(e.target.value)} />
+          <Input
+            title="First value"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
         </Tab>
 
         <Tab name="Second">
           <pre>{JSON.stringify({ value2 })}</pre>
-          <Input value={value2} onChange={(e) => setValue2(e.target.value)} />
+          <Input
+            title="Second value"
+            value={value2}
+            onChange={(e) => setValue2(e.target.value)}
+          />
         </Tab>
       </Tabs>
     )
