@@ -1,3 +1,21 @@
+# (Sat Oct 10 2026)
+
+#### 🚀  Enhancement
+
+- Update cimg/python Docker tag to v3.15 [#1541](https://github.com/artsy/palette/pull/1541) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### 🏠  Internal
+
+- `@artsy/palette@46.11.0`
+  - chore(stories): label remaining unnamed demo controls [#1540](https://github.com/artsy/palette/pull/1540) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # (Thu Oct 01 2026)
 
 #### 🐛  Bug Fix

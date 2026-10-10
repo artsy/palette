@@ -1,3 +1,15 @@
+# v46.11.0 (Sat Oct 10 2026)
+
+#### 🏠  Internal
+
+- chore(stories): label remaining unnamed demo controls [#1540](https://github.com/artsy/palette/pull/1540) ([@rquartararo](https://github.com/rquartararo))
+
+#### Authors: 1
+
+- Rachel Quartararo ([@rquartararo](https://github.com/rquartararo))
+
+---
+
 # v46.10.10 (Thu Oct 01 2026)
 
 #### 🐛  Bug Fix
