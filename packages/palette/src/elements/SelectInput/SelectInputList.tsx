@@ -26,6 +26,8 @@ export interface Option {
 }
 
 export interface SelectInputListProps {
+  /** Names the listbox. Defaults to the SelectInput's own label. */
+  "aria-label"?: string
   enableSearch?: SelectInputProps["enableSearch"]
   options: Option[]
   onSelect: (option: Option) => void
@@ -34,6 +36,7 @@ export interface SelectInputListProps {
 }
 
 export const SelectInputList = ({
+  "aria-label": ariaLabel = "Options",
   enableSearch,
   options,
   onSelect,
@@ -113,7 +116,7 @@ export const SelectInputList = ({
         />
       )}
 
-      <SelectInputListOptions role="listbox">
+      <SelectInputListOptions role="listbox" aria-label={ariaLabel}>
         {filteredOptionsWithRefs.map(({ option, ref }, i) => (
           <SelectInputListOption
             key={option.value}
