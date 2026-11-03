@@ -1,6 +1,6 @@
 # Palette on vanilla-extract
 
-Status: milestone 1 (foundation) is built and checked in Palette. Force page and speed results are pending the Force milestone.
+Status: milestone 1 (foundation) is built and checked in Palette and in Force. Force shows no visual change. The one measured cost is the new render-blocking `palette.css` request on slow mobile networks (see Results).
 
 ## Why
 
@@ -49,7 +49,7 @@ Times are in ms, sizes in bytes. Medians unless the metric says otherwise.
 
 ### Milestone 1: Foundation (Spacer, Separator)
 
-Measured in Palette on 2026-11-03. Force page and speed numbers wait for the Force milestone.
+Measured on 2026-11-03, in Palette and in Force. Force before: `da34c37f5d` with published `@artsy/palette` 46.11.0. Force after: `13c93d02a9` with a local build of this branch at `2890bd59`. Both are production builds served side by side on one machine.
 
 **Visual check.** The Storybook stories for `Spacer` and `Separator` (16 stories at 1440x900, 1024x768 and 375x800, 48 screenshots) were shot before and after the port and compared with pixelmatch at threshold 0. Result: 0 differing pixels in all 48.
 
@@ -78,19 +78,30 @@ Measured in Palette on 2026-11-03. Force page and speed numbers wait for the For
 
 Classes per layer: `palette.utilities.base` 177, `palette.utilities.xs`, `.sm`, `.md` and `.lg` 99 each (396 together), `palette.components` 1 (Separator), `palette.reset` 0 (it holds the light and dark token variables). Utility classes: 573 in all.
 
-**Force and speed.** These rows are filled in the Force milestone.
+**Force and speed.** The full report (side-by-side screenshots, per-route tables, Lighthouse JSON) is a folder of HTML pages in the Force worktree: `.superpowers/sdd/2026-11-03-palette-vanilla-extract-foundation/artifacts/report/index.html` (in `/Users/mounirdhahri/work/force/.claude/worktrees/palette-css-foundation`).
+
+Page-load rows come from 6 routes (home, artist, artwork, article, search, collect) x 15 runs, with a third label, `before-2`, on the before build as the A/A. Their noise floor is the A/A gap of the 15-run medians. A second, wider estimate is the worst A/A gap inside one 5-run chunk, shown as "chunk". Server rows cover all 12 routes x 30 requests. Ranges run over routes.
 
 | metric | before | after | delta | noise floor |
 | --- | --- | --- | --- | --- |
-| Force page-level screens (computed styles, screenshots) | pending: Force milestone | pending: Force milestone | | |
-| Server render, median and p90 per route (`render`) | pending: Force milestone | pending: Force milestone | | |
-| Server total, median per route (`total`) | pending: Force milestone | pending: Force milestone | | |
-| FCP, LCP, TBT, AppReady, median per route | pending: Force milestone | pending: Force milestone | | |
-| CSS rules at AppReady | pending: Force milestone | pending: Force milestone | | |
-| HTML, CSS and JS bytes | pending: Force milestone | pending: Force milestone | | |
-| Initial JS and CSS, gzipped (`dist/manifest.json`) | pending: Force milestone | pending: Force milestone | | |
-| render-bench, Spacer-heavy tree, SSR and jsdom mount | pending: Force milestone | pending: Force milestone | | |
-| render-bench, Separator-heavy tree, SSR and jsdom mount | pending: Force milestone | pending: Force milestone | | |
+| Force page-level screens (computed styles, screenshots) | 72 captures: 12 routes x 3 widths x 2 themes, captured at the same time as after | 0 fail, 1 warn | No computed-style difference and no unmatched element. The warn (artist, 1440 px, dark, 10.3% of pixels) is a Related Categories block that the before build also shows in some loads and not others. | Same-day A/A on the before build: 1 fail (one `pointer-events` value), 2 pixel warns (9.7%, 13.8%), all on artist |
+| Server render, median and p90 per route (`render`) | median 20.9 to 52.3 ms, p90 22.4 to 54.5 ms | median 20.5 to 53.3 ms, p90 22.2 to 56.6 ms | median -0.4 to +1.2 ms (mean +0.3 ms, about 1%), p90 -0.8 to +2.1 ms | median 0.0 to 0.6 ms (mean 0.1 ms), p90 0.2 to 2.1 ms |
+| Server total, median per route (`total`) | 178.9 to 474.1 ms | 181.3 to 470.3 ms | -3.8 to +6.0 ms: no measurable change | 0.3 to 66.7 ms |
+| FCP, median per route (local Chromium, CPU 4x, no network throttle) | 312 to 680 ms | 336 to 720 ms | -8 to +40 ms | 15-run 0 to 12 ms, chunk 12 to 676 ms: no measurable change against chunk noise; the sign flips between chunks |
+| LCP, median per route | 312 to 680 ms | 336 to 720 ms | -36 to +80 ms | 15-run 0 to 40 ms, chunk 40 to 676 ms: no measurable change |
+| TBT, median per route | 280 to 833 ms | 272 to 833 ms | -21 (artist) to +13 (article) ms; other routes within 8 ms | 15-run 0 to 5 ms, chunk 3 to 20 ms |
+| AppReady, median per route | 1,082 to 1,638 ms | 1,091 to 1,725 ms | -10 to +87 ms | 15-run 1 to 41 ms, chunk 8 to 231 ms: no measurable change except collect (+9 vs 8 ms) |
+| Lighthouse 12 mobile (default, simulated 4G), FCP median per route | 4,947 to 5,280 ms | 5,089 to 5,428 ms | +142 to +152 ms on all 5 routes (home, artist, artwork, search, collect) | before min-max spread 17 to 263 ms: slower on 3 routes, inside the spread on 2 |
+| Lighthouse 12 mobile (default), performance score | 49 to 58 | 48 to 59 | -8 (artist) to +1; artist is bimodal in the simulator (3 of 5 runs), not seen with real throttling | 1 to 8 points |
+| Lighthouse 12 mobile with devtools (real) throttling, FCP | 785 to 840 ms | 1,450 to 1,515 ms | +628 to +729 ms: FCP waits for `palette.css`, which downloads next to about 700 KB of JS on the throttled link | 8 to 278 ms |
+| Lighthouse 12 desktop, score and FCP | score 90 to 92, FCP 963 to 1,093 ms | score 90 to 91, FCP 1,004 to 1,089 ms | score -1 to 0, FCP -3 to +42 ms: no measurable change | score 1 to 3, FCP 19 to 759 ms |
+| CSS rules at AppReady | 528 to 899 | 1,116 to 1,487 | +588 on every route (the rules of `palette.css`) | 0 |
+| HTML, CSS and JS bytes (transferred, per load) | CSS 0; HTML 32,748 to 96,543 | CSS 4,472; HTML 32,676 to 96,490 | CSS +4,472; HTML -1 to -199 (fewer inlined styled-components rules); JS +43 | 0 to 3 bytes (article JS varies with a lazy chunk) |
+| Initial JS and CSS, gzipped (`dist/manifest.json`, entry `index`, gzip -9) | JS 706,253 B, CSS 0 B | JS 706,294 B, CSS 4,422 B (`palette.css`, 31,200 B raw after Force's minifier) | JS +41 B, CSS +4,422 B | exact |
+| render-bench, Spacer-heavy tree, SSR and jsdom mount | SSR 11.3 ms, mount 27.0 ms | SSR 11.0 ms, mount 24.9 ms | SSR -0.3 ms (no measurable change), mount -2.1 ms (faster) | SSR 0.5 ms, mount 0.4 ms (before run twice) |
+| render-bench, Separator-heavy tree, SSR and jsdom mount | SSR 13.1 ms, mount 28.8 ms | SSR 11.7 ms, mount 27.5 ms | SSR -1.4 ms, mount -1.3 ms (both faster) | SSR 0.3 ms, mount 0.8 ms |
+
+The Lighthouse render-blocking and unused-CSS audits report nothing on either build. Lighthouse leaves out files whose estimated saving is under 50 ms or 10 KB, and `palette.css` is 4.4 KB. The FCP rows show the cost directly. Ways to remove it (inline the CSS in the SSR `<head>`, or rely on the 103 Early Hints that already list it in production) are follow-ups and were not measured here.
 
 ### Known limitations and follow-ups
 
