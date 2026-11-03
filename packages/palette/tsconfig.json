@@ -20,7 +20,8 @@
     "rootDir": "src",
     "skipLibCheck": true,
     "target": "es2015",
-    "composite": true
+    "composite": true,
+    "tsBuildInfoFile": ".cache/tsconfig.tsbuildinfo"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
