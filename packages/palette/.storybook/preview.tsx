@@ -5,6 +5,7 @@ import { INITIAL_VIEWPORTS } from "storybook/viewport"
 import { breakpoints } from "../src/Theme"
 import { StylesProvider } from "storybook-states"
 import { Clickable } from "@artsy/palette"
+import "../src/styles/palette.css.ts"
 
 const { GlobalStyles } = injectGlobalStyles()
 

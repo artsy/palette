@@ -5,13 +5,17 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css",
+    "*.css.ts"
+  ],
   "exports": {
     ".": {
       "types": "./dist/cjs/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
+    "./palette.css": "./dist/palette.css",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -30,6 +34,8 @@
     "prettier-project": "yarn prettier --write 'src/**/*.{ts,tsx}'",
     "release": "auto shipit && node scripts/clean-up-after-auto.js",
     "test": "yarn type-check && yarn jest --runInBand",
+    "pretest:build": "yarn compile",
+    "test:build": "yarn jest src/styles/__tests__/build.test.ts",
     "test:watch": "jest --watch --runInBand",
     "type-check": "tsc --noEmit --pretty",
     "type-declarations": "rslib build",
@@ -77,6 +83,9 @@
     "@types/styled-system__theme-get": "5.0.0",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
+    "@vanilla-extract/css": "^1.21.3",
+    "@vanilla-extract/jest-transform": "^1.1.22",
+    "@vanilla-extract/webpack-plugin": "^2.3.27",
     "@wojtekmaj/enzyme-adapter-react-17": "0.4.1",
     "chromatic": "5.9.2",
     "concurrently": "4.1.0",
@@ -94,6 +103,7 @@
     "lint-staged": "8.1.5",
     "mock-raf": "1.0.1",
     "nodemon": "^2.0.22",
+    "postcss": "^8.4.38",
     "prettier": "2.2.1",
     "react": "^18.3.1",
     "react-17": "npm:react@17.0.2",
@@ -167,6 +177,7 @@
       "enzyme-to-json/serializer"
     ],
     "transform": {
+      "\\.css\\.ts$": "@vanilla-extract/jest-transform",
       ".(ts|tsx)": [
         "@swc/jest",
         {

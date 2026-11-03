@@ -1,6 +1,7 @@
 import { createRequire } from "node:module"
 import { dirname, join } from "node:path"
 import { pluginStyledComponents } from "@rsbuild/plugin-styled-components"
+import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin"
 
 const require = createRequire(import.meta.url)
 
@@ -41,7 +42,11 @@ const config = {
   },
 
   rsbuildFinal: (config) => {
-    config.plugins = [...(config.plugins || []), pluginStyledComponents()]
+    config.plugins = [
+      ...(config.plugins || []),
+      pluginStyledComponents(),
+      pluginVanillaExtract(),
+    ]
     config.resolve = {
       ...config.resolve,
       alias: {
@@ -61,4 +66,15 @@ export default config
 
 function getAbsolutePath(value) {
   return dirname(require.resolve(join(value, "package.json")))
+}
+
+function pluginVanillaExtract() {
+  return {
+    name: "vanilla-extract",
+    setup(api) {
+      api.modifyRspackConfig((_config, { appendPlugins }) => {
+        appendPlugins(new VanillaExtractPlugin())
+      })
+    },
+  }
 }
