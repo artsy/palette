@@ -7,7 +7,8 @@ import {
   StylePropName,
 } from "./resolveDeclarations"
 import { tokenClasses } from "./sprinkles.css"
-import { dynamicVarName, STYLE_PROPERTIES } from "./styleProperties"
+import { dynamicVarName, STYLE_PROPERTIES, TokenScale } from "./styleProperties"
+import { vars } from "./vars.css"
 
 const STYLE_PROP_NAME_SET = new Set<string>(STYLE_PROP_NAMES)
 
@@ -30,9 +31,20 @@ const isResetLater = ({
   })
 }
 
+const TOKEN_VARS: Record<TokenScale, Record<string, string>> = {
+  space: vars.space,
+  colors: vars.color,
+}
+
 const tokenClassFor = ({ breakpoint, property, token }: Declaration) => {
   if (!token) return undefined
   return tokenClasses[breakpoint][property]?.[token.key]
+}
+
+// A token without a class still reads its theme variable, so dark mode works.
+const dynamicValueFor = ({ value, token }: Declaration) => {
+  if (!token) return value
+  return TOKEN_VARS[token.scale][token.key]
 }
 
 export interface ResolvedStyleProps<P> {
@@ -78,9 +90,11 @@ export const resolveStyleProps = <P extends object>({
       return
     }
 
-    const { breakpoint, property, value } = declaration
+    const { breakpoint, property } = declaration
     classNames.push(dynamicClasses[breakpoint][property])
-    style[dynamicVarName({ property, breakpoint })] = value
+    style[dynamicVarName({ property, breakpoint })] = dynamicValueFor(
+      declaration
+    )
   })
 
   return { className: classNames.join(" "), style, rest }

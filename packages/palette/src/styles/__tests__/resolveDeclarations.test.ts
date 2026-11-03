@@ -6,6 +6,7 @@ import {
   resolveDeclarations,
   StylePropName,
 } from "../resolveDeclarations"
+import { PARITY_CASES } from "./helpers/styleCases"
 
 type Props = Partial<Record<StylePropName, unknown>>
 type FlatDeclaration = Omit<Declaration, "token">
@@ -24,11 +25,13 @@ const kebabCase = (property: string) => {
 }
 
 // Mirrors how styled-components prints a style object: falsish values are
-// dropped and numbers other than 0 get `px`.
-const toCssValue = (value: unknown) => {
+// dropped and numbers other than 0 get `px`, except on unitless properties.
+const toCssValue = ({ key, value }: { key: string; value: unknown }) => {
   if (value === undefined || value === null || value === false) return null
   if (value === "") return null
-  if (typeof value === "number" && value !== 0) return `${value}px`
+  if (typeof value === "number" && value !== 0 && key !== "opacity") {
+    return `${value}px`
+  }
   return String(value)
 }
 
@@ -49,7 +52,7 @@ const flatten = ({
       })
     }
 
-    const cssValue = toCssValue(value)
+    const cssValue = toCssValue({ key, value })
     if (cssValue === null) return []
     return [{ breakpoint, property: kebabCase(key), value: cssValue }]
   })
@@ -76,55 +79,8 @@ const withoutToken = (declarations: Declaration[]): FlatDeclaration[] => {
   })
 }
 
-const CASES: Props[] = [
-  { mt: 2 },
-  { mt: 0 },
-  { mt: -1 },
-  { mt: 0.5 },
-  { mt: "31px" },
-  { mt: [2, 4] },
-  { mt: [2, null, 4] },
-  { mt: [undefined, 1] },
-  { mt: { _: 1, md: 2 } },
-  { mt: { xs: 1 } },
-  { mx: "auto" },
-  { px: [1, 2, 2, 4] },
-  { width: "100%" },
-  { width: 0.5 },
-  { width: 600 },
-  { width: ["100%", "50%"] },
-  { color: "mono10" },
-  { color: "red" },
-  { bg: "mono5" },
-  { borderColor: "mono30" },
-  { borderWidth: 2 },
-  { border: "1px solid" },
-  { my: 2, borderColor: "mono10", color: "mono60" },
-  // Beyond the brief: edge cases styled-system handles in its own way.
-  { mt: "0.5" },
-  { mt: "2" },
-  { mt: "half" },
-  { mt: -0.5 },
-  { mt: 3 },
-  { mt: -3 },
-  { mt: null },
-  { mt: [1, 2, 4, 6, 12] },
-  { mt: { _: 1, 0: 2, lg: "3px", unknown: 4 } },
-  { m: 1, mt: 2 },
-  { mt: 2, m: 1 },
-  { marginTop: 1, mt: [2, 4] },
-  { py: -2, pl: "half" },
-  { width: 1 },
-  { width: 0 },
-  { width: -0.25 },
-  { backgroundColor: ["mono0", "mono100"] },
-  { borderX: "1px solid", borderTopColor: "blue100", borderRadius: 4 },
-  { borderBottom: "1px solid", borderBottomColor: { md: "mono60" } },
-  { borderStyle: "dashed", borderLeftWidth: 0 },
-]
-
 describe("resolveDeclarations", () => {
-  describe.each(CASES.map((props) => [JSON.stringify(props), props]))(
+  describe.each(PARITY_CASES.map((props) => [JSON.stringify(props), props]))(
     "%s",
     (_name, props) => {
       it("matches styled-system", () => {
@@ -162,7 +118,7 @@ describe("resolveDeclarations", () => {
     expect(tokenOf({ borderWidth: 2 })).toEqual([undefined])
   })
 
-  it("keeps the last declaration for each breakpoint and property, in prop order", () => {
+  it("keeps the last value at the position of the first write", () => {
     expect(resolveDeclarations({ m: 1, mt: 2 })).toEqual([
       {
         breakpoint: "base",
@@ -180,5 +136,10 @@ describe("resolveDeclarations", () => {
     expect(
       resolveDeclarations({ marginTop: 1, mt: 2 }).map(({ value }) => value)
     ).toEqual(["20px"])
+    expect(
+      resolveDeclarations({ ml: 1, m: 2, mx: 4 }).map(({ property, value }) => {
+        return `${property}: ${value}`
+      })
+    ).toEqual(["margin-left: 40px", "margin: 20px", "margin-right: 40px"])
   })
 })

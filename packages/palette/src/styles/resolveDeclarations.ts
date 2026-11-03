@@ -52,8 +52,8 @@ const WIDTH: PropConfig = {
   transform: "width",
 }
 
-// Mirrors styled-system's `space`, `width`, `color` (minus opacity) and
-// `border` configs: same props, CSS properties, theme scales and transforms.
+// Mirrors styled-system's `space`, `width`, `color` and `border` configs: same
+// props, CSS properties, theme scales and transforms.
 const PROP_CONFIG = {
   m: MARGIN,
   margin: MARGIN,
@@ -114,6 +114,7 @@ const PROP_CONFIG = {
   borderTopRightRadius: scaled("radii", "border-top-right-radius"),
   borderBottomLeftRadius: scaled("radii", "border-bottom-left-radius"),
   borderBottomRightRadius: scaled("radii", "border-bottom-right-radius"),
+  opacity: scaled("opacity", "opacity"),
 }
 
 export type StylePropName = keyof typeof PROP_CONFIG
@@ -234,18 +235,32 @@ const TRANSFORMS: Record<
   scale: ({ scaleName, raw }) => lookup({ scaleName, key: raw, fallback: raw }),
 }
 
+const UNITLESS_PROPERTIES: readonly string[] = ["opacity"]
+
 // How styled-components prints a value: falsish values are dropped and numbers
-// other than 0 get `px`. Other types never reach valid CSS, so they are dropped.
-const toCssValue = (value: unknown): string | null => {
-  if (typeof value === "number") return value === 0 ? "0" : `${value}px`
+// other than 0 get `px` unless the property is unitless. Other types never
+// reach valid CSS, so they are dropped.
+const toCssValue = ({
+  value,
+  property,
+}: {
+  value: unknown
+  property: string
+}): string | null => {
+  if (typeof value === "number") {
+    if (value === 0 || UNITLESS_PROPERTIES.includes(property)) {
+      return String(value)
+    }
+    return `${value}px`
+  }
   if (typeof value === "string" && value !== "") return value
   return null
 }
 
 /**
  * Resolves style props to the declarations styled-system would emit, one per
- * breakpoint and CSS property. A later prop overrides an earlier one, and the
- * result keeps that effective order.
+ * breakpoint and CSS property. A later prop overrides an earlier one's value
+ * but, like styled-system's object keys, keeps the position of the first write.
  */
 export const resolveDeclarations = (
   props: Partial<Record<StylePropName, unknown>>
@@ -260,24 +275,23 @@ export const resolveDeclarations = (
         scaleName: config.scale,
         raw: value,
       })
-      const cssValue = toCssValue(resolved)
-      if (cssValue === null) return []
+      return config.properties.flatMap((property) => {
+        const cssValue = toCssValue({ value: resolved, property })
+        if (cssValue === null) return []
 
-      return config.properties.map((property) => {
         const declaration: Declaration = {
           breakpoint,
           property,
           value: cssValue,
         }
         if (token) declaration.token = token
-        return declaration
+        return [declaration]
       })
     })
   })
 
   const byTarget = declarations.reduce((map, declaration) => {
     const target = `${declaration.breakpoint}|${declaration.property}`
-    map.delete(target)
     map.set(target, declaration)
     return map
   }, new Map<string, Declaration>())

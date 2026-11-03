@@ -17,6 +17,20 @@ export const TOKEN_KEYS: Record<TokenScale, readonly string[]> = {
   colors: Object.keys(THEME.colors),
 }
 
+// Keys that reuse another key's class because both hold the same value in
+// every theme.
+export const TOKEN_ALIASES: Record<TokenScale, Record<string, string>> = {
+  space: { half: "0.5" },
+  colors: {},
+}
+
+// Responsive colors are rare, so color tokens get classes at base only. Other
+// breakpoints use the dynamic class with `var(--color-<name>)`.
+export const TOKEN_BREAKPOINTS: Record<TokenScale, readonly Breakpoint[]> = {
+  space: BREAKPOINTS,
+  colors: ["base"],
+}
+
 // Same media query styled-system prints, so print styles match too.
 export const MEDIA_QUERIES: Record<Exclude<Breakpoint, "base">, string> = {
   xs: `screen and (min-width: ${THEME.breakpoints.xs})`,
@@ -35,7 +49,7 @@ export interface StyleProperty {
   level: number
   /** Properties this shorthand resets. */
   covers: readonly string[]
-  /** Theme scale whose keys get token classes. */
+  /** Theme scale whose keys get token classes (see `TOKEN_BREAKPOINTS`). */
   scale?: TokenScale
 }
 
@@ -80,12 +94,12 @@ const spaceEntries = (property: "margin" | "padding") => {
 }
 
 const borderEntries = () => {
+  // Per-side colors are rare, so they get no token classes.
   const sideParts = SIDES.flatMap((side) => {
     return BORDER_PARTS.map((part) => {
       return entry(`border-${side}-${part}`, {
         alias: `b${side[0]}${part[0]}`,
         level: 3,
-        scale: part === "color" ? "colors" : undefined,
       })
     })
   })
@@ -139,6 +153,7 @@ export const STYLE_PROPERTIES: Record<
   entry("width", { alias: "w" }),
   entry("color", { alias: "c", scale: "colors" }),
   entry("background-color", { alias: "bg", scale: "colors" }),
+  entry("opacity", { alias: "o" }),
   ...borderEntries(),
 ])
 

@@ -16,7 +16,7 @@ describe("resolveStyleProps", () => {
     })
 
     expect(classList(result.className)).toEqual([
-      tokenClasses.base["margin-top"]["2"],
+      tokenClasses.base["margin-top"]?.["2"],
     ])
     expect(result.style).toEqual({})
     expect(result.rest).toEqual({ id: "x" })
@@ -29,7 +29,7 @@ describe("resolveStyleProps", () => {
     })
 
     expect(classList(result.className)).toEqual([
-      tokenClasses.base["margin-top"]["2"],
+      tokenClasses.base["margin-top"]?.["2"],
       dynamicClasses.sm["margin-top"],
     ])
     expect(result.style).toEqual({ "--mt-sm": "31px" })
@@ -69,7 +69,7 @@ describe("resolveStyleProps", () => {
     })
 
     expect(classList(result.className)).toEqual([
-      tokenClasses.base["margin-top"]["2"],
+      tokenClasses.base["margin-top"]?.["2"],
     ])
     expect(result.style).toEqual({})
   })
@@ -83,24 +83,41 @@ describe("resolveStyleProps", () => {
     expect(classList(result.className)).toEqual([
       dynamicClasses.base["margin-left"],
       dynamicClasses.base["margin-right"],
-      tokenClasses.base["padding-top"]["1"],
-      tokenClasses.base["padding-bottom"]["1"],
+      tokenClasses.base["padding-top"]?.["1"],
+      tokenClasses.base["padding-bottom"]?.["1"],
     ])
     expect(result.style).toEqual({ "--ml-base": "auto", "--mr-base": "auto" })
   })
 
   it("uses token classes for theme colors and dynamic ones for anything else", () => {
     const result = resolveStyleProps({
-      props: { color: "mono60", bg: "red", borderColor: { md: "mono10" } },
+      props: { color: "mono60", bg: "red", borderColor: "mono10" },
       names: ["color", "bg", "borderColor"],
     })
 
     expect(classList(result.className)).toEqual([
-      tokenClasses.base.color.mono60,
+      tokenClasses.base.color?.mono60,
       dynamicClasses.base["background-color"],
-      tokenClasses.md["border-color"].mono10,
+      tokenClasses.base["border-color"]?.mono10,
     ])
     expect(result.style).toEqual({ "--bg-base": "red" })
+  })
+
+  it("writes the theme variable when a token has no class", () => {
+    const result = resolveStyleProps({
+      props: { color: [null, "mono10"], borderTopColor: "mono30", mt: "half" },
+      names: ["color", "borderTopColor", "mt"],
+    })
+
+    expect(classList(result.className)).toEqual([
+      dynamicClasses.sm.color,
+      dynamicClasses.base["border-top-color"],
+      tokenClasses.base["margin-top"]?.["0.5"],
+    ])
+    expect(result.style).toEqual({
+      "--c-sm": "var(--color-mono10)",
+      "--btc-base": "var(--color-mono30)",
+    })
   })
 
   // styled-system lets the later prop win. Classes cannot follow prop order, so
@@ -112,8 +129,8 @@ describe("resolveStyleProps", () => {
     })
 
     expect(classList(result.className)).toEqual([
-      tokenClasses.sm["margin-top"]["4"],
-      tokenClasses.base.margin["1"],
+      tokenClasses.sm["margin-top"]?.["4"],
+      tokenClasses.base.margin?.["1"],
     ])
   })
 
@@ -125,9 +142,23 @@ describe("resolveStyleProps", () => {
 
     expect(classList(result.className)).toEqual([
       dynamicClasses.base.border,
-      tokenClasses.base["border-color"].mono10,
+      tokenClasses.base["border-color"]?.mono10,
     ])
     expect(result.style).toEqual({ "--b-base": "1px solid" })
+  })
+
+  it("resolves opacity through its dynamic class and keeps it off rest", () => {
+    const result = resolveStyleProps({
+      props: { opacity: [0.5, 1], id: "x" },
+      names: ["opacity"],
+    })
+
+    expect(classList(result.className)).toEqual([
+      dynamicClasses.base.opacity,
+      dynamicClasses.sm.opacity,
+    ])
+    expect(result.style).toEqual({ "--o-base": "0.5", "--o-sm": "1" })
+    expect(result.rest).toEqual({ id: "x" })
   })
 
   it("gives every CSS property its own variable alias", () => {
