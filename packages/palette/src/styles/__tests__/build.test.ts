@@ -1,10 +1,12 @@
 /**
  * @jest-environment node
  */
+import { THEME } from "@artsy/palette-tokens/dist/themes/v3"
 import fs from "fs"
 import { createRequire } from "module"
 import path from "path"
-import postcss, { AtRule, Container, Root } from "postcss"
+import postcss, { AtRule, Container, Root, Rule } from "postcss"
+import { STYLE_PROPERTIES } from "../styleProperties"
 
 // Runs against the output of `yarn compile` (see the `pretest:build` script).
 
@@ -59,15 +61,51 @@ const readPaletteCss = () => {
   return fs.readFileSync(PALETTE_CSS, "utf8")
 }
 
+const hasFunction = (value: unknown): boolean => {
+  if (typeof value === "function") return true
+  if (value && typeof value === "object") {
+    return Object.values(value).some(hasFunction)
+  }
+  return false
+}
+
+const enclosingAtRule = ({
+  node,
+  name,
+}: {
+  node: { parent?: Container | Root }
+  name: string
+}): AtRule | undefined => {
+  let parent = node.parent
+  while (parent) {
+    if (parent.type === "atrule" && (parent as AtRule).name === name) {
+      return parent as AtRule
+    }
+    parent = (parent as { parent?: Container | Root }).parent
+  }
+  return undefined
+}
+
 // Node's own require for CJS: Jest's module registry ignores dist/. The ESM
-// modules only declare string constants, so their literals are read directly.
+// modules declare plain object literals, so their string values are read
+// directly; object keys (a literal followed by `:`) are property names.
 const nodeRequire = createRequire(__filename)
 const EXPORTED_STRINGS = {
   cjs: (file: string) => collectStrings(nodeRequire(file)),
   esm: (file: string) => {
-    const literals = fs.readFileSync(file, "utf8").match(/'[^']*'|"[^"]*"/g)
-    return (literals || []).map((literal) => literal.slice(1, -1))
+    const literals = fs
+      .readFileSync(file, "utf8")
+      .match(/('[^']*'|"[^"]*")(\s*:)?/g)
+    return (literals || [])
+      .filter((literal) => !literal.endsWith(":"))
+      .map((literal) => literal.slice(1, -1))
   },
+}
+
+const cssModules = (format: "cjs" | "esm") => {
+  return listFiles(path.join(DIST, format)).filter((file) => {
+    return file.endsWith(".css.js")
+  })
 }
 
 describe("compiled vanilla-extract output", () => {
@@ -131,12 +169,10 @@ describe("compiled vanilla-extract output", () => {
         atRule.params.split(",").forEach((name) => layerNames.add(name.trim()))
       })
 
-      const cssModules = listFiles(path.join(DIST, format)).filter((file) => {
-        return file.endsWith(".css.js")
-      })
-      expect(cssModules.length).toBeGreaterThan(0)
+      const modules = cssModules(format)
+      expect(modules.length).toBeGreaterThan(0)
 
-      const tokens = cssModules
+      const tokens = modules
         .flatMap(EXPORTED_STRINGS[format])
         .flatMap((value) => value.split(/\s+/).filter(Boolean))
 
@@ -156,4 +192,54 @@ describe("compiled vanilla-extract output", () => {
       ).toEqual([])
     }
   )
+
+  // The check above reads strings only. A function export (createSprinkles,
+  // recipe) hides its class names in a closure, so it must not slip past.
+  it("exports no functions from compiled CSS modules", () => {
+    const offenders = cssModules("cjs").filter((file) => {
+      return hasFunction(nodeRequire(file))
+    })
+
+    expect(offenders).toEqual([])
+  })
+
+  it("puts each utility in its breakpoint's media query, one class repeat per level", () => {
+    const root = postcss.parse(readPaletteCss())
+    const utilities: Rule[] = []
+    const mismatches: string[] = []
+
+    root.walkRules((rule) => {
+      const layer = enclosingAtRule({ node: rule, name: "layer" })
+      if (layer?.params.startsWith("palette.utilities.")) utilities.push(rule)
+    })
+
+    utilities.forEach((rule) => {
+      const layer = enclosingAtRule({ node: rule, name: "layer" }) as AtRule
+      const breakpoint = layer.params.replace("palette.utilities.", "")
+      const media = enclosingAtRule({ node: rule, name: "media" })
+      const minWidth = media?.params.match(/screen and .*?(\d+px)/)?.[1]
+      const expectedMinWidth =
+        breakpoint === "base"
+          ? undefined
+          : ((THEME.breakpoints as unknown) as Record<string, string>)[
+              breakpoint
+            ]
+
+      if (minWidth !== expectedMinWidth) {
+        mismatches.push(`${rule.selector} in ${layer.params}: ${media?.params}`)
+      }
+
+      const classes = rule.selector.split(".").filter(Boolean)
+      rule.walkDecls((declaration) => {
+        const property = STYLE_PROPERTIES[declaration.prop]
+        const repeats = new Set(classes).size === 1 ? classes.length : -1
+        if (!property || repeats !== property.level + 1) {
+          mismatches.push(`${rule.selector} { ${declaration.prop} }`)
+        }
+      })
+    })
+
+    expect(utilities.length).toBeGreaterThan(0)
+    expect(mismatches).toEqual([])
+  })
 })

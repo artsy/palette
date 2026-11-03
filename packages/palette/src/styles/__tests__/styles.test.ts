@@ -3,11 +3,14 @@ describe("vanilla-extract styles in jsdom", () => {
     const consoleError = jest.spyOn(console, "error")
 
     const { layers } = await import("../layers.css")
-    const { boxSizingReset } = await import("../reset.css")
+    const { dynamicClasses } = await import("../dynamic.css")
+    const { tokenClasses } = await import("../sprinkles.css")
 
     expect(layers.reset).toBe("palette.reset")
-    expect(boxSizingReset).toEqual(expect.any(String))
-    expect(boxSizingReset).not.toBe("")
+    expect(dynamicClasses.sm["margin-top"]).toEqual(expect.any(String))
+    expect(dynamicClasses.sm["margin-top"]).not.toBe("")
+    expect(tokenClasses.sm["margin-top"]["2"]).toEqual(expect.any(String))
+    expect(tokenClasses.sm["margin-top"]["2"]).not.toBe("")
     expect(consoleError).not.toHaveBeenCalled()
 
     consoleError.mockRestore()

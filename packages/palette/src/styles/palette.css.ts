@@ -1,3 +1,4 @@
 import "./layers.css"
 import "./vars.css"
-import "./reset.css"
+import "./sprinkles.css"
+import "./dynamic.css"
