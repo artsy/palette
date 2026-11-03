@@ -128,25 +128,27 @@ export const ObjectSyntax = {
   },
 }
 
+const ARBITRARY_MARGIN_CASES = [
+  { label: "Margin 31px", margin: "31px" },
+  { label: "Margin -1 (overlaps)", margin: -1 },
+  { label: "Margin 0 (flush)", margin: 0 },
+]
+
 export const ArbitraryValues = {
   render: () => {
     return (
       <Box>
-        <Box height={60} bg="mono30">
-          <Text variant="sm">
-            Separator below has a vertical margin of 31px
-          </Text>
-        </Box>
-        <Separator my="31px" />
-        <Box height={60} bg="mono30">
-          <Text variant="sm">Separator below has a vertical margin of -1</Text>
-        </Box>
-        <Separator my={-1} />
-        <Box height={60} bg="mono30">
-          <Text variant="sm">Separator below has a vertical margin of 0</Text>
-        </Box>
-        <Separator my={0} />
-        <Box height={60} bg="mono30" />
+        {ARBITRARY_MARGIN_CASES.map(({ label, margin }) => {
+          return (
+            <Box key={label} mb={4}>
+              <Box height={60} border="1px solid" borderColor="red100">
+                <Text variant="sm">{label}</Text>
+              </Box>
+              <Separator my={margin} color="mono100" />
+              <Box height={60} border="1px solid" borderColor="blue100" />
+            </Box>
+          )
+        })}
       </Box>
     )
   },
@@ -154,7 +156,7 @@ export const ArbitraryValues = {
     docs: {
       description: {
         story:
-          "Vertical margins outside the usual scale: a pixel string (31px), a negative scale value (-1, which overlaps the box above) and zero.",
+          "Vertical margins outside the usual scale on a black separator between a red and a blue outlined box: a pixel string (31px gap), a negative scale value (-1, which pulls both boxes over the line) and zero (flush).",
       },
     },
   },
