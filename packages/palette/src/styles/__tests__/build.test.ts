@@ -59,6 +59,17 @@ const readPaletteCss = () => {
   return fs.readFileSync(PALETTE_CSS, "utf8")
 }
 
+// Node's own require for CJS: Jest's module registry ignores dist/. The ESM
+// modules only declare string constants, so their literals are read directly.
+const nodeRequire = createRequire(__filename)
+const EXPORTED_STRINGS = {
+  cjs: (file: string) => collectStrings(nodeRequire(file)),
+  esm: (file: string) => {
+    const literals = fs.readFileSync(file, "utf8").match(/'[^']*'|"[^"]*"/g)
+    return (literals || []).map((literal) => literal.slice(1, -1))
+  },
+}
+
 describe("compiled vanilla-extract output", () => {
   it("writes dist/palette.css, starting with the layer order", () => {
     expect(fs.existsSync(PALETTE_CSS)).toBe(true)
@@ -73,7 +84,6 @@ describe("compiled vanilla-extract output", () => {
       if (!isInsidePaletteLayer(rule)) unlayered.push(rule.selector)
     })
 
-    expect(root.nodes.some((node) => node.type === "rule")).toBe(false)
     expect(unlayered).toEqual([])
   })
 
@@ -105,46 +115,45 @@ describe("compiled vanilla-extract output", () => {
     expect(offenders).toEqual([])
   })
 
-  it("exports only class names that exist in dist/palette.css", () => {
-    const root = postcss.parse(readPaletteCss())
-    const classNames = new Set<string>()
-    const layerNames = new Set<string>()
+  it.each(["cjs", "esm"] as const)(
+    "exports only class names that exist in dist/palette.css (%s)",
+    (format) => {
+      const root = postcss.parse(readPaletteCss())
+      const classNames = new Set<string>()
+      const layerNames = new Set<string>()
 
-    root.walkRules((rule) => {
-      ;(rule.selector.match(/\.[A-Za-z_-][\w-]*/g) || []).forEach((match) => {
-        classNames.add(match.slice(1))
+      root.walkRules((rule) => {
+        ;(rule.selector.match(/\.[A-Za-z_-][\w-]*/g) || []).forEach((match) => {
+          classNames.add(match.slice(1))
+        })
       })
-    })
-    root.walkAtRules("layer", (atRule) => {
-      atRule.params.split(",").forEach((name) => layerNames.add(name.trim()))
-    })
-
-    const cssModules = listFiles(path.join(DIST, "cjs")).filter((file) => {
-      return file.endsWith(".css.js")
-    })
-    expect(cssModules.length).toBeGreaterThan(0)
-
-    // Node's own require: Jest's module registry ignores dist/.
-    const nodeRequire = createRequire(__filename)
-    const tokens = cssModules.flatMap((file) => {
-      return collectStrings(nodeRequire(file)).flatMap((value) => {
-        return value.split(/\s+/).filter(Boolean)
+      root.walkAtRules("layer", (atRule) => {
+        atRule.params.split(",").forEach((name) => layerNames.add(name.trim()))
       })
-    })
 
-    const exportedClassNames = tokens.filter((token) => {
-      return /^[A-Za-z_-][\w-]*$/.test(token)
-    })
-    const exportedLayerNames = tokens.filter((token) => {
-      return token.startsWith("palette.")
-    })
+      const cssModules = listFiles(path.join(DIST, format)).filter((file) => {
+        return file.endsWith(".css.js")
+      })
+      expect(cssModules.length).toBeGreaterThan(0)
 
-    expect(exportedClassNames.length).toBeGreaterThan(0)
-    expect(exportedClassNames.filter((name) => !classNames.has(name))).toEqual(
-      []
-    )
-    expect(exportedLayerNames.filter((name) => !layerNames.has(name))).toEqual(
-      []
-    )
-  })
+      const tokens = cssModules
+        .flatMap(EXPORTED_STRINGS[format])
+        .flatMap((value) => value.split(/\s+/).filter(Boolean))
+
+      const exportedClassNames = tokens.filter((token) => {
+        return /^[A-Za-z_-][\w-]*$/.test(token)
+      })
+      const exportedLayerNames = tokens.filter((token) => {
+        return token.startsWith("palette.")
+      })
+
+      expect(exportedClassNames.length).toBeGreaterThan(0)
+      expect(
+        exportedClassNames.filter((name) => !classNames.has(name))
+      ).toEqual([])
+      expect(
+        exportedLayerNames.filter((name) => !layerNames.has(name))
+      ).toEqual([])
+    }
+  )
 })
