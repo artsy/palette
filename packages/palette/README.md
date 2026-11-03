@@ -35,8 +35,9 @@ import { getPaletteThemeAttributes } from "@artsy/palette"
 
 Setup by framework:
 
-- **Next.js.** Import `@artsy/palette/palette.css` in the root layout. Next emits the `<link>`. Spread `getPaletteThemeAttributes` on `<html>` in the same file.
-- **Shakapacker.** Import the stylesheet in your pack, and add `stylesheet_pack_tag` to the layout `<head>`.
+- **Next.js, Pages Router.** Import `@artsy/palette/palette.css` in `pages/_app`, and Next emits the `<link>`. In `pages/_document`, spread `getPaletteThemeAttributes(theme)` on `<Html>`.
+- **Next.js, App Router.** Import `@artsy/palette/palette.css` in the root layout, and Next emits the `<link>`. Write `data-palette-theme="light"` (or `"dark"`) on `<html>` directly. The root layout is a Server Component, and importing from `@artsy/palette` there fails because the package creates React context when it loads.
+- **Shakapacker.** Import the stylesheet in every pack that renders Palette components. Add `stylesheet_pack_tag` to the `<head>` of every layout that serves those packs, including secondary layouts.
 - **Custom SSR (Force).** Import the stylesheet in the client entry so the bundler puts it in the manifest. In the server template, read the stylesheet's URL from the manifest and write the `<link>` yourself.
 
 ### Cascade layers
@@ -60,6 +61,7 @@ Jest cannot load a `.css` file. Add one of these to your Jest config:
   ```
 
   where `styleMock.js` is `module.exports = {}`.
+
 - Or the vanilla-extract transform (`@vanilla-extract/jest-transform`), if your own code includes `*.css.ts` files.
 
 Palette's own setup file imports `@vanilla-extract/css/disableRuntimeStyles` so that jsdom does not try to parse layered CSS.
