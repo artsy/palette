@@ -17,10 +17,6 @@ const JS_OUTPUT_DIRS = [path.join(DIST, "esm"), path.join(DIST, "cjs")]
 const LAYER_ORDER =
   "@layer palette.reset, palette.components, palette.utilities.base, palette.utilities.xs, palette.utilities.sm, palette.utilities.md, palette.utilities.lg;"
 
-const ALLOWED_VANILLA_EXTRACT_IMPORTS = [
-  "@vanilla-extract/sprinkles/createRuntimeSprinkles",
-]
-
 const listFiles = (dir: string): string[] => {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const fullPath = path.join(dir, entry.name)
@@ -142,12 +138,9 @@ describe("compiled vanilla-extract output", () => {
       .flatMap((file) => {
         const source = fs.readFileSync(file, "utf8")
         const specifiers = source.match(/["']@vanilla-extract\/[^"']+["']/g)
-        return (specifiers || [])
-          .map((specifier) => specifier.slice(1, -1))
-          .filter((specifier) => {
-            return !ALLOWED_VANILLA_EXTRACT_IMPORTS.includes(specifier)
-          })
-          .map((specifier) => `${path.relative(DIST, file)}: ${specifier}`)
+        return (specifiers || []).map((specifier) => {
+          return `${path.relative(DIST, file)}: ${specifier.slice(1, -1)}`
+        })
       })
 
     expect(offenders).toEqual([])

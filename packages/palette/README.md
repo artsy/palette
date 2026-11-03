@@ -50,18 +50,14 @@ A `<Theme>` inside another `<Theme>` with the same value renders no extra elemen
 
 If a nested `<Theme>` changes between matching and not matching its parent while mounted, React sees a different tree and remounts its children. They lose state. Keep nested themes static.
 
+Content portaled out of a nested `<Theme>` with a different value takes the `<html>` theme, not the nested one, because the `display: contents` wrapper does not reach the portal target.
+
 ### Testing with Jest
 
-Jest cannot load a `.css` file. Add one of these to your Jest config:
+Palette's JS never imports CSS. You need a mapper only if Jest loads a file of yours that imports `palette.css`. In that case, stub it:
 
-- A stub for the stylesheet:
+```json
+{ "moduleNameMapper": { "\\.css$": "<rootDir>/test/styleMock.js" } }
+```
 
-  ```json
-  { "moduleNameMapper": { "\\.css$": "<rootDir>/test/styleMock.js" } }
-  ```
-
-  where `styleMock.js` is `module.exports = {}`.
-
-- Or the vanilla-extract transform (`@vanilla-extract/jest-transform`), if your own code includes `*.css.ts` files.
-
-Palette's own setup file imports `@vanilla-extract/css/disableRuntimeStyles` so that jsdom does not try to parse layered CSS.
+where `styleMock.js` is `module.exports = {}`. `next/jest` already maps CSS, so Next.js apps need nothing.

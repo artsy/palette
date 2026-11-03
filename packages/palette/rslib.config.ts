@@ -1,5 +1,5 @@
-// Candidate A variant: one VanillaExtractPlugin for every lib. Bundleless libs drop CSS (`outputCss: false`)
-// because Rslib leaves the plugin's virtual CSS imports in the JS; a bundled lib extracts palette.css.
+// Bundleless libs set `outputCss: false` because Rslib leaves the plugin's virtual CSS imports in the JS.
+// The bundled lib extracts palette.css.
 import { rspack } from "@rsbuild/core"
 import { defineConfig } from "@rslib/core"
 import { pluginStyledComponents } from "@rsbuild/plugin-styled-components"
