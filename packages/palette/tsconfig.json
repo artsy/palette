@@ -4,7 +4,7 @@
     "declaration": true,
     "experimentalDecorators": true,
     "jsx": "react",
-    "lib": ["dom", "es2015", "es2016", "es2017"],
+    "lib": ["dom", "es2015", "es2016", "es2017", "es2019"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": false,
@@ -20,7 +20,8 @@
     "rootDir": "src",
     "skipLibCheck": true,
     "target": "es2015",
-    "composite": true
+    "composite": true,
+    "tsBuildInfoFile": ".cache/tsconfig.tsbuildinfo"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
@@ -32,6 +33,7 @@
     "src/**/*.test.ts",
     "src/**/__tests__/**",
     "src/**/__stories__/**",
-    "src/**/storybookBlocklist.ts"
+    "src/**/storybookBlocklist.ts",
+    "src/styles/palette.css.ts"
   ]
 }

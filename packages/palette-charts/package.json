@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/artsy/palette#readme",
   "peerDependencies": {
-    "@artsy/palette": "^40",
+    "@artsy/palette": "^46 || ^47",
     "@styled-system/theme-get": "^5",
     "react": "^18",
     "react-dom": "^18",
