@@ -54,5 +54,13 @@ describe("Toggle", () => {
           .prop("aria-checked")
       ).toBe(true)
     })
+
+    it("accepts an accessible name", () => {
+      const wrapper = mount(<Toggle aria-label="Email notifications" />)
+
+      expect(
+        wrapper.find('[role="switch"]').first().prop("aria-label")
+      ).toEqual("Email notifications")
+    })
   })
 })

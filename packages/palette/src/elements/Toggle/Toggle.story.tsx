@@ -31,6 +31,7 @@ export const Default = {
     )
   },
   args: {
+    "aria-label": "Email notifications",
     selected: false,
   },
   parameters: {
@@ -54,6 +55,7 @@ export const Selected = {
     )
   },
   args: {
+    "aria-label": "Email notifications",
     selected: true,
   },
   parameters: {
@@ -68,6 +70,7 @@ export const Selected = {
 export const Disabled = {
   render: (args) => <Toggle {...args} />,
   args: {
+    "aria-label": "Email notifications",
     disabled: true,
     selected: false,
   },
@@ -83,6 +86,7 @@ export const Disabled = {
 export const DisabledSelected = {
   render: (args) => <Toggle {...args} />,
   args: {
+    "aria-label": "Email notifications",
     disabled: true,
     selected: true,
   },

@@ -170,6 +170,7 @@ export const SelectInput = React.forwardRef<HTMLInputElement, SelectInputProps>(
             style={floatingStyles}
           >
             <SelectInputList
+              aria-label={label}
               options={options}
               onSelect={handleSelect}
               onClose={handleClose}

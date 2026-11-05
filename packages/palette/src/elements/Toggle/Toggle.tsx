@@ -15,6 +15,8 @@ export interface ToggleProps
   hover?: boolean
   /** Callback when selected */
   onSelect?: (selected: boolean) => void
+  /** Describes what this switch controls. Required for screen reader users. */
+  "aria-label"?: string
 }
 
 /** A toggle */

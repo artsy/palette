@@ -276,5 +276,21 @@ describe("SelectInput", () => {
         expect(listbox.contains(option.getDOMNode())).toBe(true)
       })
     })
+
+    it("names the listbox after the input's label", () => {
+      const wrapper = mount(
+        <SelectInput
+          onSelect={jest.fn()}
+          options={countriesExample}
+          label="Phone number"
+        />
+      )
+
+      wrapper.find('[data-testid="country-picker"]').first().simulate("click")
+
+      expect(
+        wrapper.find('[role="listbox"]').hostNodes().prop("aria-label")
+      ).toEqual("Phone number")
+    })
   })
 })
