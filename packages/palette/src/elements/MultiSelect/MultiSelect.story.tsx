@@ -1,4 +1,4 @@
-import { fn } from "@storybook/test"
+import { fn } from "storybook/test"
 import React, { useReducer } from "react"
 import { MultiSelect } from "./MultiSelect"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"

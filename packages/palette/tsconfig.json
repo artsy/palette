@@ -27,11 +27,9 @@
     "node_modules/*",
     "dist/**/*",
     "www/*",
-    "src/**/*.story.tsx",
     "src/**/*.test.tsx",
     "src/**/*.test.ts",
     "src/**/__tests__/**",
-    "src/**/__stories__/**",
-    "src/**/storybookBlocklist.ts"
+    "src/**/__stories__/**"
   ]
 }

@@ -1,4 +1,4 @@
-import { fn } from "@storybook/test"
+import { fn } from "storybook/test"
 import React from "react"
 import { Button } from "../Button"
 import { TextArea } from "./TextArea"

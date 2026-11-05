@@ -1,4 +1,4 @@
-import { fn } from "@storybook/test"
+import { fn } from "storybook/test"
 import React, { useState } from "react"
 import { States } from "storybook-states"
 import HelpIcon from "@artsy/icons/HelpIcon"

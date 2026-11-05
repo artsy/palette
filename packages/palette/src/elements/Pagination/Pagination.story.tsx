@@ -1,4 +1,4 @@
-import { fn } from "@storybook/test"
+import { fn } from "storybook/test"
 import React from "react"
 import { Pagination, PaginationSkeleton } from "./Pagination"
 import { STORYBOOK_PROPS_BLOCKLIST } from "../../utils/storybookBlocklist"
