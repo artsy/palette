@@ -89,7 +89,7 @@ For a complete guide, see [`packages/palette/claude.md`](packages/palette/CLAUDE
 In the project root run the following:
 
 ```sh
-$ yarn lerna bootstrap
+$ yarn install
 $ yarn storybook
 ```
 
